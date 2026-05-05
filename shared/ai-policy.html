@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  SHARED — AI POLICY
+  This file is shared across all courses.
+  Update the policy text here once; all courses reflect the change.
+  Search UPDATE to find spots to edit each academic year.
+=======================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Policy · Elon University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --crimson:     #73000a;
+      --gold:        #b59a57;
+      --gold-lt:     #d4b97a;
+      --gold-link:   #7a5c1e;
+      --cream:       #fcfaf7;
+      --warm-gray:   #f7f4ef;
+      --text:        #2e2e2e;
+      --muted:       #6b6b6b;
+      --white:       #ffffff;
+      --shadow:      0 2px 16px rgba(115,0,10,0.07);
+      --shadow-lg:   0 8px 32px rgba(115,0,10,0.13);
+      --radius-card: 16px;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem 2rem 1.75rem;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+    header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    header p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      margin-top: 0.4rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+    .section-heading {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-left: 2px;
+    }
+
+    /* ── Policy card ── */
+    .policy-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      border-top: 3px solid var(--crimson);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.4s ease 0.05s forwards;
+    }
+
+    .policy-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ede9e3;
+    }
+    .policy-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--crimson);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .policy-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--white);
+      stroke-width: 1.75;
+      fill: none;
+    }
+    .policy-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--crimson);
+      letter-spacing: 0.01em;
+    }
+
+    .policy-rule {
+      background: var(--warm-gray);
+      border-left: 4px solid var(--crimson);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--crimson);
+      line-height: 1.6;
+    }
+
+    .policy-body {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .policy-note {
+      background: var(--warm-gray);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    /* ── Resources card ── */
+    .resources-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      border-top: 3px solid var(--gold);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.4s ease 0.15s forwards;
+    }
+
+    .resources-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ede9e3;
+    }
+    .resources-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--warm-gray);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .resources-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--gold-link);
+      stroke-width: 1.75;
+      fill: none;
+    }
+    .resources-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--crimson);
+    }
+
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .resource-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .resource-list li::before {
+      content: '';
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .resource-list a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--gold-link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .resource-list a:hover { color: var(--crimson); }
+    .resource-list .resource-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #e8e4dd;
+      margin-top: 1rem;
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .policy-card, .resources-card { transform: translateY(14px); }
+
+    @media (max-width: 560px) {
+      header { padding: 1.5rem 1.25rem; }
+      .policy-card, .resources-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <!-- UPDATE: href to match your course home page URL -->
+    <a class="back-link" href="https://bdepro.github.io/courses/eco1000/" target="_self">
+      <i data-lucide="arrow-left"></i> Back to Course Home
+    </a>
+    <h1>AI in This Course</h1>
+    <p>What you can use, what counts as yours, and where to learn more</p>
+  </div>
+</header>
+
+<main>
+
+  <p class="section-heading">Classroom Policy</p>
+
+  <!-- Policy card -->
+  <!-- UPDATE: revise policy text as needed each year -->
+  <div class="policy-card">
+    <div class="policy-header">
+      <div class="policy-icon"><i data-lucide="cpu"></i></div>
+      <div class="policy-title">AI Policy for This Course</div>
+    </div>
+
+    <div class="policy-rule">
+      No assignment may be generated entirely by AI.
+    </div>
+
+    <div class="policy-body">
+      <p>AI can be part of how you work — brainstorming, drafting, checking your logic — but the final submission needs to be yours.</p>
+      <p>Revise carefully. If you use AI, the ideas and voice in what you hand in should be recognizably your own. You will write short reflections on your AI use, and we will practice this together in class.</p>
+      <p>If you are unsure whether something is appropriate, ask before you submit. That conversation is easy. The other one is not.</p>
+      <div class="policy-note">
+        This policy applies to all written work, check-ins, and assignments in this course unless otherwise specified on the assignment itself.
+      </div>
+    </div>
+  </div>
+
+  <p class="section-heading" style="margin-top: 1.75rem;">Elon AI Resources</p>
+
+  <!-- Resources card -->
+  <div class="resources-card">
+    <div class="resources-header">
+      <div class="resources-icon"><i data-lucide="book-open"></i></div>
+      <div class="resources-title">Learn More About AI at Elon</div>
+    </div>
+    <ul class="resource-list">
+      <li>
+        <div>
+          <a href="https://studentguidetoai.org/" target="_blank">Student Guide to Artificial Intelligence</a>
+          <span class="resource-desc">A practical introduction to AI tools for students.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.elon.edu/u/ai/" target="_blank">Elon AI Hub</a>
+          <span class="resource-desc">Elon's central resource for AI news, policy, and guidance.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://www.elon.edu/u/ai/resources/" target="_blank">Elon AI Resources by Category</a>
+          <span class="resource-desc">Tools, readings, and support organized by topic.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="https://elonopenapps.azurewebsites.net/AItoolbox/toolbox.html" target="_blank">Elon Generative AI Toolbox</a>
+          <span class="resource-desc">A curated set of AI tools available to Elon students.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  Elon University · AI Policy · Shared across all courses
+</footer>
+
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
