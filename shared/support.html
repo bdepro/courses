@@ -1,1 +1,339 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  SHARED — CAMPUS SUPPORT RESOURCES
+  This file is shared across all courses.
+  Update links and dates here once; all courses reflect the change.
+  Search UPDATE to find spots to edit each academic year.
+=======================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Support Resources · Elon University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --crimson:     #73000a;
+      --gold:        #b59a57;
+      --gold-lt:     #d4b97a;
+      --gold-link:   #7a5c1e;
+      --cream:       #fcfaf7;
+      --warm-gray:   #f7f4ef;
+      --smoke:       #d3dfd3;
+      --smoke-dark:  #b8ccb8;
+      --text:        #2e2e2e;
+      --muted:       #6b6b6b;
+      --white:       #ffffff;
+      --shadow:      0 2px 16px rgba(115,0,10,0.07);
+      --shadow-lg:   0 8px 32px rgba(115,0,10,0.13);
+      --radius-card: 16px;
+      --radius-pill: 6px;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem 2rem 1.75rem;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+    header h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    header p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      margin-top: 0.4rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+    .section-heading {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding-left: 2px;
+    }
+
+    /* ── Resource grid ── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 2rem;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 1.35rem 1.35rem 1.35rem 1.25rem;
+      box-shadow: var(--shadow);
+      border: 1.5px solid transparent;
+      border-top: 3px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeUp 0.4s ease forwards;
+    }
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(181,154,87,0.35);
+      border-top-color: var(--gold);
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .resource-card:nth-child(1) { animation-delay: 0.05s; }
+    .resource-card:nth-child(2) { animation-delay: 0.10s; }
+    .resource-card:nth-child(3) { animation-delay: 0.15s; }
+    .resource-card:nth-child(4) { animation-delay: 0.20s; }
+    .resource-card:nth-child(5) { animation-delay: 0.25s; }
+    .resource-card:nth-child(6) { animation-delay: 0.30s; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--warm-gray);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--gold-link);
+      stroke-width: 1.75;
+      fill: none;
+    }
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--crimson);
+      letter-spacing: 0.01em;
+    }
+    .card-body {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .card-body a {
+      color: var(--gold-link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+    .card-body a:hover { color: var(--crimson); }
+
+    /* ── Footer strip ── */
+    .footer-strip {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 1.1rem 1.35rem;
+      box-shadow: var(--shadow);
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.4s ease 0.35s forwards;
+    }
+    .footer-strip a {
+      color: var(--gold-link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+    .footer-strip a:hover { color: var(--crimson); }
+    .footer-strip-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Page footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #e8e4dd;
+      margin-top: 1rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .resource-grid { grid-template-columns: 1fr; }
+      header { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <!-- UPDATE: href to match your course home page URL -->
+    <a class="back-link" href="https://bdepro.github.io/courses/eco1000/" target="_self">
+      <i data-lucide="arrow-left"></i> Back to Course Home
+    </a>
+    <h1>Help &amp; Support</h1>
+    <p>Campus resources available to every Elon student</p>
+  </div>
+</header>
+
+<main>
+  <p class="section-heading">Campus Resources</p>
+
+  <div class="resource-grid">
+
+    <!-- Honor Code -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="scale"></i></div>
+        <div class="card-title">Honor Code</div>
+      </div>
+      <div class="card-body">
+        Elon's honor pledge calls for Honesty, Integrity, Responsibility, and Respect. Read the
+        <a href="https://www.elon.edu/u/student-conduct/honor-code/">code of conduct policies</a>
+        in the student handbook.
+      </div>
+    </div>
+
+    <!-- Academic Accommodations -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="accessibility"></i></div>
+        <div class="card-title">Academic Accommodations</div>
+      </div>
+      <div class="card-body">
+        Contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or
+        <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>
+        to arrange reasonable accommodations.
+      </div>
+    </div>
+
+    <!-- Learning Assistance -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
+        <div class="card-title">Learning Assistance</div>
+      </div>
+      <div class="card-body">
+        The Koenigsberger Learning Center offers tutoring, success coaching, and academic support.
+        Email <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a> to get started.
+      </div>
+    </div>
+
+    <!-- Belk Library -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="library"></i></div>
+        <div class="card-title">Belk Library</div>
+      </div>
+      <div class="card-body">
+        Librarians help you find sources and research tools.
+        <a href="https://elon.libcal.com/appointments/">Book an appointment</a>
+        or chat directly on the <a href="https://www.elon.edu/library/">library website</a>.
+      </div>
+    </div>
+
+    <!-- Writing Center -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="pen-line"></i></div>
+        <div class="card-title">Writing Center</div>
+      </div>
+      <div class="card-body">
+        On the first floor of Belk Library. The
+        <a href="https://www.elon.edu/u/academics/writing-excellence/the-writing-center/">Writing Center</a>
+        offers individual appointments, multimedia studios, and presentation practice rooms.
+      </div>
+    </div>
+
+    <!-- Religious Holidays -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="calendar-heart"></i></div>
+        <div class="card-title">Religious Holidays</div>
+      </div>
+      <div class="card-body">
+        <!-- UPDATE: deadline date each semester -->
+        Students observing religious holidays must submit the
+        <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/">Religious Observance Notification Form</a>
+        by September 8, 2026.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer strip -->
+  <div class="footer-strip">
+    <div class="footer-strip-label">Additional Resources</div>
+    Student Care &amp; Outreach handles concerns about classmates. Enrollment and withdrawal policies
+    are managed through OnTrack. E-Warnings communicate academic performance early. Consult the
+    <a href="https://elon.smartcatalogiq.com/2025-2026/academic-catalog/">Academic Catalog</a>,
+    <a href="https://elon.smartcatalogiq.com/current/student-handbook/">Student Handbook</a>, and
+    <!-- UPDATE: academic calendar link each year -->
+    <a href="https://www.elon.edu/u/academic-calendar/2026-2027-academic-calendar/">Academic Calendar</a>
+    for complete university policies.
+  </div>
+
+</main>
+
+<footer>
+  Elon University · Campus Support Resources · Shared across all courses
+</footer>
+
+<script>lucide.createIcons();</script>
+
+</body>
+</html>
