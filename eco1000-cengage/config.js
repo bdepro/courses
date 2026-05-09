@@ -67,7 +67,7 @@ const CHAPTERS = [
 const PAGES = {
   home:       `${COURSE.baseUrl}/index.html`,
   syllabus:   `${COURSE.baseUrl}/syllabus.html`,
-  checklist: `${COURSE.baseUrl}/checklist.html`,
+  checklists: `${COURSE.baseUrl}/checklists.html`,
   cengage:    `${COURSE.baseUrl}/cengage.html`,
   mme:        `${COURSE.baseUrl}/mme.html`,
   puzzles:    `${COURSE.baseUrl}/puzzles.html`,
