@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cengage Resources · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson: #73000a; --gold: #b59a57; --gold-lt: #d4b97a; --gold-link: #7a5c1e;
+      --cream: #fcfaf7; --warm-gray: #f7f4ef;
+      --text: #2e2e2e; --muted: #6b6b6b; --white: #ffffff;
+      --shadow: 0 2px 14px rgba(115,0,10,0.07); --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
+
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* Master link banner */
+    .master-banner {
+      background: var(--crimson);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      display: flex; align-items: center; gap: 1.1rem;
+      text-decoration: none; color: var(--white);
+      margin-bottom: 2.5rem;
+      transition: background 0.15s;
+    }
+    .master-banner:hover { background: var(--crimson-dk, #5a0008); }
+    .master-banner .mb-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .master-banner .mb-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .master-banner .mb-body { flex: 1; }
+    .master-banner .mb-title { font-size: 1rem; font-weight: 600; }
+    .master-banner .mb-desc  { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 0.2rem; }
+
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+    /* Chapter table */
+    .chapter-table { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+
+    .chapter-row {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(181,154,87,0.12);
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 0; overflow: hidden;
+    }
+
+    .ch-num {
+      background: var(--warm-gray);
+      padding: 1rem 1.1rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); border-right: 1px solid rgba(181,154,87,0.15);
+      min-width: 64px; text-align: center;
+    }
+    .ch-title { padding: 0.9rem 1.1rem; font-size: 0.9rem; font-weight: 500; color: var(--text); }
+
+    .ch-link {
+      padding: 0.9rem 1rem;
+      display: flex; align-items: center; gap: 5px;
+      text-decoration: none; font-size: 0.78rem; font-weight: 500;
+      color: var(--gold-link); white-space: nowrap;
+      border-left: 1px solid rgba(181,154,87,0.12);
+      transition: background 0.12s;
+    }
+    .ch-link:hover { background: var(--warm-gray); }
+    .ch-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .divider { height: 1px; background: rgba(181,154,87,0.2); margin: 2rem 0; }
+
+    .note-box { background: var(--warm-gray); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; font-size: 0.85rem; line-height: 1.6; color: var(--text); }
+    .note-box strong { color: var(--crimson); }
+
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.75rem 1rem 3rem; }
+      .chapter-row { grid-template-columns: auto 1fr; }
+      .ch-link:first-of-type { border-top: 1px solid rgba(181,154,87,0.12); }
+      .ch-link { grid-column: 2; border-left: none; padding-left: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>Cengage: E-Book, MindTap &amp; Chapter Videos</h1>
+  </div>
+</header>
+
+<main>
+  <a class="master-banner" id="masterLink" href="#" target="_blank" rel="noopener">
+    <div class="mb-icon">
+      <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </div>
+    <div class="mb-body">
+      <div class="mb-title">Open All Cengage &amp; MindTap Resources</div>
+      <div class="mb-desc">Launches the full MindTap course — e-book, all assignments, and study tools in one place.</div>
+    </div>
+    <svg style="width:20px;height:20px;stroke:rgba(255,255,255,0.7);fill:none;stroke-width:2;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+
+  <p class="section-label">Chapter Lecture Videos (Learn It)</p>
+  <div class="chapter-table" id="videoTable"></div>
+
+  <div class="divider"></div>
+
+  <div class="note-box">
+    <strong>Tip:</strong> Videos open inside MindTap and require your Cengage login.
+    If you see a login screen, use the same credentials you set up when purchasing access.
+    Videos are organized by chapter and include auto-captions.
+  </div>
+</main>
+
+<script>
+document.getElementById('backLink').href    = PAGES.home;
+document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+document.getElementById('masterLink').href  = CENGAGE.allResources;
+
+// Group chapters by week from config — no local chapter list needed
+const byWeek = {};
+CHAPTERS.forEach(ch => {
+  if (!byWeek[ch.week]) byWeek[ch.week] = [];
+  byWeek[ch.week].push(ch);
+});
+
+const vTable = document.getElementById('videoTable');
+
+Object.keys(byWeek).sort().forEach(week => {
+  const weekData = COURSE.weeks[week - 1];
+
+  // Week label
+  const label = document.createElement('div');
+  label.style.cssText = 'font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:1.25rem;margin-bottom:0.5rem;';
+  label.textContent = `Week ${week} — ${weekData ? weekData.dates : ''}`;
+  vTable.appendChild(label);
+
+  byWeek[week].forEach(ch => {
+    const url = CENGAGE.videos[ch.key];
+    const row = document.createElement('div');
+    row.className = 'chapter-row';
+    if (!url) row.style.opacity = '0.5';
+    row.innerHTML = `
+      <div class="ch-num">${ch.num}</div>
+      <div class="ch-title">${ch.title}</div>
+      <a class="ch-link" href="${url || '#'}" target="_blank" rel="noopener"
+         ${!url ? 'style="pointer-events:none;color:var(--disabled)"' : ''}>
+        ${url ? 'Lecture Videos' : 'Coming Soon'}
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </a>
+    `;
+    vTable.appendChild(row);
+  });
+});
+</script>
+</body>
+</html>
