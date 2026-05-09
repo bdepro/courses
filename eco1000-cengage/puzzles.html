@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economic Puzzles · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson: #73000a; --gold: #b59a57; --gold-lt: #d4b97a; --gold-link: #7a5c1e;
+      --cream: #fcfaf7; --warm-gray: #f7f4ef;
+      --text: #2e2e2e; --muted: #6b6b6b; --white: #ffffff;
+      --shadow: 0 2px 14px rgba(115,0,10,0.07); --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
+    header p.sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.35rem; font-weight: 300; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    .grade-banner { background: var(--warm-gray); border: 1px solid rgba(181,154,87,0.25); border-radius: var(--radius); padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .grade-banner .gb-num { font-size: 2.2rem; font-weight: 700; color: var(--crimson); line-height: 1; }
+    .grade-banner .gb-label { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .grade-banner .gb-label strong { color: var(--text); font-weight: 600; display: block; }
+
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+    .puzzle-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+
+    .puzzle-row {
+      background: var(--white); border-radius: 10px;
+      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.12);
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; overflow: hidden;
+    }
+    .p-num { background: var(--warm-gray); padding: 1rem 1.1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-right: 1px solid rgba(181,154,87,0.15); min-width: 64px; text-align: center; }
+    .p-title { padding: 0.9rem 1.1rem; font-size: 0.9rem; font-weight: 500; color: var(--text); }
+    .p-link { padding: 0.9rem 1rem; display: flex; align-items: center; gap: 5px; text-decoration: none; font-size: 0.78rem; font-weight: 500; color: var(--gold-link); white-space: nowrap; border-left: 1px solid rgba(181,154,87,0.12); transition: background 0.12s; }
+    .p-link:hover { background: var(--warm-gray); }
+    .p-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .note-box { background: var(--warm-gray); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; font-size: 0.85rem; line-height: 1.6; color: var(--text); }
+    .note-box strong { color: var(--crimson); }
+
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.75rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>Economic Puzzles</h1>
+    <p class="sub">15% of your course grade</p>
+  </div>
+</header>
+
+<main>
+  <div class="grade-banner">
+    <div class="gb-num">15%</div>
+    <div class="gb-label">
+      <strong>Course Grade Weight</strong>
+      One puzzle per chapter. Each puzzle challenges you to apply economic reasoning
+      to a real-world scenario — no memorization, just thinking.
+    </div>
+  </div>
+
+  <p class="section-label">Chapter Puzzles — Click to Open in MindTap</p>
+  <div class="puzzle-list" id="puzzleList"></div>
+
+  <div class="note-box">
+    <strong>How puzzles work:</strong> Each puzzle presents a real-world scenario and
+    asks you to explain it using the economic concepts from that chapter.
+    There are no trick questions — if you've watched the chapter videos and reviewed
+    the e-book, you have everything you need.
+  </div>
+</main>
+
+<script>
+document.getElementById('backLink').href = PAGES.home;
+document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+
+// Group chapters by week from config
+const byWeek = {};
+CHAPTERS.forEach(ch => {
+  if (!byWeek[ch.week]) byWeek[ch.week] = [];
+  byWeek[ch.week].push(ch);
+});
+
+const list = document.getElementById('puzzleList');
+
+Object.keys(byWeek).sort().forEach(week => {
+  const weekData = COURSE.weeks[week - 1];
+
+  // Week divider label
+  const label = document.createElement('div');
+  label.style.cssText = 'font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:1.25rem;margin-bottom:0.5rem;';
+  label.textContent = `Week ${week} — Due ${weekData ? weekData.due : ''}`;
+  list.appendChild(label);
+
+  byWeek[week].forEach(ch => {
+    const url = CENGAGE.puzzles[ch.key];
+    const row = document.createElement('div');
+    row.className = 'puzzle-row';
+    if (!url) row.style.opacity = '0.5';
+    row.innerHTML = `
+      <div class="p-num">${ch.num}</div>
+      <div class="p-title">${ch.title}</div>
+      <a class="p-link" href="${url || '#'}" target="_blank" rel="noopener"
+         ${!url ? 'style="pointer-events:none;color:var(--disabled)"' : ''}>
+        ${url ? 'Open Puzzle' : 'Coming Soon'}
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    `;
+    list.appendChild(row);
+  });
+});
+</script>
+</body>
+</html>
