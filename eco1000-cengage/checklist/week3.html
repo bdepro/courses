@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 Checklist · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="../config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a;--crimson-dk:#5a0008;--gold:#b59a57;--gold-lt:#d4b97a;--gold-link:#7a5c1e;
+      --cream:#fcfaf7;--warm-gray:#f7f4ef;--text:#2e2e2e;--muted:#6b6b6b;--white:#ffffff;
+      --shadow:0 2px 16px rgba(115,0,10,0.07);--shadow-md:0 6px 24px rgba(115,0,10,0.12);--radius:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Roboto',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+    header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem 2rem 1.75rem;}
+    .header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .week-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.4rem;}
+    .week-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.5rem;}
+    .week-meta{font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;}
+    .progress-wrap{background:var(--warm-gray);border-bottom:1px solid rgba(181,154,87,0.2);padding:1rem 2rem;position:sticky;top:0;z-index:100;}
+    .progress-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:1rem;}
+    .progress-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+    .progress-track{flex:1;height:8px;background:rgba(115,0,10,0.1);border-radius:100px;overflow:hidden;}
+    .progress-fill{height:100%;width:0%;background:var(--crimson);border-radius:100px;transition:width 0.4s ease,background 0.4s ease;}
+    .progress-fill.complete{background:var(--gold);}
+    .progress-pct{font-size:0.78rem;font-weight:700;color:var(--crimson);min-width:36px;text-align:right;}
+    .progress-pct.complete{color:var(--gold-link);}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .story-band{background:var(--white);border-radius:var(--radius);border-left:5px solid var(--gold);box-shadow:var(--shadow);padding:1.5rem 1.6rem;margin-bottom:2.5rem;}
+    .story-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-link);margin-bottom:0.5rem;}
+    .story-text{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.7;}
+    .due-banner{background:rgba(115,0,10,0.06);border:1px solid rgba(115,0,10,0.15);border-radius:10px;padding:0.85rem 1.2rem;display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem;}
+    .due-banner svg{width:18px;height:18px;stroke:var(--crimson);fill:none;stroke-width:2;flex-shrink:0;}
+    .due-banner-text{font-size:0.85rem;color:var(--crimson);font-weight:500;}
+    .due-banner-text strong{font-weight:700;}
+    .chapter-block{margin-bottom:2rem;}
+    .chapter-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+    .chapter-num{background:var(--crimson);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius:5px;flex-shrink:0;}
+    .chapter-name{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--crimson);line-height:1.3;}
+    .chapter-progress{margin-left:auto;font-size:0.72rem;font-weight:500;color:var(--muted);white-space:nowrap;}
+    .checklist{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);overflow:hidden;}
+    .check-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;border-bottom:1px solid rgba(181,154,87,0.1);cursor:pointer;transition:background 0.15s;user-select:none;}
+    .check-item:last-child{border-bottom:none;}
+    .check-item:hover{background:var(--warm-gray);}
+    .check-item.checked{background:rgba(181,154,87,0.06);}
+    .check-box{width:22px;height:22px;border-radius:6px;border:2px solid rgba(115,0,10,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all 0.2s ease;background:var(--white);}
+    .check-item.checked .check-box{background:var(--crimson);border-color:var(--crimson);}
+    .check-item.checked .check-box svg{opacity:1;}
+    .check-box svg{width:13px;height:13px;stroke:var(--white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity 0.15s;}
+    .check-content{flex:1;}
+    .check-title{font-size:0.92rem;font-weight:500;color:var(--text);line-height:1.4;transition:color 0.2s;}
+    .check-item.checked .check-title{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(107,107,107,0.4);}
+    .check-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;margin-top:0.25rem;}
+    .check-item.checked .check-desc{color:rgba(107,107,107,0.6);}
+    .check-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.18rem 0.55rem;border-radius:4px;margin-top:0.4rem;}
+    .tag-read{background:rgba(181,154,87,0.15);color:var(--gold-link);}
+    .tag-watch{background:rgba(115,0,10,0.08);color:var(--crimson);}
+    .tag-badge{background:rgba(46,46,46,0.08);color:var(--text);}
+    .tag-puzzle{background:rgba(181,154,87,0.25);color:var(--gold-link);}
+    .tag-submit{background:rgba(115,0,10,0.12);color:var(--crimson);}
+    .check-link{display:inline-flex;align-items:center;gap:4px;color:var(--gold-link);text-decoration:none;font-size:0.78rem;font-weight:500;margin-top:0.5rem;}
+    .check-link svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;}
+    .check-link:hover{color:var(--crimson);}
+    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:2.5rem 0 1rem;}
+    .complete-msg{display:none;background:linear-gradient(135deg,var(--crimson),#a0001a);border-radius:var(--radius);padding:2rem;text-align:center;margin-top:2rem;box-shadow:var(--shadow-md);}
+    .complete-msg.show{display:block;}
+    .complete-msg h3{font-family:'Playfair Display',Georgia,serif;color:var(--white);font-size:1.4rem;margin-bottom:0.6rem;}
+    .complete-msg p{color:rgba(255,255,255,0.85);font-size:0.88rem;line-height:1.6;}
+    .complete-gold{color:var(--gold-lt);font-weight:700;}
+    footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:rgba(107,107,107,0.6);border-top:1px solid rgba(181,154,87,0.15);}
+    @media(max-width:600px){header{padding:1.5rem 1.25rem;}.progress-wrap{padding:0.85rem 1.25rem;}main{padding:1.75rem 1rem 4rem;}.story-band{padding:1.25rem;}.check-item{padding:1rem;gap:0.75rem;}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="week-eyebrow" id="weekEyebrow"></p>
+    <h1 class="week-title">Why Outcomes Differ and What Policy Can Do</h1>
+    <p class="week-meta" id="weekMeta"></p>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Progress</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+</div>
+
+<main>
+  <div class="story-band">
+    <p class="story-label">This Week's Big Idea</p>
+    <p class="story-text">
+      Markets are powerful — but they don't produce equal outcomes for everyone.
+      This week you'll examine why political incentives often lead to policies
+      that fail, why labor markets reward some workers more than others,
+      and what economics actually tells us about inequality and poverty.
+      These are the questions that will follow you into every career and
+      every civic conversation you'll ever have.
+    </p>
+  </div>
+
+  <div class="due-banner">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span class="due-banner-text">All Week 3 work due <strong id="week3Due"></strong> — this is the final deadline for all course work.</span>
+  </div>
+
+  <!-- Chapter 6 -->
+  <p class="section-label">Chapter 6</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 6</span>
+      <span class="chapter-name">The Economics of Political Action</span>
+      <span class="chapter-progress" id="prog-ch6">0 / 3</span>
+    </div>
+    <div class="checklist" id="list-ch6">
+      <div class="check-item" data-id="ch6-read" data-chapter="ch6">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 6 in your Cengage e-book</div>
+          <div class="check-desc">Public choice theory asks: what incentives do voters, politicians, and bureaucrats actually face? The answers explain why well-intentioned policies so often produce disappointing results. This chapter will change how you watch the news.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch6-watch" data-chapter="ch6">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 6 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips apply public choice logic to real legislation and regulatory decisions. The concentrated benefits / dispersed costs framework is the key insight.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch6-video" target="_blank" rel="noopener">Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch6-badge" data-chapter="ch6">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 6 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 06 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Know rational ignorance, the special interest effect, and why the political process systematically differs from the market process.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch6-badge" target="_blank" rel="noopener">Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 26 -->
+  <p class="section-label">Chapter 26</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 26</span>
+      <span class="chapter-name">Earnings, Productivity, and the Job Market</span>
+      <span class="chapter-progress" id="prog-ch26">0 / 4</span>
+    </div>
+    <div class="checklist" id="list-ch26">
+      <div class="check-item" data-id="ch26-read" data-chapter="ch26">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 26 in your Cengage e-book</div>
+          <div class="check-desc">Why does a surgeon earn more than a teacher? Why does your major affect your lifetime earnings? This chapter applies supply and demand to labor markets — one of the most directly relevant topics in the entire course.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch26-watch" data-chapter="ch26">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 26 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips connect productivity, human capital, and wage determination to real career decisions. Pay attention to the gender wage gap discussion — it's more nuanced than most public debate acknowledges.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch26-video" target="_blank" rel="noopener">Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch26-badge" data-chapter="ch26">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 26 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 26 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Understand marginal revenue product, human capital theory, and what drives wage differences across occupations.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch26-badge" target="_blank" rel="noopener">Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch26-puzzle" data-chapter="ch26">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 26 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 26 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Analyze a real labor market scenario using human capital and productivity theory. Connect your answer explicitly to concepts from the chapter.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch26-puzzle" target="_blank" rel="noopener">Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 28 -->
+  <p class="section-label">Chapter 28</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 28</span>
+      <span class="chapter-name">Income Inequality and Poverty</span>
+      <span class="chapter-progress" id="prog-ch28">0 / 4</span>
+    </div>
+    <div class="checklist" id="list-ch28">
+      <div class="check-item" data-id="ch28-read" data-chapter="ch28">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 28 in your Cengage e-book</div>
+          <div class="check-desc">How is income distributed? What causes poverty and what does the evidence say about how to reduce it? This chapter doesn't tell you what to think politically — it gives you the analytical tools to think clearly about a topic most people just react to.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch28-watch" data-chapter="ch28">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 28 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips cover the Lorenz curve, Gini coefficient, and the economics of income mobility. These are the measures journalists cite — you'll never read a poverty story the same way after this.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch28-video" target="_blank" rel="noopener">Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch28-badge" data-chapter="ch28">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 28 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 28 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Know how to read a Lorenz curve, what the Gini coefficient measures, and what the evidence says about income mobility across generations.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch28-badge" target="_blank" rel="noopener">Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch28-puzzle" data-chapter="ch28">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 28 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 28 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. This is the capstone of the course — bring everything you've learned to bear. Quality of reasoning matters more than length.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch28-puzzle" target="_blank" rel="noopener">Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Friday Focus #2 reminder -->
+  <div class="due-banner" style="margin-top:2rem;margin-bottom:0;">
+    <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    <span class="due-banner-text"><strong>Friday Focus #2</strong> is also due this week — <strong id="ff2Due"></strong>. This is your final submission for the course.</span>
+  </div>
+
+  <div class="complete-msg" id="completeMsg">
+    <h3>Course Complete</h3>
+    <p>
+      You did it. <span class="complete-gold">All 9 badges earned. All work submitted.</span><br><br>
+      You now think like an economist — you see incentives where others see confusion,
+      trade-offs where others see simple choices, and systems where others see random events.<br><br>
+      That's not a small thing.
+    </p>
+  </div>
+</main>
+
+<footer><span id="footerText"></span></footer>
+
+<script>
+document.getElementById('backLink').href           = PAGES.home;
+document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${COURSE.semester} · Week 3`;
+document.getElementById('weekMeta').textContent    = `${COURSE.weeks[2].dates} · Final deadline ${COURSE.weeks[2].due}`;
+document.getElementById('week3Due').textContent    = COURSE.weeks[2].due;
+document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+document.getElementById('ff2Due').textContent      = FRIDAY.assignments[1].due;
+
+const L = {
+  'link-ch6-video':   CENGAGE.videos.ch6,
+  'link-ch6-badge':   CENGAGE.badges.ch6,
+  'link-ch26-video':  CENGAGE.videos.ch26,
+  'link-ch26-badge':  CENGAGE.badges.ch26,
+  'link-ch26-puzzle': CENGAGE.puzzles.ch26,
+  'link-ch28-video':  CENGAGE.videos.ch28,
+  'link-ch28-badge':  CENGAGE.badges.ch28,
+  'link-ch28-puzzle': CENGAGE.puzzles.ch28,
+};
+Object.entries(L).forEach(([id, url]) => {
+  const el = document.getElementById(id);
+  if (el) { url ? el.href = url : el.style.display = 'none'; }
+});
+
+const STORAGE_KEY = 'eco1000_week3_checklist';
+const items = document.querySelectorAll('.check-item');
+const fill  = document.getElementById('progressFill');
+const pct   = document.getElementById('progressPct');
+const completeMsg = document.getElementById('completeMsg');
+const chapterItems = {};
+items.forEach(item => { const ch = item.dataset.chapter; chapterItems[ch] = (chapterItems[ch] || 0) + 1; });
+const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+items.forEach(item => { if (saved[item.dataset.id]) item.classList.add('checked'); });
+
+function updateProgress() {
+  const total = items.length;
+  const done  = document.querySelectorAll('.check-item.checked').length;
+  const p     = Math.round((done / total) * 100);
+  fill.style.width = p + '%';
+  pct.textContent  = p + '%';
+  if (p === 100) { fill.classList.add('complete'); pct.classList.add('complete'); completeMsg.classList.add('show'); }
+  else { fill.classList.remove('complete'); pct.classList.remove('complete'); completeMsg.classList.remove('show'); }
+  ['ch6','ch26','ch28'].forEach(ch => {
+    const t = chapterItems[ch] || 0;
+    const d = document.querySelectorAll(`.check-item.checked[data-chapter="${ch}"]`).length;
+    const el = document.getElementById(`prog-${ch}`);
+    if (el) el.textContent = `${d} / ${t}`;
+  });
+}
+items.forEach(item => {
+  item.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    item.classList.toggle('checked');
+    saved[item.dataset.id] = item.classList.contains('checked');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    updateProgress();
+  });
+});
+updateProgress();
+</script>
+</body>
+</html>
