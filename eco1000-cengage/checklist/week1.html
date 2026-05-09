@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1 Checklist · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="../config.js"></script>
+  <style>
+    :root {
+      --crimson:    #73000a;
+      --crimson-dk: #5a0008;
+      --gold:       #b59a57;
+      --gold-lt:    #d4b97a;
+      --gold-link:  #7a5c1e;
+      --cream:      #fcfaf7;
+      --warm-gray:  #f7f4ef;
+      --sage:       #e8f0e8;
+      --text:       #2e2e2e;
+      --muted:      #6b6b6b;
+      --white:      #ffffff;
+      --shadow:     0 2px 16px rgba(115,0,10,0.07);
+      --shadow-md:  0 6px 24px rgba(115,0,10,0.12);
+      --radius:     16px;
+
+      /* Week theme color — change per week */
+      --week-accent: #73000a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem 2rem 1.75rem;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .week-eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold-lt);
+      margin-bottom: 0.4rem;
+    }
+    .week-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .week-meta {
+      font-size: 0.83rem; color: rgba(255,255,255,0.65);
+      font-weight: 300;
+    }
+
+    /* ── Progress bar ── */
+    .progress-wrap {
+      background: var(--warm-gray);
+      border-bottom: 1px solid rgba(181,154,87,0.2);
+      padding: 1rem 2rem;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .progress-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .progress-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap;
+    }
+    .progress-track {
+      flex: 1; height: 8px; background: rgba(115,0,10,0.1);
+      border-radius: 100px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0%;
+      background: var(--crimson);
+      border-radius: 100px;
+      transition: width 0.4s ease, background 0.4s ease;
+    }
+    .progress-fill.complete { background: var(--gold); }
+    .progress-pct {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--crimson); min-width: 36px;
+      text-align: right;
+    }
+    .progress-pct.complete { color: var(--gold-link); }
+
+    /* ── Main content ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* ── Story band ── */
+    .story-band {
+      background: var(--white);
+      border-radius: var(--radius);
+      border-left: 5px solid var(--gold);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .story-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold-link);
+      margin-bottom: 0.5rem;
+    }
+    .story-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem; font-style: italic;
+      color: var(--text); line-height: 1.7;
+    }
+
+    /* ── Due date banner ── */
+    .due-banner {
+      background: rgba(115,0,10,0.06);
+      border: 1px solid rgba(115,0,10,0.15);
+      border-radius: 10px;
+      padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .due-banner svg { width: 18px; height: 18px; stroke: var(--crimson); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .due-banner-text { font-size: 0.85rem; color: var(--crimson); font-weight: 500; }
+    .due-banner-text strong { font-weight: 700; }
+
+    /* ── Chapter sections ── */
+    .chapter-block { margin-bottom: 2rem; }
+
+    .chapter-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .chapter-num {
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 5px;
+      flex-shrink: 0;
+    }
+    .chapter-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--crimson); line-height: 1.3;
+    }
+    .chapter-progress {
+      margin-left: auto; font-size: 0.72rem;
+      font-weight: 500; color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Checklist items ── */
+    .checklist {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(181,154,87,0.15);
+      overflow: hidden;
+    }
+
+    .check-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid rgba(181,154,87,0.1);
+      cursor: pointer;
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-item:hover { background: var(--warm-gray); }
+    .check-item.checked { background: rgba(181,154,87,0.06); }
+
+    .check-box {
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid rgba(115,0,10,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+      transition: all 0.2s ease;
+      background: var(--white);
+    }
+    .check-item.checked .check-box {
+      background: var(--crimson);
+      border-color: var(--crimson);
+    }
+    .check-item.checked .check-box svg { opacity: 1; }
+    .check-box svg {
+      width: 13px; height: 13px;
+      stroke: var(--white); fill: none;
+      stroke-width: 3; stroke-linecap: round;
+      stroke-linejoin: round; opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .check-content { flex: 1; }
+    .check-title {
+      font-size: 0.92rem; font-weight: 500;
+      color: var(--text); line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .check-item.checked .check-title {
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(107,107,107,0.4);
+    }
+    .check-desc {
+      font-size: 0.8rem; color: var(--muted);
+      line-height: 1.5; margin-top: 0.25rem;
+    }
+    .check-item.checked .check-desc { color: rgba(107,107,107,0.6); }
+
+    .check-tag {
+      display: inline-block; font-size: 0.65rem;
+      font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.18rem 0.55rem;
+      border-radius: 4px; margin-top: 0.4rem;
+    }
+    .tag-read    { background: rgba(181,154,87,0.15); color: var(--gold-link); }
+    .tag-watch   { background: rgba(115,0,10,0.08);  color: var(--crimson); }
+    .tag-badge   { background: rgba(46,46,46,0.08);  color: var(--text); }
+    .tag-puzzle  { background: rgba(181,154,87,0.25); color: var(--gold-link); }
+    .tag-submit  { background: rgba(115,0,10,0.12);  color: var(--crimson); }
+
+    /* External link icon */
+    .check-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--gold-link); text-decoration: none;
+      font-size: 0.78rem; font-weight: 500; margin-top: 0.5rem;
+    }
+    .check-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .check-link:hover { color: var(--crimson); }
+
+    /* ── Section divider ── */
+    .section-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin: 2.5rem 0 1rem;
+    }
+
+    /* ── Completion celebration ── */
+    .complete-msg {
+      display: none;
+      background: linear-gradient(135deg, var(--crimson), #a0001a);
+      border-radius: var(--radius); padding: 1.5rem;
+      text-align: center; margin-top: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    .complete-msg.show { display: block; }
+    .complete-msg h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--white); font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .complete-msg p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+    .complete-gold { color: var(--gold-lt); font-weight: 700; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 2rem 1rem;
+      font-size: 0.75rem; color: rgba(107,107,107,0.6);
+      border-top: 1px solid rgba(181,154,87,0.15);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      .progress-wrap { padding: 0.85rem 1.25rem; }
+      main { padding: 1.75rem 1rem 4rem; }
+      .story-band { padding: 1.25rem; }
+      .check-item { padding: 1rem; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="week-eyebrow" id="weekEyebrow"></p>
+    <h1 class="week-title">How Markets Work</h1>
+    <p class="week-meta" id="weekMeta"></p>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Progress</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- Story band -->
+  <div class="story-band">
+    <p class="story-label">This Week's Big Idea</p>
+    <p class="story-text">
+      Every economic decision you make — what to buy, where to work, what to study —
+      is shaped by the same invisible forces. This week you'll learn to see them.
+      Supply, demand, prices, and incentives aren't abstract theory:
+      they're the grammar of every market you interact with every day.
+    </p>
+  </div>
+
+  <!-- Due date -->
+  <div class="due-banner">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span class="due-banner-text">All Week 1 work due <strong id="week1Due"></strong> — badges, puzzles, and readings.</span>
+  </div>
+
+  <!-- Chapter 1 -->
+  <p class="section-label">Chapter 1</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 1</span>
+      <span class="chapter-name">The Economic Approach</span>
+      <span class="chapter-progress" id="prog-ch1">0 / 3</span>
+    </div>
+    <div class="checklist" id="list-ch1">
+
+      <div class="check-item" data-id="ch1-read" data-chapter="ch1">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 1 in your Cengage e-book</div>
+          <div class="check-desc">Focus on the 12 guideposts of economic thinking — these are the lens you'll use for the entire course. Pay special attention to incentives and secondary effects.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch1-watch" data-chapter="ch1">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 1 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips walk through key concepts with examples. Watch before attempting the badge — they're short and worth it.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch1-video" target="_blank" rel="noopener">
+            Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch1-badge" data-chapter="ch1">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 1 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 01 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Use the A+ Test Prep in Study It to practice first. Graded on completion.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch1-badge" target="_blank" rel="noopener">
+            Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <p class="section-label">Chapter 3</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 3</span>
+      <span class="chapter-name">Demand, Supply, and the Market Process</span>
+      <span class="chapter-progress" id="prog-ch3">0 / 4</span>
+    </div>
+    <div class="checklist" id="list-ch3">
+
+      <div class="check-item" data-id="ch3-read" data-chapter="ch3">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 3 in your Cengage e-book</div>
+          <div class="check-desc">This is the most important chapter in the course. Master the supply and demand model here and everything else clicks into place. Draw the graphs as you read — don't just look at them.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch3-watch" data-chapter="ch3">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 3 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips walk through supply and demand shifts with real examples. Watch more than once if the graph shifts feel unclear — that's completely normal.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch3-video" target="_blank" rel="noopener">
+            Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch3-badge" data-chapter="ch3">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 3 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 03 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. If you hit a wall, revisit the ConceptClips or reach out during office hours — don't wait until the last day.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch3-badge" target="_blank" rel="noopener">
+            Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch3-puzzle" data-chapter="ch3">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 3 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 03 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply supply and demand to a real-world scenario. Your reasoning and use of economic concepts is what matters.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch3-puzzle" target="_blank" rel="noopener">
+            Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <p class="section-label">Chapter 4</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">Ch 4</span>
+      <span class="chapter-name">Demand and Supply: Applications and Extensions</span>
+      <span class="chapter-progress" id="prog-ch4">0 / 4</span>
+    </div>
+    <div class="checklist" id="list-ch4">
+
+      <div class="check-item" data-id="ch4-read" data-chapter="ch4">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Read Chapter 4 in your Cengage e-book</div>
+          <div class="check-desc">Chapter 4 takes the supply and demand model you built in Ch 3 and applies it to real policy questions — price ceilings, price floors, and taxes. You'll recognize these from the news immediately.</div>
+          <span class="check-tag tag-read">Read</span>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch4-watch" data-chapter="ch4">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Watch the Chapter 4 ConceptClips in MindTap</div>
+          <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The ConceptClips show how market interventions produce outcomes that often surprise policymakers. Rent control and minimum wage are classic examples covered here.</div>
+          <span class="check-tag tag-watch">Watch · Learn It</span>
+          <br><a class="check-link" href="#" id="link-ch4-video" target="_blank" rel="noopener">
+            Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch4-badge" data-chapter="ch4">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Earn your Chapter 4 Achievement Badge</div>
+          <div class="check-desc">Find the <strong>Chapter 04 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Make sure you can explain why price controls create shortages or surpluses before you start.</div>
+          <span class="check-tag tag-badge">Badge · Apply It</span>
+          <br><a class="check-link" href="#" id="link-ch4-badge" target="_blank" rel="noopener">
+            Open Achievement Badge <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch4-puzzle" data-chapter="ch4">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 4 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 04 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Analyze a real policy intervention using supply and demand — think about who benefits, who is harmed, and what secondary effects the policy creates.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch4-puzzle" target="_blank" rel="noopener">
+            Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Completion message -->
+  <div class="complete-msg" id="completeMsg">
+    <h3>Week 1 Complete</h3>
+    <p>You've finished all of Week 1. <span class="complete-gold">Well done.</span><br>
+    Week 2 opens July 12 — Economic Pulse, Fluctuations, and Growth.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span id="footerText"></span>
+</footer>
+
+<script>
+// ── Wire config ──────────────────────────────────────────────
+document.getElementById('backLink').href      = PAGES.home;
+document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${COURSE.semester} · Week 1`;
+document.getElementById('weekMeta').textContent    = `${COURSE.weeks[0].dates} · All work due ${COURSE.weeks[0].due}`;
+document.getElementById('week1Due').textContent    = COURSE.weeks[0].due;
+document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+
+// MindTap links from config
+const L = {
+  'link-ch1-video':  CENGAGE.videos.ch1,
+  'link-ch1-badge':  CENGAGE.badges.ch1,
+  'link-ch3-video':  CENGAGE.videos.ch3,
+  'link-ch3-badge':  CENGAGE.badges.ch3,
+  'link-ch3-puzzle': CENGAGE.puzzles.ch3,
+  'link-ch4-video':  CENGAGE.videos.ch4,
+  'link-ch4-badge':  CENGAGE.badges.ch4,
+  'link-ch4-puzzle': CENGAGE.puzzles.ch4,
+};
+Object.entries(L).forEach(([id, url]) => {
+  const el = document.getElementById(id);
+  if (el) {
+    if (url) { el.href = url; }
+    else { el.style.display = 'none'; }
+  }
+});
+
+// ── Checklist logic ──────────────────────────────────────────
+const STORAGE_KEY = 'eco1000_week1_checklist';
+const items       = document.querySelectorAll('.check-item');
+const fill        = document.getElementById('progressFill');
+const pct         = document.getElementById('progressPct');
+const completeMsg = document.getElementById('completeMsg');
+
+// Chapter item counts
+const chapterItems = {};
+items.forEach(item => {
+  const ch = item.dataset.chapter;
+  chapterItems[ch] = (chapterItems[ch] || 0) + 1;
+});
+
+// Load saved state
+const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+items.forEach(item => {
+  if (saved[item.dataset.id]) item.classList.add('checked');
+});
+
+function updateProgress() {
+  const total   = items.length;
+  const done    = document.querySelectorAll('.check-item.checked').length;
+  const percent = Math.round((done / total) * 100);
+
+  fill.style.width = percent + '%';
+  pct.textContent  = percent + '%';
+
+  if (percent === 100) {
+    fill.classList.add('complete');
+    pct.classList.add('complete');
+    completeMsg.classList.add('show');
+  } else {
+    fill.classList.remove('complete');
+    pct.classList.remove('complete');
+    completeMsg.classList.remove('show');
+  }
+
+  // Per-chapter progress
+  const chapters = ['ch1', 'ch3', 'ch4'];
+  chapters.forEach(ch => {
+    const total = chapterItems[ch] || 0;
+    const done  = document.querySelectorAll(`.check-item.checked[data-chapter="${ch}"]`).length;
+    const el    = document.getElementById(`prog-${ch}`);
+    if (el) el.textContent = `${done} / ${total}`;
+  });
+}
+
+// Toggle on click
+items.forEach(item => {
+  item.addEventListener('click', e => {
+    // Don't toggle if clicking a link
+    if (e.target.closest('a')) return;
+    item.classList.toggle('checked');
+    saved[item.dataset.id] = item.classList.contains('checked');
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    updateProgress();
+  });
+});
+
+updateProgress();
+</script>
+</body>
+</html>
