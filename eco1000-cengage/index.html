@@ -88,6 +88,75 @@
     }
     .intro-inner strong { color: var(--crimson); }
 
+    /* ── Orientation banner ── */
+    .orientation {
+      background: var(--crimson);
+      padding: 1rem 2rem;
+    }
+    .orientation-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .orientation-text {
+      font-size: 0.85rem; color: rgba(255,255,255,0.85);
+      font-weight: 300; line-height: 1.5;
+    }
+    .orientation-text strong { color: var(--white); font-weight: 600; }
+    .orientation-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: var(--crimson-dk);
+      text-decoration: none; font-size: 0.78rem; font-weight: 700;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      white-space: nowrap; transition: background 0.15s;
+      flex-shrink: 0;
+    }
+    .orientation-cta:hover { background: var(--gold-lt); }
+    .orientation-cta svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* ── Primary card (checklists) ── */
+    .card-primary {
+      background: var(--crimson);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(115,0,10,0.2);
+      padding: 1.75rem 1.75rem 1.5rem;
+      text-decoration: none; color: inherit;
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(115,0,10,0.28); }
+    .card-primary-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .card-primary-icon svg { width: 26px; height: 26px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .card-primary-body { flex: 1; }
+    .card-primary-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
+    .card-primary-title { font-size: 1.15rem; font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 0.3rem; }
+    .card-primary-desc { font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .card-primary-arrow { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 600; color: var(--gold-lt); margin-top: 0.5rem; }
+    .card-primary-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .card-primary-chevron { color: rgba(255,255,255,0.5); flex-shrink: 0; }
+    .card-primary-chevron svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Course arc strip ── */
+    .arc-strip {
+      background: var(--warm-gray);
+      border: 1px solid rgba(181,154,87,0.2);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-wrap: wrap; margin-bottom: 1.75rem;
+    }
+    .arc-step {
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .arc-step strong { color: var(--crimson); font-weight: 600; }
+    .arc-sep { color: var(--gold); font-size: 0.8rem; }
+
     /* ── Card grid ── */
     main {
       max-width: 960px;
@@ -218,6 +287,10 @@
       main   { padding: 1.75rem 1rem 3rem; }
       .card-grid { grid-template-columns: 1fr; gap: 1rem; }
       .card { padding: 1.4rem 1.25rem 1.2rem; }
+      .card-primary { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .card-primary-chevron { display: none; }
+      .orientation { padding: 0.85rem 1.25rem; }
+      .arc-strip { gap: 0.4rem; }
     }
   </style>
 </head>
@@ -231,16 +304,55 @@
   </div>
 </header>
 
-<div class="intro">
-  <div class="intro-inner">
-    <strong>Welcome.</strong> Use the cards below to navigate your course.
-    Each section opens directly — no hunting through menus.
-    All Cengage and MindTap resources open in a new tab and require your Cengage login.
+<div class="orientation">
+  <div class="orientation-inner">
+    <p class="orientation-text">
+      <strong>Welcome to ECO 1000.</strong>
+      Classes begin <span id="orientBegin"></span> — your first deadline is <span id="orientDue"></span>.
+      Start with your Week 1 checklist.
+    </p>
+    <a class="orientation-cta" id="orientLink" href="#">
+      Week 1 Checklist
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
   </div>
 </div>
 
 <main>
-  <p class="section-label">Course Sections</p>
+  <!-- Primary action -->
+  <a class="card-primary" id="checklistCard" href="#">
+    <div class="card-primary-icon">
+      <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    </div>
+    <div class="card-primary-body">
+      <p class="card-primary-label">Your Weekly Starting Point</p>
+      <p class="card-primary-title">Weekly Checklists &amp; Office Hours</p>
+      <p class="card-primary-desc">What to read, watch, and complete — week by week, with due dates. Start here every Monday.</p>
+      <div class="card-primary-arrow">
+        Open Checklists
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+    <div class="card-primary-chevron">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </a>
+
+  <!-- Course arc -->
+  <div class="arc-strip">
+    <span class="arc-step"><strong>Read</strong> e-book</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Watch</strong> ConceptClips</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Complete</strong> Economic Puzzle</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Earn</strong> Achievement Badge</span>
+    <span class="arc-sep">·</span>
+    <span class="arc-step">3 weeks · 9 chapters · 2 written assignments</span>
+  </div>
+
+  <!-- Section label -->
+  <p class="section-label">Course Resources &amp; Assessments</p>
   <div class="card-grid" id="cardGrid"></div>
 </main>
 
@@ -250,32 +362,13 @@
 </footer>
 
 <script>
-// Card definitions — icons use inline SVG path data (Lucide style)
+// Card definitions — syllabus removed (lives in Week 1 checklist)
+// MME only shown when enabled in config
 const CARDS = [
   {
-    id: "syllabus",
-    title: "Course Syllabus, AI Policy & Cengage Access",
-    desc: "Start here. Find the syllabus, AI use policy, and step-by-step instructions for purchasing your Cengage materials.",
-    badge: "Resource",
-    badgeClass: "badge-resource",
-    icon: `<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-    url: () => PAGES.syllabus,
-    enabled: true,
-  },
-  {
-    id: "checklists",
-    title: "Weekly Checklists & Office Hours",
-    desc: "What to do, why it matters, and when it's due — week by week. Plus how to schedule one-on-one support.",
-    badge: "Resource",
-    badgeClass: "badge-resource",
-    icon: `<svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
-    url: () => PAGES.checklists,
-    enabled: true,
-  },
-  {
     id: "cengage",
-    title: "Cengage: E-Book, MindTap & Chapter Videos",
-    desc: "Access your digital textbook, chapter lecture videos, and all MindTap study resources — organized by chapter.",
+    title: "Cengage: E-Book, MindTap & ConceptClips",
+    desc: "Access your digital textbook, ConceptClips, and all MindTap study resources — organized by chapter.",
     badge: "Resource",
     badgeClass: "badge-resource",
     icon: `<svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
@@ -283,19 +376,9 @@ const CARDS = [
     enabled: true,
   },
   {
-    id: "mme",
-    title: "Monday Morning Economist",
-    desc: "Weekly current-events readings with guided annotation. Uses real-world stories to connect economics to your life. (Coming soon — Perusall setup in progress.)",
-    badge: "Coming Soon",
-    badgeClass: "badge-soon",
-    icon: `<svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"/><path d="M2 13h10"/><path d="M9 18H2"/><path d="M2 8h6"/></svg>`,
-    url: () => PAGES.mme,
-    enabled: false,
-  },
-  {
     id: "puzzles",
     title: "Economic Puzzles",
-    desc: "Chapter-by-chapter critical thinking challenges. 15% of your course grade — one puzzle per chapter covered.",
+    desc: "Chapter-by-chapter critical thinking challenges in MindTap's Study It section. One puzzle per chapter covered.",
     badge: "15% of Grade",
     badgeClass: "badge-grade",
     icon: `<svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>`,
@@ -305,7 +388,7 @@ const CARDS = [
   {
     id: "badges",
     title: "Achievement Badges",
-    desc: "Earn a badge for each chapter by completing the MindTap mastery assessment. 12 badges × 5% each = 60% of your course grade.",
+    desc: "Earn a badge for each chapter by completing the Chapter Quiz in MindTap's Apply It section. 9 badges total.",
     badge: "60% of Grade",
     badgeClass: "badge-grade",
     icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>`,
@@ -315,38 +398,57 @@ const CARDS = [
   {
     id: "friday",
     title: "Friday Focus: Critical Thinking",
-    desc: "Two written assignments that ask you to apply economic reasoning to real-world scenarios. 15% of your course grade.",
+    desc: "Two written assignments applying economic reasoning to real-world scenarios. Submit through Moodle.",
     badge: "15% of Grade",
     badgeClass: "badge-grade",
     icon: `<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
     url: () => PAGES.friday,
     enabled: true,
   },
+  // MME — only shown when enabled in config.js
+  ...(MME.enabled ? [{
+    id: "mme",
+    title: "Monday Morning Economist",
+    desc: "Weekly current-events readings with guided annotation in Perusall. Real-world stories through an economic lens.",
+    badge: "10% of Grade",
+    badgeClass: "badge-grade",
+    icon: `<svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"/><path d="M2 13h10"/><path d="M9 18H2"/><path d="M2 8h6"/></svg>`,
+    url: () => PAGES.mme,
+    enabled: true,
+  }] : []),
 ];
 
-// Build header from config
-document.getElementById('courseCode').textContent   = `${COURSE.courseCode} · ${COURSE.semester}`;
-document.getElementById('courseTitle').textContent  = COURSE.courseTitle;
-document.getElementById('headerMeta').textContent   = `Elon University${COURSE.instructor ? ' · ' + COURSE.instructor : ''}`;
-document.getElementById('footerText').textContent   = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+// Wire header from config
+document.getElementById('courseCode').textContent  = `${COURSE.courseCode} · ${COURSE.semester}`;
+document.getElementById('courseTitle').textContent = COURSE.courseTitle;
+document.getElementById('headerMeta').textContent  = `Elon University${COURSE.instructor ? ' · ' + COURSE.instructor : ''}`;
+document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+
+// Wire orientation banner
+document.getElementById('orientBegin').textContent = COURSE.dates.classesBegin;
+document.getElementById('orientDue').textContent   = COURSE.weeks[0].due;
+document.getElementById('orientLink').href         = PAGES.checklists;
+
+// Wire primary checklist card
+document.getElementById('checklistCard').href = PAGES.checklists;
 
 // Build cards
 const grid = document.getElementById('cardGrid');
 CARDS.forEach(card => {
   const a = document.createElement('a');
-  a.className = 'card' + (card.enabled ? '' : ' disabled');
-  a.href      = card.enabled ? card.url() : '#';
-  if (card.enabled) a.target = '_self';
+  a.className = 'card';
+  a.href      = card.url();
+  a.target    = '_self';
 
   a.innerHTML = `
     <div class="card-icon">${card.icon}</div>
     <div class="card-title">${card.title}</div>
     <div class="card-desc">${card.desc}</div>
     <span class="card-badge ${card.badgeClass}">${card.badge}</span>
-    ${card.enabled ? `<div class="card-arrow">
+    <div class="card-arrow">
       Open section
       <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    </div>` : ''}
+    </div>
   `;
   grid.appendChild(a);
 });
