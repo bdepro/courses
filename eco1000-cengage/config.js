@@ -60,7 +60,11 @@ const CHAPTERS = [
 ];
 
 // ================================================================
-//  SECTION PAGE URLS
+//  MOODLE COURSE LINK
+//  Students click this to get to Moodle activities.
+//  UPDATE courseId above and this URL updates automatically.
+// ================================================================
+const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=78855`; // UPDATE each semester
 //  These are stable GitHub Pages URLs — no Moodle IDs needed.
 //  UPDATE only if you rename or move files.
 // ================================================================
@@ -90,43 +94,43 @@ const CENGAGE = {
   // UPDATE all URLs when you register a new Cengage course
   // Keys must match CHAPTERS array keys above
   videos: {
-    ch1:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024665577",
-    ch3:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024665580",
-    ch4:  "", // UPDATE: new Cengage course URL for Ch 4 videos
-    ch6:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024666647",
-    ch7:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024666649",
-    ch8:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024666650",
-    ch16: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024669263",
-    ch26: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024701938",
-    ch28: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024702310",
+    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110857", // UPDATE: add video activity ID
+    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110861", // UPDATE: add video activity ID
+    ch4:  "", // UPDATE: add video activity ID
+    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110866", // UPDATE: add video activity ID
+    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110870", // UPDATE: add video activity ID
+    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110874", // UPDATE: add video activity ID
+    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110887", // UPDATE: add video activity ID
+    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110878", // UPDATE: add video activity ID
+    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110883", // UPDATE: add video activity ID
   },
 
-  // Achievement Badges (Badge It)
+  // Achievement Badges (Badge It) — Chapter Quiz in Apply It section
   // UPDATE all URLs when you register a new Cengage course
   badges: {
-    ch1:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411837354",
-    ch3:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411837356",
-    ch4:  "", // UPDATE: new Cengage course URL for Ch 4 badge
-    ch6:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411923471",
-    ch7:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411923472",
-    ch8:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411923473",
-    ch16: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411923474",
-    ch26: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411923476",
-    ch28: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/2411925483",
+    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110859",
+    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110863",
+    ch4:  "https://moodle.elon.edu/mod/lti/view.php?id=3110893",
+    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110868",
+    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110872",
+    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110876",
+    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110889",
+    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110880",
+    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110885",
   },
 
-  // Economic Puzzles
+  // Economic Puzzles — Chapter Homework in Study It section
   // UPDATE all URLs when you register a new Cengage course
   puzzles: {
-    ch1:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429368",
-    ch3:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429373",
-    ch4:  "", // UPDATE: new Cengage course URL for Ch 4 puzzle
-    ch6:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429385",
-    ch7:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429387",
-    ch8:  "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429389",
-    ch16: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429411",
-    ch26: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429440",
-    ch28: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1029429445",
+    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110858",
+    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110862",
+    ch4:  "https://moodle.elon.edu/mod/lti/view.php?id=3110892",
+    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110867",
+    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110871",
+    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110875",
+    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110888",
+    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110879",
+    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110884",
   },
 
   // A+ Test Prep
