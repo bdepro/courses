@@ -3,63 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monday Morning Economist · ECO 1000</title>
+  <title>Monday Morning Economist | ECO 1000</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
     :root {
-      --crimson: #73000a; --gold: #b59a57; --gold-lt: #d4b97a; --gold-link: #7a5c1e;
-      --cream: #fcfaf7; --warm-gray: #f7f4ef;
-      --text: #2e2e2e; --muted: #6b6b6b; --white: #ffffff;
-      --shadow: 0 2px 14px rgba(115,0,10,0.07); --radius: 14px;
+      --crimson: #73000a;
+      --gold: #b59a57;
+      --gold-lt: #d4b97a;
+      --gold-link: #7a5c1e;
+      --cream: #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border: #e8e3da;
+      --text: #2e2e2e;
+      --muted: #6b6b6b;
+      --white: #ffffff;
+      --green: #3d6b3a;
+      --teal: #527b82;
+      --shadow: 0 2px 14px rgba(115,0,10,0.07);
+      --radius: 12px;
+      --font-body: 'Roboto', Arial, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.65; }
+
+    /* HEADER */
     header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
     .header-inner { max-width: 860px; margin: 0 auto; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
     .back-link:hover { color: var(--white); }
     .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
     .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
-    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
+    header h1 { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; }
+    .header-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.4rem; }
 
-    main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    /* MAIN */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
 
-    .coming-soon-box {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.2);
-      padding: 3rem 2rem; text-align: center;
+    /* INTRO */
+    .intro-block { margin-bottom: 2rem; }
+    .intro-block p { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 0.6rem; }
+    .intro-block p:last-child { margin-bottom: 0; }
+
+    /* PENDING BANNER */
+    .pending-banner {
+      background: #fdf9f0;
+      border: 1px solid var(--gold);
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.83rem;
+      color: var(--gold-link);
+      margin-bottom: 2rem;
+      display: none;
     }
-    .cs-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .cs-title { font-size: 1.3rem; font-weight: 600; color: var(--crimson); margin-bottom: 0.75rem; }
-    .cs-body { font-size: 0.9rem; color: var(--muted); line-height: 1.65; max-width: 480px; margin: 0 auto 1.5rem; }
-    .cs-back { display: inline-flex; align-items: center; gap: 6px; background: var(--crimson); color: var(--white); text-decoration: none; padding: 0.65rem 1.4rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; transition: background 0.15s; }
-    .cs-back:hover { background: #5a0008; }
-    .cs-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .pending-banner.visible { display: block; }
+    .pending-banner strong { color: var(--gold-link); }
 
-    /* When MME is enabled, show article list */
-    .article-list { display: flex; flex-direction: column; gap: 0.9rem; }
+    /* SECTION LABEL */
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--crimson);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* ARTICLE CARDS */
+    .article-grid { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2.5rem; }
     .article-card {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15);
-      padding: 1.3rem 1.4rem; display: flex; gap: 1rem; align-items: center;
-      text-decoration: none; color: inherit;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.25rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
       transition: transform 0.15s, box-shadow 0.15s;
     }
-    .article-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
-    .art-num { width: 36px; height: 36px; border-radius: 8px; background: var(--crimson); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
-    .art-title { flex: 1; font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1.4; }
-    .art-arrow svg { width: 14px; height: 14px; stroke: var(--muted); fill: none; stroke-width: 2; }
+    .article-card.active:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.12); }
+    .article-card.inactive { opacity: 0.65; cursor: default; }
+
+    .art-week {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--crimson);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .art-week-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-lt); line-height: 1; }
+    .art-week-num { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+
+    .art-body { flex: 1; }
+    .art-title { font-size: 0.93rem; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.2rem; }
+    .art-due { font-size: 0.75rem; color: var(--muted); }
+
+    .art-action { display: flex; align-items: center; }
+    .art-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--crimson);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .art-btn:hover { background: #5a0008; }
+    .art-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .art-btn-pending {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--warm-gray);
+      color: var(--muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
+      border: 1px solid var(--border);
+    }
+
+    /* INSTRUCTION SECTIONS */
+    .instruction-block {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .ib-header {
+      background: var(--crimson);
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .ib-header-teal { background: var(--teal); }
+    .ib-header-green { background: var(--green); }
+    .ib-header-gold { background: var(--gold-link); }
+    .ib-header-dark { background: #2a2a2a; }
+    .ib-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .ib-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.15); padding: 0.1rem 0.45rem; border-radius: 3px; }
+    .ib-body { padding: 1.1rem 1.25rem; }
+    .ib-body p { font-size: 0.88rem; color: var(--text); margin-bottom: 0.6rem; line-height: 1.65; }
+    .ib-body p:last-child { margin-bottom: 0; }
+
+    /* NUMBERED LIST */
+    .step-list { list-style: none; padding: 0; counter-reset: steps; }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.88rem;
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-num {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border-radius: 50%;
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+
+    /* BULLET LIST */
+    .plain-list { list-style: none; padding: 0; }
+    .plain-list li { font-size: 0.88rem; padding: 0.35rem 0 0.35rem 1rem; border-bottom: 1px solid var(--warm-gray); position: relative; color: var(--text); line-height: 1.5; }
+    .plain-list li:last-child { border-bottom: none; }
+    .plain-list li::before { content: ""; position: absolute; left: 0; top: 0.7rem; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+    /* QUALITY CARDS */
+    .quality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .quality-card { background: var(--warm-gray); border-radius: 8px; padding: 0.75rem 0.9rem; }
+    .qc-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+    .qc-example { font-size: 0.83rem; color: var(--text); line-height: 1.5; font-style: italic; }
+
+    /* AVOID BOX */
+    .avoid-box { background: #fdf4f4; border-left: 3px solid var(--crimson); border-radius: 0 6px 6px 0; padding: 0.75rem 1rem; margin-top: 0.75rem; }
+    .avoid-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); margin-bottom: 0.4rem; }
+    .avoid-list { list-style: none; padding: 0; }
+    .avoid-list li { font-size: 0.83rem; color: var(--text); padding: 0.15rem 0 0.15rem 0.85rem; position: relative; }
+    .avoid-list li::before { content: "x"; position: absolute; left: 0; color: var(--crimson); font-weight: 700; font-size: 0.7rem; top: 0.18rem; }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.88rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-num {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gold-link);
+      margin-top: 0.05rem;
+      flex-shrink: 0;
+    }
+    .check-text { line-height: 1.5; }
+    .check-text strong { color: var(--text); font-weight: 500; }
+    .check-text .check-note { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* EASY PLAN */
+    .easy-plan { display: flex; flex-direction: column; gap: 0.6rem; }
+    .ep-row {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      background: var(--warm-gray);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+    }
+    .ep-visit {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .ep-text { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+
+    /* DEADLINE BOX */
+    .deadline-box { background: #f0f7f8; border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; padding: 0.85rem 1rem; }
+    .deadline-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
 
     @media (max-width: 600px) {
       header { padding: 1.5rem 1.25rem; }
-      main { padding: 2rem 1rem 3rem; }
-      .coming-soon-box { padding: 2.5rem 1.25rem; }
+      main { padding: 2rem 1rem 4rem; }
+      .quality-grid { grid-template-columns: 1fr; }
+      .article-card { grid-template-columns: auto 1fr; }
+      .art-action { grid-column: 1 / -1; }
     }
   </style>
 </head>
 <body>
+
 <header>
   <div class="header-inner">
     <a class="back-link" id="backLink" href="#">
@@ -68,66 +290,247 @@
     </a>
     <p class="course-tag" id="courseTag"></p>
     <h1>Monday Morning Economist</h1>
+    <p class="header-sub">Perusall Reading and Discussion &mdash; 20% of Course Grade</p>
   </div>
 </header>
 
-<main id="main"></main>
+<main>
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>Each week you read one short economics newsletter and discuss it with your classmates inside the text. These are not textbook readings. Each one takes a real situation and shows you the economic logic you did not know was there. After three weeks you will read an economics headline differently than you did before.</p>
+  </div>
+
+  <!-- PENDING BANNER (shown when MME.enabled is false) -->
+  <div class="pending-banner" id="pendingBanner">
+    <strong>Perusall links open soon.</strong> The instructions below are ready. Read through them now so you know what to expect. Your instructor will announce when each week's link goes live.
+  </div>
+
+  <!-- ARTICLE CARDS -->
+  <div class="section-label">Weekly Newsletters</div>
+  <div class="article-grid" id="articleGrid"></div>
+
+  <!-- WHAT THIS ASSIGNMENT IS -->
+  <div class="section-label">How It Works</div>
+
+  <div class="instruction-block">
+    <div class="ib-header">
+      <span class="ib-tag">Start Here</span>
+      <span class="ib-title">Quick Start (5 minutes)</span>
+    </div>
+    <div class="ib-body">
+      <p>Open the assignment through the Moodle link. This is required for credit. Perusall tracks your enrollment through Moodle, and opening it any other way will not register your work.</p>
+      <ol class="step-list">
+        <li><span class="step-num">1</span><span>Open the Perusall link in Moodle.</span></li>
+        <li><span class="step-num">2</span><span>Read a section, then highlight a sentence and add a comment.</span></li>
+        <li><span class="step-num">3</span><span>Reply to at least one classmate.</span></li>
+        <li><span class="step-num">4</span><span>Return on a second day for another round.</span></li>
+        <li><span class="step-num">5</span><span>Complete the short quiz.</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-teal">
+      <span class="ib-tag">How To</span>
+      <span class="ib-title">How to Make a Comment</span>
+    </div>
+    <div class="ib-body">
+      <p>Highlight text by clicking and dragging. Choose Annotate, or use the comment box that appears. Write your thought, question, or connection. Click Post.</p>
+      <p>To reply, click a classmate's comment and choose Reply. Use Upvote on comments that help you think.</p>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-green">
+      <span class="ib-tag">Quality</span>
+      <span class="ib-title">What Makes a Strong Comment</span>
+    </div>
+    <div class="ib-body">
+      <p>Strong comments in this course do one of four things. Perusall recognizes these as high-quality:</p>
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="qc-label">Ask a real question</div>
+          <div class="qc-example">"Why would demand shift here instead of moving along the curve?"</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Explain in your own words</div>
+          <div class="qc-example">"This is basically saying incentives change behavior because..."</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Make a connection</div>
+          <div class="qc-example">Link the story to supply and demand, inflation, unemployment, trade, or something from class.</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Use evidence</div>
+          <div class="qc-example">Quote or point to a specific line and explain why it matters.</div>
+        </div>
+      </div>
+      <p>Perusall scores comments as high, medium, or low quality based on how much thinking your comment shows. High-quality earns full credit. Medium-quality earns partial credit. Low-quality earns no credit.</p>
+      <div class="avoid-box">
+        <div class="avoid-label">These earn little or no credit</div>
+        <ul class="avoid-list">
+          <li>"I agree."</li>
+          <li>"This is interesting."</li>
+          <li>Very short posts with no reason, example, or question.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-gold">
+      <span class="ib-tag">Requirements</span>
+      <span class="ib-title">Credit Checklist</span>
+    </div>
+    <div class="ib-body">
+      <p>To earn full credit for each newsletter:</p>
+      <ul class="checklist">
+        <li>
+          <span class="check-num">1</span>
+          <span class="check-text">
+            <strong>Post 2 high-quality comments.</strong>
+            <span class="check-note">High-quality earns full credit. Medium-quality earns partial credit.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">2</span>
+          <span class="check-text">
+            <strong>Read to the end and complete the quiz.</strong>
+            <span class="check-note">Scroll through the full newsletter and submit the short quiz at the end.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">3</span>
+          <span class="check-text">
+            <strong>Spend 30&ndash;45 minutes actively working.</strong>
+            <span class="check-note">Active means reading, writing, replying, and thinking &mdash; not leaving the tab open.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">4</span>
+          <span class="check-text">
+            <strong>Open the assignment 3 times.</strong>
+            <span class="check-note">Visit on at least two different days. Spreading your work improves both your learning and the discussion for everyone.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">5</span>
+          <span class="check-text">
+            <strong>Reply to at least one comment.</strong>
+            <span class="check-note">A question works best &mdash; it keeps the conversation going.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">6</span>
+          <span class="check-text">
+            <strong>Earn 1 upvote or give 3.</strong>
+            <span class="check-note">Get one upvote on your work, or upvote three classmates whose comments helped you think.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-dark">
+      <span class="ib-tag">Strategy</span>
+      <span class="ib-title">Easy Plan for Full Credit</span>
+    </div>
+    <div class="ib-body">
+      <div class="easy-plan">
+        <div class="ep-row">
+          <span class="ep-visit">Visit 1</span>
+          <span class="ep-text">Read the first half. Post one strong comment.</span>
+        </div>
+        <div class="ep-row">
+          <span class="ep-visit">Visit 2</span>
+          <span class="ep-text">Finish the reading. Post your second strong comment.</span>
+        </div>
+        <div class="ep-row">
+          <span class="ep-visit">Visit 3</span>
+          <span class="ep-text">Reply to classmates, upvote helpful posts, check for replies to you. Complete the quiz.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-teal">
+      <span class="ib-tag">Deadlines</span>
+      <span class="ib-title">Deadlines and Late Work</span>
+    </div>
+    <div class="ib-body">
+      <div class="deadline-box">
+        <div class="deadline-label">Each newsletter is due by 12:00 p.m. on the Friday of its week.</div>
+        <ul class="plain-list">
+          <li>After the due date you may reply to existing comments for one week and earn full credit for those replies.</li>
+          <li>New comments added after the due date earn partial credit for up to one week. Credit decreases as the week progresses.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</main>
 
 <script>
-document.getElementById('backLink').href = PAGES.home;
-document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+  // Wire header links from config
+  document.getElementById('backLink').href = PAGES.home;
+  document.getElementById('courseTag').textContent = COURSE.courseCode + ' \u00b7 ' + COURSE.semester;
 
-const main = document.getElementById('main');
+  // Show pending banner if MME not yet enabled
+  if (!MME.enabled) {
+    document.getElementById('pendingBanner').classList.add('visible');
+  }
 
-if (!MME.enabled) {
-  // Show coming soon state
-  main.innerHTML = `
-    <div class="coming-soon-box">
-      <div class="cs-icon">📰</div>
-      <div class="cs-title">Coming Soon</div>
-      <div class="cs-body">
-        The Monday Morning Economist readings are being set up in Perusall
-        for this semester. Check back soon — your instructor will announce
-        when this section is ready in the course announcements.
-      </div>
-      <a class="cs-back" href="${PAGES.home}">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        Back to Course Home
-      </a>
-    </div>
-  `;
-} else {
-  // Show live article list
-  const grade = document.createElement('div');
-  grade.innerHTML = `<p style="font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:2rem;">
-    Each week you'll read a short article in Perusall and annotate it with your questions and reactions.
-    Current events, explained through economics. 10% of your course grade.
-  </p>`;
-  main.appendChild(grade);
+  // Build article cards
+  const grid = document.getElementById('articleGrid');
+  const weeks = [
+    { week: 1, due: 'Friday, July 11, 12:00 p.m.' },
+    { week: 2, due: 'Friday, July 18, 12:00 p.m.' },
+    { week: 3, due: 'Friday, July 24, 12:00 p.m.' },
+  ];
 
-  const label = document.createElement('p');
-  label.className = 'section-label';
-  label.style.marginBottom = '1rem';
-  label.textContent = 'Weekly Readings — Opens in Perusall';
-  main.appendChild(label);
+  // Use MME.articles if available, otherwise fall back to placeholders
+  const articles = (MME.articles && MME.articles.length >= 3) ? MME.articles : [
+    { week: 1, title: 'Week 1 Newsletter', moodleActivityId: '' },
+    { week: 2, title: 'Week 2 Newsletter', moodleActivityId: '' },
+    { week: 3, title: 'Week 3 Newsletter', moodleActivityId: '' },
+  ];
 
-  const list = document.createElement('div');
-  list.className = 'article-list';
-  MME.articles.forEach(a => {
-    const card = document.createElement('a');
-    card.className = 'article-card';
-    card.href   = a.url || MME.perusallBase;
-    card.target = '_blank';
-    card.rel    = 'noopener';
-    card.innerHTML = `
-      <div class="art-num">${a.id}</div>
-      <div class="art-title">${a.title}</div>
-      <div class="art-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-    `;
-    list.appendChild(card);
+  weeks.forEach(function(w, i) {
+    const art = articles[i] || {};
+    const title = art.title || ('Week ' + w.week + ' Newsletter');
+    const activityId = art.moodleActivityId || '';
+    const hasLink = MME.enabled && activityId;
+    const moodleUrl = hasLink
+      ? (COURSE.moodleBase + '/mod/lti/view.php?id=' + activityId)
+      : '#';
+
+    const card = document.createElement('div');
+    card.className = 'article-card ' + (hasLink ? 'active' : 'inactive');
+
+    card.innerHTML =
+      '<div class="art-week">' +
+        '<span class="art-week-label">Week</span>' +
+        '<span class="art-week-num">' + w.week + '</span>' +
+      '</div>' +
+      '<div class="art-body">' +
+        '<div class="art-title">' + title + '</div>' +
+        '<div class="art-due">Due ' + w.due + '</div>' +
+      '</div>' +
+      '<div class="art-action">' +
+        (hasLink
+          ? '<a class="art-btn" href="' + moodleUrl + '" target="_blank" rel="noopener">' +
+              'Open in Perusall' +
+              '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+            '</a>'
+          : '<span class="art-btn-pending">Opening soon</span>'
+        ) +
+      '</div>';
+
+    grid.appendChild(card);
   });
-  main.appendChild(list);
-}
 </script>
 </body>
 </html>
