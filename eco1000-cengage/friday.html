@@ -5,159 +5,273 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Friday Focus · ECO 1000</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
     :root {
-      --crimson: #73000a; --gold: #b59a57; --gold-lt: #d4b97a; --gold-link: #7a5c1e;
-      --cream: #fcfaf7; --warm-gray: #f7f4ef;
-      --text: #2e2e2e; --muted: #6b6b6b; --white: #ffffff;
-      --shadow: 0 2px 14px rgba(115,0,10,0.07); --radius: 14px;
+      --crimson:#73000a;--crimson-dk:#5a0008;--gold:#b59a57;--gold-lt:#d4b97a;--gold-link:#7a5c1e;
+      --cream:#fcfaf7;--warm-gray:#f7f4ef;--text:#2e2e2e;--muted:#6b6b6b;--white:#ffffff;
+      --shadow:0 2px 16px rgba(115,0,10,0.07);--radius:14px;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
-    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
-    .header-inner { max-width: 860px; margin: 0 auto; }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
-    .back-link:hover { color: var(--white); }
-    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
-    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
-    header p.sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.35rem; font-weight: 300; }
-
-    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-
-    .grade-banner { background: var(--warm-gray); border: 1px solid rgba(181,154,87,0.25); border-radius: var(--radius); padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-    .grade-banner .gb-num { font-size: 2.2rem; font-weight: 700; color: var(--crimson); line-height: 1; }
-    .grade-banner .gb-label { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-    .grade-banner .gb-label strong { color: var(--text); font-weight: 600; display: block; }
-
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
-
-    .assign-list { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2rem; }
-    .assign-card {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15);
-      padding: 1.5rem; text-decoration: none; color: inherit;
-      display: flex; gap: 1.1rem; align-items: flex-start;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .assign-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
-    .ac-num { width: 40px; height: 40px; border-radius: 9px; background: var(--crimson); display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
-    .ac-body { flex: 1; }
-    .ac-title { font-size: 1rem; font-weight: 600; color: var(--crimson); line-height: 1.3; }
-    .ac-due { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
-    .ac-due strong { color: var(--text); }
-    .ac-action { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 500; color: var(--gold-link); margin-top: 0.6rem; }
-    .ac-action svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-
-    .also-section { margin-bottom: 2rem; }
-    .reading-card {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15);
-      padding: 1.3rem 1.4rem; display: flex; gap: 1rem; align-items: center;
-      text-decoration: none; color: inherit; margin-bottom: 0.75rem;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .reading-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
-    .rc-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    .rc-title { font-size: 0.9rem; font-weight: 500; color: var(--text); flex: 1; }
-    .rc-arrow svg { width: 14px; height: 14px; stroke: var(--muted); fill: none; stroke-width: 2; }
-
-    .note-box { background: var(--warm-gray); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; font-size: 0.85rem; line-height: 1.6; color: var(--text); }
-    .note-box strong { color: var(--crimson); }
-
-    @media (max-width: 600px) {
-      header { padding: 1.5rem 1.25rem; }
-      main { padding: 1.75rem 1rem 3rem; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Roboto',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+    header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .course-tag{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.3rem;}
+    header h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    header p.sub{color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+    .grade-banner{background:var(--warm-gray);border:1px solid rgba(181,154,87,0.25);border-radius:var(--radius);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;}
+    .gb-num{font-family:'Playfair Display',Georgia,serif;font-size:2.2rem;font-weight:700;color:var(--crimson);line-height:1;}
+    .gb-label{font-size:0.82rem;color:var(--muted);line-height:1.5;}
+    .gb-label strong{color:var(--text);font-weight:600;display:block;}
+    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;}
+    .assignment-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);overflow:hidden;margin-bottom:1.5rem;}
+    .card-header{background:var(--crimson);border-bottom:3px solid var(--gold);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;}
+    .card-num{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;}
+    .card-header-body{flex:1;}
+    .card-title{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.3;}
+    .card-due{font-size:0.75rem;color:var(--gold-lt);margin-top:0.2rem;font-weight:300;}
+    .card-weight{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(181,154,87,0.25);color:var(--gold-lt);padding:0.25rem 0.6rem;border-radius:4px;white-space:nowrap;}
+    .card-body{padding:1.5rem;}
+    .prompt-section{margin-bottom:1.4rem;}
+    .prompt-section:last-of-type{margin-bottom:0;}
+    .prompt-heading{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--crimson);margin-bottom:0.6rem;}
+    .prompt-text{font-size:0.88rem;color:var(--text);line-height:1.75;}
+    .prompt-text p{margin-bottom:0.75rem;}
+    .prompt-text p:last-child{margin-bottom:0;}
+    .quality-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:0.75rem;}
+    .quality-item{background:var(--warm-gray);border-radius:8px;padding:0.9rem 1.1rem;}
+    .quality-name{font-size:0.8rem;font-weight:700;color:var(--crimson);margin-bottom:0.25rem;text-transform:uppercase;letter-spacing:0.06em;}
+    .quality-desc{font-size:0.84rem;color:var(--muted);line-height:1.6;}
+    .question-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-top:0.6rem;}
+    .question-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.86rem;color:var(--text);line-height:1.55;}
+    .question-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.45rem;}
+    .divider{height:1px;background:rgba(181,154,87,0.2);margin:1.25rem 0;}
+    .note-box{background:var(--warm-gray);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.2rem;font-size:0.84rem;line-height:1.65;color:var(--text);margin-top:1rem;}
+    .note-box strong{color:var(--crimson);}
+    .ai-note{background:rgba(115,0,10,0.04);border:1px solid rgba(115,0,10,0.12);border-radius:8px;padding:1rem 1.2rem;font-size:0.84rem;line-height:1.65;color:var(--text);margin-top:1rem;}
+    .ai-note strong{color:var(--crimson);}
+    .action-row{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(181,154,87,0.15);}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--crimson);color:var(--white);text-decoration:none;font-size:0.85rem;font-weight:600;padding:0.7rem 1.4rem;border-radius:8px;transition:background 0.15s;}
+    .btn-primary:hover{background:var(--crimson-dk);}
+    .btn-primary svg{width:15px;height:15px;stroke:var(--white);fill:none;stroke-width:2;}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--crimson);text-decoration:none;font-size:0.85rem;font-weight:600;padding:0.7rem 1.4rem;border-radius:8px;border:1.5px solid var(--crimson);transition:all 0.15s;}
+    .btn-secondary:hover{background:var(--warm-gray);}
+    .btn-secondary svg{width:15px;height:15px;stroke:var(--crimson);fill:none;stroke-width:2;}
+    .viva-row{display:grid;grid-template-columns:90px 1fr;overflow:hidden;border-radius:8px;border:1px solid rgba(181,154,87,0.15);margin-bottom:0.75rem;}
+    .viva-label{background:var(--warm-gray);padding:0.9rem 1rem;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);display:flex;align-items:center;}
+    .viva-value{padding:0.9rem 1.1rem;font-size:0.88rem;color:var(--text);line-height:1.5;}
+    .viva-value a{color:var(--gold-link);text-decoration:none;font-weight:500;}
+    .viva-value a:hover{color:var(--crimson);}
+    footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:rgba(107,107,107,0.6);border-top:1px solid rgba(181,154,87,0.15);}
+    @media(max-width:600px){header{padding:1.5rem 1.25rem;}main{padding:1.75rem 1rem 3rem;}.card-body{padding:1.25rem;}.action-row{flex-direction:column;}.btn-primary,.btn-secondary{justify-content:center;}.viva-row{grid-template-columns:1fr;}.viva-label{border-right:none;border-bottom:1px solid rgba(181,154,87,0.15);}}
   </style>
 </head>
 <body>
+
 <header>
   <div class="header-inner">
-    <a class="back-link" id="backLink" href="#">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Course Home
-    </a>
+    <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Course Home</a>
     <p class="course-tag" id="courseTag"></p>
     <h1>Friday Focus: Critical Thinking</h1>
-    <p class="sub">15% of your course grade</p>
+    <p class="sub">Two assessments, 20% of your course grade</p>
   </div>
 </header>
 
 <main>
+
   <div class="grade-banner">
-    <div class="gb-num">15%</div>
+    <div class="gb-num">20%</div>
     <div class="gb-label">
       <strong>Course Grade Weight</strong>
-      Two written assignments asking you to apply economic reasoning to real-world scenarios.
-      Submit directly through Moodle by the deadline.
+      Two assessments, 10% each. A written narrative submitted in Week 2 and a live Narrative Viva conversation in Week 3.
     </div>
   </div>
 
-  <p class="section-label">Assignments</p>
-  <div class="assign-list" id="assignList"></div>
+  <p class="section-label">Friday Focus 1</p>
+  <div class="assignment-card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-header-body">
+        <div class="card-title">The Economic Narrative</div>
+        <div class="card-due" id="ff1Due"></div>
+      </div>
+      <span class="card-weight">10% of Grade</span>
+    </div>
+    <div class="card-body">
 
-  <p class="section-label">Background Readings</p>
-  <div class="also-section" id="readingList"></div>
+      <div class="prompt-section">
+        <div class="prompt-text">
+          <p>This assignment asks for something specific: a story from your own life, told carefully enough that a stranger could see it.</p>
+          <p>Not a summary of an economic concept. Not a report on something you read. A story, told in your own voice, about a moment when the economic forces you are studying this week were shaping what happened around you.</p>
+          <p>Your narrative should be 350 to 600 words of careful prose. It is not a journal entry and it is not a case study. It tells what happened, where, when, how, and why, with enough detail that someone who was not there can follow it.</p>
+        </div>
+      </div>
 
-  <div class="note-box">
-    <strong>What makes a strong Friday Focus?</strong> The best responses go beyond
-    summarizing — they take a clear position, use specific economic concepts by name,
-    and connect the scenario to something real in your own experience or observation.
-    Quality over length.
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">The Specificity Requirement</div>
+        <div class="prompt-text">
+          <p>Your narrative must be set in a specific, named, real place and time. Not "a store" but the actual store, the actual day, the actual circumstances. This is not a stylistic preference. It is a requirement. The specificity of your setting is the foundation of everything that follows in the viva conversation.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">What Makes a Strong Narrative</div>
+        <div class="prompt-text"><p>A strong narrative has three qualities.</p></div>
+        <div class="quality-list">
+          <div class="quality-item">
+            <div class="quality-name">Brevity</div>
+            <div class="quality-desc">Begin at the moment the story actually starts. Do not warm up with background your reader can figure out on their own. Every sentence earns its place.</div>
+          </div>
+          <div class="quality-item">
+            <div class="quality-name">Clarity</div>
+            <div class="quality-desc">Tell events in the order they happened. Make the cause of each action visible: not implied, not assumed, but present on the page.</div>
+          </div>
+          <div class="quality-item">
+            <div class="quality-name">Credibility</div>
+            <div class="quality-desc">Write characters and situations that are true to life. Your own experience is your authority here. The more specific and honest your account, the more credible it becomes.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">The Economic Requirement</div>
+        <div class="prompt-text"><p>Your narrative must be grounded in a real experience you can speak to fluently. You should be able to answer from memory:</p></div>
+        <ul class="question-list">
+          <li>What did someone stand to gain or lose?</li>
+          <li>What did they give up to get it?</li>
+          <li>Was there a moment when a small change in price, in time, or in effort tipped the decision?</li>
+          <li>Who or what brought the pieces together?</li>
+        </ul>
+        <div class="note-box">
+          You do not answer these questions in the writing. You answer them in the Narrative Viva. Your narrative does not need to use economic vocabulary.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">Submission</div>
+        <div class="prompt-text"><p>Submit through Moodle as a single document, Word or PDF. Your name and the date at the top. Nothing else.</p></div>
+      </div>
+
+      <div class="ai-note">
+        <strong>A note on artificial intelligence.</strong> You may use AI tools to help you think, outline, or revise. You may not use AI to write your narrative for you. If the narrative is not genuinely yours, the conversation will show it.
+      </div>
+
+      <div class="action-row">
+        <a class="btn-primary" id="ff1Submit" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Submit Narrative
+        </a>
+      </div>
+
+    </div>
   </div>
+
+  <p class="section-label">Friday Focus 2</p>
+  <div class="assignment-card">
+    <div class="card-header">
+      <div class="card-num">2</div>
+      <div class="card-header-body">
+        <div class="card-title">The Narrative Viva</div>
+        <div class="card-due" id="ff2Due"></div>
+      </div>
+      <span class="card-weight">10% of Grade</span>
+    </div>
+    <div class="card-body">
+
+      <div class="prompt-section">
+        <div class="prompt-text">
+          <p>A viva (pronounced <em>VEE-vah</em>) is a short conversation about a piece of writing you have already completed. Your Narrative Viva is a 12-minute Zoom conversation about the economic narrative you submitted for Friday Focus 1.</p>
+          <p>You will not be tested on definitions or asked to recite concepts. You will be asked about your story.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">When and Where</div>
+        <div class="viva-row"><div class="viva-label">Week</div><div class="viva-value">Week 3, July 19-24</div></div>
+        <div class="viva-row"><div class="viva-label">Duration</div><div class="viva-value">12 minutes</div></div>
+        <div class="viva-row"><div class="viva-label">Location</div><div class="viva-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank" rel="noopener">Zoom: elon.zoom.us/my/bdepro</a></div></div>
+        <div class="viva-row"><div class="viva-label">Sign Up</div><div class="viva-value"><a id="vivaSignup" href="#" target="_blank" rel="noopener">Google Sheet sign-up link</a></div></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
+        <div class="prompt-heading">What I Am Looking For</div>
+        <ul class="question-list">
+          <li><strong>Genuine ownership of your story.</strong> You were there. No one else was. The specific, honest detail that only you have is the most important thing you can bring.</li>
+          <li><strong>Economic thinking, not economic vocabulary.</strong> The concepts matter. The labels do not.</li>
+          <li><strong>Honest engagement.</strong> If you do not know the answer, say so. I am not timing your responses. I am listening to your thinking.</li>
+        </ul>
+      </div>
+
+      <div class="note-box">
+        <strong>If you freeze, say so.</strong> "I need a moment" is a complete answer.
+      </div>
+
+      <div class="action-row">
+        <a class="btn-primary" id="vivaSignupBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Sign Up for Your Viva
+        </a>
+        <a class="btn-secondary" id="prepGuideBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Preparation Guide
+        </a>
+      </div>
+
+    </div>
+  </div>
+
 </main>
 
+<footer><span id="footerText"></span></footer>
+
 <script>
-document.getElementById('backLink').href = PAGES.home;
+document.getElementById('backLink').href         = PAGES.home;
 document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+document.getElementById('footerText').textContent = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+document.getElementById('ff1Due').textContent    = `Due ${FRIDAY.assignments[0].due}`;
+document.getElementById('ff2Due').textContent    = `Week 3 · ${COURSE.weeks[2].dates}`;
 
-// Assignments — pulled from FRIDAY config
-const aList = document.getElementById('assignList');
-FRIDAY.assignments.forEach(a => {
-  const card = document.createElement('a');
-  card.className = 'assign-card';
-  card.href   = `${COURSE.moodleBase}/mod/assign/view.php?id=${a.moodleActivityId}`;
-  card.target = '_blank';
-  card.rel    = 'noopener';
-  card.innerHTML = `
-    <div class="ac-num">${a.id}</div>
-    <div class="ac-body">
-      <div class="ac-title">${a.title}</div>
-      <div class="ac-due">Due: <strong>${a.due}</strong></div>
-      <div class="ac-action">
-        Submit Assignment
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-    </div>
-  `;
-  aList.appendChild(card);
-});
+const ff1Id = FRIDAY.assignments[0].moodleActivityId;
+const ff1Btn = document.getElementById('ff1Submit');
+if (ff1Id) {
+  ff1Btn.href = `${COURSE.moodleBase}/mod/assign/view.php?id=${ff1Id}`;
+} else {
+  ff1Btn.style.opacity = '0.5';
+  ff1Btn.style.pointerEvents = 'none';
+}
 
-// Background readings (Moodle page resources)
-const READINGS = [
-  { title: "The Millionaire's Speeding Fine Explained With Economics", moodleId: "2784450" },
-  { title: "The Real Price of Being Home Alone",                       moodleId: "2784444" },
-  { title: 'The Economic Logic Behind the "No Tax on Tips" Policy',   moodleId: "2792969" },
-  { title: "How Do I Complete a Hypothesis Assignment? (Instructions)", moodleId: "2784440" },
-];
+const signupUrl = (typeof FRIDAY.vivaSignupUrl !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
+const vivaSignup  = document.getElementById('vivaSignup');
+const vivaSignupBtn = document.getElementById('vivaSignupBtn');
+if (signupUrl) {
+  vivaSignup.href    = signupUrl;
+  vivaSignupBtn.href = signupUrl;
+} else {
+  vivaSignupBtn.style.opacity = '0.5';
+  vivaSignupBtn.style.pointerEvents = 'none';
+  vivaSignup.textContent = 'Sign-up link coming soon';
+}
 
-const rList = document.getElementById('readingList');
-READINGS.forEach(r => {
-  const a = document.createElement('a');
-  a.className = 'reading-card';
-  a.href   = `${COURSE.moodleBase}/mod/page/view.php?id=${r.moodleId}`;
-  a.target = '_blank';
-  a.rel    = 'noopener';
-  a.innerHTML = `
-    <div class="rc-dot"></div>
-    <div class="rc-title">${r.title}</div>
-    <div class="rc-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-  `;
-  rList.appendChild(a);
-});
+document.getElementById('prepGuideBtn').href = (typeof PAGES.vivaPrep !== 'undefined' && PAGES.vivaPrep)
+  ? PAGES.vivaPrep
+  : `${COURSE.baseUrl}/viva-prep-guide.html`;
 </script>
 </body>
 </html>
