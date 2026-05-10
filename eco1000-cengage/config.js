@@ -90,19 +90,31 @@ const CENGAGE = {
   // Master link — all e-book and MindTap resources
   allResources: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539",
 
-  // Chapter Lecture Videos (Learn It)
+  // Chapter E-Book Reading (Learn It → Read)
+  reads: {
+    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110860",
+    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110864",
+    ch4:  "https://moodle.elon.edu/mod/lti/view.php?id=3110894",
+    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110869",
+    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110873",
+    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110877",
+    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110890",
+    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110881",
+    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110886",
+  },
+
+  // Chapter Lecture Videos (Learn It → Video)
   // UPDATE all URLs when you register a new Cengage course
-  // Keys must match CHAPTERS array keys above
   videos: {
-    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110857", // UPDATE: add video activity ID
-    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110861", // UPDATE: add video activity ID
-    ch4:  "", // UPDATE: add video activity ID
-    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110866", // UPDATE: add video activity ID
-    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110870", // UPDATE: add video activity ID
-    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110874", // UPDATE: add video activity ID
-    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110887", // UPDATE: add video activity ID
-    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110878", // UPDATE: add video activity ID
-    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110883", // UPDATE: add video activity ID
+    ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110861",
+    ch3:  "https://moodle.elon.edu/mod/lti/view.php?id=3110865",
+    ch4:  "https://moodle.elon.edu/mod/lti/view.php?id=3110895",
+    ch6:  "https://moodle.elon.edu/mod/lti/view.php?id=3110870",
+    ch7:  "https://moodle.elon.edu/mod/lti/view.php?id=3110874",
+    ch8:  "https://moodle.elon.edu/mod/lti/view.php?id=3110878",
+    ch16: "https://moodle.elon.edu/mod/lti/view.php?id=3110891",
+    ch26: "https://moodle.elon.edu/mod/lti/view.php?id=3110882",
+    ch28: "https://moodle.elon.edu/mod/lti/view.php?id=3110887",
   },
 
   // Achievement Badges (Badge It) — Chapter Quiz in Apply It section
