@@ -105,7 +105,7 @@
 document.getElementById('backLink').href = PAGES.home;
 document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
 // UPDATE these Moodle page IDs each semester after course copy
-document.getElementById('officeLink').href = `${COURSE.moodleBase}/mod/page/view.php?id=2802869`;
+document.getElementById('officeLink').href = PAGES.officeHours;
 
 // Weeks built from config — no hardcoded content needed
 const WEEKS = [
