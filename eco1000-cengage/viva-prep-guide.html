@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrative Viva: Preparation Guide · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a;--crimson-dk:#5a0008;--gold:#b59a57;--gold-lt:#d4b97a;--gold-link:#7a5c1e;
+      --cream:#fcfaf7;--warm-gray:#f7f4ef;--text:#2e2e2e;--muted:#6b6b6b;--white:#ffffff;
+      --shadow:0 2px 16px rgba(115,0,10,0.07);--radius:14px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Roboto',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+    header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .course-tag{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.3rem;}
+    header h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    header p.sub{color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;}
+    .section-label:first-child{margin-top:0;}
+
+    /* ── Content cards ── */
+    .guide-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);padding:1.5rem;margin-bottom:1.25rem;}
+    .guide-card-title{font-size:0.9rem;font-weight:700;color:var(--crimson);margin-bottom:0.75rem;}
+    .guide-text{font-size:0.88rem;color:var(--text);line-height:1.75;}
+    .guide-text p{margin-bottom:0.75rem;}
+    .guide-text p:last-child{margin-bottom:0;}
+    .guide-text em{font-style:italic;}
+    .guide-text strong{font-weight:600;color:var(--text);}
+
+    /* ── Three acts ── */
+    .act-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem;}
+    .act-item{border-left:4px solid var(--gold);padding:0.9rem 1.1rem;background:var(--warm-gray);border-radius:0 8px 8px 0;}
+    .act-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.35rem;}
+    .act-num{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--crimson);color:var(--white);padding:0.2rem 0.55rem;border-radius:4px;}
+    .act-time{font-size:0.72rem;color:var(--muted);font-weight:400;}
+    .act-title{font-size:0.9rem;font-weight:700;color:var(--crimson);}
+    .act-desc{font-size:0.84rem;color:var(--muted);line-height:1.6;}
+    .act-examples{margin-top:0.5rem;font-size:0.81rem;color:var(--muted);font-style:italic;line-height:1.55;}
+
+    /* ── Three things ── */
+    .thing-list{display:flex;flex-direction:column;gap:0.75rem;}
+    .thing-item{background:var(--warm-gray);border-radius:8px;padding:1rem 1.1rem;}
+    .thing-name{font-size:0.8rem;font-weight:700;color:var(--crimson);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;}
+    .thing-desc{font-size:0.84rem;color:var(--muted);line-height:1.6;}
+
+    /* ── Prep steps ── */
+    .step-list{display:flex;flex-direction:column;gap:1rem;}
+    .step-item{display:flex;gap:1rem;align-items:flex-start;}
+    .step-num{width:32px;height:32px;border-radius:50%;background:var(--crimson);color:var(--white);font-size:0.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-body{flex:1;}
+    .step-title{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;}
+    .step-desc{font-size:0.84rem;color:var(--muted);line-height:1.65;}
+
+    /* ── Question list ── */
+    .q-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-top:0.6rem;}
+    .q-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.86rem;color:var(--text);line-height:1.55;}
+    .q-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.45rem;}
+
+    /* ── Strong viva signals ── */
+    .signal-list{display:flex;flex-direction:column;gap:0.6rem;}
+    .signal-item{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.86rem;color:var(--text);line-height:1.55;}
+    .signal-dot{width:8px;height:8px;border-radius:50%;background:var(--crimson);flex-shrink:0;margin-top:0.4rem;}
+
+    /* ── Note and closing boxes ── */
+    .note-box{background:var(--warm-gray);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.2rem;font-size:0.84rem;line-height:1.65;color:var(--text);margin-top:1rem;}
+    .note-box strong{color:var(--crimson);}
+    .closing-box{background:var(--crimson);border-radius:var(--radius);padding:1.75rem;text-align:center;margin-top:2rem;}
+    .closing-box p{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.7;margin-bottom:0.5rem;}
+    .closing-box p:last-child{font-size:0.82rem;font-style:normal;color:var(--gold-lt);font-family:'Roboto',sans-serif;}
+
+    /* ── Scheduling ── */
+    .sched-row{display:grid;grid-template-columns:90px 1fr;overflow:hidden;border-radius:8px;border:1px solid rgba(181,154,87,0.15);margin-bottom:0.75rem;}
+    .sched-label{background:var(--warm-gray);padding:0.9rem 1rem;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);display:flex;align-items:center;}
+    .sched-value{padding:0.9rem 1.1rem;font-size:0.88rem;color:var(--text);line-height:1.5;}
+    .sched-value a{color:var(--gold-link);text-decoration:none;font-weight:500;}
+    .sched-value a:hover{color:var(--crimson);}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--crimson);color:var(--white);text-decoration:none;font-size:0.85rem;font-weight:600;padding:0.7rem 1.4rem;border-radius:8px;transition:background 0.15s;margin-top:1rem;}
+    .btn-primary:hover{background:var(--crimson-dk);}
+    .btn-primary svg{width:15px;height:15px;stroke:var(--white);fill:none;stroke-width:2;}
+
+    footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:rgba(107,107,107,0.6);border-top:1px solid rgba(181,154,87,0.15);}
+    @media(max-width:600px){header{padding:1.5rem 1.25rem;}main{padding:1.75rem 1rem 3rem;}.sched-row{grid-template-columns:1fr;}.sched-label{border-right:none;border-bottom:1px solid rgba(181,154,87,0.15);}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Friday Focus</a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>Narrative Viva: A Preparation Guide</h1>
+    <p class="sub">Read this after you submit your narrative and before your viva.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- What is a Narrative Viva -->
+  <p class="section-label">What is a Narrative Viva?</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>A viva (pronounced <em>VEE-vah</em>) is a short conversation about a piece of writing you have already completed. The word comes from the Latin <em>viva voce</em>, meaning "with living voice." Universities around the world use it, from undergraduate courses to doctoral defenses, to understand how a writer thinks, not just what they wrote.</p>
+      <p>Your Narrative Viva is a 12-minute Zoom conversation with me about the economic narrative you submitted for Friday Focus 1. You will not be tested on definitions or asked to recite concepts. You will be asked about your story.</p>
+    </div>
+  </div>
+
+  <!-- What happens -->
+  <p class="section-label">What Happens in the 12 Minutes</p>
+  <div class="guide-card">
+    <div class="guide-text"><p>The conversation has three parts. I will not follow a rigid script, but the shape is consistent.</p></div>
+    <div class="act-list">
+      <div class="act-item">
+        <div class="act-header">
+          <span class="act-num">Part 1</span>
+          <span class="act-time">approximately 4 minutes</span>
+        </div>
+        <div class="act-title">Your Story</div>
+        <div class="act-desc">We start with what you wrote. I will ask you to take me back into the moment you described.</div>
+        <div class="act-examples">Expect questions like: Where exactly were you? What were you thinking at the time? Why did you start the story where you did?</div>
+      </div>
+      <div class="act-item">
+        <div class="act-header">
+          <span class="act-num">Part 2</span>
+          <span class="act-time">approximately 4 minutes</span>
+        </div>
+        <div class="act-title">The Economics in Your Story</div>
+        <div class="act-desc">We look at what is happening economically in your narrative. I am not looking for vocabulary. I am looking for thinking.</div>
+        <div class="act-examples">Expect questions that ask you to explain what was driving the choices, trade-offs, and outcomes you described.</div>
+      </div>
+      <div class="act-item">
+        <div class="act-header">
+          <span class="act-num">Part 3</span>
+          <span class="act-time">approximately 4 minutes</span>
+        </div>
+        <div class="act-title">Looking Back</div>
+        <div class="act-desc">We step back from the story and ask what it reveals.</div>
+        <div class="act-examples">What would you add if you wrote it again? What surprised you when you thought about it economically? Is there a bigger question your story raises?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What I am looking for -->
+  <p class="section-label">What I Am Looking For</p>
+  <div class="guide-card">
+    <div class="guide-text"><p>Three things, in this order.</p></div>
+    <div class="thing-list">
+      <div class="thing-item">
+        <div class="thing-name">Genuine Ownership of Your Story</div>
+        <div class="thing-desc">You were there. No one else was. The most important thing you can bring to this conversation is the specific, honest detail that only you have. A vague answer about your own experience means you have not thought deeply about that experience.</div>
+      </div>
+      <div class="thing-item">
+        <div class="thing-name">Economic Thinking, Not Economic Vocabulary</div>
+        <div class="thing-desc">You do not need to say "incentive" or "marginal analysis" to demonstrate that you think like an economist. You need to be able to explain what someone stood to gain, what they gave up, what tipped the decision, and how the outcome came together. The concepts matter. The labels do not.</div>
+      </div>
+      <div class="thing-item">
+        <div class="thing-name">Honest Engagement</div>
+        <div class="thing-desc">If you do not know the answer to a question, say so. If a question surprises you, take a moment to think. A student who pauses, reconsiders, and then says something specific is doing better than a student who answers quickly with a rehearsed phrase. I am not timing your responses. I am listening to your thinking.</div>
+      </div>
+    </div>
+    <div class="note-box"><strong>If you freeze, say so.</strong> "I need a moment" is a complete answer.</div>
+  </div>
+
+  <!-- How to prepare -->
+  <p class="section-label">How to Prepare</p>
+  <div class="guide-card">
+    <div class="guide-text"><p>Do these four things before your viva. In this order.</p></div>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Read your narrative out loud.</div>
+          <div class="step-desc">Not silently. Out loud. You will hear things you cannot see on the page. Note anything that feels vague, rushed, or hard to follow. Those are the places the viva will probe.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Reconstruct the moment.</div>
+          <div class="step-desc">Close your laptop. Close your eyes. Put yourself back in the specific place and time you wrote about. What do you see? What do you hear? What are you thinking? What happens next? The more vividly you can recall the experience, the more you will have to say.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Answer the four economic questions.</div>
+          <div class="step-desc">From memory, without notes, answer these questions about your narrative:</div>
+          <ul class="q-list">
+            <li>What did someone stand to gain or lose?</li>
+            <li>What did they give up to get it?</li>
+            <li>Was there a moment when a small change in price, in time, or in effort tipped the decision?</li>
+            <li>Who or what brought the pieces together?</li>
+          </ul>
+          <div class="step-desc" style="margin-top:0.6rem;">You do not need complete answers. You need honest ones. If you cannot answer one of these questions, that is useful information: it means your narrative may not be grounded economically yet, and you should think about why before the viva.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Ask yourself one question.</div>
+          <div class="step-desc">"What is the most interesting thing about this story that I did not write down?" The viva will almost certainly go somewhere you did not anticipate. The best preparation is not memorizing what you wrote. Prepare to think beyond it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What careful prose means -->
+  <p class="section-label">What "Careful Prose" Means</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>The assignment asks for careful prose. Here is what that means in practice.</p>
+      <p>Careful prose is not formal academic writing. It does not use jargon, hedging language, or long sentences designed to sound impressive. It is also not a journal entry or a text message. It sits between the textbook and the diary.</p>
+      <p>A useful test: read a sentence from your narrative and ask whether you would say it out loud to a friend who was genuinely curious about what happened. If the answer is yes, it is probably careful prose. If it sounds like a textbook, simplify it. If it sounds like a diary, sharpen it.</p>
+      <p>Specific details make prose careful. "I was at the grocery store" is not careful. "I was in the cereal aisle of the Harris Teeter on Williamson Avenue on a Sunday morning when the price of eggs had just doubled" is careful. The second sentence is harder to write and harder to fake. That is the point.</p>
+    </div>
+  </div>
+
+  <!-- What a strong viva looks like -->
+  <p class="section-label">What a Strong Viva Looks Like</p>
+  <div class="guide-card">
+    <div class="guide-text"><p>A strong viva is not a performance. It is a conversation where both people are genuinely thinking.</p><p>A student who gives a strong viva does these things naturally.</p></div>
+    <div class="signal-list" style="margin-top:0.75rem;">
+      <div class="signal-item"><div class="signal-dot"></div><span>She speaks about her story in specific detail, using the actual names of places, people, and prices rather than generic descriptions.</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span>She connects the economic concepts to her experience without being asked to name them. She says "I knew if I waited, someone else would take it" rather than "this illustrates scarcity."</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span>She thinks out loud when a question is hard. She might say "I hadn't thought about it that way. Let me work through that." This is not a weakness. It is what economic thinking looks like in practice.</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span>She does not fill silence with words that sound confident but say nothing.</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span>She remembers that the viva is about her story. When in doubt, she returns to the specific moment she wrote about.</span></div>
+    </div>
+  </div>
+
+  <!-- Scheduling -->
+  <p class="section-label">Scheduling Your Viva</p>
+  <div class="guide-card">
+    <div class="sched-row"><div class="sched-label">When</div><div class="sched-value">Week 3, July 19-24</div></div>
+    <div class="sched-row"><div class="sched-label">Duration</div><div class="sched-value">12 minutes</div></div>
+    <div class="sched-row"><div class="sched-label">Zoom</div><div class="sched-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank" rel="noopener">elon.zoom.us/my/bdepro</a></div></div>
+    <div class="sched-row"><div class="sched-label">Sign Up</div><div class="sched-value"><a id="signupLink" href="#" target="_blank" rel="noopener">Google Sheet sign-up link</a></div></div>
+    <div class="guide-text" style="margin-top:0.75rem;">
+      <p>Slots are first-come, first-served. Sign up as soon as you submit your narrative. Do not wait until the last day.</p>
+      <p>If none of the available times work for you, email me before July 18 and we will find a time that does.</p>
+    </div>
+    <a class="btn-primary" id="signupBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Sign Up for Your Viva
+    </a>
+  </div>
+
+  <!-- Closing -->
+  <div class="closing-box">
+    <p>You wrote something real. The viva is your chance to talk about it with someone who has read it carefully and wants to understand what you were thinking.</p>
+    <p>That is all it is.</p>
+  </div>
+
+</main>
+
+<footer><span id="footerText"></span></footer>
+
+<script>
+document.getElementById('backLink').href         = (typeof PAGES !== 'undefined' && PAGES.friday) ? PAGES.friday : 'friday.html';
+document.getElementById('courseTag').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.semester}` : 'ECO 1000';
+document.getElementById('footerText').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}` : 'ECO 1000';
+
+const signupUrl = (typeof FRIDAY !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
+const signupLink = document.getElementById('signupLink');
+const signupBtn  = document.getElementById('signupBtn');
+if (signupUrl) {
+  signupLink.href = signupUrl;
+  signupBtn.href  = signupUrl;
+} else {
+  signupLink.textContent = 'Sign-up link coming soon';
+  signupBtn.style.opacity = '0.5';
+  signupBtn.style.pointerEvents = 'none';
+}
+</script>
+</body>
+</html>
