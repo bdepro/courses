@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Write Your Economic Narrative · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a;--crimson-dk:#5a0008;--gold:#b59a57;--gold-lt:#d4b97a;--gold-link:#7a5c1e;
+      --cream:#fcfaf7;--warm-gray:#f7f4ef;--text:#2e2e2e;--muted:#6b6b6b;--white:#ffffff;
+      --shadow:0 2px 16px rgba(115,0,10,0.07);--radius:14px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Roboto',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+    header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .course-tag{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.3rem;}
+    header h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    header p.sub{color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+
+    /* Section labels */
+    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;}
+    .section-label:first-child{margin-top:0;}
+
+    /* Guide cards */
+    .guide-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);padding:1.5rem;margin-bottom:1.25rem;}
+    .guide-text{font-size:0.88rem;color:var(--text);line-height:1.8;}
+    .guide-text p{margin-bottom:0.85rem;}
+    .guide-text p:last-child{margin-bottom:0;}
+    .guide-text strong{font-weight:600;color:var(--text);}
+
+    /* Six questions */
+    .question-block{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(181,154,87,0.15);}
+    .question-block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+    .q-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem;}
+    .q-num{width:28px;height:28px;border-radius:50%;background:var(--crimson);color:var(--white);font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .q-title{font-size:0.9rem;font-weight:700;color:var(--crimson);}
+    .q-desc{font-size:0.86rem;color:var(--text);line-height:1.7;margin-bottom:0.75rem;}
+
+    /* Examples */
+    .example-box{background:var(--warm-gray);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin-top:0.5rem;}
+    .example-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-link);margin-bottom:0.35rem;}
+    .example-text{font-size:0.84rem;color:var(--text);line-height:1.7;}
+
+    /* Weak/strong comparison */
+    .compare-pair{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.75rem;}
+    .compare-item{border-radius:8px;padding:0.85rem 1rem;}
+    .compare-weak{background:#fef4ef;border-left:3px solid #b7410e;}
+    .compare-strong{background:#f1f4e8;border-left:3px solid #788a38;}
+    .compare-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;}
+    .compare-weak .compare-label{color:#b7410e;}
+    .compare-strong .compare-label{color:#788a38;}
+    .compare-text{font-size:0.84rem;color:var(--text);line-height:1.65;}
+
+    /* First sentence examples */
+    .sentence-list{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.75rem;}
+    .sentence-item{background:var(--warm-gray);border-radius:8px;padding:0.85rem 1rem;font-size:0.86rem;color:var(--text);line-height:1.6;border-left:3px solid var(--crimson);}
+
+    /* Avoid list */
+    .avoid-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-top:0.6rem;}
+    .avoid-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.85rem;color:var(--muted);line-height:1.55;}
+    .avoid-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.45rem;}
+
+    /* Note and closing */
+    .note-box{background:var(--warm-gray);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.2rem;font-size:0.84rem;line-height:1.65;color:var(--text);margin-top:1rem;}
+    .note-box strong{color:var(--crimson);}
+    .closing-box{background:var(--crimson);border-radius:var(--radius);padding:1.75rem;text-align:center;margin-top:2rem;}
+    .closing-box p{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.7;margin-bottom:0.5rem;}
+    .closing-box p:last-child{font-size:0.82rem;font-weight:400;color:var(--gold-lt);font-family:'Roboto',sans-serif;}
+
+    /* Action row */
+    .action-row{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--crimson);text-decoration:none;font-size:0.85rem;font-weight:600;padding:0.7rem 1.4rem;border-radius:8px;border:1.5px solid var(--crimson);transition:all 0.15s;}
+    .btn-secondary:hover{background:var(--warm-gray);}
+    .btn-secondary svg{width:15px;height:15px;stroke:var(--crimson);fill:none;stroke-width:2;}
+
+    footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:rgba(107,107,107,0.6);border-top:1px solid rgba(181,154,87,0.15);}
+    @media(max-width:600px){header{padding:1.5rem 1.25rem;}main{padding:1.75rem 1rem 3rem;}.guide-card{padding:1.25rem;}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Friday Focus</a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>How to Write Your Economic Narrative</h1>
+    <p class="sub">A drafting guide for Friday Focus 1. Read this before you begin writing.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- Finding your story -->
+  <p class="section-label">Finding Your Story</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>You already have one.</p>
+      <p>You have stood in a line that moved too slowly and wondered why. You have watched a price change and felt something: surprise, frustration, or relief. You have made a choice between two things you wanted and could not have both. You have shown up early for something because you knew others would too.</p>
+      <p>Those moments are economic narratives. You lived them without naming them that way. This assignment asks you to go back into one of them and tell it carefully.</p>
+      <p>The best stories for this assignment are small. Not a major life decision, not a dramatic event. A specific moment, in a specific place, when the ordinary machinery of economic life became visible to you, even briefly. A transaction that felt off. A price that stopped you. A choice someone made that surprised you. A crowd that formed or dispersed for reasons you could almost explain.</p>
+      <p>You are not looking for a story that illustrates an economic concept. You are looking for a story that is genuinely yours. The economics will surface in the viva conversation. For now, find the moment.</p>
+    </div>
+  </div>
+
+  <!-- The six questions -->
+  <p class="section-label">The Six Questions</p>
+  <div class="guide-card">
+    <div class="guide-text"><p>Once you have a moment in mind, answer these six questions about it. Write your answers in rough notes first — not a draft, just honest answers. These questions are the building blocks of every strong narrative.</p></div>
+
+    <div style="margin-top:1.25rem;">
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">1</div><div class="q-title">What happened?</div></div>
+        <div class="q-desc">Describe the sequence of events in order. What came first? What came next? What was the outcome? Keep it simple for now — just the facts in order.</div>
+        <div class="example-box">
+          <div class="example-label">Example</div>
+          <div class="example-text">I was waiting to buy a concert ticket at the box office. The person ahead of me asked about a ticket for a different section. The attendant said that section had just sold out. The person left without buying anything. I bought the last ticket in my section.</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">2</div><div class="q-title">Who was there?</div></div>
+        <div class="q-desc">Name the people involved, including yourself. Give them enough detail that a reader can picture them. Two or three specific details per person is enough.</div>
+        <div class="example-box">
+          <div class="example-label">Example</div>
+          <div class="example-text">The person ahead of me was a woman about my mother's age, dressed like she had come straight from work. She had a credit card already out.</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">3</div><div class="q-title">When did this happen?</div></div>
+        <div class="q-desc">Name the specific time. Not "last year" but the actual season, day, or time of day. Time shapes the conditions — a Saturday morning is different from a Tuesday afternoon.</div>
+        <div class="example-box">
+          <div class="example-label">Example</div>
+          <div class="example-text">It was a Saturday afternoon in December, two weeks before the show.</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">4</div><div class="q-title">Where did it happen?</div></div>
+        <div class="q-desc">Name the specific place — the actual name, the actual city, the actual spot. Describe what it looked, sounded, or felt like. Place grounds the reader in the scene and grounds you in the memory.</div>
+        <div class="example-box">
+          <div class="example-label">Example</div>
+          <div class="example-text">I was standing at the box office window of the Paramount Theater on Franklin Street. The line behind me stretched to the sidewalk.</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">5</div><div class="q-title">How did it happen?</div></div>
+        <div class="q-desc">Describe the manner of the action: the pace, the tone, the texture of what unfolded. "Quickly" is not specific. "Before I could finish my sentence" is specific.</div>
+        <div class="example-box">
+          <div class="example-label">Example</div>
+          <div class="example-text">The whole exchange took about thirty seconds. The attendant said it flatly, without apology. The woman paused, looked at the screen, then just walked away.</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header"><div class="q-num">6</div><div class="q-title">Why did it happen?</div></div>
+        <div class="q-desc">This is the most important question and the hardest. What was driving each person's choices? What did they want? What were they willing to give up? What made them do what they did? This is where the economics lives. You do not need to name those forces yet — just describe them honestly.</div>
+        <div class="compare-pair">
+          <div class="compare-item compare-weak">
+            <div class="compare-label">Weak</div>
+            <div class="compare-text">She left because the ticket was too expensive.</div>
+          </div>
+          <div class="compare-item compare-strong">
+            <div class="compare-label">Strong</div>
+            <div class="compare-text">She had been willing to pay the full price for the seat she wanted. When that seat was gone, paying the same price for a different seat felt like a worse deal — even though the price had not changed.</div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:0.75rem;">The answers to the "why" question are your economic narrative. You will not label them in the writing. But you will be ready to talk about them in the viva.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Starting with place and time -->
+  <p class="section-label">Starting with Place and Time</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>If you are staring at a blank page, start here. Not with what happened — with where and when.</p>
+      <p>Write one sentence that puts your reader in the exact location. Name the store, the street, the building, the city. Name the season or the time of day. Be specific enough that someone could find the place on a map.</p>
+      <p>Then write one sentence about what the place was like at that moment. Was it busy or empty? Loud or quiet? What did you notice first when you arrived?</p>
+      <p>Those two sentences are your opening. Everything else grows from them.</p>
+    </div>
+    <div class="example-box" style="margin-top:1rem;">
+      <div class="example-label">Strong Opening</div>
+      <div class="example-text">"It was a Wednesday evening in late March, and the self-checkout line at the Trader Joe's on Lindbergh Avenue had twelve people in it even though three of the six machines were out of service."</div>
+    </div>
+    <div class="guide-text" style="margin-top:0.75rem;"><p>That sentence tells us when, where, and the beginning of a situation that needs explaining. The reader is already asking: why were three machines out of service? Why were twelve people still waiting? What happened next?</p></div>
+  </div>
+
+  <!-- Who did what -->
+  <p class="section-label">Who Did What</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>Once you have your place and time, bring in the people and the action.</p>
+      <p>Name yourself in the scene. What were you doing? What did you want? Then name anyone else who matters to the story — not every person present, just the ones whose choices shaped what happened.</p>
+      <p>Describe what each person did in concrete terms. Not "she seemed frustrated" but what she actually did that showed frustration. Not "there was a lot of demand" but what that demand looked like in the specific moment.</p>
+    </div>
+    <div class="compare-pair" style="margin-top:0.75rem;">
+      <div class="compare-item compare-weak">
+        <div class="compare-label">Weak</div>
+        <div class="compare-text">There were a lot of people there and everyone wanted the same thing.</div>
+      </div>
+      <div class="compare-item compare-strong">
+        <div class="compare-label">Strong</div>
+        <div class="compare-text">The man behind me had been checking his phone every thirty seconds. When the attendant announced the last available slot, he stepped forward before I had finished speaking.</div>
+      </div>
+    </div>
+    <div class="guide-text" style="margin-top:0.75rem;"><p>The second example shows the reader what happened. The first tells them a category.</p></div>
+  </div>
+
+  <!-- How and why -->
+  <p class="section-label">How and Why</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>These are the two elements that separate a strong narrative from a bland one — and they are where your economic thinking lives.</p>
+      <p><strong>How</strong> is about manner: the pace, the tone, the texture of what happened. Strong narratives are specific about how things unfolded. "Quickly" is not specific. "Before I could finish my sentence" is specific.</p>
+      <p><strong>Why</strong> is about cause: the motive or reason behind each action. This is the hardest element to write because it requires you to interpret, not just describe. But it is also the most important — without cause, your narrative has no argument.</p>
+      <p>Here is the test: after you write each action in your story, ask yourself "why did that happen?" If your answer is vague, push harder. What specifically made this person do this thing at this moment?</p>
+    </div>
+  </div>
+
+  <!-- Your first sentence -->
+  <p class="section-label">Your First Sentence</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>The first sentence of your narrative is the hardest to write and the most important to get right. Begin at the moment the story actually starts. Not before it. Not at the background. At the moment.</p>
+      <p>A strong first sentence does one of two things. It puts the reader in a specific place and time and makes them want to know what happened there. Or it names an action already in progress, dropping the reader into the middle of something that needs explaining.</p>
+    </div>
+
+    <div class="guide-text" style="margin-top:1rem;"><p><strong>What to avoid:</strong></p></div>
+    <ul class="avoid-list">
+      <li>Background before the story starts. "I have always been interested in economics" is warm-up. Cut it.</li>
+      <li>A definition or concept. "Supply and demand is one of the most important ideas in economics" is a textbook, not a narrative.</li>
+      <li>A general observation. "People make economic decisions every day" tells the reader nothing specific.</li>
+    </ul>
+
+    <div class="guide-text" style="margin-top:1rem;margin-bottom:0.5rem;"><p><strong>Strong first sentence examples:</strong></p></div>
+    <div class="sentence-list">
+      <div class="sentence-item">"The sign said the sale ended Sunday, but on Saturday afternoon there were only three left in my size."</div>
+      <div class="sentence-item">"I had been waiting forty minutes when the person at the front of the line walked away without buying anything."</div>
+      <div class="sentence-item">"My roommate and I wanted the same parking spot and we both knew it."</div>
+    </div>
+    <div class="guide-text" style="margin-top:0.75rem;"><p>Each of these drops the reader into a specific situation that already has tension, motive, and an implied question. That is what you are aiming for.</p></div>
+  </div>
+
+  <!-- Length -->
+  <p class="section-label">A Note on Length</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>The assignment asks for 350 to 600 words. That range is tighter than it looks.</p>
+      <p>350 words is about one and a half pages double-spaced. It is enough to cover all six elements with care — but only if you do not waste sentences. Every sentence must do something: establish place, move the action, reveal motive, or develop a character.</p>
+      <p>600 words is the ceiling, not the target. Do not pad to reach it. A tight 380-word narrative is better than a loose 580-word one.</p>
+      <p>The most common length problem is starting too early. If your narrative needs more than one sentence of background before the story begins, you have started in the wrong place. Cut back until you find the moment where something is actually happening.</p>
+    </div>
+    <div class="note-box">
+      <strong>A useful check:</strong> Read your draft and find the first sentence where something happens. That is probably where your narrative should start. Everything before it is likely warm-up.
+    </div>
+  </div>
+
+  <!-- The viva connection -->
+  <p class="section-label">The Writing and the Viva</p>
+  <div class="guide-card">
+    <div class="guide-text">
+      <p>When you sit down for the Narrative Viva, I will ask you about this story. I will ask you about the place, the people, the choices, and the forces that shaped what happened.</p>
+      <p>The more carefully you build this narrative — the more specific your place, the more honest your cause, the more precise your manner — the more you will have to say when we talk.</p>
+      <p>The writing and the conversation are one assignment, not two.</p>
+    </div>
+    <div class="action-row">
+      <a class="btn-secondary" id="prepGuideBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Read the Viva Preparation Guide
+      </a>
+    </div>
+  </div>
+
+  <div class="closing-box">
+    <p>You already have a story worth telling.</p>
+    <p>Go find the moment.</p>
+  </div>
+
+</main>
+
+<footer><span id="footerText"></span></footer>
+
+<script>
+document.getElementById('backLink').href         = (typeof PAGES !== 'undefined' && PAGES.friday) ? PAGES.friday : 'friday.html';
+document.getElementById('courseTag').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.semester}` : 'ECO 1000';
+document.getElementById('footerText').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}` : 'ECO 1000';
+document.getElementById('prepGuideBtn').href = (typeof PAGES !== 'undefined' && PAGES.vivaPrep) ? PAGES.vivaPrep : 'viva-prep-guide.html';
+</script>
+</body>
+</html>
