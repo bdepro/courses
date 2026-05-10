@@ -120,7 +120,7 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 7</span>
       <span class="chapter-name">Taking the Nation's Economic Pulse</span>
-      <span class="chapter-progress" id="prog-ch7">0 / 3</span>
+      <span class="chapter-progress" id="prog-ch7">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch7">
       <div class="check-item" data-id="ch7-read" data-chapter="ch7">
@@ -147,6 +147,15 @@
           <div class="check-desc">Find the <strong>Chapter 07 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Know the components of GDP cold — consumption, investment, government spending, net exports — and why each matters.</div>
           <span class="check-tag tag-badge">Badge · Apply It</span>
           <br><a class="check-link" href="#" id="link-ch7-badge" target="_blank" rel="noopener">Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch7-puzzle" data-chapter="ch7">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 7 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 07 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply GDP and national income concepts to a real-world scenario.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch7-puzzle" target="_blank" rel="noopener">Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
@@ -205,7 +214,7 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 16</span>
       <span class="chapter-name">Creating an Environment for Growth and Prosperity</span>
-      <span class="chapter-progress" id="prog-ch16">0 / 3</span>
+      <span class="chapter-progress" id="prog-ch16">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch16">
       <div class="check-item" data-id="ch16-read" data-chapter="ch16">
@@ -232,6 +241,15 @@
           <div class="check-desc">Find the <strong>Chapter 16 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Focus on property rights, rule of law, and entrepreneurship — these are the concepts the badge will test most heavily.</div>
           <span class="check-tag tag-badge">Badge · Apply It</span>
           <br><a class="check-link" href="#" id="link-ch16-badge" target="_blank" rel="noopener">Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div class="check-item" data-id="ch16-puzzle" data-chapter="ch16">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 16 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 16 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply growth and prosperity concepts to a real-world scenario involving institutions and economic development.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch16-puzzle" target="_blank" rel="noopener">Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
     </div>
@@ -265,11 +283,13 @@ const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COUR
 const L = {
   'link-ch7-video':  CENGAGE.videos.ch7  || moodleUrl,
   'link-ch7-badge':  CENGAGE.badges.ch7,
+  'link-ch7-puzzle': CENGAGE.puzzles.ch7,
   'link-ch8-video':  CENGAGE.videos.ch8  || moodleUrl,
   'link-ch8-badge':  CENGAGE.badges.ch8,
   'link-ch8-puzzle': CENGAGE.puzzles.ch8,
   'link-ch16-video': CENGAGE.videos.ch16 || moodleUrl,
   'link-ch16-badge': CENGAGE.badges.ch16,
+  'link-ch16-puzzle': CENGAGE.puzzles.ch16,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
