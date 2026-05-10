@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office Hours & One-on-One Support · ECO 1000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:    #73000a;
+      --crimson-dk: #5a0008;
+      --gold:       #b59a57;
+      --gold-lt:    #d4b97a;
+      --gold-link:  #7a5c1e;
+      --cream:      #fcfaf7;
+      --warm-gray:  #f7f4ef;
+      --text:       #2e2e2e;
+      --muted:      #6b6b6b;
+      --white:      #ffffff;
+      --shadow:     0 2px 16px rgba(115,0,10,0.07);
+      --shadow-md:  0 6px 24px rgba(115,0,10,0.12);
+      --radius:     14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+
+    /* ── Header ── */
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
+    header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; }
+    header p.sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.4rem; font-weight: 300; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ── Schedule card ── */
+    .schedule-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(181,154,87,0.15);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .schedule-header {
+      background: var(--warm-gray);
+      border-bottom: 1px solid rgba(181,154,87,0.2);
+      padding: 1rem 1.4rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .schedule-header svg { width: 18px; height: 18px; stroke: var(--crimson); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .schedule-header-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--crimson); }
+
+    .schedule-rows { display: flex; flex-direction: column; }
+    .schedule-row {
+      display: grid; grid-template-columns: 140px 1fr;
+      padding: 1rem 1.4rem;
+      border-bottom: 1px solid rgba(181,154,87,0.1);
+      align-items: start;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .row-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; padding-top: 0.1rem; }
+    .row-value { font-size: 0.92rem; color: var(--text); line-height: 1.5; }
+    .row-value a { color: var(--gold-link); text-decoration: none; font-weight: 500; }
+    .row-value a:hover { color: var(--crimson); }
+    .row-value strong { color: var(--crimson); font-weight: 600; }
+    .row-value a.zoom-btn { color: var(--white) !important; }
+    .row-value a.zoom-btn:hover { color: var(--white) !important; background: var(--crimson-dk); }
+
+    /* ── Zoom button ── */
+    .zoom-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--crimson); color: var(--white);
+      text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      padding: 0.65rem 1.4rem; border-radius: 8px;
+      margin-top: 0.5rem; transition: background 0.15s;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .zoom-btn:hover { background: var(--crimson-dk); }
+    .zoom-btn svg { width: 15px; height: 15px; stroke: var(--white); fill: none; stroke-width: 2; }
+
+    /* ── Section label ── */
+    .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 1rem; }
+
+    /* ── Info cards ── */
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(181,154,87,0.15);
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.1rem;
+    }
+    .info-card-title {
+      font-size: 1rem; font-weight: 700;
+      color: var(--crimson); margin-bottom: 0.6rem;
+      letter-spacing: 0.01em;
+    }
+    .info-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .info-card p + p { margin-top: 0.5rem; }
+
+    /* ── Email example ── */
+    .email-box {
+      background: var(--warm-gray);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1.2rem 1.4rem;
+      margin-top: 1rem;
+    }
+    .email-subject { font-size: 0.78rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+    .email-body { font-size: 0.85rem; color: var(--text); line-height: 1.75; font-style: italic; }
+
+    /* ── Topics list ── */
+    .topics-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.75rem; }
+    .topics-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+    .topics-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.45rem; }
+
+    /* ── Note box ── */
+    .note-box { background: var(--warm-gray); border-left: 4px solid var(--crimson); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; font-size: 0.85rem; line-height: 1.6; color: var(--text); margin-top: 1.5rem; }
+    .note-box strong { color: var(--crimson); }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.75rem 1rem 3rem; }
+      .schedule-row { grid-template-columns: 1fr; gap: 0.2rem; }
+      .row-label { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>Office Hours &amp; One-on-One Support</h1>
+    <p class="sub">I'm here to help — no question is too small.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- Schedule -->
+  <p class="section-label">When &amp; Where</p>
+  <div class="schedule-card">
+    <div class="schedule-header">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span class="schedule-header-title">Summer Session II 2026 — Office Hours Schedule</span>
+    </div>
+    <div class="schedule-rows">
+      <div class="schedule-row">
+        <span class="row-label">Begins</span>
+        <span class="row-value"><strong>Monday, July 6, 2026</strong></span>
+      </div>
+      <div class="schedule-row">
+        <span class="row-label">Days</span>
+        <span class="row-value">Monday, Wednesday, and Friday</span>
+      </div>
+      <div class="schedule-row">
+        <span class="row-label">Time</span>
+        <span class="row-value">10:30–11:45 a.m.</span>
+      </div>
+      <div class="schedule-row">
+        <span class="row-label">Location</span>
+        <span class="row-value">
+          Zoom
+          <br>
+          <a class="zoom-btn" href="https://elon.zoom.us/my/bdepro" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.89L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+            Join Zoom Room
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to sign up -->
+  <p class="section-label">How to Sign Up</p>
+  <div class="info-card">
+    <div class="info-card-title">Send an email ahead of time</div>
+    <p>If you'd like to meet during office hours, send me an email before we meet. In a perfect world, 24 hours' notice helps us both plan and gives me time to open the Zoom room for you. I'll reply to confirm the time and send a quick reminder before we meet.</p>
+    <p>If none of the scheduled times work for you, just say so in your email and we'll find something that fits.</p>
+
+    <div class="email-box">
+      <div class="email-subject">Subject: Office Hours Request – Wednesday</div>
+      <div class="email-body">
+        Hi Prof. Depro,<br><br>
+        I'd like to meet during office hours on Wednesday if you're free.
+        I have a few questions about the week's assignment and some planning for next semester.<br><br>
+        Thanks,<br>
+        [Your Name]
+      </div>
+    </div>
+  </div>
+
+  <!-- What to talk about -->
+  <p class="section-label">What Can We Talk About?</p>
+  <div class="info-card">
+    <div class="info-card-title">Anything that helps you move forward</div>
+    <p>There's no wrong reason to come to office hours. Some students arrive with specific questions about the week's assignment. Others want to think through bigger decisions. A few just want to check in.</p>
+    <ul class="topics-list">
+      <li>Questions about chapter readings, videos, or MindTap assignments</li>
+      <li>Help understanding a concept before attempting a badge or puzzle</li>
+      <li>Course registration and planning for future semesters</li>
+      <li>Exploring options in economics, consulting, or related fields</li>
+      <li>Anything else on your mind — just send a note and we'll go from there</li>
+    </ul>
+  </div>
+
+  <div class="note-box">
+    <strong>Can't make it to office hours?</strong> Send me a message through Moodle or email and we'll find another time. I want to make sure you have the support you need — the schedule is a starting point, not a barrier.
+  </div>
+
+</main>
+
+<script>
+document.getElementById('backLink').href     = PAGES.home;
+document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+</script>
+</body>
+</html>
