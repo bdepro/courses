@@ -146,7 +146,7 @@ const CENGAGE = {
   },
 
   // A+ Test Prep
-  testPrep: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539/nodeId/1024721370",
+  testPrep: "https://moodle.elon.edu/mod/lti/view.php?id=3110857",
 };
 
 // ================================================================
