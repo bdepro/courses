@@ -77,7 +77,7 @@ const PAGES = {
   puzzles:    `${COURSE.baseUrl}/puzzles.html`,
   badges:     `${COURSE.baseUrl}/badges.html`,
   friday:     `${COURSE.baseUrl}/friday.html`,
-};
+officeHours: `${COURSE.baseUrl}/office-hours.html`,};
 
 // ================================================================
 //  CENGAGE / MINDTAP LINKS
