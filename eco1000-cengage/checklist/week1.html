@@ -366,7 +366,7 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 1</span>
       <span class="chapter-name">The Economic Approach</span>
-      <span class="chapter-progress" id="prog-ch1">0 / 3</span>
+      <span class="chapter-progress" id="prog-ch1">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch1">
 
@@ -399,6 +399,18 @@
           <span class="check-tag tag-badge">Badge · Apply It</span>
           <br><a class="check-link" href="#" id="link-ch1-badge" target="_blank" rel="noopener">
             Open in MindTap <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="ch1-puzzle" data-chapter="ch1">
+        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Chapter 1 Economic Puzzle</div>
+          <div class="check-desc">Find the <strong>Chapter 01 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply the economic way of thinking to a real-world scenario. Your reasoning and use of economic concepts is what matters.</div>
+          <span class="check-tag tag-puzzle">Puzzle · Study It</span>
+          <br><a class="check-link" href="#" id="link-ch1-puzzle" target="_blank" rel="noopener">
+            Open Economic Puzzle <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -549,6 +561,7 @@ const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COUR
 const L = {
   'link-ch1-video':  CENGAGE.videos.ch1  || moodleUrl,
   'link-ch1-badge':  CENGAGE.badges.ch1,
+  'link-ch1-puzzle': CENGAGE.puzzles.ch1,
   'link-ch3-video':  CENGAGE.videos.ch3  || moodleUrl,
   'link-ch3-badge':  CENGAGE.badges.ch3,
   'link-ch3-puzzle': CENGAGE.puzzles.ch3,
@@ -605,7 +618,7 @@ function updateProgress() {
   }
 
   // Per-chapter progress
-  const chapters = ['ch1', 'ch3', 'ch4'];
+  const chapters = ['ch1', 'ch3', 'ch4', 'syllabus'];
   chapters.forEach(ch => {
     const total = chapterItems[ch] || 0;
     const done  = document.querySelectorAll(`.check-item.checked[data-chapter="${ch}"]`).length;
