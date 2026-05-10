@@ -65,19 +65,25 @@ const CHAPTERS = [
 //  UPDATE courseId above and this URL updates automatically.
 // ================================================================
 const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=78855`; // UPDATE each semester
+
+// ================================================================
+//  SECTION PAGE URLS
 //  These are stable GitHub Pages URLs — no Moodle IDs needed.
 //  UPDATE only if you rename or move files.
 // ================================================================
 const PAGES = {
-  home:       `${COURSE.baseUrl}/index.html`,
-  syllabus:   `${COURSE.baseUrl}/syllabus.html`,
-  checklists: `${COURSE.baseUrl}/checklists.html`,
-  cengage:    `${COURSE.baseUrl}/cengage.html`,
-  mme:        `${COURSE.baseUrl}/mme.html`,
-  puzzles:    `${COURSE.baseUrl}/puzzles.html`,
-  badges:     `${COURSE.baseUrl}/badges.html`,
-  friday:     `${COURSE.baseUrl}/friday.html`,
-officeHours: `${COURSE.baseUrl}/office-hours.html`,};
+  home:        `${COURSE.baseUrl}/index.html`,
+  syllabus:    `${COURSE.baseUrl}/syllabus.html`,
+  checklists:  `${COURSE.baseUrl}/checklists.html`,
+  cengage:     `${COURSE.baseUrl}/cengage.html`,
+  mme:         `${COURSE.baseUrl}/mme.html`,
+  puzzles:     `${COURSE.baseUrl}/puzzles.html`,
+  badges:      `${COURSE.baseUrl}/badges.html`,
+  friday:      `${COURSE.baseUrl}/friday.html`,
+  officeHours:    `${COURSE.baseUrl}/office-hours.html`,
+  vivaPrep:       `${COURSE.baseUrl}/viva-prep-guide.html`,
+  narrativeGuide: `${COURSE.baseUrl}/narrative-guide.html`,
+};
 
 // ================================================================
 //  CENGAGE / MINDTAP LINKS
@@ -172,8 +178,9 @@ const MME = {
 //  and these IDs after each course copy.
 // ================================================================
 const FRIDAY = {
+  vivaSignupUrl: "", // UPDATE: paste Google Sheet URL when ready
   assignments: [
-    { id: 1, title: "Friday Focus #1: Narrative",  due: "July 18, 12:00 PM", moodleActivityId: "" }, // UPDATE each semester
-    { id: 2, title: "Friday Focus #2: Invention",  due: "July 24, 12:00 PM", moodleActivityId: "" }, // UPDATE each semester
+    { id: 1, title: "Friday Focus #1: The Economic Narrative", due: "July 18, 12:00 p.m.", moodleActivityId: "" }, // UPDATE each semester
+    { id: 2, title: "Friday Focus #2: The Narrative Viva",     due: "July 19-24",          moodleActivityId: "" }, // UPDATE each semester
   ],
 };

@@ -174,6 +174,10 @@
           <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           Submit Narrative
         </a>
+        <a class="btn-secondary" id="narrativeGuideBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Writing Guide
+        </a>
       </div>
 
     </div>
@@ -212,11 +216,20 @@
 
       <div class="prompt-section">
         <div class="prompt-heading">What I Am Looking For</div>
-        <ul class="question-list">
-          <li><strong>Genuine ownership of your story.</strong> You were there. No one else was. The specific, honest detail that only you have is the most important thing you can bring.</li>
-          <li><strong>Economic thinking, not economic vocabulary.</strong> The concepts matter. The labels do not.</li>
-          <li><strong>Honest engagement.</strong> If you do not know the answer, say so. I am not timing your responses. I am listening to your thinking.</li>
-        </ul>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.6rem;">
+          <div style="background:var(--warm-gray);border-radius:8px;padding:0.9rem 1.1rem;">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--crimson);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Genuine Ownership of Your Story</div>
+            <div style="font-size:0.84rem;color:var(--muted);line-height:1.6;">You were there. No one else was. The specific, honest detail that only you have is the most important thing you can bring.</div>
+          </div>
+          <div style="background:var(--warm-gray);border-radius:8px;padding:0.9rem 1.1rem;">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--crimson);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Economic Thinking, Not Economic Vocabulary</div>
+            <div style="font-size:0.84rem;color:var(--muted);line-height:1.6;">The concepts matter. The labels do not.</div>
+          </div>
+          <div style="background:var(--warm-gray);border-radius:8px;padding:0.9rem 1.1rem;">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--crimson);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Honest Engagement</div>
+            <div style="font-size:0.84rem;color:var(--muted);line-height:1.6;">If you do not know the answer, say so. I am not timing your responses. I am listening to your thinking.</div>
+          </div>
+        </div>
       </div>
 
       <div class="note-box">
@@ -272,6 +285,10 @@ if (signupUrl) {
 document.getElementById('prepGuideBtn').href = (typeof PAGES.vivaPrep !== 'undefined' && PAGES.vivaPrep)
   ? PAGES.vivaPrep
   : `${COURSE.baseUrl}/viva-prep-guide.html`;
+
+document.getElementById('narrativeGuideBtn').href = (typeof PAGES.narrativeGuide !== 'undefined' && PAGES.narrativeGuide)
+  ? PAGES.narrativeGuide
+  : `${COURSE.baseUrl}/narrative-guide.html`;
 </script>
 </body>
 </html>
