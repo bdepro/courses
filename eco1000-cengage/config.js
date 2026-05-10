@@ -162,7 +162,7 @@ const CENGAGE = {
 //  Then add individual article URLs in the articles array.
 // ================================================================
 const MME = {
-  enabled: false,   // UPDATE to true when Perusall is ready
+  enabled: true,   // UPDATE to true when Perusall is ready
   perusallBase: "", // UPDATE: e.g. "https://perusall.com/courses/your-course-id"
   articles: [
     { id: 1, title: "The Millionaire's Speeding Fine Explained With Economics",   url: "" }, // UPDATE
