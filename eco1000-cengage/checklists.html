@@ -102,12 +102,10 @@
 </main>
 
 <script>
-document.getElementById('backLink').href = PAGES.home;
+document.getElementById('backLink').href         = PAGES.home;
 document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
-// UPDATE these Moodle page IDs each semester after course copy
-document.getElementById('officeLink').href = PAGES.office-hours;
+document.getElementById('officeLink').href       = PAGES.officeHours;
 
-// Weeks built from config — no hardcoded content needed
 const WEEKS = [
   { num: "Week 1", title: "How Markets Work",                           url: `${COURSE.baseUrl}/checklist/week1.html` },
   { num: "Week 2", title: "How Economies Perform and Grow",             url: `${COURSE.baseUrl}/checklist/week2.html` },
@@ -119,9 +117,9 @@ WEEKS.forEach((w, i) => {
   const weekData = COURSE.weeks[i];
   const a = document.createElement('a');
   a.className = 'week-card';
-  a.href   = w.url;
-  a.target = '_self';
-  a.rel    = 'noopener';
+  a.href      = w.url;
+  a.target    = '_self';
+  a.rel       = 'noopener';
   a.innerHTML = `
     <div class="week-stripe"></div>
     <div class="week-body">
