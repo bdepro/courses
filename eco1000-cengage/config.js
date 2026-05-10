@@ -88,7 +88,7 @@ const PAGES = {
 const CENGAGE = {
 
   // Master link — all e-book and MindTap resources
-  allResources: "https://gateway.cengage.com/rest/launchBasicLTI/lti2/235858/6025962358586072353251667889/3715539",
+  allResources: "https://moodle.elon.edu/mod/lti/view.php?id=3110897",
 
   // Chapter E-Book Reading (Learn It → Read)
   reads: {
