@@ -19,7 +19,7 @@
       --text: #2e2e2e;
       --muted: #6b6b6b;
       --white: #ffffff;
-      --green: #3d6b3a;
+      --green: #788a38;
       --teal: #527b82;
       --shadow: 0 2px 14px rgba(115,0,10,0.07);
       --radius: 12px;
@@ -35,7 +35,7 @@
     .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
     .back-link:hover { color: var(--white); }
     .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.3rem; }
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem; }
     header h1 { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; }
     .header-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.4rem; }
 
@@ -46,6 +46,12 @@
     .intro-block { margin-bottom: 2rem; }
     .intro-block p { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 0.6rem; }
     .intro-block p:last-child { margin-bottom: 0; }
+
+    /* GRADE BANNER */
+    .grade-banner { background: var(--warm-gray); border: 1px solid rgba(181,154,87,0.25); border-radius: var(--radius); padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .gb-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--crimson); line-height: 1; }
+    .gb-label { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .gb-label strong { color: var(--text); font-weight: 600; display: block; }
 
     /* PENDING BANNER */
     .pending-banner {
@@ -103,7 +109,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .art-week-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-lt); line-height: 1; }
+    .art-week-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75); line-height: 1; }
     .art-week-num { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.1; }
 
     .art-body { flex: 1; }
@@ -299,6 +305,15 @@
   <!-- INTRO -->
   <div class="intro-block">
     <p>Each week you read one short economics newsletter and discuss it with your classmates inside the text. These are not textbook readings. Each one takes a real situation and shows you the economic logic you did not know was there. After three weeks you will read an economics headline differently than you did before.</p>
+  </div>
+
+  <!-- GRADE BANNER -->
+  <div class="grade-banner">
+    <div class="gb-num">20%</div>
+    <div class="gb-label">
+      <strong>Course Grade Weight</strong>
+      Three newsletters, one per week. Read, annotate, and discuss inside Perusall. Each newsletter is worth approximately 6.7% of your course grade.
+    </div>
   </div>
 
   <!-- PENDING BANNER (shown when MME.enabled is false) -->
