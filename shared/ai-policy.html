@@ -52,7 +52,7 @@
       font-size: 0.92rem; font-weight: 500; color: var(--crimson); line-height: 1.6;
     }
     .policy-body {
-      font-size: 0.88rem; font-weight: 300; color: var(--text);
+      font-size: 0.88rem; font-weight: 400; color: var(--text);
       line-height: 1.75; display: flex; flex-direction: column; gap: 0.85rem;
     }
     .policy-note {
@@ -86,15 +86,18 @@
     }
     .resources-title { font-size: 1rem; font-weight: 600; color: var(--crimson); }
 
-    .resource-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .resource-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .resource-list li { display: flex; align-items: flex-start; gap: 10px; }
     .resource-list li::before {
-      content: ''; width: 3px; height: 3px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0; margin-top: 9px;
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 8px;
     }
     .resource-list a {
+      display: block;
+      padding: 0.6rem 0;
       font-size: 0.88rem; font-weight: 500; color: var(--gold-link);
       text-decoration: underline; text-underline-offset: 2px; line-height: 1.5; transition: color 0.15s;
+      min-height: 44px;
     }
     .resource-list a:hover { color: var(--crimson); }
     .resource-list .resource-desc {
@@ -110,8 +113,8 @@
 
 <header>
   <div class="header-inner">
-    <!-- UPDATE: href to match your course home page URL -->
-    <a class="back-link" href="https://bdepro.github.io/courses/eco1000/" target="_self">
+    <!-- UPDATE comment removed — back link is now dynamic -->
+    <a class="back-link" id="backLink" href="#" target="_self">
       <i data-lucide="arrow-left"></i> Back to Course Home
     </a>
     <h1>AI in This Course</h1>
@@ -136,12 +139,9 @@
     </div>
 
     <div class="policy-body">
-      <p>AI can be part of how you work — brainstorming, drafting, checking your logic — but the final submission needs to be yours.</p>
+      <p>AI can be part of how you work. Brainstorming, drafting, checking your logic are all fine. The final submission needs to be yours.</p>
       <p>Revise carefully. If you use AI, the ideas and voice in what you hand in should be recognizably your own. You will write short reflections on your AI use, and we will practice this together in class.</p>
       <p>If you are unsure whether something is appropriate, ask before you submit. That conversation is easy. The other one is not.</p>
-      <div class="policy-note">
-        This policy applies to all written work, check-ins, and assignments in this course unless otherwise specified on the assignment itself.
-      </div>
     </div>
   </div>
 
@@ -157,7 +157,7 @@
       <li>
         <div>
           <a href="https://studentguidetoai.org/" target="_blank">Student Guide to Artificial Intelligence</a>
-          <span class="resource-desc">A practical introduction to AI tools for students.</span>
+          <span class="resource-desc">Start here. A practical introduction to AI tools for students.</span>
         </div>
       </li>
       <li>
@@ -187,7 +187,17 @@
   Elon University · AI Policy · Shared across all courses
 </footer>
 
-<script>lucide.createIcons();</script>
+<script>
+  // Dynamic back link — returns student to whichever course page opened this
+  const backLink = document.getElementById('backLink');
+  const referrer = document.referrer;
+  if (referrer && referrer.includes('bdepro.github.io/courses')) {
+    backLink.href = referrer;
+  } else {
+    backLink.href = 'https://bdepro.github.io/courses/';
+  }
+  lucide.createIcons();
+</script>
 
 </body>
 </html>

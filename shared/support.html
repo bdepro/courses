@@ -60,8 +60,11 @@
       width: 18px; height: 18px; stroke: var(--gold-link); stroke-width: 1.75; fill: none; color: var(--gold-link);
     }
     .card-title { font-size: 0.92rem; font-weight: 600; color: var(--crimson); }
-    .card-body { font-size: 0.84rem; font-weight: 300; color: var(--text); line-height: 1.65; }
+    .card-body { font-size: 0.84rem; font-weight: 400; color: var(--text); line-height: 1.65; }
     .card-body a {
+      display: inline-block;
+      padding: 0.15rem 0;
+      min-height: 44px;
       color: var(--gold-link); text-decoration: underline;
       text-underline-offset: 2px; transition: color 0.15s;
     }
@@ -95,8 +98,7 @@
 
 <header>
   <div class="header-inner">
-    <!-- UPDATE: href to match your course home page URL -->
-    <a class="back-link" href="https://bdepro.github.io/courses/eco1000/" target="_self">
+    <a class="back-link" id="backLink" href="#" target="_self">
       <i data-lucide="arrow-left"></i> Back to Course Home
     </a>
     <h1>Help &amp; Support</h1>
@@ -109,16 +111,15 @@
 
   <div class="resource-grid">
 
-    <!-- Honor Code -->
+    <!-- Learning Assistance — leads with help, not policy -->
     <div class="resource-card">
       <div class="card-header">
-        <div class="card-icon"><i data-lucide="scale"></i></div>
-        <div class="card-title">Honor Code</div>
+        <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
+        <div class="card-title">Learning Assistance</div>
       </div>
       <div class="card-body">
-        Elon's honor pledge calls for Honesty, Integrity, Responsibility, and Respect. Read the
-        <a href="https://www.elon.edu/u/student-conduct/honor-code/">code of conduct policies</a>
-        in the student handbook.
+        The Koenigsberger Learning Center offers tutoring, success coaching, and academic support.
+        Email <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a> to get started.
       </div>
     </div>
 
@@ -129,21 +130,10 @@
         <div class="card-title">Academic Accommodations</div>
       </div>
       <div class="card-body">
-        Contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or
+        Contact the Office of Academic Accommodations and Accessibility at
+        <a href="tel:3362786568">336.278.6568</a> or
         <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>
         to arrange reasonable accommodations.
-      </div>
-    </div>
-
-    <!-- Learning Assistance -->
-    <div class="resource-card">
-      <div class="card-header">
-        <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
-        <div class="card-title">Learning Assistance</div>
-      </div>
-      <div class="card-body">
-        The Koenigsberger Learning Center offers tutoring, success coaching, and academic support.
-        Email <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a> to get started.
       </div>
     </div>
 
@@ -187,6 +177,19 @@
       </div>
     </div>
 
+    <!-- Honor Code — policy last, help first -->
+    <div class="resource-card">
+      <div class="card-header">
+        <div class="card-icon"><i data-lucide="scale"></i></div>
+        <div class="card-title">Honor Code</div>
+      </div>
+      <div class="card-body">
+        Elon's honor pledge calls for Honesty, Integrity, Responsibility, and Respect. Read the
+        <a href="https://www.elon.edu/u/student-conduct/honor-code/">code of conduct policies</a>
+        in the student handbook.
+      </div>
+    </div>
+
   </div>
 
   <!-- Footer strip -->
@@ -207,7 +210,17 @@
   Elon University · Campus Support Resources · Shared across all courses
 </footer>
 
-<script>lucide.createIcons();</script>
+<script>
+  // Dynamic back link — returns student to whichever course page opened this
+  const backLink = document.getElementById('backLink');
+  const referrer = document.referrer;
+  if (referrer && referrer.includes('bdepro.github.io/courses')) {
+    backLink.href = referrer;
+  } else {
+    backLink.href = 'https://bdepro.github.io/courses/';
+  }
+  lucide.createIcons();
+</script>
 
 </body>
 </html>
