@@ -12,6 +12,7 @@
   <title>ECO 1000 · Principles of Economics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
@@ -283,31 +284,29 @@
 
 <header>
   <div class="header-inner">
-    <!-- UPDATE: course code, semester, section -->
-    <span class="course-code">Elon University · ECO 1000</span>
+    <span class="course-code" id="courseCode">Elon University · ECO 1000</span>
     <h1>Principles of Economics</h1>
     <p class="tagline">Economics is everywhere. Every choice, every price, every policy.</p>
     <div class="meta">
-      <!-- UPDATE: semester, instructor, office, email -->
       <div class="meta-item">
         <span class="meta-label">Semester</span>
-        <span class="meta-value">Fall 2026</span>
+        <span class="meta-value" id="metaSemester"></span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Instructor</span>
-        <span class="meta-value">Professor Depro</span>
+        <span class="meta-value" id="metaInstructor"></span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Office</span>
-        <span class="meta-value">KoBC 122</span>
+        <span class="meta-value" id="metaOffice"></span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Zoom</span>
-        <span class="meta-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank" style="color:rgba(255,255,255,0.85); text-decoration:underline;">elon.zoom.us/my/bdepro</a></span>
+        <span class="meta-value"><a id="metaZoom" href="#" target="_blank" style="color:rgba(255,255,255,0.85); text-decoration:underline;"></a></span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Email</span>
-        <span class="meta-value">bdepro@elon.edu</span> <!-- UPDATE -->
+        <span class="meta-value" id="metaEmail"></span>
       </div>
     </div>
   </div>
@@ -326,71 +325,157 @@
 
   <p class="section-heading">Course Navigation</p>
 
-  <div class="cards">
+  <div class="cards" id="cardGrid"></div>
 
-    <!-- Card 1: Schedule — PRIMARY -->
-    <!-- UPDATE: href to your GitHub Pages schedule URL -->
-    <a class="card primary" href="https://bdepro.github.io/courses/eco1000/schedule.html" target="_blank">
-      <div class="card-icon"><i data-lucide="calendar"></i></div>
-      <div class="card-content">
-        <div class="card-title">How This Course Is Organized</div>
-        <div class="card-desc">Where we are and where we're going. Open this every week for slides and in-class examples.</div>
-      </div>
-      <span class="card-arrow">→</span>
-    </a>
-
-    <!-- Card 2: Assignments -->
-    <!-- UPDATE: href to your assignments page URL -->
-    <a class="card" href="#" target="_blank">
-      <div class="card-icon"><i data-lucide="clipboard-list"></i></div>
-      <div class="card-content">
-        <div class="card-title">What You'll Do</div>
-        <div class="card-desc">Check-ins, puzzles, and assignments, each explained with what it is and how it counts toward your grade.</div>
-      </div>
-      <span class="card-arrow">→</span>
-    </a>
-
-    <!-- Card 3: Syllabus -->
-    <!-- UPDATE: href to your syllabus page URL -->
-    <a class="card" href="#" target="_blank">
-      <div class="card-icon"><i data-lucide="book-open"></i></div>
-      <div class="card-content">
-        <div class="card-title">Course Syllabus &amp; Policies</div>
-        <div class="card-desc">Policies, expectations, and the grading breakdown. Read this first if you have a question about the rules.</div>
-      </div>
-      <span class="card-arrow">→</span>
-    </a>
-
-    <!-- Card 4: Support -->
-    <!-- UPDATE: href to your support page URL -->
-    <a class="card" href="https://bdepro.github.io/courses/shared/support.html" target="_blank">
-      <div class="card-icon"><i data-lucide="life-buoy"></i></div>
-      <div class="card-content">
-        <div class="card-title">Help &amp; Support</div>
-        <div class="card-desc">Tutoring, office hours, and the right person to call when something isn't working.</div>
-      </div>
-      <span class="card-arrow">→</span>
-    </a>
-
-    <!-- Card 5: AI Policy -->
-    <!-- UPDATE: href to your AI policy page URL -->
-    <a class="card" href="https://bdepro.github.io/courses/shared/ai-policy.html" target="_blank">
-      <div class="card-icon"><i data-lucide="cpu"></i></div>
-      <div class="card-content">
-        <div class="card-title">AI in This Course</div>
-        <div class="card-desc">What AI tools you can use in this course, and where the boundaries are.</div>
-      </div>
-      <span class="card-arrow">→</span>
-    </a>
-
-  </div>
 </main>
 
-<footer>
-  <!-- UPDATE: semester -->
-  ECO 1000 · Elon University · Fall 2026 · Professor Depro
+<footer id="footerText">
 </footer>
 
-<script>lucide.createIcons();</script>
+<script>
+// ================================================================
+//  Wire header from config.js
+// ================================================================
+document.getElementById('courseCode').textContent   = `Elon University · ${COURSE.code}`;
+document.getElementById('metaSemester').textContent = COURSE.semester;
+document.getElementById('metaInstructor').textContent = INSTRUCTOR.name;
+document.getElementById('metaOffice').textContent   = INSTRUCTOR.office;
+document.getElementById('metaEmail').textContent    = INSTRUCTOR.email;
+
+const zoomEl = document.getElementById('metaZoom');
+zoomEl.href        = INSTRUCTOR.zoomUrl;
+zoomEl.textContent = INSTRUCTOR.zoomUrl.replace('https://', '');
+
+document.getElementById('footerText').textContent =
+  `${COURSE.code} · Elon University · ${COURSE.semester} · ${INSTRUCTOR.name}`;
+
+// ================================================================
+//  Card definitions — each card tied to a FEATURES flag
+//  Add new cards here; set the matching flag in config.js
+// ================================================================
+const ALL_CARDS = [
+  {
+    feature:  'schedule',
+    primary:  true,
+    href:     PAGES.schedule,
+    icon:     'calendar',
+    title:    'How This Course Is Organized',
+    desc:     'Where we are and where we\'re going. Open this every week for slides and in-class examples.',
+  },
+  {
+    feature:  'assignments',
+    href:     PAGES.assignments,
+    icon:     'clipboard-list',
+    title:    'What You\'ll Do',
+    desc:     'Check-ins, puzzles, and assignments, each explained with what it is and how it counts toward your grade.',
+  },
+  {
+    feature:  'syllabus',
+    href:     PAGES.syllabus,
+    icon:     'book-open',
+    title:    'Course Syllabus & Policies',
+    desc:     'Policies, expectations, and the grading breakdown. Read this first if you have a question about the rules.',
+  },
+  {
+    feature:  'checklist',
+    href:     PAGES.checklists || '#',
+    icon:     'check-square',
+    title:    'Weekly Checklists',
+    desc:     'What to read, watch, and complete — week by week, with due dates. Start here every Monday.',
+  },
+  {
+    feature:  'textbook',
+    href:     PAGES.cengage || '#',
+    icon:     'book',
+    title:    'Textbook & Resources',
+    desc:     'Access your digital textbook and all study resources, organized by chapter.',
+  },
+  {
+    feature:  'badges',
+    href:     PAGES.badges || '#',
+    icon:     'award',
+    title:    'Achievement Badges',
+    desc:     'Earn a badge for each chapter by completing the chapter quiz.',
+  },
+  {
+    feature:  'puzzles',
+    href:     PAGES.puzzles || '#',
+    icon:     'puzzle',
+    title:    'Economic Puzzles',
+    desc:     'Chapter-by-chapter critical thinking challenges. One puzzle per chapter.',
+  },
+  {
+    feature:  'mme',
+    href:     PAGES.mme || '#',
+    icon:     'newspaper',
+    title:    'Monday Morning Economist',
+    desc:     'Weekly current-events readings with guided annotation. Real-world stories through an economic lens.',
+  },
+  {
+    feature:  'friday',
+    href:     PAGES.friday || '#',
+    icon:     'pen-line',
+    title:    'Friday Focus',
+    desc:     'Written narrative and Zoom conversation with your instructor.',
+  },
+  {
+    feature:  'support',
+    href:     PAGES.support,
+    icon:     'life-buoy',
+    title:    'Help & Support',
+    desc:     'Tutoring, office hours, and the right person to call when something isn\'t working.',
+  },
+  {
+    feature:  'aiPolicy',
+    href:     PAGES.aiPolicy,
+    icon:     'cpu',
+    title:    'AI in This Course',
+    desc:     'What AI tools you can use in this course, and where the boundaries are.',
+  },
+];
+
+// ================================================================
+//  Build cards — only render cards whose feature flag is true
+// ================================================================
+const grid = document.getElementById('cardGrid');
+let delay  = 0.05;
+
+ALL_CARDS.forEach(card => {
+  if (!FEATURES[card.feature]) return; // skip if feature is off
+
+  const a = document.createElement('a');
+  a.href   = card.href;
+  a.target = '_blank';
+  a.style.animationDelay = `${delay}s`;
+  delay += 0.07;
+
+  if (card.primary) {
+    a.className = 'card primary';
+    a.innerHTML = `
+      <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+      <div class="card-content">
+        <div class="card-title">${card.title}</div>
+        <div class="card-desc">${card.desc}</div>
+      </div>
+      <span class="card-arrow">→</span>
+    `;
+  } else {
+    a.className = 'card';
+    a.innerHTML = `
+      <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+      <div class="card-content">
+        <div class="card-title">${card.title}</div>
+        <div class="card-desc">${card.desc}</div>
+      </div>
+      <span class="card-arrow">→</span>
+    `;
+  }
+
+  grid.appendChild(a);
+});
+
+// Init Lucide icons after cards are built
+lucide.createIcons();
+</script>
 </body>
 </html>
