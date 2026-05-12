@@ -10,275 +10,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECO 1000 · Principles of Economics</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
-  <script src="config.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <style>
-    :root {
-      --crimson:   #73000a;
-      --crimson-dk:#5a0008;
-      --gold:      #b59a57;
-      --gold-lt:   #d4b97a;
-      --gold-link: #7a5c1e;
-      --cream:     #fcfaf7;
-      --warm-gray: #f7f4ef;
-      --text:      #2e2e2e;
-      --muted:     #6b6b6b;
-      --white:     #ffffff;
-      --shadow:    0 2px 16px rgba(115,0,10,0.08);
-      --shadow-lg: 0 8px 32px rgba(115,0,10,0.14);
-    }
+    /* ── Page-specific: home page only ── */
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    /* ── Header ── */
-    header {
-      background: var(--crimson);
-      border-bottom: 4px solid var(--gold);
-      padding: 2.5rem 2rem 2rem;
-    }
-    .header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .course-code {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold-lt);
-      margin-bottom: 0.25rem;
-    }
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 500;
-      color: var(--white);
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
+    /* Tagline — italic subtitle under h1 */
     .tagline {
       font-size: 1rem;
       font-weight: 300;
       font-style: italic;
-      color: var(--gold-lt);
+      color: rgba(255,255,255,0.82);
       margin-top: 0.5rem;
       letter-spacing: 0.01em;
     }
-    .meta {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .meta-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .meta-value {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.85);
-    }
 
-    /* ── Main ── */
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 4rem;
-    }
-
-    /* ── Welcome strip ── */
-    .welcome {
-      background: var(--white);
-      border-left: 4px solid var(--gold);
-      border-radius: 0 12px 12px 0;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow);
-    }
-    .welcome-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold-link);
-      margin-bottom: 0.5rem;
-    }
-    .welcome p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text);
-      font-weight: 300;
-    }
-    .welcome strong {
-      font-weight: 500;
-      color: var(--crimson);
-    }
-
-    /* ── Section heading ── */
-    .section-heading {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-left: 2px;
-    }
-
-    /* ── Cards grid ── */
+    /* 2-column card grid — home page layout */
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-
     @media (max-width: 560px) {
       .cards { grid-template-columns: 1fr; }
     }
 
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      box-shadow: var(--shadow);
-      border: 1.5px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(181,154,87,0.3);
-    }
-    .card:hover::before { transform: scaleX(1); }
-
-    /* Primary card — schedule */
-    .card.primary {
-      background: var(--crimson);
-      border-color: transparent;
-      grid-column: 1 / -1;
-      flex-direction: row;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .card.primary::before { background: var(--gold); }
-    .card.primary:hover { border-color: var(--gold); }
-    .card.primary .card-icon { background: rgba(255,255,255,0.15); color: var(--white); }
-    .card.primary .card-title { color: var(--white); }
-    .card.primary .card-desc  { color: rgba(255,255,255,0.75); }
-    .card.primary .card-arrow { color: var(--gold-lt); }
-
-    .card-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: var(--warm-gray);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-icon svg {
-      width: 22px; height: 22px;
-      stroke: var(--gold-link);
-      stroke-width: 1.75;
-      fill: none;
-    }
-    .card.primary .card-icon svg { stroke: rgba(255,255,255,0.9); }
-    .card-content { flex: 1; }
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--crimson);
-      letter-spacing: 0.01em;
-      margin-bottom: 0.3rem;
-    }
-    .card-desc {
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .card-arrow {
-      font-size: 1.1rem;
-      color: var(--gold);
-      margin-left: auto;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
-    .card:hover .card-arrow { transform: translateX(4px); }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-top: 1px solid #e8e4dd;
-      margin-top: 1rem;
-    }
-
-    /* ── Stagger animation on load ── */
-    .card {
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.4s ease forwards;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .card:nth-child(1) { animation-delay: 0.05s; }
-    .card:nth-child(2) { animation-delay: 0.12s; }
-    .card:nth-child(3) { animation-delay: 0.19s; }
-    .card:nth-child(4) { animation-delay: 0.26s; }
-    .card:nth-child(5) { animation-delay: 0.33s; }
-
-    .welcome {
-      opacity: 0;
-      animation: fadeUp 0.4s ease 0.02s forwards;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 560px) {
-      .card.primary { flex-direction: column; align-items: flex-start; }
-      .meta { gap: 1rem; }
-      header { padding: 1.75rem 1.25rem 1.5rem; }
-    }
+    /* Wider max-width for home page header */
+    .header-inner { max-width: 900px; }
+    main { max-width: 900px; padding: 2.5rem 1.25rem 4rem; }
   </style>
+  <script src="config.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
