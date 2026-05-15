@@ -89,32 +89,6 @@
     .intro-inner strong { color: var(--crimson); }
 
     /* ── Orientation banner ── */
-    .orientation {
-      background: var(--crimson);
-      padding: 1rem 2rem;
-    }
-    .orientation-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .orientation-text {
-      font-size: 0.85rem; color: rgba(255,255,255,0.85);
-      font-weight: 300; line-height: 1.5;
-    }
-    .orientation-text strong { color: var(--white); font-weight: 600; }
-    .orientation-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--gold); color: var(--crimson-dk);
-      text-decoration: none; font-size: 0.78rem; font-weight: 700;
-      padding: 0.5rem 1rem; border-radius: 6px;
-      white-space: nowrap; transition: background 0.15s;
-      flex-shrink: 0;
-    }
-    .orientation-cta:hover { background: var(--gold); color: #000000; }
-    .orientation-cta svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-
     /* ── Primary card (checklists) ── */
     .card-primary {
       background: var(--crimson);
@@ -289,7 +263,7 @@
       .card { padding: 1.4rem 1.25rem 1.2rem; }
       .card-primary { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .card-primary-chevron { display: none; }
-      .orientation { padding: 0.85rem 1.25rem; }
+    /* mobile styles continue */
       .arc-strip { gap: 0.4rem; }
     }
   </style>
@@ -303,20 +277,6 @@
     <p class="header-meta" id="headerMeta"></p>
   </div>
 </header>
-
-<div class="orientation">
-  <div class="orientation-inner">
-    <p class="orientation-text">
-      <strong>Welcome to ECO 1000.</strong>
-      Classes begin <span id="orientBegin"></span> — your first deadline is <span id="orientDue"></span>.
-      Start with your Week 1 checklist.
-    </p>
-    <a class="orientation-cta" id="orientLink" href="#">
-      Week 1 Checklist
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    </a>
-  </div>
-</div>
 
 <main>
   <!-- Primary action -->
@@ -423,11 +383,6 @@ document.getElementById('courseCode').textContent  = `${COURSE.courseCode} · ${
 document.getElementById('courseTitle').textContent = COURSE.courseTitle;
 document.getElementById('headerMeta').textContent  = `Elon University${COURSE.instructor ? ' · ' + COURSE.instructor : ''}`;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
-
-// Wire orientation banner
-document.getElementById('orientBegin').textContent = COURSE.dates.classesBegin;
-document.getElementById('orientDue').textContent   = COURSE.weeks[0].due;
-document.getElementById('orientLink').href         = PAGES.checklists;
 
 // Wire primary checklist card
 document.getElementById('checklistCard').href = PAGES.checklists;
