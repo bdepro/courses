@@ -267,7 +267,7 @@
   <div class="complete-msg" id="completeMsg">
     <h3>Week 2 Complete</h3>
     <p>Outstanding work. <span class="complete-gold">Six badges earned so far.</span><br>
-    Week 3 opens July 19 — Policy, Labor Markets, and Economic Outcomes.</p>
+    <span id="w2-teaser"></span></p>
   </div>
 </main>
 
@@ -279,6 +279,8 @@ document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${
 document.getElementById('weekMeta').textContent    = `${COURSE.weeks[1].dates} · All work due ${COURSE.weeks[1].due}`;
 document.getElementById('week2Due').textContent    = COURSE.weeks[1].due;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+var w2Teaser = document.getElementById('w2-teaser');
+if (w2Teaser) w2Teaser.textContent = COURSE.weeks[1].nextTeaser;
 document.getElementById('ff1Due').textContent      = FRIDAY.assignments[0].due;
 
 const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COURSE.moodleBase}/course/view.php?id=78855`;

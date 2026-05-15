@@ -243,13 +243,13 @@
   <!-- Scheduling -->
   <p class="section-label">Scheduling Your Viva</p>
   <div class="guide-card">
-    <div class="sched-row"><div class="sched-label">When</div><div class="sched-value">Week 3, July 19-24</div></div>
+    <div class="sched-row"><div class="sched-label">When</div><div class="sched-value" id="prep-viva-when"></div></div>
     <div class="sched-row"><div class="sched-label">Duration</div><div class="sched-value">12 minutes</div></div>
-    <div class="sched-row"><div class="sched-label">Zoom</div><div class="sched-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank" rel="noopener">elon.zoom.us/my/bdepro</a></div></div>
+    <div class="sched-row"><div class="sched-label">Zoom</div><div class="sched-value"><a id="prep-zoom" href="#" target="_blank" rel="noopener"></a></div></div>
     <div class="sched-row"><div class="sched-label">Sign Up</div><div class="sched-value"><a id="signupLink" href="#" target="_blank" rel="noopener">Google Sheet sign-up link</a></div></div>
     <div class="guide-text" style="margin-top:0.75rem;">
       <p>Slots are first-come, first-served. Sign up as soon as you submit your narrative. Do not wait until the last day.</p>
-      <p>If none of the available times work for you, email me before July 18 and we will find a time that does.</p>
+      <p>If none of the available times work for you, email me before <span id="prep-email-deadline"></span> and we will find a time that does.</p>
     </div>
     <a class="btn-primary" id="signupBtn" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -271,6 +271,19 @@
 document.getElementById('backLink').href         = (typeof PAGES !== 'undefined' && PAGES.friday) ? PAGES.friday : 'friday.html';
 document.getElementById('courseTag').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.semester}` : 'ECO 1000';
 document.getElementById('footerText').textContent = (typeof COURSE !== 'undefined') ? `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}` : 'ECO 1000';
+
+// Wire viva dates and zoom from config
+if (typeof COURSE !== 'undefined' && COURSE.viva) {
+  var prepWhen = document.getElementById('prep-viva-when');
+  if (prepWhen) prepWhen.textContent = COURSE.viva.week + ', ' + COURSE.viva.dates;
+  var prepEmailDeadline = document.getElementById('prep-email-deadline');
+  if (prepEmailDeadline) prepEmailDeadline.textContent = COURSE.viva.emailDeadline;
+  var prepZoom = document.getElementById('prep-zoom');
+  if (prepZoom) {
+    prepZoom.href = COURSE.instructor.zoomUrl;
+    prepZoom.textContent = COURSE.instructor.zoomDisplay;
+  }
+}
 
 const signupUrl = (typeof FRIDAY !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
 const signupLink = document.getElementById('signupLink');
