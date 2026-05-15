@@ -165,9 +165,9 @@ const MME = {
   enabled: true,    // UPDATE to true when Perusall is ready
   perusallBase: "", // UPDATE: e.g. "https://perusall.com/courses/your-course-id"
   articles: [
-    { week: 1, title: "Week 1 Newsletter", due: "July 11", moodleActivityId: "" }, // UPDATE title and ID when article chosen
-    { week: 2, title: "Week 2 Newsletter", due: "July 18", moodleActivityId: "" }, // UPDATE title and ID when article chosen
-    { week: 3, title: "Week 3 Newsletter", due: "July 24", moodleActivityId: "" }, // UPDATE title and ID when article chosen
+    { week: 1, title: "When People Cut Back on Instagram, Where Do They Go?", due: "July 11", moodleActivityId: "3112561" },
+    { week: 2, title: "The Real Price of Being Home Alone",                    due: "July 18", moodleActivityId: "3112562" },
+    { week: 3, title: "The Economics of the No Tax on Tips Policy",            due: "July 24", moodleActivityId: "3112563" },
   ],
 };
 

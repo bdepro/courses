@@ -97,16 +97,16 @@
     </a>
     <p class="course-tag" id="courseTag"></p>
     <h1>Achievement Badges</h1>
-    <p class="sub">12 badges × 5% each — 60% of your course grade</p>
+    <p class="sub">9 badges &mdash; 20% of your course grade</p>
   </div>
 </header>
 
 <main>
   <div class="grade-banner">
-    <div class="gb-num">60%</div>
+    <div class="gb-num">20%</div>
     <div class="gb-label">
       <strong>Course Grade Weight</strong>
-      12 badges, each worth 5%. Earn a badge by completing the MindTap mastery
+      9 badges. Earn a badge by completing the MindTap mastery
       assessment for that chapter. All badges are graded on completion.
     </div>
   </div>
@@ -142,10 +142,10 @@ const badgeCount = CHAPTERS.length;
 const badgePct   = Math.round(100 / badgeCount);
 
 // Update grade banner dynamically
-document.querySelector('.gb-num').textContent = '60%';
+document.querySelector('.gb-num').textContent = '20%';
 document.querySelector('.gb-label').innerHTML =
   `<strong>Course Grade Weight</strong>
-   ${badgeCount} badges, each worth approximately ${badgePct}%. Earn a badge by completing
+   ${badgeCount} badges. Earn a badge by completing
    the MindTap mastery assessment for that chapter. All badges are graded on completion.`;
 
 // Group chapters by week for display
