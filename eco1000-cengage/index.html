@@ -381,7 +381,7 @@ const CARDS = [
 // Wire header from config
 document.getElementById('courseCode').textContent  = `${COURSE.courseCode} · ${COURSE.semester}`;
 document.getElementById('courseTitle').textContent = COURSE.courseTitle;
-document.getElementById('headerMeta').textContent  = `Elon University${COURSE.instructor ? ' · ' + COURSE.instructor : ''}`;
+document.getElementById('headerMeta').textContent  = `Elon University${COURSE.instructor ? ' · ' + COURSE.instructor.nameShort : ''}`;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
 
 // Wire primary checklist card
