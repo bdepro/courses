@@ -12,11 +12,11 @@
 
 const COURSE = {
   moodleBase:  "https://moodle.elon.edu",   // UPDATE if institution changes
-  courseId:    "",                           // UPDATE each semester (Moodle course ID)
+  courseId:    "78855",                      // UPDATE each semester (Moodle course ID)
   semester:    "Summer Session II 2026",    // UPDATE each semester
   courseCode:  "ECO 1000",
   courseTitle: "Principles of Economics",
-  instructor:  "",                           // UPDATE: e.g. "Dr. Smith"
+  instructor:  "Prof. Depro",               // UPDATE each semester
   baseUrl:     "https://bdepro.github.io/courses/eco1000-cengage", // UPDATE if repo moves
 
   // UPDATE each semester
@@ -162,13 +162,12 @@ const CENGAGE = {
 //  Then add individual article URLs in the articles array.
 // ================================================================
 const MME = {
-  enabled: true,   // UPDATE to true when Perusall is ready
+  enabled: true,    // UPDATE to true when Perusall is ready
   perusallBase: "", // UPDATE: e.g. "https://perusall.com/courses/your-course-id"
   articles: [
-    { id: 1, title: "The Millionaire's Speeding Fine Explained With Economics",   url: "" }, // UPDATE
-    { id: 2, title: "The Real Price of Being Home Alone",                          url: "" }, // UPDATE
-    { id: 3, title: 'The Economic Logic Behind the "No Tax on Tips" Policy',      url: "" }, // UPDATE
-    { id: 4, title: "Salary Transparency Laws and Asymmetric Information",         url: "" }, // UPDATE
+    { week: 1, title: "Week 1 Newsletter", due: "July 11", moodleActivityId: "" }, // UPDATE title and ID when article chosen
+    { week: 2, title: "Week 2 Newsletter", due: "July 18", moodleActivityId: "" }, // UPDATE title and ID when article chosen
+    { week: 3, title: "Week 3 Newsletter", due: "July 24", moodleActivityId: "" }, // UPDATE title and ID when article chosen
   ],
 };
 
@@ -180,7 +179,7 @@ const MME = {
 const FRIDAY = {
   vivaSignupUrl: "", // UPDATE: paste Google Sheet URL when ready
   assignments: [
-    { id: 1, title: "Friday Focus #1: The Economic Narrative", due: "July 18, 12:00 p.m.", moodleActivityId: "" }, // UPDATE each semester
-    { id: 2, title: "Friday Focus #2: The Narrative Viva",     due: "July 19-24",          moodleActivityId: "" }, // UPDATE each semester
+    { id: 1, title: "Friday Focus 1: The Economic Narrative", due: "July 18, 12:00 p.m.", moodleActivityId: "3112496" }, // UPDATE each semester
+    { id: 2, title: "Friday Focus 2: The Narrative Viva",     due: "July 19-24",          moodleActivityId: "3112497" }, // UPDATE each semester
   ],
 };
