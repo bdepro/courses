@@ -263,7 +263,7 @@
   <!-- Friday Focus #2 reminder -->
   <div class="due-banner" style="margin-top:2rem;margin-bottom:0;">
     <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-    <span class="due-banner-text"><strong>Friday Focus #2</strong> is also due this week — <strong id="ff2Due"></strong>. This is your final submission for the course.</span>
+    <span class="due-banner-text"><strong>Friday Focus 2: The Narrative Viva</strong> takes place this week. <a id="ff2FridayLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Preparation guide and instructions &rarr;</a></span>
   </div>
 
   <div class="complete-msg" id="completeMsg">
@@ -285,7 +285,8 @@ document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${
 document.getElementById('weekMeta').textContent    = `${COURSE.weeks[2].dates} · Final deadline ${COURSE.weeks[2].due}`;
 document.getElementById('week3Due').textContent    = COURSE.weeks[2].due;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
-document.getElementById('ff2Due').textContent      = FRIDAY.assignments[1].due;
+var ff2FridayLink = document.getElementById('ff2FridayLink');
+if (ff2FridayLink) ff2FridayLink.href = PAGES.friday;
 
 const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COURSE.moodleBase}/course/view.php?id=78855`;
 

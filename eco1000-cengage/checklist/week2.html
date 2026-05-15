@@ -261,7 +261,7 @@
   <!-- Friday Focus reminder -->
   <div class="due-banner" style="margin-top:2rem;margin-bottom:0;">
     <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-    <span class="due-banner-text"><strong>Friday Focus #1</strong> is also due this week — <strong id="ff1Due"></strong>. Submit through Moodle.</span>
+    <span class="due-banner-text"><strong>Friday Focus 1</strong> is also due this week (<strong id="ff1Due"></strong>), and viva sign-ups close at the same time. <a id="ff1FridayLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Instructions, submission, and sign-up &rarr;</a></span>
   </div>
 
   <div class="complete-msg" id="completeMsg">
@@ -282,6 +282,8 @@ document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${
 var w2Teaser = document.getElementById('w2-teaser');
 if (w2Teaser) w2Teaser.textContent = COURSE.weeks[1].nextTeaser;
 document.getElementById('ff1Due').textContent      = FRIDAY.assignments[0].due;
+var ff1FridayLink = document.getElementById('ff1FridayLink');
+if (ff1FridayLink) ff1FridayLink.href = PAGES.friday;
 
 const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COURSE.moodleBase}/course/view.php?id=78855`;
 
