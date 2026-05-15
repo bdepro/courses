@@ -177,9 +177,9 @@ const MME = {
 //  and these IDs after each course copy.
 // ================================================================
 const FRIDAY = {
-  vivaSignupUrl: "", // UPDATE: paste Google Sheet URL when ready
+  vivaSignupUrl: "https://docs.google.com/spreadsheets/d/1qtnxOyXOJVDJVHwQigvNVxFM_Isf92wW3_iFTSeVNvw/edit?usp=drive_link", // UPDATE each semester
   assignments: [
     { id: 1, title: "Friday Focus 1: The Economic Narrative", due: "July 18, 12:00 p.m.", moodleActivityId: "3112496" }, // UPDATE each semester
-    { id: 2, title: "Friday Focus 2: The Narrative Viva",     due: "July 19-24",          moodleActivityId: "3112497" }, // UPDATE each semester
+    { id: 2, title: "Friday Focus 2: The Narrative Viva",     due: "July 19-24" }, // No submission -- graded directly in Moodle gradebook. Sign-up via vivaSignupUrl above.
   ],
 };
