@@ -3,24 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syllabus & Getting Started · ECO 1000</title>
+  <title>Syllabus | ECO 1000 Summer Session II 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script src="config.js"></script>
   <style>
+    /* ── Variables ── */
     :root {
-      --crimson: #73000a; --crimson-dk: #5a0008;
-      --gold: #b59a57; --gold-lt: #d4b97a; --gold-link: #7a5c1e; --teal: #527b82;
-      --cream: #fcfaf7; --warm-gray: #f7f4ef;
-      --text: #2e2e2e; --muted: #6b6b6b; --white: #ffffff;
-      --shadow: 0 2px 16px rgba(115,0,10,0.08);
-      --radius: 14px;
+      --crimson:   #73000a;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --green:     #788a38;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e0ddd5;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
 
-    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
-    .header-inner { max-width: 860px; margin: 0 auto; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Screen header ── */
+    .screen-header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .screen-header-inner { max-width: 860px; margin: 0 auto; }
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
       color: rgba(255,255,255,0.7); text-decoration: none;
@@ -29,140 +51,662 @@
     }
     .back-link:hover { color: var(--white); }
     .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem; }
-    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
+    .screen-eyebrow {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem;
+    }
+    .screen-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700; color: var(--white); line-height: 1.2;
+    }
+    .screen-actions {
+      margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;
+    }
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: #1a1a1a;
+      border: none; padding: 0.55rem 1.25rem;
+      font-family: var(--font); font-size: 0.82rem; font-weight: 700;
+      border-radius: 5px; cursor: pointer; letter-spacing: 0.04em;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .btn-print:hover { background: var(--gold-lt); }
+    .btn-print svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    /* ── Main layout ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
 
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; }
+    /* ── Print header (hidden on screen) ── */
+    .print-header { display: none; }
 
-    .resource-list { display: flex; flex-direction: column; gap: 1rem; }
-
-    .resource-card {
+    /* ── Section cards ── */
+    .syl-section {
       background: var(--white);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(181,154,87,0.15);
-      padding: 1.4rem 1.5rem;
-      display: flex; align-items: flex-start; gap: 1.1rem;
-      text-decoration: none; color: inherit;
-      transition: transform 0.15s, box-shadow 0.15s;
     }
-    .resource-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
-    .resource-card.static { cursor: default; pointer-events: none; }
-
-    .rc-icon {
-      width: 40px; height: 40px; border-radius: 9px;
-      background: var(--crimson); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .syl-section-header {
+      background: var(--crimson);
+      padding: 0.65rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .rc-icon svg { width: 20px; height: 20px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .syl-section-header.teal  { background: var(--teal); }
+    .syl-section-header.green { background: var(--green); }
+    .syl-section-header.gold  { background: var(--gold-link); }
+    .syl-num {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.15);
+      padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+    }
+    .syl-section-title {
+      font-size: 0.95rem; font-weight: 700; color: var(--white);
+    }
+    .syl-body { padding: 1.25rem 1.5rem; }
 
-    .rc-body { flex: 1; }
-    .rc-title { font-size: 0.97rem; font-weight: 600; color: var(--crimson); margin-bottom: 0.25rem; }
-    .rc-desc  { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+    /* ── Contact block ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+      font-size: 0.88rem;
+    }
+    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; }
+    .contact-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 80px;
+    }
+    .contact-value { color: var(--text); }
+    .contact-value a { color: var(--gold-link); text-decoration: none; }
+    .contact-value a:hover { color: var(--crimson); }
 
-    .rc-arrow { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 500; color: var(--gold-link); margin-top: 0.5rem; }
-    .rc-arrow svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    /* ── Prose ── */
+    .syl-body p { margin-bottom: 0.85rem; font-size: 0.93rem; }
+    .syl-body p:last-child { margin-bottom: 0; }
+    .syl-body .lead { font-size: 1rem; font-weight: 500; color: var(--text); }
 
-    .divider { height: 1px; background: rgba(181,154,87,0.2); margin: 2rem 0; }
+    /* ── Goals ── */
+    .goal-list { list-style: none; padding: 0; }
+    .goal-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.91rem;
+    }
+    .goal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .goal-num {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%; background: var(--crimson);
+      color: var(--white); font-size: 0.68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem;
+    }
+    .goal-text { line-height: 1.55; }
+    .goal-text strong { color: var(--text); font-weight: 600; }
 
-    .note-box {
-      background: #f0f7f8;
-      border-left: 4px solid var(--teal);
-      border-radius: 0 10px 10px 0;
-      padding: 1.1rem 1.3rem;
-      font-size: 0.85rem;
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .sched-table th {
+      background: var(--warm-gray);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 0.6rem 0.85rem; text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+    .sched-table td {
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .sched-table tr:last-child td { border-bottom: none; }
+    .sched-table tr:hover td { background: #fdfcfa; }
+    .week-tag {
+      display: inline-block;
+      background: var(--crimson); color: var(--white);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.15rem 0.5rem;
+      border-radius: 3px; white-space: nowrap;
+    }
+    .ch-tag {
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--gold-link); display: block; margin-bottom: 0.25rem;
+    }
+    .due-tag {
+      font-size: 0.75rem; color: var(--crimson); font-weight: 500;
+    }
+
+    /* ── Assessment blocks ── */
+    .assess-block {
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
+    }
+    .assess-block:last-child { margin-bottom: 0; }
+    .assess-header {
+      background: var(--warm-gray);
+      padding: 0.6rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .assess-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .assess-weight {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--crimson);
+      background: rgba(115,0,10,0.08);
+      padding: 0.15rem 0.55rem; border-radius: 3px;
+    }
+    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; }
+    .assess-body p { margin-bottom: 0.65rem; }
+    .assess-body p:last-child { margin-bottom: 0; }
+    .assess-sub {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 0.35rem; margin-top: 0.75rem;
+    }
+
+    /* ── Grade weight table ── */
+    .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .grade-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .grade-table td {
+      padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray);
+    }
+    .grade-table tr:last-child td { border-bottom: 2px solid var(--border); font-weight: 700; color: var(--text); }
+    .grade-pct { font-weight: 700; color: var(--crimson); font-size: 1rem; }
+
+    /* ── Grading scale table ── */
+    .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .scale-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.5rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .scale-table td { padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--warm-gray); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-grade { font-weight: 700; color: var(--crimson); }
+    .scale-desc { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── Policy callout ── */
+    .policy-callout {
+      background: #f0f7f8; border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.85rem 1rem;
+      margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.65;
+    }
+    .policy-callout strong { color: var(--teal); }
+
+    /* ── Policies list ── */
+    .policy-list { list-style: none; padding: 0; }
+    .policy-item {
+      font-size: 0.88rem; padding: 0.5rem 0 0.5rem 1rem;
+      border-bottom: 1px solid var(--warm-gray); position: relative;
       line-height: 1.6;
-      color: var(--text);
-      margin-top: 1.5rem;
     }
-    .note-box strong { color: var(--teal); }
+    .policy-item:last-child { border-bottom: none; }
+    .policy-item::before {
+      content: ""; position: absolute; left: 0; top: 0.85rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    }
 
+    /* ── Textbook block ── */
+    .textbook-block {
+      background: var(--warm-gray); border-radius: 6px;
+      padding: 0.85rem 1rem; font-size: 0.88rem;
+      line-height: 1.65; margin-bottom: 0.85rem;
+    }
+    .textbook-block cite { font-style: italic; }
+
+    /* ── Mobile ── */
     @media (max-width: 600px) {
-      header { padding: 1.5rem 1.25rem; }
-      main { padding: 1.75rem 1rem 3rem; }
-      .resource-card { padding: 1.2rem 1rem; gap: 0.85rem; }
+      .screen-header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .syl-body { padding: 1rem 1.1rem; }
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      body {
+        background: white; font-size: 10.5pt;
+        line-height: 1.55; color: #000;
+      }
+
+      .screen-header { display: none; }
+
+      .print-header {
+        display: block;
+        border-bottom: 3px solid #73000a;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .print-title {
+        font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2;
+      }
+      .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
+      .print-meta { font-size: 9pt; color: #666; margin-top: 0.5rem; }
+
+      main { max-width: 100%; padding: 0; margin: 0; }
+
+      .syl-section {
+        box-shadow: none; border: 1px solid #ccc;
+        border-radius: 0; margin-bottom: 1rem;
+        page-break-inside: avoid;
+      }
+      .syl-section-header {
+        padding: 0.4rem 0.75rem;
+      }
+      .syl-section-title { font-size: 9.5pt; }
+      .syl-num { display: none; }
+      .syl-body { padding: 0.65rem 0.85rem; }
+      .syl-body p { font-size: 10pt; margin-bottom: 0.5rem; }
+
+      .contact-grid { font-size: 9.5pt; gap: 0.2rem 1rem; }
+
+      .sched-table { font-size: 9pt; }
+      .sched-table th { padding: 0.4rem 0.65rem; }
+      .sched-table td { padding: 0.5rem 0.65rem; }
+
+      .assess-block { page-break-inside: avoid; }
+      .assess-body { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+
+      .grade-table { font-size: 10pt; }
+      .scale-table { font-size: 9.5pt; }
+
+      .goal-item { padding: 0.4rem 0; font-size: 9.5pt; }
+
+      .policy-callout { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+
+      a { color: #000; text-decoration: none; }
+      a[href]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+      a[href^="#"]::after { content: none; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <a class="back-link" id="backLink" href="#">
+
+<!-- SCREEN HEADER -->
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="https://moodle.elon.edu/course/view.php?id=78855">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Course Home
+      Moodle Course Page
     </a>
-    <p class="course-tag" id="courseTag"></p>
-    <h1>Course Syllabus, AI Policy &amp; Cengage Access</h1>
+    <p class="screen-eyebrow">ECO 1000 &middot; Summer Session II 2026</p>
+    <h1 class="screen-title">Course Syllabus</h1>
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save PDF
+      </button>
+    </div>
   </div>
-</header>
+</div>
+
+<!-- PRINT HEADER (hidden on screen) -->
+<div class="print-header">
+  <div class="print-title">Principles of Economics</div>
+  <div class="print-subtitle">ECO 1000 &mdash; Summer Session II 2026 &mdash; Brooks Depro</div>
+  <div class="print-meta">Love School of Business &middot; Department of Economics &middot; Elon University &middot; KoBC 122</div>
+</div>
 
 <main>
-  <p class="section-label">Documents &amp; Getting Started</p>
 
-  <div class="resource-list" id="resourceList"></div>
-
-  <div class="divider"></div>
-
-  <div class="note-box">
-    <strong>New to Cengage?</strong> If this is your first time using MindTap, click
-    "How to Access Your Cengage Materials" above and follow the step-by-step purchase
-    instructions before your first assignment is due. You will need your Cengage access code
-    or a credit card. Questions? Reach out during office hours.
-  </div>
-</main>
-
-<script>
-document.getElementById('backLink').href = PAGES.home;
-document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
-
-const RESOURCES = [
-  {
-    title: "Course Syllabus",
-    desc:  "Full syllabus including grading breakdown, course policies, schedule overview, and contact information.",
-    icon:  `<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
-    url:   () => `${COURSE.moodleBase}/mod/resource/view.php?id=2797838`,
-    label: "Open Syllabus",
-    external: true,
-  },
-  {
-    title: "How to Access Your Cengage Materials",
-    desc:  "Step-by-step purchase and login instructions for MindTap. Complete this before your first assignment.",
-    icon:  `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
-    url:   () => `${COURSE.moodleBase}/mod/page/view.php?id=2797825`,
-    label: "View Instructions",
-    external: true,
-  },
-  {
-    title: "AI Policy for This Course",
-    desc:  "Guidelines on how artificial intelligence tools may and may not be used in this course. Read before submitting any work.",
-    icon:  `<svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
-    url:   () => `${COURSE.moodleBase}/mod/page/view.php?id=2784204`,
-    label: "Read AI Policy",
-    external: true,
-  },
-];
-
-const list = document.getElementById('resourceList');
-RESOURCES.forEach(r => {
-  const a = document.createElement('a');
-  a.className = 'resource-card';
-  a.href   = r.url();
-  a.target = '_blank';
-  a.rel    = 'noopener';
-  a.innerHTML = `
-    <div class="rc-icon">${r.icon}</div>
-    <div class="rc-body">
-      <div class="rc-title">${r.title}</div>
-      <div class="rc-desc">${r.desc}</div>
-      <div class="rc-arrow">
-        ${r.label}
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  <!-- SECTION 1: COURSE INFORMATION -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 1</span>
+      <span class="syl-section-title">Course Information</span>
+    </div>
+    <div class="syl-body">
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="contact-label">Instructor</span>
+          <span class="contact-value">Brooks Depro</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">919-357-2316</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Department</span>
+          <span class="contact-value">Economics, Love School of Business</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:bdepro@elon.edu">bdepro@elon.edu</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">KoBC 122 &middot; Elon University</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Office Hours</span>
+          <span class="contact-value">10:30&ndash;11:45 a.m., Monday, Wednesday, and Friday</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Course Site</span>
+          <span class="contact-value">Moodle</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Zoom Room</span>
+          <span class="contact-value"><a href="https://elon.zoom.us/my/bdepro">elon.zoom.us/my/bdepro</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Session</span>
+          <span class="contact-value">July 6&ndash;24, 2026</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Textbook</span>
+          <span class="contact-value">Gwartney et al., 17th ed. (Cengage MindTap)</span>
+        </div>
       </div>
     </div>
-  `;
-  list.appendChild(a);
-});
-</script>
+  </div>
+
+  <!-- SECTION 2: WHY TAKE THIS COURSE -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 2</span>
+      <span class="syl-section-title">Why Should You Take This Course?</span>
+    </div>
+    <div class="syl-body">
+      <p class="lead">Everyday life has a hidden structure. Economic thinking is the tool that reveals it.</p>
+      <p>Why are rents high? How do incentives shape the choices you make every day? Why do good intentions sometimes lead to bad outcomes? In their book <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak describe what studying economics can do: it "can help you understand how your own livelihood is connected to the larger economic world, and introduce you to the ongoing conversation &mdash; among economists, government officials, business leaders, and ordinary citizens &mdash; about how to make the world more fair and rich and prosperous for all."</p>
+      <p>Three weeks of economic thinking will change how you read the news, make decisions, and understand the world around you. Economics is one lens among many. History, theology, and sociology illuminate things economics cannot. But learning to think economically &mdash; and to question it &mdash; is worth your time.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3: LEARNING GOALS -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 3</span>
+      <span class="syl-section-title">What Will You Be Able to Do?</span>
+    </div>
+    <div class="syl-body">
+      <ul class="goal-list">
+        <li class="goal-item">
+          <span class="goal-num">1</span>
+          <span class="goal-text"><strong>Ask useful economic questions</strong> &mdash; why do rents rise, what does a minimum wage actually do &mdash; and find evidence to answer them.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">2</span>
+          <span class="goal-text"><strong>Use economic and ethical reasoning</strong> to explain everyday choices and assess policy trade-offs, including cases where good intentions produce bad outcomes.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">3</span>
+          <span class="goal-text"><strong>Use data to spot patterns</strong> &mdash; in prices, employment, and growth &mdash; and make sense of how things relate in the real world.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">4</span>
+          <span class="goal-text"><strong>Apply economic thinking</strong> to situations you already know to examine what you assumed was true.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">5</span>
+          <span class="goal-text"><strong>Explain economic ideas in plain language</strong> so others can follow your thinking and join the conversation.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 4: COURSE MATERIALS -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 4</span>
+      <span class="syl-section-title">Course Materials</span>
+    </div>
+    <div class="syl-body">
+      <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Purchase access through the link in Moodle before your first assignment is due.</p>
+      <div class="textbook-block">
+        Gwartney, James D., Richard L. Stroup, Russell S. Sobel, and David A. Macpherson.
+        <cite>Economics: Private and Public Choice.</cite> 17th ed. Boston: Cengage Learning, 2025.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: COURSE SCHEDULE -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">Course Schedule</span>
+    </div>
+    <div class="syl-body" style="padding: 0;">
+      <table class="sched-table">
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Dates</th>
+            <th>Chapters</th>
+            <th>Topics</th>
+            <th>Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="week-tag">Week 1</span></td>
+            <td>July 6&ndash;11</td>
+            <td>
+              <span class="ch-tag">Ch 1, 3, 4</span>
+            </td>
+            <td>
+              The Economic Approach<br>
+              Demand, Supply, and the Market Process<br>
+              Demand and Supply: Applications and Extensions
+            </td>
+            <td><span class="due-tag">July 11<br>12:00 p.m.</span></td>
+          </tr>
+          <tr>
+            <td><span class="week-tag">Week 2</span></td>
+            <td>July 12&ndash;18</td>
+            <td>
+              <span class="ch-tag">Ch 7, 8, 16</span>
+            </td>
+            <td>
+              Taking the Nation's Economic Pulse<br>
+              Economic Fluctuations, Unemployment, and Inflation<br>
+              Creating an Environment for Growth and Prosperity
+            </td>
+            <td><span class="due-tag">July 18<br>12:00 p.m.</span></td>
+          </tr>
+          <tr>
+            <td><span class="week-tag">Week 3</span></td>
+            <td>July 19&ndash;24</td>
+            <td>
+              <span class="ch-tag">Ch 6, 26, 28</span>
+            </td>
+            <td>
+              The Economics of Political Action<br>
+              Earnings, Productivity, and the Job Market<br>
+              Income Inequality and Poverty
+            </td>
+            <td><span class="due-tag">July 24<br>12:00 p.m.</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding: 0.75rem 1.25rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--warm-gray);">
+        All badges, puzzles, and MME readings are due by 12:00 p.m. on the Friday of their week. Friday Focus assignments follow the schedule in the assessment descriptions below.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ASSESSMENTS -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">How Your Learning Will Be Assessed</span>
+    </div>
+    <div class="syl-body">
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Economic Puzzles</span>
+          <span class="assess-weight">30% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Each chapter includes an online puzzle in MindTap's Study It section. You apply economic reasoning to a real decision or scenario. Instant feedback tells you how your thinking holds up. You may attempt each puzzle question three times before the deadline, and your highest score counts. The goal is learning by doing, not getting it right the first time.</p>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Friday Focus: The Economic Narrative and Narrative Viva</span>
+          <span class="assess-weight">30% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Friday Focus uses the progymnasmata &mdash; a classical sequence of exercises for building arguments and understanding how language shapes reasoning. You will complete two assignments.</p>
+
+          <div class="assess-sub">Friday Focus 1: The Economic Narrative</div>
+          <p>A written submission due July 18, 12:00 p.m. You will tell a true story from your own life &mdash; 350 to 600 words &mdash; about a moment when you made a choice, encountered a price, or watched a market at work. The story must be specific and lived. You will submit a PDF through Moodle.</p>
+
+          <div class="assess-sub">Friday Focus 2: The Narrative Viva</div>
+          <p>A 12-minute live Zoom conversation with your instructor during Week 3 (July 19&ndash;24). You will discuss your narrative. The conversation moves through three acts: your story, the economics underneath it, and looking back -- both at what your story reveals and at what three weeks of economic thinking has done to how you see the world. Sign up for your appointment through Moodle. There is nothing to submit &mdash; the viva is a conversation, not a presentation. Showing up and engaging in good faith earns full credit.</p>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Achievement Badges</span>
+          <span class="assess-weight">20% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>At the end of each chapter, you complete a short assessment to show what you have learned. These badges focus on understanding, not memorization. Each badge gives you up to three attempts, and only your highest score counts. Think of them as practice with feedback &mdash; a chance to confirm what you know and correct what you missed.</p>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Monday Morning Economist</span>
+          <span class="assess-weight">20% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Each week you read one short economics newsletter and discuss it with your classmates inside the text using Perusall. These are not textbook readings. Each one takes a real situation and shows you the economic logic you did not know was there. You highlight sentences, write comments, and reply to classmates. Credit reflects steady effort and useful discussion. All three newsletters are available from the first day of class &mdash; you may work ahead.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7: GRADE WEIGHTS -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 7</span>
+      <span class="syl-section-title">Course Grade</span>
+    </div>
+    <div class="syl-body" style="padding: 0;">
+      <table class="grade-table">
+        <thead>
+          <tr>
+            <th>Assessment</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Economic Puzzles</td>
+            <td><span class="grade-pct">30%</span></td>
+          </tr>
+          <tr>
+            <td>Friday Focus</td>
+            <td><span class="grade-pct">30%</span></td>
+          </tr>
+          <tr>
+            <td>Achievement Badges</td>
+            <td><span class="grade-pct">20%</span></td>
+          </tr>
+          <tr>
+            <td>Monday Morning Economist</td>
+            <td><span class="grade-pct">20%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><span class="grade-pct">100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding: 0.75rem 1.25rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--warm-gray);">
+        The Moodle Gradebook calculates your final course grade and is the official record for the course. Check it regularly.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: GRADING SCALE -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 8</span>
+      <span class="syl-section-title">Grading Scale</span>
+    </div>
+    <div class="syl-body" style="padding: 0;">
+      <table class="scale-table">
+        <thead>
+          <tr>
+            <th>Moodle %</th>
+            <th>Letter Grade</th>
+            <th>Description</th>
+            <th>Quality Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&ge; 93%</td><td class="scale-grade">A</td><td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+          <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
+          <tr><td>&ge; 87%</td><td class="scale-grade">B+</td><td class="scale-desc"></td><td>3.3</td></tr>
+          <tr><td>&ge; 83%</td><td class="scale-grade">B</td><td class="scale-desc">Above Average</td><td>3.0</td></tr>
+          <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
+          <tr><td>&ge; 77%</td><td class="scale-grade">C+</td><td class="scale-desc"></td><td>2.3</td></tr>
+          <tr><td>&ge; 73%</td><td class="scale-grade">C</td><td class="scale-desc">Average</td><td>2.0</td></tr>
+          <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
+          <tr><td>&ge; 67%</td><td class="scale-grade">D+</td><td class="scale-desc"></td><td>1.3</td></tr>
+          <tr><td>&ge; 63%</td><td class="scale-grade">D</td><td class="scale-desc"></td><td>1.0</td></tr>
+          <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
+          <tr><td>&lt; 60%</td><td class="scale-grade">F</td><td class="scale-desc">Failure</td><td>0.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 9: AI POLICY -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">AI Policy</span>
+    </div>
+    <div class="syl-body">
+      <p>AI is part of how we learn, think, and write today. Like a search engine or a calculator, it can help if you use it with care. Used well, AI can give you new ideas, test your thinking, and help you write more clearly. Used without thought, it can take over your voice and weaken your learning. You are here to grow, not to copy.</p>
+      <p>You are welcome to use AI to support your process in this course. But AI should never do the whole job. All assignments must be genuinely yours.</p>
+      <div class="policy-callout">
+        <strong>If you use AI to help write something:</strong> revise the text so it fits your voice, make sure it is part of a larger piece that shows your thinking, and add a short note explaining how you used it. We will go over how to do that for each Moodle assignment.
+      </div>
+      <p>Ask if you are unsure. I would rather talk with you than watch you guess.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10: COURSE POLICIES -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 10</span>
+      <span class="syl-section-title">Course Policies</span>
+    </div>
+    <div class="syl-body">
+      <ul class="policy-list">
+        <li class="policy-item">
+          <strong>Course resources.</strong> All course resources &mdash; weekly checklists, assignment guides, and lecture videos &mdash; are accessible through the course page in Moodle.
+        </li>
+        <li class="policy-item">
+          <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon's Honor Code may result in a failing grade for the course.
+        </li>
+        <li class="policy-item">
+          <strong>Academic accommodations.</strong> Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
+        </li>
+        <li class="policy-item">
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is July 17, 2026. Students are responsible for initiating the official withdrawal process through OnTrack.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
 </body>
 </html>
