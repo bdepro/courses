@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syllabus | ECO 1000 Summer Session II 2026</title>
+  <title>Syllabus | ECO 1000</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
   <style>
     /* ── Variables ── */
     :root {
@@ -331,11 +332,11 @@
 <!-- SCREEN HEADER -->
 <div class="screen-header">
   <div class="screen-header-inner">
-    <a class="back-link" href="https://moodle.elon.edu/course/view.php?id=78855">
+    <a class="back-link" id="syl-back" href="#">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Moodle Course Page
     </a>
-    <p class="screen-eyebrow">ECO 1000 &middot; Summer Session II 2026</p>
+    <p class="screen-eyebrow" id="syl-eyebrow"></p>
     <h1 class="screen-title">Course Syllabus</h1>
     <div class="screen-actions">
       <button class="btn-print" onclick="window.print()">
@@ -349,8 +350,8 @@
 <!-- PRINT HEADER (hidden on screen) -->
 <div class="print-header">
   <div class="print-title">Principles of Economics</div>
-  <div class="print-subtitle">ECO 1000 &mdash; Summer Session II 2026 &mdash; Brooks Depro</div>
-  <div class="print-meta">Love School of Business &middot; Department of Economics &middot; Elon University &middot; KoBC 122</div>
+  <div class="print-subtitle" id="syl-print-subtitle"></div>
+  <div class="print-meta" id="syl-print-meta"></div>
 </div>
 
 <main>
@@ -365,11 +366,11 @@
       <div class="contact-grid">
         <div class="contact-row">
           <span class="contact-label">Instructor</span>
-          <span class="contact-value">Brooks Depro</span>
+          <span class="contact-value" id="syl-name"></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Phone</span>
-          <span class="contact-value">919-357-2316</span>
+          <span class="contact-value" id="syl-phone"></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Department</span>
@@ -377,15 +378,15 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Email</span>
-          <span class="contact-value"><a href="mailto:bdepro@elon.edu">bdepro@elon.edu</a></span>
+          <span class="contact-value"><a id="syl-email-link" href="#"></a></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Location</span>
-          <span class="contact-value">KoBC 122 &middot; Elon University</span>
+          <span class="contact-value" id="syl-office"></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Office Hours</span>
-          <span class="contact-value">10:30&ndash;11:45 a.m., Monday, Wednesday, and Friday</span>
+          <span class="contact-value" id="syl-hours"></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Course Site</span>
@@ -393,11 +394,11 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Zoom Room</span>
-          <span class="contact-value"><a href="https://elon.zoom.us/my/bdepro">elon.zoom.us/my/bdepro</a></span>
+          <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank" rel="noopener"></a></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Session</span>
-          <span class="contact-value">July 6&ndash;24, 2026</span>
+          <span class="contact-value" id="syl-dates"></span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Textbook</span>
@@ -487,7 +488,7 @@
         <tbody>
           <tr>
             <td><span class="week-tag">Week 1</span></td>
-            <td>July 6&ndash;11</td>
+            <td id="sched-w1-dates"></td>
             <td>
               <span class="ch-tag">Ch 1, 3, 4</span>
             </td>
@@ -496,11 +497,11 @@
               Demand, Supply, and the Market Process<br>
               Demand and Supply: Applications and Extensions
             </td>
-            <td><span class="due-tag">July 11<br>12:00 p.m.</span></td>
+            <td><span class="due-tag" id="sched-w1-due"></span></td>
           </tr>
           <tr>
             <td><span class="week-tag">Week 2</span></td>
-            <td>July 12&ndash;18</td>
+            <td id="sched-w2-dates"></td>
             <td>
               <span class="ch-tag">Ch 7, 8, 16</span>
             </td>
@@ -509,11 +510,11 @@
               Economic Fluctuations, Unemployment, and Inflation<br>
               Creating an Environment for Growth and Prosperity
             </td>
-            <td><span class="due-tag">July 18<br>12:00 p.m.</span></td>
+            <td><span class="due-tag" id="sched-w2-due"></span></td>
           </tr>
           <tr>
             <td><span class="week-tag">Week 3</span></td>
-            <td>July 19&ndash;24</td>
+            <td id="sched-w3-dates"></td>
             <td>
               <span class="ch-tag">Ch 6, 26, 28</span>
             </td>
@@ -522,7 +523,7 @@
               Earnings, Productivity, and the Job Market<br>
               Income Inequality and Poverty
             </td>
-            <td><span class="due-tag">July 24<br>12:00 p.m.</span></td>
+            <td><span class="due-tag" id="sched-w3-due"></span></td>
           </tr>
         </tbody>
       </table>
@@ -559,10 +560,10 @@
           <p>Friday Focus uses the progymnasmata &mdash; a classical sequence of exercises for building arguments and understanding how language shapes reasoning. You will complete two assignments.</p>
 
           <div class="assess-sub">Friday Focus 1: The Economic Narrative</div>
-          <p>A written submission due July 18, 12:00 p.m. You will tell a true story from your own life &mdash; 350 to 600 words &mdash; about a moment when you made a choice, encountered a price, or watched a market at work. The story must be specific and lived. You will submit a PDF through Moodle.</p>
+          <p>A written submission due <span id="ff1-due"></span>. You will tell a true story from your own life &mdash; 350 to 600 words &mdash; about a moment when you made a choice, encountered a price, or watched a market at work. The story must be specific and lived. You will submit a PDF through Moodle.</p>
 
           <div class="assess-sub">Friday Focus 2: The Narrative Viva</div>
-          <p>A 12-minute live Zoom conversation with your instructor during Week 3 (July 19&ndash;24). You will discuss your narrative. The conversation moves through three acts: your story, the economics underneath it, and reflection. Reflection covers two things &mdash; what your story reveals, and one question about how three weeks of economics has changed how you see the world. Sign up for your appointment through Moodle. There is nothing to submit &mdash; the viva is a conversation, not a presentation. Showing up and engaging in good faith earns full credit.</p>
+          <p>A 12-minute live Zoom conversation with your instructor during <span id="viva-dates"></span>. You will discuss your narrative. The conversation moves through three acts: your story, the economics underneath it, and reflection. Reflection covers two things &mdash; what your story reveals, and one question about how three weeks of economics has changed how you see the world. Sign up for your appointment through Moodle. There is nothing to submit &mdash; the viva is a conversation, not a presentation. Showing up and engaging in good faith earns full credit.</p>
         </div>
       </div>
 
@@ -700,7 +701,7 @@
           <strong>Academic accommodations.</strong> Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
         </li>
         <li class="policy-item">
-          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is July 17, 2026. Students are responsible for initiating the official withdrawal process through OnTrack.
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <span id="syl-withdraw"></span>. Students are responsible for initiating the official withdrawal process through OnTrack.
         </li>
       </ul>
     </div>
@@ -708,5 +709,52 @@
 
 </main>
 
+<script>
+  // Wire all dynamic values from config.js
+
+  // Screen header
+  document.getElementById('syl-back').href = MOODLE_COURSE;
+  document.getElementById('syl-eyebrow').textContent = COURSE.courseCode + ' \u00b7 ' + COURSE.semester;
+
+  // Print header
+  document.getElementById('syl-print-subtitle').textContent =
+    COURSE.courseCode + ' \u2014 ' + COURSE.semester + ' \u2014 ' + COURSE.instructor.name;
+  document.getElementById('syl-print-meta').textContent =
+    'Love School of Business \u00b7 Department of Economics \u00b7 Elon University \u00b7 ' + COURSE.instructor.office;
+
+  // Contact block
+  document.getElementById('syl-name').textContent  = COURSE.instructor.name;
+  document.getElementById('syl-phone').textContent = COURSE.instructor.phone;
+  document.getElementById('syl-office').textContent = COURSE.instructor.office + ' \u00b7 Elon University';
+  document.getElementById('syl-hours').textContent = COURSE.instructor.officeHours;
+  document.getElementById('syl-dates').textContent =
+    COURSE.weeks[0].dates.split('\u2013')[0] + '\u2013' + COURSE.weeks[2].dates.split('\u2013')[1] + ', ' +
+    COURSE.dates.classesBegin.split(', ')[1];
+
+  var emailLink = document.getElementById('syl-email-link');
+  emailLink.href = 'mailto:' + COURSE.instructor.email;
+  emailLink.textContent = COURSE.instructor.email;
+
+  var zoomLink = document.getElementById('syl-zoom-link');
+  zoomLink.href = COURSE.instructor.zoomUrl;
+  zoomLink.textContent = COURSE.instructor.zoomDisplay;
+
+  // Schedule table dates
+  var w = COURSE.weeks;
+  document.getElementById('sched-w1-dates').textContent = w[0].dates;
+  document.getElementById('sched-w1-due').innerHTML    = w[0].due.replace(', ', '<br>');
+  document.getElementById('sched-w2-dates').textContent = w[1].dates;
+  document.getElementById('sched-w2-due').innerHTML    = w[1].due.replace(', ', '<br>');
+  document.getElementById('sched-w3-dates').textContent = w[2].dates;
+  document.getElementById('sched-w3-due').innerHTML    = w[2].due.replace(', ', '<br>');
+
+  // Assessment dates
+  document.getElementById('ff1-due').textContent  = FRIDAY.assignments[0].due;
+  document.getElementById('viva-dates').textContent = COURSE.viva.week + ' (' + COURSE.viva.dates + ')';
+  document.getElementById('viva-email-deadline').textContent = COURSE.viva.emailDeadline;
+
+  // Withdrawal deadline
+  document.getElementById('syl-withdraw').textContent = COURSE.dates.withdrawDeadline;
+</script>
 </body>
 </html>

@@ -213,9 +213,9 @@
 
       <div class="prompt-section">
         <div class="prompt-heading">When and Where</div>
-        <div class="viva-row"><div class="viva-label">Week</div><div class="viva-value">Week 3, July 19-24</div></div>
+        <div class="viva-row"><div class="viva-label">Week</div><div class="viva-value" id="fri-viva-week"></div></div>
         <div class="viva-row"><div class="viva-label">Duration</div><div class="viva-value">12 minutes</div></div>
-        <div class="viva-row"><div class="viva-label">Location</div><div class="viva-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank" rel="noopener">Zoom: elon.zoom.us/my/bdepro</a></div></div>
+        <div class="viva-row"><div class="viva-label">Location</div><div class="viva-value"><a id="fri-zoom-link" href="#" target="_blank" rel="noopener"></a></div></div>
         <div class="viva-row"><div class="viva-label">Sign Up</div><div class="viva-value"><a id="vivaSignup" href="#" target="_blank" rel="noopener">Google Sheet sign-up link</a></div></div>
       </div>
 
@@ -267,6 +267,15 @@ document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${CO
 document.getElementById('footerText').textContent = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
 document.getElementById('ff1Due').textContent    = `Due ${FRIDAY.assignments[0].due}`;
 document.getElementById('ff2Due').textContent    = `Week 3 · ${COURSE.weeks[2].dates}`;
+
+// Wire viva week and zoom from config
+var vivaWeekEl = document.getElementById('fri-viva-week');
+if (vivaWeekEl) vivaWeekEl.textContent = COURSE.viva.week + ', ' + COURSE.viva.dates;
+var friZoom = document.getElementById('fri-zoom-link');
+if (friZoom) {
+  friZoom.href = COURSE.instructor.zoomUrl;
+  friZoom.textContent = 'Zoom: ' + COURSE.instructor.zoomDisplay;
+}
 
 const ff1Id = FRIDAY.assignments[0].moodleActivityId;
 const ff1Btn = document.getElementById('ff1Submit');

@@ -507,9 +507,9 @@
   // Build article cards
   const grid = document.getElementById('articleGrid');
   const weeks = [
-    { week: 1, due: 'Friday, July 11, 12:00 p.m.' },
-    { week: 2, due: 'Friday, July 18, 12:00 p.m.' },
-    { week: 3, due: 'Friday, July 24, 12:00 p.m.' },
+    { week: 1, due: 'Friday, ' + COURSE.weeks[0].due },
+    { week: 2, due: 'Friday, ' + COURSE.weeks[1].due },
+    { week: 3, due: 'Friday, ' + COURSE.weeks[2].due },
   ];
 
   // Use MME.articles if available, otherwise fall back to placeholders

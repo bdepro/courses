@@ -1,13 +1,14 @@
 // ================================================================
 //  ECO1000_Cengage — COURSE CONFIGURATION
-//  Hosted at: bdepro.github.io/courses/ECO1000_Cengage/
+//  Hosted at: bdepro.github.io/courses/eco1000-cengage/
 // ================================================================
 //  SEMESTER UPDATE CHECKLIST (search UPDATE to find each spot):
-//  1. Update COURSE block (semester, courseId, dates)
-//  2. Update CHAPTERS array — add/remove/reorder chapters here only
-//  3. Update CENGAGE block if new course registered with Cengage
-//  4. Update MME block when Perusall is ready (set enabled: true)
-//  5. Update PAGES block if section pages move
+//  1. COURSE block: courseId, semester, instructor details, weeks, dates, viva
+//  2. CHAPTERS array: add/remove/reorder chapters if selection changes
+//  3. CENGAGE block: all LTI IDs when you register a new Cengage course
+//  4. MME block: enabled, article titles, moodleActivityIds, vivaSignupUrl
+//  5. FRIDAY block: moodleActivityId for FF1, vivaSignupUrl
+//  That is it. All HTML files pull from this file automatically.
 // ================================================================
 
 const COURSE = {
@@ -16,22 +17,43 @@ const COURSE = {
   semester:    "Summer Session II 2026",    // UPDATE each semester
   courseCode:  "ECO 1000",
   courseTitle: "Principles of Economics",
-  instructor:  "Prof. Depro",               // UPDATE each semester
   baseUrl:     "https://bdepro.github.io/courses/eco1000-cengage", // UPDATE if repo moves
+
+  // Instructor details — UPDATE each semester if anything changes
+  instructor: {
+    name:        "Brooks Depro",
+    nameShort:   "Prof. Depro",
+    email:       "bdepro@elon.edu",
+    phone:       "919-357-2316",
+    office:      "KoBC 122",
+    officeHours: "10:30\u201311:45 a.m., Monday, Wednesday, and Friday",
+    zoomUrl:     "https://elon.zoom.us/my/bdepro",
+    zoomDisplay: "elon.zoom.us/my/bdepro",
+  },
 
   // UPDATE each semester
   weeks: [
-    { num: 1, dates: "July 6–11",  due: "July 11, 12:00 PM" },
-    { num: 2, dates: "July 12–18", due: "July 18, 12:00 PM" },
-    { num: 3, dates: "July 19–24", due: "July 24, 12:00 PM" },
+    { num: 1, dates: "July 6\u201311",  due: "July 11, 12:00 p.m.",
+      nextTeaser: "Week 2 opens July 12 \u2014 Economic Pulse, Fluctuations, and Growth." },
+    { num: 2, dates: "July 12\u201318", due: "July 18, 12:00 p.m.",
+      nextTeaser: "Week 3 opens July 19 \u2014 Policy, Labor Markets, and Economic Outcomes." },
+    { num: 3, dates: "July 19\u201324", due: "July 24, 12:00 p.m.",
+      nextTeaser: "" },
   ],
 
   // Key academic dates — UPDATE each semester
   dates: {
-    classesBegin:  "July 6, 2026",
-    dropAddEnds:   "July 7, 2026",
+    classesBegin:     "July 6, 2026",
+    dropAddEnds:      "July 7, 2026",
     withdrawDeadline: "July 17, 2026",
-    classesEnd:    "July 24, 2026",
+    classesEnd:       "July 24, 2026",
+  },
+
+  // Viva scheduling — UPDATE each semester
+  viva: {
+    week:        "Week 3",
+    dates:       "July 19\u201324",
+    emailDeadline: "July 18",
   },
 };
 
@@ -64,7 +86,7 @@ const CHAPTERS = [
 //  Students click this to get to Moodle activities.
 //  UPDATE courseId above and this URL updates automatically.
 // ================================================================
-const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=78855`; // UPDATE each semester
+const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=${COURSE.courseId}`; // UPDATE courseId above
 
 // ================================================================
 //  SECTION PAGE URLS

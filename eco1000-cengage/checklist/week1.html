@@ -548,7 +548,7 @@
   <div class="complete-msg" id="completeMsg">
     <h3>Week 1 Complete</h3>
     <p>You've finished all of Week 1. <span class="complete-gold">Well done.</span><br>
-    Week 2 opens July 12 — Economic Pulse, Fluctuations, and Growth.</p>
+    <span id="w1-teaser"></span></p>
   </div>
 
 </main>
@@ -564,6 +564,8 @@ document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${
 document.getElementById('weekMeta').textContent    = `${COURSE.weeks[0].dates} · All work due ${COURSE.weeks[0].due}`;
 document.getElementById('week1Due').textContent    = COURSE.weeks[0].due;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+var w1Teaser = document.getElementById('w1-teaser');
+if (w1Teaser) w1Teaser.textContent = COURSE.weeks[0].nextTeaser;
 
 // Wire Moodle course link — used for all MindTap activity buttons
 const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COURSE.moodleBase}/course/view.php?id=78855`;
