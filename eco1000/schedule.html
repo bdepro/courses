@@ -6,6 +6,13 @@
   Sessions generated dynamically from config.js.
   To update dates/chapters: edit config.js only.
   To update slide links and examples: edit SESSIONS_CONTENT below.
+
+  Canvas Page naming convention:
+    s[num]-mon      Monday skeleton
+    s[num]-wed      Wednesday print handout
+    s[num]-fri      Friday skeleton
+    s[num]-review   Check-in week Monday review guide
+    s[num]-worksheet Viva week review worksheet
 ================================================================
 -->
 <html lang="en">
@@ -14,175 +21,416 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECO 1000 · Course Schedule</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    /* ── CSS variables — fallback if brand.css fails to load ── */
     :root {
-      --crimson:    #73000a;
-      --crimson-dk: #5a0008;
-      --gold:       #b59a57;
-      --gold-lt:    #d4b97a;
-      --gold-link:  #7a5c1e;
-      --cream:      #fcfaf7;
-      --warm-gray:  #f7f4ef;
-      --smoke:      #d3dfd3;
-      --smoke-dark: #b8ccb8;
-      --text:       #2e2e2e;
-      --muted:      #6b6b6b;
-      --disabled:   #c0c0c0;
-      --white:      #ffffff;
-      --shadow:     0 2px 16px rgba(115,0,10,0.08);
-      --radius-pill: 6px;
+      --crimson:      #73000a;
+      --crimson-dk:   #5a0008;
+      --gold:         #b59a57;
+      --gold-lt:      #d4b97a;
+      --gold-link:    #7a5c1e;
+      --teal:         #527b82;
+      --teal-dk:      #3d5e63;
+      --cream:        #fcfaf7;
+      --warm-gray:    #f7f4ef;
+      --smoke:        #d3dfd3;
+      --smoke-dark:   #b8ccb8;
+      --text:         #2e2e2e;
+      --muted:        #6b6b6b;
+      --disabled:     #bcbcbc;
+      --white:        #ffffff;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.06);
+      --shadow-md:    0 3px 14px rgba(0,0,0,0.08);
+      --radius-card:  12px;
+      --radius-pill:  6px;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
-    .header-inner { max-width: 860px; margin: 0 auto; }
-    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem 2rem 1.75rem; }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 1.75rem 1.25rem 1.5rem;
+    }
+    .header-inner { max-width: 820px; margin: 0 auto; }
+
     .back-link {
-      display: inline-flex; align-items: center; gap: 6px;
+      display: inline-flex; align-items: center; gap: 5px;
       color: rgba(255,255,255,0.7); text-decoration: none;
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
-      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 0.75rem; transition: color 0.15s;
     }
     .back-link:hover { color: var(--white); }
-    header h1 { font-size: clamp(1.4rem,4vw,2rem); font-weight: 500; color: var(--white); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.2; }
-    header p  { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin-top: 0.4rem; font-weight: 300; font-style: italic; }
+    .back-link svg { flex-shrink: 0; }
 
-    .intro { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.75rem; }
+    header h1 {
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      font-weight: 500; color: var(--white);
+      letter-spacing: 0.03em; text-transform: uppercase;
+      line-height: 1.2;
+    }
+    header p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.85rem; margin-top: 0.3rem;
+      font-weight: 300; font-style: italic;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 820px; margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .intro {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.65; margin-bottom: 1.5rem;
+    }
     .intro a { color: var(--crimson); }
 
-    .session-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    /* ── Due date banner ── */
+    .due-banner {
+      background: var(--warm-gray);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+      padding: 0.6rem 0.9rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.82rem; color: var(--text);
+    }
+    .due-banner strong { color: var(--gold-link); }
+
+    /* ── Session list ── */
+    .session-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 7px;
+    }
 
     /* ── Cards ── */
     .session-card {
-      border-radius: 14px; overflow: hidden;
-      background: var(--warm-gray); transition: box-shadow 0.2s;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--warm-gray);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s;
+      position: relative;
     }
-    .session-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+    .session-card:hover { box-shadow: var(--shadow-md); }
 
-    /* ── Session type variants — left border only, no background tints ── */
-    .session-card.type-checkin {
-      border-left: 4px solid var(--crimson);
+    /* Top accent bar — 3px strip across top of each card */
+    .session-card::before {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--gold);
     }
-    .session-card.type-viva {
-      border-left: 4px solid var(--crimson);
-    }
-    .session-card.type-application {
-      border-left: 4px solid var(--gold);
-    }
-    .session-card.type-break,
-    .session-card.type-thanksgiving { opacity: 0.5; }
+    .session-card.type-checkin::before     { background: var(--crimson); }
+    .session-card.type-viva::before        { background: var(--crimson); }
+    .session-card.type-application::before { background: var(--gold-link); }
+    .session-card.type-intro::before       { background: var(--smoke-dark); }
+    .session-card.type-break::before       { display: none; }
 
-    /* Current session */
+    /* Break sessions — flat, non-interactive divider */
+    .session-card.type-break {
+      background: transparent;
+      box-shadow: none;
+      opacity: 0.6;
+    }
+    .session-card.type-break:hover { box-shadow: none; }
+
+    /* Current session — teal accent */
     .session-card.current {
-      background: var(--smoke);
-      outline: 2px solid var(--smoke-dark); outline-offset: -2px;
+      background: #eef4f5;
+      box-shadow: 0 0 0 2px var(--teal), var(--shadow-md);
     }
-    .session-card.type-checkin.current,
-    .session-card.type-viva.current {
-      border-left: 4px solid var(--crimson);
-    }
-    .session-card.type-application.current {
-      border-left: 4px solid var(--gold);
-    }
+    .session-card.current::before { background: var(--teal); }
 
-    /* ── Toggle ── */
+    /* ── Toggle button ── */
     .session-toggle {
       width: 100%; background: none; border: none; cursor: pointer;
-      padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 12px; text-align: left;
+      padding: 0.85rem 1rem 0.85rem 1.1rem;
+      display: flex; align-items: center; gap: 11px;
+      text-align: left;
     }
-    .session-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: 14px; }
-
-    /* ── Badge ── */
-    .session-badge {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: var(--gold); color: var(--white);
-      font-weight: 700; font-size: 0.9rem;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .session-toggle:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: -3px;
+      border-radius: var(--radius-card);
     }
-    .type-break .session-badge,
-    .type-thanksgiving .session-badge { background: #aaa; }
-    .type-checkin .session-badge  { background: var(--crimson); }
-    .type-viva .session-badge     { background: var(--crimson); }
-    .type-application .session-badge { background: var(--gold-link); }
+    /* Break cards are not interactive */
+    .type-break .session-toggle { cursor: default; pointer-events: none; }
 
     /* ── Header text ── */
-    .session-header-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-    .session-label {
-      font-size: 0.92rem; font-weight: 500; color: var(--crimson);
-      display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+    .session-header-text {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column; gap: 3px;
     }
-    .type-break .session-label,
-    .type-thanksgiving .session-label { color: var(--muted); }
-    .session-chapter { font-size: 0.78rem; font-weight: 400; color: var(--muted); line-height: 1.3; }
 
-    /* ── Tags ── */
-    .sess-tag {
-      display: inline-block; font-size: 8px; font-weight: 700;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
+    .session-top-row {
+      display: flex; align-items: center;
+      flex-wrap: wrap; gap: 5px;
     }
-    .tag-checkin { background: rgba(115,0,10,0.1);  color: #73000a; }
-    .tag-viva    { background: rgba(115,0,10,0.1);  color: #73000a; }
-    .tag-app     { background: rgba(181,154,87,0.2); color: var(--gold-link); }
-    .tag-break   { background: rgba(0,0,0,0.07);     color: var(--muted); }
-    .tag-current { background: var(--crimson);       color: var(--white); }
-    .tag-mme     { background: rgba(181,154,87,0.15); color: var(--gold-link); }
-    .tag-vote    { background: rgba(115,0,10,0.08);  color: #73000a; }
+
+    .session-label {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--text); line-height: 1.3;
+      flex-shrink: 0;
+    }
+    .session-dates {
+      font-size: 0.82rem; font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* Tags row */
+    .session-tags {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      margin-top: 1px;
+    }
+    .sess-tag {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
+      line-height: 1.5;
+    }
+    .tag-current  { background: var(--teal);              color: var(--white); }
+    .tag-checkin  { background: rgba(115,0,10,0.1);       color: var(--crimson); }
+    .tag-viva     { background: rgba(115,0,10,0.1);       color: var(--crimson); }
+    .tag-app      { background: rgba(122,92,30,0.12);     color: var(--gold-link); }
+    .tag-break    { background: rgba(0,0,0,0.06);         color: var(--muted); }
+    .tag-mme      { background: rgba(181,154,87,0.18);    color: var(--gold-link); }
+    .tag-vote     { background: rgba(115,0,10,0.08);      color: var(--crimson); }
+    .tag-due      { background: var(--crimson);           color: var(--white); }
+
+    /* Chapter subtitle */
+    .session-chapter {
+      font-size: 0.78rem; color: var(--muted);
+      font-weight: 400; line-height: 1.3;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
 
     /* ── Chevron ── */
     .chevron {
-      margin-left: auto; width: 20px; height: 20px; color: var(--gold);
-      transition: transform 0.25s ease; flex-shrink: 0;
-      stroke: currentColor; fill: none; stroke-width: 2.5;
+      margin-left: auto; width: 18px; height: 18px;
+      color: var(--gold); transition: transform 0.25s ease;
+      flex-shrink: 0; stroke: currentColor;
+      fill: none; stroke-width: 2.5;
     }
+    .current .chevron { color: var(--teal); }
     .session-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+    .type-break .chevron { display: none; }
 
-    /* ── Body ── */
-    .session-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
-    .session-body.open { grid-template-rows: 1fr; }
-    .session-body-inner { overflow: hidden; padding: 0 1.1rem 0 66px; }
-    .session-body.open .session-body-inner { padding-bottom: 1.1rem; }
-
-    .topic { font-size: 0.86rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 0.8rem; }
-
-    /* ── Slides ── */
-    .slides { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 0.85rem; }
-    .slide-pill {
-      display: inline-block; padding: 4px 14px; border-radius: 6px;
-      font-size: 0.75rem; font-weight: 600; text-decoration: none;
-      letter-spacing: 0.02em; transition: opacity 0.15s;
+    /* ── Accordion body ── */
+    .session-body {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
     }
-    .slide-pill.active   { background: var(--crimson); color: var(--white); }
-    .slide-pill.inactive { background: var(--disabled); color: var(--white); cursor: default; pointer-events: none; }
+    .session-body.open { grid-template-rows: 1fr; }
+    .session-body-inner { overflow: hidden; }
+    .session-body-content {
+      padding: 0 1rem 0 1.1rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .session-body.open .session-body-content { padding-bottom: 1rem; }
 
-    /* ── Examples box ── */
-    .examples-box { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 0.75rem 0.9rem; }
-    .examples-box h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; color: var(--crimson); text-transform: uppercase; margin-bottom: 0.5rem; }
-    .examples-box ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .examples-box a { color: var(--gold-link); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.15s; }
-    .examples-box a:hover { color: var(--crimson); }
-    .examples-box .disabled-link { color: var(--disabled); font-size: 0.85rem; font-weight: 500; }
+    /* ── Due date highlight — current session only ── */
+    .due-highlight {
+      background: rgba(82,123,130,0.08);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 0.55rem 0.75rem;
+      margin: 0.85rem 0 0.75rem;
+      font-size: 0.83rem; line-height: 1.5;
+    }
+    .due-highlight strong { color: var(--teal-dk); }
 
     /* ── Info boxes ── */
     .info-box {
-      border-left: 4px solid var(--crimson); border-radius: 0 8px 8px 0;
-      padding: 0.75rem 0.9rem; margin-bottom: 0.75rem;
-      font-size: 0.85rem; line-height: 1.55;
+      border-left: 3px solid var(--crimson);
+      border-radius: 0 6px 6px 0;
+      padding: 0.6rem 0.8rem;
+      margin: 0.75rem 0;
+      font-size: 0.84rem; line-height: 1.55;
     }
-    .info-box.ci-box   { background: rgba(115,0,10,0.04);  border-left-color: var(--crimson); }
-    .info-box.app-box  { background: rgba(181,154,87,0.08); border-left-color: var(--gold); }
-    .info-box.viva-box { background: rgba(115,0,10,0.04);  border-left-color: var(--crimson); }
-    .info-box strong   { color: var(--crimson); font-weight: 600; }
-    .info-box.app-box strong  { color: var(--gold-link); }
-    .info-box.viva-box strong { color: var(--crimson); }
-    .info-box .sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+    .info-box.ci-box   { background: rgba(115,0,10,0.04);   border-left-color: var(--crimson); }
+    .info-box.app-box  { background: rgba(122,92,30,0.06);  border-left-color: var(--gold-link); }
+    .info-box.viva-box { background: rgba(82,123,130,0.07); border-left-color: var(--teal); }
+    .info-box.gold-box { background: rgba(181,154,87,0.08); border-left-color: var(--gold); }
+    .info-box strong   { color: var(--crimson); }
+    .info-box.app-box  strong { color: var(--gold-link); }
+    .info-box.viva-box strong { color: var(--teal-dk); }
+    .info-box.gold-box strong { color: var(--gold-link); }
+    .info-box .sub {
+      font-size: 0.79rem; color: var(--muted);
+      margin-top: 3px; line-height: 1.45;
+    }
 
-    footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid #e8e4dd; }
+    /* ── Wednesday warning ── */
+    .wed-warning {
+      background: rgba(115,0,10,0.05);
+      border: 1px solid rgba(115,0,10,0.15);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--crimson);
+      margin: 0.5rem 0;
+    }
 
-    @media (max-width: 540px) {
-      .session-body-inner { padding-left: 1.1rem; }
-      .session-badge { width: 36px; height: 36px; font-size: 0.82rem; }
+    /* ── Day sections ── */
+    .day-section {
+      margin: 0.75rem 0 0;
+    }
+    .day-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.35rem;
+    }
+
+    /* ── Pills ── */
+    .pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 13px; border-radius: var(--radius-pill);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.02em; text-decoration: none;
+      transition: opacity 0.15s, box-shadow 0.15s;
+      line-height: 1.3;
+    }
+    .pill-active {
+      background: var(--crimson); color: var(--white);
+    }
+    .pill-active:hover { opacity: 0.88; box-shadow: var(--shadow-sm); }
+    .pill-active.teal  { background: var(--teal); }
+    .pill-active.gold  { background: var(--gold-link); }
+
+    /* Inactive — not yet posted */
+    .pill-inactive {
+      background: var(--warm-gray);
+      color: var(--disabled);
+      border: 1px solid #ddd;
+      cursor: default;
+      pointer-events: none;
+    }
+    .pill-inactive::after {
+      content: "not yet posted";
+      font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.04em; color: var(--disabled);
+      margin-left: 3px;
+    }
+
+    /* Print pill — Wednesday */
+    .pill-print {
+      background: rgba(115,0,10,0.08);
+      color: var(--crimson);
+      border: 1px solid rgba(115,0,10,0.2);
+    }
+    .pill-print:hover { background: rgba(115,0,10,0.13); }
+
+    /* ── Viva flow ── */
+    .viva-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin: 0.75rem 0;
+    }
+    .viva-path {
+      background: var(--white);
+      border: 1px solid var(--smoke);
+      border-radius: 8px;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    .viva-path-header {
+      font-weight: 600; font-size: 0.78rem;
+      color: var(--teal-dk);
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+    .viva-path p { color: var(--muted); line-height: 1.5; font-size: 0.79rem; }
+    .viva-path .path-item {
+      display: flex; align-items: flex-start; gap: 5px;
+      margin-top: 0.3rem;
+    }
+    .path-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .dot-assessment { background: var(--crimson); }
+    .dot-flex       { background: var(--gold); }
+    .dot-teal       { background: var(--teal); }
+
+    /* ── Equity note ── */
+    .equity-note {
+      font-size: 0.77rem; color: var(--muted);
+      margin-top: 0.4rem; font-style: italic;
+    }
+
+    /* ── CI4 policy box ── */
+    .ci4-policy {
+      background: rgba(82,123,130,0.06);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.83rem; line-height: 1.55;
+      margin: 0.75rem 0;
+      color: var(--text);
+    }
+    .ci4-policy strong { color: var(--teal-dk); }
+
+    /* ── Vote box ── */
+    .vote-box {
+      background: rgba(181,154,87,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 0.55rem 0.8rem;
+      font-size: 0.82rem; line-height: 1.5;
+      margin: 0.6rem 0 0;
+      color: var(--text);
+    }
+    .vote-box strong { color: var(--gold-link); }
+
+    /* ── Section divider label (break sessions) ── */
+    .break-label {
+      padding: 0.55rem 1rem;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--muted); letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .break-label::before, .break-label::after {
+      content: "";
+      flex: 1; height: 1px;
+      background: var(--smoke-dark);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      border-top: 1px solid #e8e4dd;
+      max-width: 820px; margin: 0 auto;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .session-toggle { padding: 0.75rem 0.85rem; gap: 9px; }
+      .viva-flow { grid-template-columns: 1fr; }
+      .pill { font-size: 0.72rem; padding: 4px 11px; }
     }
   </style>
 </head>
@@ -190,17 +438,21 @@
 
 <header>
   <div class="header-inner">
-    <a class="back-link" id="backLink" href="#" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;stroke:currentColor;stroke-width:2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none"
+           style="stroke:currentColor;stroke-width:2.5">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
       Back to Course Home
     </a>
-    <h1 id="pageTitle"></h1>
+    <h1>How will your learning be organized?</h1>
     <p id="pageMeta"></p>
   </div>
 </header>
 
 <main>
   <p class="intro" id="introText"></p>
+  <div class="due-banner" id="dueBanner"></div>
   <ul class="session-list" id="sessionList"></ul>
 </main>
 
@@ -208,148 +460,106 @@
 
 <!--
 ================================================================
-  SESSIONS_CONTENT — UPDATE each semester
-  Add slide links and in-class examples here as the semester progresses.
+  SESSIONS_CONTENT — UPDATE each semester as materials are posted
   Keys = session num values from SCHEDULE.sessions.
-  Leave url: null for TBA. Use url: 'https://...' when ready.
+  All urls default to null (pill shows as inactive).
+  Populate urls as you create Canvas Pages each week.
+
+  Canvas Page URL pattern:
+    https://elon.instructure.com/courses/COURSEID/pages/SLUG
+  Slugs follow the convention in the config.js header comment.
 ================================================================
 -->
 <script>
 const SESSIONS_CONTENT = {
   0: {
-    slides: [],
-    examples: [
-      { day: 'Wednesday', label: 'Course Introduction', url: null },
-      { day: 'Friday',    label: 'Course Introduction', url: null },
-    ],
+    mon: null, wed: null, fri: null,
   },
   1: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,  // populated from CANVAS.puzzles — override here if needed
   },
   2: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
+  },
+  3: {
+    review: null,  // Monday review guide Canvas Page
+    ffSubmit: null, // Friday Focus progress Canvas submission
+    mmeUrl: null,   // MME Perusall link (override CANVAS.mme if needed)
   },
   4: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
   },
   5: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
+  },
+  6: {
+    review: null,
+    ffSubmit: null,
+    mmeUrl: null,
   },
   7: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Tue Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',  label: 'TBA', url: null },
-      { day: 'Tuesday', label: 'TBA', url: null },
-    ],
+    mon: null,
+    tue: null,   // Session 7 is Mon/Tue only
+    puzzle: null,
   },
   9: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
   },
   10: {
-    slides: [
-      { label: 'Mon Slides', url: null },
-      { label: 'Wed Slides', url: null },
-      { label: 'Fri Slides', url: null },
-    ],
-    examples: [
-      { day: 'Monday',    label: 'TBA', url: null },
-      { day: 'Wednesday', label: 'TBA', url: null },
-      { day: 'Friday',    label: 'TBA', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
+  },
+  11: {
+    review: null,
+    ffSubmit: null,
+    mmeUrl: null,
   },
   12: {
-    slides: [],
-    examples: [
-      { day: 'Monday',    label: 'Application: Question 1', url: null },
-      { day: 'Wednesday', label: 'Application: Question 2', url: null },
-      { day: 'Friday',    label: 'Application: Question 3', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
   },
   13: {
-    slides: [],
-    examples: [
-      { day: 'Monday',    label: 'Application: Question 4', url: null },
-      { day: 'Wednesday', label: 'Application: Question 5', url: null },
-      { day: 'Friday',    label: 'Application: Question 6', url: null },
-    ],
+    mon: null, wed: null, fri: null,
+    puzzle: null,
   },
   15: {
-    slides: [],
-    examples: [
-      { day: 'Monday',    label: 'Viva slots — see sign-up', url: null },
-      { day: 'Wednesday', label: 'Viva slots — see sign-up', url: null },
-      { day: 'Friday',    label: 'Check-In #4 — Last day of class', url: null },
-    ],
+    worksheet: null,        // Mon/Wed review worksheet Canvas Page
+    worksheetSubmit: null,  // Canvas submission for contact hours
+    ffSubmit: null,         // Friday Focus written narrative submission
   },
 };
 </script>
 
 <script>
-// ── Wire header ──
-document.getElementById('backLink').href        = PAGES.home;
-document.getElementById('pageTitle').textContent = COURSE.title;
-document.getElementById('pageMeta').textContent  = `${COURSE.code} · Elon University · ${COURSE.semester}`;
-document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.name}`;
-document.getElementById('introText').innerHTML   =
-  `The semester is organized by session with three class meetings per session (M,W,F). ` +
-  `Each session builds on economic concepts through puzzles, check-ins, and real-world examples. ` +
-  `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
+// ================================================================
+//  HELPERS
+// ================================================================
 
-// ── Helpers ──
+function canvasPageUrl(slug) {
+  if (!COURSE.canvasId || !slug) return null;
+  return `${CANVAS.pageBase}/${slug}`;
+}
+
+function sessType(s) {
+  if (s.break) return 'break';
+  if (s.viva)  return 'viva';
+  if (s.chapter === 'application') return 'application';
+  if (s.checkIn) return 'checkin';
+  if (s.num === 0) return 'intro';
+  return 'content';
+}
+
 function chLabel(session) {
   if (!session.chapter || session.chapter === 'application') return null;
   if (session.chapter === 'ch8_ch16') {
     const a = CHAPTERS.core.find(c => c.key === 'ch8');
     const b = CHAPTERS.core.find(c => c.key === 'ch16');
-    return a && b ? `${a.num} / ${b.num}` : null;
+    return (a && b) ? `${a.num} / ${b.num}` : null;
   }
   const ch = CHAPTERS.core.find(c => c.key === session.chapter);
   return ch ? ch.num : null;
@@ -361,190 +571,570 @@ function chTitle(session) {
   if (session.chapter === 'ch8_ch16') {
     const a = CHAPTERS.core.find(c => c.key === 'ch8');
     const b = CHAPTERS.core.find(c => c.key === 'ch16');
-    return a && b ? `${a.title} / ${b.title}` : null;
+    return (a && b) ? `${a.title} / ${b.title}` : null;
   }
   const ch = CHAPTERS.core.find(c => c.key === session.chapter);
   return ch ? ch.title : null;
 }
 
-function sessType(s) {
-  if (s.break && s.label.includes('Thanks')) return 'thanksgiving';
-  if (s.break)   return 'break';
-  if (s.viva)    return 'viva';
-  if (s.chapter === 'application') return 'application';
-  if (s.checkIn) return 'checkin';
-  return 'content';
-}
-
-function renderSlides(num) {
-  const c = SESSIONS_CONTENT[num];
-  if (!c || !c.slides || !c.slides.length) return '';
-  const pills = c.slides.map(s =>
-    s.url
-      ? `<a class="slide-pill active" href="${s.url}" target="_blank">${s.label}</a>`
-      : `<span class="slide-pill inactive">${s.label}</span>`
-  ).join('');
-  return `<div class="slides">${pills}</div>`;
-}
-
-function renderExamples(num, heading) {
-  const c = SESSIONS_CONTENT[num];
-  if (!c || !c.examples || !c.examples.length) return '';
-  const items = c.examples.map(e =>
-    e.url
-      ? `<li><a href="${e.url}" target="_blank">→ ${e.day}: ${e.label}</a></li>`
-      : `<li><span class="disabled-link">→ ${e.day}: ${e.label}</span></li>`
-  ).join('');
-  return `<div class="examples-box"><h4>${heading || 'In-Class Examples'}</h4><ul>${items}</ul></div>`;
-}
-
-function bodyContent(session, type) {
-  if (type === 'break' || type === 'thanksgiving') {
-    return `<p class="topic" style="color:var(--muted)">${session.note || 'No class.'}</p>`;
+// Build a pill element
+function pill(label, url, variant) {
+  if (url) {
+    const a = document.createElement('a');
+    a.className = `pill pill-active${variant ? ' ' + variant : ''}`;
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = label;
+    return a;
+  } else {
+    const span = document.createElement('span');
+    span.className = 'pill pill-inactive';
+    span.textContent = label;
+    return span;
   }
+}
+
+function printPill(label, url) {
+  if (url) {
+    const a = document.createElement('a');
+    a.className = 'pill pill-print';
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = label;
+    return a;
+  } else {
+    const span = document.createElement('span');
+    span.className = 'pill pill-inactive';
+    span.textContent = label;
+    return span;
+  }
+}
+
+function infoBox(cls, strongText, subText) {
+  const div = document.createElement('div');
+  div.className = `info-box ${cls}`;
+  div.innerHTML = `<strong>${strongText}</strong>${subText ? `<div class="sub">${subText}</div>` : ''}`;
+  return div;
+}
+
+function daySection(labelText, pillsHTML) {
+  const div = document.createElement('div');
+  div.className = 'day-section';
+  div.innerHTML = `<div class="day-label">${labelText}</div><div class="pills"></div>`;
+  const pillsContainer = div.querySelector('.pills');
+  if (Array.isArray(pillsHTML)) {
+    pillsHTML.forEach(p => pillsContainer.appendChild(p));
+  } else {
+    pillsContainer.appendChild(pillsHTML);
+  }
+  return div;
+}
+
+// ================================================================
+//  BODY CONTENT BY SESSION TYPE
+// ================================================================
+
+function bodyContent(session, type, isCurrent) {
+  const frag = document.createDocumentFragment();
+  const sc = SESSIONS_CONTENT[session.num] || {};
+
+  // ── Due date highlight — current session only ──
+  if (isCurrent && type !== 'break') {
+    const dueDiv = document.createElement('div');
+    dueDiv.className = 'due-highlight';
+    let dueText = `<strong>Due this Monday by 11:59 a.m.</strong> `;
+
+    if (type === 'checkin') {
+      dueText += 'All puzzles for this block.';
+    } else if (type === 'viva') {
+      dueText += 'Friday Focus written narrative — submit through Canvas.';
+    } else if (type === 'content' || type === 'application') {
+      dueText += 'Chapter reading and puzzle.';
+    } else {
+      dueText += 'See assignments page.';
+    }
+    dueDiv.innerHTML = dueText;
+    frag.appendChild(dueDiv);
+  }
+
+  // ── Break sessions — no body content ──
+  if (type === 'break') return frag;
+
+  // ── Intro session ──
+  if (type === 'intro') {
+    frag.appendChild(infoBox('gold-box', 'Wed and Fri only this week',
+      'No Monday class. Course introduction begins Wednesday.'));
+    if (sc.wed || sc.fri) {
+      if (sc.wed) frag.appendChild(daySection('Wednesday', [pill('Wed Materials', sc.wed)]));
+      if (sc.fri) frag.appendChild(daySection('Friday', [pill('Fri Materials', sc.fri)]));
+    }
+    return frag;
+  }
+
+  // ── Content sessions ──
+  if (type === 'content') {
+    const title = chTitle(session);
+    if (title) {
+      const p = document.createElement('p');
+      p.style.cssText = 'font-size:0.83rem;color:var(--muted);margin:0.75rem 0 0.5rem;font-style:italic;';
+      p.textContent = title;
+      frag.appendChild(p);
+    }
+
+    // Mon
+    const monDays = session.num === 7 ? ['Monday', 'mon'] : null;
+    if (session.num === 7) {
+      // Session 7 is Mon/Tue only
+      frag.appendChild(daySection('Monday', [pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))]));
+      frag.appendChild(daySection('Tuesday', [pill('Tue — Skeleton', sc.tue || canvasPageUrl(`s${session.num}-tue`))]));
+    } else {
+      frag.appendChild(daySection('Monday', [
+        pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))
+      ]));
+
+      // Wed — print warning
+      const wedWarn = document.createElement('div');
+      wedWarn.className = 'wed-warning';
+      wedWarn.textContent = 'Wednesday is screens-down.';
+      frag.appendChild(daySection('Wednesday', [
+        printPill('Wed — Print before Wednesday', sc.wed || canvasPageUrl(`s${session.num}-wed`))
+      ]));
+      // Insert warning after the day section
+      const wedSection = frag.lastChild;
+      wedSection.appendChild(wedWarn);
+
+      frag.appendChild(daySection('Friday', [
+        pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
+      ]));
+    }
+
+    // Puzzle link
+    const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
+    if (puzzleData) {
+      const puzDiv = document.createElement('div');
+      puzDiv.className = 'day-section';
+      puzDiv.style.marginTop = '0.6rem';
+      puzDiv.innerHTML = `<div class="day-label">Due Monday at 11:59 a.m.</div><div class="pills"></div>`;
+      puzDiv.querySelector('.pills').appendChild(
+        pill('Economic Puzzle', puzzleData.url || null, 'gold')
+      );
+      frag.appendChild(puzDiv);
+    }
+
+    return frag;
+  }
+
+  // ── Check-in sessions ──
   if (type === 'checkin') {
     const ci = CHAPTERS.checkIns[session.checkIn];
-    return `
-      <div class="info-box ci-box">
-        <strong>${session.checkInDay} — Check-In #${session.checkIn}</strong>
-        <div class="sub">Covers: ${ci ? ci.label : 'TBA'} · Supply &amp; demand · 8 guideposts</div>
-      </div>
-      ${renderExamples(session.num, 'Resources')}
-    `;
+    const ciData = CANVAS.checkIns.find(c => c.id === session.checkIn);
+
+    // Monday — review
+    const monBox = document.createElement('div');
+    monBox.className = 'day-section';
+    monBox.innerHTML = `<div class="day-label">Monday — Review session</div>`;
+    const monDesc = document.createElement('div');
+    monDesc.className = 'info-box ci-box';
+    monDesc.style.margin = '0.35rem 0 0.4rem';
+    monDesc.innerHTML = `<strong>Kahoot review:</strong> 8 guideposts and supply and demand.
+      <div class="sub">All puzzles for this block are due today. Bring your questions.</div>`;
+    monBox.appendChild(monDesc);
+    const monPills = document.createElement('div');
+    monPills.className = 'pills';
+    monPills.appendChild(pill('Mon — Review Guide', sc.review || canvasPageUrl(`s${session.num}-review`)));
+    monBox.appendChild(monPills);
+    frag.appendChild(monBox);
+
+    // Wednesday — check-in
+    const wedBox = document.createElement('div');
+    wedBox.className = 'day-section';
+    wedBox.innerHTML = `<div class="day-label">Wednesday — ${session.checkInDay}</div>`;
+    const wedDesc = infoBox('ci-box',
+      `Check-In #${session.checkIn}`,
+      `Paper and pencil. 60 minutes. Full class period.<br>
+       Covers: ${ci ? ci.label : 'TBA'}. Supply and demand and the 8 guideposts appear on every check-in.`
+    );
+    wedDesc.style.margin = '0.35rem 0 0';
+    wedBox.appendChild(wedDesc);
+    frag.appendChild(wedBox);
+
+    // Friday — MME launch + FF progress
+    const friBox = document.createElement('div');
+    friBox.className = 'day-section';
+    friBox.innerHTML = `<div class="day-label">Friday — MME launch and Friday Focus progress</div>`;
+
+    const friDesc = document.createElement('div');
+    friDesc.className = 'info-box gold-box';
+    friDesc.style.margin = '0.35rem 0 0.4rem';
+
+    // Find MME data for this session
+    const mmeData = CANVAS.mme.find(m => m.session === session.num);
+    const mmeDue = mmeData ? mmeData.due : 'Monday before next check-in, 11:59 a.m.';
+    const mmeTitle = mmeData ? mmeData.title : 'MME article TBA';
+
+    friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome — this is the time.
+      <div class="sub">Then we launch the Monday Morning Economist article for this block.
+      It is due ${mmeDue}, not this Monday.</div>`;
+    friBox.appendChild(friDesc);
+
+    const friDesc2 = document.createElement('div');
+    friDesc2.className = 'info-box viva-box';
+    friDesc2.style.margin = '0.4rem 0 0.4rem';
+    friDesc2.innerHTML = `<strong>Friday Focus progress:</strong> In-class work. Submit your artifact through Canvas before class ends.`;
+    friBox.appendChild(friDesc2);
+
+    const friPills = document.createElement('div');
+    friPills.className = 'pills';
+    const mmeUrl = sc.mmeUrl || (mmeData ? mmeData.url : null) || null;
+    friPills.appendChild(pill(`MME — ${mmeTitle}`, mmeUrl || null, 'gold'));
+
+    const ffUrl = sc.ffSubmit || CANVAS.viva.ffSubmitUrl || null;
+    friPills.appendChild(pill('FF Progress — Submit', ffUrl));
+    friBox.appendChild(friPills);
+    frag.appendChild(friBox);
+
+    // Vote element — Session 11 only
+    if (session.vote) {
+      const voteDiv = document.createElement('div');
+      voteDiv.className = 'vote-box';
+      voteDiv.innerHTML = `<strong>Friday: the vote closes.</strong> The top 6 questions are announced at the end of class. Your votes decide what we cover in Sessions 12 and 13.`;
+      frag.appendChild(voteDiv);
+    }
+
+    return frag;
   }
+
+  // ── Application sessions ──
   if (type === 'application') {
     const appChs = CHAPTERS.application.map(c => c.num).join(', ');
-    return `
-      <div class="info-box app-box">
-        <strong>Student-selected questions</strong>
-        <div class="sub">Reference chapters: ${appChs}</div>
-      </div>
-      ${renderExamples(session.num, 'Class Sessions')}
-    `;
+    frag.appendChild(infoBox('app-box',
+      'Student-selected questions',
+      `Reference chapters: ${appChs}`
+    ));
+
+    frag.appendChild(daySection('Monday', [
+      pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))
+    ]));
+
+    const wedSection = document.createElement('div');
+    wedSection.className = 'day-section';
+    wedSection.innerHTML = `<div class="day-label">Wednesday</div>`;
+    const wedWarn = document.createElement('div');
+    wedWarn.className = 'wed-warning';
+    wedWarn.textContent = 'Wednesday is screens-down.';
+    const wedPills = document.createElement('div');
+    wedPills.className = 'pills';
+    wedPills.style.marginBottom = '0.35rem';
+    wedPills.appendChild(printPill('Wed — Print before Wednesday', sc.wed || canvasPageUrl(`s${session.num}-wed`)));
+    wedSection.appendChild(wedPills);
+    wedSection.appendChild(wedWarn);
+    frag.appendChild(wedSection);
+
+    frag.appendChild(daySection('Friday', [
+      pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
+    ]));
+
+    const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
+    if (puzzleData) {
+      const puzDiv = document.createElement('div');
+      puzDiv.className = 'day-section';
+      puzDiv.style.marginTop = '0.6rem';
+      puzDiv.innerHTML = `<div class="day-label">Due Monday at 11:59 a.m.</div><div class="pills"></div>`;
+      puzDiv.querySelector('.pills').appendChild(
+        pill('Economic Puzzle', puzzleData.url || null, 'gold')
+      );
+      frag.appendChild(puzDiv);
+    }
+
+    // Pre-Thanksgiving sign-up block — Session 13 only
+    if (session.num === 13) {
+      // Section label
+      const vivaLabel = document.createElement('div');
+      vivaLabel.className = 'day-label';
+      vivaLabel.style.margin = '0.85rem 0 0.4rem';
+      vivaLabel.textContent = 'Before Thanksgiving break — action required';
+      frag.appendChild(vivaLabel);
+
+      // Sign-up instruction
+      const signupBox = document.createElement('div');
+      signupBox.className = 'info-box viva-box';
+      signupBox.innerHTML = `<strong>Sign up for your viva slot through the Canvas Calendar.</strong>
+        <div class="sub">Do this before Thanksgiving break. Use a computer — the Canvas scheduler does not work on phones.<br>
+        <span class="equity-note">${SCHEDULE.finalExamPeriod.signupEquityNote}</span></div>`;
+      frag.appendChild(signupBox);
+
+      // Sign-up pills
+      const signupPills = document.createElement('div');
+      signupPills.className = 'pills';
+      signupPills.style.margin = '0.3rem 0 0.6rem';
+      signupPills.appendChild(pill('Viva Week Sign-Up', SCHEDULE.finalExamPeriod.vivaSignupUrl || null, 'teal'));
+      signupPills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
+      frag.appendChild(signupPills);
+
+      // FF narrative reminder
+      const ffReminder = document.createElement('div');
+      ffReminder.className = 'info-box gold-box';
+      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due Monday Nov 30 at 11:59 a.m.</strong>
+        <div class="sub">Submit through Canvas before your viva conversation.
+        Use the Thanksgiving break to finish your narrative and prepare for your viva.</div>`;
+      frag.appendChild(ffReminder);
+
+      // FF submit pill
+      const ffPills = document.createElement('div');
+      ffPills.className = 'pills';
+      ffPills.style.margin = '0.3rem 0 0';
+      const ffUrl = SESSIONS_CONTENT[13] && SESSIONS_CONTENT[13].ffSubmit
+        ? SESSIONS_CONTENT[13].ffSubmit
+        : (CANVAS.viva.ffSubmitUrl || null);
+      ffPills.appendChild(pill('Submit Friday Focus Narrative', ffUrl));
+      frag.appendChild(ffPills);
+    }
+
+    return frag;
   }
+
+  // ── Viva week ──
   if (type === 'viva') {
-    return `
-      <div class="info-box viva-box">
-        <strong>Viva Week — Mon &amp; Wed</strong>
-        <div class="sub">12-minute individual conversations. See sign-up for your slot.</div>
-      </div>
-      <div class="info-box ci-box" style="margin-top:0.5rem">
-        <strong>Friday Dec 4 — Check-In #4</strong>
-        <div class="sub">Comprehensive · Ch. 18 + application block · S&amp;D · Guideposts · CI #4 replaces lowest CI #1–3 if higher.</div>
-      </div>
-      <div class="info-box viva-box" style="margin-top:0.5rem">
-        <strong>Makeup viva: ${SCHEDULE.makeupViva.dates}</strong>
-        <div class="sub">${SCHEDULE.makeupViva.note}</div>
-      </div>
-      ${renderExamples(session.num, 'Schedule')}
-    `;
+    const ci4 = CANVAS.checkIns.find(c => c.id === 4);
+
+    // FF written narrative due
+    const ffDue = document.createElement('div');
+    ffDue.className = 'due-highlight';
+    ffDue.style.marginTop = '0.85rem';
+    ffDue.innerHTML = `<strong>Friday Focus written narrative due Monday by 11:59 a.m.</strong>
+      Submit through Canvas before your viva conversation.`;
+    frag.appendChild(ffDue);
+
+    // Sign-up confirmation — action should already be done from Session 13
+    const signupBox = document.createElement('div');
+    signupBox.className = 'info-box viva-box';
+    signupBox.innerHTML = `<strong>Your viva slot should already be confirmed.</strong>
+      <div class="sub">If you have not signed up, contact Prof. Depro immediately.
+      ${SCHEDULE.finalExamPeriod.signupEquityNote}</div>`;
+    frag.appendChild(signupBox);
+
+    // Mon and Wed
+    const monWedBox = document.createElement('div');
+    monWedBox.className = 'day-section';
+    monWedBox.innerHTML = `<div class="day-label">Monday and Wednesday — Viva conversations</div>`;
+    const monWedDesc = infoBox('viva-box',
+      'Not in the viva chair today?',
+      'You are in the classroom. Work through the CI 4 review worksheet and submit through Canvas when done.'
+    );
+    monWedDesc.style.margin = '0.35rem 0 0.4rem';
+    monWedBox.appendChild(monWedDesc);
+    const monWedPills = document.createElement('div');
+    monWedPills.className = 'pills';
+    monWedPills.appendChild(pill('CI 4 Review Worksheet', sc.worksheet || CANVAS.viva.worksheetUrl || null));
+    monWedPills.appendChild(pill('Submit Worksheet', sc.worksheetSubmit || CANVAS.viva.worksheetSubmitUrl || null));
+    monWedBox.appendChild(monWedPills);
+    frag.appendChild(monWedBox);
+
+    // Friday
+    const friBox = document.createElement('div');
+    friBox.className = 'day-section';
+    friBox.innerHTML = `<div class="day-label">Friday — ${session.checkInDay}</div>`;
+    const friDesc = infoBox('ci-box',
+      'Check-In #4 — administered in class.',
+      'Come if you are ready to take it. Work independently elsewhere if you are deferring to the exam period.'
+    );
+    friDesc.style.margin = '0.35rem 0 0.4rem';
+    friBox.appendChild(friDesc);
+    frag.appendChild(friBox);
+
+    // CI 4 policy
+    const ci4Policy = document.createElement('div');
+    ci4Policy.className = 'ci4-policy';
+    ci4Policy.innerHTML = `<strong>CI 4 always counts toward your grade.</strong>
+      If your CI 4 score is higher than your lowest score from CI 1, 2, or 3, it replaces that score. There is no opt out.`;
+    frag.appendChild(ci4Policy);
+
+    // Three-population flow
+    const flowLabel = document.createElement('div');
+    flowLabel.className = 'day-label';
+    flowLabel.style.margin = '0.75rem 0 0.4rem';
+    flowLabel.textContent = 'Final exam period — which path is yours?';
+    frag.appendChild(flowLabel);
+
+    const flow = document.createElement('div');
+    flow.className = 'viva-flow';
+
+    const paths = [
+      {
+        header: 'I did my viva during viva week and took CI 4 on Friday.',
+        items: [
+          { dot: 'dot-teal',       text: 'You are done with assessments.' },
+          { dot: 'dot-assessment', text: 'Complete the online worksheet within your scheduled exam block.' },
+          { dot: 'dot-flex',       text: 'You may do it from anywhere.' },
+        ]
+      },
+      {
+        header: 'I did my viva during viva week and I am deferring CI 4.',
+        items: [
+          { dot: 'dot-flex',       text: 'Friday of viva week is a reading day.' },
+          { dot: 'dot-assessment', text: 'Take CI 4 during the final exam period.' },
+          { dot: 'dot-teal',       text: 'That covers your contact hour.' },
+        ]
+      },
+      {
+        header: 'I am deferring my viva to the final exam period.',
+        items: [
+          { dot: 'dot-flex',       text: 'Friday of viva week is a reading day.' },
+          { dot: 'dot-assessment', text: 'Complete your viva during the exam period.' },
+          { dot: 'dot-assessment', text: 'Take CI 4 during the exam period if not taken on Friday.' },
+        ]
+      },
+    ];
+
+    paths.forEach(path => {
+      const card = document.createElement('div');
+      card.className = 'viva-path';
+      card.innerHTML = `<div class="viva-path-header">${path.header}</div>`;
+      path.items.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'path-item';
+        row.innerHTML = `<span class="path-dot ${item.dot}"></span><span>${item.text}</span>`;
+        card.appendChild(row);
+      });
+      flow.appendChild(card);
+    });
+    frag.appendChild(flow);
+
+    // Exam period worksheet pill for population 1
+    const examPills = document.createElement('div');
+    examPills.className = 'pills';
+    examPills.style.marginTop = '0.5rem';
+    examPills.appendChild(pill('Exam Period Worksheet', CANVAS.viva.examWorksheetUrl || null));
+    examPills.appendChild(pill('Submit Exam Worksheet', CANVAS.viva.examWorksheetSubmitUrl || null));
+    frag.appendChild(examPills);
+
+    return frag;
   }
-  // content
-  const title = chTitle(session);
-  return `
-    ${title ? `<p class="topic">${title}</p>` : ''}
-    ${renderSlides(session.num)}
-    ${renderExamples(session.num, 'In-Class Examples')}
-  `;
+
+  return frag;
 }
 
-// ── Render sessions ──
+// ================================================================
+//  RENDER SESSIONS
+// ================================================================
+
+// Wire header
+document.getElementById('backLink').href          = PAGES.home;
+document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
+document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
+document.getElementById('introText').innerHTML    =
+  `The semester runs in three-day sessions — Monday, Wednesday, Friday. ` +
+  `Your current session opens below. Work for each session is due Monday by 11:59 a.m., before the review. ` +
+  `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
+document.getElementById('dueBanner').innerHTML    =
+  `<strong>All work due Monday by 11:59 a.m.</strong> — readings, puzzles, and MME articles. ` +
+  `Friday Focus written narrative due Monday Nov 30. CI 4 always counts.`;
+
+// Auto-highlight
+const today  = new Date(); today.setHours(0, 0, 0, 0);
+const starts = SCHEDULE.sessionStarts;
+let currentIdx = -1;
+for (let i = 0; i < starts.length - 1; i++) {
+  if (today >= starts[i] && today < starts[i + 1]) { currentIdx = i; break; }
+}
+
 const list = document.getElementById('sessionList');
 
 SCHEDULE.sessions.forEach((session, idx) => {
-  const type = sessType(session);
-  const cl   = chLabel(session);
-  const ct   = chTitle(session);
+  const type      = sessType(session);
+  const isCurrent = (idx === currentIdx) && !session.break;
+  const cl        = chLabel(session);
+  const ct        = chTitle(session);
 
-  // Badge
-  const badge = type === 'viva' ? '✓' : String(session.num);
+  // ── Build list item ──
+  const li = document.createElement('li');
+  li.className = `session-card type-${type}${isCurrent ? ' current' : ''}`;
+  li.id = `session-${session.num}`;
 
-  // Type tag
-  const tags = [
-    session.checkIn    ? `<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>` : '',
-    type === 'viva'    ? `<span class="sess-tag tag-viva">Viva + CI #4</span>`              : '',
-    type === 'application' ? `<span class="sess-tag tag-app">Application</span>`            : '',
-    (type === 'break' || type === 'thanksgiving') ? `<span class="sess-tag tag-break">Break</span>` : '',
-    session.mmeFF      ? `<span class="sess-tag tag-mme">MME + FF</span>`                   : '',
-    session.vote       ? `<span class="sess-tag tag-vote">Vote</span>`                      : '',
-  ].join('');
+  // Break sessions — flat divider, no toggle
+  if (type === 'break') {
+    const label = session.breakType === 'thanksgiving' ? 'Thanksgiving Break' : 'Fall Break';
+    li.innerHTML = `<div class="break-label">${label} — No class</div>`;
+    list.appendChild(li);
+    return;
+  }
+
+  // Tags
+  const tags = [];
+  if (isCurrent)               tags.push(`<span class="sess-tag tag-current">Current</span>`);
+  if (session.checkIn)         tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
+  if (type === 'viva')         tags.push(`<span class="sess-tag tag-viva">Viva + CI #4</span>`);
+  if (type === 'application')  tags.push(`<span class="sess-tag tag-app">Application</span>`);
+  if (session.mmeFF)           tags.push(`<span class="sess-tag tag-mme">MME Launch</span>`);
+  if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
 
   // Chapter subtitle
   let chSub = '';
-  if (cl && type === 'content') {
-    const shortTitle = ct ? ct.split(':')[0].split('/')[0].trim() : '';
-    chSub = `<div class="session-chapter">${cl}${shortTitle ? ' · ' + shortTitle : ''}</div>`;
+  if (cl && (type === 'content' || type === 'intro')) {
+    chSub = `<div class="session-chapter">${cl}${ct ? ' — ' + ct.split(':')[0].split('/')[0].trim() : ''}</div>`;
   }
-  if (type === 'application') chSub = `<div class="session-chapter">Ch. 5, 6, 23, 26, 28 — reference</div>`;
+  if (type === 'application') {
+    chSub = `<div class="session-chapter">Ch. 5, 6, 23, 26, 28 — reference</div>`;
+  }
   if (type === 'checkin') {
     const ci = CHAPTERS.checkIns[session.checkIn];
-    chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'}</div>`;
+    chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + S&D + Guideposts</div>`;
   }
-  if (type === 'viva') chSub = `<div class="session-chapter">Mon &amp; Wed: viva · Fri: Check-In #4</div>`;
+  if (type === 'viva') {
+    chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
+  }
 
-  const li = document.createElement('li');
-  li.className = `session-card type-${type}`;
-  li.id        = `session-${session.num}`;
   li.innerHTML = `
     <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
-      <div class="session-badge">${badge}</div>
       <div class="session-header-text">
-        <div class="session-label">
-          ${session.label}
-          <span style="font-weight:300;font-size:.88em;color:var(--muted)">(${session.dates})</span>
-          ${tags}
+        <div class="session-top-row">
+          <span class="session-label">${session.label}</span>
+          <span class="session-dates">${session.dates}</span>
         </div>
+        ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
         ${chSub}
       </div>
       <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="session-body" id="body-${session.num}">
-      <div class="session-body-inner">${bodyContent(session, type)}</div>
+      <div class="session-body-inner">
+        <div class="session-body-content"></div>
+      </div>
     </div>
   `;
+
+  // Inject body content
+  const bodyDiv = li.querySelector('.session-body-content');
+  bodyDiv.appendChild(bodyContent(session, type, isCurrent));
+
   list.appendChild(li);
+
+  // Open and scroll to current session
+  if (isCurrent) {
+    const toggle = li.querySelector('.session-toggle');
+    const body   = li.querySelector('.session-body');
+    toggle.setAttribute('aria-expanded', 'true');
+    body.classList.add('open');
+    // Scroll into view after render
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
 });
 
-// ── Auto-highlighting ──
-(function applyHighlighting() {
-  const today  = new Date(); today.setHours(0,0,0,0);
-  const starts = SCHEDULE.sessionStarts;
-  let cur = -1;
-  for (let i = 0; i < starts.length - 1; i++) {
-    if (today >= starts[i] && today < starts[i+1]) { cur = i; break; }
-  }
-  SCHEDULE.sessions.forEach((session, idx) => {
-    if (SCHEDULE.breakSessions.includes(idx)) return;
-    const card   = document.getElementById(`session-${session.num}`);
-    const toggle = card && card.querySelector('.session-toggle');
-    const body   = document.getElementById(`body-${session.num}`);
-    const label  = card && card.querySelector('.session-label');
-    if (!card) return;
-    card.classList.remove('current');
-    if (idx === cur) {
-      card.classList.add('current');
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-      if (body)   body.classList.add('open');
-      if (label && !label.querySelector('.tag-current')) {
-        const t = document.createElement('span');
-        t.className = 'sess-tag tag-current'; t.textContent = 'Current';
-        label.appendChild(t);
-      }
-    }
-  });
-})();
-
-// ── Accordion ──
+// ── Accordion toggle ──
 document.getElementById('sessionList').addEventListener('click', e => {
   const btn = e.target.closest('.session-toggle');
   if (!btn) return;
-  const exp  = btn.getAttribute('aria-expanded') === 'true';
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
   const body = document.getElementById(`body-${btn.dataset.session}`);
-  btn.setAttribute('aria-expanded', String(!exp));
-  if (body) body.classList.toggle('open', !exp);
+  btn.setAttribute('aria-expanded', String(!expanded));
+  if (body) body.classList.toggle('open', !expanded);
 });
-
-lucide.createIcons();
 </script>
 </body>
 </html>

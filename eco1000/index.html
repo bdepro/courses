@@ -84,7 +84,7 @@
 <header>
   <div class="header-inner">
     <p class="course-code" id="courseCode"></p>
-    <h1 id="courseTitle"></h1>
+    <h1>Where do I start?</h1>
     <p class="header-meta" id="headerMeta"></p>
     <div class="meta" id="metaBar"></div>
   </div>
@@ -96,7 +96,7 @@
   <a class="card primary" id="scheduleCard" href="#" target="_blank">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
-      <div class="card-title">How This Course Is Organized</div>
+      <div class="card-title">How will your learning be organized?</div>
       <div class="card-desc">Session-by-session schedule, chapter coverage, and check-in dates. Open this every week.</div>
     </div>
     <span class="card-arrow">→</span>
@@ -133,7 +133,6 @@
 //  Wire header from config
 // ================================================================
 document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
-document.getElementById('courseTitle').textContent = COURSE.title;
 document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
 
