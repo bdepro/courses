@@ -4,12 +4,14 @@
 //  Hosted at: bdepro.github.io/courses/eco1000/
 // ================================================================
 //  SEMESTER UPDATE CHECKLIST (search UPDATE to find each spot):
-//  1. COURSE block       — semester, canvasId
-//  2. INSTRUCTOR block   — officeHours
-//  3. SCHEDULE block     — session dates, sessionStarts, finalExam
-//  4. CANVAS block       — courseId, all assignment URLs
-//  5. TEXTBOOK block     — ebookUrl once Canvas/Cengage is registered
-//  6. QUESTIONS block    — 12 application bundle questions each semester
+//  1. COURSE block         — semester, canvasId
+//  2. INSTRUCTOR block     — officeHours
+//  3. SCHEDULE block       — session dates, sessionStarts, finalExam,
+//                            finalExamPeriod section and schedule times
+//  4. CANVAS block         — courseId, all assignment URLs,
+//                            viva sign-up URL, worksheet URLs
+//  5. TEXTBOOK block       — ebookUrl once Canvas/Cengage is registered
+//  6. QUESTIONS block      — 12 application bundle questions each semester
 //  That is it. All HTML files pull from this file automatically.
 // ================================================================
 
@@ -48,17 +50,26 @@ const INSTRUCTOR = {
 //  UPDATE: all dates and sessions each semester
 //
 //  Session structure:
-//    num       — session number
-//    dates     — display date range string
-//    label     — short label for display
-//    chapter   — chapter(s) covered (null for check-in/break/viva weeks)
-//    checkIn   — check-in number if one occurs this session (null otherwise)
-//    checkInDay — day check-in falls on (for display)
-//    mmeFF     — true if Friday is MME+FF day
-//    vote      — true if question bundle vote occurs this session
-//    viva      — true if viva week
-//    break     — true suppresses auto-highlighting
-//    note      — optional display note
+//    num         — session number
+//    dates       — display date range string
+//    label       — short label for display
+//    chapter     — chapter(s) covered (null for check-in/break/viva weeks)
+//    checkIn     — check-in number if one occurs this session (null otherwise)
+//    checkInDay  — day check-in falls on (for display)
+//    mmeFF       — true if Friday is MME launch + FF progress day
+//    vote        — true if question bundle vote occurs this session
+//    viva        — true if viva week
+//    break       — true suppresses auto-highlighting
+//    breakType   — 'fall' or 'thanksgiving' — drives card rendering
+//                  without relying on label string matching
+//    note        — optional internal note (not student-facing)
+//
+//  Due date logic (locked — do not change without updating schedule.html):
+//    All puzzles and readings due Monday at 11:59 a.m. of each session.
+//    MME introduced Friday of check-in week, due Monday at 11:59 a.m.
+//    before the NEXT check-in session.
+//    Friday Focus written narrative due Monday Nov 30 at 11:59 a.m.
+//    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
 
@@ -77,84 +88,100 @@ const SCHEDULE = {
   // Chapter assignments and structure are locked for fall
   sessions: [
     {
-      num: 0, dates: "Aug 26–28", label: "Introduction",
-      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 0, dates: "Aug 26-28", label: "Introduction",
+      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: "Wed/Fri only — course introduction",
     },
     {
-      num: 1, dates: "Aug 31–Sep 4", label: "Session 1",
-      chapter: "ch1", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 1, dates: "Aug 31-Sep 4", label: "Session 1",
+      chapter: "ch1", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: "8 guideposts introduced",
     },
     {
-      num: 2, dates: "Sep 7–11", label: "Session 2",
-      chapter: "ch3", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 2, dates: "Sep 7-11", label: "Session 2",
+      chapter: "ch3", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: null,
     },
     {
-      num: 3, dates: "Sep 14–18", label: "Session 3",
-      chapter: null, checkIn: 1, checkInDay: "Wed Sep 16", mmeFF: true, vote: false, viva: false, break: false,
-      note: "Mon: Review Ch. 1 & 3 · Wed: Check-In #1 · Fri: MME + FF",
+      num: 3, dates: "Sep 14-18", label: "Session 3",
+      chapter: null, checkIn: 1, checkInDay: "Wed Sep 16",
+      mmeFF: true, vote: false, viva: false, break: false, breakType: null,
+      note: "Mon: Review Ch. 1 & 3 / Wed: Check-In #1 / Fri: MME launch + FF progress",
     },
     {
-      num: 4, dates: "Sep 21–25", label: "Session 4",
-      chapter: "ch4", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 4, dates: "Sep 21-25", label: "Session 4",
+      chapter: "ch4", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: null,
     },
     {
-      num: 5, dates: "Sep 28–Oct 2", label: "Session 5",
-      chapter: "ch7", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 5, dates: "Sep 28-Oct 2", label: "Session 5",
+      chapter: "ch7", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: "Wheel of Wealth links Ch. 3 & 4 to macro",
     },
     {
-      num: 6, dates: "Oct 5–9", label: "Session 6",
-      chapter: null, checkIn: 2, checkInDay: "Wed Oct 7", mmeFF: true, vote: false, viva: false, break: false,
-      note: "Mon: Review Ch. 4 & 7 · Wed: Check-In #2 · Fri: MME + FF",
+      num: 6, dates: "Oct 5-9", label: "Session 6",
+      chapter: null, checkIn: 2, checkInDay: "Wed Oct 7",
+      mmeFF: true, vote: false, viva: false, break: false, breakType: null,
+      note: "Mon: Review Ch. 4 & 7 / Wed: Check-In #2 / Fri: MME launch + FF progress",
     },
     {
-      num: 7, dates: "Oct 12–13", label: "Session 7",
-      chapter: "ch8", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
-      note: "Mon & Tue only — Fall Break begins Wed eve",
+      num: 7, dates: "Oct 12-13", label: "Session 7",
+      chapter: "ch8", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
+      note: "Mon & Tue only — Fall Break begins Wed",
     },
     {
-      num: 8, dates: "Oct 14–19", label: "Fall Break",
-      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false, break: true,
+      num: 8, dates: "Oct 14-18", label: "Fall Break",
+      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: true, breakType: "fall",              // CHANGED: breakType added
       note: "No class",
     },
     {
-      num: 9, dates: "Oct 19–23", label: "Session 9",
-      chapter: "ch8_ch16", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
-      note: "Mon: Ch. 8 cont. · Wed–Fri: Ch. 16",
+      num: 9, dates: "Oct 19-23", label: "Session 9",
+      chapter: "ch8_ch16", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
+      note: "Mon: Ch. 8 cont. / Wed-Fri: Ch. 16",
     },
     {
-      num: 10, dates: "Oct 26–30", label: "Session 10",
-      chapter: "ch18", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
+      num: 10, dates: "Oct 26-30", label: "Session 10",
+      chapter: "ch18", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
       note: null,
     },
     {
-      num: 11, dates: "Nov 2–6", label: "Session 11",
-      chapter: null, checkIn: 3, checkInDay: "Wed Nov 4", mmeFF: true, vote: true, viva: false, break: false,
-      note: "Mon: Review Ch. 8, 16, 18 · Wed: Check-In #3 + Canvas poll opens · Fri: MME + FF + question walk-through + top 6 announced",
+      num: 11, dates: "Nov 2-6", label: "Session 11",
+      chapter: null, checkIn: 3, checkInDay: "Wed Nov 4",
+      mmeFF: true, vote: true, viva: false, break: false, breakType: null,
+      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + FF progress + question walk-through + top 6 announced",
     },
     {
-      num: 12, dates: "Nov 9–13", label: "Session 12",
-      chapter: "application", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
-      note: "Application block: Questions 1–3 (student-selected from top 6)",
+      num: 12, dates: "Nov 9-13", label: "Session 12",
+      chapter: "application", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
+      note: "Application block: Questions 1-3 (student-selected from top 6)",
     },
     {
-      num: 13, dates: "Nov 16–20", label: "Session 13",
-      chapter: "application", checkIn: null, mmeFF: false, vote: false, viva: false, break: false,
-      note: "Application block: Questions 4–6 · Thanksgiving begins Fri eve",
+      num: 13, dates: "Nov 16-20", label: "Session 13",
+      chapter: "application", checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: false, breakType: null,
+      note: "Application block: Questions 4-6 / Thanksgiving begins Fri eve",
     },
     {
-      num: 14, dates: "Nov 23–27", label: "Thanksgiving Break",
-      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false, break: true,
+      num: 14, dates: "Nov 23-27", label: "Thanksgiving Break",
+      chapter: null, checkIn: null, mmeFF: false, vote: false, viva: false,
+      break: true, breakType: "thanksgiving",      // CHANGED: breakType added
       note: "No class",
     },
     {
-      num: 15, dates: "Nov 30–Dec 4", label: "Session 14 — Viva Week",
-      chapter: null, checkIn: 4, checkInDay: "Fri Dec 4", mmeFF: false, vote: false, viva: true, break: false,
-      note: "Mon & Wed: Viva slots · Fri: Check-In #4 (last day of class)",
+      num: 15, dates: "Nov 30-Dec 4", label: "Viva Week",
+      chapter: null, checkIn: 4, checkInDay: "Fri Dec 4",
+      mmeFF: false, vote: false, viva: true, break: false, breakType: null,
+      note: "Mon & Wed: Viva slots / Fri: Check-In #4 (last day of class)",
     },
   ],
 
@@ -162,8 +189,8 @@ const SCHEDULE = {
   // UPDATE each semester. Format: new Date(year, month (0=Jan), day)
   // Last entry = day after classes end
   sessionStarts: [
-    new Date(2026,  7, 26),  // S0:  Aug 26
-    new Date(2026,  7, 31),  // S1:  Aug 31
+    new Date(2026,  4, 16),  // S0:  Aug 26
+    new Date(2026,  8, 31),  // S1:  Aug 31
     new Date(2026,  8,  7),  // S2:  Sep 7
     new Date(2026,  8, 14),  // S3:  Sep 14  (CI #1)
     new Date(2026,  8, 21),  // S4:  Sep 21
@@ -181,19 +208,32 @@ const SCHEDULE = {
     new Date(2026, 11,  5),  // Final zone: Dec 5
   ],
 
-  // Break sessions — never highlighted
+  // Break sessions by index — never highlighted
   breakSessions: [8, 14],
 
-  // Final exam — UPDATE each semester when posted
+  // Final exam period — UPDATE each semester when posted
+  // CI 4 may be taken on the last day of class (Fri Dec 4) OR
+  // during the final exam period below. Student's choice.
   finalExam: [
-    { section: "8:00 AM section",  date: "TBA", time: "TBA" },  // UPDATE
-    { section: "12:30 PM section", date: "TBA", time: "TBA" },  // UPDATE
+    { section: "8:00 a.m. section",  date: "TBA", time: "TBA" },  // UPDATE
+    { section: "12:30 p.m. section", date: "TBA", time: "TBA" },  // UPDATE
   ],
 
-  // Exam period makeup viva slots
-  makeupViva: {
-    dates: "December 7–11, 2026",
-    note:  "Makeup slots for documented conflicts. Satisfies contact hour requirement.",
+  // ── CHANGED: expanded from makeupViva to finalExamPeriod ──────
+  // Final exam period covers three student populations:
+  //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
+  //                  Must complete online worksheet during exam block.
+  //   Population 2 — viva done in viva week, CI 4 deferred.
+  //                  Takes CI 4 during exam block.
+  //   Population 3 — viva deferred. Completes viva + CI 4 during exam block.
+  // Viva sign-up and worksheet links live in CANVAS block below.
+  finalExamPeriod: {
+    dates:          "December 7-11, 2026",          // UPDATE each semester
+    vivaSignupUrl:  "",                              // UPDATE: Canvas Scheduler URL
+    // Population 1 worksheet — completed online within the 3-hour exam block
+    worksheetNote:  "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
+    // Equity note — displayed near the viva sign-up pill
+    signupEquityNote: "No computer access? Contact Prof. Depro and he will assign your slot.",
   },
 };
 
@@ -206,24 +246,23 @@ const CHAPTERS = {
 
   // Core chapters — tested on Check-Ins #1 through #3
   core: [
-    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                         session: 1  },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",        session: 2  },
+    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                          session: 1  },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",         session: 2  },
     { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions", session: 4  },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",            session: 5  },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",             session: 5  },
     { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7 },
     { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity", session: 9 },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",               session: 10 },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                session: 10 },
   ],
 
-  // Application reference chapters — student-selected questions in S12–S13
-  // These chapters are not directly tested; students use them as analytical lenses
+  // Application reference chapters — student-selected questions in S12-S13
+  // Not directly tested; students use them as analytical lenses
   application: [
-    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government" },
-    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action"                          },
-    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers"             },
-    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market"                 },
-    { key: "ch26st7", num: "Ch. 26 / ST 7", title: "Earnings Differences Between Men and Women"      },
-    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty"                             },
+    { key: "ch5",     num: "Ch. 5",        title: "Difficult Cases for the Market, and the Role of Government" },
+    { key: "ch6",     num: "Ch. 6",        title: "The Economics of Political Action"                          },
+    { key: "ch23",    num: "Ch. 23",       title: "Price-Searcher Markets with Low Entry Barriers"             },
+    { key: "ch26",    num: "Ch. 26",       title: "Earnings, Productivity, and the Job Market"                 },
+    { key: "ch28",    num: "Ch. 28",       title: "Income Inequality and Poverty"                              },
   ],
 
   // Standing threads — appear on every check-in regardless of session content
@@ -234,31 +273,36 @@ const CHAPTERS = {
 
   // Check-in coverage map
   checkIns: {
-    1: { chapters: ["ch1", "ch3"],        label: "Ch. 1 & 3" },
-    2: { chapters: ["ch4", "ch7"],        label: "Ch. 4 & 7" },
-    3: { chapters: ["ch8", "ch16","ch18"], label: "Ch. 8, 16 & 18" },
-    4: { chapters: ["ch18","application"], label: "Ch. 18 + Application block · S&D · Guideposts (comprehensive)" },
+    1: { chapters: ["ch1", "ch3"],              label: "Ch. 1 & 3" },
+    2: { chapters: ["ch4", "ch7"],              label: "Ch. 4 & 7" },
+    3: { chapters: ["ch8", "ch16", "ch18"],     label: "Ch. 8, 16 & 18" },
+    4: { chapters: ["ch18", "application"],     label: "Ch. 18 + Application block / S&D / Guideposts (comprehensive)" },
   },
 };
 
 // ================================================================
 //  GRADING
-//  Locked weights — stress-tested against 16 student and stakeholder personas
-//  Wellness Pause is ungraded — attendance and participation matter
-//  but do not carry grade weight. Kept as course practice, not assessment.
-//  Check-In replacement policy: if Check-In #4 score is higher than
-//  the lowest of CI #1–3, it automatically replaces that score.
-//  UPDATE only if course structure changes significantly
+//  Locked weights — persona-reviewed
+//  Due date policy (locked):
+//    All work due Monday at 11:59 a.m. of each session.
+//    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
+//  UPDATE only if course structure changes significantly.
 // ================================================================
 const GRADING = {
+  dueTime: "11:59 a.m.",                           // universal due time — Monday of each session
   components: [
-    { id: "checkins", label: "Check-Ins",              weight: 50, note: "4 check-ins. CI #4 replaces lowest of CI #1–3 if higher. Each CI includes S&D and 8 guideposts." },
-    { id: "friday",   label: "Friday Focus",           weight: 25, note: "Written narrative + 12-minute viva conversation during S14 viva week." },
-    { id: "puzzles",  label: "Economic Puzzles",       weight: 15, note: "One per content session. Lowest score dropped. Late within one week at 80%." },
-    { id: "mme",      label: "Monday Morning Economist", weight: 10, note: "4 articles per semester, one per check-in block. Perusall annotation — quality of comment and interaction." },
+    { id: "checkins", label: "Check-Ins",              weight: 50,
+      note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
+    { id: "friday",   label: "Friday Focus",           weight: 25,
+      note: "Written narrative due Mon Nov 30 at 11:59 a.m. Viva conversation during viva week." },
+    { id: "puzzles",  label: "Economic Puzzles",       weight: 15,
+      note: "One per content session. Lowest score dropped. Late within one week at 80%." },
+    { id: "mme",      label: "Monday Morning Economist", weight: 10,
+      note: "4 articles per semester, one per check-in block. Introduced Friday of check-in week. Due Monday at 11:59 a.m. before the next check-in." },
   ],
   ungraded: [
-    { id: "wellness", label: "Wellness Pause", note: "Attendance and brief reflective check-in each class. Not graded — participation expected." },
+    { id: "wellness", label: "Wellness Pause",
+      note: "Attendance and brief reflective check-in each class. Not graded — participation expected." },
   ],
 };
 
@@ -304,7 +348,7 @@ const TEXTBOOK = {
 // ================================================================
 //  QUESTIONS — Application Block Bundle
 //  12 questions presented to students in S11.
-//  Students vote; top 6 become the S12–S13 agenda.
+//  Students vote; top 6 become the S12-S13 agenda.
 //  Vote: Canvas poll opens Wed Nov 4 after CI #3.
 //        Walk-through and close: Fri Nov 6 in class.
 //        Top 6 announced: Fri Nov 6 end of class.
@@ -312,41 +356,40 @@ const TEXTBOOK = {
 // ================================================================
 const QUESTIONS = {
   voteProcess: {
-    pollOpens:    "Wednesday Nov 4 — after Check-In #3",
-    walkThrough:  "Friday Nov 6 — in class, opening activity",
-    pollCloses:   "Friday Nov 6 — end of class",
-    announced:    "Friday Nov 6 — end of class",
+    pollOpens:    "Wednesday Nov 4, after Check-In #3",
+    walkThrough:  "Friday Nov 6, in class, opening activity",
+    pollCloses:   "Friday Nov 6, end of class",
+    announced:    "Friday Nov 6, end of class",
     bundleSize:   12,
     selectedSize:  6,
   },
 
   // UPDATE: all 12 questions each semester
   // chapter: which application chapter(s) this question draws on
-  // Each question should be answerable using the referenced chapter as an analytical lens
   bundle: [
     // Ch. 5 — Difficult Cases for the Market, Role of Government
-    { id: 1,  chapter: "ch5",  question: "" },  // UPDATE
-    { id: 2,  chapter: "ch5",  question: "" },  // UPDATE
+    { id: 1,  chapter: "ch5",   question: "" },  // UPDATE
+    { id: 2,  chapter: "ch5",   question: "" },  // UPDATE
 
     // Ch. 6 — Economics of Political Action
-    { id: 3,  chapter: "ch6",  question: "" },  // UPDATE
-    { id: 4,  chapter: "ch6",  question: "" },  // UPDATE
+    { id: 3,  chapter: "ch6",   question: "" },  // UPDATE
+    { id: 4,  chapter: "ch6",   question: "" },  // UPDATE
 
     // Ch. 23 — Price-Searcher Markets
-    { id: 5,  chapter: "ch23", question: "" },  // UPDATE
-    { id: 6,  chapter: "ch23", question: "" },  // UPDATE
+    { id: 5,  chapter: "ch23",  question: "" },  // UPDATE
+    { id: 6,  chapter: "ch23",  question: "" },  // UPDATE
 
-    // Ch. 26 + Special Topic 7 — Earnings, Labor Markets, Gender Differences
-    { id: 7,  chapter: "ch26", question: "" },  // UPDATE
-    { id: 8,  chapter: "ch26", question: "" },  // UPDATE
+    // Ch. 26 — Earnings, Labor Markets
+    { id: 7,  chapter: "ch26",  question: "" },  // UPDATE
+    { id: 8,  chapter: "ch26",  question: "" },  // UPDATE
 
     // Ch. 28 — Income Inequality and Poverty
-    { id: 9,  chapter: "ch28", question: "" },  // UPDATE
-    { id: 10, chapter: "ch28", question: "" },  // UPDATE
+    { id: 9,  chapter: "ch28",  question: "" },  // UPDATE
+    { id: 10, chapter: "ch28",  question: "" },  // UPDATE
 
     // Cross-chapter — draws on multiple application chapters
-    { id: 11, chapter: "cross", question: "" }, // UPDATE
-    { id: 12, chapter: "cross", question: "" }, // UPDATE
+    { id: 11, chapter: "cross", question: "" },  // UPDATE
+    { id: 12, chapter: "cross", question: "" },  // UPDATE
   ],
 
   // Populated after vote — top 6 selected questions
@@ -374,13 +417,29 @@ const PAGES = {
 // ================================================================
 //  CANVAS ASSIGNMENTS
 //  UPDATE: all URLs each semester after Canvas course is set up
-//  How to get URLs:
+//
+//  Canvas Page naming convention for session materials:
+//    s[num]-mon  — Monday skeleton (e.g. s1-mon, s3-mon)
+//    s[num]-wed  — Wednesday print handout (e.g. s1-wed)
+//    s[num]-fri  — Friday skeleton (e.g. s1-fri)
+//    s[num]-review — Check-in week Monday review guide
+//    s[num]-worksheet — Viva week review worksheet (Mon + Wed)
+//
+//  Canvas Page URLs follow the pattern:
+//    https://elon.instructure.com/courses/COURSEID/pages/PAGE-SLUG
+//  The schedule page builds these URLs from COURSE.canvasId + the slug.
+//
+//  How to get assignment URLs:
 //    1. Build your Canvas assignments
 //    2. Click each assignment and copy the URL from your browser
 //    3. Paste here
 // ================================================================
 const CANVAS = {
   courseUrl: `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
+
+  // ── CHANGED: added pageBase helper for Canvas Pages ──────────
+  // Used by schedule.html to build Canvas Page URLs from slugs
+  pageBase: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/pages`,
 
   // Economic Puzzles — one per content session, UPDATE each semester
   puzzles: [
@@ -395,29 +454,55 @@ const CANVAS = {
     { session: 13, title: "Puzzle: Application Block Week 2",                      url: "" }, // UPDATE
   ],
 
-  // Monday Morning Economist — 4 articles per semester, one per check-in block
-  // Due on the Friday of each check-in week
-  // UPDATE: titles and URLs each semester
+  // ── CHANGED: MME due dates corrected to Monday of next check-in ──
+  // MME introduced Friday of check-in week.
+  // Due Monday at 11:59 a.m. before the NEXT check-in session.
   mme: [
-    { id: 1, session: 3,  due: "Fri Sep 18", title: "MME 1: TBA", url: "" }, // UPDATE — Ch. 1 & 3 block
-    { id: 2, session: 6,  due: "Fri Oct 9",  title: "MME 2: TBA", url: "" }, // UPDATE — Ch. 4 & 7 block
-    { id: 3, session: 11, due: "Fri Nov 6",  title: "MME 3: TBA", url: "" }, // UPDATE — Ch. 8, 16, 18 block
-    { id: 4, session: 13, due: "Fri Nov 20", title: "MME 4: TBA", url: "" }, // UPDATE — Application block (due before Thanksgiving)
+    { id: 1, session: 3,  introduced: "Fri Sep 18", due: "Mon Oct 5, 11:59 a.m.",  title: "MME 1: TBA", url: "" }, // UPDATE
+    { id: 2, session: 6,  introduced: "Fri Oct 9",  due: "Mon Nov 2, 11:59 a.m.",  title: "MME 2: TBA", url: "" }, // UPDATE
+    { id: 3, session: 11, introduced: "Fri Nov 6",  due: "Mon Nov 30, 11:59 a.m.", title: "MME 3: TBA", url: "" }, // UPDATE
+    { id: 4, session: 13, introduced: "Fri Nov 20", due: "Mon Nov 30, 11:59 a.m.", title: "MME 4: TBA", url: "" }, // UPDATE — application block MME, due start of viva week
   ],
 
-  // Friday Focus — UPDATE each semester
+  // ── CHANGED: FF1 due date locked, FF2 clarified ──────────────
+  // FF1: written narrative — due Mon Nov 30 at 11:59 a.m. (before viva)
+  // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
-    { id: 1, title: "Friday Focus 1: The Economic Narrative", due: "TBA", url: "" }, // UPDATE
-    { id: 2, title: "Friday Focus 2: The Narrative Viva",     due: "Viva week Nov 30–Dec 4", url: "" },
+    { id: 1, title: "Friday Focus: The Economic Narrative",
+      due: "Mon Nov 30, 11:59 a.m.", url: "" },                    // UPDATE: Canvas assignment URL
+    { id: 2, title: "Friday Focus: The Narrative Viva",
+      due: "Viva week Nov 30-Dec 4 (by appointment)", url: "" },   // UPDATE: Canvas Scheduler URL
   ],
 
   // Check-Ins — UPDATE each semester
   checkIns: [
-    { id: 1, title: "Check-In #1", date: "Wed Sep 16", covers: "Ch. 1 & 3 · S&D · Guideposts", url: "" }, // UPDATE
-    { id: 2, title: "Check-In #2", date: "Wed Oct 7",  covers: "Ch. 4 & 7 · S&D · Guideposts", url: "" }, // UPDATE
-    { id: 3, title: "Check-In #3", date: "Wed Nov 4",  covers: "Ch. 8, 16, 18 · S&D · Guideposts", url: "" }, // UPDATE
-    { id: 4, title: "Check-In #4", date: "Fri Dec 4",  covers: "Comprehensive · Ch. 18 + Application block emphasis", url: "" }, // UPDATE
+    { id: 1, title: "Check-In #1", date: "Wed Sep 16",
+      covers: "Ch. 1 & 3 / S&D / Guideposts", url: "" },           // UPDATE
+    { id: 2, title: "Check-In #2", date: "Wed Oct 7",
+      covers: "Ch. 4 & 7 / S&D / Guideposts", url: "" },           // UPDATE
+    { id: 3, title: "Check-In #3", date: "Wed Nov 4",
+      covers: "Ch. 8, 16, 18 / S&D / Guideposts", url: "" },       // UPDATE
+    { id: 4, title: "Check-In #4", date: "Fri Dec 4 or exam period",
+      covers: "Comprehensive / Ch. 18 + Application block / S&D / Guideposts", url: "" }, // UPDATE
   ],
+
+  // ── NEW: viva week resources ──────────────────────────────────
+  // UPDATE: URLs after Canvas Scheduler and assignments are set up
+  viva: {
+    // Canvas Scheduler appointment group — viva week slots (Mon/Wed Nov 30, Dec 2)
+    vivaWeekSignupUrl:   "",   // UPDATE: Canvas Calendar appointment group URL
+    // Canvas Scheduler appointment group — final exam period slots (Dec 7-11)
+    examPeriodSignupUrl: "",   // UPDATE: Canvas Calendar appointment group URL
+    // Viva week review worksheet — Mon and Wed of viva week
+    worksheetUrl:        "",   // UPDATE: Canvas Page URL (s15-worksheet)
+    // Viva week worksheet submission — for contact hour record
+    worksheetSubmitUrl:  "",   // UPDATE: Canvas Assignment URL
+    // Final exam period worksheet — Population 1 students
+    examWorksheetUrl:    "",   // UPDATE: Canvas Page URL
+    examWorksheetSubmitUrl: "", // UPDATE: Canvas Assignment URL
+    // Friday Focus written narrative submission
+    ffSubmitUrl:         "",   // UPDATE: Canvas Assignment URL (same as friday[0].url above)
+  },
 };
 
 // ================================================================
