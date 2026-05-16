@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <!--
-=======================================================
+================================================================
   ECO 1000 — COURSE HOME PAGE
-  Search UPDATE to find spots to edit each semester
-=======================================================
+  Hosted: bdepro.github.io/courses/eco1000/index.html
+  All dynamic content pulls from config.js — do not hardcode
+  semester, instructor, or grade information here.
+================================================================
 -->
 <html lang="en">
 <head>
@@ -11,227 +13,287 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECO 1000 · Principles of Economics</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
-  <style>
-    /* ── Page-specific: home page only ── */
-
-    /* Tagline — italic subtitle under h1 */
-    .tagline {
-      font-size: 1rem;
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(255,255,255,0.82);
-      margin-top: 0.5rem;
-      letter-spacing: 0.01em;
-    }
-
-    /* 2-column card grid — home page layout */
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 560px) {
-      .cards { grid-template-columns: 1fr; }
-    }
-
-    /* Wider max-width for home page header */
-    .header-inner { max-width: 900px; }
-    main { max-width: 900px; padding: 2.5rem 1.25rem 4rem; }
-  </style>
   <script src="config.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* ── Page-specific overrides ── */
+    .header-inner { max-width: 960px; }
+    main { max-width: 960px; padding: 2.5rem 1.5rem 4rem; }
+
+    /* Meta bar */
+    .meta {
+      display: flex; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .meta-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+    }
+    .meta-value { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.85); }
+    .meta-value a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+
+    /* Arc strip */
+    .arc-strip {
+      background: var(--warm-gray);
+      border: 1px solid rgba(181,154,87,0.2);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-wrap: wrap; margin-bottom: 1.75rem;
+    }
+    .arc-step {
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .arc-step strong { color: var(--crimson); font-weight: 600; }
+    .arc-sep { color: var(--gold); font-size: 0.8rem; }
+
+    /* Card grid — auto-fill for variable card count */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Welcome strip */
+    .welcome {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .welcome-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold-link); margin-bottom: 0.5rem;
+    }
+    .welcome p {
+      font-size: 0.95rem; line-height: 1.7; color: var(--text); font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .meta { gap: 1rem; }
+      header { padding: 1.75rem 1.25rem 1.5rem; }
+      .arc-strip { gap: 0.4rem; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <span class="course-code" id="courseCode">Elon University · ECO 1000</span>
-    <h1>Principles of Economics</h1>
-    <p class="tagline">Economics is everywhere. Every choice, every price, every policy.</p>
-    <div class="meta">
-      <div class="meta-item">
-        <span class="meta-label">Semester</span>
-        <span class="meta-value" id="metaSemester"></span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Instructor</span>
-        <span class="meta-value" id="metaInstructor"></span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Office</span>
-        <span class="meta-value" id="metaOffice"></span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Zoom</span>
-        <span class="meta-value"><a id="metaZoom" href="#" target="_blank" style="color:rgba(255,255,255,0.85); text-decoration:underline;"></a></span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Email</span>
-        <span class="meta-value" id="metaEmail"></span>
-      </div>
-    </div>
+    <p class="course-code" id="courseCode"></p>
+    <h1 id="courseTitle"></h1>
+    <p class="header-meta" id="headerMeta"></p>
+    <div class="meta" id="metaBar"></div>
   </div>
 </header>
 
 <main>
 
-  <!-- Welcome message -->
+  <!-- Welcome -->
   <div class="welcome">
     <div class="welcome-label">Welcome</div>
-    <!-- UPDATE: welcome message each semester -->
+    <!--
+      UPDATE: welcome message each semester.
+      Keep it short, concrete, and in your voice.
+      No em dashes. No rule of three. End on an action.
+    -->
     <p>
-      Welcome to ECO 1000. The price of eggs, your first paycheck, a tariff on steel. This course teaches you to read them all. Start with the schedule.
+      Welcome to ECO 1000. The price of eggs, your first paycheck, a tariff on steel.
+      This course teaches you to read them all. Start with the schedule.
     </p>
   </div>
 
-  <p class="section-heading">Course Navigation</p>
+  <!-- Primary card — Schedule -->
+  <a class="card primary" id="scheduleCard" href="#" target="_blank">
+    <div class="card-icon"><i data-lucide="calendar"></i></div>
+    <div class="card-content">
+      <div class="card-title">How This Course Is Organized</div>
+      <div class="card-desc">Session-by-session schedule, chapter coverage, and check-in dates. Open this every week.</div>
+    </div>
+    <span class="card-arrow">→</span>
+  </a>
 
-  <div class="cards" id="cardGrid"></div>
+  <!-- Course arc -->
+  <div class="arc-strip" id="arcStrip">
+    <span class="arc-step"><strong>Attend</strong> class</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Complete</strong> Economic Puzzle</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Read</strong> Monday Morning Economist</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Write</strong> Friday Focus</span>
+    <span class="arc-sep">·</span>
+    <span class="arc-step" id="arcSummary"></span>
+  </div>
+
+  <!-- Section label -->
+  <p class="section-heading">Course Resources &amp; Assessments</p>
+
+  <!-- Card grid — built from config -->
+  <div class="card-grid" id="cardGrid"></div>
 
 </main>
 
-<footer id="footerText">
+<footer>
+  <span id="footerText"></span> &nbsp;·&nbsp;
+  <a href="https://www.elon.edu" target="_blank">Elon University</a>
 </footer>
 
 <script>
 // ================================================================
-//  Wire header from config.js
+//  Wire header from config
 // ================================================================
-document.getElementById('courseCode').textContent   = `Elon University · ${COURSE.code}`;
-document.getElementById('metaSemester').textContent = COURSE.semester;
-document.getElementById('metaInstructor').textContent = INSTRUCTOR.name;
-document.getElementById('metaOffice').textContent   = INSTRUCTOR.office;
-document.getElementById('metaEmail').textContent    = INSTRUCTOR.email;
+document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
+document.getElementById('courseTitle').textContent = COURSE.title;
+document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
+document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
 
-const zoomEl = document.getElementById('metaZoom');
-zoomEl.href        = INSTRUCTOR.zoomUrl;
-zoomEl.textContent = INSTRUCTOR.zoomUrl.replace('https://', '');
+// Meta bar
+const metaItems = [
+  { label: 'Semester',  value: COURSE.semester },
+  { label: 'Instructor', value: INSTRUCTOR.name },
+  { label: 'Office',    value: INSTRUCTOR.office },
+  { label: 'Email',     value: INSTRUCTOR.email, href: `mailto:${INSTRUCTOR.email}` },
+  { label: 'Zoom',      value: INSTRUCTOR.zoomDisplay, href: INSTRUCTOR.zoomUrl },
+];
+if (INSTRUCTOR.officeHours) {
+  metaItems.splice(3, 0, { label: 'Office Hours', value: INSTRUCTOR.officeHours });
+}
+const metaBar = document.getElementById('metaBar');
+metaItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'meta-item';
+  div.innerHTML = `
+    <span class="meta-label">${item.label}</span>
+    <span class="meta-value">${item.href
+      ? `<a href="${item.href}" target="_blank">${item.value}</a>`
+      : item.value
+    }</span>
+  `;
+  metaBar.appendChild(div);
+});
 
-document.getElementById('footerText').textContent =
-  `${COURSE.code} · Elon University · ${COURSE.semester} · ${INSTRUCTOR.name}`;
+// Arc summary
+const coreCount = CHAPTERS.core.length;
+const appCount  = CHAPTERS.application.length;
+document.getElementById('arcSummary').textContent =
+  `${SCHEDULE.sessions.filter(s => !s.break && s.chapter).length} sessions · ${coreCount} core chapters · ${appCount} application chapters`;
+
+// Schedule card
+document.getElementById('scheduleCard').href = PAGES.schedule;
 
 // ================================================================
-//  Card definitions — each card tied to a FEATURES flag
-//  Add new cards here; set the matching flag in config.js
+//  Card definitions — driven by FEATURES and GRADING from config
 // ================================================================
+function gradeLabel(id) {
+  const g = GRADING.components.find(c => c.id === id);
+  return g ? `${g.weight}% of Grade` : null;
+}
+
 const ALL_CARDS = [
   {
-    feature:  'schedule',
-    primary:  true,
-    href:     PAGES.schedule,
-    icon:     'calendar',
-    title:    'How This Course Is Organized',
-    desc:     'Where we are and where we\'re going. Open this every week for slides and in-class examples.',
+    feature: 'syllabus',
+    href:    PAGES.syllabus,
+    icon:    'book-open',
+    title:   'Course Syllabus &amp; Policies',
+    desc:    'Policies, expectations, and the grading breakdown. Read this first if you have a question about the rules.',
+    badge:   null,
+    badgeClass: null,
   },
   {
-    feature:  'assignments',
-    href:     PAGES.assignments,
-    icon:     'clipboard-list',
-    title:    'What You\'ll Do',
-    desc:     'Check-ins, puzzles, and assignments, each explained with what it is and how it counts toward your grade.',
+    feature: 'puzzles',
+    href:    PAGES.puzzles,
+    icon:    'puzzle',
+    title:   'Economic Puzzles',
+    desc:    'One per session. Apply economic reasoning to real decisions. Lowest score dropped at end of semester.',
+    badge:   gradeLabel('puzzles'),
+    badgeClass: 'badge-grade',
   },
   {
-    feature:  'syllabus',
-    href:     PAGES.syllabus,
-    icon:     'book-open',
-    title:    'Course Syllabus & Policies',
-    desc:     'Policies, expectations, and the grading breakdown. Read this first if you have a question about the rules.',
+    feature: 'mme',
+    href:    PAGES.mme,
+    icon:    'newspaper',
+    title:   'Monday Morning Economist',
+    desc:    'Four current-events readings with guided annotation in Perusall. Real-world stories through an economic lens.',
+    badge:   gradeLabel('mme'),
+    badgeClass: 'badge-grade',
   },
   {
-    feature:  'checklist',
-    href:     PAGES.checklists || '#',
-    icon:     'check-square',
-    title:    'Weekly Checklists',
-    desc:     'What to read, watch, and complete — week by week, with due dates. Start here every Monday.',
+    feature: 'friday',
+    href:    PAGES.friday,
+    icon:    'pen-line',
+    title:   'Friday Focus',
+    desc:    'A written economic narrative and a 12-minute conversation with your instructor. Your chance to think out loud.',
+    badge:   gradeLabel('friday'),
+    badgeClass: 'badge-grade',
   },
   {
-    feature:  'textbook',
-    href:     PAGES.cengage || '#',
-    icon:     'book',
-    title:    'Textbook & Resources',
-    desc:     'Access your digital textbook and all study resources, organized by chapter.',
+    feature: 'wellness',
+    href:    PAGES.wellness,
+    icon:    'heart',
+    title:   'Wellness Pause',
+    desc:    'A brief reflective check-in at the start of each class. Graded on attendance and participation, not content.',
+    badge:   gradeLabel('wellness'),
+    badgeClass: 'badge-grade',
   },
   {
-    feature:  'badges',
-    href:     PAGES.badges || '#',
-    icon:     'award',
-    title:    'Achievement Badges',
-    desc:     'Earn a badge for each chapter by completing the chapter quiz.',
+    feature: 'textbook',
+    href:    TEXTBOOK.ebookUrl || '#',
+    icon:    'book',
+    title:   `${TEXTBOOK.publisher} E-Book`,
+    desc:    `${TEXTBOOK.title}, ${TEXTBOOK.edition} edition. ${TEXTBOOK.authors}.`,
+    badge:   'Resource',
+    badgeClass: 'badge-resource',
   },
   {
-    feature:  'puzzles',
-    href:     PAGES.puzzles || '#',
-    icon:     'puzzle',
-    title:    'Economic Puzzles',
-    desc:     'Chapter-by-chapter critical thinking challenges. One puzzle per chapter.',
+    feature: 'support',
+    href:    PAGES.support,
+    icon:    'life-buoy',
+    title:   'Help &amp; Support',
+    desc:    'Tutoring, office hours, and the right person to call when something is not working.',
+    badge:   null,
+    badgeClass: null,
   },
   {
-    feature:  'mme',
-    href:     PAGES.mme || '#',
-    icon:     'newspaper',
-    title:    'Monday Morning Economist',
-    desc:     'Weekly current-events readings with guided annotation. Real-world stories through an economic lens.',
-  },
-  {
-    feature:  'friday',
-    href:     PAGES.friday || '#',
-    icon:     'pen-line',
-    title:    'Friday Focus',
-    desc:     'Written narrative and Zoom conversation with your instructor.',
-  },
-  {
-    feature:  'support',
-    href:     PAGES.support,
-    icon:     'life-buoy',
-    title:    'Help & Support',
-    desc:     'Tutoring, office hours, and the right person to call when something isn\'t working.',
-  },
-  {
-    feature:  'aiPolicy',
-    href:     PAGES.aiPolicy,
-    icon:     'cpu',
-    title:    'AI in This Course',
-    desc:     'What AI tools you can use in this course, and where the boundaries are.',
+    feature: 'aiPolicy',
+    href:    PAGES.aiPolicy,
+    icon:    'cpu',
+    title:   'AI in This Course',
+    desc:    'What AI tools you can use in this course, and where the boundaries are.',
+    badge:   null,
+    badgeClass: null,
   },
 ];
 
-// ================================================================
-//  Build cards — only render cards whose feature flag is true
-// ================================================================
+// Build cards — only render if feature flag is true
 const grid = document.getElementById('cardGrid');
 let delay  = 0.05;
 
 ALL_CARDS.forEach(card => {
-  if (!FEATURES[card.feature]) return; // skip if feature is off
+  if (!FEATURES[card.feature]) return;
+
+  // Disable e-book card if URL not yet set
+  const disabled = (card.feature === 'textbook' && !TEXTBOOK.ebookUrl);
 
   const a = document.createElement('a');
-  a.href   = card.href;
-  a.target = '_blank';
+  a.className = `card${disabled ? ' disabled' : ''}`;
+  a.href      = disabled ? '#' : card.href;
+  a.target    = disabled ? '_self' : '_blank';
   a.style.animationDelay = `${delay}s`;
   delay += 0.07;
 
-  if (card.primary) {
-    a.className = 'card primary';
-    a.innerHTML = `
-      <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
-      <div class="card-content">
-        <div class="card-title">${card.title}</div>
-        <div class="card-desc">${card.desc}</div>
-      </div>
-      <span class="card-arrow">→</span>
-    `;
-  } else {
-    a.className = 'card';
-    a.innerHTML = `
-      <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
-      <div class="card-content">
-        <div class="card-title">${card.title}</div>
-        <div class="card-desc">${card.desc}</div>
-      </div>
-      <span class="card-arrow">→</span>
-    `;
-  }
-
+  a.innerHTML = `
+    <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+    <div class="card-content">
+      <div class="card-title">${card.title}</div>
+      <div class="card-desc">${card.desc}${disabled ? ' <em style="font-size:0.78rem">(link coming soon)</em>' : ''}</div>
+      ${card.badge ? `<span class="card-badge ${card.badgeClass}">${card.badge}</span>` : ''}
+    </div>
+    <span class="card-arrow">→</span>
+  `;
   grid.appendChild(a);
 });
 
