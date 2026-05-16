@@ -92,20 +92,6 @@
 
 <main>
 
-  <!-- Welcome -->
-  <div class="welcome">
-    <div class="welcome-label">Welcome</div>
-    <!--
-      UPDATE: welcome message each semester.
-      Keep it short, concrete, and in your voice.
-      No em dashes. No rule of three. End on an action.
-    -->
-    <p>
-      Welcome to ECO 1000. The price of eggs, your first paycheck, a tariff on steel.
-      This course teaches you to read them all. Start with the schedule.
-    </p>
-  </div>
-
   <!-- Primary card — Schedule -->
   <a class="card primary" id="scheduleCard" href="#" target="_blank">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
@@ -204,6 +190,15 @@ const ALL_CARDS = [
     badgeClass: null,
   },
   {
+    feature: 'checkins',
+    href:    PAGES.assignments + '#checkins',
+    icon:    'clipboard-check',
+    title:   'Check-Ins',
+    desc:    'Four in-class check-ins. Supply and demand and the 8 guideposts appear on every one. Check-In #4 replaces your lowest score if higher.',
+    badge:   gradeLabel('checkins'),
+    badgeClass: 'badge-grade',
+  },
+  {
     feature: 'puzzles',
     href:    PAGES.puzzles,
     icon:    'puzzle',
@@ -217,7 +212,7 @@ const ALL_CARDS = [
     href:    PAGES.mme,
     icon:    'newspaper',
     title:   'Monday Morning Economist',
-    desc:    'Four current-events readings with guided annotation in Perusall. Real-world stories through an economic lens.',
+    desc:    'Four current-events readings with guided annotation in Perusall. One per check-in block.',
     badge:   gradeLabel('mme'),
     badgeClass: 'badge-grade',
   },
@@ -226,17 +221,8 @@ const ALL_CARDS = [
     href:    PAGES.friday,
     icon:    'pen-line',
     title:   'Friday Focus',
-    desc:    'A written economic narrative and a 12-minute conversation with your instructor. Your chance to think out loud.',
+    desc:    'A written economic narrative and a 12-minute conversation with your instructor during viva week.',
     badge:   gradeLabel('friday'),
-    badgeClass: 'badge-grade',
-  },
-  {
-    feature: 'wellness',
-    href:    PAGES.wellness,
-    icon:    'heart',
-    title:   'Wellness Pause',
-    desc:    'A brief reflective check-in at the start of each class. Graded on attendance and participation, not content.',
-    badge:   gradeLabel('wellness'),
     badgeClass: 'badge-grade',
   },
   {

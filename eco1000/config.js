@@ -244,15 +244,21 @@ const CHAPTERS = {
 // ================================================================
 //  GRADING
 //  Locked weights — stress-tested against 16 student and stakeholder personas
+//  Wellness Pause is ungraded — attendance and participation matter
+//  but do not carry grade weight. Kept as course practice, not assessment.
+//  Check-In replacement policy: if Check-In #4 score is higher than
+//  the lowest of CI #1–3, it automatically replaces that score.
 //  UPDATE only if course structure changes significantly
 // ================================================================
 const GRADING = {
   components: [
-    { id: "checkins", label: "Check-Ins",              weight: 45, note: "4 check-ins × ~11.25% each. Final replaces lowest if higher." },
-    { id: "friday",   label: "Friday Focus",           weight: 25, note: "Written narrative + 12-minute viva conversation." },
-    { id: "puzzles",  label: "Economic Puzzles",       weight: 15, note: "One per session. Lowest score dropped. Late within one week at 80%." },
+    { id: "checkins", label: "Check-Ins",              weight: 50, note: "4 check-ins. CI #4 replaces lowest of CI #1–3 if higher. Each CI includes S&D and 8 guideposts." },
+    { id: "friday",   label: "Friday Focus",           weight: 25, note: "Written narrative + 12-minute viva conversation during S14 viva week." },
+    { id: "puzzles",  label: "Economic Puzzles",       weight: 15, note: "One per content session. Lowest score dropped. Late within one week at 80%." },
     { id: "mme",      label: "Monday Morning Economist", weight: 10, note: "4 articles per semester, one per check-in block. Perusall annotation — quality of comment and interaction." },
-    { id: "wellness", label: "Wellness Pause",         weight:  5, note: "Attendance and brief reflective check-in. Not evaluated for content." },
+  ],
+  ungraded: [
+    { id: "wellness", label: "Wellness Pause", note: "Attendance and brief reflective check-in each class. Not graded — participation expected." },
   ],
 };
 
@@ -266,11 +272,12 @@ const FEATURES = {
   syllabus:    true,
   assignments: true,
   textbook:    true,   // e-book only — single Cengage link
-  puzzles:     true,
+  checkins:    true,   // 50% of grade
+  puzzles:     true,   // 15% of grade
   badges:      false,  // replaced by check-ins in fall
-  mme:         true,
-  friday:      true,
-  wellness:    true,
+  mme:         true,   // 10% of grade
+  friday:      true,   // 25% of grade
+  wellness:    false,  // ungraded — practice only, no card needed
   support:     true,
   aiPolicy:    true,
   checklist:   false,  // not used in face-to-face course
@@ -356,10 +363,10 @@ const PAGES = {
   schedule:    `${COURSE.baseUrl}/schedule.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
   assignments: `${COURSE.baseUrl}/assignments.html`,
+  checkins:    `${COURSE.baseUrl}/assignments.html#checkins`,
   puzzles:     `${COURSE.baseUrl}/assignments.html#puzzles`,
   mme:         `${COURSE.baseUrl}/assignments.html#mme`,
   friday:      `${COURSE.baseUrl}/assignments.html#friday`,
-  wellness:    `${COURSE.baseUrl}/assignments.html#wellness`,
   support:     `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
 };
