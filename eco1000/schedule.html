@@ -17,8 +17,36 @@
   <script src="config.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    .header-inner { max-width: 860px; }
-    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    :root {
+      --crimson:    #73000a;
+      --crimson-dk: #5a0008;
+      --gold:       #b59a57;
+      --gold-lt:    #d4b97a;
+      --gold-link:  #7a5c1e;
+      --cream:      #fcfaf7;
+      --warm-gray:  #f7f4ef;
+      --smoke:      #d3dfd3;
+      --smoke-dark: #b8ccb8;
+      --text:       #2e2e2e;
+      --muted:      #6b6b6b;
+      --disabled:   #c0c0c0;
+      --white:      #ffffff;
+      --shadow:     0 2px 16px rgba(115,0,10,0.08);
+      --radius-pill: 6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem 2rem 1.75rem; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    header h1 { font-size: clamp(1.4rem,4vw,2rem); font-weight: 500; color: var(--white); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.2; }
+    header p  { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin-top: 0.4rem; font-weight: 300; font-style: italic; }
 
     .intro { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.75rem; }
     .intro a { color: var(--crimson); }
