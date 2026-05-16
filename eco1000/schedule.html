@@ -1,178 +1,157 @@
 <!DOCTYPE html>
 <!--
-=======================================================
-  ECO 1000 COURSE SCHEDULE — SEMESTER UPDATE CHECKLIST
-  Search for UPDATE to find every spot that needs editing
-=======================================================
-  EACH SEMESTER DO THE FOLLOWING:
-  1. Archive this file first: save a copy as archive/fall2026.html
-  2. Update SESSION_STARTS array in the <script> block (dates drive auto-highlighting)
-  3. Update semester name in header — search: UPDATE
-  4. Update syllabus link in intro — search: UPDATE
-  5. Update all session date ranges in the HTML — search: UPDATE
-  6. Update all slide links and in-class example links
-  7. Update final exam dates at the bottom — search: UPDATE
-  8. Update footer semester name — search: UPDATE
-  NOTE: current/past session highlighting is now AUTOMATIC — do not add class="current" manually
-=======================================================
+================================================================
+  ECO 1000 — COURSE SCHEDULE
+  Hosted: bdepro.github.io/courses/eco1000/schedule.html
+  Sessions generated dynamically from config.js.
+  To update dates/chapters: edit config.js only.
+  To update slide links and examples: edit SESSIONS_CONTENT below.
+================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECO 1000 · Course Schedule</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
+  <script src="config.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    :root {
-      --crimson:     #73000a;
-      --gold:        #b59a57;
-      --gold-lt:     #d4b97a;
-      --gold-link:   #7a5c1e;
-      --cream:       #fcfaf7;
-      --warm-gray:   #f7f4ef;
-      --sage:        #d3dfd3;
-      --sage-dark:   #b8ccb8;
-      --text:        #2e2e2e;
-      --muted:       #6b6b6b;
-      --disabled:    #c0c0c0;
-      --white:       #ffffff;
-      --radius-card: 20px;
-      --radius-pill: 6px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    header {
-      background: var(--crimson);
-      padding: 2rem 2rem 1.75rem;
-      border-bottom: 4px solid var(--gold);
-    }
-    .header-inner { max-width: 860px; margin: 0 auto; }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.85rem;
-      transition: color 0.15s;
-    }
-    .back-link:hover { color: var(--white); }
-    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-    header h1 {
-      font-family: 'Roboto', Arial, sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 500;
-      color: var(--white);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      line-height: 1.2;
-    }
-    header p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.9rem;
-      margin-top: 0.4rem;
-      font-weight: 300;
-      font-style: italic;
-      letter-spacing: 0.02em;
-    }
-
+    .header-inner { max-width: 860px; }
     main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
-    .intro { font-size: 0.95rem; color: var(--muted); line-height: 1.65; margin-bottom: 2rem; }
+    .intro { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.75rem; }
     .intro a { color: var(--crimson); }
 
-    .session-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .session-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
+    /* ── Cards ── */
     .session-card {
-      background: var(--warm-gray);
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
+      border-radius: 14px; overflow: hidden;
+      background: var(--warm-gray); transition: box-shadow 0.2s;
     }
-    .session-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
-    .session-card.current {
-      background: var(--sage);
-      outline: 2px solid var(--sage-dark);
-      outline-offset: -2px;
-    }
-    .session-card.break { opacity: 0.6; }
-    .session-card.done  { background: #f0ece8; }
+    .session-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
 
+    .session-card.type-checkin {
+      background: rgba(115,0,10,0.04);
+      outline: 1.5px solid rgba(115,0,10,0.12); outline-offset: -1.5px;
+    }
+    .session-card.type-break,
+    .session-card.type-thanksgiving { opacity: 0.5; }
+    .session-card.type-viva {
+      background: rgba(13,110,253,0.04);
+      outline: 1.5px solid rgba(13,110,253,0.15); outline-offset: -1.5px;
+    }
+    .session-card.type-application {
+      background: rgba(130,60,180,0.04);
+      outline: 1.5px solid rgba(130,60,180,0.12); outline-offset: -1.5px;
+    }
+    .session-card.current {
+      background: var(--smoke);
+      outline: 2px solid var(--smoke-dark); outline-offset: -2px;
+    }
+    .session-card.type-checkin.current {
+      background: rgba(115,0,10,0.07);
+      outline: 2px solid rgba(115,0,10,0.2);
+    }
+
+    /* ── Toggle ── */
     .session-toggle {
       width: 100%; background: none; border: none; cursor: pointer;
-      padding: 1rem 1.25rem; display: flex; align-items: center; gap: 14px; text-align: left;
+      padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 12px; text-align: left;
     }
-    .session-toggle:focus-visible {
-      outline: 3px solid var(--gold); outline-offset: -3px; border-radius: var(--radius-card);
-    }
+    .session-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: 14px; }
 
-    .badge {
-      width: 46px; height: 46px; border-radius: 50%;
+    /* ── Badge ── */
+    .session-badge {
+      width: 42px; height: 42px; border-radius: 50%;
       background: var(--gold); color: var(--white);
-      font-weight: 700; font-size: 1rem;
+      font-weight: 700; font-size: 0.9rem;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .session-card.break .badge { background: #999; }
-    .session-card.done  .badge { background: var(--crimson); }
+    .type-break .session-badge,
+    .type-thanksgiving .session-badge { background: #aaa; }
+    .type-checkin .session-badge  { background: var(--crimson); }
+    .type-viva .session-badge     { background: rgba(13,110,253,0.75); }
+    .type-application .session-badge { background: rgba(130,60,180,0.65); }
 
-    .session-label { font-size: 0.95rem; color: var(--crimson); font-weight: 500; letter-spacing: 0.01em; }
+    /* ── Header text ── */
+    .session-header-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .session-label {
+      font-size: 0.92rem; font-weight: 500; color: var(--crimson);
+      display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+    }
+    .type-break .session-label,
+    .type-thanksgiving .session-label { color: var(--muted); }
+    .session-chapter { font-size: 0.78rem; font-weight: 400; color: var(--muted); line-height: 1.3; }
 
+    /* ── Tags ── */
+    .sess-tag {
+      display: inline-block; font-size: 8px; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
+    }
+    .tag-checkin { background: rgba(115,0,10,0.1);  color: #73000a; }
+    .tag-viva    { background: rgba(13,110,253,0.1); color: #0d6efd; }
+    .tag-app     { background: rgba(130,60,180,0.1); color: #6a0dad; }
+    .tag-break   { background: rgba(0,0,0,0.07);     color: var(--muted); }
+    .tag-current { background: var(--crimson);       color: var(--white); }
+    .tag-mme     { background: rgba(16,130,90,0.1);  color: #0d6640; }
+    .tag-vote    { background: rgba(255,140,0,0.12); color: #b35c00; }
+
+    /* ── Chevron ── */
     .chevron {
-      margin-left: auto; width: 22px; height: 22px; color: var(--gold);
+      margin-left: auto; width: 20px; height: 20px; color: var(--gold);
       transition: transform 0.25s ease; flex-shrink: 0;
+      stroke: currentColor; fill: none; stroke-width: 2.5;
     }
     .session-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
 
-    .session-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+    /* ── Body ── */
+    .session-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
     .session-body.open { grid-template-rows: 1fr; }
-    .session-body-inner { overflow: hidden; padding: 0 1.25rem 0 74px; }
-    .session-body.open .session-body-inner { padding-bottom: 1.25rem; }
+    .session-body-inner { overflow: hidden; padding: 0 1.1rem 0 66px; }
+    .session-body.open .session-body-inner { padding-bottom: 1.1rem; }
 
-    .topic { font-size: 0.88rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 0.85rem; }
+    .topic { font-size: 0.86rem; font-weight: 300; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 0.8rem; }
 
-    .slides { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+    /* ── Slides ── */
+    .slides { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 0.85rem; }
     .slide-pill {
-      display: inline-block; padding: 5px 16px; border-radius: var(--radius-pill);
-      font-size: 0.78rem; font-weight: 600; text-decoration: none; letter-spacing: 0.02em;
-      transition: opacity 0.15s, transform 0.1s;
+      display: inline-block; padding: 4px 14px; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; text-decoration: none;
+      letter-spacing: 0.02em; transition: opacity 0.15s;
     }
-    .slide-pill:hover    { opacity: 0.85; transform: translateY(-1px); }
     .slide-pill.active   { background: var(--crimson); color: var(--white); }
     .slide-pill.inactive { background: var(--disabled); color: var(--white); cursor: default; pointer-events: none; }
-    .slide-pill.no-slide { background: #e0e0e0; color: #777; cursor: default; pointer-events: none; }
 
-    .examples-box { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 0.85rem 1rem; }
-    .examples-box h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em; color: var(--crimson); text-transform: uppercase; margin-bottom: 0.6rem; }
-    .examples-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .examples-box a  { color: var(--gold-link); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.15s; }
+    /* ── Examples box ── */
+    .examples-box { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 0.75rem 0.9rem; }
+    .examples-box h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; color: var(--crimson); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .examples-box ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .examples-box a { color: var(--gold-link); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.15s; }
     .examples-box a:hover { color: var(--crimson); }
-    .examples-box .disabled-link { color: var(--disabled); font-size: 0.88rem; font-weight: 500; }
+    .examples-box .disabled-link { color: var(--disabled); font-size: 0.85rem; font-weight: 500; }
 
-    .current-tag {
-      display: inline-block; background: var(--crimson); color: var(--white);
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 2px 10px; border-radius: 4px; margin-left: 10px; vertical-align: middle;
+    /* ── Info boxes ── */
+    .info-box {
+      border-left: 4px solid var(--crimson); border-radius: 0 8px 8px 0;
+      padding: 0.75rem 0.9rem; margin-bottom: 0.75rem;
+      font-size: 0.85rem; line-height: 1.55;
     }
+    .info-box.ci-box   { background: rgba(115,0,10,0.05);  border-left-color: var(--crimson); }
+    .info-box.app-box  { background: rgba(130,60,180,0.05); border-left-color: rgba(130,60,180,0.5); }
+    .info-box.viva-box { background: rgba(13,110,253,0.05); border-left-color: rgba(13,110,253,0.4); }
+    .info-box strong   { color: var(--crimson); font-weight: 600; }
+    .info-box.app-box strong  { color: rgba(130,60,180,0.9); }
+    .info-box.viva-box strong { color: rgba(13,110,253,0.85); }
+    .info-box .sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
 
-    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--muted); border-top: 1px solid #e8e4dd; }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid #e8e4dd; }
 
     @media (max-width: 540px) {
-      .session-body-inner { padding-left: 1.25rem; }
-      .badge { width: 38px; height: 38px; font-size: 0.9rem; }
+      .session-body-inner { padding-left: 1.1rem; }
+      .session-badge { width: 36px; height: 36px; font-size: 0.82rem; }
     }
   </style>
 </head>
@@ -180,509 +159,361 @@
 
 <header>
   <div class="header-inner">
-    <a class="back-link" href="https://bdepro.github.io/courses/eco1000/" target="_self">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"/></svg>
+    <a class="back-link" id="backLink" href="#" target="_self">
+      <svg viewBox="0 0 24 24" fill="none" style="width:14px;height:14px;stroke:currentColor;stroke-width:2.5"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Course Home
     </a>
-    <h1>Principles of Economics</h1>
-    <p>ECO 1000 · Elon University · <!-- UPDATE: semester --> Fall 2026</p>
+    <h1 id="pageTitle"></h1>
+    <p id="pageMeta"></p>
   </div>
 </header>
 
 <main>
-  <p class="intro">
-    The semester is organized by session with three class meetings per session (M,W,F).
-    Each session builds on economic concepts through puzzles, achievement badges, and check-ins.
-    See the <a href="#">course syllabus</a> for complete details. <!-- UPDATE: syllabus link -->
-  </p>
-
-  <ul class="session-list">
-
-    <!-- Session 0 — UPDATE: topic, links -->
-    <li class="session-card" id="session-0">
-      <button class="session-toggle" aria-expanded="false" data-session="0">
-        <span class="badge">0</span>
-        <span class="session-label">Session 0 <span style="font-weight:300;font-size:.9em">(Aug 26–28)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-0">
-        <div class="session-body-inner">
-          <p class="topic">Course Introduction</p>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 1 — UPDATE: topic, links -->
-    <li class="session-card" id="session-1">
-      <button class="session-toggle" aria-expanded="false" data-session="1">
-        <span class="badge">1</span>
-        <span class="session-label">Session 1 <span style="font-weight:300;font-size:.9em">(Aug 31–Sep 4)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-1">
-        <div class="session-body-inner">
-          <p class="topic">Ch. 1: How should we think economically about everyday choices?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 2 — UPDATE: topic, links -->
-    <li class="session-card" id="session-2">
-      <button class="session-toggle" aria-expanded="false" data-session="2">
-        <span class="badge">2</span>
-        <span class="session-label">Session 2 <span style="font-weight:300;font-size:.9em">(Sep 7–11)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-2">
-        <div class="session-body-inner">
-          <p class="topic">Ch. 3: How do supply and demand help markets adjust when the world changes?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 3 — UPDATE: topic, links -->
-    <li class="session-card" id="session-3">
-      <button class="session-toggle" aria-expanded="false" data-session="3">
-        <span class="badge">3</span>
-        <span class="session-label">Session 3 <span style="font-weight:300;font-size:.9em">(Sep 14–18)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-3">
-        <div class="session-body-inner">
-          <p class="topic">Check-In #1</p>
-          <div class="examples-box">
-            <h4>Resources</h4>
-            <ul>
-              <li><span class="disabled-link">→ Study Guide</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 4 — UPDATE: topic, links -->
-    <li class="session-card" id="session-4">
-      <button class="session-toggle" aria-expanded="false" data-session="4">
-        <span class="badge">4</span>
-        <span class="session-label">Session 4 <span style="font-weight:300;font-size:.9em">(Sep 21–25)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-4">
-        <div class="session-body-inner">
-          <p class="topic">Ch. 7, 8: What does it mean for the economy to fall out of balance?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 5 — UPDATE: topic, links -->
-    <li class="session-card" id="session-5">
-      <button class="session-toggle" aria-expanded="false" data-session="5">
-        <span class="badge">5</span>
-        <span class="session-label">Session 5 <span style="font-weight:300;font-size:.9em">(Sep 28–Oct 2)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-5">
-        <div class="session-body-inner">
-          <p class="topic">Ch. 7, 8: How can we measure the economy when no one sees the whole picture? (GDP, inflation, unemployment)</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 6 — UPDATE: topic, links -->
-    <li class="session-card" id="session-6">
-      <button class="session-toggle" aria-expanded="false" data-session="6">
-        <span class="badge">6</span>
-        <span class="session-label">Session 6 <span style="font-weight:300;font-size:.9em">(Oct 5–9)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-6">
-        <div class="session-body-inner">
-          <p class="topic">Chapter 18: Why does global trade help people who know different things?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 7 — UPDATE: topic, links -->
-    <li class="session-card" id="session-7">
-      <button class="session-toggle" aria-expanded="false" data-session="7">
-        <span class="badge">7</span>
-        <span class="session-label">Session 7 <span style="font-weight:300;font-size:.9em">(Oct 12–13)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-7">
-        <div class="session-body-inner">
-          <p class="topic">Check-In #2 — Mon &amp; Tue only. Fall Break begins Wednesday evening.</p>
-          <div class="examples-box">
-            <h4>Resources</h4>
-            <ul>
-              <li><span class="disabled-link">→ Study Guide</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 8 — Fall Break (no highlighting) -->
-    <li class="session-card break" id="session-8">
-      <button class="session-toggle" aria-expanded="false" data-session="8">
-        <span class="badge" style="background:#999">8</span>
-        <span class="session-label" style="color:#999">Session 8 <span style="font-weight:300;font-size:.9em">(Oct 14–19) — Fall Break</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-8">
-        <div class="session-body-inner">
-          <p class="topic" style="color:#999">No class — enjoy the break.</p>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 9 — UPDATE: topic, links -->
-    <li class="session-card" id="session-9">
-      <button class="session-toggle" aria-expanded="false" data-session="9">
-        <span class="badge">9</span>
-        <span class="session-label">Session 9 <span style="font-weight:300;font-size:.9em">(Oct 19–23)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-9">
-        <div class="session-body-inner">
-          <p class="topic">Chapter 4: How do price controls, taxes, and informal markets affect adjustment?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 10 — UPDATE: topic, links -->
-    <li class="session-card" id="session-10">
-      <button class="session-toggle" aria-expanded="false" data-session="10">
-        <span class="badge">10</span>
-        <span class="session-label">Session 10 <span style="font-weight:300;font-size:.9em">(Oct 26–30)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-10">
-        <div class="session-body-inner">
-          <p class="topic">Chapter 23: Why do similar businesses charge different prices?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 11 — UPDATE: topic, links -->
-    <li class="session-card" id="session-11">
-      <button class="session-toggle" aria-expanded="false" data-session="11">
-        <span class="badge">11</span>
-        <span class="session-label">Session 11 <span style="font-weight:300;font-size:.9em">(Nov 2–6)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-11">
-        <div class="session-body-inner">
-          <p class="topic">Check-In #3</p>
-          <div class="examples-box">
-            <h4>Resources</h4>
-            <ul>
-              <li><span class="disabled-link">→ Study Guide</span></li>
-              <li><span class="disabled-link">→ Supply and Demand &amp; Extra Practice</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 12 — UPDATE: topic, links -->
-    <li class="session-card" id="session-12">
-      <button class="session-toggle" aria-expanded="false" data-session="12">
-        <span class="badge">12</span>
-        <span class="session-label">Session 12 <span style="font-weight:300;font-size:.9em">(Nov 9–13)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-12">
-        <div class="session-body-inner">
-          <p class="topic">Chapters 5 &amp; 6: Why do people expect government action when markets struggle, and how can decisions be made without price signals?</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 13 — UPDATE: topic, links -->
-    <li class="session-card" id="session-13">
-      <button class="session-toggle" aria-expanded="false" data-session="13">
-        <span class="badge">13</span>
-        <span class="session-label">Session 13 <span style="font-weight:300;font-size:.9em">(Nov 16–20)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-13">
-        <div class="session-body-inner">
-          <p class="topic">Chapters 16, 26, &amp; 28: Why do living standards change over time, and why do income differences lead people to disagree about fairness and policy? Thanksgiving break begins Friday evening.</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: TBA</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Session 14 — UPDATE: topic, links -->
-    <li class="session-card" id="session-14">
-      <button class="session-toggle" aria-expanded="false" data-session="14">
-        <span class="badge">14</span>
-        <span class="session-label">Session 14 <span style="font-weight:300;font-size:.9em">(Nov 30–Dec 4)</span></span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-14">
-        <div class="session-body-inner">
-          <p class="topic">Review &amp; Wrap-Up. Last day of class: Friday Dec 4.</p>
-          <div class="slides">
-            <span class="slide-pill inactive">Mon Slides</span>
-            <span class="slide-pill inactive">Wed Slides</span>
-            <span class="slide-pill inactive">Fri Slides</span>
-          </div>
-          <div class="examples-box">
-            <h4>In-Class Examples</h4>
-            <ul>
-              <li><span class="disabled-link">→ Monday: TBA</span></li>
-              <li><span class="disabled-link">→ Wednesday: TBA</span></li>
-              <li><span class="disabled-link">→ Friday: Review Session</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <!-- Final Exam — UPDATE: exam dates and times -->
-    <li class="session-card done" id="session-final">
-      <button class="session-toggle" aria-expanded="false" data-session="final">
-        <span class="badge" style="background:var(--crimson);font-size:1.3rem;">✓</span>
-        <span class="session-label">Last Day &amp; Final Exam</span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="session-body" id="body-final">
-        <div class="session-body-inner">
-          <p class="topic"><strong>Check-In #4</strong> &nbsp;·&nbsp; Last day of class: Dec 4</p>
-          <!-- UPDATE: exam dates and times -->
-          <p class="topic" style="margin-top:.5rem;">
-            <strong>Examinations:</strong> Dec 7–11, 2026<br>
-            <strong>Your section's exam date:</strong> TBA
-          </p>
-          <div class="examples-box" style="margin-top:.75rem;">
-            <h4>Resources</h4>
-            <ul>
-              <li><span class="disabled-link">→ Study Guide</span></li>
-              <li><span class="disabled-link">→ Supply and Demand Practice</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </li>
-
-  </ul>
+  <p class="intro" id="introText"></p>
+  <ul class="session-list" id="sessionList"></ul>
 </main>
 
-<footer>
-  ECO 1000 · Elon University · <!-- UPDATE: semester --> Fall 2026 · Professor Depro
-</footer>
+<footer id="pageFooter"></footer>
 
+<!--
+================================================================
+  SESSIONS_CONTENT — UPDATE each semester
+  Add slide links and in-class examples here as the semester progresses.
+  Keys = session num values from SCHEDULE.sessions.
+  Leave url: null for TBA. Use url: 'https://...' when ready.
+================================================================
+-->
 <script>
-  // ============================================================
-  // UPDATE EACH SEMESTER — SESSION DATE BOUNDARIES
-  // These dates drive the automatic current-session highlighting.
-  // Format: new Date(year, month (0=Jan), day)
-  // Each entry = start of that session.
-  // The session runs until the next entry's date.
-  // Last entry = day after classes end (triggers final card).
-  // ============================================================
-  const SESSION_STARTS = [
-    new Date(2026,  7, 26),  // Session 0:  Aug 26
-    new Date(2026,  7, 31),  // Session 1:  Aug 31
-    new Date(2026,  8,  7),  // Session 2:  Sep 7
-    new Date(2026,  8, 14),  // Session 3:  Sep 14
-    new Date(2026,  8, 21),  // Session 4:  Sep 21
-    new Date(2026,  8, 28),  // Session 5:  Sep 28
-    new Date(2026,  9,  5),  // Session 6:  Oct 5
-    new Date(2026,  9, 12),  // Session 7:  Oct 12
-    new Date(2026,  9, 14),  // Session 8:  Oct 14 (Fall Break)
-    new Date(2026,  9, 19),  // Session 9:  Oct 19
-    new Date(2026,  9, 26),  // Session 10: Oct 26
-    new Date(2026, 10,  2),  // Session 11: Nov 2
-    new Date(2026, 10,  9),  // Session 12: Nov 9
-    new Date(2026, 10, 16),  // Session 13: Nov 16
-    new Date(2026, 10, 30),  // Session 14: Nov 30
-    new Date(2026, 11,  5),  // Final zone: Dec 5 (day after classes end)
-  ];
-
-  const BREAK_SESSIONS = [8]; // Session numbers that are breaks — never highlighted
-
-  function applyHighlighting() {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    // Find current session index
-    let current = -1;
-    for (let i = 0; i < SESSION_STARTS.length - 1; i++) {
-      if (today >= SESSION_STARTS[i] && today < SESSION_STARTS[i + 1]) {
-        current = i;
-        break;
-      }
-    }
-
-    // Apply to numbered sessions 0–14
-    for (let i = 0; i <= 14; i++) {
-      const card   = document.getElementById('session-' + i);
-      const toggle = card && card.querySelector('.session-toggle');
-      const body   = document.getElementById('body-' + i);
-      const label  = card && card.querySelector('.session-label');
-      if (!card) continue;
-      if (BREAK_SESSIONS.includes(i)) continue;
-
-      card.classList.remove('current');
-      if (i === current) {
-        card.classList.add('current');
-        if (toggle) toggle.setAttribute('aria-expanded', 'true');
-        if (body)   body.classList.add('open');
-        if (label && !label.querySelector('.current-tag')) {
-          const tag = document.createElement('span');
-          tag.className = 'current-tag';
-          tag.textContent = 'Current';
-          label.appendChild(tag);
-        }
-      }
-    }
-
-    // Final card — highlight once we're past the last session
-    const finalCard   = document.getElementById('session-final');
-    const finalToggle = finalCard && finalCard.querySelector('.session-toggle');
-    const finalBody   = document.getElementById('body-final');
-    if (finalCard && today >= SESSION_STARTS[SESSION_STARTS.length - 1]) {
-      finalCard.classList.add('current');
-      if (finalToggle) finalToggle.setAttribute('aria-expanded', 'true');
-      if (finalBody)   finalBody.classList.add('open');
-    }
-  }
-
-  // Accordion toggle
-  document.querySelectorAll('.session-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const id = btn.dataset.session;
-      const body = document.getElementById('body-' + id);
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if (body) body.classList.toggle('open', !expanded);
-    });
-  });
-
-  // Run on load
-  applyHighlighting();
+const SESSIONS_CONTENT = {
+  0: {
+    slides: [],
+    examples: [
+      { day: 'Wednesday', label: 'Course Introduction', url: null },
+      { day: 'Friday',    label: 'Course Introduction', url: null },
+    ],
+  },
+  1: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  2: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  4: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  5: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  7: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Tue Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',  label: 'TBA', url: null },
+      { day: 'Tuesday', label: 'TBA', url: null },
+    ],
+  },
+  9: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  10: {
+    slides: [
+      { label: 'Mon Slides', url: null },
+      { label: 'Wed Slides', url: null },
+      { label: 'Fri Slides', url: null },
+    ],
+    examples: [
+      { day: 'Monday',    label: 'TBA', url: null },
+      { day: 'Wednesday', label: 'TBA', url: null },
+      { day: 'Friday',    label: 'TBA', url: null },
+    ],
+  },
+  12: {
+    slides: [],
+    examples: [
+      { day: 'Monday',    label: 'Application: Question 1', url: null },
+      { day: 'Wednesday', label: 'Application: Question 2', url: null },
+      { day: 'Friday',    label: 'Application: Question 3', url: null },
+    ],
+  },
+  13: {
+    slides: [],
+    examples: [
+      { day: 'Monday',    label: 'Application: Question 4', url: null },
+      { day: 'Wednesday', label: 'Application: Question 5', url: null },
+      { day: 'Friday',    label: 'Application: Question 6', url: null },
+    ],
+  },
+  15: {
+    slides: [],
+    examples: [
+      { day: 'Monday',    label: 'Viva slots — see sign-up', url: null },
+      { day: 'Wednesday', label: 'Viva slots — see sign-up', url: null },
+      { day: 'Friday',    label: 'Check-In #4 — Last day of class', url: null },
+    ],
+  },
+};
 </script>
 
-<script>lucide.createIcons();</script>
+<script>
+// ── Wire header ──
+document.getElementById('backLink').href        = PAGES.home;
+document.getElementById('pageTitle').textContent = COURSE.title;
+document.getElementById('pageMeta').textContent  = `${COURSE.code} · Elon University · ${COURSE.semester}`;
+document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.name}`;
+document.getElementById('introText').innerHTML   =
+  `The semester is organized by session with three class meetings per session (M,W,F). ` +
+  `Each session builds on economic concepts through puzzles, check-ins, and real-world examples. ` +
+  `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 
+// ── Helpers ──
+function chLabel(session) {
+  if (!session.chapter || session.chapter === 'application') return null;
+  if (session.chapter === 'ch8_ch16') {
+    const a = CHAPTERS.core.find(c => c.key === 'ch8');
+    const b = CHAPTERS.core.find(c => c.key === 'ch16');
+    return a && b ? `${a.num} / ${b.num}` : null;
+  }
+  const ch = CHAPTERS.core.find(c => c.key === session.chapter);
+  return ch ? ch.num : null;
+}
+
+function chTitle(session) {
+  if (!session.chapter) return null;
+  if (session.chapter === 'application') return 'Student-selected application questions';
+  if (session.chapter === 'ch8_ch16') {
+    const a = CHAPTERS.core.find(c => c.key === 'ch8');
+    const b = CHAPTERS.core.find(c => c.key === 'ch16');
+    return a && b ? `${a.title} / ${b.title}` : null;
+  }
+  const ch = CHAPTERS.core.find(c => c.key === session.chapter);
+  return ch ? ch.title : null;
+}
+
+function sessType(s) {
+  if (s.break && s.label.includes('Thanks')) return 'thanksgiving';
+  if (s.break)   return 'break';
+  if (s.viva)    return 'viva';
+  if (s.chapter === 'application') return 'application';
+  if (s.checkIn) return 'checkin';
+  return 'content';
+}
+
+function renderSlides(num) {
+  const c = SESSIONS_CONTENT[num];
+  if (!c || !c.slides || !c.slides.length) return '';
+  const pills = c.slides.map(s =>
+    s.url
+      ? `<a class="slide-pill active" href="${s.url}" target="_blank">${s.label}</a>`
+      : `<span class="slide-pill inactive">${s.label}</span>`
+  ).join('');
+  return `<div class="slides">${pills}</div>`;
+}
+
+function renderExamples(num, heading) {
+  const c = SESSIONS_CONTENT[num];
+  if (!c || !c.examples || !c.examples.length) return '';
+  const items = c.examples.map(e =>
+    e.url
+      ? `<li><a href="${e.url}" target="_blank">→ ${e.day}: ${e.label}</a></li>`
+      : `<li><span class="disabled-link">→ ${e.day}: ${e.label}</span></li>`
+  ).join('');
+  return `<div class="examples-box"><h4>${heading || 'In-Class Examples'}</h4><ul>${items}</ul></div>`;
+}
+
+function bodyContent(session, type) {
+  if (type === 'break' || type === 'thanksgiving') {
+    return `<p class="topic" style="color:var(--muted)">${session.note || 'No class.'}</p>`;
+  }
+  if (type === 'checkin') {
+    const ci = CHAPTERS.checkIns[session.checkIn];
+    return `
+      <div class="info-box ci-box">
+        <strong>${session.checkInDay} — Check-In #${session.checkIn}</strong>
+        <div class="sub">Covers: ${ci ? ci.label : 'TBA'} · Supply &amp; demand · 8 guideposts</div>
+      </div>
+      ${renderExamples(session.num, 'Resources')}
+    `;
+  }
+  if (type === 'application') {
+    const appChs = CHAPTERS.application.map(c => c.num).join(', ');
+    return `
+      <div class="info-box app-box">
+        <strong>Student-selected questions</strong>
+        <div class="sub">Reference chapters: ${appChs}</div>
+      </div>
+      ${renderExamples(session.num, 'Class Sessions')}
+    `;
+  }
+  if (type === 'viva') {
+    return `
+      <div class="info-box viva-box">
+        <strong>Viva Week — Mon &amp; Wed</strong>
+        <div class="sub">12-minute individual conversations. See sign-up for your slot.</div>
+      </div>
+      <div class="info-box ci-box" style="margin-top:0.5rem">
+        <strong>Friday Dec 4 — Check-In #4</strong>
+        <div class="sub">Comprehensive · Ch. 18 + application block · S&amp;D · Guideposts · CI #4 replaces lowest CI #1–3 if higher.</div>
+      </div>
+      <div class="info-box viva-box" style="margin-top:0.5rem">
+        <strong>Makeup viva: ${SCHEDULE.makeupViva.dates}</strong>
+        <div class="sub">${SCHEDULE.makeupViva.note}</div>
+      </div>
+      ${renderExamples(session.num, 'Schedule')}
+    `;
+  }
+  // content
+  const title = chTitle(session);
+  return `
+    ${title ? `<p class="topic">${title}</p>` : ''}
+    ${renderSlides(session.num)}
+    ${renderExamples(session.num, 'In-Class Examples')}
+  `;
+}
+
+// ── Render sessions ──
+const list = document.getElementById('sessionList');
+
+SCHEDULE.sessions.forEach((session, idx) => {
+  const type = sessType(session);
+  const cl   = chLabel(session);
+  const ct   = chTitle(session);
+
+  // Badge
+  const badge = type === 'viva' ? '✓' : String(session.num);
+
+  // Type tag
+  const tags = [
+    session.checkIn    ? `<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>` : '',
+    type === 'viva'    ? `<span class="sess-tag tag-viva">Viva + CI #4</span>`              : '',
+    type === 'application' ? `<span class="sess-tag tag-app">Application</span>`            : '',
+    (type === 'break' || type === 'thanksgiving') ? `<span class="sess-tag tag-break">Break</span>` : '',
+    session.mmeFF      ? `<span class="sess-tag tag-mme">MME + FF</span>`                   : '',
+    session.vote       ? `<span class="sess-tag tag-vote">Vote</span>`                      : '',
+  ].join('');
+
+  // Chapter subtitle
+  let chSub = '';
+  if (cl && type === 'content') {
+    const shortTitle = ct ? ct.split(':')[0].split('/')[0].trim() : '';
+    chSub = `<div class="session-chapter">${cl}${shortTitle ? ' · ' + shortTitle : ''}</div>`;
+  }
+  if (type === 'application') chSub = `<div class="session-chapter">Ch. 5, 6, 23, 26, 28 — reference</div>`;
+  if (type === 'checkin') {
+    const ci = CHAPTERS.checkIns[session.checkIn];
+    chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'}</div>`;
+  }
+  if (type === 'viva') chSub = `<div class="session-chapter">Mon &amp; Wed: viva · Fri: Check-In #4</div>`;
+
+  const li = document.createElement('li');
+  li.className = `session-card type-${type}`;
+  li.id        = `session-${session.num}`;
+  li.innerHTML = `
+    <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
+      <div class="session-badge">${badge}</div>
+      <div class="session-header-text">
+        <div class="session-label">
+          ${session.label}
+          <span style="font-weight:300;font-size:.88em;color:var(--muted)">(${session.dates})</span>
+          ${tags}
+        </div>
+        ${chSub}
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="session-body" id="body-${session.num}">
+      <div class="session-body-inner">${bodyContent(session, type)}</div>
+    </div>
+  `;
+  list.appendChild(li);
+});
+
+// ── Auto-highlighting ──
+(function applyHighlighting() {
+  const today  = new Date(); today.setHours(0,0,0,0);
+  const starts = SCHEDULE.sessionStarts;
+  let cur = -1;
+  for (let i = 0; i < starts.length - 1; i++) {
+    if (today >= starts[i] && today < starts[i+1]) { cur = i; break; }
+  }
+  SCHEDULE.sessions.forEach((session, idx) => {
+    if (SCHEDULE.breakSessions.includes(idx)) return;
+    const card   = document.getElementById(`session-${session.num}`);
+    const toggle = card && card.querySelector('.session-toggle');
+    const body   = document.getElementById(`body-${session.num}`);
+    const label  = card && card.querySelector('.session-label');
+    if (!card) return;
+    card.classList.remove('current');
+    if (idx === cur) {
+      card.classList.add('current');
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      if (body)   body.classList.add('open');
+      if (label && !label.querySelector('.tag-current')) {
+        const t = document.createElement('span');
+        t.className = 'sess-tag tag-current'; t.textContent = 'Current';
+        label.appendChild(t);
+      }
+    }
+  });
+})();
+
+// ── Accordion ──
+document.getElementById('sessionList').addEventListener('click', e => {
+  const btn = e.target.closest('.session-toggle');
+  if (!btn) return;
+  const exp  = btn.getAttribute('aria-expanded') === 'true';
+  const body = document.getElementById(`body-${btn.dataset.session}`);
+  btn.setAttribute('aria-expanded', String(!exp));
+  if (body) body.classList.toggle('open', !exp);
+});
+
+lucide.createIcons();
+</script>
 </body>
 </html>
