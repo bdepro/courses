@@ -60,27 +60,30 @@
     }
     .session-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
 
+    /* ── Session type variants — left border only, no background tints ── */
     .session-card.type-checkin {
-      background: rgba(115,0,10,0.04);
-      outline: 1.5px solid rgba(115,0,10,0.12); outline-offset: -1.5px;
+      border-left: 4px solid var(--crimson);
+    }
+    .session-card.type-viva {
+      border-left: 4px solid var(--crimson);
+    }
+    .session-card.type-application {
+      border-left: 4px solid var(--gold);
     }
     .session-card.type-break,
     .session-card.type-thanksgiving { opacity: 0.5; }
-    .session-card.type-viva {
-      background: rgba(13,110,253,0.04);
-      outline: 1.5px solid rgba(13,110,253,0.15); outline-offset: -1.5px;
-    }
-    .session-card.type-application {
-      background: rgba(130,60,180,0.04);
-      outline: 1.5px solid rgba(130,60,180,0.12); outline-offset: -1.5px;
-    }
+
+    /* Current session */
     .session-card.current {
       background: var(--smoke);
       outline: 2px solid var(--smoke-dark); outline-offset: -2px;
     }
-    .session-card.type-checkin.current {
-      background: rgba(115,0,10,0.07);
-      outline: 2px solid rgba(115,0,10,0.2);
+    .session-card.type-checkin.current,
+    .session-card.type-viva.current {
+      border-left: 4px solid var(--crimson);
+    }
+    .session-card.type-application.current {
+      border-left: 4px solid var(--gold);
     }
 
     /* ── Toggle ── */
@@ -100,8 +103,8 @@
     .type-break .session-badge,
     .type-thanksgiving .session-badge { background: #aaa; }
     .type-checkin .session-badge  { background: var(--crimson); }
-    .type-viva .session-badge     { background: rgba(13,110,253,0.75); }
-    .type-application .session-badge { background: rgba(130,60,180,0.65); }
+    .type-viva .session-badge     { background: var(--crimson); }
+    .type-application .session-badge { background: var(--gold-link); }
 
     /* ── Header text ── */
     .session-header-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -120,12 +123,12 @@
       padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
     }
     .tag-checkin { background: rgba(115,0,10,0.1);  color: #73000a; }
-    .tag-viva    { background: rgba(13,110,253,0.1); color: #0d6efd; }
-    .tag-app     { background: rgba(130,60,180,0.1); color: #6a0dad; }
+    .tag-viva    { background: rgba(115,0,10,0.1);  color: #73000a; }
+    .tag-app     { background: rgba(181,154,87,0.2); color: var(--gold-link); }
     .tag-break   { background: rgba(0,0,0,0.07);     color: var(--muted); }
     .tag-current { background: var(--crimson);       color: var(--white); }
-    .tag-mme     { background: rgba(16,130,90,0.1);  color: #0d6640; }
-    .tag-vote    { background: rgba(255,140,0,0.12); color: #b35c00; }
+    .tag-mme     { background: rgba(181,154,87,0.15); color: var(--gold-link); }
+    .tag-vote    { background: rgba(115,0,10,0.08);  color: #73000a; }
 
     /* ── Chevron ── */
     .chevron {
@@ -167,12 +170,12 @@
       padding: 0.75rem 0.9rem; margin-bottom: 0.75rem;
       font-size: 0.85rem; line-height: 1.55;
     }
-    .info-box.ci-box   { background: rgba(115,0,10,0.05);  border-left-color: var(--crimson); }
-    .info-box.app-box  { background: rgba(130,60,180,0.05); border-left-color: rgba(130,60,180,0.5); }
-    .info-box.viva-box { background: rgba(13,110,253,0.05); border-left-color: rgba(13,110,253,0.4); }
+    .info-box.ci-box   { background: rgba(115,0,10,0.04);  border-left-color: var(--crimson); }
+    .info-box.app-box  { background: rgba(181,154,87,0.08); border-left-color: var(--gold); }
+    .info-box.viva-box { background: rgba(115,0,10,0.04);  border-left-color: var(--crimson); }
     .info-box strong   { color: var(--crimson); font-weight: 600; }
-    .info-box.app-box strong  { color: rgba(130,60,180,0.9); }
-    .info-box.viva-box strong { color: rgba(13,110,253,0.85); }
+    .info-box.app-box strong  { color: var(--gold-link); }
+    .info-box.viva-box strong { color: var(--crimson); }
     .info-box .sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
 
     footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid #e8e4dd; }
