@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 1000 — CHECK-INS
+  Hosted: bdepro.github.io/courses/eco1000/checkins.html
+  All check-in data pulls from CANVAS.checkIns in config.js.
+  UPDATE: CANVAS.checkIns URLs each semester.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO 1000 · Check-Ins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --crimson-dk:#5a0008; --gold:#b59a57; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --disabled:#bcbcbc;
+      --white:#ffffff; --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.85rem;margin-top:0.35rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.88rem;line-height:1.65;}
+    .callout.red{background:rgba(115,0,10,0.06);border-left:4px solid var(--crimson);}
+    .callout.red strong{color:var(--crimson);}
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;}
+    .ci-list{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
+    .ci-row{background:var(--white);border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.12);display:grid;grid-template-columns:3rem 1fr auto;align-items:center;overflow:hidden;}
+    .ci-row.ci4{border-color:rgba(82,123,130,0.3);}
+    .c-num{background:var(--warm-gray);padding:0.9rem 0.75rem;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;}
+    .ci-row.ci4 .c-num{background:rgba(82,123,130,0.08);color:var(--teal-dk);}
+    .c-body{padding:0.85rem 1rem;}
+    .c-title{font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
+    .c-meta{font-size:0.72rem;color:var(--muted);margin-top:3px;line-height:1.4;}
+    .c-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--crimson);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .c-link:hover{background:var(--warm-gray);}
+    .c-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .c-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
+    .threads-box{background:var(--warm-gray);border-radius:8px;padding:0.85rem 1.1rem;font-size:0.85rem;line-height:1.6;color:var(--text);}
+    .threads-box strong{color:var(--crimson);}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .ci-row{grid-template-columns:2.5rem 1fr auto;}
+      .c-title{font-size:0.82rem;}
+    }
+  </style>
+</head>
+<body>
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Assignments
+    </a>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">Check-Ins</h1>
+    <p class="screen-sub">50% of your course grade · pen and paper · Wednesday in class · 60 minutes</p>
+  </div>
+</div>
+<main>
+  <div class="callout red">
+    <strong>Check-In 4 always counts.</strong> If your CI 4 score is higher than your
+    lowest score from CI 1, 2, or 3, I replace that score automatically — you don't
+    need to ask. If you miss a Check-In, CI 4 is the makeup. There are no separate
+    makeup exams. CI 4 covers the full course, so it's the fairest measure of where
+    you land.
+  </div>
+
+  <p class="section-label">Check-In schedule</p>
+  <div class="ci-list" id="ciList"></div>
+
+  <div class="threads-box">
+    <strong>Standing threads — on every Check-In:</strong> supply and demand analysis
+    and the eight guideposts of economic thinking (Ch. 1). Keep these sharp all semester
+    regardless of what else is on the schedule.
+  </div>
+</main>
+<footer id="pageFooter"></footer>
+<script>
+document.getElementById('backLink').href          = PAGES.assignments;
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+var list = document.getElementById('ciList');
+
+// Chapter title lookup
+var chapterTitles = {};
+CHAPTERS.core.forEach(function(c){ chapterTitles[c.key] = c.title; });
+
+CANVAS.checkIns.forEach(function(ci) {
+  var hasUrl = ci.url && ci.url.length > 0;
+  var isCI4  = ci.id === 4;
+
+  var row = document.createElement('div');
+  row.className = 'ci-row' + (isCI4 ? ' ci4' : '');
+
+  row.innerHTML =
+    '<div class="c-num">CI ' + ci.id + '</div>' +
+    '<div class="c-body">' +
+      '<div class="c-title">' + ci.title + '</div>' +
+      '<div class="c-meta">' + ci.date + ' &nbsp;·&nbsp; ' + ci.covers + '</div>' +
+    '</div>' +
+    '<a class="c-link' + (hasUrl ? '' : ' inactive') + '"' +
+      (hasUrl ? ' href="' + ci.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasUrl ? 'View Results' : 'Not yet') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>';
+  list.appendChild(row);
+});
+</script>
+</body>
+</html>

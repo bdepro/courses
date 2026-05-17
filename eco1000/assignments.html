@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <!--
 ================================================================
-  ECO 1000 — ASSIGNMENTS
+  ECO 1000 — ASSIGNMENTS OVERVIEW
   Hosted: bdepro.github.io/courses/eco1000/assignments.html
-  All course data pulled from config.js.
-  To update URLs: edit CANVAS block in config.js only.
-  Prose and structure: edit this file.
-
-  Syllabus note (carry forward):
-    The screens-down Wednesday accommodation statement must appear
-    in syllabus.html when it is built.
-
-  Page heading convention (locked):
-    h1 is hardcoded as a question. Does not pull from config.
-    Everything that changes semester to semester lives in config.js.
+  Page heading: hardcoded question — do not pull from config.
+  Canvas links and full details on dedicated pages:
+    checkins.html / puzzles.html / mme.html / friday.html
 ================================================================
 -->
 <html lang="en">
@@ -21,380 +13,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ECO 1000 · Assignments</title>
-  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
-    /* ── CSS variables — fallback if brand.css fails ── */
     :root {
-      --crimson:      #73000a;
-      --crimson-dk:   #5a0008;
-      --gold:         #b59a57;
-      --gold-lt:      #d4b97a;
-      --gold-link:    #7a5c1e;
-      --teal:         #527b82;
-      --teal-dk:      #3d5e63;
-      --cream:        #fcfaf7;
-      --warm-gray:    #f7f4ef;
-      --smoke:        #d3dfd3;
-      --smoke-dark:   #b8ccb8;
-      --text:         #2e2e2e;
-      --muted:        #6b6b6b;
-      --disabled:     #bcbcbc;
-      --white:        #ffffff;
-      --shadow-sm:    0 1px 4px rgba(0,0,0,0.06);
-      --shadow-md:    0 3px 14px rgba(0,0,0,0.08);
-      --radius-card:  12px;
-      --radius-pill:  6px;
+      --crimson:#73000a; --crimson-dk:#5a0008;
+      --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63;
+      --cream:#fcfaf7; --warm-gray:#f7f4ef; --border:#e0ddd5;
+      --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    /* ── Header ── */
-    header {
-      background: var(--crimson);
-      border-bottom: 4px solid var(--gold);
-      padding: 1.75rem 1.25rem 1.5rem;
-    }
-    .header-inner { max-width: 820px; margin: 0 auto; }
-
-    .back-link {
-      display: inline-flex; align-items: center; gap: 5px;
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      margin-bottom: 0.75rem; transition: color 0.15s;
-    }
-    .back-link:hover { color: var(--white); }
-    .back-link svg { flex-shrink: 0; }
-
-    header h1 {
-      font-size: clamp(1.35rem, 4vw, 1.9rem);
-      font-weight: 500; color: var(--white);
-      letter-spacing: 0.03em;
-      line-height: 1.2;
-    }
-    header p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.85rem; margin-top: 0.3rem;
-      font-weight: 300; font-style: italic;
-    }
-
-    /* ── Main ── */
-    main {
-      max-width: 820px; margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-
-    /* ── Intro ── */
-    .intro {
-      font-size: 0.9rem; color: var(--muted);
-      line-height: 1.65; margin-bottom: 1.25rem;
-    }
-    .intro a { color: var(--crimson); }
-
-    /* ── Due date banner ── */
-    .due-banner {
-      background: var(--warm-gray);
-      border-left: 4px solid var(--gold);
-      border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
-      padding: 0.6rem 0.9rem;
-      margin-bottom: 1.75rem;
-      font-size: 0.82rem; color: var(--text);
-    }
-    .due-banner strong { color: var(--gold-link); }
-
-    /* ── Grade weight summary bar ── */
-    .weight-bar {
-      display: flex;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 8px;
-      margin-bottom: 1.75rem;
-      gap: 2px;
-    }
-    .weight-segment {
-      height: 100%;
-      transition: flex 0.3s ease;
-    }
-    .ws-checkins { flex: 50; background: var(--crimson); }
-    .ws-friday   { flex: 25; background: var(--teal); }
-    .ws-puzzles  { flex: 15; background: var(--gold); }
-    .ws-mme      { flex: 10; background: var(--gold-link); }
-
-    .weight-legend {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      margin-bottom: 1.75rem; margin-top: -1.1rem;
-    }
-    .wl-item {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 0.75rem; color: var(--muted);
-    }
-    .wl-dot {
-      width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
-    }
-    .wl-dot.checkins { background: var(--crimson); }
-    .wl-dot.friday   { background: var(--teal); }
-    .wl-dot.puzzles  { background: var(--gold); }
-    .wl-dot.mme      { background: var(--gold-link); }
-    .wl-item strong  { color: var(--text); font-weight: 500; }
-
-    /* ── Assignment sections ── */
-    .assignment-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-
-    /* ── Assignment cards ── */
-    .assignment-card {
-      border-radius: var(--radius-card);
-      overflow: hidden;
-      background: var(--warm-gray);
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.2s;
-      position: relative;
-    }
-    .assignment-card:hover { box-shadow: var(--shadow-md); }
-
-    /* Top accent bars — match session-card pattern */
-    .assignment-card::before {
-      content: "";
-      display: block;
-      height: 3px;
-      width: 100%;
-    }
-    .card-checkins::before { background: var(--crimson); }
-    .card-friday::before   { background: var(--teal); }
-    .card-puzzles::before  { background: var(--gold); }
-    .card-mme::before      { background: var(--gold-link); }
-
-    /* ── Toggle button ── */
-    .card-toggle {
-      width: 100%; background: none; border: none; cursor: pointer;
-      padding: 1rem 1rem 1rem 1.1rem;
-      display: flex; align-items: center; gap: 11px;
-      text-align: left;
-    }
-    .card-toggle:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: -3px;
-      border-radius: var(--radius-card);
-    }
-
-    .card-header-text {
-      flex: 1; min-width: 0;
-    }
-
-    .card-title {
-      font-size: 1rem; font-weight: 500;
-      color: var(--text); line-height: 1.3;
-      display: flex; align-items: baseline; gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .card-weight {
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 0.04em;
-      padding: 1px 7px; border-radius: 3px;
-      flex-shrink: 0;
-    }
-    .card-checkins .card-weight { background: rgba(115,0,10,0.1);   color: var(--crimson); }
-    .card-friday   .card-weight { background: rgba(82,123,130,0.12); color: var(--teal-dk); }
-    .card-puzzles  .card-weight { background: rgba(181,154,87,0.18); color: var(--gold-link); }
-    .card-mme      .card-weight { background: rgba(122,92,30,0.1);   color: var(--gold-link); }
-
-    .card-subtitle {
-      font-size: 0.78rem; color: var(--muted);
-      margin-top: 2px; line-height: 1.3;
-    }
-
-    /* ── Chevron ── */
-    .chevron {
-      margin-left: auto; width: 18px; height: 18px;
-      color: var(--gold); transition: transform 0.25s ease;
-      flex-shrink: 0; stroke: currentColor;
-      fill: none; stroke-width: 2.5;
-    }
-    .card-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-
-    /* ── Accordion body ── */
-    .card-body {
-      display: grid; grid-template-rows: 0fr;
-      transition: grid-template-rows 0.28s ease;
-    }
-    .card-body.open { grid-template-rows: 1fr; }
-    .card-body-inner { overflow: hidden; }
-    .card-body-content {
-      padding: 0 1rem 0 1.1rem;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-    .card-body.open .card-body-content { padding-bottom: 1.1rem; }
-
-    /* ── Prose inside cards ── */
-    .card-prose {
-      font-size: 0.875rem;
-      line-height: 1.65;
-      color: var(--text);
-      margin: 0.9rem 0 0.75rem;
-    }
-    .card-prose p { margin-bottom: 0.7rem; }
-    .card-prose p:last-child { margin-bottom: 0; }
-
-    /* ── Info boxes ── */
-    .info-box {
-      border-left: 3px solid var(--crimson);
-      border-radius: 0 6px 6px 0;
-      padding: 0.6rem 0.8rem;
-      margin: 0.75rem 0;
-      font-size: 0.84rem; line-height: 1.55;
-    }
-    .info-box.ci-box   { background: rgba(115,0,10,0.04);   border-left-color: var(--crimson); }
-    .info-box.viva-box { background: rgba(82,123,130,0.07); border-left-color: var(--teal); }
-    .info-box.gold-box { background: rgba(181,154,87,0.08); border-left-color: var(--gold); }
-    .info-box.teal-box { background: rgba(82,123,130,0.06); border-left-color: var(--teal); }
-    .info-box strong   { color: var(--crimson); }
-    .info-box.viva-box strong { color: var(--teal-dk); }
-    .info-box.gold-box strong { color: var(--gold-link); }
-    .info-box.teal-box strong { color: var(--teal-dk); }
-    .info-box .sub {
-      font-size: 0.79rem; color: var(--muted);
-      margin-top: 3px; line-height: 1.45;
-    }
-
-    /* ── Section labels inside cards ── */
-    .section-label {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--muted); margin: 0.9rem 0 0.35rem;
-    }
-    .section-label:first-child { margin-top: 0.9rem; }
-
-    /* ── Pills ── */
-    .pills { display: flex; gap: 6px; flex-wrap: wrap; margin: 0.35rem 0 0; }
-
-    .pill {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 5px 13px; border-radius: var(--radius-pill);
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.02em; text-decoration: none;
-      transition: opacity 0.15s, box-shadow 0.15s;
-      line-height: 1.3;
-    }
-    .pill-active {
-      background: var(--crimson); color: var(--white);
-    }
-    .pill-active:hover { opacity: 0.88; box-shadow: var(--shadow-sm); }
-    .pill-active.teal  { background: var(--teal); }
-    .pill-active.gold  { background: var(--gold-link); }
-
-    .pill-inactive {
-      background: var(--warm-gray);
-      color: var(--disabled);
-      border: 1px solid #ddd;
-      cursor: default;
-      pointer-events: none;
-    }
-    .pill-inactive::after {
-      content: "not yet posted";
-      font-size: 0.65rem; font-weight: 400;
-      letter-spacing: 0.04em; color: var(--disabled);
-      margin-left: 3px;
-    }
-
-    /* ── Schedule table — MME and Check-In dates ── */
-    .date-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-      margin: 0.5rem 0 0.75rem;
-    }
-    .date-table th {
-      text-align: left;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--muted);
-      padding: 0.3rem 0.5rem 0.3rem 0;
-      border-bottom: 1px solid var(--smoke-dark);
-    }
-    .date-table td {
-      padding: 0.4rem 0.5rem 0.4rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      color: var(--text);
-      vertical-align: top;
-      line-height: 1.4;
-    }
-    .date-table tr:last-child td { border-bottom: none; }
-    .date-table .td-label { font-weight: 500; white-space: nowrap; }
-    .date-table .td-muted  { color: var(--muted); font-size: 0.77rem; }
-
-    /* ── CI4 policy box ── */
-    .ci4-policy {
-      background: rgba(82,123,130,0.06);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 6px 6px 0;
-      padding: 0.6rem 0.8rem;
-      font-size: 0.83rem; line-height: 1.55;
-      margin: 0.75rem 0;
-      color: var(--text);
-    }
-    .ci4-policy strong { color: var(--teal-dk); }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.76rem;
-      color: var(--muted);
-      border-top: 1px solid #e8e4dd;
-      max-width: 820px; margin: 0 auto;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 480px) {
-      .card-toggle { padding: 0.85rem; gap: 9px; }
-      .pill { font-size: 0.72rem; padding: 4px 11px; }
-      .weight-legend { gap: 8px; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .due-banner{background:var(--warm-gray);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.75rem 1rem;margin-bottom:1.75rem;font-size:0.88rem;line-height:1.55;color:var(--text);}
+    .due-banner strong{color:var(--gold-link);}
+    .weight-bar{display:flex;border-radius:6px;overflow:hidden;height:8px;margin-bottom:0.6rem;gap:2px;}
+    .ws-checkins{flex:50;background:var(--crimson);}
+    .ws-friday{flex:25;background:var(--teal);}
+    .ws-puzzles{flex:15;background:var(--gold);}
+    .ws-mme{flex:10;background:var(--gold-link);}
+    .weight-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1.75rem;}
+    .wl-item{display:flex;align-items:center;gap:5px;font-size:0.75rem;color:var(--muted);}
+    .wl-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+    .wl-dot.checkins{background:var(--crimson);}
+    .wl-dot.friday{background:var(--teal);}
+    .wl-dot.puzzles{background:var(--gold);}
+    .wl-dot.mme{background:var(--gold-link);}
+    .wl-item strong{color:var(--text);font-weight:500;}
+    .syl-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.25rem;box-shadow:var(--shadow);}
+    .syl-section-header{background:var(--crimson);padding:0.65rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
+    .syl-section-header.teal{background:var(--teal);}
+    .syl-section-header.gold{background:var(--gold-link);}
+    .syl-header-left{display:flex;align-items:center;gap:0.75rem;}
+    .syl-num{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.15);padding:0.15rem 0.5rem;border-radius:3px;white-space:nowrap;}
+    .syl-section-title{font-size:0.95rem;font-weight:700;color:var(--white);}
+    .syl-body{padding:1.1rem 1.4rem;}
+    .syl-body p{font-size:0.9rem;margin-bottom:0.7rem;line-height:1.65;}
+    .syl-body p:last-of-type{margin-bottom:0;}
+    .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin:0.85rem 0;font-size:0.88rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.red{background:rgba(115,0,10,0.06);border-left:4px solid var(--crimson);}
+    .callout.gold{background:rgba(181,154,87,0.09);border-left:4px solid var(--gold);}
+    .callout strong{color:var(--teal-dk);}
+    .callout.red strong{color:var(--crimson);}
+    .callout.gold strong{color:var(--gold-link);}
+    .nav-pill{display:inline-flex;align-items:center;gap:5px;margin-top:1rem;background:var(--crimson);color:var(--white);padding:0.45rem 1rem;border-radius:5px;font-size:0.8rem;font-weight:600;text-decoration:none;letter-spacing:0.02em;transition:opacity 0.15s;}
+    .nav-pill:hover{opacity:0.88;}
+    .nav-pill.teal{background:var(--teal);}
+    .nav-pill.gold{background:var(--gold-link);}
+    .nav-pill svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+    @media(max-width:600px){.screen-header{padding:1.5rem 1.25rem;}main{padding:1.5rem 1rem 4rem;}.syl-body{padding:1rem 1.1rem;}}
   </style>
 </head>
 <body>
-
-<header>
-  <div class="header-inner">
+<div class="screen-header">
+  <div class="screen-header-inner">
     <a class="back-link" id="backLink" href="#">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none"
-           style="stroke:currentColor;stroke-width:2.5">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-      Back to Course Home
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
     </a>
-    <h1>How will your learning be assessed?</h1>
-    <p id="pageMeta"></p>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">How will your learning be assessed?</h1>
   </div>
-</header>
-
+</div>
 <main>
-
-  <p class="intro" id="introText"></p>
-
-  <div class="due-banner" id="dueBanner"></div>
-
-  <!-- Grade weight bar -->
+  <div class="due-banner">
+    Puzzles and MME articles are due <strong>Monday by 11:59 a.m.</strong>
+    Friday Focus written narrative is due Monday, November 30.
+    CI 4 always counts — it replaces your lowest score if it's higher.
+  </div>
   <div class="weight-bar">
-    <div class="weight-segment ws-checkins"></div>
-    <div class="weight-segment ws-friday"></div>
-    <div class="weight-segment ws-puzzles"></div>
-    <div class="weight-segment ws-mme"></div>
+    <div class="ws-checkins"></div><div class="ws-friday"></div>
+    <div class="ws-puzzles"></div><div class="ws-mme"></div>
   </div>
   <div class="weight-legend">
     <div class="wl-item"><div class="wl-dot checkins"></div><strong>Check-Ins</strong>&nbsp;50%</div>
@@ -403,396 +105,111 @@
     <div class="wl-item"><div class="wl-dot mme"></div><strong>Monday Morning Economist</strong>&nbsp;10%</div>
   </div>
 
-  <ul class="assignment-list" id="assignmentList">
-
-    <!-- ── CHECK-INS ── -->
-    <li class="assignment-card card-checkins" id="checkins">
-      <button class="card-toggle" aria-expanded="false" data-card="checkins">
-        <div class="card-header-text">
-          <div class="card-title">
-            Check-Ins
-            <span class="card-weight">50%</span>
-          </div>
-          <div class="card-subtitle">4 check-ins · Wednesday in class · CI 4 always counts</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="card-body" id="body-checkins">
-        <div class="card-body-inner">
-          <div class="card-body-content">
-
-            <div class="card-prose">
-              <p>Four times during the semester you will take a Check-In in class on Wednesday
-              — pen and paper, 60 minutes, full class period. Each one covers the chapters from
-              recent sessions, plus supply and demand analysis and the eight guideposts of
-              economic thinking from Chapter 1. Those two threads appear on every Check-In all
-              semester, so keep them sharp no matter what else is on the schedule.</p>
-
-              <p>Check-In 4 is offered on the last day of class, Friday, December 4. If you
-              need more time to prepare, you can defer it to the final exam period. Either way,
-              it counts.</p>
-            </div>
-
-            <div class="ci4-policy">
-              <strong>Check-In 4 always counts.</strong> If your score on Check-In 4 is higher
-              than your lowest score from Check-Ins 1, 2, or 3, I replace that score
-              automatically — you don't need to ask. That means Check-In 4 is worth taking
-              seriously even if the semester has gone well. If you miss a Check-In, CI 4 is
-              the makeup. There are no separate makeup exams. CI 4 covers the full course,
-              so it's the fairest measure of where you land.
-            </div>
-
-            <div class="section-label">Check-In schedule</div>
-            <table class="date-table" id="ciTable"></table>
-
-            <div class="section-label">Take a Check-In</div>
-            <div class="pills" id="ciPills"></div>
-
-          </div>
-        </div>
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <div class="syl-header-left">
+        <span class="syl-num">50%</span>
+        <span class="syl-section-title">Check-Ins</span>
       </div>
-    </li>
-
-    <!-- ── FRIDAY FOCUS ── -->
-    <li class="assignment-card card-friday" id="friday">
-      <button class="card-toggle" aria-expanded="false" data-card="friday">
-        <div class="card-header-text">
-          <div class="card-title">
-            Friday Focus
-            <span class="card-weight">25%</span>
-          </div>
-          <div class="card-subtitle">Written narrative + viva conversation · sign up before Thanksgiving</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="card-body" id="body-friday">
-        <div class="card-body-inner">
-          <div class="card-body-content">
-
-            <div class="card-prose">
-              <p>Friday Focus asks one question: what does economics explain about something
-              you actually care about? You spend the semester building your answer.</p>
-
-              <p>The first part is a written narrative submitted as a Canvas assignment, due
-              Monday, November 30 at 11:59 a.m. Write it as an argument about a real economic
-              phenomenon, for a reader who has never taken economics. You have the whole
-              semester to work on it, and three Friday class sessions set aside for that
-              purpose. Come to those sessions with something on the page.</p>
-
-              <p>The second part is a viva — a short conversation with me about what you wrote.
-              You sign up for a slot during viva week, November 30 through December 4.
-              Think of it as a chance to talk through your argument and explain the choices
-              you made. Sign up early. Slots fill.</p>
-            </div>
-
-            <div class="info-box viva-box">
-              <strong>Sign up for your viva slot before Thanksgiving break.</strong>
-              <div class="sub">Use a computer — the Canvas scheduler does not work reliably on phones.
-              No computer access? Contact me and I will assign your slot.</div>
-            </div>
-
-            <div class="section-label">Submit your narrative</div>
-            <div class="pills" id="ffNarrativePills"></div>
-
-            <div class="section-label" style="margin-top:0.75rem;">Part 2 — Viva conversation</div>
-            <div class="pills" id="ffVivaPills"></div>
-
-          </div>
-        </div>
+    </div>
+    <div class="syl-body">
+      <p>Four times during the semester you will take a Check-In in class on Wednesday —
+      pen and paper, 60 minutes, full class period. Each one covers the chapters from
+      recent sessions, plus supply and demand analysis and the eight guideposts of
+      economic thinking from Chapter 1.</p>
+      <div class="callout red">
+        <strong>Check-In 4 always counts.</strong> If your CI 4 score is higher than
+        your lowest score from CI 1, 2, or 3, I replace that score automatically.
+        If you miss a Check-In, CI 4 is the makeup. There are no separate makeup exams.
       </div>
-    </li>
+      <a class="nav-pill" id="checkinsLink" href="#">
+        Check-In schedule and dates
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
 
-    <!-- ── ECONOMIC PUZZLES ── -->
-    <li class="assignment-card card-puzzles" id="puzzles">
-      <button class="card-toggle" aria-expanded="false" data-card="puzzles">
-        <div class="card-header-text">
-          <div class="card-title">
-            Economic Puzzles
-            <span class="card-weight">15%</span>
-          </div>
-          <div class="card-subtitle">One per content session · two attempts · due Monday 11:59 a.m. · lowest score dropped</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="card-body" id="body-puzzles">
-        <div class="card-body-inner">
-          <div class="card-body-content">
-
-            <div class="card-prose">
-              <p>Each content session has one Economic Puzzle — a Canvas quiz due Monday at
-              11:59 a.m. The quiz applies concepts from that session: you read something,
-              work through a problem, or analyze a scenario. The goal is to use the ideas,
-              not catalog them.</p>
-
-              <p>You have two attempts on each puzzle. Use the first attempt after you have
-              done the reading. Use the second after you have thought carefully about where
-              you went wrong. Canvas shows your score between attempts but not which questions
-              you missed — so attempt two rewards genuine re-engagement, not answer-hunting.</p>
-            </div>
-
-            <div class="info-box gold-box">
-              <strong>I drop your lowest puzzle score at the end of the semester</strong> — one
-              bad week does not sink your grade. If you miss the Monday deadline, you have
-              one more week to submit for 80% credit. After that, the puzzle closes.
-              A rough week is not a reason to stop submitting.
-            </div>
-
-            <div class="section-label">Open a puzzle</div>
-            <div class="pills" id="puzzlePills"></div>
-
-          </div>
-        </div>
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <div class="syl-header-left">
+        <span class="syl-num">25%</span>
+        <span class="syl-section-title">Friday Focus</span>
       </div>
-    </li>
-
-    <!-- ── MONDAY MORNING ECONOMIST ── -->
-    <li class="assignment-card card-mme" id="mme">
-      <button class="card-toggle" aria-expanded="false" data-card="mme">
-        <div class="card-header-text">
-          <div class="card-title">
-            Monday Morning Economist
-            <span class="card-weight">10%</span>
-          </div>
-          <div class="card-subtitle">4 articles · one per check-in block · due Monday 11:59 a.m.</div>
-        </div>
-        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="card-body" id="body-mme">
-        <div class="card-body-inner">
-          <div class="card-body-content">
-
-            <div class="card-prose">
-              <p>Four times during the semester you will read and annotate a current economics
-              article through Perusall — one per check-in block. The Canvas link takes you
-              straight to Perusall. No separate account needed. I introduce each article in
-              class on the Friday of the check-in week. It is due the following Monday at
-              11:59 a.m.</p>
-
-              <p>The name matters. A Monday Morning Economist reads the news like an economist:
-              looking for incentives, tradeoffs, and unintended consequences rather than just
-              outcomes. Your annotations should show that kind of thinking. A strong response
-              pushes back on the article, asks what the author left out, or connects the
-              argument to something from the course. A weak response restates what the
-              article already said.</p>
-            </div>
-
-            <div class="section-label">MME schedule</div>
-            <table class="date-table" id="mmeTable"></table>
-
-            <div class="section-label">Open an article</div>
-            <div class="pills" id="mmePills"></div>
-
-          </div>
-        </div>
+    </div>
+    <div class="syl-body">
+      <p>Friday Focus asks one question: what does economics explain about something
+      you actually care about? You spend the semester building your answer. The first
+      part is a written narrative submitted as a Canvas assignment, due Monday,
+      November 30 at 11:59 a.m. The second part is a viva — a short conversation
+      with me about what you wrote, scheduled during viva week.</p>
+      <div class="callout teal">
+        <strong>Sign up for your viva slot before Thanksgiving break.</strong>
+        Slots fill. The Canvas link takes you straight to the scheduler.
       </div>
-    </li>
+      <a class="nav-pill teal" id="fridayLink" href="#">
+        Friday Focus details and submission
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
 
-  </ul>
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <div class="syl-header-left">
+        <span class="syl-num">15%</span>
+        <span class="syl-section-title">Economic Puzzles</span>
+      </div>
+    </div>
+    <div class="syl-body">
+      <p>Each content session has one Economic Puzzle — a Canvas quiz due Monday at
+      11:59 a.m. You have two attempts. Canvas shows your score between attempts
+      but not which questions you missed, so attempt two rewards genuine
+      re-engagement.</p>
+      <div class="callout gold">
+        <strong>I drop your lowest puzzle score at the end of the semester.</strong>
+        If you miss the Monday deadline, you have one more week to submit for
+        80% credit. After that, the puzzle closes.
+      </div>
+      <a class="nav-pill gold" id="puzzlesLink" href="#">
+        Open a puzzle
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <div class="syl-header-left">
+        <span class="syl-num">10%</span>
+        <span class="syl-section-title">Monday Morning Economist</span>
+      </div>
+    </div>
+    <div class="syl-body">
+      <p>Four times during the semester you will read and annotate a current economics
+      article through Perusall — one per check-in block. The Canvas link takes you
+      straight to Perusall. No separate account needed. I introduce each article in
+      class on the Friday of the check-in week. It is due the following Monday
+      at 11:59 a.m.</p>
+      <p>A strong response pushes back on the article, asks what the author left out,
+      or connects the argument to something from the course. A weak response restates
+      what the article already said.</p>
+      <a class="nav-pill gold" id="mmeLink" href="#">
+        Open an article
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+
 </main>
-
 <footer id="pageFooter"></footer>
-
 <script>
-// ================================================================
-//  HELPERS
-// ================================================================
-
-function pill(label, url, variant) {
-  if (url) {
-    const a = document.createElement('a');
-    a.className = `pill pill-active${variant ? ' ' + variant : ''}`;
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = label;
-    return a;
-  } else {
-    const span = document.createElement('span');
-    span.className = 'pill pill-inactive';
-    span.textContent = label;
-    return span;
-  }
-}
-
-function appendPill(containerId, label, url, variant) {
-  const el = document.getElementById(containerId);
-  if (el) el.appendChild(pill(label, url, variant));
-}
-
-// ================================================================
-//  WIRE STATIC ELEMENTS FROM CONFIG
-// ================================================================
-
 document.getElementById('backLink').href         = PAGES.home;
-document.getElementById('pageMeta').textContent  =
-  `${COURSE.code} · Elon University · ${COURSE.semester}`;
-document.getElementById('pageFooter').textContent =
-  `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
-
-document.getElementById('introText').innerHTML =
-  `This page covers every graded assignment in ECO 1000. Read it now so you know ` +
-  `what's coming, then come back when you need a Canvas link or want to check a due date. ` +
-  `The banner below shows what's due when. ` +
-  `See the <a href="${PAGES.syllabus}">course syllabus</a> for full course policies.`;
-
-document.getElementById('dueBanner').innerHTML =
-  `Puzzles and MME articles are due <strong>Monday by 11:59 a.m.</strong> ` +
-  `Friday Focus written narrative is due Monday, November 30. ` +
-  `CI 4 always counts — it replaces your lowest score if it's higher.`;
-
-// ================================================================
-//  CHECK-INS TABLE AND PILLS
-// ================================================================
-
-(function buildCheckIns() {
-  const table = document.getElementById('ciTable');
-
-  // Header
-  const thead = document.createElement('thead');
-  thead.innerHTML = `<tr>
-    <th>Check-In</th>
-    <th>Date</th>
-    <th>Covers</th>
-  </tr>`;
-  table.appendChild(thead);
-
-  const tbody = document.createElement('tbody');
-  CANVAS.checkIns.forEach(ci => {
-    const covers = CHAPTERS.checkIns[ci.id]
-      ? CHAPTERS.checkIns[ci.id].label + ' + S&D + Guideposts'
-      : ci.covers;
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td class="td-label">${ci.title}</td>
-      <td>${ci.date}</td>
-      <td class="td-muted">${covers}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-  table.appendChild(tbody);
-
-  // Pills
-  const pillsEl = document.getElementById('ciPills');
-  CANVAS.checkIns.forEach(ci => {
-    pillsEl.appendChild(pill(ci.title, ci.url || null));
-  });
-})();
-
-// ================================================================
-//  FRIDAY FOCUS PILLS
-// ================================================================
-
-(function buildFriday() {
-  const ff = CANVAS.friday;
-  const narrativePills = document.getElementById('ffNarrativePills');
-  const vivaPills      = document.getElementById('ffVivaPills');
-
-  if (ff && ff[0]) {
-    narrativePills.appendChild(pill(
-      ff[0].title + ' — due ' + ff[0].due,
-      ff[0].url || null,
-      'teal'
-    ));
-  }
-  if (ff && ff[1]) {
-    vivaPills.appendChild(pill(
-      ff[1].title,
-      ff[1].url || null,
-      'teal'
-    ));
-    vivaPills.appendChild(pill(
-      'Viva Week Sign-Up',
-      CANVAS.viva.vivaWeekSignupUrl || null,
-      'teal'
-    ));
-    vivaPills.appendChild(pill(
-      'Exam Period Sign-Up',
-      CANVAS.viva.examPeriodSignupUrl || null,
-      'teal'
-    ));
-  }
-})();
-
-// ================================================================
-//  PUZZLES PILLS
-// ================================================================
-
-(function buildPuzzles() {
-  const pillsEl = document.getElementById('puzzlePills');
-  CANVAS.puzzles.forEach(p => {
-    pillsEl.appendChild(pill(p.title, p.url || null, 'gold'));
-  });
-})();
-
-// ================================================================
-//  MME TABLE AND PILLS
-// ================================================================
-
-(function buildMME() {
-  const table = document.getElementById('mmeTable');
-
-  // Header
-  const thead = document.createElement('thead');
-  thead.innerHTML = `<tr>
-    <th>Article</th>
-    <th>Introduced</th>
-    <th>Due</th>
-  </tr>`;
-  table.appendChild(thead);
-
-  const tbody = document.createElement('tbody');
-  CANVAS.mme.forEach(m => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td class="td-label">${m.title}</td>
-      <td>${m.introduced}</td>
-      <td class="td-muted">${m.due}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-  table.appendChild(tbody);
-
-  // Pills
-  const pillsEl = document.getElementById('mmePills');
-  CANVAS.mme.forEach(m => {
-    pillsEl.appendChild(pill(m.title, m.url || null, 'gold'));
-  });
-})();
-
-// ================================================================
-//  ACCORDION
-// ================================================================
-
-document.getElementById('assignmentList').addEventListener('click', e => {
-  const btn = e.target.closest('.card-toggle');
-  if (!btn) return;
-  const expanded = btn.getAttribute('aria-expanded') === 'true';
-  const body = document.getElementById(`body-${btn.dataset.card}`);
-  btn.setAttribute('aria-expanded', String(!expanded));
-  if (body) body.classList.toggle('open', !expanded);
-});
-
-// ================================================================
-//  HASH ROUTING — open card from URL anchor
-//  e.g. assignments.html#puzzles opens the puzzles card
-// ================================================================
-
-(function openFromHash() {
-  const hash = window.location.hash.replace('#', '');
-  if (!hash) return;
-  const card  = document.getElementById(hash);
-  const body  = document.getElementById(`body-${hash}`);
-  const btn   = card && card.querySelector('.card-toggle');
-  if (btn && body) {
-    btn.setAttribute('aria-expanded', 'true');
-    body.classList.add('open');
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-})();
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+document.getElementById('checkinsLink').href     = PAGES.checkins;
+document.getElementById('fridayLink').href       = PAGES.friday;
+document.getElementById('puzzlesLink').href      = PAGES.puzzles;
+document.getElementById('mmeLink').href          = PAGES.mme;
 </script>
 </body>
 </html>
