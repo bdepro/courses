@@ -314,13 +314,13 @@ const GRADING = {
 const FEATURES = {
   schedule:    true,
   syllabus:    true,
-  assignments: true,
+  assignments: true,   // overview page — routes to dedicated assignment pages
   textbook:    true,   // e-book only — single Cengage link
-  checkins:    true,   // 50% of grade
-  puzzles:     true,   // 15% of grade
+  checkins:    false,  // accessed via assignments.html
+  puzzles:     false,  // accessed via assignments.html
   badges:      false,  // replaced by check-ins in fall
-  mme:         true,   // 10% of grade
-  friday:      true,   // 25% of grade
+  mme:         false,  // accessed via assignments.html
+  friday:      false,  // accessed via assignments.html
   wellness:    false,  // ungraded — practice only, no card needed
   support:     true,
   aiPolicy:    true,
