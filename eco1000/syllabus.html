@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 1000 — SYLLABUS
+  Hosted: bdepro.github.io/courses/eco1000/syllabus.html
+
+  Page heading convention (locked):
+    h1 is hardcoded: "What do I need to know?"
+    All semester-specific data pulls from config.js.
+
+  Screens-down Wednesday accommodation statement: present in
+  Section 9 (Attendance & Participation). Do not remove.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO 1000 · Syllabus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:   #73000a;
+      --crimson-dk:#5a0008;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --teal-dk:   #3d5e63;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e0ddd5;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Screen header ── */
+    .screen-header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .screen-header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .screen-eyebrow {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem;
+    }
+    .screen-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700; color: var(--white); line-height: 1.2;
+    }
+    .screen-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: #1a1a1a;
+      border: none; padding: 0.55rem 1.25rem;
+      font-family: var(--font); font-size: 0.82rem; font-weight: 700;
+      border-radius: 5px; cursor: pointer; letter-spacing: 0.04em;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .btn-print:hover { background: var(--gold-lt); }
+    .btn-print svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* ── Print header ── */
+    .print-header { display: none; }
+
+    /* ── Section cards ── */
+    .syl-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .syl-section-header {
+      background: var(--crimson);
+      padding: 0.65rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .syl-section-header.teal { background: var(--teal); }
+    .syl-section-header.gold { background: var(--gold-link); }
+
+    .syl-num {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.15);
+      padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+    }
+    .syl-section-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .syl-body { padding: 1.25rem 1.5rem; }
+
+    /* ── Contact grid ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem; font-size: 0.88rem;
+    }
+    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; }
+    .contact-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 95px;
+    }
+    .contact-value { color: var(--text); }
+    .contact-value a { color: var(--gold-link); text-decoration: none; }
+    .contact-value a:hover { color: var(--crimson); }
+
+    /* ── Prose ── */
+    .syl-body p { margin-bottom: 0.85rem; font-size: 0.93rem; }
+    .syl-body p:last-child { margin-bottom: 0; }
+    .syl-body .lead { font-size: 1rem; font-weight: 500; color: var(--text); }
+
+    /* ── Learning goals ── */
+    .goal-list { list-style: none; padding: 0; }
+    .goal-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.91rem;
+    }
+    .goal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .goal-num {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%; background: var(--crimson);
+      color: var(--white); font-size: 0.68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem;
+    }
+    .goal-text { line-height: 1.55; }
+    .goal-text strong { color: var(--text); font-weight: 600; }
+
+    /* ── Textbook block ── */
+    .textbook-block {
+      background: var(--warm-gray); border-radius: 6px;
+      padding: 0.85rem 1rem; font-size: 0.88rem;
+      line-height: 1.65; margin-bottom: 0.85rem;
+    }
+    .textbook-block cite { font-style: italic; }
+
+    /* ── Assessment blocks ── */
+    .assess-block {
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
+    }
+    .assess-block:last-child { margin-bottom: 0; }
+    .assess-header {
+      background: var(--warm-gray); padding: 0.6rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .assess-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .assess-weight {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--crimson);
+      background: rgba(115,0,10,0.08);
+      padding: 0.15rem 0.55rem; border-radius: 3px; white-space: nowrap;
+    }
+    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; }
+    .assess-body p { margin-bottom: 0.65rem; }
+    .assess-body p:last-child { margin-bottom: 0; }
+    .assess-sub {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.35rem; margin-top: 0.75rem;
+    }
+
+    /* ── Grade weight bar ── */
+    .weight-bar {
+      display: flex; border-radius: 6px; overflow: hidden;
+      height: 10px; gap: 2px; margin-bottom: 0.75rem;
+    }
+    .ws-ci      { flex: 50; background: var(--crimson); }
+    .ws-friday  { flex: 25; background: var(--teal); }
+    .ws-puzzles { flex: 15; background: var(--gold); }
+    .ws-mme     { flex: 10; background: var(--gold-link); }
+
+    .weight-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem; }
+    .wl-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--muted); }
+    .wl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .wl-dot.ci      { background: var(--crimson); }
+    .wl-dot.friday  { background: var(--teal); }
+    .wl-dot.puzzles { background: var(--gold); }
+    .wl-dot.mme     { background: var(--gold-link); }
+    .wl-item strong { color: var(--text); font-weight: 500; }
+
+    /* ── Grade weight table ── */
+    .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .grade-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .grade-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray); }
+    .grade-table tr:last-child td { border-bottom: 2px solid var(--border); font-weight: 700; }
+    .grade-pct { font-weight: 700; color: var(--crimson); font-size: 1rem; }
+
+    /* ── Grading scale ── */
+    .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .scale-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.5rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .scale-table td { padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--warm-gray); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-grade { font-weight: 700; color: var(--crimson); }
+    .scale-desc  { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── Key dates table ── */
+    .dates-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .dates-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .dates-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--warm-gray); }
+    .dates-table tr:last-child td { border-bottom: none; }
+    .dt-label { font-weight: 500; }
+    .dt-date  { color: var(--crimson); font-weight: 700; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.65;
+    }
+    .callout:last-child { margin-bottom: 0; }
+    .callout.gold { background: rgba(181,154,87,0.10); border-left: 4px solid var(--gold); }
+    .callout.teal { background: rgba(82,123,130,0.09); border-left: 4px solid var(--teal); }
+    .callout.red  { background: rgba(115,0,10,0.06);   border-left: 4px solid var(--crimson); }
+    .callout strong.lbl-gold { color: var(--gold-link); }
+    .callout strong.lbl-teal { color: var(--teal-dk); }
+    .callout strong.lbl-red  { color: var(--crimson); }
+
+    /* ── Policy list ── */
+    .policy-list { list-style: none; padding: 0; }
+    .policy-item {
+      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1rem;
+      border-bottom: 1px solid var(--warm-gray); position: relative;
+      line-height: 1.6;
+    }
+    .policy-item:last-child { border-bottom: none; }
+    .policy-item::before {
+      content: ""; position: absolute; left: 0; top: 0.9rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    }
+    .policy-item a { color: var(--gold-link); text-decoration: none; }
+    .policy-item a:hover { color: var(--crimson); }
+
+    /* ── Table footer note ── */
+    .table-note {
+      padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--muted);
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .screen-header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .syl-body { padding: 1rem 1.1rem; }
+      .assess-header { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white; font-size: 10.5pt; line-height: 1.55; color: #000; }
+      .screen-header { display: none; }
+      .print-header {
+        display: block; border-bottom: 3px solid #73000a;
+        padding-bottom: 0.75rem; margin-bottom: 1.5rem;
+      }
+      .print-title    { font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2; }
+      .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
+      .print-meta     { font-size: 9pt; color: #666; margin-top: 0.5rem; }
+      main { max-width: 100%; padding: 0; margin: 0; }
+      .syl-section {
+        box-shadow: none; border: 1px solid #ccc;
+        border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid;
+      }
+      .syl-section-header { padding: 0.4rem 0.75rem; }
+      .syl-section-title  { font-size: 9.5pt; }
+      .syl-num            { display: none; }
+      .syl-body           { padding: 0.65rem 0.85rem; }
+      .syl-body p         { font-size: 10pt; margin-bottom: 0.5rem; }
+      .contact-grid       { font-size: 9.5pt; gap: 0.2rem 1rem; }
+      .assess-block       { page-break-inside: avoid; }
+      .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      .grade-table        { font-size: 10pt; }
+      .scale-table        { font-size: 9.5pt; }
+      .dates-table        { font-size: 9.5pt; }
+      .goal-item          { padding: 0.4rem 0; font-size: 9.5pt; }
+      .callout            { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      .weight-bar         { display: none; }
+      a { color: #000; text-decoration: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+      a[href^="mailto"]::after { content: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SCREEN HEADER -->
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="syl-back" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="screen-eyebrow" id="syl-eyebrow"></p>
+    <h1 class="screen-title">What do I need to know?</h1>
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- PRINT HEADER (hidden on screen) -->
+<div class="print-header">
+  <div class="print-title">Principles of Economics</div>
+  <div class="print-subtitle" id="syl-print-subtitle"></div>
+  <div class="print-meta" id="syl-print-meta"></div>
+</div>
+
+<main>
+
+  <!-- ── SECTION 1: COURSE INFORMATION ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 1</span>
+      <span class="syl-section-title">Course Information</span>
+    </div>
+    <div class="syl-body">
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="contact-label">Course</span>
+          <span class="contact-value" id="syl-course"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Credits</span>
+          <span class="contact-value" id="syl-credits"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Semester</span>
+          <span class="contact-value" id="syl-semester"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Format</span>
+          <span class="contact-value">In-person</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Instructor</span>
+          <span class="contact-value" id="syl-name"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Office</span>
+          <span class="contact-value" id="syl-office"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a id="syl-email-link" href="#"></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value" id="syl-phone"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Zoom</span>
+          <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank"></a></span>
+        </div>
+        <div class="contact-row" id="syl-hours-row">
+          <span class="contact-label">Office Hours</span>
+          <span class="contact-value" id="syl-hours"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Classes Begin</span>
+          <span class="contact-value" id="syl-begin"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Classes End</span>
+          <span class="contact-value" id="syl-end"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Textbook</span>
+          <span class="contact-value" id="syl-textbook-short"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: WHY THIS COURSE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 2</span>
+      <span class="syl-section-title">Why Should You Take This Course?</span>
+    </div>
+    <div class="syl-body">
+      <p class="lead">Everyday life has a hidden structure. Economic thinking is the tool that reveals it.</p>
+      <p>Why do rents rise when supply stays flat? Why do well-meaning policies sometimes make problems worse? Why do wages differ for work that looks the same? In <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak write that studying economics "can help you understand how your own livelihood is connected to the larger economic world" and introduce you to the ongoing conversation about how to make the world more fair and prosperous.</p>
+      <p>A semester of economic thinking will change how you read the news, make decisions, and understand the choices around you. Economics is one lens among many — history, sociology, and moral philosophy see things it misses. But learning to think like an economist, and to question economic reasoning, is worth your time.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: LEARNING GOALS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 3</span>
+      <span class="syl-section-title">What Will You Be Able to Do?</span>
+    </div>
+    <div class="syl-body">
+      <ul class="goal-list">
+        <li class="goal-item">
+          <span class="goal-num">1</span>
+          <span class="goal-text"><strong>Use the eight guideposts of economic thinking</strong> to analyze real decisions, evaluate tradeoffs, and identify unintended consequences.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">2</span>
+          <span class="goal-text"><strong>Apply supply and demand analysis</strong> to explain prices, shortages, and market outcomes across a range of real contexts.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">3</span>
+          <span class="goal-text"><strong>Interpret macroeconomic data</strong> — GDP, unemployment, inflation, and growth — and understand what drives them.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">4</span>
+          <span class="goal-text"><strong>Examine contested policy questions</strong> — trade, inequality, labor markets — using economic reasoning rather than intuition alone.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">5</span>
+          <span class="goal-text"><strong>Write and defend an economic argument</strong> in plain language, for a reader who has never taken economics.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: COURSE MATERIALS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 4</span>
+      <span class="syl-section-title">Course Materials</span>
+    </div>
+    <div class="syl-body">
+      <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Activate access through the link on the course home page before your first assignment is due. You do not need a physical textbook.</p>
+      <div class="textbook-block" id="syl-textbook-block"></div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:0;">All other materials — skeleton notes, print handouts, and session resources — are posted to Canvas before each class.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: GRADING BREAKDOWN ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">How Your Learning Will Be Graded</span>
+    </div>
+    <div class="syl-body">
+
+      <div class="weight-bar">
+        <div class="ws-ci"></div>
+        <div class="ws-friday"></div>
+        <div class="ws-puzzles"></div>
+        <div class="ws-mme"></div>
+      </div>
+      <div class="weight-legend">
+        <div class="wl-item"><div class="wl-dot ci"></div><strong>Check-Ins</strong>&nbsp;50%</div>
+        <div class="wl-item"><div class="wl-dot friday"></div><strong>Friday Focus</strong>&nbsp;25%</div>
+        <div class="wl-item"><div class="wl-dot puzzles"></div><strong>Economic Puzzles</strong>&nbsp;15%</div>
+        <div class="wl-item"><div class="wl-dot mme"></div><strong>Monday Morning Economist</strong>&nbsp;10%</div>
+      </div>
+
+      <!-- Check-Ins -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Check-Ins</span>
+          <span class="assess-weight">50% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Four pen-and-paper check-ins, each taken in class on a Wednesday — one full class period each. Every check-in covers the chapters from recent sessions, plus supply and demand analysis and the eight guideposts of economic thinking from Chapter 1. Those two threads appear on every check-in all semester. Keep them sharp no matter what else is on the schedule.</p>
+          <div class="callout teal">
+            <strong class="lbl-teal">Check-In 4 always counts — and it can replace your lowest score.</strong> If your CI&nbsp;4 score is higher than your lowest score from CI&nbsp;1, 2, or 3, I replace that score automatically. You do not need to ask. If you miss a check-in, CI&nbsp;4 is the makeup. There are no separate makeup exams. CI&nbsp;4 covers the full course, so it rewards students who keep working all semester.
+          </div>
+          <p>Check-In 4 is offered on the last day of class (<span id="syl-ci4-date"></span>) or during the final exam period — your choice.</p>
+        </div>
+      </div>
+
+      <!-- Friday Focus -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Friday Focus</span>
+          <span class="assess-weight">25% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Friday Focus asks one question: what does economics explain about something you actually care about? You spend the semester building your answer.</p>
+          <div class="assess-sub">Part 1 — The Economic Narrative</div>
+          <p>A written argument about a real economic phenomenon, written for a reader who has never taken economics. Due <span id="syl-ff-due"></span>. Three Friday class sessions are set aside for drafting — come to those sessions with something on the page.</p>
+          <div class="assess-sub">Part 2 — The Narrative Viva</div>
+          <p>A 12-minute conversation with me about what you wrote, scheduled during viva week (<span id="syl-viva-dates"></span>). Think of it as a chance to talk through your argument, explain your choices, and push your thinking further. Sign up before Thanksgiving. Slots fill.</p>
+          <div class="callout gold">
+            <strong class="lbl-gold">Sign up for your viva slot before Thanksgiving break.</strong> Use a computer — the Canvas scheduler is unreliable on phones. No computer access? Contact me and I will assign your slot.
+          </div>
+        </div>
+      </div>
+
+      <!-- Economic Puzzles -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Economic Puzzles</span>
+          <span class="assess-weight">15% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>One Canvas quiz per content session, due Monday at 11:59&nbsp;a.m. Each puzzle asks you to apply economic reasoning to a real decision, scenario, or dataset. The goal is using the ideas, not cataloging them.</p>
+          <p>You have two attempts. Use the first after doing the reading. Use the second after thinking carefully about where you went wrong. Canvas shows your score between attempts but not which questions you missed — attempt two rewards genuine re-engagement, not answer-hunting.</p>
+          <div class="callout gold">
+            <strong class="lbl-gold">Your lowest puzzle score is dropped at the end of the semester.</strong> One bad week does not sink your grade. If you miss the Monday deadline, you have one additional week to submit for 80% credit. After that, the puzzle closes.
+          </div>
+        </div>
+      </div>
+
+      <!-- MME -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Monday Morning Economist</span>
+          <span class="assess-weight">10% of Grade</span>
+        </div>
+        <div class="assess-body">
+          <p>Four current-events articles annotated through Perusall — one per check-in block. I introduce each article on the Friday of check-in week. It is due the following Monday at 11:59&nbsp;a.m. The Canvas link takes you straight to Perusall. No separate account needed.</p>
+          <p>A Monday Morning Economist reads the news like an economist: looking for incentives, tradeoffs, and unintended consequences. Your annotations should show that kind of thinking. Strong responses push back on the article, ask what the author left out, or connect the argument to course concepts. Restating what the article already said is not enough.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: COURSE GRADE TABLE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">Course Grade</span>
+    </div>
+    <div class="syl-body" style="padding:0;">
+      <table class="grade-table">
+        <thead>
+          <tr><th>Assessment</th><th>Weight</th></tr>
+        </thead>
+        <tbody id="syl-grade-rows"></tbody>
+      </table>
+      <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 7: GRADING SCALE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 7</span>
+      <span class="syl-section-title">Grading Scale</span>
+    </div>
+    <div class="syl-body" style="padding:0;">
+      <table class="scale-table">
+        <thead>
+          <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+          <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
+          <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
+          <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
+          <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
+          <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
+          <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
+          <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
+          <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
+          <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
+          <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
+          <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 8: KEY ACADEMIC DATES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 8</span>
+      <span class="syl-section-title">Key Academic Dates</span>
+    </div>
+    <div class="syl-body" style="padding:0;">
+      <table class="dates-table">
+        <thead>
+          <tr><th>Event</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="dt-label">Classes Begin</td>          <td class="dt-date" id="kd-begin"></td></tr>
+          <tr><td class="dt-label">Drop/Add Ends</td>          <td class="dt-date" id="kd-dropadd"></td></tr>
+          <tr><td class="dt-label">Fall Break</td>             <td class="dt-date">Oct 14–18, 2026</td></tr>
+          <tr><td class="dt-label">Withdrawal Deadline</td>    <td class="dt-date" id="kd-withdraw"></td></tr>
+          <tr><td class="dt-label">Thanksgiving Break</td>     <td class="dt-date">Nov 23–27, 2026</td></tr>
+          <tr><td class="dt-label">Viva Week (Friday Focus)</td><td class="dt-date">Nov 30 – Dec 4, 2026</td></tr>
+          <tr><td class="dt-label">Last Day of Class</td>      <td class="dt-date" id="kd-classend"></td></tr>
+          <tr><td class="dt-label">Reading Day</td>            <td class="dt-date" id="kd-reading"></td></tr>
+          <tr><td class="dt-label">Final Exam Period</td>      <td class="dt-date" id="kd-exams"></td></tr>
+        </tbody>
+      </table>
+      <div class="table-note">All due times are 11:59&nbsp;a.m. Eastern on the date listed unless otherwise noted.</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9: ATTENDANCE & PARTICIPATION ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Attendance &amp; Participation</span>
+    </div>
+    <div class="syl-body">
+      <p>This is an in-person course. You learn by being here. The sessions build on each other — missing one makes the next harder. I do not take formal attendance, but I notice who is in the room, and the work reflects it. If something comes up, email me before class.</p>
+      <p>Each class begins with a Wellness Pause — a brief, ungraded reflective check-in. It is not optional. Show up on time.</p>
+
+      <!--
+        SCREENS-DOWN WEDNESDAY ACCOMMODATION STATEMENT
+        This block is locked. Do not remove or relocate.
+      -->
+      <div class="callout teal">
+        <strong class="lbl-teal">Screens-down Wednesdays.</strong> Wednesday is pen-and-paper day. Laptops, tablets, and phones stay closed and face-down for the full Wednesday session. This is a course-wide practice, not a personal preference. If you have a documented accommodation that requires a device on Wednesdays, bring your letter from the Office of Academic Accommodations and Accessibility before the first Wednesday session. I will make it work.
+      </div>
+
+      <p>Monday and Friday sessions use skeleton notes that you print or download in advance. Bring them. I do not provide extra copies in class.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 10: ACADEMIC INTEGRITY ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 10</span>
+      <span class="syl-section-title">Academic Integrity</span>
+    </div>
+    <div class="syl-body">
+      <p>All work submitted in this course must be your own. Elon's Honor Code applies to every assignment.</p>
+      <div class="callout red">
+        <strong class="lbl-red">What this means in practice.</strong> Submitting another student's work as your own, sharing answers on Economic Puzzles or Check-Ins, or presenting AI-generated text as your original writing without disclosure are all violations. Violations may result in a failing grade for the assignment or the course and may be referred to the Honor Board.
+      </div>
+      <p>If you are ever unsure whether something crosses a line, ask me before you submit — not after. A quick email is always better than a conversation I do not want to have. The full text of Elon's Honor Code is available through the Office of Student Conduct.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 11: AI POLICY ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 11</span>
+      <span class="syl-section-title">AI Policy</span>
+    </div>
+    <div class="syl-body">
+      <p>AI tools are part of how we think, write, and work today. Used well, they help you test ideas, clarify arguments, and catch weak reasoning. Used without thought, they undermine the learning you are here to do — and they produce prose that sounds like everyone else's.</p>
+      <p>You are welcome to use AI to support your process in this course. The Friday Focus narrative is yours to write. The viva is a live conversation. Check-Ins and Economic Puzzles are completed in real time without AI. Those constraints are not arbitrary — they are where the learning happens.</p>
+      <div class="callout teal">
+        <strong class="lbl-teal">If you use AI in your writing process:</strong> revise the output so it reflects your voice and thinking, make sure it is part of a larger piece that shows your reasoning, and add a brief note explaining specifically how you used it. A blanket disclosure at the bottom of every submission is not enough — be specific. I will explain what that looks like for each assignment.
+      </div>
+      <p>The full AI policy for this course, including task-by-task guidance, is on the course home page. If you are unsure whether a specific use is appropriate, ask before you submit.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 12: COURSE POLICIES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 12</span>
+      <span class="syl-section-title">Course Policies</span>
+    </div>
+    <div class="syl-body">
+      <ul class="policy-list">
+        <li class="policy-item">
+          <strong>Late work.</strong> Economic Puzzles submitted within one week of the Monday deadline receive 80% credit; after that, the puzzle closes. Monday Morning Economist readings do not accept late submissions — Perusall closes at the deadline. Check-Ins have no standalone makeup; CI&nbsp;4 serves that purpose. The Friday Focus narrative due date is firm — contact me before the deadline if something serious comes up.
+        </li>
+        <li class="policy-item">
+          <strong>Canvas Gradebook.</strong> Canvas is the official record of your grade. Check it after each assignment is returned. If you see an error, email me within one week of the grade being posted. I do not revisit grades from earlier in the semester during finals week.
+        </li>
+        <li class="policy-item">
+          <strong>Withdrawal deadline.</strong> The last day to withdraw without academic penalty is <strong id="pol-withdraw"></strong>. You are responsible for initiating the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
+        </li>
+        <li class="policy-item">
+          <strong>Academic accommodations.</strong> Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> and provide me with a current accommodation letter before the first week of class — or as soon as the accommodation is approved. The earlier we connect, the better I can support you.
+        </li>
+        <li class="policy-item">
+          <strong>Email and response time.</strong> I respond to email within 24 hours on weekdays. Email sent Friday afternoon through Sunday may not receive a reply until Monday. If something is urgent, say so in the subject line.
+        </li>
+        <li class="policy-item">
+          <strong>Syllabus changes.</strong> I reserve the right to adjust this syllabus during the semester. I will announce changes in class and post them to Canvas. The version on the course home page is always current.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ================================================================
+//  Wire all dynamic values from config.js
+// ================================================================
+
+// Header
+document.getElementById('syl-back').href = PAGES.home;
+document.getElementById('syl-eyebrow').textContent =
+  COURSE.code + '\u00a0\u00b7\u00a0' + COURSE.semester;
+
+// Print header
+document.getElementById('syl-print-subtitle').textContent =
+  COURSE.code + ' \u2014 ' + COURSE.semester + ' \u2014 ' + INSTRUCTOR.name;
+document.getElementById('syl-print-meta').textContent =
+  'Love School of Business \u00b7 Department of Economics \u00b7 Elon University \u00b7 ' + INSTRUCTOR.office;
+
+// Section 1 — Course Information
+document.getElementById('syl-course').textContent   = COURSE.code + ' \u2014 ' + COURSE.title;
+document.getElementById('syl-credits').textContent  = COURSE.credits + ' credit hours';
+document.getElementById('syl-semester').textContent = COURSE.semester;
+document.getElementById('syl-name').textContent     = INSTRUCTOR.name;
+document.getElementById('syl-office').textContent   = INSTRUCTOR.office + ' \u00b7 Elon University';
+document.getElementById('syl-phone').textContent    = INSTRUCTOR.phone;
+document.getElementById('syl-begin').textContent    = SCHEDULE.dates.classesBegin;
+document.getElementById('syl-end').textContent      = SCHEDULE.dates.classesEnd;
+
+var emailEl = document.getElementById('syl-email-link');
+emailEl.href        = 'mailto:' + INSTRUCTOR.email;
+emailEl.textContent = INSTRUCTOR.email;
+
+var zoomEl = document.getElementById('syl-zoom-link');
+zoomEl.href        = INSTRUCTOR.zoomUrl;
+zoomEl.textContent = INSTRUCTOR.zoomDisplay;
+
+// Office hours — hide row if blank
+var hoursEl  = document.getElementById('syl-hours');
+var hoursRow = document.getElementById('syl-hours-row');
+if (INSTRUCTOR.officeHours) {
+  hoursEl.textContent = INSTRUCTOR.officeHours;
+} else {
+  hoursRow.style.display = 'none';
+}
+
+document.getElementById('syl-textbook-short').textContent =
+  TEXTBOOK.title + ', ' + TEXTBOOK.edition + '\u00a0ed. (' + TEXTBOOK.publisher + ' ' + TEXTBOOK.platform + ')';
+
+// Section 4 — Textbook block
+document.getElementById('syl-textbook-block').innerHTML =
+  TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
+  TEXTBOOK.edition + ' ed. Boston: Cengage Learning. (' + TEXTBOOK.platform + ' e-book.)';
+
+// Section 5 — CI 4 date
+var ci4 = CANVAS.checkIns.find(function(c){ return c.id === 4; });
+if (ci4) document.getElementById('syl-ci4-date').textContent = ci4.date;
+
+// Section 5 — Friday Focus due
+var ff1 = CANVAS.friday.find(function(f){ return f.id === 1; });
+if (ff1) document.getElementById('syl-ff-due').textContent = ff1.due;
+
+// Section 5 — Viva week dates
+var vivaSession = SCHEDULE.sessions.find(function(s){ return s.viva; });
+document.getElementById('syl-viva-dates').textContent =
+  vivaSession ? vivaSession.dates : 'viva week';
+
+// Section 6 — Grade rows (built from GRADING.components)
+var tbody = document.getElementById('syl-grade-rows');
+var total = 0;
+GRADING.components.forEach(function(c) {
+  total += c.weight;
+  var tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td>' + c.label + '</td>' +
+    '<td><span class="grade-pct">' + c.weight + '%</span></td>';
+  tbody.appendChild(tr);
+});
+var trTot = document.createElement('tr');
+trTot.innerHTML =
+  '<td><strong>Total</strong></td>' +
+  '<td><span class="grade-pct">' + total + '%</span></td>';
+tbody.appendChild(trTot);
+
+// Section 8 — Key dates
+document.getElementById('kd-begin').textContent    = SCHEDULE.dates.classesBegin;
+document.getElementById('kd-dropadd').textContent  = SCHEDULE.dates.dropAddEnds;
+document.getElementById('kd-withdraw').textContent = SCHEDULE.dates.withdrawDeadline;
+document.getElementById('kd-classend').textContent = SCHEDULE.dates.classesEnd;
+document.getElementById('kd-reading').textContent  = SCHEDULE.dates.readingDay;
+document.getElementById('kd-exams').textContent    =
+  SCHEDULE.dates.examsBegin + '\u2013' + SCHEDULE.dates.examsEnd;
+
+// Section 12 — Withdrawal deadline in policies
+document.getElementById('pol-withdraw').textContent = SCHEDULE.dates.withdrawDeadline;
+</script>
+</body>
+</html>
