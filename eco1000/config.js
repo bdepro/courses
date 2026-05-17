@@ -65,10 +65,9 @@ const INSTRUCTOR = {
 //    note        — optional internal note (not student-facing)
 //
 //  Due date logic (locked — do not change without updating schedule.html):
-//    All puzzles and readings due Monday at 11:59 a.m. of each session.
-//    MME introduced Friday of check-in week, due Monday at 11:59 a.m.
-//    before the NEXT check-in session.
-//    Friday Focus written narrative due Monday Nov 30 at 11:59 a.m.
+//    All puzzles and MME articles due Wednesday at 11:59 p.m. of each session.
+//    MME introduced Friday of check-in week, due Wednesday at 11:59 p.m.
+//    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -284,21 +283,21 @@ const CHAPTERS = {
 //  GRADING
 //  Locked weights — persona-reviewed
 //  Due date policy (locked):
-//    All work due Monday at 11:59 a.m. of each session.
+//    All work due Wednesday at 11:59 p.m. of each session.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 //  UPDATE only if course structure changes significantly.
 // ================================================================
 const GRADING = {
-  dueTime: "11:59 a.m.",                           // universal due time — Monday of each session
+  dueTime: "11:59 p.m.",                           // universal due time — Wednesday of each session
   components: [
     { id: "checkins", label: "Check-Ins",              weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
     { id: "friday",   label: "Friday Focus",           weight: 25,
-      note: "Written narrative due Mon Nov 30 at 11:59 a.m. Viva conversation during viva week." },
+      note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week." },
     { id: "puzzles",  label: "Economic Puzzles",       weight: 15,
-      note: "One per content session. Lowest score dropped. Late within one week at 80%." },
+      note: "One per content session. Lowest score dropped. Late within one week at 80%. Due Wednesday 11:59 p.m." },
     { id: "mme",      label: "Monday Morning Economist", weight: 10,
-      note: "4 articles per semester, one per check-in block. Introduced Friday of check-in week. Due Monday at 11:59 a.m. before the next check-in." },
+      note: "4 articles per semester, one per check-in block. Introduced Friday of check-in week. Due Wednesday at 11:59 p.m." },
   ],
   ungraded: [
     { id: "wellness", label: "Wellness Pause",
@@ -454,22 +453,20 @@ const CANVAS = {
     { session: 13, title: "Puzzle: Application Block Week 2",                      url: "https://elon.instructure.com/courses/1397/assignments/2467" },
   ],
 
-  // ── CHANGED: MME due dates corrected to Monday of next check-in ──
   // MME introduced Friday of check-in week.
-  // Due Monday at 11:59 a.m. before the NEXT check-in session.
+  // Due Wednesday at 11:59 p.m. of the check-in week.
   mme: [
-    { id: 1, session: 3,  introduced: "Fri Sep 18", due: "Mon Oct 5, 11:59 a.m.",  title: "MME 1: TBA", url: "" }, // UPDATE
-    { id: 2, session: 6,  introduced: "Fri Oct 9",  due: "Mon Nov 2, 11:59 a.m.",  title: "MME 2: TBA", url: "" }, // UPDATE
-    { id: 3, session: 11, introduced: "Fri Nov 6",  due: "Mon Nov 30, 11:59 a.m.", title: "MME 3: TBA", url: "" }, // UPDATE
-    { id: 4, session: 11, introduced: "Fri Nov 6",  due: "Mon Nov 30, 11:59 a.m.", title: "MME 4: TBA", url: "" }, // UPDATE — introduced same day as MME 3 to avoid Thanksgiving crunch
+    { id: 1, session: 3,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",  title: "MME 1: TBA", url: "" }, // UPDATE
+    { id: 2, session: 6,  introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "MME 2: TBA", url: "" }, // UPDATE
+    { id: 3, session: 11, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.", title: "MME 3: TBA", url: "" }, // UPDATE
+    { id: 4, session: 11, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.", title: "MME 4: TBA", url: "" }, // UPDATE — introduced same day as MME 3 to avoid Thanksgiving crunch
   ],
 
-  // ── CHANGED: FF1 due date locked, FF2 clarified ──────────────
-  // FF1: written narrative — due Mon Nov 30 at 11:59 a.m. (before viva)
+  // FF1: written narrative — due Wed Dec 2 at 11:59 p.m. (before viva)
   // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
     { id: 1, title: "Friday Focus: The Economic Narrative",
-      due: "Mon Nov 30, 11:59 a.m.", url: "" },                    // UPDATE: Canvas assignment URL
+      due: "Wed Dec 2, 11:59 p.m.", url: "" },                    // UPDATE: Canvas assignment URL
     { id: 2, title: "Friday Focus: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "" },   // UPDATE: Canvas Scheduler URL
   ],
