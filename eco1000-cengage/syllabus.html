@@ -1,4 +1,28 @@
 <!DOCTYPE html>
+<!--
+================================================================
+  ECO 1000 — SYLLABUS (SUMMER)
+  Updated with approved prose changes from fall 2026 review.
+
+  Changes applied from fall review session:
+    S2: "Three weeks" -> "A semester" / "lens" -> "way of seeing" /
+        em dash removed from final paragraph
+    S3: Goal 1 em dashes -> parentheses / Goal 3 em dashes removed
+    S4: Unchanged (summer textbook model differs from fall)
+    S6 Friday Focus: Opening two sentences added /
+        "Sign up early. Slots fill." replaces prior sign-up warning
+    S6 Puzzles: "The goal is to use the ideas, not catalog them." added /
+        "A rough week is not a reason to stop submitting." added
+    S6 MME: "The name matters..." paragraph added to top
+    S7: "You are welcome to use AI" -> "You may use AI" /
+        "make sure it is part" -> "keep it as part" /
+        "Achievement Badges and Economic Puzzles are completed
+        in real time, without AI." added
+    S8: "You are welcome to use AI" -> "You may use AI" (policy items)
+        Academic accommodations prose tightened.
+        Withdrawal deadline prose tightened.
+================================================================
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +32,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
-    /* ── Variables ── */
     :root {
       --crimson:   #73000a;
       --gold:      #b59a57;
@@ -37,7 +60,6 @@
       line-height: 1.7;
     }
 
-    /* ── Screen header ── */
     .screen-header {
       background: var(--crimson);
       border-bottom: 4px solid var(--gold);
@@ -60,9 +82,7 @@
       font-size: clamp(1.4rem, 4vw, 2rem);
       font-weight: 700; color: var(--white); line-height: 1.2;
     }
-    .screen-actions {
-      margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;
-    }
+    .screen-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .btn-print {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--gold); color: #1a1a1a;
@@ -74,13 +94,9 @@
     .btn-print:hover { background: var(--gold-lt); }
     .btn-print svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    /* ── Main layout ── */
     main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
-
-    /* ── Print header (hidden on screen) ── */
     .print-header { display: none; }
 
-    /* ── Section cards ── */
     .syl-section {
       background: var(--white);
       border: 1px solid var(--border);
@@ -103,17 +119,12 @@
       background: rgba(255,255,255,0.15);
       padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
     }
-    .syl-section-title {
-      font-size: 0.95rem; font-weight: 700; color: var(--white);
-    }
+    .syl-section-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
     .syl-body { padding: 1.25rem 1.5rem; }
 
-    /* ── Contact block ── */
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem 2rem;
-      font-size: 0.88rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem; font-size: 0.88rem;
     }
     .contact-row { display: flex; gap: 0.5rem; align-items: baseline; }
     .contact-label {
@@ -124,12 +135,10 @@
     .contact-value a { color: var(--gold-link); text-decoration: none; }
     .contact-value a:hover { color: var(--crimson); }
 
-    /* ── Prose ── */
     .syl-body p { margin-bottom: 0.85rem; font-size: 0.93rem; }
     .syl-body p:last-child { margin-bottom: 0; }
     .syl-body .lead { font-size: 1rem; font-weight: 500; color: var(--text); }
 
-    /* ── Goals ── */
     .goal-list { list-style: none; padding: 0; }
     .goal-item {
       display: flex; gap: 1rem; align-items: flex-start;
@@ -147,46 +156,31 @@
     .goal-text { line-height: 1.55; }
     .goal-text strong { color: var(--text); font-weight: 600; }
 
-    /* ── Schedule table ── */
     .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
     .sched-table th {
-      background: var(--warm-gray);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-      padding: 0.6rem 0.85rem; text-align: left;
-      border-bottom: 2px solid var(--border);
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.6rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
     }
     .sched-table td {
-      padding: 0.75rem 0.85rem;
-      border-bottom: 1px solid var(--warm-gray);
+      padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
       vertical-align: top; line-height: 1.5;
     }
     .sched-table tr:last-child td { border-bottom: none; }
     .sched-table tr:hover td { background: #fdfcfa; }
     .week-tag {
-      display: inline-block;
-      background: var(--crimson); color: var(--white);
+      display: inline-block; background: var(--crimson); color: var(--white);
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; padding: 0.15rem 0.5rem;
       border-radius: 3px; white-space: nowrap;
     }
-    .ch-tag {
-      font-size: 0.75rem; font-weight: 700;
-      color: var(--gold-link); display: block; margin-bottom: 0.25rem;
-    }
-    .due-tag {
-      font-size: 0.75rem; color: var(--crimson); font-weight: 500;
-    }
+    .ch-tag { font-size: 0.75rem; font-weight: 700; color: var(--gold-link); display: block; margin-bottom: 0.25rem; }
+    .due-tag { font-size: 0.75rem; color: var(--crimson); font-weight: 500; }
 
-    /* ── Assessment blocks ── */
-    .assess-block {
-      border: 1px solid var(--border);
-      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
-    }
+    .assess-block { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
     .assess-block:last-child { margin-bottom: 0; }
     .assess-header {
-      background: var(--warm-gray);
-      padding: 0.6rem 1rem;
+      background: var(--warm-gray); padding: 0.6rem 1rem;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid var(--border);
     }
@@ -194,31 +188,27 @@
     .assess-weight {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--crimson);
-      background: rgba(115,0,10,0.08);
-      padding: 0.15rem 0.55rem; border-radius: 3px;
+      background: rgba(115,0,10,0.08); padding: 0.15rem 0.55rem; border-radius: 3px;
     }
     .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; }
     .assess-body p { margin-bottom: 0.65rem; }
     .assess-body p:last-child { margin-bottom: 0; }
     .assess-sub {
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--teal); margin-bottom: 0.35rem; margin-top: 0.75rem;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.35rem; margin-top: 0.75rem;
     }
 
-    /* ── Grade weight table ── */
     .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     .grade-table th {
       background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
       padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
     }
-    .grade-table td {
-      padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray);
-    }
+    .grade-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray); }
     .grade-table tr:last-child td { border-bottom: 2px solid var(--border); font-weight: 700; color: var(--text); }
     .grade-pct { font-weight: 700; color: var(--crimson); font-size: 1rem; }
 
-    /* ── Grading scale table ── */
     .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
     .scale-table th {
       background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
@@ -230,7 +220,6 @@
     .scale-grade { font-weight: 700; color: var(--crimson); }
     .scale-desc { color: var(--muted); font-size: 0.82rem; }
 
-    /* ── Policy callout ── */
     .policy-callout {
       background: #f0f7f8; border-left: 4px solid var(--teal);
       border-radius: 0 6px 6px 0; padding: 0.85rem 1rem;
@@ -238,20 +227,19 @@
     }
     .policy-callout strong { color: var(--teal); }
 
-    /* ── Policies list ── */
     .policy-list { list-style: none; padding: 0; }
     .policy-item {
       font-size: 0.88rem; padding: 0.5rem 0 0.5rem 1rem;
-      border-bottom: 1px solid var(--warm-gray); position: relative;
-      line-height: 1.6;
+      border-bottom: 1px solid var(--warm-gray); position: relative; line-height: 1.6;
     }
     .policy-item:last-child { border-bottom: none; }
     .policy-item::before {
       content: ""; position: absolute; left: 0; top: 0.85rem;
       width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
     }
+    .policy-item a { color: var(--gold-link); text-decoration: none; }
+    .policy-item a:hover { color: var(--crimson); }
 
-    /* ── Textbook block ── */
     .textbook-block {
       background: var(--warm-gray); border-radius: 6px;
       padding: 0.85rem 1rem; font-size: 0.88rem;
@@ -259,7 +247,6 @@
     }
     .textbook-block cite { font-style: italic; }
 
-    /* ── Mobile ── */
     @media (max-width: 600px) {
       .screen-header { padding: 1.5rem 1.25rem; }
       main { padding: 1.5rem 1rem 4rem; }
@@ -267,69 +254,42 @@
       .syl-body { padding: 1rem 1.1rem; }
     }
 
-    /* ── PRINT STYLES ── */
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-      body {
-        background: white; font-size: 10.5pt;
-        line-height: 1.55; color: #000;
-      }
-
+      body { background: white; font-size: 10.5pt; line-height: 1.55; color: #000; }
       .screen-header { display: none; }
-
       .print-header {
-        display: block;
-        border-bottom: 3px solid #73000a;
-        padding-bottom: 0.75rem;
-        margin-bottom: 1.5rem;
+        display: block; border-bottom: 3px solid #73000a;
+        padding-bottom: 0.75rem; margin-bottom: 1.5rem;
       }
-      .print-title {
-        font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2;
-      }
+      .print-title    { font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2; }
       .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
-      .print-meta { font-size: 9pt; color: #666; margin-top: 0.5rem; }
-
+      .print-meta     { font-size: 9pt; color: #666; margin-top: 0.5rem; }
       main { max-width: 100%; padding: 0; margin: 0; }
-
       .syl-section {
         box-shadow: none; border: 1px solid #ccc;
-        border-radius: 0; margin-bottom: 1rem;
-        page-break-inside: avoid;
+        border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid;
       }
-      .syl-section-header {
-        padding: 0.4rem 0.75rem;
-      }
-      .syl-section-title { font-size: 9.5pt; }
-      .syl-num { display: none; }
-      .syl-body { padding: 0.65rem 0.85rem; }
-      .syl-body p { font-size: 10pt; margin-bottom: 0.5rem; }
-
-      .contact-grid { font-size: 9.5pt; gap: 0.2rem 1rem; }
-
-      .sched-table { font-size: 9pt; }
-      .sched-table th { padding: 0.4rem 0.65rem; }
-      .sched-table td { padding: 0.5rem 0.65rem; }
-
-      .assess-block { page-break-inside: avoid; }
-      .assess-body { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
-
-      .grade-table { font-size: 10pt; }
-      .scale-table { font-size: 9.5pt; }
-
-      .goal-item { padding: 0.4rem 0; font-size: 9.5pt; }
-
-      .policy-callout { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
-
+      .syl-section-header { padding: 0.4rem 0.75rem; }
+      .syl-section-title  { font-size: 9.5pt; }
+      .syl-num            { display: none; }
+      .syl-body           { padding: 0.65rem 0.85rem; }
+      .syl-body p         { font-size: 10pt; margin-bottom: 0.5rem; }
+      .contact-grid       { font-size: 9.5pt; gap: 0.2rem 1rem; }
+      .assess-block       { page-break-inside: avoid; }
+      .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      .grade-table        { font-size: 10pt; }
+      .scale-table        { font-size: 9.5pt; }
+      .goal-item          { padding: 0.4rem 0; font-size: 9.5pt; }
+      .policy-callout     { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
       a { color: #000; text-decoration: none; }
-      a[href]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
-      a[href^="#"]::after { content: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+      a[href^="mailto"]::after { content: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- SCREEN HEADER -->
 <div class="screen-header">
   <div class="screen-header-inner">
     <a class="back-link" id="syl-back" href="#">
@@ -337,17 +297,20 @@
       Moodle Course Page
     </a>
     <p class="screen-eyebrow" id="syl-eyebrow"></p>
-    <h1 class="screen-title">Course Syllabus</h1>
+    <h1 class="screen-title">What do I need to know?</h1>
     <div class="screen-actions">
       <button class="btn-print" onclick="window.print()">
-        <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <svg viewBox="0 0 24 24">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
         Print / Save PDF
       </button>
     </div>
   </div>
 </div>
 
-<!-- PRINT HEADER (hidden on screen) -->
 <div class="print-header">
   <div class="print-title">Principles of Economics</div>
   <div class="print-subtitle" id="syl-print-subtitle"></div>
@@ -402,26 +365,26 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Textbook</span>
-          <span class="contact-value">Gwartney et al., 17th ed. (Cengage MindTap)</span>
+          <span class="contact-value">Gwartney et al., 18th ed. (Cengage MindTap)</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 2: WHY TAKE THIS COURSE -->
+  <!-- SECTION 2: WHY TAKE THIS COURSE (approved — identical to fall) -->
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 2</span>
       <span class="syl-section-title">Why Should You Take This Course?</span>
     </div>
     <div class="syl-body">
-      <p class="lead">Everyday life has a hidden structure. Economic thinking is the tool that reveals it.</p>
-      <p>Why are rents high? How do incentives shape the choices you make every day? Why do good intentions sometimes lead to bad outcomes? In their book <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak describe what studying economics can do: it "can help you understand how your own livelihood is connected to the larger economic world, and introduce you to the ongoing conversation &mdash; among economists, government officials, business leaders, and ordinary citizens &mdash; about how to make the world more fair and rich and prosperous for all."</p>
-      <p>Three weeks of economic thinking will change how you read the news, make decisions, and understand the world around you. Economics is one lens among many. History, theology, and sociology illuminate things economics cannot. But learning to think economically &mdash; and to question it &mdash; is worth your time.</p>
+      <p>Everyday life has a hidden structure. Economic thinking reveals it.</p>
+      <p>Why are rents high? How do incentives shape the choices you make every day? Why do good intentions sometimes lead to bad outcomes? In <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak describe what studying economics can do: it &ldquo;can help you understand how your own livelihood is connected to the larger economic world, and introduce you to the ongoing conversation &mdash; among economists, government officials, business leaders, and ordinary citizens &mdash; about how to make the world more fair and rich and prosperous for all.&rdquo;</p>
+      <p>A semester of economic thinking will change how you see the news, your choices, and the world around you. Economics is one way of seeing. History, theology, and sociology illuminate things economics cannot. But learning to think economically, and to question it, is worth the semester.</p>
     </div>
   </div>
 
-  <!-- SECTION 3: LEARNING GOALS -->
+  <!-- SECTION 3: LEARNING GOALS (approved — identical to fall) -->
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 3</span>
@@ -431,7 +394,7 @@
       <ul class="goal-list">
         <li class="goal-item">
           <span class="goal-num">1</span>
-          <span class="goal-text"><strong>Ask useful economic questions</strong> &mdash; why do rents rise, what does a minimum wage actually do &mdash; and find evidence to answer them.</span>
+          <span class="goal-text"><strong>Ask useful economic questions</strong> (why rents rise, what a minimum wage actually does) and find evidence to answer them.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">2</span>
@@ -439,7 +402,7 @@
         </li>
         <li class="goal-item">
           <span class="goal-num">3</span>
-          <span class="goal-text"><strong>Use data to spot patterns</strong> &mdash; in prices, employment, and growth &mdash; and make sense of how things relate in the real world.</span>
+          <span class="goal-text"><strong>Use data to spot patterns</strong> in prices, employment, and growth, and make sense of how things relate in the real world.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">4</span>
@@ -453,26 +416,26 @@
     </div>
   </div>
 
-  <!-- SECTION 4: COURSE MATERIALS -->
+  <!-- SECTION 4: COURSE MATERIALS (summer model — unchanged) -->
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 4</span>
-      <span class="syl-section-title">Course Materials</span>
+      <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Purchase access through the link in Moodle before your first assignment is due.</p>
+      <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Activate your access through the link in Moodle before your first assignment is due.</p>
       <div class="textbook-block">
         Gwartney, James D., Richard L. Stroup, Russell S. Sobel, and David A. Macpherson.
-        <cite>Economics: Private and Public Choice.</cite> 17th ed. Boston: Cengage Learning, 2025.
+        <cite>Economics: Private and Public Choice.</cite> 18th ed. Boston: Cengage Learning.
       </div>
     </div>
   </div>
 
-  <!-- SECTION 5: COURSE SCHEDULE -->
+  <!-- SECTION 5: COURSE SCHEDULE (summer — unchanged from original) -->
   <div class="syl-section">
     <div class="syl-section-header">
       <span class="syl-num">Section 5</span>
-      <span class="syl-section-title">Course Schedule</span>
+      <span class="syl-section-title">How Will Your Learning Be Organized?</span>
     </div>
     <div class="syl-body" style="padding: 0;">
       <table class="sched-table">
@@ -489,9 +452,7 @@
           <tr>
             <td><span class="week-tag">Week 1</span></td>
             <td id="sched-w1-dates"></td>
-            <td>
-              <span class="ch-tag">Ch 1, 3, 4</span>
-            </td>
+            <td><span class="ch-tag">Ch 1, 3, 4</span></td>
             <td>
               The Economic Approach<br>
               Demand, Supply, and the Market Process<br>
@@ -502,9 +463,7 @@
           <tr>
             <td><span class="week-tag">Week 2</span></td>
             <td id="sched-w2-dates"></td>
-            <td>
-              <span class="ch-tag">Ch 7, 8, 16</span>
-            </td>
+            <td><span class="ch-tag">Ch 7, 8, 16</span></td>
             <td>
               Taking the Nation's Economic Pulse<br>
               Economic Fluctuations, Unemployment, and Inflation<br>
@@ -515,9 +474,7 @@
           <tr>
             <td><span class="week-tag">Week 3</span></td>
             <td id="sched-w3-dates"></td>
-            <td>
-              <span class="ch-tag">Ch 6, 26, 28</span>
-            </td>
+            <td><span class="ch-tag">Ch 6, 26, 28</span></td>
             <td>
               The Economics of Political Action<br>
               Earnings, Productivity, and the Job Market<br>
@@ -533,40 +490,45 @@
     </div>
   </div>
 
-  <!-- SECTION 6: ASSESSMENTS -->
+  <!-- SECTION 6: ASSESSMENTS (summer — with approved improvements) -->
   <div class="syl-section">
     <div class="syl-section-header gold">
       <span class="syl-num">Section 6</span>
-      <span class="syl-section-title">How Your Learning Will Be Assessed</span>
+      <span class="syl-section-title">How Will Your Learning Be Assessed?</span>
     </div>
     <div class="syl-body">
 
+      <!-- Economic Puzzles (summer mechanics, with approved additions) -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Economic Puzzles</span>
           <span class="assess-weight">30% of Grade</span>
         </div>
         <div class="assess-body">
-          <p>Each chapter includes an online puzzle in MindTap's Study It section. You apply economic reasoning to a real decision or scenario. Instant feedback tells you how your thinking holds up. You may attempt each puzzle question three times before the deadline, and your highest score counts. The goal is learning by doing, not getting it right the first time.</p>
+          <p>The goal is to use the ideas, not catalog them.</p>
+          <p>Each chapter includes an online puzzle in MindTap's Study It section. You apply economic reasoning to a real decision or scenario. Instant feedback tells you how your thinking holds up. You may attempt each puzzle question three times before the deadline, and your highest score counts. To keep things fair and recognize that life happens, I drop your lowest puzzle score at the end of the semester. If you miss a deadline, you can still submit within a week for up to 80% credit. A rough week is not a reason to stop submitting.</p>
         </div>
       </div>
 
+      <!-- Friday Focus (summer mechanics, with approved opening and sign-up fix) -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Friday Focus: The Economic Narrative and Narrative Viva</span>
           <span class="assess-weight">30% of Grade</span>
         </div>
         <div class="assess-body">
+          <p>Friday Focus asks one question: what does economics explain about something you actually care about? You spend the semester building your answer.</p>
           <p>Friday Focus uses the progymnasmata &mdash; a classical sequence of exercises for building arguments and understanding how language shapes reasoning. You will complete two assignments.</p>
 
           <div class="assess-sub">Friday Focus 1: The Economic Narrative</div>
           <p>A written submission due <span id="ff1-due"></span>. You will tell a true story from your own life &mdash; 350 to 600 words &mdash; about a moment when you made a choice, encountered a price, or watched a market at work. The story must be specific and lived. You will submit a PDF through Moodle.</p>
 
           <div class="assess-sub">Friday Focus 2: The Narrative Viva</div>
-          <p>A 12-minute live Zoom conversation with your instructor during <span id="viva-dates"></span>. You will discuss your narrative. The conversation moves through three acts: your story, the economics underneath it, and reflection. Reflection covers two things &mdash; what your story reveals, and one question about how three weeks of economics has changed how you see the world. Sign up for your appointment through Moodle. There is nothing to submit &mdash; the viva is a conversation, not a presentation. Showing up and engaging in good faith earns full credit.</p>
+          <p>A 12-minute live Zoom conversation with your instructor during <span id="viva-dates"></span>. You will discuss your narrative. The conversation moves through three acts: your story, the economics underneath it, and reflection. Reflection covers two things &mdash; what your story reveals, and one question about how three weeks of economics has changed how you see the world. Sign up for your appointment through Moodle. Sign up early. Slots fill.</p>
         </div>
       </div>
 
+      <!-- Achievement Badges (summer only — unchanged) -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Achievement Badges</span>
@@ -577,12 +539,14 @@
         </div>
       </div>
 
+      <!-- Monday Morning Economist (summer mechanics, with approved opening) -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Monday Morning Economist</span>
           <span class="assess-weight">20% of Grade</span>
         </div>
         <div class="assess-body">
+          <p>The name matters. A Monday Morning Economist reads the news like an economist: looking for incentives, tradeoffs, and unintended consequences rather than outcomes.</p>
           <p>Each week you read one short economics newsletter and discuss it with your classmates inside the text using Perusall. These are not textbook readings. Each one takes a real situation and shows you the economic logic you did not know was there. You highlight sentences, write comments, and reply to classmates. Credit reflects steady effort and useful discussion. All three newsletters are available from the first day of class &mdash; you may work ahead.</p>
         </div>
       </div>
@@ -590,7 +554,7 @@
     </div>
   </div>
 
-  <!-- SECTION 7: GRADE WEIGHTS -->
+  <!-- SECTION 7: GRADE WEIGHTS (summer — unchanged) -->
   <div class="syl-section">
     <div class="syl-section-header gold">
       <span class="syl-num">Section 7</span>
@@ -599,32 +563,14 @@
     <div class="syl-body" style="padding: 0;">
       <table class="grade-table">
         <thead>
-          <tr>
-            <th>Assessment</th>
-            <th>Weight</th>
-          </tr>
+          <tr><th>Assessment</th><th>Weight</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Economic Puzzles</td>
-            <td><span class="grade-pct">30%</span></td>
-          </tr>
-          <tr>
-            <td>Friday Focus</td>
-            <td><span class="grade-pct">30%</span></td>
-          </tr>
-          <tr>
-            <td>Achievement Badges</td>
-            <td><span class="grade-pct">20%</span></td>
-          </tr>
-          <tr>
-            <td>Monday Morning Economist</td>
-            <td><span class="grade-pct">20%</span></td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><span class="grade-pct">100%</span></td>
-          </tr>
+          <tr><td>Economic Puzzles</td>          <td><span class="grade-pct">30%</span></td></tr>
+          <tr><td>Friday Focus</td>              <td><span class="grade-pct">30%</span></td></tr>
+          <tr><td>Achievement Badges</td>        <td><span class="grade-pct">20%</span></td></tr>
+          <tr><td>Monday Morning Economist</td>  <td><span class="grade-pct">20%</span></td></tr>
+          <tr><td><strong>Total</strong></td>    <td><span class="grade-pct">100%</span></td></tr>
         </tbody>
       </table>
       <div style="padding: 0.75rem 1.25rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--warm-gray);">
@@ -633,7 +579,7 @@
     </div>
   </div>
 
-  <!-- SECTION 8: GRADING SCALE -->
+  <!-- SECTION 8: GRADING SCALE (summer — unchanged) -->
   <div class="syl-section">
     <div class="syl-section-header gold">
       <span class="syl-num">Section 8</span>
@@ -642,66 +588,61 @@
     <div class="syl-body" style="padding: 0;">
       <table class="scale-table">
         <thead>
-          <tr>
-            <th>Moodle %</th>
-            <th>Letter Grade</th>
-            <th>Description</th>
-            <th>Quality Points</th>
-          </tr>
+          <tr><th>Moodle %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
         </thead>
         <tbody>
-          <tr><td>&ge; 93%</td><td class="scale-grade">A</td><td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+          <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
           <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
-          <tr><td>&ge; 87%</td><td class="scale-grade">B+</td><td class="scale-desc"></td><td>3.3</td></tr>
-          <tr><td>&ge; 83%</td><td class="scale-grade">B</td><td class="scale-desc">Above Average</td><td>3.0</td></tr>
+          <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
+          <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
           <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
-          <tr><td>&ge; 77%</td><td class="scale-grade">C+</td><td class="scale-desc"></td><td>2.3</td></tr>
-          <tr><td>&ge; 73%</td><td class="scale-grade">C</td><td class="scale-desc">Average</td><td>2.0</td></tr>
+          <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
+          <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
           <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
-          <tr><td>&ge; 67%</td><td class="scale-grade">D+</td><td class="scale-desc"></td><td>1.3</td></tr>
-          <tr><td>&ge; 63%</td><td class="scale-grade">D</td><td class="scale-desc"></td><td>1.0</td></tr>
+          <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
+          <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
           <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
-          <tr><td>&lt; 60%</td><td class="scale-grade">F</td><td class="scale-desc">Failure</td><td>0.0</td></tr>
+          <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- SECTION 9: AI POLICY -->
+  <!-- SECTION 9: AI POLICY (summer — with approved improvements) -->
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 9</span>
-      <span class="syl-section-title">AI Policy</span>
+      <span class="syl-section-title">How Can I Use AI in This Class?</span>
     </div>
     <div class="syl-body">
       <p>AI is part of how we learn, think, and write today. Like a search engine or a calculator, it can help if you use it with care. Used well, AI can give you new ideas, test your thinking, and help you write more clearly. Used without thought, it can take over your voice and weaken your learning. You are here to grow, not to copy.</p>
-      <p>You are welcome to use AI to support your process in this course. But AI should never do the whole job. All assignments must be genuinely yours.</p>
+      <p>You may use AI to support your process in this course. But AI should never do the whole job. All assignments must be genuinely yours. Achievement Badges and Economic Puzzles are completed in real time, without AI.</p>
       <div class="policy-callout">
-        <strong>If you use AI to help write something:</strong> revise the text so it fits your voice, make sure it is part of a larger piece that shows your thinking, and add a short note explaining how you used it. We will go over how to do that for each Moodle assignment.
+        <strong>If you use AI to help write something:</strong> revise the text so it fits your voice, keep it as part of a larger piece that shows your thinking, and add a short note explaining how you used it. We will go over how to do that for each Moodle assignment.
       </div>
       <p>Ask if you are unsure. I would rather talk with you than watch you guess.</p>
     </div>
   </div>
 
-  <!-- SECTION 10: COURSE POLICIES -->
+  <!-- SECTION 10: COURSE POLICIES (summer — with approved tightening) -->
   <div class="syl-section">
     <div class="syl-section-header">
       <span class="syl-num">Section 10</span>
-      <span class="syl-section-title">Course Policies</span>
+      <span class="syl-section-title">What Do I Need to Know About Policies?</span>
     </div>
     <div class="syl-body">
       <ul class="policy-list">
         <li class="policy-item">
-          <strong>Course resources.</strong> All course resources &mdash; weekly checklists, assignment guides, and lecture videos &mdash; are accessible through the course page in Moodle.
-        </li>
-        <li class="policy-item">
           <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon's Honor Code may result in a failing grade for the course.
         </li>
         <li class="policy-item">
-          <strong>Academic accommodations.</strong> Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
+          <strong>Academic accommodations.</strong> If you need accommodations, contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
         </li>
         <li class="policy-item">
-          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <span id="syl-withdraw"></span>. Students are responsible for initiating the official withdrawal process through OnTrack.
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <span id="syl-withdraw"></span>. Start the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
+        </li>
+        <li class="policy-item">
+          <strong>Course resources.</strong> Course materials are in Moodle.
         </li>
       </ul>
     </div>
@@ -723,20 +664,20 @@
     'Love School of Business \u00b7 Department of Economics \u00b7 Elon University \u00b7 ' + COURSE.instructor.office;
 
   // Contact block
-  document.getElementById('syl-name').textContent  = COURSE.instructor.name;
-  document.getElementById('syl-phone').textContent = COURSE.instructor.phone;
+  document.getElementById('syl-name').textContent   = COURSE.instructor.name;
+  document.getElementById('syl-phone').textContent  = COURSE.instructor.phone;
   document.getElementById('syl-office').textContent = COURSE.instructor.office + ' \u00b7 Elon University';
-  document.getElementById('syl-hours').textContent = COURSE.instructor.officeHours;
-  document.getElementById('syl-dates').textContent =
+  document.getElementById('syl-hours').textContent  = COURSE.instructor.officeHours;
+  document.getElementById('syl-dates').textContent  =
     COURSE.weeks[0].dates.split('\u2013')[0] + '\u2013' + COURSE.weeks[2].dates.split('\u2013')[1] + ', ' +
     COURSE.dates.classesBegin.split(', ')[1];
 
   var emailLink = document.getElementById('syl-email-link');
-  emailLink.href = 'mailto:' + COURSE.instructor.email;
+  emailLink.href        = 'mailto:' + COURSE.instructor.email;
   emailLink.textContent = COURSE.instructor.email;
 
   var zoomLink = document.getElementById('syl-zoom-link');
-  zoomLink.href = COURSE.instructor.zoomUrl;
+  zoomLink.href        = COURSE.instructor.zoomUrl;
   zoomLink.textContent = COURSE.instructor.zoomDisplay;
 
   // Schedule table dates
@@ -749,9 +690,8 @@
   document.getElementById('sched-w3-due').innerHTML    = w[2].due.replace(', ', '<br>');
 
   // Assessment dates
-  document.getElementById('ff1-due').textContent  = FRIDAY.assignments[0].due;
-  document.getElementById('viva-dates').textContent = COURSE.viva.week + ' (' + COURSE.viva.dates + ')';
-  document.getElementById('viva-email-deadline').textContent = COURSE.viva.emailDeadline;
+  document.getElementById('ff1-due').textContent       = FRIDAY.assignments[0].due;
+  document.getElementById('viva-dates').textContent    = COURSE.viva.week + ' (' + COURSE.viva.dates + ')';
 
   // Withdrawal deadline
   document.getElementById('syl-withdraw').textContent = COURSE.dates.withdrawDeadline;
