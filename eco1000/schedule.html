@@ -769,14 +769,16 @@ function bodyContent(session, type, isCurrent) {
     friDesc.className = 'info-box gold-box';
     friDesc.style.margin = '0.35rem 0 0.4rem';
 
-    // Find MME data for this session
-    const mmeData = CANVAS.mme.find(m => m.session === session.num);
-    const mmeDue = mmeData ? mmeData.due : 'Monday before next check-in, 11:59 a.m.';
-    const mmeTitle = mmeData ? mmeData.title : 'MME article TBA';
+    // Find ALL MME entries for this session (session 11 has two)
+    const mmeEntries = CANVAS.mme.filter(m => m.session === session.num);
+    const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Monday before next check-in, 11:59 a.m.';
+    const multiMME = mmeEntries.length > 1;
 
     friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome — this is the time.
-      <div class="sub">Then we launch the Monday Morning Economist article for this block.
-      It is due ${mmeDue}, not this Monday.</div>`;
+      <div class="sub">${multiMME
+        ? `Then we launch two Monday Morning Economist articles for the rest of the semester. Both are due ${mmeDue}.`
+        : `Then we launch the Monday Morning Economist article for this block. It is due ${mmeDue}, not this Monday.`
+      }</div>`;
     friBox.appendChild(friDesc);
 
     const friDesc2 = document.createElement('div');
@@ -787,8 +789,16 @@ function bodyContent(session, type, isCurrent) {
 
     const friPills = document.createElement('div');
     friPills.className = 'pills';
-    const mmeUrl = sc.mmeUrl || (mmeData ? mmeData.url : null) || null;
-    friPills.appendChild(pill(`MME — ${mmeTitle}`, mmeUrl || null, 'gold'));
+
+    // Render a pill for each MME tied to this session
+    mmeEntries.forEach(mmeData => {
+      const mmeUrl = sc.mmeUrl || mmeData.url || null;
+      friPills.appendChild(pill(mmeData.title, mmeUrl, 'gold'));
+    });
+    // Fallback if no MME entries found
+    if (mmeEntries.length === 0) {
+      friPills.appendChild(pill('MME — TBA', null, 'gold'));
+    }
 
     const ffUrl = sc.ffSubmit || CANVAS.viva.ffSubmitUrl || null;
     friPills.appendChild(pill('FF Progress — Submit', ffUrl));
