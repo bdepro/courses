@@ -27,7 +27,7 @@ const COURSE = {
   credits:     4,
   baseUrl:     "https://bdepro.github.io/courses/eco1000",
   canvasBase:  "https://elon.instructure.com",
-  canvasId:    "",                                 // UPDATE each semester
+  canvasId:    "1397",                             // UPDATE each semester
 };
 
 // ================================================================
@@ -443,15 +443,15 @@ const CANVAS = {
 
   // Economic Puzzles — one per content session, UPDATE each semester
   puzzles: [
-    { session: 1,  title: "Puzzle: The Economic Approach",                         url: "" }, // UPDATE
-    { session: 2,  title: "Puzzle: Demand, Supply, and the Market Process",        url: "" }, // UPDATE
-    { session: 4,  title: "Puzzle: Demand and Supply Applications",                url: "" }, // UPDATE
-    { session: 5,  title: "Puzzle: Taking the Nation's Economic Pulse",            url: "" }, // UPDATE
-    { session: 7,  title: "Puzzle: Economic Fluctuations and Unemployment",        url: "" }, // UPDATE
-    { session: 9,  title: "Puzzle: Creating an Environment for Growth",            url: "" }, // UPDATE
-    { session: 10, title: "Puzzle: Gaining from International Trade",              url: "" }, // UPDATE
-    { session: 12, title: "Puzzle: Application Block Week 1",                      url: "" }, // UPDATE
-    { session: 13, title: "Puzzle: Application Block Week 2",                      url: "" }, // UPDATE
+    { session: 1,  title: "Puzzle: The Economic Approach",                         url: "https://elon.instructure.com/courses/1397/assignments/2459" },
+    { session: 2,  title: "Puzzle: Demand, Supply, and the Market Process",        url: "https://elon.instructure.com/courses/1397/assignments/2460" },
+    { session: 4,  title: "Puzzle: Demand and Supply Applications",                url: "https://elon.instructure.com/courses/1397/assignments/2461" },
+    { session: 5,  title: "Puzzle: Taking the Nation's Economic Pulse",            url: "https://elon.instructure.com/courses/1397/assignments/2462" },
+    { session: 7,  title: "Puzzle: Economic Fluctuations and Unemployment",        url: "https://elon.instructure.com/courses/1397/assignments/2463" },
+    { session: 9,  title: "Puzzle: Creating an Environment for Growth",            url: "https://elon.instructure.com/courses/1397/assignments/2464" },
+    { session: 10, title: "Puzzle: Gaining from International Trade",              url: "https://elon.instructure.com/courses/1397/assignments/2465" },
+    { session: 12, title: "Puzzle: Application Block Week 1",                      url: "https://elon.instructure.com/courses/1397/assignments/2466" },
+    { session: 13, title: "Puzzle: Application Block Week 2",                      url: "https://elon.instructure.com/courses/1397/assignments/2467" },
   ],
 
   // ── CHANGED: MME due dates corrected to Monday of next check-in ──
