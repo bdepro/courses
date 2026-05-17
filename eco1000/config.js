@@ -461,7 +461,7 @@ const CANVAS = {
     { id: 1, session: 3,  introduced: "Fri Sep 18", due: "Mon Oct 5, 11:59 a.m.",  title: "MME 1: TBA", url: "" }, // UPDATE
     { id: 2, session: 6,  introduced: "Fri Oct 9",  due: "Mon Nov 2, 11:59 a.m.",  title: "MME 2: TBA", url: "" }, // UPDATE
     { id: 3, session: 11, introduced: "Fri Nov 6",  due: "Mon Nov 30, 11:59 a.m.", title: "MME 3: TBA", url: "" }, // UPDATE
-    { id: 4, session: 13, introduced: "Fri Nov 20", due: "Mon Nov 30, 11:59 a.m.", title: "MME 4: TBA", url: "" }, // UPDATE — application block MME, due start of viva week
+    { id: 4, session: 11, introduced: "Fri Nov 6",  due: "Mon Nov 30, 11:59 a.m.", title: "MME 4: TBA", url: "" }, // UPDATE — introduced same day as MME 3 to avoid Thanksgiving crunch
   ],
 
   // ── CHANGED: FF1 due date locked, FF2 clarified ──────────────
