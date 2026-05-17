@@ -644,7 +644,7 @@ function bodyContent(session, type, isCurrent) {
   if (isCurrent && type !== 'break') {
     const dueDiv = document.createElement('div');
     dueDiv.className = 'due-highlight';
-    let dueText = `<strong>Due this Monday by 11:59 a.m.</strong> `;
+    let dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> `;
 
     if (type === 'checkin') {
       dueText += 'All puzzles for this block.';
@@ -716,7 +716,7 @@ function bodyContent(session, type, isCurrent) {
       const puzDiv = document.createElement('div');
       puzDiv.className = 'day-section';
       puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Due Monday at 11:59 a.m.</div><div class="pills"></div>`;
+      puzDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
       puzDiv.querySelector('.pills').appendChild(
         pill('Economic Puzzle', puzzleData.url || null, 'gold')
       );
@@ -771,13 +771,13 @@ function bodyContent(session, type, isCurrent) {
 
     // Find ALL MME entries for this session (session 11 has two)
     const mmeEntries = CANVAS.mme.filter(m => m.session === session.num);
-    const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Monday before next check-in, 11:59 a.m.';
+    const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Wednesday of check-in week, 11:59 p.m.';
     const multiMME = mmeEntries.length > 1;
 
     friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome — this is the time.
       <div class="sub">${multiMME
         ? `Then we launch two Monday Morning Economist articles for the rest of the semester. Both are due ${mmeDue}.`
-        : `Then we launch the Monday Morning Economist article for this block. It is due ${mmeDue}, not this Monday.`
+        : `Then we launch the Monday Morning Economist article for this block. It is due ${mmeDue}, not this Wednesday.`
       }</div>`;
     friBox.appendChild(friDesc);
 
@@ -851,7 +851,7 @@ function bodyContent(session, type, isCurrent) {
       const puzDiv = document.createElement('div');
       puzDiv.className = 'day-section';
       puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Due Monday at 11:59 a.m.</div><div class="pills"></div>`;
+      puzDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
       puzDiv.querySelector('.pills').appendChild(
         pill('Economic Puzzle', puzzleData.url || null, 'gold')
       );
@@ -886,7 +886,7 @@ function bodyContent(session, type, isCurrent) {
       // FF narrative reminder
       const ffReminder = document.createElement('div');
       ffReminder.className = 'info-box gold-box';
-      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due Monday Nov 30 at 11:59 a.m.</strong>
+      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due Wednesday Dec 2 at 11:59 p.m.</strong>
         <div class="sub">Submit through Canvas before your viva conversation.
         Use the Thanksgiving break to finish your narrative and prepare for your viva.</div>`;
       frag.appendChild(ffReminder);
@@ -913,7 +913,7 @@ function bodyContent(session, type, isCurrent) {
     const ffDue = document.createElement('div');
     ffDue.className = 'due-highlight';
     ffDue.style.marginTop = '0.85rem';
-    ffDue.innerHTML = `<strong>Friday Focus written narrative due Monday by 11:59 a.m.</strong>
+    ffDue.innerHTML = `<strong>Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.</strong>
       Submit through Canvas before your viva conversation.`;
     frag.appendChild(ffDue);
 
@@ -1036,11 +1036,11 @@ document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon Univ
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
   `The semester runs in three-day sessions — Monday, Wednesday, Friday. ` +
-  `Your current session opens below. Work for each session is due Monday by 11:59 a.m., before the review. ` +
+  `Your current session opens below. Work for each session is due Wednesday by 11:59 p.m. ` +
   `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 document.getElementById('dueBanner').innerHTML    =
-  `<strong>All work due Monday by 11:59 a.m.</strong> — readings, puzzles, and MME articles. ` +
-  `Friday Focus written narrative due Monday Nov 30. CI 4 always counts.`;
+  `<strong>All work due Wednesday by 11:59 p.m.</strong> — puzzles and MME articles. ` +
+  `Friday Focus written narrative due Wednesday Dec 2. CI 4 always counts.`;
 
 // Auto-highlight
 const today  = new Date(); today.setHours(0, 0, 0, 0);
