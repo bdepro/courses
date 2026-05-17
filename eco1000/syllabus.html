@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ================================================================
-  ECO 1000 — SYLLABUS
+  ECO 1000 — SYLLABUS (FALL)
   Hosted: bdepro.github.io/courses/eco1000/syllabus.html
 
   Page heading convention (locked):
@@ -9,7 +9,9 @@
     All semester-specific data pulls from config.js.
 
   Screens-down Wednesday accommodation statement: present in
-  Section 9 (Attendance & Participation). Do not remove.
+  Section 8 (Course Policies). Do not remove.
+
+  Section 9: Spring boilerplate verbatim. Do not edit.
 ================================================================
 -->
 <html lang="en">
@@ -161,9 +163,35 @@
     .textbook-block {
       background: var(--warm-gray); border-radius: 6px;
       padding: 0.85rem 1rem; font-size: 0.88rem;
-      line-height: 1.65; margin-bottom: 0.85rem;
+      line-height: 1.65; margin-top: 0.85rem;
     }
     .textbook-block cite { font-style: italic; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .sched-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .sched-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .sched-table tr:last-child td { border-bottom: none; }
+    .sched-table tr:hover td { background: #fdfcfa; }
+    .session-tag {
+      display: inline-block; background: var(--crimson); color: var(--white);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.15rem 0.5rem;
+      border-radius: 3px; white-space: nowrap;
+    }
+    .session-tag.break { background: var(--muted); }
+    .session-tag.checkin { background: var(--teal); }
+    .session-tag.viva { background: var(--gold-link); }
+    .ch-tag {
+      font-size: 0.78rem; font-weight: 600; color: var(--gold-link);
+    }
 
     /* ── Assessment blocks ── */
     .assess-block {
@@ -192,25 +220,6 @@
       margin-bottom: 0.35rem; margin-top: 0.75rem;
     }
 
-    /* ── Grade weight bar ── */
-    .weight-bar {
-      display: flex; border-radius: 6px; overflow: hidden;
-      height: 10px; gap: 2px; margin-bottom: 0.75rem;
-    }
-    .ws-ci      { flex: 50; background: var(--crimson); }
-    .ws-friday  { flex: 25; background: var(--teal); }
-    .ws-puzzles { flex: 15; background: var(--gold); }
-    .ws-mme     { flex: 10; background: var(--gold-link); }
-
-    .weight-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem; }
-    .wl-item { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--muted); }
-    .wl-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-    .wl-dot.ci      { background: var(--crimson); }
-    .wl-dot.friday  { background: var(--teal); }
-    .wl-dot.puzzles { background: var(--gold); }
-    .wl-dot.mme     { background: var(--gold-link); }
-    .wl-item strong { color: var(--text); font-weight: 500; }
-
     /* ── Grade weight table ── */
     .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     .grade-table th {
@@ -234,29 +243,14 @@
     .scale-grade { font-weight: 700; color: var(--crimson); }
     .scale-desc  { color: var(--muted); font-size: 0.82rem; }
 
-    /* ── Key dates table ── */
-    .dates-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-    .dates-table th {
-      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
-    }
-    .dates-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--warm-gray); }
-    .dates-table tr:last-child td { border-bottom: none; }
-    .dt-label { font-weight: 500; }
-    .dt-date  { color: var(--crimson); font-weight: 700; }
-
     /* ── Callout boxes ── */
     .callout {
       border-radius: 0 6px 6px 0;
       padding: 0.85rem 1rem;
-      margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.65;
+      margin: 0.75rem 0; font-size: 0.88rem; line-height: 1.65;
     }
-    .callout:last-child { margin-bottom: 0; }
-    .callout.gold { background: rgba(181,154,87,0.10); border-left: 4px solid var(--gold); }
     .callout.teal { background: rgba(82,123,130,0.09); border-left: 4px solid var(--teal); }
     .callout.red  { background: rgba(115,0,10,0.06);   border-left: 4px solid var(--crimson); }
-    .callout strong.lbl-gold { color: var(--gold-link); }
     .callout strong.lbl-teal { color: var(--teal-dk); }
     .callout strong.lbl-red  { color: var(--crimson); }
 
@@ -275,11 +269,22 @@
     .policy-item a { color: var(--gold-link); text-decoration: none; }
     .policy-item a:hover { color: var(--crimson); }
 
-    /* ── Table footer note ── */
+    /* ── Table note ── */
     .table-note {
       padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--muted);
       border-top: 1px solid var(--warm-gray);
     }
+
+    /* ── Campus resources (Section 9) ── */
+    .resources-list { list-style: none; padding: 0; }
+    .resource-item {
+      font-size: 0.88rem; padding: 0.75rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      line-height: 1.65;
+    }
+    .resource-item:last-child { border-bottom: none; }
+    .resource-item a { color: var(--gold-link); text-decoration: none; }
+    .resource-item a:hover { color: var(--crimson); }
 
     /* ── Mobile ── */
     @media (max-width: 600px) {
@@ -288,6 +293,8 @@
       .contact-grid { grid-template-columns: 1fr; }
       .syl-body { padding: 1rem 1.1rem; }
       .assess-header { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .sched-table { font-size: 0.78rem; }
+      .sched-table th, .sched-table td { padding: 0.5rem; }
     }
 
     /* ── Print ── */
@@ -317,10 +324,9 @@
       .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
       .grade-table        { font-size: 10pt; }
       .scale-table        { font-size: 9.5pt; }
-      .dates-table        { font-size: 9.5pt; }
+      .sched-table        { font-size: 9pt; }
       .goal-item          { padding: 0.4rem 0; font-size: 9.5pt; }
       .callout            { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
-      .weight-bar         { display: none; }
       a { color: #000; text-decoration: none; }
       a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
       a[href^="mailto"]::after { content: none; }
@@ -351,7 +357,7 @@
   </div>
 </div>
 
-<!-- PRINT HEADER (hidden on screen) -->
+<!-- PRINT HEADER -->
 <div class="print-header">
   <div class="print-title">Principles of Economics</div>
   <div class="print-subtitle" id="syl-print-subtitle"></div>
@@ -369,6 +375,38 @@
     <div class="syl-body">
       <div class="contact-grid">
         <div class="contact-row">
+          <span class="contact-label">Instructor</span>
+          <span class="contact-value" id="syl-name"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Department</span>
+          <span class="contact-value">Economics, Love School of Business</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a id="syl-email-link" href="#"></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value" id="syl-phone"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Office</span>
+          <span class="contact-value" id="syl-office"></span>
+        </div>
+        <div class="contact-row" id="syl-hours-row">
+          <span class="contact-label">Office Hours</span>
+          <span class="contact-value" id="syl-hours"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Zoom</span>
+          <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank" rel="noopener"></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Course Site</span>
+          <span class="contact-value">Canvas</span>
+        </div>
+        <div class="contact-row">
           <span class="contact-label">Course</span>
           <span class="contact-value" id="syl-course"></span>
         </div>
@@ -384,42 +422,6 @@
           <span class="contact-label">Format</span>
           <span class="contact-value">In-person</span>
         </div>
-        <div class="contact-row">
-          <span class="contact-label">Instructor</span>
-          <span class="contact-value" id="syl-name"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Office</span>
-          <span class="contact-value" id="syl-office"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Email</span>
-          <span class="contact-value"><a id="syl-email-link" href="#"></a></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Phone</span>
-          <span class="contact-value" id="syl-phone"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Zoom</span>
-          <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank"></a></span>
-        </div>
-        <div class="contact-row" id="syl-hours-row">
-          <span class="contact-label">Office Hours</span>
-          <span class="contact-value" id="syl-hours"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Classes Begin</span>
-          <span class="contact-value" id="syl-begin"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Classes End</span>
-          <span class="contact-value" id="syl-end"></span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Textbook</span>
-          <span class="contact-value" id="syl-textbook-short"></span>
-        </div>
       </div>
     </div>
   </div>
@@ -431,9 +433,9 @@
       <span class="syl-section-title">Why Should You Take This Course?</span>
     </div>
     <div class="syl-body">
-      <p class="lead">Everyday life has a hidden structure. Economic thinking is the tool that reveals it.</p>
-      <p>Why do rents rise when supply stays flat? Why do well-meaning policies sometimes make problems worse? Why do wages differ for work that looks the same? In <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak write that studying economics "can help you understand how your own livelihood is connected to the larger economic world" and introduce you to the ongoing conversation about how to make the world more fair and prosperous.</p>
-      <p>A semester of economic thinking will change how you read the news, make decisions, and understand the choices around you. Economics is one lens among many — history, sociology, and moral philosophy see things it misses. But learning to think like an economist, and to question economic reasoning, is worth your time.</p>
+      <p>Everyday life has a hidden structure. Economic thinking reveals it.</p>
+      <p>Why are rents high? How do incentives shape the choices you make every day? Why do good intentions sometimes lead to bad outcomes? In <cite>The Economic Conversation</cite>, Klamer, McCloskey, and Ziliak describe what studying economics can do: it &ldquo;can help you understand how your own livelihood is connected to the larger economic world, and introduce you to the ongoing conversation &mdash; among economists, government officials, business leaders, and ordinary citizens &mdash; about how to make the world more fair and rich and prosperous for all.&rdquo;</p>
+      <p>A semester of economic thinking will change how you see the news, your choices, and the world around you. Economics is one way of seeing. History, theology, and sociology illuminate things economics cannot. But learning to think economically, and to question it, is worth the semester.</p>
     </div>
   </div>
 
@@ -447,23 +449,23 @@
       <ul class="goal-list">
         <li class="goal-item">
           <span class="goal-num">1</span>
-          <span class="goal-text"><strong>Use the eight guideposts of economic thinking</strong> to analyze real decisions, evaluate tradeoffs, and identify unintended consequences.</span>
+          <span class="goal-text"><strong>Ask useful economic questions</strong> (why rents rise, what a minimum wage actually does) and find evidence to answer them.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">2</span>
-          <span class="goal-text"><strong>Apply supply and demand analysis</strong> to explain prices, shortages, and market outcomes across a range of real contexts.</span>
+          <span class="goal-text"><strong>Use economic and ethical reasoning</strong> to explain everyday choices and assess policy trade-offs, including cases where good intentions produce bad outcomes.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">3</span>
-          <span class="goal-text"><strong>Interpret macroeconomic data</strong> — GDP, unemployment, inflation, and growth — and understand what drives them.</span>
+          <span class="goal-text"><strong>Use data to spot patterns</strong> in prices, employment, and growth, and make sense of how things relate in the real world.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">4</span>
-          <span class="goal-text"><strong>Examine contested policy questions</strong> — trade, inequality, labor markets — using economic reasoning rather than intuition alone.</span>
+          <span class="goal-text"><strong>Apply economic thinking</strong> to situations you already know to examine what you assumed was true.</span>
         </li>
         <li class="goal-item">
           <span class="goal-num">5</span>
-          <span class="goal-text"><strong>Write and defend an economic argument</strong> in plain language, for a reader who has never taken economics.</span>
+          <span class="goal-text"><strong>Explain economic ideas in plain language</strong> so others can follow your thinking and join the conversation.</span>
         </li>
       </ul>
     </div>
@@ -473,48 +475,53 @@
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 4</span>
-      <span class="syl-section-title">Course Materials</span>
+      <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Activate access through the link on the course home page before your first assignment is due. You do not need a physical textbook.</p>
+      <p>You need the Cengage e-book, available through the link in Canvas. A used print copy of any recent edition is fine &mdash; chapter titles and numbers may vary.</p>
       <div class="textbook-block" id="syl-textbook-block"></div>
-      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:0;">All other materials — skeleton notes, print handouts, and session resources — are posted to Canvas before each class.</p>
     </div>
   </div>
 
-  <!-- ── SECTION 5: GRADING BREAKDOWN ── -->
+  <!-- ── SECTION 5: COURSE SCHEDULE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">How Will Your Learning Be Organized?</span>
+    </div>
+    <div class="syl-body" style="padding:0;">
+      <table class="sched-table" id="syl-sched-table">
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Dates</th>
+            <th>Topic</th>
+            <th>Chapter</th>
+          </tr>
+        </thead>
+        <tbody id="syl-sched-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: ASSESSMENTS ── -->
   <div class="syl-section">
     <div class="syl-section-header gold">
-      <span class="syl-num">Section 5</span>
-      <span class="syl-section-title">How Your Learning Will Be Graded</span>
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">How Will Your Learning Be Assessed?</span>
     </div>
     <div class="syl-body">
-
-      <div class="weight-bar">
-        <div class="ws-ci"></div>
-        <div class="ws-friday"></div>
-        <div class="ws-puzzles"></div>
-        <div class="ws-mme"></div>
-      </div>
-      <div class="weight-legend">
-        <div class="wl-item"><div class="wl-dot ci"></div><strong>Check-Ins</strong>&nbsp;50%</div>
-        <div class="wl-item"><div class="wl-dot friday"></div><strong>Friday Focus</strong>&nbsp;25%</div>
-        <div class="wl-item"><div class="wl-dot puzzles"></div><strong>Economic Puzzles</strong>&nbsp;15%</div>
-        <div class="wl-item"><div class="wl-dot mme"></div><strong>Monday Morning Economist</strong>&nbsp;10%</div>
-      </div>
 
       <!-- Check-Ins -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Check-Ins</span>
-          <span class="assess-weight">50% of Grade</span>
+          <span class="assess-weight" id="ci-weight"></span>
         </div>
         <div class="assess-body">
-          <p>Four pen-and-paper check-ins, each taken in class on a Wednesday — one full class period each. Every check-in covers the chapters from recent sessions, plus supply and demand analysis and the eight guideposts of economic thinking from Chapter 1. Those two threads appear on every check-in all semester. Keep them sharp no matter what else is on the schedule.</p>
-          <div class="callout teal">
-            <strong class="lbl-teal">Check-In 4 always counts — and it can replace your lowest score.</strong> If your CI&nbsp;4 score is higher than your lowest score from CI&nbsp;1, 2, or 3, I replace that score automatically. You do not need to ask. If you miss a check-in, CI&nbsp;4 is the makeup. There are no separate makeup exams. CI&nbsp;4 covers the full course, so it rewards students who keep working all semester.
-          </div>
-          <p>Check-In 4 is offered on the last day of class (<span id="syl-ci4-date"></span>) or during the final exam period — your choice.</p>
+          <p>You will take four in-class check-ins, each on a Wednesday. Check-In 4 always counts. If your CI&nbsp;4 score beats your lowest score from Check-Ins 1, 2, or 3, I replace that score automatically. You do not need to ask. If you miss a check-in, CI&nbsp;4 is the makeup. There are no separate makeup exams.</p>
+          <p>You may bring one 5&times;8 index card with notes to each check-in.</p>
+          <p>If 75% of the class completes the end-of-semester survey, everyone gets one bonus point on Check-In 4.</p>
         </div>
       </div>
 
@@ -522,17 +529,16 @@
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Friday Focus</span>
-          <span class="assess-weight">25% of Grade</span>
+          <span class="assess-weight" id="ff-weight"></span>
         </div>
         <div class="assess-body">
           <p>Friday Focus asks one question: what does economics explain about something you actually care about? You spend the semester building your answer.</p>
-          <div class="assess-sub">Part 1 — The Economic Narrative</div>
-          <p>A written argument about a real economic phenomenon, written for a reader who has never taken economics. Due <span id="syl-ff-due"></span>. Three Friday class sessions are set aside for drafting — come to those sessions with something on the page.</p>
-          <div class="assess-sub">Part 2 — The Narrative Viva</div>
-          <p>A 12-minute conversation with me about what you wrote, scheduled during viva week (<span id="syl-viva-dates"></span>). Think of it as a chance to talk through your argument, explain your choices, and push your thinking further. Sign up before Thanksgiving. Slots fill.</p>
-          <div class="callout gold">
-            <strong class="lbl-gold">Sign up for your viva slot before Thanksgiving break.</strong> Use a computer — the Canvas scheduler is unreliable on phones. No computer access? Contact me and I will assign your slot.
-          </div>
+
+          <div class="assess-sub">Part 1 &mdash; The Economic Narrative</div>
+          <p>The first part is a written narrative, due at the end of the semester. Write it as an argument about a real economic phenomenon, for a reader who has never taken economics. You have the whole semester to work on it. Three Friday class sessions are set aside for that purpose. Come to those sessions with something on the page.</p>
+
+          <div class="assess-sub">Part 2 &mdash; The Narrative Viva</div>
+          <p>The second part is a viva, a short conversation with me about what you wrote. You sign up for a slot during viva week. Talk through your argument and explain your choices. Sign up early. Slots fill.</p>
         </div>
       </div>
 
@@ -540,184 +546,161 @@
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Economic Puzzles</span>
-          <span class="assess-weight">15% of Grade</span>
+          <span class="assess-weight" id="puzzles-weight"></span>
         </div>
         <div class="assess-body">
-          <p>One Canvas quiz per content session, due Monday at 11:59&nbsp;a.m. Each puzzle asks you to apply economic reasoning to a real decision, scenario, or dataset. The goal is using the ideas, not cataloging them.</p>
-          <p>You have two attempts. Use the first after doing the reading. Use the second after thinking carefully about where you went wrong. Canvas shows your score between attempts but not which questions you missed — attempt two rewards genuine re-engagement, not answer-hunting.</p>
-          <div class="callout gold">
-            <strong class="lbl-gold">Your lowest puzzle score is dropped at the end of the semester.</strong> One bad week does not sink your grade. If you miss the Monday deadline, you have one additional week to submit for 80% credit. After that, the puzzle closes.
-          </div>
+          <p>One Economic Puzzle per content session, due Monday at 11:59&nbsp;a.m. Each quiz applies concepts from that session. The goal is to use the ideas, not catalog them.</p>
+          <p>You have two attempts. Use the first after the reading. Use the second after you have thought carefully about where you went wrong. Canvas shows your score between attempts but not which questions you missed, so attempt two rewards genuine re-engagement, not answer-hunting.</p>
+          <p>I drop your lowest puzzle score at the end of the semester. One bad week does not sink your grade. If you miss the Monday deadline, you have one more week to submit for 80% credit. After that, the puzzle closes. A rough week is not a reason to stop submitting.</p>
         </div>
       </div>
 
-      <!-- MME -->
+      <!-- Monday Morning Economist -->
       <div class="assess-block">
         <div class="assess-header">
           <span class="assess-name">Monday Morning Economist</span>
-          <span class="assess-weight">10% of Grade</span>
+          <span class="assess-weight" id="mme-weight"></span>
         </div>
         <div class="assess-body">
-          <p>Four current-events articles annotated through Perusall — one per check-in block. I introduce each article on the Friday of check-in week. It is due the following Monday at 11:59&nbsp;a.m. The Canvas link takes you straight to Perusall. No separate account needed.</p>
-          <p>A Monday Morning Economist reads the news like an economist: looking for incentives, tradeoffs, and unintended consequences. Your annotations should show that kind of thinking. Strong responses push back on the article, ask what the author left out, or connect the argument to course concepts. Restating what the article already said is not enough.</p>
+          <p>The name matters. A Monday Morning Economist reads the news like an economist: looking for incentives, tradeoffs, and unintended consequences rather than outcomes. Your annotations should show that kind of thinking. A strong response pushes back on the article, asks what the author left out, or connects the argument to something from the course. A weak response restates what the article already said.</p>
+          <p>You will annotate four articles through Perusall, one per check-in block. The Canvas link takes you straight to Perusall. No separate account needed. I introduce each article on the Friday of check-in week. It is due the following Monday at 11:59&nbsp;a.m.</p>
         </div>
+      </div>
+
+      <!-- Grade table -->
+      <div style="margin-top:1.25rem;">
+        <table class="grade-table">
+          <thead>
+            <tr><th>Assessment</th><th>Weight</th></tr>
+          </thead>
+          <tbody id="syl-grade-rows"></tbody>
+        </table>
+        <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
+      </div>
+
+      <!-- Grading scale -->
+      <div style="margin-top:1.25rem;">
+        <table class="scale-table">
+          <thead>
+            <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+            <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
+            <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
+            <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
+            <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
+            <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
+            <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
+            <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
+            <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
+            <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
+            <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
+            <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
+          </tbody>
+        </table>
       </div>
 
     </div>
   </div>
 
-  <!-- ── SECTION 6: COURSE GRADE TABLE ── -->
+  <!-- ── SECTION 7: AI POLICY ── -->
   <div class="syl-section">
-    <div class="syl-section-header gold">
-      <span class="syl-num">Section 6</span>
-      <span class="syl-section-title">Course Grade</span>
-    </div>
-    <div class="syl-body" style="padding:0;">
-      <table class="grade-table">
-        <thead>
-          <tr><th>Assessment</th><th>Weight</th></tr>
-        </thead>
-        <tbody id="syl-grade-rows"></tbody>
-      </table>
-      <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
-    </div>
-  </div>
-
-  <!-- ── SECTION 7: GRADING SCALE ── -->
-  <div class="syl-section">
-    <div class="syl-section-header gold">
+    <div class="syl-section-header teal">
       <span class="syl-num">Section 7</span>
-      <span class="syl-section-title">Grading Scale</span>
+      <span class="syl-section-title">How Can I Use AI in This Class?</span>
     </div>
-    <div class="syl-body" style="padding:0;">
-      <table class="scale-table">
-        <thead>
-          <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
-          <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
-          <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
-          <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
-          <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
-          <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
-          <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
-          <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
-          <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
-          <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
-          <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
-          <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
-        </tbody>
-      </table>
+    <div class="syl-body">
+      <p>AI is part of how we learn, think, and write today. Like a search engine or a calculator, it can help if you use it with care. Used well, AI can give you new ideas, test your thinking, and help you write more clearly. Used without thought, it can take over your voice and weaken your learning. You are here to grow, not to copy.</p>
+      <p>You may use AI to support your process in this course. But AI should never do the whole job. All assignments must be genuinely yours. Check-Ins and Economic Puzzles are completed in real time, in class or on Canvas, without AI.</p>
+      <p>If you use AI to help write something: revise the text so it fits your voice, keep it as part of a larger piece that shows your thinking, and add a short note explaining how you used it. We will go over how to do that for each Canvas assignment.</p>
+      <p>Ask if you are unsure. I would rather talk with you than watch you guess.</p>
     </div>
   </div>
 
-  <!-- ── SECTION 8: KEY ACADEMIC DATES ── -->
+  <!-- ── SECTION 8: COURSE POLICIES ── -->
   <div class="syl-section">
     <div class="syl-section-header">
       <span class="syl-num">Section 8</span>
-      <span class="syl-section-title">Key Academic Dates</span>
-    </div>
-    <div class="syl-body" style="padding:0;">
-      <table class="dates-table">
-        <thead>
-          <tr><th>Event</th><th>Date</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="dt-label">Classes Begin</td>          <td class="dt-date" id="kd-begin"></td></tr>
-          <tr><td class="dt-label">Drop/Add Ends</td>          <td class="dt-date" id="kd-dropadd"></td></tr>
-          <tr><td class="dt-label">Fall Break</td>             <td class="dt-date">Oct 14–18, 2026</td></tr>
-          <tr><td class="dt-label">Withdrawal Deadline</td>    <td class="dt-date" id="kd-withdraw"></td></tr>
-          <tr><td class="dt-label">Thanksgiving Break</td>     <td class="dt-date">Nov 23–27, 2026</td></tr>
-          <tr><td class="dt-label">Viva Week (Friday Focus)</td><td class="dt-date">Nov 30 – Dec 4, 2026</td></tr>
-          <tr><td class="dt-label">Last Day of Class</td>      <td class="dt-date" id="kd-classend"></td></tr>
-          <tr><td class="dt-label">Reading Day</td>            <td class="dt-date" id="kd-reading"></td></tr>
-          <tr><td class="dt-label">Final Exam Period</td>      <td class="dt-date" id="kd-exams"></td></tr>
-        </tbody>
-      </table>
-      <div class="table-note">All due times are 11:59&nbsp;a.m. Eastern on the date listed unless otherwise noted.</div>
-    </div>
-  </div>
-
-  <!-- ── SECTION 9: ATTENDANCE & PARTICIPATION ── -->
-  <div class="syl-section">
-    <div class="syl-section-header">
-      <span class="syl-num">Section 9</span>
-      <span class="syl-section-title">Attendance &amp; Participation</span>
-    </div>
-    <div class="syl-body">
-      <p>This is an in-person course. You learn by being here. The sessions build on each other — missing one makes the next harder. I do not take formal attendance, but I notice who is in the room, and the work reflects it. If something comes up, email me before class.</p>
-      <p>Each class begins with a Wellness Pause — a brief, ungraded reflective check-in. It is not optional. Show up on time.</p>
-
-      <!--
-        SCREENS-DOWN WEDNESDAY ACCOMMODATION STATEMENT
-        This block is locked. Do not remove or relocate.
-      -->
-      <div class="callout teal">
-        <strong class="lbl-teal">Screens-down Wednesdays.</strong> Wednesday is pen-and-paper day. Laptops, tablets, and phones stay closed and face-down for the full Wednesday session. This is a course-wide practice, not a personal preference. If you have a documented accommodation that requires a device on Wednesdays, bring your letter from the Office of Academic Accommodations and Accessibility before the first Wednesday session. I will make it work.
-      </div>
-
-      <p>Monday and Friday sessions use skeleton notes that you print or download in advance. Bring them. I do not provide extra copies in class.</p>
-    </div>
-  </div>
-
-  <!-- ── SECTION 10: ACADEMIC INTEGRITY ── -->
-  <div class="syl-section">
-    <div class="syl-section-header">
-      <span class="syl-num">Section 10</span>
-      <span class="syl-section-title">Academic Integrity</span>
-    </div>
-    <div class="syl-body">
-      <p>All work submitted in this course must be your own. Elon's Honor Code applies to every assignment.</p>
-      <div class="callout red">
-        <strong class="lbl-red">What this means in practice.</strong> Submitting another student's work as your own, sharing answers on Economic Puzzles or Check-Ins, or presenting AI-generated text as your original writing without disclosure are all violations. Violations may result in a failing grade for the assignment or the course and may be referred to the Honor Board.
-      </div>
-      <p>If you are ever unsure whether something crosses a line, ask me before you submit — not after. A quick email is always better than a conversation I do not want to have. The full text of Elon's Honor Code is available through the Office of Student Conduct.</p>
-    </div>
-  </div>
-
-  <!-- ── SECTION 11: AI POLICY ── -->
-  <div class="syl-section">
-    <div class="syl-section-header teal">
-      <span class="syl-num">Section 11</span>
-      <span class="syl-section-title">AI Policy</span>
-    </div>
-    <div class="syl-body">
-      <p>AI tools are part of how we think, write, and work today. Used well, they help you test ideas, clarify arguments, and catch weak reasoning. Used without thought, they undermine the learning you are here to do — and they produce prose that sounds like everyone else's.</p>
-      <p>You are welcome to use AI to support your process in this course. The Friday Focus narrative is yours to write. The viva is a live conversation. Check-Ins and Economic Puzzles are completed in real time without AI. Those constraints are not arbitrary — they are where the learning happens.</p>
-      <div class="callout teal">
-        <strong class="lbl-teal">If you use AI in your writing process:</strong> revise the output so it reflects your voice and thinking, make sure it is part of a larger piece that shows your reasoning, and add a brief note explaining specifically how you used it. A blanket disclosure at the bottom of every submission is not enough — be specific. I will explain what that looks like for each assignment.
-      </div>
-      <p>The full AI policy for this course, including task-by-task guidance, is on the course home page. If you are unsure whether a specific use is appropriate, ask before you submit.</p>
-    </div>
-  </div>
-
-  <!-- ── SECTION 12: COURSE POLICIES ── -->
-  <div class="syl-section">
-    <div class="syl-section-header">
-      <span class="syl-num">Section 12</span>
-      <span class="syl-section-title">Course Policies</span>
+      <span class="syl-section-title">What Do I Need to Know About Policies?</span>
     </div>
     <div class="syl-body">
       <ul class="policy-list">
         <li class="policy-item">
-          <strong>Late work.</strong> Economic Puzzles submitted within one week of the Monday deadline receive 80% credit; after that, the puzzle closes. Monday Morning Economist readings do not accept late submissions — Perusall closes at the deadline. Check-Ins have no standalone makeup; CI&nbsp;4 serves that purpose. The Friday Focus narrative due date is firm — contact me before the deadline if something serious comes up.
+          <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon's Honor Code may result in a failing grade for the course.
         </li>
         <li class="policy-item">
-          <strong>Canvas Gradebook.</strong> Canvas is the official record of your grade. Check it after each assignment is returned. If you see an error, email me within one week of the grade being posted. I do not revisit grades from earlier in the semester during finals week.
+          <strong>Academic accommodations.</strong> If you need accommodations, contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
         </li>
         <li class="policy-item">
-          <strong>Withdrawal deadline.</strong> The last day to withdraw without academic penalty is <strong id="pol-withdraw"></strong>. You are responsible for initiating the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <strong id="pol-withdraw"></strong>. Start the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
         </li>
         <li class="policy-item">
-          <strong>Academic accommodations.</strong> Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> and provide me with a current accommodation letter before the first week of class — or as soon as the accommodation is approved. The earlier we connect, the better I can support you.
+          <strong>Course resources.</strong> Course materials are in Canvas and on the course home page.
         </li>
-        <li class="policy-item">
-          <strong>Email and response time.</strong> I respond to email within 24 hours on weekdays. Email sent Friday afternoon through Sunday may not receive a reply until Monday. If something is urgent, say so in the subject line.
+      </ul>
+
+      <!-- Screens-down (fall only — do not remove) -->
+      <div class="callout teal" style="margin-top:1rem;">
+        <strong class="lbl-teal">Screens-down Wednesdays.</strong> Wednesday is pen-and-paper day. Laptops, tablets, and phones stay closed and face-down for the full session. If you have a documented accommodation that requires a device, bring your letter from the Office of Academic Accommodations and Accessibility before the first Wednesday session. I will make it work.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9: CAMPUS RESOURCES & UNIVERSITY POLICIES ── -->
+  <!-- Spring boilerplate verbatim. Do not edit. -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Campus Resources &amp; University Policies</span>
+    </div>
+    <div class="syl-body">
+      <ul class="resources-list">
+
+        <li class="resource-item">
+          <strong>Honor Code.</strong> Elon's honor pledge calls for a commitment to Elon's shared values of Honesty, Integrity, Responsibility, and Respect. Students should review code of conduct <a href="https://www.elon.edu/u/student-conduct/honor-code/" target="_blank" rel="noopener">policies described in the student handbook</a>. Violations in academic-related areas will be documented in an incident report maintained in the Office of Student Conduct and may result in a lowering of the course grade and/or failure of the course with an Honor Code F. Violations specifically covered by academic honor code policies include plagiarism, cheating, lying, stealing, and the facilitation of another's dishonesty.
         </li>
-        <li class="policy-item">
-          <strong>Syllabus changes.</strong> I reserve the right to adjust this syllabus during the semester. I will announce changes in class and post them to Canvas. The version on the course home page is always current.
+
+        <li class="resource-item">
+          <strong>Office of Academic Accommodations and Accessibility.</strong> Elon University is committed to providing an inclusive experience, accessible learning environments and equal opportunity to students with disabilities in accordance with the Americans with Disabilities Act and Section 504 of the Rehabilitation Act. Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>. Reasonable accommodations can be requested at any time throughout the semester; however, they are not retroactive. For more information visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/academic-accommodations-accessibility/" target="_blank" rel="noopener">AAA website</a>.
         </li>
+
+        <li class="resource-item">
+          <strong>Learning Assistance.</strong> The Koenigsberger Learning Center offers tutoring, success coaching, and other academic support services. Students are encouraged to visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/learning-assistance/" target="_blank" rel="noopener">Learning Assistance website</a> to view supported courses and explore additional resources. For questions, contact <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>Belk Library.</strong> The librarians in Belk Library help students find appropriate resources for course assignments. Students can <a href="https://elon.libcal.com/appointments/" target="_blank" rel="noopener">schedule an appointment</a> or chat with a librarian on the <a href="https://www.elon.edu/library/" target="_blank" rel="noopener">library website</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>The Writing Center.</strong> Located on the first floor of Belk Library, Elon's <a href="https://www.elon.edu/u/academics/writing-excellence/the-writing-center/" target="_blank" rel="noopener">Writing Center</a> is staffed by well-trained undergraduate consultants who work with students on any kind of writing at any stage of the writing process. The Writing Center is a welcoming place for all writers, regardless of experience or expertise.
+        </li>
+
+        <li class="resource-item">
+          <strong>Religious Holidays.</strong> Elon has a <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/" target="_blank" rel="noopener">policy and procedures</a> for students who wish to observe religious holidays that conflict with the academic calendar. Students must complete the online Religious Observance Notification Form (RONF) by the date published each semester. Students are required to make prior arrangements with the instructor for completion of any work missed during the absence.
+        </li>
+
+        <li class="resource-item">
+          <strong>Enrollment.</strong> Students should confirm their enrollment through their OnTrack account. Students who do not appear on the course roll should consult with their instructor immediately.
+        </li>
+
+        <li class="resource-item">
+          <strong>Dropping a Course.</strong> Students may drop a course during the designated drop/add period through OnTrack. A course dropped during the drop/add period will not appear on the student's transcript.
+        </li>
+
+        <li class="resource-item">
+          <strong>Withdrawing from a Course.</strong> After the drop/add period, students may <a href="https://www.elon.edu/u/registrar/student-resources/individual-course-withdrawal/" target="_blank" rel="noopener">withdraw from a course</a> without penalty before the withdrawal deadline published in the Academic Calendar. Withdrawing will result in a mark of &ldquo;W&rdquo; on the student's transcript. Students may withdraw via OnTrack. Students should not assume they will be officially withdrawn based on failure to attend or notifying a faculty member of intent to withdraw.
+        </li>
+
+        <li class="resource-item">
+          <strong>E-Warnings.</strong> E-Warnings are used to communicate with students and advisors when concerns arise about academic performance. Advisors are copied on every e-warning submitted. E-Warnings are part of a standard process and not a personal judgment.
+        </li>
+
+        <li class="resource-item">
+          <strong>Student Care &amp; Outreach.</strong> Students who become concerned about a fellow classmate's well-being are encouraged to share concerns through Elon's <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/when-to-share-concerns/" target="_blank" rel="noopener">Share a Concern</a> website. See the <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/resources/" target="_blank" rel="noopener">Student Care and Outreach website</a> for additional resources.
+        </li>
+
       </ul>
     </div>
   </div>
@@ -741,14 +724,12 @@ document.getElementById('syl-print-meta').textContent =
   'Love School of Business \u00b7 Department of Economics \u00b7 Elon University \u00b7 ' + INSTRUCTOR.office;
 
 // Section 1 — Course Information
+document.getElementById('syl-name').textContent     = INSTRUCTOR.name;
+document.getElementById('syl-phone').textContent    = INSTRUCTOR.phone;
+document.getElementById('syl-office').textContent   = INSTRUCTOR.office + ' \u00b7 Elon University';
 document.getElementById('syl-course').textContent   = COURSE.code + ' \u2014 ' + COURSE.title;
 document.getElementById('syl-credits').textContent  = COURSE.credits + ' credit hours';
 document.getElementById('syl-semester').textContent = COURSE.semester;
-document.getElementById('syl-name').textContent     = INSTRUCTOR.name;
-document.getElementById('syl-office').textContent   = INSTRUCTOR.office + ' \u00b7 Elon University';
-document.getElementById('syl-phone').textContent    = INSTRUCTOR.phone;
-document.getElementById('syl-begin').textContent    = SCHEDULE.dates.classesBegin;
-document.getElementById('syl-end').textContent      = SCHEDULE.dates.classesEnd;
 
 var emailEl = document.getElementById('syl-email-link');
 emailEl.href        = 'mailto:' + INSTRUCTOR.email;
@@ -758,7 +739,6 @@ var zoomEl = document.getElementById('syl-zoom-link');
 zoomEl.href        = INSTRUCTOR.zoomUrl;
 zoomEl.textContent = INSTRUCTOR.zoomDisplay;
 
-// Office hours — hide row if blank
 var hoursEl  = document.getElementById('syl-hours');
 var hoursRow = document.getElementById('syl-hours-row');
 if (INSTRUCTOR.officeHours) {
@@ -767,28 +747,77 @@ if (INSTRUCTOR.officeHours) {
   hoursRow.style.display = 'none';
 }
 
-document.getElementById('syl-textbook-short').textContent =
-  TEXTBOOK.title + ', ' + TEXTBOOK.edition + '\u00a0ed. (' + TEXTBOOK.publisher + ' ' + TEXTBOOK.platform + ')';
-
-// Section 4 — Textbook block
+// Section 4 — Textbook
 document.getElementById('syl-textbook-block').innerHTML =
   TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
-  TEXTBOOK.edition + ' ed. Boston: Cengage Learning. (' + TEXTBOOK.platform + ' e-book.)';
+  TEXTBOOK.edition + ' ed. Boston: Cengage Learning.';
 
-// Section 5 — CI 4 date
-var ci4 = CANVAS.checkIns.find(function(c){ return c.id === 4; });
-if (ci4) document.getElementById('syl-ci4-date').textContent = ci4.date;
+// Section 5 — Schedule table
+var schedBody = document.getElementById('syl-sched-body');
 
-// Section 5 — Friday Focus due
-var ff1 = CANVAS.friday.find(function(f){ return f.id === 1; });
-if (ff1) document.getElementById('syl-ff-due').textContent = ff1.due;
+// Chapter label lookup
+var chapterMap = {};
+CHAPTERS.core.forEach(function(c) { chapterMap[c.key] = c.num; });
+CHAPTERS.application.forEach(function(c) { chapterMap[c.key] = c.num; });
 
-// Section 5 — Viva week dates
-var vivaSession = SCHEDULE.sessions.find(function(s){ return s.viva; });
-document.getElementById('syl-viva-dates').textContent =
-  vivaSession ? vivaSession.dates : 'viva week';
+// Check-in coverage lookup
+var ciCoverage = CHAPTERS.checkIns;
 
-// Section 6 — Grade rows (built from GRADING.components)
+SCHEDULE.sessions.forEach(function(s) {
+  var tr = document.createElement('tr');
+
+  // Session tag
+  var tagClass = 'session-tag';
+  if (s.break) tagClass += ' break';
+  else if (s.checkIn) tagClass += ' checkin';
+  else if (s.viva) tagClass += ' viva';
+
+  var sessionLabel = s.num === 0 ? 'Intro' : s.viva ? 'Viva' : s.break ? s.label : 'S' + s.num;
+
+  // Topic
+  var topic = s.label;
+  if (s.checkIn) topic = 'Check-In ' + s.checkIn + ' / Review';
+  if (s.viva) topic = 'Viva Week / Check-In 4';
+  if (s.break && s.breakType === 'fall') topic = 'Fall Break';
+  if (s.break && s.breakType === 'thanksgiving') topic = 'Thanksgiving Break';
+  if (s.num === 0) topic = 'Course Introduction';
+  if (s.chapter === 'application') topic = 'Application Block';
+
+  // Chapter
+  var chLabel = '';
+  if (s.checkIn && ciCoverage[s.checkIn]) {
+    chLabel = ciCoverage[s.checkIn].label;
+  } else if (s.viva) {
+    chLabel = 'Comprehensive';
+  } else if (s.chapter && s.chapter !== 'application') {
+    var keys = s.chapter.split('_');
+    chLabel = keys.map(function(k) {
+      return chapterMap[k] || k;
+    }).join(', ');
+  } else if (s.chapter === 'application') {
+    chLabel = 'Ch. 5, 6, 23, 26, 28';
+  }
+
+  tr.innerHTML =
+    '<td><span class="' + tagClass + '">' + sessionLabel + '</span></td>' +
+    '<td>' + s.dates + '</td>' +
+    '<td>' + topic + '</td>' +
+    '<td><span class="ch-tag">' + chLabel + '</span></td>';
+
+  schedBody.appendChild(tr);
+});
+
+// Section 6 — Assessment weights from config
+function gradeWeight(id) {
+  var g = GRADING.components.find(function(c){ return c.id === id; });
+  return g ? g.weight + '% of Grade' : '';
+}
+document.getElementById('ci-weight').textContent      = gradeWeight('checkins');
+document.getElementById('ff-weight').textContent      = gradeWeight('friday');
+document.getElementById('puzzles-weight').textContent = gradeWeight('puzzles');
+document.getElementById('mme-weight').textContent     = gradeWeight('mme');
+
+// Grade table
 var tbody = document.getElementById('syl-grade-rows');
 var total = 0;
 GRADING.components.forEach(function(c) {
@@ -805,16 +834,7 @@ trTot.innerHTML =
   '<td><span class="grade-pct">' + total + '%</span></td>';
 tbody.appendChild(trTot);
 
-// Section 8 — Key dates
-document.getElementById('kd-begin').textContent    = SCHEDULE.dates.classesBegin;
-document.getElementById('kd-dropadd').textContent  = SCHEDULE.dates.dropAddEnds;
-document.getElementById('kd-withdraw').textContent = SCHEDULE.dates.withdrawDeadline;
-document.getElementById('kd-classend').textContent = SCHEDULE.dates.classesEnd;
-document.getElementById('kd-reading').textContent  = SCHEDULE.dates.readingDay;
-document.getElementById('kd-exams').textContent    =
-  SCHEDULE.dates.examsBegin + '\u2013' + SCHEDULE.dates.examsEnd;
-
-// Section 12 — Withdrawal deadline in policies
+// Section 8 — Withdrawal deadline
 document.getElementById('pol-withdraw').textContent = SCHEDULE.dates.withdrawDeadline;
 </script>
 </body>
