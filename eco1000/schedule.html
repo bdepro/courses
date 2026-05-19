@@ -509,6 +509,7 @@ const SESSIONS_CONTENT = {
   9: {
     mon: null, wed: null, fri: null,
     puzzle: null,
+    mmeUrl: null,   // MME 3 Perusall link — override CANVAS.mme if needed
   },
   10: {
     mon: null, wed: null, fri: null,
@@ -708,6 +709,26 @@ function bodyContent(session, type, isCurrent) {
       frag.appendChild(daySection('Friday', [
         pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
       ]));
+    }
+
+    // MME launch on Friday — content sessions where mmeFF is true (e.g. Session 9)
+    if (session.mmeFF) {
+      const mmeEntry = CANVAS.mme.find(m => m.session === session.num);
+      const mmeSection = document.createElement('div');
+      mmeSection.className = 'day-section';
+      mmeSection.innerHTML = '<div class="day-label">Friday — MME launch</div>';
+      const mmeDesc = document.createElement('div');
+      mmeDesc.className = 'info-box gold-box';
+      mmeDesc.style.margin = '0.35rem 0 0.4rem';
+      mmeDesc.innerHTML = '<strong>We launch the Monday Morning Economist article for this block.</strong>'
+        + '<div class="sub">Due ' + (mmeEntry ? mmeEntry.due : 'Wednesday, 11:59 p.m.') + ' — not this Wednesday.</div>';
+      mmeSection.appendChild(mmeDesc);
+      const mmePills = document.createElement('div');
+      mmePills.className = 'pills';
+      const mmeUrl = sc.mmeUrl || (mmeEntry && mmeEntry.url ? mmeEntry.url : null);
+      mmePills.appendChild(pill(mmeEntry ? mmeEntry.title : 'MME Article', mmeUrl, 'gold'));
+      mmeSection.appendChild(mmePills);
+      frag.appendChild(mmeSection);
     }
 
     // Puzzle link
