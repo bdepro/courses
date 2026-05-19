@@ -142,7 +142,7 @@ const SCHEDULE = {
     },
     {
       num: 9, dates: "Oct 19-23", label: "Session 9",
-      chapter: "ch8_ch16", checkIn: null, mmeFF: false, vote: false, viva: false,
+      chapter: "ch8_ch16", checkIn: null, mmeFF: true, vote: false, viva: false,
       break: false, breakType: null,
       note: "Mon: Ch. 8 cont. / Wed-Fri: Ch. 16",
     },
