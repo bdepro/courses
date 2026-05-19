@@ -244,24 +244,26 @@ const SCHEDULE = {
 const CHAPTERS = {
 
   // Core chapters — tested on Check-Ins #1 through #3
+  // url: Canvas LTI assignment link — UPDATE each semester if assignments are rebuilt
   core: [
-    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                          session: 1  },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",         session: 2  },
-    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions", session: 4  },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",             session: 5  },
-    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7 },
-    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity", session: 9 },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                session: 10 },
+    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  url: "https://elon.instructure.com/courses/1397/assignments/2842" },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  url: "https://elon.instructure.com/courses/1397/assignments/2843" },
+    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  url: "https://elon.instructure.com/courses/1397/assignments/2844" },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  url: "https://elon.instructure.com/courses/1397/assignments/2845" },
+    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  url: "https://elon.instructure.com/courses/1397/assignments/2853" },
+    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  url: "https://elon.instructure.com/courses/1397/assignments/2846" },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, url: "https://elon.instructure.com/courses/1397/assignments/2847" },
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
   // Not directly tested; students use them as analytical lenses
+  // url: Canvas LTI assignment link — UPDATE each semester if assignments are rebuilt
   application: [
-    { key: "ch5",     num: "Ch. 5",        title: "Difficult Cases for the Market, and the Role of Government" },
-    { key: "ch6",     num: "Ch. 6",        title: "The Economics of Political Action"                          },
-    { key: "ch23",    num: "Ch. 23",       title: "Price-Searcher Markets with Low Entry Barriers"             },
-    { key: "ch26",    num: "Ch. 26",       title: "Earnings, Productivity, and the Job Market"                 },
-    { key: "ch28",    num: "Ch. 28",       title: "Income Inequality and Poverty"                              },
+    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", url: "https://elon.instructure.com/courses/1397/assignments/2848" },
+    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           url: "https://elon.instructure.com/courses/1397/assignments/2849" },
+    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              url: "https://elon.instructure.com/courses/1397/assignments/2850" },
+    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  url: "https://elon.instructure.com/courses/1397/assignments/2851" },
+    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               url: "https://elon.instructure.com/courses/1397/assignments/2852" },
   ],
 
   // Standing threads — appear on every check-in regardless of session content
@@ -314,7 +316,8 @@ const FEATURES = {
   schedule:    true,
   syllabus:    true,
   assignments: true,   // overview page — routes to dedicated assignment pages
-  textbook:    true,   // e-book only — single Cengage link
+  textbook:    false,  // replaced by chapters card (per-chapter LTI links)
+  chapters:    true,   // per-chapter e-book links via Canvas LTI
   checkins:    false,  // accessed via assignments.html
   puzzles:     false,  // accessed via assignments.html
   badges:      false,  // replaced by check-ins in fall
@@ -409,6 +412,7 @@ const PAGES = {
   puzzles:     `${COURSE.baseUrl}/puzzles.html`,
   mme:         `${COURSE.baseUrl}/mme.html`,
   friday:      `${COURSE.baseUrl}/friday.html`,
+  chapters:    `${COURSE.baseUrl}/chapters.html`,
   support:     `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
 };
