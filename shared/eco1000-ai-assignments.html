@@ -151,6 +151,24 @@
     }
     .example-prompts p:last-child { margin-bottom: 0; }
 
+    /* Flexibility note — gold accent, signals instructor can substitute */
+    .flex-note {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 0.65rem 0.9rem;
+      margin: 0.65rem 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .flex-note strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--gold-link);
+    }
+
     /* Footnote */
     .footnote {
       font-size: 0.78rem; color: var(--muted); line-height: 1.65;
@@ -217,13 +235,13 @@
     <div class="assignment-header">
       <div class="assignment-icon"><i data-lucide="trending-up"></i></div>
       <div class="assignment-meta">
-        <div class="assignment-label">Macroeconomics · AD/AS Model</div>
+        <div class="assignment-label">Macroeconomics · Macro Model</div>
         <div class="assignment-title">Tax Policy Analysis with Gemini Pro</div>
       </div>
     </div>
 
     <p class="assignment-context">
-      Students connect contemporary fiscal policy options to the aggregate demand and aggregate supply model. Working in groups, students analyze the effect of an economic policy on the AD/AS model under ceteris paribus, then use Gemini Pro to assess the same policy and compare interpretations. The comparison prompts students to explore how relaxing the ceteris paribus assumption changes the policy impact.
+      Students connect contemporary fiscal policy options to the macroeconomic model covered in their course. Working in groups, students analyze the effect of an economic policy using the model under ceteris paribus, then use Gemini Pro to assess the same policy and compare interpretations. The comparison prompts students to explore how relaxing the ceteris paribus assumption changes the policy impact.
     </p>
 
     <div class="student-block">
@@ -237,7 +255,8 @@
       <div class="section-block">
         <div class="section-num">Section 1 — Political Leaning of the Think Tanks</div>
         <div class="section-body">
-          <p>Evaluate the political leaning of the summary for the president's tax proposal from both think tanks. Begin by reading through each think tank's description and discussing your understanding of the think tank's political leaning. After your group evaluates the political leaning, log your interpretation and use the following two links to assess President Trump's proposals with Gemini Pro:</p>
+          <p>Evaluate the political leaning of the summary for the president's tax proposal from both think tanks. Begin by reading through each think tank's description and discussing your understanding of the think tank's political leaning. After your group evaluates the political leaning, log your interpretation and use the two sources below to assess the proposals with Gemini Pro:</p>
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The links below are suggested sources. You may substitute any two think tanks or policy analyses relevant to your course — one center-left, one center-right works best for the political leaning exercise.</div>
           <ul class="inst-list">
             <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP — A Distributional Analysis of Donald Trump's Tax Plan</a> — Copy the first 2 paragraphs under "Impact of President Trump's Tax Proposals by Income Group"</li>
             <li><a href="https://taxfoundation.org/research/all/federal/donald-trump-taxplan-2024/" target="_blank">Tax Foundation — Trump's Tax and Tariff Ideas</a> — Copy the first 5 paragraphs</li>
@@ -249,13 +268,14 @@
       </div>
 
       <div class="section-block">
-        <div class="section-num">Section 2 — AD/AS Model Analysis</div>
+        <div class="section-num">Section 2 — Macroeconomic Model Analysis</div>
         <div class="section-body">
-          <p>Use the sources above to continue your analysis of the president's policy proposals and connect them to our AD/AS model. The ITEP has a section with an overview of the tax proposals:</p>
+          <p>Use the sources above to continue your analysis of the president's policy proposals and connect them to the macroeconomic model covered in your course. The ITEP has a section with an overview of the tax proposals:</p>
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The link below is a suggested source. You may substitute any policy overview that fits the fiscal policy topic your course covers.</div>
           <ul class="inst-list">
             <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP</a> — scroll down to the section titled "Overview of Former President Trump's Tax Proposals"</li>
           </ul>
-          <p>Choose 2 tax policies and describe the goal of each. Describe how each policy would impact AD if implemented. Would they shift AD to the left or right? What would be the impact of this policy on the price level, real GDP, and unemployment?</p>
+          <p>Choose 2 tax policies and describe the goal of each. Using the macroeconomic model covered in your course, describe how each policy would affect the economy. What would be the predicted impact on key macroeconomic variables such as the price level, real GDP, and unemployment?</p>
           <p>After completing your analysis, use Gemini Pro to evaluate the impact of each policy by issuing the following prompt:</p>
           <span class="inline-prompt">Describe how the following policy would impact the price level, real GDP, and unemployment rate ["Paste policy here"].</span>
           <p>Summarize how Gemini Pro evaluates each policy. Is this different from your analysis?</p>
@@ -320,6 +340,7 @@
         <div class="section-num">Section 2 — Stakeholder Perspectives using Gemini Pro</div>
         <div class="section-body">
           <p><em>Exploring Real-World Impacts.</em> Choose one of the following scenarios, or propose your own (subject to instructor approval):</p>
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The scenarios and links below are suggested. You may substitute any local or national minimum wage or rent control policy that is more relevant to your students' context.</div>
           <ul class="inst-list">
             <li>Minimum wage increases in the city of Los Angeles. Reference <a href="https://wagesla.lacity.org/" target="_blank">Minimum Wage LA</a> for the updated minimum wage in the city of Los Angeles.</li>
             <li>The impact of rent stabilization in Los Angeles. Reference the <a href="https://housing.lacity.gov/residents/rent-stabilization" target="_blank">City of Los Angeles Housing Department</a> for details on allowable rent increases.</li>
@@ -336,6 +357,7 @@
       <div class="section-block">
         <div class="section-num">Section 3 — Empirical Applications</div>
         <div class="section-body">
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The articles linked below are suggested empirical sources. You may substitute readings that better match the scenario your students analyzed in Section 2.</div>
           <p>Critically evaluate the discussions in Section 2 with this linked article: <a href="https://www.bls.gov/opub/mlr/2021/article/how-do-employers-adjust-to-minimum-wage-increases.htm" target="_blank">Minimum Wage — Bureau of Labor Statistics</a>. What are some methods that businesses can use to deal with the increase in labor costs? Explain how the use of these methods may not result in the conclusions we draw in our model.</p>
           <p>Critically evaluate the difference between rent control and rent stabilization using this linked article: <a href="https://haasinstitute.berkeley.edu/sites/default/files/haasinstitute_rentcontrol_publish_0.pdf" target="_blank">Rent Control versus Rent Stabilization</a>. Explain how the real-world evolution of these policies aligns or diverges from the theoretical models discussed in Section 1.</p>
         </div>
