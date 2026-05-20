@@ -94,17 +94,19 @@ const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=${COURSE.courseId
 //  UPDATE only if you rename or move files.
 // ================================================================
 const PAGES = {
-  home:        `${COURSE.baseUrl}/index.html`,
-  syllabus:    `${COURSE.baseUrl}/syllabus.html`,
-  checklists:  `${COURSE.baseUrl}/checklists.html`,
-  cengage:     `${COURSE.baseUrl}/cengage.html`,
-  mme:         `${COURSE.baseUrl}/mme.html`,
-  puzzles:     `${COURSE.baseUrl}/puzzles.html`,
-  badges:      `${COURSE.baseUrl}/badges.html`,
-  friday:      `${COURSE.baseUrl}/friday.html`,
+  home:           `${COURSE.baseUrl}/index.html`,
+  syllabus:       `${COURSE.baseUrl}/syllabus.html`,
+  checklists:     `${COURSE.baseUrl}/checklists.html`,
+  cengage:        `${COURSE.baseUrl}/cengage.html`,
+  mme:            `${COURSE.baseUrl}/mme.html`,
+  puzzles:        `${COURSE.baseUrl}/puzzles.html`,
+  badges:         `${COURSE.baseUrl}/badges.html`,
+  friday:         `${COURSE.baseUrl}/friday.html`,
   officeHours:    `${COURSE.baseUrl}/office-hours.html`,
   vivaPrep:       `${COURSE.baseUrl}/viva-prep-guide.html`,
   narrativeGuide: `${COURSE.baseUrl}/narrative-guide.html`,
+  aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
 };
 
 // ================================================================
