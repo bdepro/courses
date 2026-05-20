@@ -324,8 +324,9 @@ const FEATURES = {
   mme:         false,  // accessed via assignments.html
   friday:      false,  // accessed via assignments.html
   wellness:    false,  // ungraded — practice only, no card needed
-  support:     true,
-  aiPolicy:    true,
+  support:        true,
+  aiPolicy:       true,
+  aiAssignments:  true,
   checklist:   false,  // not used in face-to-face course
   officeHours: false,
 };
@@ -413,8 +414,9 @@ const PAGES = {
   mme:         `${COURSE.baseUrl}/mme.html`,
   friday:      `${COURSE.baseUrl}/friday.html`,
   chapters:    `${COURSE.baseUrl}/chapters.html`,
-  support:     `https://bdepro.github.io/courses/shared/support.html`,
-  aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  support:        `https://bdepro.github.io/courses/shared/support.html`,
+  aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
 };
 
 // ================================================================
