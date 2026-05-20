@@ -34,21 +34,16 @@
 
     /* Assignment header */
     .assignment-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.1rem;
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 1.5rem; padding-bottom: 1.1rem;
       border-bottom: 1px solid #ede9e3;
     }
     .assignment-icon {
-      width: 46px; height: 46px;
-      border-radius: 10px;
+      width: 46px; height: 46px; border-radius: 10px;
       background: var(--crimson);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .assignment-icon svg { width: 22px; height: 22px; stroke: var(--white); stroke-width: 1.75; fill: none; }
+    .assignment-icon i { color: var(--white); }
     .assignment-meta { flex: 1; }
     .assignment-label {
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em;
@@ -58,17 +53,9 @@
       font-size: 1.05rem; font-weight: 600; color: var(--crimson); line-height: 1.3;
     }
 
-    /* Context paragraph */
-    .assignment-context {
-      font-size: 0.88rem; color: var(--muted); line-height: 1.75;
-      margin-bottom: 1.5rem; font-weight: 300;
-    }
-
     /* Student-facing block */
     .student-block {
-      background: var(--warm-gray);
-      border-radius: 10px;
-      padding: 1.5rem;
+      background: var(--warm-gray); border-radius: 10px; padding: 1.5rem;
     }
     .student-label {
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
@@ -80,17 +67,13 @@
       background: var(--white);
       border-left: 4px solid var(--crimson);
       border-radius: 0 8px 8px 0;
-      padding: 1rem 1.1rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.9rem;
-      color: var(--text);
-      line-height: 1.75;
+      padding: 1rem 1.1rem; margin-bottom: 1.25rem;
+      font-size: 0.9rem; color: var(--text); line-height: 1.75;
     }
     .prompt-box strong {
       display: block;
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--crimson);
-      margin-bottom: 0.5rem;
+      text-transform: uppercase; color: var(--crimson); margin-bottom: 0.5rem;
     }
 
     /* Sections within student block */
@@ -98,8 +81,7 @@
     .section-block:last-child { margin-bottom: 0; }
     .section-num {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--crimson);
-      margin-bottom: 0.5rem;
+      text-transform: uppercase; color: var(--crimson); margin-bottom: 0.5rem;
     }
     .section-body {
       font-size: 0.88rem; color: var(--text); line-height: 1.75; font-weight: 300;
@@ -110,20 +92,15 @@
     /* Inline prompt instruction */
     .inline-prompt {
       font-style: italic;
-      background: var(--white);
-      border-radius: 6px;
-      padding: 0.4rem 0.75rem;
-      display: inline-block;
-      margin: 0.25rem 0;
-      font-size: 0.87rem;
-      color: var(--text);
+      background: var(--white); border-radius: 6px;
+      padding: 0.4rem 0.75rem; display: inline-block; margin: 0.25rem 0;
+      font-size: 0.87rem; color: var(--text);
       border: 1px solid rgba(181,154,87,0.2);
     }
 
     /* Bullet list */
     .inst-list {
-      list-style: none;
-      margin: 0.5rem 0 0.75rem 0;
+      list-style: none; margin: 0.5rem 0 0.75rem 0;
       display: flex; flex-direction: column; gap: 6px;
     }
     .inst-list li {
@@ -139,10 +116,8 @@
 
     /* Example prompts */
     .example-prompts {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 0.75rem 1rem;
-      margin: 0.5rem 0;
+      background: var(--white); border-radius: 6px;
+      padding: 0.75rem 1rem; margin: 0.5rem 0;
       border: 1px solid rgba(181,154,87,0.2);
     }
     .example-prompts p {
@@ -151,45 +126,25 @@
     }
     .example-prompts p:last-child { margin-bottom: 0; }
 
-    /* Flexibility note — gold accent, signals instructor can substitute */
+    /* Flexibility note */
     .flex-note {
       background: var(--white);
       border-left: 4px solid var(--gold);
       border-radius: 0 8px 8px 0;
-      padding: 0.65rem 0.9rem;
-      margin: 0.65rem 0 0.5rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.6;
-      font-style: italic;
+      padding: 0.65rem 0.9rem; margin: 0.65rem 0 0.5rem;
+      font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-style: italic;
     }
-    .flex-note strong {
-      font-style: normal;
-      font-weight: 600;
-      color: var(--gold-link);
-    }
-
-    /* Footnote */
-    .footnote {
-      font-size: 0.78rem; color: var(--muted); line-height: 1.65;
-      margin-top: 1rem; padding-top: 0.75rem;
-      border-top: 1px solid #ede9e3; font-weight: 300;
-    }
+    .flex-note strong { font-style: normal; font-weight: 600; color: var(--gold-link); }
 
     /* Instructor note strip */
     .instructor-note {
       background: var(--white);
       border-left: 4px solid var(--gold);
       border-radius: 0 8px 8px 0;
-      padding: 0.9rem 1.1rem;
-      margin-bottom: 2rem;
+      padding: 0.9rem 1.1rem; margin-bottom: 2rem;
       box-shadow: var(--shadow);
-      font-size: 0.85rem;
-      color: var(--text);
-      line-height: 1.7;
-      font-weight: 300;
-      opacity: 0;
-      transform: translateY(14px);
+      font-size: 0.85rem; color: var(--text); line-height: 1.7; font-weight: 300;
+      opacity: 0; transform: translateY(14px);
       animation: fadeUp 0.4s ease 0.02s forwards;
     }
     .instructor-note strong {
@@ -197,6 +152,69 @@
       text-transform: uppercase; color: var(--gold-link);
       display: block; margin-bottom: 0.35rem;
     }
+
+    /* ── Gemini setup card ── */
+    .setup-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      border-top: 3px solid var(--gold);
+      box-shadow: var(--shadow);
+      padding: 1.75rem 2rem; margin-bottom: 2rem;
+      opacity: 0; transform: translateY(14px);
+      animation: fadeUp 0.4s ease 0.04s forwards;
+    }
+    .setup-card-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 1.1rem; padding-bottom: 1rem;
+      border-bottom: 1px solid #ede9e3;
+    }
+    .setup-card-icon {
+      width: 46px; height: 46px; border-radius: 10px;
+      background: var(--warm-gray);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .setup-card-icon i { color: var(--gold-link); }
+    .setup-card-title { font-size: 1rem; font-weight: 600; color: var(--crimson); }
+    .setup-card-subtitle { font-size: 0.82rem; color: var(--muted); margin-top: 3px; font-weight: 300; }
+    .setup-warning {
+      background: var(--warm-gray);
+      border-left: 4px solid var(--crimson);
+      border-radius: 0 6px 6px 0;
+      padding: 0.7rem 1rem; margin-bottom: 1.4rem;
+      font-size: 0.86rem; color: var(--text); line-height: 1.65;
+    }
+    .setup-warning strong { color: var(--crimson); font-weight: 600; }
+    .setup-steps {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .setup-step {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .setup-step-num {
+      width: 26px; height: 26px; min-width: 26px;
+      border-radius: 50%; background: var(--crimson);
+      color: var(--white); font-size: 0.72rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem; flex-shrink: 0;
+    }
+    .setup-step-body {
+      flex: 1; font-size: 0.88rem; color: var(--text); line-height: 1.65; font-weight: 300;
+    }
+    .setup-step-body strong { font-weight: 600; color: var(--text); }
+    .setup-note {
+      background: rgba(181,154,87,0.1);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 5px 5px 0;
+      padding: 0.5rem 0.85rem; margin-top: 0.5rem;
+      font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-style: italic;
+    }
+    .setup-done {
+      margin-top: 1.25rem; padding-top: 1rem;
+      border-top: 1px solid #ede9e3;
+      font-size: 0.84rem; color: var(--muted); line-height: 1.6;
+    }
+    .setup-done strong { color: var(--text); font-weight: 600; }
 
     /* Citation footer block */
     .citation-block {
@@ -208,6 +226,7 @@
     @media (max-width: 600px) {
       .assignment { padding: 1.25rem; }
       .student-block { padding: 1.1rem; }
+      .setup-card { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -217,7 +236,7 @@
   <div class="header-inner">
     <span class="course-code">ECO 1000 · Principles of Economics</span>
     <h1>AI-Integrated Assignments</h1>
-    <p class="header-meta">Macroeconomics and microeconomics activities using Gemini Pro</p>
+    <p class="header-meta">Microeconomics and macroeconomics activities using Gemini Pro</p>
   </div>
 </header>
 
@@ -228,76 +247,66 @@
     When introducing these assignments, assume students have no prior experience with Gemini Pro. Plan 15–20 minutes of class time to orient students to the tool. Emphasize that Gemini Pro is a complement to their own analysis — not a replacement for it. Gemini Pro is available to Elon students through the university; see your course page for access instructions.
   </div>
 
-  <p class="section-heading">Assignment A — Macroeconomics</p>
-
-  <!-- ── Assignment A ── -->
-  <div class="assignment">
-    <div class="assignment-header">
-      <div class="assignment-icon"><i data-lucide="trending-up"></i></div>
-      <div class="assignment-meta">
-        <div class="assignment-label">Macroeconomics · Macro Model</div>
-        <div class="assignment-title">Tax Policy Analysis with Gemini Pro</div>
+  <!-- ── Gemini Setup Card ── -->
+  <div class="setup-card">
+    <div class="setup-card-header">
+      <div class="setup-card-icon"><i data-lucide="chrome"></i></div>
+      <div>
+        <div class="setup-card-title">Getting Started with Gemini Pro</div>
+        <div class="setup-card-subtitle">Your Elon Google Workspace account unlocks Gemini Pro — here's how to connect it in under two minutes.</div>
       </div>
     </div>
 
-    <p class="assignment-context">
-      Students connect contemporary fiscal policy options to the macroeconomic model covered in their course. Working in groups, students analyze the effect of an economic policy using the model under ceteris paribus, then use Gemini Pro to assess the same policy and compare interpretations. The comparison prompts students to explore how relaxing the ceteris paribus assumption changes the policy impact.
-    </p>
-
-    <div class="student-block">
-      <div class="student-label">Student-Facing Instructions</div>
-
-      <div class="prompt-box">
-        <strong>Assignment Prompt</strong>
-        In this assignment, you will write a paper evaluating a tax proposal from our current president. You will draw from 3 outside resources to evaluate your policy proposals, namely, the Institute of Taxation and Economic Policy (ITEP), the Tax Foundation, and The New York Times. The tax resources are nonpartisan think tanks that evaluate state and federal tax policy. You will use Gemini Pro to evaluate the policies and reflect on that experience.
-      </div>
-
-      <div class="section-block">
-        <div class="section-num">Section 1 — Political Leaning of the Think Tanks</div>
-        <div class="section-body">
-          <p>Evaluate the political leaning of the summary for the president's tax proposal from both think tanks. Begin by reading through each think tank's description and discussing your understanding of the think tank's political leaning. After your group evaluates the political leaning, log your interpretation and use the two sources below to assess the proposals with Gemini Pro:</p>
-          <div class="flex-note"><strong>Instructor flexibility:</strong> The links below are suggested sources. You may substitute any two think tanks or policy analyses relevant to your course — one center-left, one center-right works best for the political leaning exercise.</div>
-          <ul class="inst-list">
-            <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP — A Distributional Analysis of Donald Trump's Tax Plan</a> — Copy the first 2 paragraphs under "Impact of President Trump's Tax Proposals by Income Group"</li>
-            <li><a href="https://taxfoundation.org/research/all/federal/donald-trump-taxplan-2024/" target="_blank">Tax Foundation — Trump's Tax and Tariff Ideas</a> — Copy the first 5 paragraphs</li>
-          </ul>
-          <p>Once you have copied the summary for a source, use Gemini Pro to evaluate it by entering the following prompt:</p>
-          <span class="inline-prompt">Describe the political leaning of this description of a tax proposal ["Paste copied section here"].</span>
-          <p>Execute this evaluation for both the ITEP and the Tax Foundation summary. Once you generate the evaluation, summarize how Gemini Pro describes the political leaning of each source. Identify two pieces of evidence that Gemini Pro uses to determine the political leanings. Conclude Section 1 by reflecting on the nonpartisan description of these think tanks and whether or not you view these think tanks as nonpartisan after completing your evaluation.</p>
-        </div>
-      </div>
-
-      <div class="section-block">
-        <div class="section-num">Section 2 — Macroeconomic Model Analysis</div>
-        <div class="section-body">
-          <p>Use the sources above to continue your analysis of the president's policy proposals and connect them to the macroeconomic model covered in your course. The ITEP has a section with an overview of the tax proposals:</p>
-          <div class="flex-note"><strong>Instructor flexibility:</strong> The link below is a suggested source. You may substitute any policy overview that fits the fiscal policy topic your course covers.</div>
-          <ul class="inst-list">
-            <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP</a> — scroll down to the section titled "Overview of Former President Trump's Tax Proposals"</li>
-          </ul>
-          <p>Choose 2 tax policies and describe the goal of each. Using the macroeconomic model covered in your course, describe how each policy would affect the economy. What would be the predicted impact on key macroeconomic variables such as the price level, real GDP, and unemployment?</p>
-          <p>After completing your analysis, use Gemini Pro to evaluate the impact of each policy by issuing the following prompt:</p>
-          <span class="inline-prompt">Describe how the following policy would impact the price level, real GDP, and unemployment rate ["Paste policy here"].</span>
-          <p>Summarize how Gemini Pro evaluates each policy. Is this different from your analysis?</p>
-        </div>
-      </div>
-
-      <div class="section-block">
-        <div class="section-num">Section 3 — Reflection</div>
-        <div class="section-body">
-          <p>Reflect on the President's proposals. What are the pros and cons of the 2 policies you evaluated in Section 2? Describe why you think each of your policies will be beneficial or harmful to the macroeconomy. Reflect on your experience using AI to analyze the topics in Sections 1 and 2.</p>
-        </div>
-      </div>
-
-      <div class="footnote">
-        <sup>1</sup> The Institute on Taxation and Economic Policy focuses on tax fairness, equity, and how fiscal policies affect lower and middle-income communities. The Tax Foundation is widely regarded as right-of-center, emphasizing pro-growth tax policies and lower tax burdens.
-      </div>
+    <div class="setup-warning">
+      <strong>Before you begin:</strong> Your personal Google account and your Elon account are separate. Do not merge or link them. To use both at the same time, you simply add your Elon account to your browser — they run side by side without interfering with each other.
     </div>
+
+    <ol class="setup-steps">
+      <li class="setup-step">
+        <span class="setup-step-num">1</span>
+        <div class="setup-step-body">
+          <strong>Go to Google.</strong> Open your browser and navigate to <strong>google.com</strong>.
+        </div>
+      </li>
+      <li class="setup-step">
+        <span class="setup-step-num">2</span>
+        <div class="setup-step-body">
+          <strong>Find your profile icon.</strong> Look at the top right corner of the screen. Click the circular icon showing your personal account picture or initial.
+        </div>
+      </li>
+      <li class="setup-step">
+        <span class="setup-step-num">3</span>
+        <div class="setup-step-body">
+          <strong>Select "Add another account."</strong> Click the button near the bottom of the drop-down menu labeled <em>Add another account</em>.
+        </div>
+      </li>
+      <li class="setup-step">
+        <span class="setup-step-num">4</span>
+        <div class="setup-step-body">
+          <strong>Enter your Elon email.</strong> Type your full school email address (such as <em>username@elon.edu</em>) and click <em>Next</em>.
+          <div class="setup-note">Elon uses Microsoft Outlook for student email, but your @elon.edu address still serves as the username to unlock Google Workspace tools like Gemini Pro and NotebookLM.</div>
+        </div>
+      </li>
+      <li class="setup-step">
+        <span class="setup-step-num">5</span>
+        <div class="setup-step-body">
+          <strong>Authenticate.</strong> Google will recognize the @elon.edu domain and redirect you to Elon's Single Sign-On (SSO) portal. Enter your standard Elon password and complete the Duo Push.
+        </div>
+      </li>
+      <li class="setup-step">
+        <span class="setup-step-num">6</span>
+        <div class="setup-step-body">
+          <strong>Switch between accounts.</strong> Both accounts are now active in your browser. To switch to your university account at any time, click your profile icon in the top right and select your Elon email.
+        </div>
+      </li>
+    </ol>
+
+    <div class="setup-done">You're all set. Navigate to <strong>gemini.google.com</strong> and confirm your Elon account is selected in the top right before you begin.</div>
   </div>
 
-  <p class="section-heading" style="margin-top: 0.5rem;">Assignment B — Microeconomics</p>
+  <p class="section-heading">Microeconomics Assignment</p>
 
-  <!-- ── Assignment B ── -->
+  <!-- ── Microeconomics — Price Controls ── -->
   <div class="assignment">
     <div class="assignment-header">
       <div class="assignment-icon"><i data-lucide="scale"></i></div>
@@ -306,10 +315,6 @@
         <div class="assignment-title">Price Floors and Ceilings with Gemini Pro</div>
       </div>
     </div>
-
-    <p class="assignment-context">
-      Students analyze price floors and price ceilings through three stages: theoretical modeling, stakeholder simulation using Gemini Pro, and empirical application. The three-stage structure separates sections where AI is used from sections where it is not, giving students practice with both independent analysis and AI-assisted inquiry.
-    </p>
 
     <div class="student-block">
       <div class="student-label">Student-Facing Instructions</div>
@@ -320,7 +325,7 @@
       </div>
 
       <div class="section-block">
-        <div class="section-num">Section 1 — Theoretical Analysis</div>
+        <div class="section-num">Section 1 — Theoretical Analysis of Price Floors and Ceilings Using the Supply and Demand Model</div>
         <div class="section-body">
           <p>Define what price floors and price ceilings are in the context of market economics. Use a standard supply and demand graph to demonstrate the effects of:</p>
           <ul class="inst-list">
@@ -337,7 +342,7 @@
       </div>
 
       <div class="section-block">
-        <div class="section-num">Section 2 — Stakeholder Perspectives using Gemini Pro</div>
+        <div class="section-num">Section 2 — Discussion of Stakeholder Perspectives Using Gemini Pro</div>
         <div class="section-body">
           <p><em>Exploring Real-World Impacts.</em> Choose one of the following scenarios, or propose your own (subject to instructor approval):</p>
           <div class="flex-note"><strong>Instructor flexibility:</strong> The scenarios and links below are suggested. You may substitute any local or national minimum wage or rent control policy that is more relevant to your students' context.</div>
@@ -350,18 +355,82 @@
             <p>"What might a landlord in a rent-controlled city think about these policies?"</p>
             <p>"How would a firm like McDonalds or Burger King deal with the minimum wage increase differently than a local restaurant?"</p>
           </div>
-          <p>Discuss the different perspectives you generate with your table. Log your notes from your discussion. What points of the simulated discussion resonated with you? Describe how you would feel in the shoes of various different stakeholders.</p>
+          <p>Discuss different perspectives you generate with your table. Log your notes from your discussion. What points of the simulated discussion resonated with you? Describe how you would feel in the shoes of various different stakeholders.</p>
+          <p>For each stakeholder, identify whether they are on the supply side or demand side of the market, and whether the policy makes them better or worse off according to your Section 1 model.</p>
+          <p>Identify one claim Gemini Pro made that your sources do not clearly support.</p>
         </div>
       </div>
 
       <div class="section-block">
         <div class="section-num">Section 3 — Empirical Applications</div>
         <div class="section-body">
+          <p>Answer the task below that corresponds to the scenario you chose in Section 2.</p>
           <div class="flex-note"><strong>Instructor flexibility:</strong> The articles linked below are suggested empirical sources. You may substitute readings that better match the scenario your students analyzed in Section 2.</div>
           <p>Critically evaluate the discussions in Section 2 with this linked article: <a href="https://www.bls.gov/opub/mlr/2021/article/how-do-employers-adjust-to-minimum-wage-increases.htm" target="_blank">Minimum Wage — Bureau of Labor Statistics</a>. What are some methods that businesses can use to deal with the increase in labor costs? Explain how the use of these methods may not result in the conclusions we draw in our model.</p>
           <p>Critically evaluate the difference between rent control and rent stabilization using this linked article: <a href="https://haasinstitute.berkeley.edu/sites/default/files/haasinstitute_rentcontrol_publish_0.pdf" target="_blank">Rent Control versus Rent Stabilization</a>. Explain how the real-world evolution of these policies aligns or diverges from the theoretical models discussed in Section 1.</p>
         </div>
       </div>
+
+    </div>
+  </div>
+
+  <p class="section-heading" style="margin-top: 0.5rem;">Macroeconomics Assignment</p>
+
+  <!-- ── Macroeconomics — Tax Policy ── -->
+  <div class="assignment">
+    <div class="assignment-header">
+      <div class="assignment-icon"><i data-lucide="trending-up"></i></div>
+      <div class="assignment-meta">
+        <div class="assignment-label">Macroeconomics · Macro Model</div>
+        <div class="assignment-title">Tax Policy Analysis with Gemini Pro</div>
+      </div>
+    </div>
+
+    <div class="student-block">
+      <div class="student-label">Student-Facing Instructions</div>
+
+      <div class="prompt-box">
+        <strong>Assignment Prompt</strong>
+        In this assignment, you will write a paper evaluating a tax proposal from our current president. You will draw from 3 outside resources to evaluate your policy proposals, namely, the Institute of Taxation and Economic Policy (ITEP), the Tax Foundation, and The New York Times. The tax resources are nonpartisan think tanks that evaluate state and federal tax policy. You will use Gemini Pro to evaluate the policies and reflect on that experience.
+      </div>
+
+      <div class="section-block">
+        <div class="section-num">Section 1</div>
+        <div class="section-body">
+          <p>Section 1 will evaluate the political leaning of the summary for the president's tax proposal from both think tanks. Begin by reading through each think tank's description and discussing your understanding of the think tank's political leaning. After your group evaluates the political leaning, log your interpretation and use the following two links to assess President Trump's proposals with Gemini Pro:</p>
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The links below are suggested sources. You may substitute any two think tanks or policy analyses relevant to your course — one center-left, one center-right works best for the political leaning exercise.</div>
+          <ul class="inst-list">
+            <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP — A Distributional Analysis of Donald Trump's Tax Plan</a> — Copy the first 2 paragraphs under "Impact of President Trump's Tax Proposals by Income Group"</li>
+            <li><a href="https://taxfoundation.org/research/all/federal/donald-trump-taxplan-2024/" target="_blank">Tax Foundation — Trump's Tax and Tariff Ideas</a> — Copy the first 5 paragraphs</li>
+          </ul>
+          <p>Once you have copied the summary for a source, use Gemini Pro to evaluate the summary by entering the following prompt:</p>
+          <span class="inline-prompt">Describe the political leaning of this description of a tax proposal ["Paste copied section here"].</span>
+          <p>Execute this evaluation for both the ITEP and the Tax Foundation summary. Once you generate the evaluation, summarize how Gemini Pro describes the political leaning of each source. Identify two pieces of evidence that Gemini Pro uses to determine the political leanings. Conclude Section 1 by reflecting on the nonpartisan description of these think tanks and whether or not you view these think tanks as nonpartisan after completing your evaluation.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-num">Section 2</div>
+        <div class="section-body">
+          <p>Next, you will use the sources above to continue your analysis of the president's policy proposals and connect them to the macroeconomic model covered in your course. The ITEP has a section with an overview of the tax proposals:</p>
+          <div class="flex-note"><strong>Instructor flexibility:</strong> The link below is a suggested source. You may substitute any policy overview that fits the fiscal policy topic your course covers. The phrase "macroeconomic model covered in your course" is intentionally generic — common choices include the Aggregate Demand / Aggregate Supply (AD/AS) model, the IS/MP model, or the Keynesian Cross. Update your course materials to name the specific model you teach.</div>
+          <ul class="inst-list">
+            <li><a href="https://itep.org/a-distributional-analysis-of-donald-trumps-tax-plan-2024/" target="_blank">ITEP</a> — scroll down to the section titled "Overview of Former President Trump's Tax Proposals"</li>
+          </ul>
+          <p>Choose 2 tax policies and describe the goal of each. Using the macroeconomic model covered in your course, describe how each policy would affect the economy. What would be the predicted impact on key macroeconomic variables such as the price level, real GDP, and unemployment?</p>
+          <p>After completing your analysis of the President's policies, use Gemini Pro to evaluate the impact of each policy by issuing the following prompt:</p>
+          <span class="inline-prompt">Describe how the following policy would impact the price level, real GDP, and unemployment rate ["Paste policy here"].</span>
+          <p>Summarize how Gemini Pro evaluates each policy. Is this different from your analysis? Identify one claim Gemini Pro made that your sources do not clearly support.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-num">Section 3</div>
+        <div class="section-body">
+          <p>Reflect on the President's proposals. What are the pros and cons of the 2 policies you evaluated in Section 2? Describe why you think each of your policies will be beneficial or harmful to the macroeconomy. Reflect on your experience using AI to analyze the topics in sections 1 and 2.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
