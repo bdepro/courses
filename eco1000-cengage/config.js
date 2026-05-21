@@ -180,6 +180,19 @@ const CENGAGE = {
 };
 
 // ================================================================
+//  TEXTBOOK — e-book via Cengage MindTap
+//  UPDATE: edition if a new edition is adopted
+// ================================================================
+const TEXTBOOK = {
+  publisher:  "Cengage",
+  platform:   "MindTap",
+  edition:    "17th",
+  title:      "Economics: Private and Public Choice",
+  authors:    "Gwartney, Stroup, Sobel, and Macpherson",
+  authorsFull: "Gwartney, James D., Richard L. Stroup, Russell S. Sobel, and David A. Macpherson",
+};
+
+// ================================================================
 //  MONDAY MORNING ECONOMIST (MME)
 //  Currently deferred — switching from Hypothesis to Perusall.
 //  When ready: set enabled: true and fill in perusallBase URL.
