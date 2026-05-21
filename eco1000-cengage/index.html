@@ -244,6 +244,21 @@
       stroke: currentColor; fill: none;
       stroke-width: 2.5;
     }
+    .card-secondary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--teal);
+      text-decoration: none;
+      border-top: 1px solid var(--border);
+      padding-top: 0.45rem;
+      width: 100%;
+    }
+    .card-secondary-link:hover { color: var(--crimson); }
+    .card-secondary-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
 
     /* ── Footer ── */
     footer {
@@ -327,12 +342,13 @@
 const CARDS = [
   {
     id: "cengage",
-    title: "Cengage: E-Book, MindTap",
+    title: "Course Materials &amp; Syllabus",
     desc: "Access your digital textbook and all MindTap study resources — organized by chapter.",
     badge: "Resource",
     badgeClass: "badge-resource",
     icon: `<svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
     url: () => PAGES.cengage,
+    secondaryLink: { label: 'View Syllabus', url: () => PAGES.syllabus },
     enabled: true,
   },
   {
@@ -400,12 +416,7 @@ document.getElementById('checklistCard').href = PAGES.checklists;
 // Build cards
 const grid = document.getElementById('cardGrid');
 CARDS.forEach(card => {
-  const a = document.createElement('a');
-  a.className = 'card';
-  a.href      = card.url();
-  a.target    = '_self';
-
-  a.innerHTML = `
+  const innerHTML = `
     <div class="card-icon">${card.icon}</div>
     <div class="card-title">${card.title}</div>
     <div class="card-desc">${card.desc}</div>
@@ -415,7 +426,28 @@ CARDS.forEach(card => {
       <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
     </div>
   `;
-  grid.appendChild(a);
+
+  if (card.secondaryLink) {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.addEventListener('click', () => { window.location.href = card.url(); });
+    div.innerHTML = innerHTML;
+    const sec = document.createElement('a');
+    sec.className = 'card-secondary-link';
+    sec.href      = card.secondaryLink.url();
+    sec.textContent = card.secondaryLink.label;
+    sec.innerHTML  += ' <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>';
+    sec.addEventListener('click', e => e.stopPropagation());
+    div.appendChild(sec);
+    grid.appendChild(div);
+  } else {
+    const a = document.createElement('a');
+    a.className = 'card';
+    a.href      = card.url();
+    a.target    = '_self';
+    a.innerHTML = innerHTML;
+    grid.appendChild(a);
+  }
 });
 </script>
 </body>
