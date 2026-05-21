@@ -365,7 +365,7 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Textbook</span>
-          <span class="contact-value">Gwartney et al., 18th ed. (Cengage MindTap)</span>
+          <span class="contact-value" id="syl-textbook"></span>
         </div>
       </div>
     </div>
@@ -424,10 +424,7 @@
     </div>
     <div class="syl-body">
       <p>One-term access to Cengage MindTap includes the digital interactive e-book and all course assignments. Activate your access through the link in Moodle before your first assignment is due.</p>
-      <div class="textbook-block">
-        Gwartney, James D., Richard L. Stroup, Russell S. Sobel, and David A. Macpherson.
-        <cite>Economics: Private and Public Choice.</cite> 18th ed. Boston: Cengage Learning.
-      </div>
+      <div class="textbook-block" id="syl-textbook-block"></div>
     </div>
   </div>
 
@@ -690,6 +687,15 @@
   // Assessment dates
   document.getElementById('ff1-due').textContent       = FRIDAY.assignments[0].due;
   document.getElementById('viva-dates').textContent    = COURSE.viva.week + ' (' + COURSE.viva.dates + ')';
+
+  // Textbook — Section 1 contact row
+  document.getElementById('syl-textbook').textContent =
+    TEXTBOOK.authors + ', ' + TEXTBOOK.edition + ' ed. (' + TEXTBOOK.platform + ')';
+
+  // Textbook — Section 4 full citation block
+  document.getElementById('syl-textbook-block').innerHTML =
+    TEXTBOOK.authorsFull + '. <cite>' + TEXTBOOK.title + '.</cite> ' +
+    TEXTBOOK.edition + ' ed. Boston: Cengage Learning.';
 
   // Withdrawal deadline
   document.getElementById('syl-withdraw').textContent = COURSE.dates.withdrawDeadline;
