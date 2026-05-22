@@ -19,6 +19,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Session-by-session schedule for ECO 1000 with chapter coverage, check-in dates, and weekly due times.">
   <title>ECO 1000 · Course Schedule</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -434,9 +435,15 @@
       .viva-flow { grid-template-columns: 1fr; }
       .pill { font-size: 0.72rem; padding: 4px 11px; }
     }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
   <div class="header-inner">
@@ -452,7 +459,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <p class="intro" id="introText"></p>
   <div class="due-banner" id="dueBanner"></div>
   <ul class="session-list" id="sessionList"></ul>
@@ -845,7 +852,8 @@ function bodyContent(session, type, isCurrent) {
     if (session.vote) {
       const voteDiv = document.createElement('div');
       voteDiv.className = 'vote-box';
-      voteDiv.innerHTML = `<strong>Friday: the vote closes.</strong> The top 6 questions are announced at the end of class. Your votes decide what we cover in Sessions 12 and 13.`;
+      voteDiv.innerHTML = `<strong>Friday: the vote closes.</strong> The top 6 questions are announced at the end of class. Your votes decide what we cover in Sessions 12 and 13.
+        <div class="sub" style="margin-top:0.4rem;font-size:0.78rem;color:var(--muted);">Can&rsquo;t be in class Friday? Submit your vote through the Canvas poll any time before it closes.</div>`;
       frag.appendChild(voteDiv);
     }
 
@@ -916,7 +924,7 @@ function bodyContent(session, type, isCurrent) {
       const signupPills = document.createElement('div');
       signupPills.className = 'pills';
       signupPills.style.margin = '0.3rem 0 0.6rem';
-      signupPills.appendChild(pill('Viva Week Sign-Up', SCHEDULE.finalExamPeriod.vivaSignupUrl || null, 'teal'));
+      signupPills.appendChild(pill('Viva Week Sign-Up', CANVAS.viva.vivaWeekSignupUrl || null, 'teal'));
       signupPills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
       frag.appendChild(signupPills);
 
@@ -1079,6 +1087,7 @@ function bodyContent(session, type, isCurrent) {
 // ================================================================
 
 // Wire header
+document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.home;
 document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;

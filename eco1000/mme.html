@@ -11,6 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monday Morning Economist guided readings and annotation schedule for ECO 1000.">
   <title>ECO 1000 · Monday Morning Economist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
@@ -55,9 +56,12 @@
       .mme-row{grid-template-columns:2.5rem 1fr auto;}
       .m-title{font-size:0.82rem;}
     }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="screen-header">
   <div class="screen-header-inner">
     <a class="back-link" id="backLink" href="#">
@@ -69,7 +73,7 @@
     <p class="screen-sub">10% of your course grade · four articles · due Wednesday 11:59 p.m.</p>
   </div>
 </div>
-<main>
+<main id="main">
   <div class="callout teal">
     <strong>The Canvas link takes you straight to Perusall.</strong> No separate account needed.
     Each article is introduced on a Friday and due on a Wednesday roughly three weeks later.
@@ -83,6 +87,7 @@
 </main>
 <footer id="pageFooter"></footer>
 <script>
+document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.assignments;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;

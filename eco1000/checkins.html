@@ -11,6 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check-in dates, coverage, and policies for ECO 1000 at Elon University.">
   <title>ECO 1000 · Check-Ins</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
@@ -59,9 +60,12 @@
       .ci-row{grid-template-columns:2.5rem 1fr auto;}
       .c-title{font-size:0.82rem;}
     }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="screen-header">
   <div class="screen-header-inner">
     <a class="back-link" id="backLink" href="#">
@@ -73,7 +77,7 @@
     <p class="screen-sub">50% of your course grade · pen and paper · Wednesday in class · 60 minutes</p>
   </div>
 </div>
-<main>
+<main id="main">
   <div class="callout red">
     <strong>Check-In 4 always counts.</strong> If your CI 4 score is higher than your
     lowest score from CI 1, 2, or 3, I replace that score automatically — you don't
@@ -81,6 +85,11 @@
     makeup exams. CI 4 covers the full course, so it's the fairest measure of where
     you land.
   </div>
+
+  <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.65;">
+    You may bring <strong style="color:var(--text);">one 5&times;8 index card</strong>
+    with handwritten notes to each Check-In.
+  </p>
 
   <p class="section-label">Check-In schedule</p>
   <div class="ci-list" id="ciList"></div>
@@ -93,6 +102,7 @@
 </main>
 <footer id="pageFooter"></footer>
 <script>
+document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.assignments;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
