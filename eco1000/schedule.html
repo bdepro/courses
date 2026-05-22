@@ -654,16 +654,16 @@ function bodyContent(session, type, isCurrent) {
   if (isCurrent && type !== 'break') {
     const dueDiv = document.createElement('div');
     dueDiv.className = 'due-highlight';
-    let dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> `;
+    let dueText;
 
     if (type === 'checkin') {
-      dueText += 'All puzzles for this block.';
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last block's puzzle (and any MME due this block).`;
     } else if (type === 'viva') {
-      dueText += 'Friday Focus written narrative — submit through Canvas.';
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus written narrative — submit through Canvas.`;
     } else if (type === 'content' || type === 'application') {
-      dueText += 'Chapter reading and puzzle.';
+      dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
     } else {
-      dueText += 'See assignments page.';
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> See assignments page.`;
     }
     dueDiv.innerHTML = dueText;
     frag.appendChild(dueDiv);
@@ -742,13 +742,13 @@ function bodyContent(session, type, isCurrent) {
       frag.appendChild(mmeSection);
     }
 
-    // Puzzle link
+    // Puzzle link — due the Wednesday of session N+1 (per puzzleDueDate)
     const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
     if (puzzleData) {
       const puzDiv = document.createElement('div');
       puzDiv.className = 'day-section';
       puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
+      puzDiv.innerHTML = `<div class="day-label">Puzzle due ${formatPuzzleDue(session.num)}</div><div class="pills"></div>`;
       puzDiv.querySelector('.pills').appendChild(
         pill('Economic Puzzle', puzzleData.url || null, 'gold')
       );
@@ -771,7 +771,7 @@ function bodyContent(session, type, isCurrent) {
     monDesc.className = 'info-box ci-box';
     monDesc.style.margin = '0.35rem 0 0.4rem';
     monDesc.innerHTML = `<strong>Kahoot review:</strong> Supply and demand and the eight guideposts.
-      <div class="sub">All puzzles for this block are due today. Bring your questions.</div>`;
+      <div class="sub">Bring your questions about the block. The last puzzle of this block is due Wednesday at 11:59 p.m.</div>`;
     monBox.appendChild(monDesc);
     const monPills = document.createElement('div');
     monPills.className = 'pills';
@@ -892,15 +892,22 @@ function bodyContent(session, type, isCurrent) {
 
     const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
     const mmeDueApp  = CANVAS.mme.filter(m => m.dueSession === session.num);
-    if (puzzleData || mmeDueApp.length > 0) {
-      const dueDiv = document.createElement('div');
-      dueDiv.className = 'day-section';
-      dueDiv.style.marginTop = '0.6rem';
-      dueDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
-      const duePills = dueDiv.querySelector('.pills');
-      if (puzzleData) duePills.appendChild(pill('Economic Puzzle', puzzleData.url || null, 'gold'));
-      mmeDueApp.forEach(m => duePills.appendChild(pill(m.title, m.url || null, 'gold')));
-      frag.appendChild(dueDiv);
+    if (puzzleData) {
+      const puzDiv = document.createElement('div');
+      puzDiv.className = 'day-section';
+      puzDiv.style.marginTop = '0.6rem';
+      puzDiv.innerHTML = `<div class="day-label">Puzzle due ${formatPuzzleDue(session.num)}</div><div class="pills"></div>`;
+      puzDiv.querySelector('.pills').appendChild(pill('Economic Puzzle', puzzleData.url || null, 'gold'));
+      frag.appendChild(puzDiv);
+    }
+    if (mmeDueApp.length > 0) {
+      const mmeDiv = document.createElement('div');
+      mmeDiv.className = 'day-section';
+      mmeDiv.style.marginTop = '0.6rem';
+      mmeDiv.innerHTML = `<div class="day-label">MME due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
+      const mmePills = mmeDiv.querySelector('.pills');
+      mmeDueApp.forEach(m => mmePills.appendChild(pill(m.title, m.url || null, 'gold')));
+      frag.appendChild(mmeDiv);
     }
 
     // Pre-Thanksgiving sign-up block — Session 13 only
@@ -1096,7 +1103,8 @@ document.getElementById('introText').innerHTML    =
   `Your current session opens below. Work for each session is due Wednesday by 11:59 p.m. ` +
   `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 document.getElementById('dueBanner').innerHTML    =
-  `<strong>All work due Wednesday by 11:59 p.m.</strong> — puzzles and MME articles. ` +
+  `<strong>Puzzles are due the Wednesday after each session at 11:59 p.m.</strong> ` +
+  `MME articles have their own dates (see the MME page). ` +
   `Friday Focus written narrative due ${CANVAS.friday[0].due}. CI 4 always counts.`;
 
 // Auto-highlight

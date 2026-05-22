@@ -64,9 +64,14 @@ const INSTRUCTOR = {
 //                  without relying on label string matching
 //    note        — optional internal note (not student-facing)
 //
-//  Due date logic (locked — do not change without updating schedule.html):
-//    All puzzles and MME articles due Wednesday at 11:59 p.m. of each session.
-//    MME introduced Friday of check-in week, due Wednesday at 11:59 p.m.
+//  Due date logic (locked — do not change without updating schedule.html
+//  and puzzles.html):
+//    Puzzles for session N are due the WEDNESDAY OF SESSION N+1 at 11:59 p.m.
+//    (sessionStart + 9 days). If that date falls inside a break session,
+//    due shifts to FRIDAY OF SESSION N (sessionStart + 4 days). See
+//    puzzleDueDate() at the bottom of this file.
+//    MME articles are introduced Friday of check-in week and due Wednesday
+//    11:59 p.m. several weeks later — see CANVAS.mme[].due for each article.
 //    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
@@ -521,6 +526,40 @@ const ASSIGNMENT_URL = aid =>
 
 [CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
+
+// ================================================================
+//  PUZZLE DUE-DATE DERIVATION
+//  Puzzle for session N is due the Wednesday of session N+1 at 11:59 p.m.
+//  (sessionStart + 9 days). If that date falls inside a break session,
+//  due shifts to Friday of session N (sessionStart + 4 days).
+// ================================================================
+const _DAY_MS = 86400000;
+const _DUE_FMT = { weekday: 'short', month: 'short', day: 'numeric' };
+
+const puzzleDueDate = sessionNum => {
+  const idx = SCHEDULE.sessions.findIndex(s => s.num === sessionNum);
+  if (idx < 0) return null;
+  const start = SCHEDULE.sessionStarts[idx];
+  if (!start) return null;
+
+  let due = new Date(start.getTime() + 9 * _DAY_MS);   // Wed of session N+1
+
+  // If that Wednesday lands inside a break, shift to Fri of session N.
+  SCHEDULE.sessions.forEach((s, i) => {
+    if (!s.break) return;
+    const bStart = SCHEDULE.sessionStarts[i];
+    const bEnd   = SCHEDULE.sessionStarts[i + 1];
+    if (bStart && bEnd && due >= bStart && due < bEnd) {
+      due = new Date(start.getTime() + 4 * _DAY_MS);
+    }
+  });
+  return due;
+};
+
+const formatPuzzleDue = sessionNum => {
+  const d = puzzleDueDate(sessionNum);
+  return d ? d.toLocaleDateString('en-US', _DUE_FMT) + ', 11:59 p.m.' : 'TBA';
+};
 
 // ================================================================
 //  DERIVED — do not edit
