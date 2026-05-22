@@ -65,7 +65,7 @@
       border-bottom: 4px solid var(--gold);
       padding: 1.75rem 1.25rem 1.5rem;
     }
-    .header-inner { max-width: 820px; margin: 0 auto; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
 
     .back-link {
       display: inline-flex; align-items: center; gap: 5px;
@@ -79,19 +79,19 @@
 
     header h1 {
       font-size: clamp(1.35rem, 4vw, 1.9rem);
-      font-weight: 500; color: var(--white);
+      font-weight: 700; color: var(--white);
       letter-spacing: 0.03em; text-transform: uppercase;
       line-height: 1.2;
     }
-    header p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.85rem; margin-top: 0.3rem;
-      font-weight: 300; font-style: italic;
+    .page-eyebrow {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); margin-bottom: 0.3rem;
     }
 
     /* ── Main ── */
     main {
-      max-width: 820px; margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
       padding: 1.5rem 1.25rem 3rem;
     }
 
@@ -212,8 +212,10 @@
     .tag-app      { background: rgba(122,92,30,0.12);     color: var(--gold-link); }
     .tag-break    { background: rgba(0,0,0,0.06);         color: var(--muted); }
     .tag-mme      { background: rgba(181,154,87,0.18);    color: var(--gold-link); }
-    .tag-vote     { background: rgba(115,0,10,0.08);      color: var(--crimson); }
-    .tag-due      { background: var(--crimson);           color: var(--white); }
+    .tag-vote        { background: rgba(115,0,10,0.08);    color: var(--crimson); }
+    .tag-due         { background: var(--crimson);        color: var(--white); }
+    .tag-screensdown { background: rgba(82,123,130,0.1);  color: var(--teal-dk); }
+    .tag-action      { background: var(--teal);           color: var(--white); }
 
     /* Chapter subtitle */
     .session-chapter {
@@ -423,11 +425,11 @@
       font-size: 0.76rem;
       color: var(--muted);
       border-top: 1px solid #e8e4dd;
-      max-width: 820px; margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
     }
 
     /* ── Responsive ── */
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .session-toggle { padding: 0.75rem 0.85rem; gap: 9px; }
       .viva-flow { grid-template-columns: 1fr; }
       .pill { font-size: 0.72rem; padding: 4px 11px; }
@@ -443,10 +445,10 @@
            style="stroke:currentColor;stroke-width:2.5">
         <polyline points="15 18 9 12 15 6"/>
       </svg>
-      Back to Course Home
+      Course Home
     </a>
+    <p class="page-eyebrow" id="pageMeta"></p>
     <h1>How will your learning be organized?</h1>
-    <p id="pageMeta"></p>
   </div>
 </header>
 
@@ -687,7 +689,9 @@ function bodyContent(session, type, isCurrent) {
     // Mon
     const monDays = session.num === 7 ? ['Monday', 'mon'] : null;
     if (session.num === 7) {
-      // Session 7 is Mon/Tue only
+      // Session 7 is Mon/Tue only — Fall Break begins Wednesday
+      frag.appendChild(infoBox('gold-box', 'Short session — Monday and Tuesday only.',
+        'Fall Break begins Wednesday. No Wednesday or Friday class. Puzzle is still due Wednesday at 11:59 p.m.'));
       frag.appendChild(daySection('Monday', [pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))]));
       frag.appendChild(daySection('Tuesday', [pill('Tue — Skeleton', sc.tue || canvasPageUrl(`s${session.num}-tue`))]));
     } else {
@@ -759,7 +763,7 @@ function bodyContent(session, type, isCurrent) {
     const monDesc = document.createElement('div');
     monDesc.className = 'info-box ci-box';
     monDesc.style.margin = '0.35rem 0 0.4rem';
-    monDesc.innerHTML = `<strong>Kahoot review:</strong> 8 guideposts and supply and demand.
+    monDesc.innerHTML = `<strong>Kahoot review:</strong> Supply and demand and the eight guideposts.
       <div class="sub">All puzzles for this block are due today. Bring your questions.</div>`;
     monBox.appendChild(monDesc);
     const monPills = document.createElement('div');
@@ -779,6 +783,17 @@ function bodyContent(session, type, isCurrent) {
     );
     wedDesc.style.margin = '0.35rem 0 0';
     wedBox.appendChild(wedDesc);
+
+    // MME article due this Wednesday
+    const mmeDueCi = CANVAS.mme.filter(m => m.dueSession === session.num);
+    if (mmeDueCi.length > 0) {
+      const mmeDueCiBox = infoBox('gold-box',
+        'Also due Wednesday at 11:59 p.m.:',
+        mmeDueCi.map(m => m.title).join(' and ') + '. Annotate through Perusall.'
+      );
+      mmeDueCiBox.style.margin = '0.4rem 0 0';
+      wedBox.appendChild(mmeDueCiBox);
+    }
     frag.appendChild(wedBox);
 
     // Friday — MME launch + FF progress
@@ -868,15 +883,16 @@ function bodyContent(session, type, isCurrent) {
     ]));
 
     const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
-    if (puzzleData) {
-      const puzDiv = document.createElement('div');
-      puzDiv.className = 'day-section';
-      puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
-      puzDiv.querySelector('.pills').appendChild(
-        pill('Economic Puzzle', puzzleData.url || null, 'gold')
-      );
-      frag.appendChild(puzDiv);
+    const mmeDueApp  = CANVAS.mme.filter(m => m.dueSession === session.num);
+    if (puzzleData || mmeDueApp.length > 0) {
+      const dueDiv = document.createElement('div');
+      dueDiv.className = 'day-section';
+      dueDiv.style.marginTop = '0.6rem';
+      dueDiv.innerHTML = `<div class="day-label">Due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
+      const duePills = dueDiv.querySelector('.pills');
+      if (puzzleData) duePills.appendChild(pill('Economic Puzzle', puzzleData.url || null, 'gold'));
+      mmeDueApp.forEach(m => duePills.appendChild(pill(m.title, m.url || null, 'gold')));
+      frag.appendChild(dueDiv);
     }
 
     // Pre-Thanksgiving sign-up block — Session 13 only
@@ -907,7 +923,7 @@ function bodyContent(session, type, isCurrent) {
       // FF narrative reminder
       const ffReminder = document.createElement('div');
       ffReminder.className = 'info-box gold-box';
-      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due Wednesday Dec 2 at 11:59 p.m.</strong>
+      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due ${CANVAS.friday[0].due}.</strong>
         <div class="sub">Submit through Canvas before your viva conversation.
         Use the Thanksgiving break to finish your narrative and prepare for your viva.</div>`;
       frag.appendChild(ffReminder);
@@ -934,9 +950,20 @@ function bodyContent(session, type, isCurrent) {
     const ffDue = document.createElement('div');
     ffDue.className = 'due-highlight';
     ffDue.style.marginTop = '0.85rem';
-    ffDue.innerHTML = `<strong>Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.</strong>
+    ffDue.innerHTML = `<strong>Friday Focus written narrative due ${CANVAS.friday[0].due}.</strong>
       Submit through Canvas before your viva conversation.`;
     frag.appendChild(ffDue);
+
+    // MME article due this week
+    const mmeDueViva = CANVAS.mme.filter(m => m.dueSession === session.num);
+    if (mmeDueViva.length > 0) {
+      const mmeDueVivaBox = infoBox('gold-box',
+        'Also due Wednesday at 11:59 p.m.:',
+        mmeDueViva.map(m => m.title).join(' and ') + '. Annotate through Perusall.'
+      );
+      mmeDueVivaBox.style.margin = '0.4rem 0 0.35rem';
+      frag.appendChild(mmeDueVivaBox);
+    }
 
     // Sign-up confirmation — action should already be done from Session 13
     const signupBox = document.createElement('div');
@@ -1061,7 +1088,7 @@ document.getElementById('introText').innerHTML    =
   `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 document.getElementById('dueBanner').innerHTML    =
   `<strong>All work due Wednesday by 11:59 p.m.</strong> — puzzles and MME articles. ` +
-  `Friday Focus written narrative due Wednesday Dec 2. CI 4 always counts.`;
+  `Friday Focus written narrative due ${CANVAS.friday[0].due}. CI 4 always counts.`;
 
 // Auto-highlight
 const today  = new Date(); today.setHours(0, 0, 0, 0);
@@ -1100,6 +1127,9 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (type === 'application')  tags.push(`<span class="sess-tag tag-app">Application</span>`);
   if (session.mmeFF)           tags.push(`<span class="sess-tag tag-mme">MME Launch</span>`);
   if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
+  if ((type === 'content' && session.num !== 7) || type === 'application')
+                               tags.push(`<span class="sess-tag tag-screensdown">Screens-down Wed</span>`);
+  if (session.num === 13)      tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
 
   // Chapter subtitle
   let chSub = '';
