@@ -8,7 +8,7 @@
 //  2. INSTRUCTOR block     — officeHours
 //  3. SCHEDULE block       — session dates, sessionStarts, finalExam,
 //                            finalExamPeriod section and schedule times
-//  4. CANVAS block         — courseId, all assignment URLs,
+//  4. CANVAS block         — courseId, all assignment IDs (aid),
 //                            viva sign-up URL, worksheet URLs
 //  5. TEXTBOOK block       — ebookUrl once Canvas/Cengage is registered
 //  6. QUESTIONS block      — 12 application bundle questions each semester
@@ -188,8 +188,8 @@ const SCHEDULE = {
   // UPDATE each semester. Format: new Date(year, month (0=Jan), day)
   // Last entry = day after classes end
   sessionStarts: [
-    new Date(2026,  4, 16),  // S0:  Aug 26
-    new Date(2026,  8, 31),  // S1:  Aug 31
+    new Date(2026,  7, 26),  // S0:  Aug 26
+    new Date(2026,  7, 31),  // S1:  Aug 31
     new Date(2026,  8,  7),  // S2:  Sep 7
     new Date(2026,  8, 14),  // S3:  Sep 14  (CI #1)
     new Date(2026,  8, 21),  // S4:  Sep 21
@@ -228,7 +228,7 @@ const SCHEDULE = {
   // Viva sign-up and worksheet links live in CANVAS block below.
   finalExamPeriod: {
     dates:          "December 7-11, 2026",          // UPDATE each semester
-    vivaSignupUrl:  "",                              // UPDATE: Canvas Scheduler URL
+    // Viva week sign-up URL lives in CANVAS.viva.vivaWeekSignupUrl (single source).
     // Population 1 worksheet — completed online within the 3-hour exam block
     worksheetNote:  "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
     // Equity note — displayed near the viva sign-up pill
@@ -244,26 +244,26 @@ const SCHEDULE = {
 const CHAPTERS = {
 
   // Core chapters — tested on Check-Ins #1 through #3
-  // url: Canvas LTI assignment link — UPDATE each semester if assignments are rebuilt
+  // aid: Canvas assignment ID — UPDATE each semester if assignments are rebuilt.
+  // Full URL is auto-built from COURSE.canvasId + aid at the bottom of this file.
   core: [
-    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  url: "https://elon.instructure.com/courses/1397/assignments/2842" },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  url: "https://elon.instructure.com/courses/1397/assignments/2843" },
-    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  url: "https://elon.instructure.com/courses/1397/assignments/2844" },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  url: "https://elon.instructure.com/courses/1397/assignments/2845" },
-    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  url: "https://elon.instructure.com/courses/1397/assignments/2853" },
-    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  url: "https://elon.instructure.com/courses/1397/assignments/2846" },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, url: "https://elon.instructure.com/courses/1397/assignments/2847" },
+    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842" },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843" },
+    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844" },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845" },
+    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853" },
+    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846" },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847" },
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
   // Not directly tested; students use them as analytical lenses
-  // url: Canvas LTI assignment link — UPDATE each semester if assignments are rebuilt
   application: [
-    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", url: "https://elon.instructure.com/courses/1397/assignments/2848" },
-    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           url: "https://elon.instructure.com/courses/1397/assignments/2849" },
-    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              url: "https://elon.instructure.com/courses/1397/assignments/2850" },
-    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  url: "https://elon.instructure.com/courses/1397/assignments/2851" },
-    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               url: "https://elon.instructure.com/courses/1397/assignments/2852" },
+    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", aid: "2848" },
+    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           aid: "2849" },
+    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              aid: "2850" },
+    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  aid: "2851" },
+    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               aid: "2852" },
   ],
 
   // Standing threads — appear on every check-in regardless of session content
@@ -434,10 +434,11 @@ const PAGES = {
 //    https://elon.instructure.com/courses/COURSEID/pages/PAGE-SLUG
 //  The schedule page builds these URLs from COURSE.canvasId + the slug.
 //
-//  How to get assignment URLs:
+//  How to get assignment IDs (aid):
 //    1. Build your Canvas assignments
-//    2. Click each assignment and copy the URL from your browser
-//    3. Paste here
+//    2. Open each one; the browser URL ends in /assignments/NNNN
+//    3. Copy just the NNNN and paste as the aid field
+//  Full URLs are auto-built from COURSE.canvasId + aid at the bottom of this file.
 // ================================================================
 const CANVAS = {
   courseUrl: `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
@@ -447,25 +448,27 @@ const CANVAS = {
   pageBase: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/pages`,
 
   // Economic Puzzles — one per content session, UPDATE each semester
+  // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
   puzzles: [
-    { session: 1,  title: "Puzzle: The Economic Approach",                         url: "https://elon.instructure.com/courses/1397/assignments/2459" },
-    { session: 2,  title: "Puzzle: Demand, Supply, and the Market Process",        url: "https://elon.instructure.com/courses/1397/assignments/2460" },
-    { session: 4,  title: "Puzzle: Demand and Supply Applications",                url: "https://elon.instructure.com/courses/1397/assignments/2461" },
-    { session: 5,  title: "Puzzle: Taking the Nation's Economic Pulse",            url: "https://elon.instructure.com/courses/1397/assignments/2462" },
-    { session: 7,  title: "Puzzle: Economic Fluctuations and Unemployment",        url: "https://elon.instructure.com/courses/1397/assignments/2463" },
-    { session: 9,  title: "Puzzle: Creating an Environment for Growth",            url: "https://elon.instructure.com/courses/1397/assignments/2464" },
-    { session: 10, title: "Puzzle: Gaining from International Trade",              url: "https://elon.instructure.com/courses/1397/assignments/2465" },
-    { session: 12, title: "Puzzle: Application Block Week 1",                      url: "https://elon.instructure.com/courses/1397/assignments/2466" },
-    { session: 13, title: "Puzzle: Application Block Week 2",                      url: "https://elon.instructure.com/courses/1397/assignments/2467" },
+    { session: 1,  title: "Puzzle: The Economic Approach",                         aid: "2459" },
+    { session: 2,  title: "Puzzle: Demand, Supply, and the Market Process",        aid: "2460" },
+    { session: 4,  title: "Puzzle: Demand and Supply Applications",                aid: "2461" },
+    { session: 5,  title: "Puzzle: Taking the Nation's Economic Pulse",            aid: "2462" },
+    { session: 7,  title: "Puzzle: Economic Fluctuations and Unemployment",        aid: "2463" },
+    { session: 9,  title: "Puzzle: Creating an Environment for Growth",            aid: "2464" },
+    { session: 10, title: "Puzzle: Gaining from International Trade",              aid: "2465" },
+    { session: 12, title: "Puzzle: Application Block Week 1",                      aid: "2466" },
+    { session: 13, title: "Puzzle: Application Block Week 2",                      aid: "2467" },
   ],
 
   // MME introduced Friday of check-in week.
   // Due Wednesday at 11:59 p.m. of the check-in week.
+  // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
   mme: [
-    { id: 1, session: 3,  dueSession: 6,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",   title: "MME 1: When People Cut Back on Instagram, Where Do They Go",  url: "https://elon.instructure.com/courses/1397/assignments/2591" },
-    { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",   title: "MME 2: The Real Price of Being Home Alone",                     url: "https://elon.instructure.com/courses/1397/assignments/2592" },
-    { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.",  title: "MME 3: Tariffs Are Costly Options",                             url: "https://elon.instructure.com/courses/1397/assignments/2593" },
-    { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",   title: "MME 4: The Economics of the No Tax on Tips Policy",             url: "https://elon.instructure.com/courses/1397/assignments/2857" },
+    { id: 1, session: 3,  dueSession: 6,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",   title: "MME 1: When People Cut Back on Instagram, Where Do They Go",  aid: "2591" },
+    { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",   title: "MME 2: The Real Price of Being Home Alone",                     aid: "2592" },
+    { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.",  title: "MME 3: Tariffs Are Costly Options",                             aid: "2593" },
+    { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",   title: "MME 4: The Economics of the No Tax on Tips Policy",             aid: "2857" },
   ],
 
   // FF1: written narrative — due Wed Dec 2 at 11:59 p.m. (before viva)
@@ -507,6 +510,17 @@ const CANVAS = {
     ffSubmitUrl:         "",   // UPDATE: Canvas Assignment URL (same as friday[0].url above)
   },
 };
+
+// ================================================================
+//  URL DERIVATION — do not edit
+//  Builds .url on every assignment entry from COURSE.canvasId + aid.
+//  Consumers continue to read .url as before; aid is the source of truth.
+// ================================================================
+const ASSIGNMENT_URL = aid =>
+  aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
+
+[CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme]
+  .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 // ================================================================
 //  DERIVED — do not edit

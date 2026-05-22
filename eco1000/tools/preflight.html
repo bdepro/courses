@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 1000 — PREFLIGHT VALIDATOR (browser-based)
+  Open this file in any browser. No install required.
+
+  Loads ../config.js and runs the same set of checks the
+  rest of the site cannot catch silently:
+    1. GRADING weights sum to 100
+    2. sessionStarts months match the "dates" string per session
+    3. INSTRUCTOR critical fields populated
+    4. Canvas URLs populated for current semester (warnings)
+    5. QUESTIONS.bundle populated (escalates within 60 days of start)
+    6. canvasId in assignment URLs matches COURSE.canvasId
+    7. PAGES URLs share COURSE.baseUrl
+    8. FEATURES vs TEXTBOOK consistency
+    9. Check-in IDs in SCHEDULE match CANVAS.checkIns
+   10. Puzzle session numbers exist in SCHEDULE.sessions
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECO 1000 · Preflight Validator</title>
+  <script src="../config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b;
+      --fail-bg:#fdecec; --fail-bd:#c0392b; --fail-fg:#7a1a13;
+      --warn-bg:#fdf5e3; --warn-bd:#b59a57; --warn-fg:#7a5c1e;
+      --ok-bg:#eaf4ec;   --ok-bd:#3a8b54;   --ok-fg:#1f5b34;
+      --mono:Consolas,'Courier New',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:Arial,sans-serif;background:var(--cream);color:var(--text);
+      font-size:14px;line-height:1.55;padding:2rem 1.25rem 4rem;
+    }
+    main{max-width:840px;margin:0 auto;}
+    h1{
+      font-size:1.35rem;color:var(--crimson);
+      border-bottom:3px solid var(--gold);padding-bottom:0.5rem;margin-bottom:0.4rem;
+    }
+    .meta{font-size:0.82rem;color:var(--muted);margin-bottom:1.25rem;font-family:var(--mono);}
+    .meta strong{color:var(--text);font-weight:600;}
+    .summary{
+      padding:0.85rem 1rem;border-radius:6px;font-weight:600;
+      margin-bottom:1.5rem;border-left:5px solid;
+    }
+    .summary.ok  {background:var(--ok-bg);  border-color:var(--ok-bd);  color:var(--ok-fg);}
+    .summary.fail{background:var(--fail-bg);border-color:var(--fail-bd);color:var(--fail-fg);}
+    .summary.warn{background:var(--warn-bg);border-color:var(--warn-bd);color:var(--warn-fg);}
+    section{margin-bottom:1.25rem;}
+    section h2{
+      font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;
+      color:var(--muted);margin-bottom:0.5rem;font-weight:700;
+    }
+    ul{list-style:none;}
+    li{
+      background:#fff;border:1px solid var(--border);border-radius:5px;
+      padding:0.55rem 0.85rem;margin-bottom:5px;font-family:var(--mono);
+      font-size:0.82rem;line-height:1.5;
+      border-left-width:4px;
+    }
+    li.fail{border-left-color:var(--fail-bd);}
+    li.warn{border-left-color:var(--warn-bd);}
+    li.note{border-left-color:var(--gold);color:var(--muted);}
+    li code{background:var(--warm-gray);padding:1px 5px;border-radius:3px;font-size:0.8rem;}
+    .tag{
+      display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+      text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-right:6px;
+    }
+    .tag.fail{background:var(--fail-bd);color:#fff;}
+    .tag.warn{background:var(--warn-bd);color:#fff;}
+    footer{
+      margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);
+      font-size:0.75rem;color:var(--muted);font-family:var(--mono);
+    }
+    .rerun{
+      display:inline-block;margin-top:0.5rem;padding:0.4rem 0.9rem;
+      background:var(--gold);color:#1a1a1a;font-size:0.78rem;font-weight:700;
+      letter-spacing:0.04em;text-transform:uppercase;border-radius:4px;
+      text-decoration:none;border:none;cursor:pointer;font-family:inherit;
+    }
+    .rerun:hover{background:#d4b97a;}
+  </style>
+</head>
+<body>
+<main>
+  <h1>ECO 1000 — Preflight Validator</h1>
+  <div class="meta" id="meta"></div>
+  <div class="summary" id="summary"></div>
+  <section id="failSection" hidden>
+    <h2>Errors — fix before publish</h2>
+    <ul id="failList"></ul>
+  </section>
+  <section id="warnSection" hidden>
+    <h2>Warnings — follow up as semester approaches</h2>
+    <ul id="warnList"></ul>
+  </section>
+  <section id="okSection" hidden>
+    <h2>Checks that passed</h2>
+    <ul id="okList"></ul>
+  </section>
+  <button class="rerun" onclick="location.reload()">Re-run after edits</button>
+  <footer>tools/preflight.html · loads ../config.js · no install required</footer>
+</main>
+
+<script>
+// ================================================================
+//  CHECKS
+// ================================================================
+const errors   = [];
+const warnings = [];
+const passed   = [];
+
+const fail = m => errors.push(m);
+const warn = m => warnings.push(m);
+const ok   = m => passed.push(m);
+
+// ── 1. GRADING weights sum to 100 ────────────────────────────────
+const totalWeight = GRADING.components.reduce((s, c) => s + c.weight, 0);
+if (totalWeight !== 100) {
+  fail(`GRADING.components weights sum to <code>${totalWeight}</code>, expected 100`);
+} else {
+  ok(`GRADING.components sums to 100%`);
+}
+
+// ── 2. sessionStarts months match dates strings ──────────────────
+const MONTH = { Jan:0, Feb:1, Mar:2, Apr:3, May:4, Jun:5, Jul:6, Aug:7, Sep:8, Oct:9, Nov:10, Dec:11 };
+const MONTH_NAME = Object.keys(MONTH);
+let dateMismatches = 0;
+SCHEDULE.sessions.forEach((s, i) => {
+  const starts = SCHEDULE.sessionStarts[i];
+  if (!starts) {
+    fail(`sessionStarts[${i}] missing for S${s.num} (${s.dates})`);
+    dateMismatches++;
+    return;
+  }
+  const monthToken = s.dates.split(/[\s-]/)[0];
+  const expected   = MONTH[monthToken];
+  if (expected === undefined) {
+    warn(`Could not parse month from S${s.num}.dates=<code>"${s.dates}"</code>`);
+    return;
+  }
+  if (starts.getMonth() !== expected) {
+    fail(`sessionStarts[${i}] (S${s.num}) resolves to <code>${MONTH_NAME[starts.getMonth()]} ${starts.getDate()}</code>, expected <code>${monthToken}</code> from dates=<code>"${s.dates}"</code>`);
+    dateMismatches++;
+  }
+});
+if (dateMismatches === 0) ok(`All ${SCHEDULE.sessions.length} sessionStarts dates align with their session.dates strings`);
+
+const lastStart = SCHEDULE.sessionStarts[SCHEDULE.sessionStarts.length - 1];
+const prevStart = SCHEDULE.sessionStarts[SCHEDULE.sessionStarts.length - 2];
+if (lastStart && prevStart && lastStart <= prevStart) {
+  fail(`sessionStarts final-zone date is not after the last session start`);
+}
+
+// ── 3. INSTRUCTOR critical fields ────────────────────────────────
+if (!INSTRUCTOR.officeHours) {
+  warn(`<code>INSTRUCTOR.officeHours</code> is empty — office-hours row will be hidden on syllabus and home`);
+} else {
+  ok(`INSTRUCTOR.officeHours populated`);
+}
+['name', 'email', 'office'].forEach(k => {
+  if (!INSTRUCTOR[k]) fail(`<code>INSTRUCTOR.${k}</code> is empty`);
+});
+
+// ── 4. Canvas URLs populated for current semester ────────────────
+const today    = new Date();
+const firstDay = SCHEDULE.sessionStarts[0];
+const daysToStart = Math.floor((firstDay - today) / 86400000);
+
+// CANVAS.checkIns.url is intentionally optional — check-ins are pen-and-paper.
+// The url field is only used for an optional post-grading "View Results" link.
+
+const emptyFf = CANVAS.friday.filter(f => !f.url).length;
+if (emptyFf > 0) warn(`<code>CANVAS.friday</code>: ${emptyFf}/${CANVAS.friday.length} URLs empty (FF narrative and viva sign-up)`);
+else ok(`All CANVAS.friday URLs populated`);
+
+const vivaEmpty = Object.entries(CANVAS.viva).filter(([, v]) => !v).map(([k]) => k);
+if (vivaEmpty.length > 0) {
+  warn(`<code>CANVAS.viva</code>: ${vivaEmpty.length} fields empty (<code>${vivaEmpty.join(', ')}</code>)`);
+} else {
+  ok(`All CANVAS.viva URLs populated`);
+}
+
+const emptyPuz = CANVAS.puzzles.filter(p => !p.url).length;
+if (emptyPuz > 0) warn(`<code>CANVAS.puzzles</code>: ${emptyPuz}/${CANVAS.puzzles.length} URLs empty`);
+else ok(`All CANVAS.puzzles URLs populated`);
+
+const emptyMme = CANVAS.mme.filter(m => !m.url).length;
+if (emptyMme > 0) warn(`<code>CANVAS.mme</code>: ${emptyMme}/${CANVAS.mme.length} URLs empty`);
+else ok(`All CANVAS.mme URLs populated`);
+
+// ── 5. QUESTIONS.bundle population ───────────────────────────────
+const emptyQs = QUESTIONS.bundle.filter(q => !q.question).length;
+if (emptyQs > 0) {
+  const sev = daysToStart < 60 ? fail : warn;
+  sev(`<code>QUESTIONS.bundle</code>: ${emptyQs}/${QUESTIONS.bundle.length} questions empty (S11 vote on Nov 4)`);
+} else {
+  ok(`All QUESTIONS.bundle entries populated`);
+}
+if (QUESTIONS.bundle.length !== QUESTIONS.voteProcess.bundleSize) {
+  fail(`<code>QUESTIONS.bundle</code> has ${QUESTIONS.bundle.length} entries; <code>voteProcess.bundleSize</code> = ${QUESTIONS.voteProcess.bundleSize}`);
+}
+
+// ── 6. Assignment ID (aid) populated on every assignment entry ───
+// URLs are now auto-built from COURSE.canvasId + aid, so the canvasId
+// mismatch case is impossible. Instead we verify that every entry has
+// an aid — without one, the derived URL is broken.
+const checkAid = (arr, name, keyField) => {
+  const missing = arr.filter(x => !x.aid);
+  if (missing.length > 0) {
+    fail(`${name}: ${missing.length}/${arr.length} entries missing <code>aid</code> — derived URL will be broken`);
+    missing.slice(0, 5).forEach(x =>
+      fail(`&nbsp;&nbsp;&nbsp;${name}[${keyField}=${x[keyField]}] has no aid`));
+  } else {
+    ok(`${name}: all ${arr.length} entries have aid populated`);
+  }
+};
+checkAid(CHAPTERS.core,        'CHAPTERS.core',        'key');
+checkAid(CHAPTERS.application, 'CHAPTERS.application', 'key');
+checkAid(CANVAS.puzzles,       'CANVAS.puzzles',       'session');
+checkAid(CANVAS.mme,           'CANVAS.mme',           'id');
+
+// ── 7. PAGES URLs share COURSE.baseUrl ───────────────────────────
+let pageDrift = 0;
+Object.entries(PAGES).forEach(([key, url]) => {
+  if (url.includes('/courses/shared/')) return;
+  if (!url.startsWith(COURSE.baseUrl)) {
+    fail(`<code>PAGES.${key}</code> ("${url}") does not start with <code>COURSE.baseUrl</code>`);
+    pageDrift++;
+  }
+});
+if (pageDrift === 0) ok(`All PAGES URLs share COURSE.baseUrl`);
+
+// ── 8. FEATURES vs TEXTBOOK ──────────────────────────────────────
+if (FEATURES.textbook && !TEXTBOOK.ebookUrl) {
+  warn(`<code>FEATURES.textbook</code> is true but <code>TEXTBOOK.ebookUrl</code> is empty`);
+}
+
+// ── 9. Check-in IDs match between SCHEDULE and CANVAS ────────────
+const ciInSched  = SCHEDULE.sessions.filter(s => s.checkIn).map(s => s.checkIn).sort();
+const ciInCanvas = CANVAS.checkIns.map(c => c.id).sort();
+if (JSON.stringify(ciInSched) !== JSON.stringify(ciInCanvas)) {
+  fail(`Check-in IDs in SCHEDULE [${ciInSched}] do not match CANVAS.checkIns [${ciInCanvas}]`);
+} else {
+  ok(`Check-in IDs align between SCHEDULE and CANVAS`);
+}
+
+// ── 10. Puzzle session numbers exist in SCHEDULE ─────────────────
+const knownSessions = new Set(SCHEDULE.sessions.map(s => s.num));
+let puzzleOrphans = 0;
+CANVAS.puzzles.forEach(p => {
+  if (!knownSessions.has(p.session)) {
+    fail(`<code>CANVAS.puzzles</code> references session <code>${p.session}</code>, not in SCHEDULE.sessions`);
+    puzzleOrphans++;
+  }
+});
+if (puzzleOrphans === 0) ok(`All CANVAS.puzzles sessions exist in SCHEDULE`);
+
+// ================================================================
+//  RENDER
+// ================================================================
+const fmtDays = d => d >= 0 ? `${d} days away` : `${Math.abs(d)} days ago`;
+document.getElementById('meta').innerHTML =
+  `<strong>${COURSE.semester}</strong> &nbsp;·&nbsp; ` +
+  `canvasId <strong>${COURSE.canvasId}</strong> &nbsp;·&nbsp; ` +
+  `today ${today.toDateString()} &nbsp;·&nbsp; ` +
+  `semester starts ${firstDay.toDateString()} (${fmtDays(daysToStart)})`;
+
+const summary = document.getElementById('summary');
+if (errors.length === 0 && warnings.length === 0) {
+  summary.className = 'summary ok';
+  summary.textContent = `OK — all ${passed.length} checks passed.`;
+} else if (errors.length === 0) {
+  summary.className = 'summary warn';
+  summary.textContent = `0 errors, ${warnings.length} warning(s) — safe to publish; follow up as semester approaches.`;
+} else {
+  summary.className = 'summary fail';
+  summary.textContent = `${errors.length} error(s), ${warnings.length} warning(s) — fix errors before publish.`;
+}
+
+function render(items, listId, sectionId, tagClass) {
+  if (items.length === 0) return;
+  const list = document.getElementById(listId);
+  items.forEach(msg => {
+    const li = document.createElement('li');
+    li.className = tagClass;
+    li.innerHTML = `<span class="tag ${tagClass}">${tagClass}</span>${msg}`;
+    list.appendChild(li);
+  });
+  document.getElementById(sectionId).hidden = false;
+}
+render(errors,   'failList', 'failSection', 'fail');
+render(warnings, 'warnList', 'warnSection', 'warn');
+
+if (passed.length > 0) {
+  const list = document.getElementById('okList');
+  passed.forEach(msg => {
+    const li = document.createElement('li');
+    li.className = 'note';
+    li.innerHTML = `<span class="tag" style="background:var(--ok-bd);color:#fff;">pass</span>${msg}`;
+    list.appendChild(li);
+  });
+  document.getElementById('okSection').hidden = false;
+}
+</script>
+</body>
+</html>

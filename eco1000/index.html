@@ -11,10 +11,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ECO 1000 Principles of Economics at Elon University — course home with syllabus, schedule, assignments, and resources.">
+  <meta property="og:title" content="ECO 1000 · Principles of Economics">
+  <meta property="og:description" content="Elon University · Principles of Economics course home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdepro.github.io/courses/eco1000/">
   <title>ECO 1000 · Principles of Economics</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <script src="config.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.469.0"></script>
   <style>
     /* ── Page-specific overrides ── */
     .header-inner { max-width: 960px; }
@@ -77,9 +82,20 @@
       header { padding: 1.75rem 1.25rem 1.5rem; }
       .arc-strip { gap: 0.4rem; }
     }
+
+    /* Skip link — keyboard accessibility */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--crimson); color: var(--white);
+      padding: 8px 14px; font-weight: 600; font-size: 0.85rem;
+      text-decoration: none; z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
   <div class="header-inner">
@@ -90,10 +106,10 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 
   <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="#" target="_blank">
+  <a class="card primary" id="scheduleCard" href="#" target="_blank" rel="noopener">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
@@ -125,13 +141,14 @@
 
 <footer>
   <span id="footerText"></span> &nbsp;·&nbsp;
-  <a href="https://www.elon.edu" target="_blank">Elon University</a>
+  <a href="https://www.elon.edu" target="_blank" rel="noopener">Elon University</a>
 </footer>
 
 <script>
 // ================================================================
 //  Wire header from config
 // ================================================================
+document.title = `${document.title} · ${COURSE.semester}`;
 document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
 document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
@@ -154,7 +171,7 @@ metaItems.forEach(item => {
   div.innerHTML = `
     <span class="meta-label">${item.label}</span>
     <span class="meta-value">${item.href
-      ? `<a href="${item.href}" target="_blank">${item.value}</a>`
+      ? `<a href="${item.href}" target="_blank" rel="noopener">${item.value}</a>`
       : item.value
     }</span>
   `;
@@ -269,13 +286,11 @@ let delay  = 0.05;
 ALL_CARDS.forEach(card => {
   if (!FEATURES[card.feature]) return;
 
-  // Disable e-book card if URL not yet set
-  const disabled = (card.feature === 'textbook' && !TEXTBOOK.ebookUrl);
-
   const a = document.createElement('a');
-  a.className = `card${disabled ? ' disabled' : ''}`;
-  a.href      = disabled ? '#' : card.href;
-  a.target    = disabled ? '_self' : '_blank';
+  a.className = 'card';
+  a.href      = card.href;
+  a.target    = '_blank';
+  a.rel       = 'noopener';
   a.style.animationDelay = `${delay}s`;
   delay += 0.07;
 
@@ -283,7 +298,7 @@ ALL_CARDS.forEach(card => {
     <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
     <div class="card-content">
       <div class="card-title">${card.title}</div>
-      <div class="card-desc">${card.desc}${disabled ? ' <em style="font-size:0.78rem">(link coming soon)</em>' : ''}</div>
+      <div class="card-desc">${card.desc}</div>
       ${card.badge ? `<span class="card-badge ${card.badgeClass}">${card.badge}</span>` : ''}
     </div>
     <span class="card-arrow">→</span>
