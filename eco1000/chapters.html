@@ -101,7 +101,7 @@ SCHEDULE.sessions.forEach(function(s){ sessionLabel[s.num] = s.label; });
 function buildRow(ch, sessionNum) {
   var row = document.createElement('div');
   row.className = 'ch-row';
-  var sub = sessionNum ? '<span class="ch-session">Session ' + sessionNum + ' · ' + (sessionLabel[sessionNum] || '') + '</span>' : '';
+  var sub = sessionNum ? '<span class="ch-session">Session ' + sessionNum + '</span>' : '';
   row.innerHTML =
     '<div class="ch-num">' + ch.num + '</div>' +
     '<div class="ch-body">' + ch.title + sub + '</div>' +
