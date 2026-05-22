@@ -530,8 +530,7 @@ const ASSIGNMENT_URL = aid =>
 // ================================================================
 //  PUZZLE DUE-DATE DERIVATION
 //  Puzzle for session N is due the Wednesday of session N+1 at 11:59 p.m.
-//  (sessionStart + 9 days). If that date falls inside a break session,
-//  due shifts to Friday of session N (sessionStart + 4 days).
+//  (sessionStart + 9 days). 
 // ================================================================
 const _DAY_MS = 86400000;
 const _DUE_FMT = { weekday: 'short', month: 'short', day: 'numeric' };
@@ -542,7 +541,11 @@ const puzzleDueDate = sessionNum => {
   const start = SCHEDULE.sessionStarts[idx];
   if (!start) return null;
 
-  let due = new Date(start.getTime() + 9 * _DAY_MS);   // Wed of session N+1
+  // 1. Clone the start date so you don't mutate the original schedule object
+  let due = new Date(start.getTime()); 
+
+  // 2. Add 9 calendar days safely (JS handles DST adjustments automatically here)
+  due.setDate(due.getDate() + 9); 
 
   return due;
 };
