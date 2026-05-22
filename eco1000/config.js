@@ -346,7 +346,7 @@ const FEATURES = {
 // ================================================================
 const TEXTBOOK = {
   publisher:  "Cengage",
-  platform:   "MindTap",
+  platform:   "E-Book",
   edition:    "18th",
   title:      "Economics: Private and Public Choice",
   authors:    "Gwartney, Stroup, Sobel, and Macpherson",
@@ -544,15 +544,6 @@ const puzzleDueDate = sessionNum => {
 
   let due = new Date(start.getTime() + 9 * _DAY_MS);   // Wed of session N+1
 
-  // If that Wednesday lands inside a break, shift to Fri of session N.
-  SCHEDULE.sessions.forEach((s, i) => {
-    if (!s.break) return;
-    const bStart = SCHEDULE.sessionStarts[i];
-    const bEnd   = SCHEDULE.sessionStarts[i + 1];
-    if (bStart && bEnd && due >= bStart && due < bEnd) {
-      due = new Date(start.getTime() + 4 * _DAY_MS);
-    }
-  });
   return due;
 };
 
