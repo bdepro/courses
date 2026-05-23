@@ -87,7 +87,7 @@ All readings and quizzes due Wednesday 11:59 p.m. of each session.
 
 Build in this order, using ECO 1000 equivalents as the model:
 
-- [ ] `index.html` — course home page
+- [x] `index.html` — course home page
 - [ ] `schedule.html`
 - [ ] `assignments.html`
 - [ ] `checkins.html`
