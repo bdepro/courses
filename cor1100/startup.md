@@ -4,6 +4,11 @@
 Read this at the start of each session to pick up where we left off.
 Update the checklist below as items are completed.
 
+**At the start of each session, read in this order:**
+1. This file (`startup.md`)
+2. `cor1100/config.js` — full course configuration
+3. The relevant ECO 1000 model file (e.g. `eco1000/index.html` when building `index.html`)
+
 ---
 
 ## Repo locations
