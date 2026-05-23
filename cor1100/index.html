@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  COR 1100 — COURSE HOME PAGE
+  Hosted: bdepro.github.io/courses/cor1100/index.html
+  All dynamic content pulls from config.js — do not hardcode
+  semester, instructor, or grade information here.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="COR 1100 The Global Experience at Elon University — course home with syllabus, schedule, assignments, and resources.">
+  <meta property="og:title" content="COR 1100 · The Global Experience">
+  <meta property="og:description" content="Elon University · The Global Experience course home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdepro.github.io/courses/cor1100/">
+  <title>COR 1100 · The Global Experience</title>
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
+  <script src="config.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0"></script>
+  <style>
+    /* ── Page-specific overrides ── */
+    .header-inner { max-width: 960px; }
+    main { max-width: 960px; padding: 2.5rem 1.5rem 4rem; }
+
+    /* Meta bar */
+    .meta {
+      display: flex; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .meta-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+    }
+    .meta-value { font-size: 0.85rem; font-weight: 400; color: rgba(255,255,255,0.85); }
+    .meta-value a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+
+    /* Arc strip */
+    .arc-strip {
+      background: var(--warm-gray);
+      border: 1px solid rgba(181,154,87,0.2);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-wrap: wrap; margin-bottom: 1.75rem;
+    }
+    .arc-step {
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .arc-step strong { color: var(--crimson); font-weight: 600; }
+    .arc-sep { color: var(--gold); font-size: 0.8rem; }
+
+    /* Card grid — auto-fill for variable card count */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Welcome strip */
+    .welcome {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .welcome-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold-link); margin-bottom: 0.5rem;
+    }
+    .welcome p {
+      font-size: 0.95rem; line-height: 1.7; color: var(--text); font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .meta { gap: 1rem; }
+      header { padding: 1.75rem 1.25rem 1.5rem; }
+      .arc-strip { gap: 0.4rem; }
+    }
+
+    /* Skip link — keyboard accessibility */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--crimson); color: var(--white);
+      padding: 8px 14px; font-weight: 600; font-size: 0.85rem;
+      text-decoration: none; z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <p class="course-code" id="courseCode"></p>
+    <h1>Where do I start?</h1>
+    <p class="header-meta" id="headerMeta"></p>
+    <div class="meta" id="metaBar"></div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Primary card — Schedule -->
+  <a class="card primary" id="scheduleCard" href="#" target="_blank" rel="noopener">
+    <div class="card-icon"><i data-lucide="calendar"></i></div>
+    <div class="card-content">
+      <div class="card-title">How will your learning be organized?</div>
+      <div class="card-desc">Session-by-session schedule, chapter coverage, and check-in dates. Open this every week.</div>
+    </div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <!-- Course arc -->
+  <div class="arc-strip" id="arcStrip">
+    <span class="arc-step"><strong>Read</strong> Hanley on Perusall</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Attend</strong> class</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Complete</strong> Puzzle</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Reflect</strong> on Smith</span>
+    <span class="arc-sep">·</span>
+    <span class="arc-step" id="arcSummary"></span>
+  </div>
+
+  <!-- Section label -->
+  <p class="section-heading">Course Resources &amp; Assessments</p>
+
+  <!-- Card grid — built from config -->
+  <div class="card-grid" id="cardGrid"></div>
+
+</main>
+
+<footer>
+  <span id="footerText"></span> &nbsp;·&nbsp;
+  <a href="https://www.elon.edu" target="_blank" rel="noopener">Elon University</a>
+</footer>
+
+<script>
+// ================================================================
+//  Wire header from config
+// ================================================================
+document.title = `${document.title} · ${COURSE.semester}`;
+document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
+document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
+document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+
+// Meta bar
+const metaItems = [
+  { label: 'Semester',   value: COURSE.semester },
+  { label: 'Instructor', value: INSTRUCTOR.name },
+  { label: 'Office',     value: INSTRUCTOR.office },
+  { label: 'Email',      value: INSTRUCTOR.email, href: `mailto:${INSTRUCTOR.email}` },
+  { label: 'Zoom',       value: INSTRUCTOR.zoomDisplay, href: INSTRUCTOR.zoomUrl },
+];
+if (INSTRUCTOR.officeHours) {
+  metaItems.splice(3, 0, { label: 'Office Hours', value: INSTRUCTOR.officeHours });
+}
+const metaBar = document.getElementById('metaBar');
+metaItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'meta-item';
+  div.innerHTML = `
+    <span class="meta-label">${item.label}</span>
+    <span class="meta-value">${item.href
+      ? `<a href="${item.href}" target="_blank" rel="noopener">${item.value}</a>`
+      : item.value
+    }</span>
+  `;
+  metaBar.appendChild(div);
+});
+
+// Arc summary — CHAPTERS.all (no core/application split in COR 1100)
+// Sessions with at least one chapter assigned (s.chapters is an array here)
+const chapterCount    = CHAPTERS.all.length;
+const contentSessions = SCHEDULE.sessions.filter(s => !s.break && s.chapters.length > 0).length;
+document.getElementById('arcSummary').textContent =
+  `${contentSessions} content sessions · ${chapterCount} Hanley chapters · ${SOURCE_TEXT.author}`;
+
+// Schedule card
+document.getElementById('scheduleCard').href = PAGES.schedule;
+
+// ================================================================
+//  Card definitions — driven by FEATURES and GRADING from config
+// ================================================================
+function gradeLabel(id) {
+  const g = GRADING.components.find(c => c.id === id);
+  return g ? `${g.weight}% of Grade` : null;
+}
+
+const ALL_CARDS = [
+  {
+    feature:   'syllabus',
+    href:      PAGES.syllabus,
+    icon:      'book-open',
+    title:     'Course Syllabus &amp; Policies',
+    desc:      'Policies, expectations, and the grading breakdown. Read this first.',
+    badge:     null,
+    badgeClass: null,
+  },
+  {
+    feature:   'assignments',
+    href:      PAGES.assignments,
+    icon:      'clipboard-list',
+    title:     'Assignments',
+    desc:      'Grade weights, policies, and links to every assignment. Start here before the semester begins.',
+    badge:     null,
+    badgeClass: null,
+  },
+  {
+    feature:   'checkins',
+    href:      PAGES.checkins,
+    icon:      'clipboard-check',
+    title:     'Check-Ins',
+    desc:      'Four in-class check-ins. Hanley themes and standing analytical threads appear on every one. Check-In #4 replaces your lowest score if higher.',
+    badge:     gradeLabel('checkins'),
+    badgeClass: 'badge-grade',
+  },
+  {
+    feature:   'friday',
+    href:      PAGES.friday,
+    icon:      'pen-line',
+    title:     'Friday Focus',
+    desc:      'A written narrative on Hanley and Smith, followed by a 12-minute conversation with your instructor during viva week.',
+    badge:     gradeLabel('friday'),
+    badgeClass: 'badge-grade',
+  },
+  {
+    feature:   'puzzles',
+    href:      PAGES.puzzles,
+    icon:      'puzzle',
+    title:     'Puzzles',
+    desc:      'Eight formative quizzes, one per content session (no quiz in S7). Lowest score dropped at end of semester.',
+    badge:     gradeLabel('puzzles'),
+    badgeClass: 'badge-grade',
+  },
+  {
+    feature:   'mme',
+    href:      PAGES.mme,
+    icon:      'newspaper',
+    title:     'Monday Morning Economist',
+    desc:      `Four passages from ${SOURCE_TEXT.title} by ${SOURCE_TEXT.author}. Introduced Friday of designated sessions.`,
+    badge:     gradeLabel('mme'),
+    badgeClass: 'badge-grade',
+  },
+  {
+    feature:   'chapters',
+    href:      PAGES.chapters,
+    icon:      'book-open',
+    title:     'Hanley Chapters',
+    desc:      `${TEXTBOOK.title}. One Perusall assignment per chapter — open each assigned chapter directly through Canvas.`,
+    badge:     'Reading',
+    badgeClass: 'badge-resource',
+  },
+  {
+    feature:   'support',
+    href:      PAGES.support,
+    icon:      'life-buoy',
+    title:     'Help &amp; Support',
+    desc:      'Tutoring, office hours, and the right person to call when something is not working.',
+    badge:     null,
+    badgeClass: null,
+  },
+  {
+    feature:   'aiPolicy',
+    href:      PAGES.aiPolicy,
+    icon:      'cpu',
+    title:     'AI in This Course',
+    desc:      'What AI tools you can use in this course, and where the boundaries are.',
+    badge:     null,
+    badgeClass: null,
+  },
+  {
+    feature:   'aiAssignments',
+    href:      PAGES.aiAssignments || '#',
+    icon:      'bot',
+    title:     'AI Assignment',
+    desc:      'The COR 1100 AI assignment. Instructions and submission details.',
+    badge:     null,
+    badgeClass: null,
+  },
+];
+
+// Build cards — only render if feature flag is true
+const grid = document.getElementById('cardGrid');
+let delay  = 0.05;
+
+ALL_CARDS.forEach(card => {
+  if (!FEATURES[card.feature]) return;
+
+  const a = document.createElement('a');
+  a.className = 'card';
+  a.href      = card.href;
+  a.target    = '_blank';
+  a.rel       = 'noopener';
+  a.style.animationDelay = `${delay}s`;
+  delay += 0.07;
+
+  a.innerHTML = `
+    <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+    <div class="card-content">
+      <div class="card-title">${card.title}</div>
+      <div class="card-desc">${card.desc}</div>
+      ${card.badge ? `<span class="card-badge ${card.badgeClass}">${card.badge}</span>` : ''}
+    </div>
+    <span class="card-arrow">→</span>
+  `;
+  grid.appendChild(a);
+});
+
+// Init Lucide icons after cards are built
+lucide.createIcons();
+</script>
+</body>
+</html>
