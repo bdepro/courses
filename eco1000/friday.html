@@ -139,10 +139,12 @@ function pill(label, url) {
 var narrativePills = document.getElementById('narrativePills');
 var ff1 = CANVAS.friday[0];
 if(ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
+narrativePills.appendChild(pill('Writing guide', PAGES.narrativeGuide));
 
 var vivaPills = document.getElementById('vivaPills');
 vivaPills.appendChild(pill('Viva week sign-up', CANVAS.viva.vivaWeekSignupUrl));
 vivaPills.appendChild(pill('Exam period sign-up', CANVAS.viva.examPeriodSignupUrl));
+vivaPills.appendChild(pill('Viva prep guide', PAGES.vivaPrep));
 </script>
 </body>
 </html>

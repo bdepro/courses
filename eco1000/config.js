@@ -419,6 +419,8 @@ const PAGES = {
   mme:         `${COURSE.baseUrl}/mme.html`,
   friday:      `${COURSE.baseUrl}/friday.html`,
   chapters:    `${COURSE.baseUrl}/chapters.html`,
+  narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=eco1000`,
+  vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=eco1000`,
   support:        `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html`,
   aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
