@@ -103,8 +103,8 @@ const PAGES = {
   badges:         `${COURSE.baseUrl}/badges.html`,
   friday:         `${COURSE.baseUrl}/friday.html`,
   officeHours:    `${COURSE.baseUrl}/office-hours.html`,
-  vivaPrep:       `${COURSE.baseUrl}/viva-prep-guide.html`,
-  narrativeGuide: `${COURSE.baseUrl}/narrative-guide.html`,
+  vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=eco1000-cengage`,
+  narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=eco1000-cengage`,
   aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html`,
   aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
 };
