@@ -24,7 +24,7 @@ First-year seminar modeled on ECO 1000. Same session structure, same grading com
 names and weights, same HTML framework. Key differences from ECO 1000:
 
 - **Text:** Hanley, *Our Great Purpose* (Princeton UP) — PDFs via Perusall, no Cengage
-- **Source text:** Smith, *Theory of Moral Sentiments* — 4 passages serve as the MME
+- **Source text:** Smith, *Theory of Moral Sentiments* — 4 passages serve as the TMS component
 - **No application block** — S12–S13 continue with Hanley chapters through the end
 - **25 chapters** — Intro + Ch. I–XXV, Ch. XI omitted (intentionally curated)
 - **8 Puzzles** — formative MC quizzes; no quiz in S7 (Mon/Tue only before Fall Break)
@@ -38,15 +38,15 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 | S0 | Aug 26–28 | — | Course intro only, no reading |
 | S1 | Aug 31–Sep 4 | Intro, Ch. I, II | Puzzle 1 |
 | S2 | Sep 7–11 | Ch. III, IV, V | Puzzle 2 |
-| S3 | Sep 14–18 | — | CI #1 Wed Sep 16 · MME 1 launched Fri |
+| S3 | Sep 14–18 | — | CI #1 Wed Sep 16 · TMS 1 launched Fri |
 | S4 | Sep 21–25 | Ch. VI, VII, VIII | Puzzle 3 |
 | S5 | Sep 28–Oct 2 | Ch. IX, X, XII | Puzzle 4 |
-| S6 | Oct 5–9 | — | CI #2 Wed Oct 7 · MME 2 launched Fri |
+| S6 | Oct 5–9 | — | CI #2 Wed Oct 7 · TMS 2 launched Fri |
 | S7 | Oct 12–13 | Ch. XIII | Perusall only — no quiz |
 | S8 | Oct 14–18 | — | Fall Break |
-| S9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 · MME 3 launched Fri |
+| S9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 · TMS 3 launched Fri |
 | S10 | Oct 26–30 | Ch. XVII, XVIII, XIX | Puzzle 6 |
-| S11 | Nov 2–6 | — | CI #3 Wed Nov 4 · MME 4 launched Fri |
+| S11 | Nov 2–6 | — | CI #3 Wed Nov 4 · TMS 4 launched Fri |
 | S12 | Nov 9–13 | Ch. XX, XXI, XXII | Puzzle 7 |
 | S13 | Nov 16–20 | Ch. XXIII, XXIV, XXV | Puzzle 8 |
 | S14 | Nov 23–27 | — | Thanksgiving Break |
@@ -61,7 +61,7 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 | Check-Ins | 50% | CI 4 always counts; replaces lowest of CI 1–3 if higher |
 | Friday Focus | 25% | Narrative due Wed Dec 2 · viva during viva week · focus on Hanley/Smith |
 | Puzzles | 15% | 8 quizzes, lowest dropped; late within 1 week = 80% |
-| MME | 10% | 4 TMS passages; introduced Fri of S3, S6, S9, S11 |
+| TMS | 10% | 4 TMS passages; introduced Fri of S3, S6, S9, S11 |
 
 All readings and quizzes due Wednesday 11:59 p.m. of each session.
 
@@ -71,7 +71,7 @@ All readings and quizzes due Wednesday 11:59 p.m. of each session.
 
 - [ ] `CHAPTERS.threads` — standing analytical threads for every CI (not yet decided)
 - [ ] `CHAPTERS.all[*].url` — 25 Perusall assignment URLs (after Perusall is set up)
-- [ ] `CANVAS.mme[*].title` and `.url` — 4 TMS passage titles and Canvas URLs
+- [ ] `CANVAS.tms[*].title` and `.url` — 4 TMS passage titles and Canvas URLs
 - [ ] `CANVAS.puzzles[*].url` — 8 quiz URLs
 - [ ] `CANVAS.checkIns[*].url` — 4 check-in URLs
 - [ ] `CANVAS.friday[*].url` — narrative submission + Canvas Scheduler URL
@@ -92,7 +92,7 @@ Build in this order, using ECO 1000 equivalents as the model:
 - [ ] `assignments.html`
 - [ ] `checkins.html`
 - [ ] `puzzles.html`
-- [ ] `mme.html`
+- [ ] `tms.html`
 - [ ] `friday.html`
 - [ ] `chapters.html` — Hanley chapter list with Perusall links (no Cengage)
 - [ ] `syllabus.html`
@@ -104,7 +104,8 @@ Build in this order, using ECO 1000 equivalents as the model:
 - Sessions use `chapters: []` array (not a single `chapter:` string key)
 - No `QUESTIONS` block — no application block, no vote
 - `TEXTBOOK` has `perusallUrl` not `ebookUrl`
-- New `SOURCE_TEXT` block (Smith, TMS) — referenced in mme.html
+- New `SOURCE_TEXT` block (Smith, TMS) — referenced in tms.html
 - `CHAPTERS.all` replaces `CHAPTERS.core` + `CHAPTERS.application`
 - Puzzle titles include full chapter titles, not just a topic phrase
 - Perusall grading policy TBD — currently listed as ungraded in config
+- **"MME" is never used** — all JS keys, labels, and page names use `tms` / TMS throughout (`CANVAS.tms`, `session.tmsFF`, `tmsUrl`, `tms.html`)
