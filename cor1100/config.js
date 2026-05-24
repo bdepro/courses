@@ -55,7 +55,7 @@ const INSTRUCTOR = {
 //                  (empty for check-in / break / viva weeks)
 //    checkIn     — check-in number if one occurs (null otherwise)
 //    checkInDay  — day check-in falls on (for display)
-//    mmeFF       — true if Friday is MME launch + FF progress day
+//    tmsFF       — true if Friday is TMS launch + FF progress day
 //    viva        — true if viva week
 //    break       — true suppresses auto-highlighting
 //    breakType   — 'fall' or 'thanksgiving' — drives card rendering
@@ -69,7 +69,7 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    No quiz in S7 (Mon/Tue only before Fall Break — Perusall only).
 //    MME passages introduced Friday of designated session;
-//      due Wednesday of the following CI week — see CANVAS.mme[].due.
+//      due Wednesday of the following CI week — see CANVAS.tms[].due.
 //    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
@@ -90,98 +90,98 @@ const SCHEDULE = {
   sessions: [
     {
       num: 0, dates: "Aug 26-28", label: "Introduction",
-      chapters: [], checkIn: null, mmeFF: false, viva: false,
+      chapters: [], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Wed/Fri only — course introduction, no reading assigned",
     },
     {
       num: 1, dates: "Aug 31-Sep 4", label: "Session 1",
-      chapters: ["intro", "ch1", "ch2"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["intro", "ch1", "ch2"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Intro / Ch. I On Self-Interest / Ch. II On Caring for Others",
     },
     {
       num: 2, dates: "Sep 7-11", label: "Session 2",
-      chapters: ["ch3", "ch4", "ch5"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch3", "ch4", "ch5"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
     },
     {
       num: 3, dates: "Sep 14-18", label: "Session 3",
       chapters: [], checkIn: 1, checkInDay: "Wed Sep 16",
-      mmeFF: true, viva: false, break: false, breakType: null,
+      tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: MME launch + FF progress",
     },
     {
       num: 4, dates: "Sep 21-25", label: "Session 4",
-      chapters: ["ch6", "ch7", "ch8"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch6", "ch7", "ch8"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
       num: 5, dates: "Sep 28-Oct 2", label: "Session 5",
-      chapters: ["ch9", "ch10", "ch12"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch9", "ch10", "ch12"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
     },
     {
       num: 6, dates: "Oct 5-9", label: "Session 6",
       chapters: [], checkIn: 2, checkInDay: "Wed Oct 7",
-      mmeFF: true, viva: false, break: false, breakType: null,
+      tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: MME launch + FF progress",
     },
     {
       num: 7, dates: "Oct 12-13", label: "Session 7",
-      chapters: ["ch13"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Mon & Tue only — Ch. XIII On Being Loved / Perusall reading assigned, no quiz / Fall Break begins Wed",
     },
     {
       num: 8, dates: "Oct 14-18", label: "Fall Break",
-      chapters: [], checkIn: null, mmeFF: false, viva: false,
+      chapters: [], checkIn: null, tmsFF: false, viva: false,
       break: true, breakType: "fall",
       note: "No class",
     },
     {
       num: 9, dates: "Oct 19-23", label: "Session 9",
-      chapters: ["ch14", "ch15", "ch16"], checkIn: null, mmeFF: true, viva: false,
+      chapters: ["ch14", "ch15", "ch16"], checkIn: null, tmsFF: true, viva: false,
       break: false, breakType: null,
       note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Session 10",
-      chapters: ["ch17", "ch18", "ch19"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch17", "ch18", "ch19"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Session 11",
       chapters: [], checkIn: 3, checkInDay: "Wed Nov 4",
-      mmeFF: true, viva: false, break: false, breakType: null,
+      tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: MME launch + FF progress",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Session 12",
-      chapters: ["ch20", "ch21", "ch22"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Session 13",
-      chapters: ["ch23", "ch24", "ch25"], checkIn: null, mmeFF: false, viva: false,
+      chapters: ["ch23", "ch24", "ch25"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
     },
     {
       num: 14, dates: "Nov 23-27", label: "Thanksgiving Break",
-      chapters: [], checkIn: null, mmeFF: false, viva: false,
+      chapters: [], checkIn: null, tmsFF: false, viva: false,
       break: true, breakType: "thanksgiving",
       note: "No class",
     },
     {
       num: 15, dates: "Nov 30-Dec 4", label: "Viva Week",
       chapters: [], checkIn: 4, checkInDay: "Fri Dec 4",
-      mmeFF: false, viva: true, break: false, breakType: null,
+      tmsFF: false, viva: true, break: false, breakType: null,
       note: "Mon & Wed: Viva slots / Fri: Check-In #4 (last day of class)",
     },
   ],
@@ -304,7 +304,7 @@ const GRADING = {
       note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
       note: "8 formative MC quizzes, one per content session (no quiz in S7). Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
-    { id: "mme",      label: "Monday Morning Economist", weight: 10,
+    { id: "tms",      label: "Theory of Moral Sentiments", weight: 10,
       note: "4 passages from The Theory of Moral Sentiments. Introduced Friday of designated sessions. Due Wednesday at 11:59 p.m." },
   ],
   ungraded: [
@@ -327,7 +327,7 @@ const FEATURES = {
   checkins:      false,
   puzzles:       false,
   badges:        false,
-  mme:           false,
+  tms:           false,
   friday:        false,
   wellness:      false,
   support:       true,
@@ -352,7 +352,7 @@ const TEXTBOOK = {
 // ================================================================
 //  SOURCE TEXT — Smith, used for MME readings
 //  4 selected passages assigned across the semester
-//  See CANVAS.mme for individual assignment titles and IDs
+//  See CANVAS.tms for individual assignment titles and IDs
 // ================================================================
 const SOURCE_TEXT = {
   title:  "The Theory of Moral Sentiments",
@@ -370,7 +370,7 @@ const PAGES = {
   assignments:   `${COURSE.baseUrl}/assignments.html`,
   checkins:      `${COURSE.baseUrl}/checkins.html`,
   puzzles:       `${COURSE.baseUrl}/puzzles.html`,
-  mme:           `${COURSE.baseUrl}/mme.html`,
+  tms:           `${COURSE.baseUrl}/tms.html`,
   friday:        `${COURSE.baseUrl}/friday.html`,
   chapters:      `${COURSE.baseUrl}/chapters.html`,
   support:       `https://bdepro.github.io/courses/shared/support.html`,
@@ -421,7 +421,7 @@ const CANVAS = {
   // Introduced Friday of designated session. Due Wednesday of dueSession.
   // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
   // UPDATE: titles and aids once passages are selected
-  mme: [
+  tms: [
     { id: 1, session: 3,  dueSession: 6,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",  title: "", aid: "" },  // UPDATE
     { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE
     { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.", title: "", aid: "" },  // UPDATE
@@ -469,7 +469,7 @@ const CANVAS = {
 const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
-[CHAPTERS.all, CANVAS.puzzles, CANVAS.mme]
+[CHAPTERS.all, CANVAS.puzzles, CANVAS.tms]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 // ================================================================

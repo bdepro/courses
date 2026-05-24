@@ -478,7 +478,7 @@ const SESSIONS_CONTENT = {
   3: {
     review: null,   // Monday review guide Canvas Page
     ffSubmit: null, // Friday Focus progress Canvas submission
-    mmeUrl: null,   // TMS passage link (override CANVAS.mme if needed)
+    tmsUrl: null,   // TMS passage link (override CANVAS.tms if needed)
   },
   4: {
     mon: null, wed: null, fri: null,
@@ -491,7 +491,7 @@ const SESSIONS_CONTENT = {
   6: {
     review: null,
     ffSubmit: null,
-    mmeUrl: null,
+    tmsUrl: null,
   },
   7: {
     mon: null,
@@ -500,7 +500,7 @@ const SESSIONS_CONTENT = {
   9: {
     mon: null, wed: null, fri: null,
     puzzle: null,
-    mmeUrl: null,  // TMS 3 passage link — override CANVAS.mme if needed
+    tmsUrl: null,  // TMS 3 passage link — override CANVAS.tms if needed
   },
   10: {
     mon: null, wed: null, fri: null,
@@ -509,7 +509,7 @@ const SESSIONS_CONTENT = {
   11: {
     review: null,
     ffSubmit: null,
-    mmeUrl: null,
+    tmsUrl: null,
   },
   12: {
     mon: null, wed: null, fri: null,
@@ -710,24 +710,24 @@ function bodyContent(session, type, isCurrent) {
       pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
     ]));
 
-    // TMS launch on Friday — content sessions where mmeFF is true (S9)
-    if (session.mmeFF) {
-      const mmeEntry = CANVAS.mme.find(m => m.session === session.num);
-      const mmeSection = document.createElement('div');
-      mmeSection.className = 'day-section';
-      mmeSection.innerHTML = '<div class="day-label">Friday — TMS launch</div>';
-      const mmeDesc = document.createElement('div');
-      mmeDesc.className = 'info-box gold-box';
-      mmeDesc.style.margin = '0.35rem 0 0.4rem';
-      mmeDesc.innerHTML = `<strong>We introduce the ${SOURCE_TEXT.title} passage for this block.</strong>`
-        + '<div class="sub">Due ' + (mmeEntry ? mmeEntry.due : 'Wednesday, 11:59 p.m.') + ' — not this Wednesday.</div>';
-      mmeSection.appendChild(mmeDesc);
-      const mmePills = document.createElement('div');
-      mmePills.className = 'pills';
-      const mmeUrl = sc.mmeUrl || (mmeEntry && mmeEntry.url ? mmeEntry.url : null);
-      mmePills.appendChild(pill(mmeEntry && mmeEntry.title ? mmeEntry.title : 'TMS Passage', mmeUrl, 'gold'));
-      mmeSection.appendChild(mmePills);
-      frag.appendChild(mmeSection);
+    // TMS launch on Friday — content sessions where tmsFF is true (S9)
+    if (session.tmsFF) {
+      const tmsEntry = CANVAS.tms.find(m => m.session === session.num);
+      const tmsSection = document.createElement('div');
+      tmsSection.className = 'day-section';
+      tmsSection.innerHTML = '<div class="day-label">Friday — TMS launch</div>';
+      const tmsDesc = document.createElement('div');
+      tmsDesc.className = 'info-box gold-box';
+      tmsDesc.style.margin = '0.35rem 0 0.4rem';
+      tmsDesc.innerHTML = `<strong>We introduce the ${SOURCE_TEXT.title} passage for this block.</strong>`
+        + '<div class="sub">Due ' + (tmsEntry ? tmsEntry.due : 'Wednesday, 11:59 p.m.') + ' — not this Wednesday.</div>';
+      tmsSection.appendChild(tmsDesc);
+      const tmsPills = document.createElement('div');
+      tmsPills.className = 'pills';
+      const tmsUrl = sc.tmsUrl || (tmsEntry && tmsEntry.url ? tmsEntry.url : null);
+      tmsPills.appendChild(pill(tmsEntry && tmsEntry.title ? tmsEntry.title : 'TMS Passage', tmsUrl, 'gold'));
+      tmsSection.appendChild(tmsPills);
+      frag.appendChild(tmsSection);
     }
 
     // Puzzle link — due the Wednesday of session N+1 (per puzzleDueDate)
@@ -744,15 +744,15 @@ function bodyContent(session, type, isCurrent) {
     }
 
     // TMS passage due this session (e.g. S13 — TMS 3 due Wed Nov 18)
-    const mmeDueCont = CANVAS.mme.filter(m => m.dueSession === session.num);
-    if (mmeDueCont.length > 0) {
-      const mmeDiv = document.createElement('div');
-      mmeDiv.className = 'day-section';
-      mmeDiv.style.marginTop = '0.6rem';
-      mmeDiv.innerHTML = `<div class="day-label">TMS passage due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
-      const mmePills = mmeDiv.querySelector('.pills');
-      mmeDueCont.forEach(m => mmePills.appendChild(pill(m.title || 'TMS Passage', m.url || null, 'gold')));
-      frag.appendChild(mmeDiv);
+    const tmsDueCont = CANVAS.tms.filter(m => m.dueSession === session.num);
+    if (tmsDueCont.length > 0) {
+      const tmsDiv = document.createElement('div');
+      tmsDiv.className = 'day-section';
+      tmsDiv.style.marginTop = '0.6rem';
+      tmsDiv.innerHTML = `<div class="day-label">TMS passage due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
+      const tmsPills = tmsDiv.querySelector('.pills');
+      tmsDueCont.forEach(m => tmsPills.appendChild(pill(m.title || 'TMS Passage', m.url || null, 'gold')));
+      frag.appendChild(tmsDiv);
     }
 
     // Pre-Thanksgiving sign-up block — Session 13 only
@@ -829,14 +829,14 @@ function bodyContent(session, type, isCurrent) {
     wedBox.appendChild(wedDesc);
 
     // TMS passage due this Wednesday
-    const mmeDueCi = CANVAS.mme.filter(m => m.dueSession === session.num);
-    if (mmeDueCi.length > 0) {
-      const mmeDueCiBox = infoBox('gold-box',
+    const tmsDueCi = CANVAS.tms.filter(m => m.dueSession === session.num);
+    if (tmsDueCi.length > 0) {
+      const tmsDueCiBox = infoBox('gold-box',
         'Also due Wednesday at 11:59 p.m.:',
-        mmeDueCi.map(m => m.title || 'TMS Passage').join(' and ') + '. Submit through Canvas.'
+        tmsDueCi.map(m => m.title || 'TMS Passage').join(' and ') + '. Submit through Canvas.'
       );
-      mmeDueCiBox.style.margin = '0.4rem 0 0';
-      wedBox.appendChild(mmeDueCiBox);
+      tmsDueCiBox.style.margin = '0.4rem 0 0';
+      wedBox.appendChild(tmsDueCiBox);
     }
     frag.appendChild(wedBox);
 
@@ -849,14 +849,14 @@ function bodyContent(session, type, isCurrent) {
     friDesc.className = 'info-box gold-box';
     friDesc.style.margin = '0.35rem 0 0.4rem';
 
-    const mmeEntries = CANVAS.mme.filter(m => m.session === session.num);
-    const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Wednesday of the following block, 11:59 p.m.';
-    const multiTMS = mmeEntries.length > 1;
+    const tmsEntries = CANVAS.tms.filter(m => m.session === session.num);
+    const tmsDue = tmsEntries.length > 0 ? tmsEntries[0].due : 'Wednesday of the following block, 11:59 p.m.';
+    const multiTMS = tmsEntries.length > 1;
 
     friDesc.innerHTML = `<strong>Friday we review check-in answers.</strong> Questions about your answers are welcome — this is the time.
       <div class="sub">${multiTMS
-        ? `Then we introduce two ${SOURCE_TEXT.title} passages for the rest of the semester. Both are due ${mmeDue}.`
-        : `Then we introduce the ${SOURCE_TEXT.title} passage for this block. It is due ${mmeDue}, not this Wednesday.`
+        ? `Then we introduce two ${SOURCE_TEXT.title} passages for the rest of the semester. Both are due ${tmsDue}.`
+        : `Then we introduce the ${SOURCE_TEXT.title} passage for this block. It is due ${tmsDue}, not this Wednesday.`
       }</div>`;
     friBox.appendChild(friDesc);
 
@@ -869,11 +869,11 @@ function bodyContent(session, type, isCurrent) {
     const friPills = document.createElement('div');
     friPills.className = 'pills';
 
-    mmeEntries.forEach(mmeData => {
-      const mmeUrl = sc.mmeUrl || mmeData.url || null;
-      friPills.appendChild(pill(mmeData.title || 'TMS Passage', mmeUrl, 'gold'));
+    tmsEntries.forEach(tmsData => {
+      const tmsUrl = sc.tmsUrl || tmsData.url || null;
+      friPills.appendChild(pill(tmsData.title || 'TMS Passage', tmsUrl, 'gold'));
     });
-    if (mmeEntries.length === 0) {
+    if (tmsEntries.length === 0) {
       friPills.appendChild(pill('TMS Passage — TBA', null, 'gold'));
     }
 
@@ -897,14 +897,14 @@ function bodyContent(session, type, isCurrent) {
     frag.appendChild(ffDue);
 
     // TMS passage due this week
-    const mmeDueViva = CANVAS.mme.filter(m => m.dueSession === session.num);
-    if (mmeDueViva.length > 0) {
-      const mmeDueVivaBox = infoBox('gold-box',
+    const tmsDueViva = CANVAS.tms.filter(m => m.dueSession === session.num);
+    if (tmsDueViva.length > 0) {
+      const tmsDueVivaBox = infoBox('gold-box',
         'Also due Wednesday at 11:59 p.m.:',
-        mmeDueViva.map(m => m.title || 'TMS Passage').join(' and ') + '. Submit through Canvas.'
+        tmsDueViva.map(m => m.title || 'TMS Passage').join(' and ') + '. Submit through Canvas.'
       );
-      mmeDueVivaBox.style.margin = '0.4rem 0 0.35rem';
-      frag.appendChild(mmeDueVivaBox);
+      tmsDueVivaBox.style.margin = '0.4rem 0 0.35rem';
+      frag.appendChild(tmsDueVivaBox);
     }
 
     // Sign-up confirmation
@@ -1067,7 +1067,7 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (isCurrent)        tags.push(`<span class="sess-tag tag-current">Current</span>`);
   if (session.checkIn)  tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
   if (type === 'viva')  tags.push(`<span class="sess-tag tag-viva">Viva + CI #4</span>`);
-  if (session.mmeFF)    tags.push(`<span class="sess-tag tag-tms">TMS Launch</span>`);
+  if (session.tmsFF)    tags.push(`<span class="sess-tag tag-tms">TMS Launch</span>`);
   if (type === 'content' && session.num !== 7)
                         tags.push(`<span class="sess-tag tag-screensdown">Screens-down Wed</span>`);
   if (session.num === 13)
