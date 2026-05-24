@@ -89,8 +89,8 @@ Build in this order, using ECO 1000 equivalents as the model:
 
 - [x] `index.html` — course home page
 - [x] `schedule.html`
-- [ ] `assignments.html`
-- [ ] `checkins.html`
+- [x] `assignments.html`
+- [x] `checkins.html`
 - [ ] `puzzles.html`
 - [ ] `tms.html`
 - [ ] `friday.html`
