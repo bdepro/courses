@@ -732,7 +732,7 @@ function bodyContent(session, type, isCurrent) {
       mmeDesc.className = 'info-box gold-box';
       mmeDesc.style.margin = '0.35rem 0 0.4rem';
       mmeDesc.innerHTML = '<strong>We launch the Monday Morning Economist article for this block.</strong>'
-        + '<div class="sub">Due ' + (mmeEntry ? mmeEntry.due : 'Wednesday, 11:59 p.m.') + ' — not this Wednesday.</div>';
+        + '<div class="sub">Due ' + (mmeEntry ? mmeEntry.due : 'Wednesday, 11:59 p.m.') + '. Not this Wednesday.</div>';
       mmeSection.appendChild(mmeDesc);
       const mmePills = document.createElement('div');
       mmePills.className = 'pills';
@@ -817,7 +817,7 @@ function bodyContent(session, type, isCurrent) {
     const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Wednesday of check-in week, 11:59 p.m.';
     const multiMME = mmeEntries.length > 1;
 
-    friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome — this is the time.
+    friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome. Bring them.
       <div class="sub">${multiMME
         ? `Then we launch two Monday Morning Economist articles for the rest of the semester. Both are due ${mmeDue}.`
         : `Then we launch the Monday Morning Economist article for this block. It is due ${mmeDue}, not this Wednesday.`
@@ -923,7 +923,7 @@ function bodyContent(session, type, isCurrent) {
       const signupBox = document.createElement('div');
       signupBox.className = 'info-box viva-box';
       signupBox.innerHTML = `<strong>Sign up for your viva slot through the Canvas Calendar.</strong>
-        <div class="sub">Do this before Thanksgiving break. Use a computer — the Canvas scheduler does not work on phones.<br>
+        <div class="sub">Do this before Thanksgiving break. Use a computer. The Canvas scheduler does not work on phones.<br>
         <span class="equity-note">${SCHEDULE.finalExamPeriod.signupEquityNote}</span></div>`;
       frag.appendChild(signupBox);
 
@@ -1099,7 +1099,7 @@ document.getElementById('backLink').href          = PAGES.home;
 document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
-  `The semester runs in three-day sessions — Monday, Wednesday, Friday. ` +
+  `Each session meets Monday, Wednesday, and Friday. ` +
   `Your current session opens below. Work for each session is due Wednesday by 11:59 p.m. ` +
   `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 document.getElementById('dueBanner').innerHTML    =
