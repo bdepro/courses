@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  COR 1100 — SYLLABUS
+  Hosted: bdepro.github.io/courses/cor1100/syllabus.html
+
+  Page heading convention (locked):
+    h1 is hardcoded: "What do I need to know?"
+    All semester-specific data pulls from config.js.
+
+  Section 8: includes Screens-down Wednesdays (fall only).
+    Do not remove.
+  Section 9: campus resources boilerplate. Do not edit.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Course syllabus, policies, learning goals, and grading structure for COR 1100 at Elon University.">
+  <title>COR 1100 · Syllabus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:   #73000a;
+      --crimson-dk:#5a0008;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --teal-dk:   #3d5e63;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e0ddd5;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Screen header ── */
+    .screen-header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .screen-header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .screen-eyebrow {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem;
+    }
+    .screen-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700; color: var(--white); line-height: 1.2;
+    }
+    .screen-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: #1a1a1a;
+      border: none; padding: 0.55rem 1.25rem;
+      font-family: var(--font); font-size: 0.82rem; font-weight: 700;
+      border-radius: 5px; cursor: pointer; letter-spacing: 0.04em;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .btn-print:hover { background: var(--gold-lt); }
+    .btn-print svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* ── Print header ── */
+    .print-header { display: none; }
+
+    /* ── Section cards ── */
+    .syl-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .syl-section-header {
+      background: var(--crimson);
+      padding: 0.65rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .syl-section-header.teal { background: var(--teal); }
+    .syl-section-header.gold { background: var(--gold-link); }
+
+    .syl-num {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.15);
+      padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+    }
+    .syl-section-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .syl-body { padding: 1.25rem 1.5rem; }
+
+    /* ── Contact grid ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem; font-size: 0.88rem;
+    }
+    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; }
+    .contact-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 95px;
+    }
+    .contact-value { color: var(--text); }
+    .contact-value a { color: var(--gold-link); text-decoration: none; }
+    .contact-value a:hover { color: var(--crimson); }
+
+    /* ── Prose ── */
+    .syl-body p { margin-bottom: 0.85rem; font-size: 0.93rem; }
+    .syl-body p:last-child { margin-bottom: 0; }
+
+    /* ── Learning goals ── */
+    .goal-list { list-style: none; padding: 0; }
+    .goal-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.91rem;
+    }
+    .goal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .goal-num {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%; background: var(--crimson);
+      color: var(--white); font-size: 0.68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem;
+    }
+    .goal-text { line-height: 1.55; }
+    .goal-text strong { color: var(--text); font-weight: 600; }
+
+    /* ── Textbook block ── */
+    .textbook-block {
+      background: var(--warm-gray); border-radius: 6px;
+      padding: 0.85rem 1rem; font-size: 0.88rem;
+      line-height: 1.65; margin-top: 0.85rem;
+    }
+    .textbook-block cite { font-style: italic; }
+
+    /* ── Schedule table ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .sched-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .sched-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .sched-table tr:last-child td { border-bottom: none; }
+    .sched-table tr:hover td { background: #fdfcfa; }
+    .session-tag {
+      display: inline-block; background: var(--crimson); color: var(--white);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.15rem 0.5rem;
+      border-radius: 3px; white-space: nowrap;
+    }
+    .session-tag.break   { background: var(--muted); }
+    .session-tag.checkin { background: var(--teal); }
+    .session-tag.viva    { background: var(--gold-link); }
+    .ch-tag {
+      font-size: 0.78rem; font-weight: 600; color: var(--gold-link);
+    }
+
+    /* ── Assessment blocks ── */
+    .assess-block {
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
+    }
+    .assess-block:last-child { margin-bottom: 0; }
+    .assess-header {
+      background: var(--warm-gray); padding: 0.6rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .assess-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .assess-weight {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--crimson);
+      background: rgba(115,0,10,0.08);
+      padding: 0.15rem 0.55rem; border-radius: 3px; white-space: nowrap;
+    }
+    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; }
+    .assess-body p { margin-bottom: 0.65rem; }
+    .assess-body p:last-child { margin-bottom: 0; }
+    .assess-sub {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.35rem; margin-top: 0.75rem;
+    }
+
+    /* ── Grade weight table ── */
+    .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .grade-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .grade-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray); }
+    .grade-table tr:last-child td { border-bottom: 2px solid var(--border); font-weight: 700; }
+    .grade-pct { font-weight: 700; color: var(--crimson); font-size: 1rem; }
+
+    /* ── Grading scale ── */
+    .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .scale-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.5rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .scale-table td { padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--warm-gray); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-grade { font-weight: 700; color: var(--crimson); }
+    .scale-desc  { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0; font-size: 0.88rem; line-height: 1.65;
+    }
+    .callout.teal { background: rgba(82,123,130,0.09); border-left: 4px solid var(--teal); }
+    .callout.red  { background: rgba(115,0,10,0.06);   border-left: 4px solid var(--crimson); }
+    .callout strong.lbl-teal { color: var(--teal-dk); }
+    .callout strong.lbl-red  { color: var(--crimson); }
+
+    /* ── Policy list ── */
+    .policy-list { list-style: none; padding: 0; }
+    .policy-item {
+      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1rem;
+      border-bottom: 1px solid var(--warm-gray); position: relative;
+      line-height: 1.6;
+    }
+    .policy-item:last-child { border-bottom: none; }
+    .policy-item::before {
+      content: ""; position: absolute; left: 0; top: 0.9rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    }
+    .policy-item a { color: var(--gold-link); text-decoration: none; }
+    .policy-item a:hover { color: var(--crimson); }
+
+    /* ── Table note ── */
+    .table-note {
+      padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--muted);
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    /* ── Campus resources (Section 9) ── */
+    .resources-list { list-style: none; padding: 0; }
+    .resource-item {
+      font-size: 0.88rem; padding: 0.75rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      line-height: 1.65;
+    }
+    .resource-item:last-child { border-bottom: none; }
+    .resource-item a { color: var(--gold-link); text-decoration: none; }
+    .resource-item a:hover { color: var(--crimson); }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .screen-header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .syl-body { padding: 1rem 1.1rem; }
+      .assess-header { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .sched-table { font-size: 0.78rem; }
+      .sched-table th, .sched-table td { padding: 0.5rem; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white; font-size: 10.5pt; line-height: 1.55; color: #000; }
+      .screen-header { display: none; }
+      .print-header {
+        display: block; border-bottom: 3px solid #73000a;
+        padding-bottom: 0.75rem; margin-bottom: 1.5rem;
+      }
+      .print-title    { font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2; }
+      .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
+      .print-meta     { font-size: 9pt; color: #666; margin-top: 0.5rem; }
+      main { max-width: 100%; padding: 0; margin: 0; }
+      .syl-section {
+        box-shadow: none; border: 1px solid #ccc;
+        border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid;
+      }
+      .syl-section-header { padding: 0.4rem 0.75rem; }
+      .syl-section-title  { font-size: 9.5pt; }
+      .syl-num            { display: none; }
+      .syl-body           { padding: 0.65rem 0.85rem; }
+      .syl-body p         { font-size: 10pt; margin-bottom: 0.5rem; }
+      .contact-grid       { font-size: 9.5pt; gap: 0.2rem 1rem; }
+      .assess-block       { page-break-inside: avoid; }
+      .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      .grade-table        { font-size: 10pt; }
+      .scale-table        { font-size: 9.5pt; }
+      .sched-table        { font-size: 9pt; }
+      .goal-item          { padding: 0.4rem 0; font-size: 9.5pt; }
+      .callout            { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      a { color: #000; text-decoration: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+      a[href^="mailto"]::after { content: none; }
+    }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
+    .skip-link:focus { left: 0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- SCREEN HEADER -->
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="syl-back" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="screen-eyebrow" id="syl-eyebrow"></p>
+    <h1 class="screen-title">What do I need to know?</h1>
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- PRINT HEADER -->
+<div class="print-header">
+  <div class="print-title">The Global Experience</div>
+  <div class="print-subtitle" id="syl-print-subtitle"></div>
+  <div class="print-meta" id="syl-print-meta"></div>
+</div>
+
+<main id="main">
+
+  <!-- ── SECTION 1: COURSE INFORMATION ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 1</span>
+      <span class="syl-section-title">Course Information</span>
+    </div>
+    <div class="syl-body">
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="contact-label">Instructor</span>
+          <span class="contact-value" id="syl-name"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Program</span>
+          <span class="contact-value">Core Curriculum, Elon University</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a id="syl-email-link" href="#"></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value" id="syl-phone"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Office</span>
+          <span class="contact-value" id="syl-office"></span>
+        </div>
+        <div class="contact-row" id="syl-hours-row">
+          <span class="contact-label">Office Hours</span>
+          <span class="contact-value" id="syl-hours"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Zoom</span>
+          <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank" rel="noopener"></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Course Site</span>
+          <span class="contact-value">Canvas</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Course</span>
+          <span class="contact-value" id="syl-course"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Credits</span>
+          <span class="contact-value" id="syl-credits"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Semester</span>
+          <span class="contact-value" id="syl-semester"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Format</span>
+          <span class="contact-value">In-person</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: WHY THIS COURSE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 2</span>
+      <span class="syl-section-title">Why Should You Take This Course?</span>
+    </div>
+    <div class="syl-body">
+      <p>Adam Smith thought about questions most introductory courses skip. How do we actually become the kind of people worth being? <cite>Our Great Purpose</cite> is Hanley&rsquo;s guide to what Smith argued in the <cite>Theory of Moral Sentiments</cite>, and it is worth reading on its own terms.</p>
+      <p>You will spend the semester reading it carefully, arguing with it in writing, and explaining what you think out loud. Push back where you disagree. When Smith&rsquo;s argument strains against something from your own life, that tension is worth examining.</p>
+      <p>Smith is one way of seeing. History, economics, psychology, and sociology illuminate things philosophy cannot. But learning to read a philosophical argument seriously, and to question it, is worth the semester.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: LEARNING GOALS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 3</span>
+      <span class="syl-section-title">What Will You Be Able to Do?</span>
+    </div>
+    <div class="syl-body">
+      <ul class="goal-list">
+        <li class="goal-item">
+          <span class="goal-num">1</span>
+          <span class="goal-text"><strong>Read a philosophical argument closely</strong> (what it claims, what it offers as evidence, what it leaves out) and say what you think it gets right.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">2</span>
+          <span class="goal-text"><strong>Write and speak in plain language</strong> about ideas that are not simple, without using jargon as a substitute for thinking.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">3</span>
+          <span class="goal-text"><strong>Apply Smith&rsquo;s and Hanley&rsquo;s arguments</strong> to situations from your own life and explain whether the argument holds.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">4</span>
+          <span class="goal-text"><strong>Track analytical threads across texts and over time</strong> (sympathy, self-command, the impartial spectator) and see how each one develops and complicates the others.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">5</span>
+          <span class="goal-text"><strong>Argue honestly in writing and in the viva</strong> by pushing back on a text, asking what it leaves out, and explaining your disagreements directly.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: COURSE MATERIALS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 4</span>
+      <span class="syl-section-title">What Course Materials Do You Need?</span>
+    </div>
+    <div class="syl-body">
+      <p>All assigned readings are on Perusall, accessible through the Canvas link. You do not need to purchase or download anything separately.</p>
+      <div class="textbook-block" id="syl-textbook-block"></div>
+      <p style="margin-top:0.85rem;">Four passages from Adam Smith&rsquo;s <cite>Theory of Moral Sentiments</cite> are assigned across the semester as separate Canvas assignments. I introduce each one in class on the designated Friday. Access them through Canvas when they are assigned.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: COURSE SCHEDULE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">How Will Your Learning Be Organized?</span>
+    </div>
+    <div class="syl-body" style="padding:0;">
+      <table class="sched-table" id="syl-sched-table">
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Dates</th>
+            <th>Topic</th>
+            <th>Hanley</th>
+          </tr>
+        </thead>
+        <tbody id="syl-sched-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: ASSESSMENTS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">How Will Your Learning Be Assessed?</span>
+    </div>
+    <div class="syl-body">
+
+      <!-- Check-Ins -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Check-Ins</span>
+          <span class="assess-weight" id="ci-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>You will take four in-class check-ins, each on a Wednesday. Check-In 4 always counts. If your CI&nbsp;4 score beats your lowest score from Check-Ins 1, 2, or 3, I replace that score automatically. You do not need to ask. Miss a check-in and CI&nbsp;4 becomes your makeup. There are no separate makeup exams.</p>
+          <p>You may bring one 5&times;8 index card with notes to each check-in.</p>
+          <p>If 75% of the class completes the end-of-semester survey, everyone gets one bonus point on Check-In 4.</p>
+        </div>
+      </div>
+
+      <!-- Friday Focus -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Friday Focus</span>
+          <span class="assess-weight" id="ff-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>Friday Focus asks one question: what do Hanley and Smith say about something you actually care about? You spend the semester building your answer.</p>
+
+          <div class="assess-sub">Part 1 &mdash; The Narrative</div>
+          <p>Write the narrative and submit it on Canvas by Wednesday, December 2 at 11:59&nbsp;p.m. It is a written argument, for a reader who has never taken this course. Three Friday sessions are set aside for that purpose. Come to those sessions with something on the page.</p>
+
+          <div class="assess-sub">Part 2 &mdash; The Narrative Viva</div>
+          <p>The viva is a short conversation with me about what you wrote. Walk me through your argument and explain the choices you made. Sign up for a slot during viva week; slots fill before Thanksgiving.</p>
+        </div>
+      </div>
+
+      <!-- Puzzles -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Puzzles</span>
+          <span class="assess-weight" id="puzzles-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>One Puzzle per content session, due the following Wednesday at 11:59&nbsp;p.m. Eight days gives you time to try the puzzle after the reading, sit in Monday&rsquo;s class, and come back with a sharper answer. Each puzzle asks you to apply the concepts from that session&rsquo;s Hanley chapters.</p>
+          <p>You have two attempts. Take the first one after the reading. After Monday&rsquo;s class, go back to what you missed. Canvas shows your score between attempts. You can use it to figure out where to spend your time.</p>
+          <p>I drop your lowest puzzle score at the end of the semester. One bad week does not sink your grade. If you miss the Wednesday deadline, you have one more week to submit for 80% credit. After that, the puzzle closes.</p>
+          <p>There is no Puzzle in Session 7 (Mon&ndash;Tue only before Fall Break). That week has a Perusall reading but no quiz.</p>
+        </div>
+      </div>
+
+      <!-- Theory of Moral Sentiments -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Theory of Moral Sentiments</span>
+          <span class="assess-weight" id="tms-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>Four times during the semester you will read a passage from Adam Smith&rsquo;s <cite>Theory of Moral Sentiments</cite> and respond to it in writing. I introduce each one on the Friday of the designated session, due the following Wednesday at 11:59&nbsp;p.m.</p>
+          <p>A strong response pushes back on the passage, asks what Smith left out, or connects his argument to something from Hanley. A weak response restates what the passage already said.</p>
+        </div>
+      </div>
+
+      <!-- Grade table -->
+      <div style="margin-top:1.25rem;">
+        <table class="grade-table">
+          <thead>
+            <tr><th>Assessment</th><th>Weight</th></tr>
+          </thead>
+          <tbody id="syl-grade-rows"></tbody>
+        </table>
+        <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
+      </div>
+
+      <!-- Grading scale -->
+      <div style="margin-top:1.25rem;">
+        <table class="scale-table">
+          <thead>
+            <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+            <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
+            <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
+            <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
+            <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
+            <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
+            <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
+            <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
+            <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
+            <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
+            <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
+            <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 7: AI POLICY ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 7</span>
+      <span class="syl-section-title">How Can I Use AI in This Class?</span>
+    </div>
+    <div class="syl-body">
+      <p>AI use in this course is conditional. You can use AI tools to work through material you found confusing or to quiz yourself before assessments. Submitting AI-generated work as your own, or using AI during a restricted assessment, is an Honor Code violation. If you are not sure, ask first.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 8: COURSE POLICIES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 8</span>
+      <span class="syl-section-title">What Do I Need to Know About Policies?</span>
+    </div>
+    <div class="syl-body">
+      <ul class="policy-list">
+        <li class="policy-item">
+          <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon&rsquo;s Honor Code may result in a failing grade for the course.
+        </li>
+        <li class="policy-item">
+          <strong>Academic accommodations.</strong> If you need accommodations, contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
+        </li>
+        <li class="policy-item">
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <strong id="pol-withdraw"></strong>. Start the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
+        </li>
+        <li class="policy-item">
+          <strong>Course resources.</strong> Course materials are in Canvas and on the course home page.
+        </li>
+      </ul>
+
+      <!-- Screens-down Wednesdays (fall only — do not remove) -->
+      <div class="callout teal" style="margin-top:1rem;">
+        <strong class="lbl-teal">Screens-down Wednesdays.</strong> Wednesday is pen-and-paper day. Laptops, tablets, and phones stay closed and face-down for the full session. If you have a documented accommodation that requires a device, bring your letter from the Office of Academic Accommodations and Accessibility before the first Wednesday session. I will make it work.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9: CAMPUS RESOURCES & UNIVERSITY POLICIES ── -->
+  <!-- Boilerplate — do not edit. -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Campus Resources &amp; University Policies</span>
+    </div>
+    <div class="syl-body">
+      <ul class="resources-list">
+
+        <li class="resource-item">
+          <strong>Honor Code.</strong> Elon&rsquo;s honor pledge calls for a commitment to Elon&rsquo;s shared values of Honesty, Integrity, Responsibility, and Respect. Students should review code of conduct <a href="https://www.elon.edu/u/student-conduct/honor-code/" target="_blank" rel="noopener">policies described in the student handbook</a>. Violations in academic-related areas will be documented in an incident report maintained in the Office of Student Conduct and may result in a lowering of the course grade and/or failure of the course with an Honor Code F. Violations specifically covered by academic honor code policies include plagiarism, cheating, lying, stealing, and the facilitation of another&rsquo;s dishonesty.
+        </li>
+
+        <li class="resource-item">
+          <strong>Office of Academic Accommodations and Accessibility.</strong> Elon University is committed to providing an inclusive experience, accessible learning environments and equal opportunity to students with disabilities in accordance with the Americans with Disabilities Act and Section 504 of the Rehabilitation Act. Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>. Reasonable accommodations can be requested at any time throughout the semester; however, they are not retroactive. For more information visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/academic-accommodations-accessibility/" target="_blank" rel="noopener">AAA website</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>Learning Assistance.</strong> The Koenigsberger Learning Center offers tutoring, success coaching, and other academic support services. Students are encouraged to visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/learning-assistance/" target="_blank" rel="noopener">Learning Assistance website</a> to view supported courses and explore additional resources. For questions, contact <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>Belk Library.</strong> The librarians in Belk Library help students find appropriate resources for course assignments. Students can <a href="https://elon.libcal.com/appointments/" target="_blank" rel="noopener">schedule an appointment</a> or chat with a librarian on the <a href="https://www.elon.edu/library/" target="_blank" rel="noopener">library website</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>The Writing Center.</strong> Located on the first floor of Belk Library, Elon&rsquo;s <a href="https://www.elon.edu/u/academics/writing-excellence/the-writing-center/" target="_blank" rel="noopener">Writing Center</a> is staffed by well-trained undergraduate consultants who work with students on any kind of writing at any stage of the writing process. The Writing Center is a welcoming place for all writers, regardless of experience or expertise.
+        </li>
+
+        <li class="resource-item">
+          <strong>Religious Holidays.</strong> Elon has a <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/" target="_blank" rel="noopener">policy and procedures</a> for students who wish to observe religious holidays that conflict with the academic calendar. Students must complete the online Religious Observance Notification Form (RONF) by the date published each semester. Students are required to make prior arrangements with the instructor for completion of any work missed during the absence.
+        </li>
+
+        <li class="resource-item">
+          <strong>Enrollment.</strong> Students should confirm their enrollment through their OnTrack account. Students who do not appear on the course roll should consult with their instructor immediately.
+        </li>
+
+        <li class="resource-item">
+          <strong>Dropping a Course.</strong> Students may drop a course during the designated drop/add period through OnTrack. A course dropped during the drop/add period will not appear on the student&rsquo;s transcript.
+        </li>
+
+        <li class="resource-item">
+          <strong>Withdrawing from a Course.</strong> After the drop/add period, students may <a href="https://www.elon.edu/u/registrar/student-resources/individual-course-withdrawal/" target="_blank" rel="noopener">withdraw from a course</a> without penalty before the withdrawal deadline published in the Academic Calendar. Withdrawing will result in a mark of &ldquo;W&rdquo; on the student&rsquo;s transcript. Students may withdraw via OnTrack. Students should not assume they will be officially withdrawn based on failure to attend or notifying a faculty member of intent to withdraw.
+        </li>
+
+        <li class="resource-item">
+          <strong>E-Warnings.</strong> E-Warnings are used to communicate with students and advisors when concerns arise about academic performance. Advisors are copied on every e-warning submitted. E-Warnings are part of a standard process and not a personal judgment.
+        </li>
+
+        <li class="resource-item">
+          <strong>Student Care &amp; Outreach.</strong> Students who become concerned about a fellow classmate&rsquo;s well-being are encouraged to share concerns through Elon&rsquo;s <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/when-to-share-concerns/" target="_blank" rel="noopener">Share a Concern</a> website. See the <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/resources/" target="_blank" rel="noopener">Student Care and Outreach website</a> for additional resources.
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ================================================================
+//  Wire all dynamic values from config.js
+// ================================================================
+
+// Header
+document.title += ' · ' + COURSE.semester;
+document.getElementById('syl-back').href = PAGES.home;
+document.getElementById('syl-eyebrow').textContent =
+  COURSE.code + ' · ' + COURSE.semester;
+
+// Print header
+document.getElementById('syl-print-subtitle').textContent =
+  COURSE.code + ' — ' + COURSE.semester + ' — ' + INSTRUCTOR.name;
+document.getElementById('syl-print-meta').textContent =
+  'Core Curriculum · Elon University · ' + INSTRUCTOR.office;
+
+// Section 1 — Course Information
+document.getElementById('syl-name').textContent     = INSTRUCTOR.name;
+document.getElementById('syl-phone').textContent    = INSTRUCTOR.phone;
+document.getElementById('syl-office').textContent   = INSTRUCTOR.office + ' · Elon University';
+document.getElementById('syl-course').textContent   = COURSE.code + ' — ' + COURSE.title;
+document.getElementById('syl-credits').textContent  = COURSE.credits + ' credit hours';
+document.getElementById('syl-semester').textContent = COURSE.semester;
+
+var emailEl = document.getElementById('syl-email-link');
+emailEl.href        = 'mailto:' + INSTRUCTOR.email;
+emailEl.textContent = INSTRUCTOR.email;
+
+var zoomEl = document.getElementById('syl-zoom-link');
+zoomEl.href        = INSTRUCTOR.zoomUrl;
+zoomEl.textContent = INSTRUCTOR.zoomDisplay;
+
+var hoursEl  = document.getElementById('syl-hours');
+var hoursRow = document.getElementById('syl-hours-row');
+if (INSTRUCTOR.officeHours) {
+  hoursEl.textContent = INSTRUCTOR.officeHours;
+} else {
+  hoursRow.style.display = 'none';
+}
+
+// Section 4 — Textbook block
+// COR 1100: TEXTBOOK.author (singular), TEXTBOOK.publisher, TEXTBOOK.platform
+document.getElementById('syl-textbook-block').innerHTML =
+  TEXTBOOK.author + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
+  TEXTBOOK.publisher + '. Available on ' + TEXTBOOK.platform + ' through Canvas.';
+
+// Section 5 — Schedule table
+// COR 1100: sessions use s.chapters[] array; chapters keyed in CHAPTERS.all
+var schedBody  = document.getElementById('syl-sched-body');
+var chapterMap = {};
+CHAPTERS.all.forEach(function(c) { chapterMap[c.key] = c.num; });
+
+SCHEDULE.sessions.forEach(function(s) {
+  var tr = document.createElement('tr');
+
+  // Session tag class
+  var tagClass = 'session-tag';
+  if (s.break)   tagClass += ' break';
+  else if (s.checkIn) tagClass += ' checkin';
+  else if (s.viva)    tagClass += ' viva';
+
+  var sessionLabel = s.num === 0 ? 'Intro'
+                   : s.viva      ? 'Viva'
+                   : s.break     ? 'Break'
+                   :               'S' + s.num;
+
+  // Topic label
+  var topic = s.label;
+  if (s.checkIn) topic = 'Check-In ' + s.checkIn + ' / Review';
+  if (s.viva)    topic = 'Viva Week / Check-In 4';
+  if (s.break && s.breakType === 'fall')         topic = 'Fall Break';
+  if (s.break && s.breakType === 'thanksgiving') topic = 'Thanksgiving Break';
+  if (s.num === 0) topic = 'Course Introduction';
+
+  // Chapter column
+  var chLabel = '';
+  if (s.checkIn && CHAPTERS.checkIns[s.checkIn]) {
+    chLabel = CHAPTERS.checkIns[s.checkIn].label;
+  } else if (s.viva) {
+    chLabel = 'Comprehensive';
+  } else if (s.chapters && s.chapters.length > 0) {
+    chLabel = s.chapters.map(function(k) {
+      return chapterMap[k] || k;
+    }).join(', ');
+  }
+
+  tr.innerHTML =
+    '<td><span class="' + tagClass + '">' + sessionLabel + '</span></td>' +
+    '<td>' + s.dates + '</td>' +
+    '<td>' + topic + '</td>' +
+    '<td><span class="ch-tag">' + chLabel + '</span></td>';
+
+  schedBody.appendChild(tr);
+});
+
+// Section 6 — Assessment weights
+function gradeWeight(id) {
+  var g = GRADING.components.find(function(c) { return c.id === id; });
+  return g ? g.weight + '% of Grade' : '';
+}
+document.getElementById('ci-weight').textContent      = gradeWeight('checkins');
+document.getElementById('ff-weight').textContent      = gradeWeight('friday');
+document.getElementById('puzzles-weight').textContent = gradeWeight('puzzles');
+document.getElementById('tms-weight').textContent     = gradeWeight('tms');
+
+// Grade table
+var tbody = document.getElementById('syl-grade-rows');
+var total = 0;
+GRADING.components.forEach(function(c) {
+  total += c.weight;
+  var tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td>' + c.label + '</td>' +
+    '<td><span class="grade-pct">' + c.weight + '%</span></td>';
+  tbody.appendChild(tr);
+});
+var trTot = document.createElement('tr');
+trTot.innerHTML =
+  '<td><strong>Total</strong></td>' +
+  '<td><span class="grade-pct">' + total + '%</span></td>';
+tbody.appendChild(trTot);
+
+// Section 8 — Withdrawal deadline
+document.getElementById('pol-withdraw').textContent = SCHEDULE.dates.withdrawDeadline;
+</script>
+</body>
+</html>

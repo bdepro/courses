@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  COR 1100 — THEORY OF MORAL SENTIMENTS
+  Hosted: bdepro.github.io/courses/cor1100/tms.html
+  All passage data pulls from CANVAS.tms in config.js.
+  UPDATE: CANVAS.tms titles and URLs each semester.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Theory of Moral Sentiments passage schedule and response guidelines for COR 1100.">
+  <title>COR 1100 · Theory of Moral Sentiments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --disabled:#bcbcbc;
+      --white:#ffffff; --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.85rem;margin-top:0.35rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.88rem;line-height:1.65;}
+    .callout.gold{background:rgba(181,154,87,0.09);border-left:4px solid var(--gold);}
+    .callout.gold strong{color:var(--gold-link);}
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;}
+    .tms-list{display:flex;flex-direction:column;gap:0.6rem;}
+    .tms-row{background:var(--white);border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.12);display:grid;grid-template-columns:3rem 1fr auto;align-items:center;overflow:hidden;}
+    .t-num{background:var(--warm-gray);padding:0.9rem 0.75rem;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;}
+    .t-body{padding:0.85rem 1rem;}
+    .t-title{font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
+    .t-dates{font-size:0.72rem;color:var(--muted);margin-top:3px;line-height:1.4;}
+    .t-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--gold-link);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .t-link:hover{background:var(--warm-gray);}
+    .t-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .t-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .tms-row{grid-template-columns:2.5rem 1fr auto;}
+      .t-title{font-size:0.82rem;}
+    }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Assignments
+    </a>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">Theory of Moral Sentiments</h1>
+    <p class="screen-sub">10% of your course grade &middot; four passages &middot; introduced Friday &middot; due Wednesday 11:59 p.m.</p>
+  </div>
+</div>
+<main id="main">
+  <div class="callout gold">
+    <strong>Each passage is a Canvas assignment.</strong> I introduce it on the designated Friday; it is due the following Wednesday at 11:59 p.m. A strong
+    response pushes back on the passage, asks what Smith left out, or connects his
+    argument to something from Hanley. A weak response restates what the passage
+    already said.
+  </div>
+  <p class="section-label">Passages &mdash; click to open in Canvas</p>
+  <div class="tms-list" id="tmsList"></div>
+</main>
+<footer id="pageFooter"></footer>
+<script>
+document.title += ' · ' + COURSE.semester;
+document.getElementById('backLink').href           = PAGES.assignments;
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = COURSE.code + ' · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+var list = document.getElementById('tmsList');
+
+CANVAS.tms.forEach(function(t) {
+  var hasUrl = t.url && t.url.length > 0;
+  var titleText = t.title && t.title.length > 0
+    ? t.title
+    : SOURCE_TEXT.title + ' &mdash; Passage ' + t.id;
+
+  var row = document.createElement('div');
+  row.className = 'tms-row';
+  row.innerHTML =
+    '<div class="t-num">TMS ' + t.id + '</div>' +
+    '<div class="t-body">' +
+      '<div class="t-title">' + titleText + '</div>' +
+      '<div class="t-dates">Introduced ' + t.introduced + ' &nbsp;&middot;&nbsp; Due ' + t.due + '</div>' +
+    '</div>' +
+    '<a class="t-link' + (hasUrl ? '' : ' inactive') + '"' +
+      (hasUrl ? ' href="' + t.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasUrl ? 'Open Passage' : 'Coming Soon') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>';
+  list.appendChild(row);
+});
+</script>
+</body>
+</html>

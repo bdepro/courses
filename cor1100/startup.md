@@ -91,11 +91,11 @@ Build in this order, using ECO 1000 equivalents as the model:
 - [x] `schedule.html`
 - [x] `assignments.html`
 - [x] `checkins.html`
-- [ ] `puzzles.html`
-- [ ] `tms.html`
-- [ ] `friday.html`
-- [ ] `chapters.html` — Hanley chapter list with Perusall links (no Cengage)
-- [ ] `syllabus.html`
+- [x] `puzzles.html`
+- [x] `tms.html`
+- [x] `friday.html`
+- [x] `chapters.html` — Hanley chapter list with Perusall links (no Cengage)
+- [x] `syllabus.html`
 
 ---
 

@@ -853,10 +853,10 @@ function bodyContent(session, type, isCurrent) {
     const tmsDue = tmsEntries.length > 0 ? tmsEntries[0].due : 'Wednesday of the following block, 11:59 p.m.';
     const multiTMS = tmsEntries.length > 1;
 
-    friDesc.innerHTML = `<strong>Friday we review check-in answers.</strong> Questions about your answers are welcome — this is the time.
+    friDesc.innerHTML = `<strong>Friday we review check-in answers, and questions are welcome.</strong>
       <div class="sub">${multiTMS
         ? `Then we introduce two ${SOURCE_TEXT.title} passages for the rest of the semester. Both are due ${tmsDue}.`
-        : `Then we introduce the ${SOURCE_TEXT.title} passage for this block. It is due ${tmsDue}, not this Wednesday.`
+        : `Then we introduce the ${SOURCE_TEXT.title} passage for this block, due ${tmsDue}.`
       }</div>`;
     friBox.appendChild(friDesc);
 
@@ -1027,9 +1027,9 @@ document.getElementById('backLink').href          = PAGES.home;
 document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
 document.getElementById('pageFooter').textContent = `${COURSE.code} · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
-  `The semester runs in three-day sessions — Monday, Wednesday, Friday. ` +
-  `Your current session opens below. Perusall readings and Puzzles are due Wednesday by 11:59 p.m. ` +
-  `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
+  `The semester runs in three-day sessions: Monday, Wednesday, Friday. ` +
+  `Your current session opens below. Perusall readings and Puzzles are due Wednesday by 11:59 p.m.; ` +
+  `see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 document.getElementById('dueBanner').innerHTML    =
   `<strong>Puzzles are due the Wednesday after each session at 11:59 p.m.</strong> ` +
   `TMS passages have their own dates (see the TMS page). ` +
