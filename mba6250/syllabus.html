@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  MBA6250 — SYLLABUS
+  Hosted: bdepro.github.io/courses/mba6250/syllabus.html
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus · MBA 6250 · Managerial Economics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:      #73000a;
+      --crimson-dk:   #500007;
+      --gold:         #b59a57;
+      --gold-link:    #7a5c1e;
+      --gold-pale:    rgba(181,154,87,0.12);
+      --cream:        #faf9f7;
+      --warm-white:   #ffffff;
+      --surface:      #f4f2ef;
+      --text:         #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --muted:        #777;
+      --border:       rgba(181,154,87,0.18);
+      --border-soft:  rgba(0,0,0,0.07);
+      --shadow-sm:    0 1px 4px rgba(0,0,0,0.06), 0 2px 12px rgba(115,0,10,0.05);
+      --radius:       14px;
+      --radius-sm:    8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #3a0005 0%, #73000a 60%, #8a1015 100%);
+      border-bottom: 3px solid var(--gold);
+      padding: 2.5rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(181,154,87,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .header-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: color 0.15s;
+    }
+    .header-back:hover { color: rgba(255,255,255,0.85); }
+    .header-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .header-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .header-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .sidebar-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .sidebar-card-hd {
+      padding: 0.8rem 1.1rem 0.7rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .sidebar-card-body { padding: 1rem 1.1rem; }
+
+    .sidebar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.8rem;
+    }
+    .sidebar-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-row-label {
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .sidebar-row-value { color: var(--text-secondary); line-height: 1.45; }
+    .sidebar-row-value a { color: var(--gold-link); text-decoration: none; font-weight: 500; }
+    .sidebar-row-value a:hover { text-decoration: underline; }
+
+    .grade-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .grade-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+    }
+    .grade-item-label { color: var(--text-secondary); }
+    .grade-item-pct {
+      font-weight: 600;
+      color: var(--crimson);
+      font-size: 0.85rem;
+    }
+    .grade-track {
+      height: 4px;
+      background: rgba(115,0,10,0.08);
+      border-radius: 2px;
+      margin-top: 0.25rem;
+    }
+    .grade-fill {
+      height: 4px;
+      background: var(--crimson);
+      border-radius: 2px;
+      opacity: 0.7;
+    }
+
+    .date-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .date-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .date-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .date-item-label { color: var(--text-secondary); flex: 1; }
+    .date-item-value {
+      color: var(--crimson);
+      font-weight: 500;
+      font-size: 0.73rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .date-item.break .date-item-value { color: var(--muted); }
+
+    /* ── Main content ── */
+    .content { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .section {
+      background: var(--warm-white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .section-hd {
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-hd-icon {
+      width: 32px; height: 32px;
+      background: rgba(115,0,10,0.07);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-hd-icon svg { width: 16px; height: 16px; stroke: var(--crimson); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .section-hd-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .section-body { padding: 1.4rem 1.5rem; }
+
+    /* ── Prose ── */
+    .prose {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .prose p + p { margin-top: 0.85rem; }
+    .prose strong { color: var(--text); font-weight: 600; }
+    .prose em { font-style: italic; }
+    .prose a { color: var(--gold-link); text-decoration: none; font-weight: 500; }
+    .prose a:hover { text-decoration: underline; }
+    .prose ul, .prose ol {
+      margin: 0.75rem 0 0.75rem 1.25rem;
+    }
+    .prose li { margin-bottom: 0.45rem; }
+    .prose li::marker { color: var(--crimson); }
+
+    /* ── Assessment table ── */
+    .assess-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .assess-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .assess-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .assess-row:first-child { padding-top: 0; }
+    .assess-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .assess-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .assess-pct {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--crimson);
+      text-align: right;
+      white-space: nowrap;
+    }
+    .assess-pts {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Grade scale ── */
+    .grade-scale {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.6rem;
+    }
+    .grade-scale-item {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .grade-scale-letter {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--crimson);
+    }
+    .grade-scale-range {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Module schedule table ── */
+    .module-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .module-table th {
+      text-align: left;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border-soft);
+      background: var(--surface);
+    }
+    .module-table td {
+      padding: 0.7rem 0.75rem;
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    .module-table tr:last-child td { border-bottom: none; }
+    .module-table tr:hover td { background: rgba(115,0,10,0.02); }
+    .module-num {
+      font-weight: 700;
+      color: var(--crimson);
+      white-space: nowrap;
+    }
+    .module-topic { color: var(--text); font-weight: 500; }
+    .module-break td {
+      background: rgba(181,154,87,0.06);
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* ── Policy callout ── */
+    .callout {
+      background: rgba(115,0,10,0.04);
+      border: 1px solid rgba(115,0,10,0.12);
+      border-left: 3px solid var(--crimson);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.1rem;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+    .callout strong { color: var(--crimson); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.75rem;
+      color: #bbb;
+      border-top: 1px solid var(--border-soft);
+    }
+    footer a { color: var(--gold-link); text-decoration: none; }
+
+    /* ── Mobile ── */
+    @media (max-width: 700px) {
+      header { padding: 2rem 1.25rem 1.5rem; }
+      .page-wrap { grid-template-columns: 1fr; padding: 1.5rem 1rem 3.5rem; }
+      .sidebar { order: 2; }
+      .content { order: 1; }
+      .assess-row { grid-template-columns: 1fr auto; }
+      .assess-pts { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-back" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="header-eyebrow" id="headerEyebrow"></p>
+    <h1>Course Syllabus</h1>
+    <p class="header-sub" id="headerSub"></p>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <!-- Quick facts -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-hd">Course Information</div>
+      <div class="sidebar-card-body">
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Course</span>
+          <span class="sidebar-row-value" id="sbCourse"></span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Format</span>
+          <span class="sidebar-row-value">Online — Asynchronous</span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Credit Hours</span>
+          <span class="sidebar-row-value">3</span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Semester</span>
+          <span class="sidebar-row-value" id="sbSemester"></span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Instructor</span>
+          <span class="sidebar-row-value" id="sbInstructor"></span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Email</span>
+          <span class="sidebar-row-value"><a id="sbEmail" href="#"></a></span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Office Hours</span>
+          <span class="sidebar-row-value"><a id="sbZoom" href="#" target="_blank">Zoom — by appointment</a></span>
+        </div>
+        <div class="sidebar-row">
+          <span class="sidebar-row-label">Textbook</span>
+          <span class="sidebar-row-value"><em>Managerial Economics: A Problem Solving Approach</em>, Froeb, McCann, Ward &amp; Shor (Cengage, 5th ed.)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade weights -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-hd">Grade Breakdown</div>
+      <div class="sidebar-card-body">
+        <div class="grade-bar">
+          <div>
+            <div class="grade-item">
+              <span class="grade-item-label">Case Analyses</span>
+              <span class="grade-item-pct">40%</span>
+            </div>
+            <div class="grade-track"><div class="grade-fill" style="width:40%"></div></div>
+          </div>
+          <div>
+            <div class="grade-item">
+              <span class="grade-item-label">Problem Sets</span>
+              <span class="grade-item-pct">30%</span>
+            </div>
+            <div class="grade-track"><div class="grade-fill" style="width:30%"></div></div>
+          </div>
+          <div>
+            <div class="grade-item">
+              <span class="grade-item-label">Executive Memo</span>
+              <span class="grade-item-pct">20%</span>
+            </div>
+            <div class="grade-track"><div class="grade-fill" style="width:20%"></div></div>
+          </div>
+          <div>
+            <div class="grade-item">
+              <span class="grade-item-label">Participation</span>
+              <span class="grade-item-pct">10%</span>
+            </div>
+            <div class="grade-track"><div class="grade-fill" style="width:10%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key dates -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-hd">Key Dates — Fall 2025</div>
+      <div class="sidebar-card-body" style="padding:0.75rem 1.1rem">
+        <div class="date-list" id="dateList"></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="content">
+
+    <!-- Course description -->
+    <div class="section">
+      <div class="section-hd">
+        <div class="section-hd-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <span class="section-hd-title">Course Overview</span>
+      </div>
+      <div class="section-body prose">
+        <p>Managers face a relentless stream of decisions — how much to produce, how to price, whether to enter a market, how to structure a contract, when to invest. <strong>Managerial Economics</strong> provides the analytical toolkit for making those decisions well.</p>
+        <p>This course applies microeconomic theory to the problems that practitioners actually encounter. The central method is <strong>problem solving</strong>: each topic is introduced through a managerial question, analyzed with a precise framework, and applied to real cases. The Froeb et al. textbook is deliberately lean and decision-focused — every chapter is organized around a type of decision, not an abstract theoretical concept.</p>
+        <p>By the end of the semester, you should be able to identify the economic structure of a business problem, apply the appropriate analytical framework, and communicate your reasoning clearly — in writing, in a case analysis, and in an executive memorandum.</p>
+        <div class="callout">
+          <strong>AI in this course.</strong> AI tools are permitted and encouraged as analytical aids, particularly for case analysis. Any AI-assisted work must be disclosed. The policy is detailed on the <a href="shared/ai-policy.html">AI Policy page</a>. The Elon MBA's honor code applies to all submissions.
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning outcomes -->
+    <div class="section">
+      <div class="section-hd">
+        <div class="section-hd-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <span class="section-hd-title">Learning Outcomes</span>
+      </div>
+      <div class="section-body prose">
+        <p>Students completing this course will be able to:</p>
+        <ol>
+          <li>Apply marginal analysis to determine optimal quantities, prices, and investment levels in realistic managerial contexts.</li>
+          <li>Analyze market structure — competitive, monopolistic, and oligopolistic — and identify the strategic implications for pricing and entry.</li>
+          <li>Use game-theoretic reasoning to anticipate competitor behavior and evaluate strategic commitments.</li>
+          <li>Structure bargaining problems and design contracts that align incentives across agency relationships.</li>
+          <li>Identify the effects of information asymmetries (adverse selection, moral hazard) on market outcomes and organizational design.</li>
+          <li>Communicate an economic analysis clearly and concisely in the format of a professional executive memorandum.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Assessments -->
+    <div class="section">
+      <div class="section-hd">
+        <div class="section-hd-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <span class="section-hd-title">Assessments</span>
+      </div>
+      <div class="section-body">
+        <div class="assess-grid">
+
+          <div class="assess-row">
+            <div>
+              <div class="assess-name">Case Analyses (×10)</div>
+              <div class="assess-desc">One case analysis per module. Each case presents a real or realistic managerial decision scenario. You will identify the economic problem, apply the chapter's framework, and recommend a course of action — with supporting analysis. Cases are submitted via Moodle. Length: 400–600 words plus any supporting quantitative work. <strong>AI disclosure required if used.</strong></div>
+            </div>
+            <div>
+              <div class="assess-pct">40%</div>
+              <div class="assess-pts">4 pts each</div>
+            </div>
+          </div>
+
+          <div class="assess-row">
+            <div>
+              <div class="assess-name">Problem Sets (×10)</div>
+              <div class="assess-desc">One quantitative problem set per module via Cengage MindTap. Problems are drawn from the textbook's end-of-chapter exercises and focus on the calculative and graphical skills underlying each framework. Graded automatically in MindTap; linked from the Modules page. Due by Friday at 11:59 p.m. each week.</div>
+            </div>
+            <div>
+              <div class="assess-pct">30%</div>
+              <div class="assess-pts">3 pts each</div>
+            </div>
+          </div>
+
+          <div class="assess-row">
+            <div>
+              <div class="assess-name">Executive Memo</div>
+              <div class="assess-desc">A capstone deliverable due at the end of the course. Select a real managerial decision — a pricing change, market entry, acquisition, or organizational redesign — and produce a professional executive memorandum that applies at least three course frameworks to your chosen decision. Target audience: a senior executive who is not an economist. Length: 1,200–1,800 words. Prompt and rubric distributed in Module 5.</div>
+            </div>
+            <div>
+              <div class="assess-pct">20%</div>
+              <div class="assess-pts">20 pts</div>
+            </div>
+          </div>
+
+          <div class="assess-row">
+            <div>
+              <div class="assess-name">Participation</div>
+              <div class="assess-desc">Discussion-board engagement in Moodle. Each module includes at least one discussion prompt. You are expected to post a substantive initial response and reply to at least one peer. Graded on quality of economic reasoning, not volume.</div>
+            </div>
+            <div>
+              <div class="assess-pct">10%</div>
+              <div class="assess-pts">10 pts</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Grade scale -->
+        <div style="margin-top:1.5rem">
+          <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Grade Scale</p>
+          <div class="grade-scale">
+            <div class="grade-scale-item"><span class="grade-scale-letter">A</span><span class="grade-scale-range">93–100</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">A−</span><span class="grade-scale-range">90–92</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">B+</span><span class="grade-scale-range">87–89</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">B</span><span class="grade-scale-range">83–86</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">B−</span><span class="grade-scale-range">80–82</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">C+</span><span class="grade-scale-range">77–79</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">C</span><span class="grade-scale-range">73–76</span></div>
+            <div class="grade-scale-item"><span class="grade-scale-letter">F</span><span class="grade-scale-range">below 73</span></div>
+          </div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;line-height:1.5;">The MBA program's minimum passing grade for required courses is B−. Students earning below B− must repeat the course.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module schedule -->
+    <div class="section">
+      <div class="section-hd">
+        <div class="section-hd-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <span class="section-hd-title">Module Schedule</span>
+      </div>
+      <div class="section-body" style="padding:0">
+        <table class="module-table" id="moduleTable">
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Dates</th>
+              <th>Topic</th>
+              <th>Chapters</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody id="moduleTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Course policies -->
+    <div class="section">
+      <div class="section-hd">
+        <div class="section-hd-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="section-hd-title">Course Policies</span>
+      </div>
+      <div class="section-body prose">
+
+        <p><strong>Late Work.</strong> Assignments submitted within 24 hours of the deadline receive a 20% penalty. Submissions more than 24 hours late receive a zero, except in documented emergencies. Contact me before the deadline if you anticipate a problem.</p>
+
+        <p><strong>Academic Integrity.</strong> All work submitted for a grade must represent your own analysis. Collaboration is encouraged for understanding concepts; all submitted writing and calculations must be your own unless the assignment explicitly permits otherwise. Consult the <a href="https://www.elon.edu/u/academics/honor-pledge/" target="_blank">Elon Honor Pledge</a> and the MBA student handbook.</p>
+
+        <p><strong>AI Tools.</strong> Use of AI is permitted with written disclosure. The disclosure statement must appear at the end of your submission and specify which tools you used, for what purpose, and what edits you made to the AI output. Undisclosed AI use is treated as an academic integrity violation.</p>
+
+        <p><strong>Accessibility.</strong> Elon University is committed to providing an accessible learning environment. If you require accommodations, contact <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/disabilities-resources/" target="_blank">Disabilities Resources</a> and provide your accommodation letter within the first two weeks of the semester.</p>
+
+        <p><strong>Communication.</strong> I will respond to email within 48 hours on business days. For complex questions, schedule a Zoom office-hours appointment using the link on the course home page. Discussion-board questions that are broadly useful will be answered there so all students benefit.</p>
+
+        <p><strong>Technical Requirements.</strong> Reliable internet access, a current browser, and access to Moodle and Cengage MindTap are required. Technical difficulties are not an automatic extension; contact me promptly if you encounter a persistent platform problem.</p>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span id="footerText"></span>
+  &nbsp;·&nbsp;
+  <a href="https://www.elon.edu" target="_blank">Elon University</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.elon.edu/u/academics/business/mba/" target="_blank">Elon MBA</a>
+</footer>
+
+<script>
+// ── Wire header & sidebar ──
+document.getElementById('headerEyebrow').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
+document.getElementById('headerSub').textContent     = `${COURSE.courseTitle} · Elon Martha and Spencer Love School of Business`;
+document.getElementById('sbCourse').textContent      = `${COURSE.courseCode} — ${COURSE.courseTitle}`;
+document.getElementById('sbSemester').textContent    = COURSE.semester;
+document.getElementById('sbInstructor').textContent  = COURSE.instructor.name;
+const emailEl = document.getElementById('sbEmail');
+emailEl.href        = `mailto:${COURSE.instructor.email}`;
+emailEl.textContent = COURSE.instructor.email;
+document.getElementById('sbZoom').href = COURSE.instructor.zoomUrl;
+document.getElementById('footerText').textContent =
+  `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+
+// ── Key dates ──
+const dateItems = [
+  { label: 'Classes Begin',        value: COURSE.dates.classesBegin,       break: false },
+  { label: 'Drop Deadline',        value: COURSE.dates.dropDeadline,        break: false },
+  { label: 'Thanksgiving Break',   value: COURSE.dates.thanksgivingBreak,   break: true  },
+  { label: 'Classes End',          value: COURSE.dates.classesEnd,          break: false },
+  { label: 'Exam Period',          value: `${COURSE.dates.examsBegin.replace(', 2025','')}–${COURSE.dates.examsEnd.replace('December ','').replace(', 2025','')}`, break: false },
+  { label: 'Grades Due',           value: COURSE.dates.gradesDue,           break: false },
+];
+const dateList = document.getElementById('dateList');
+dateItems.forEach(d => {
+  const div = document.createElement('div');
+  div.className = `date-item${d.break ? ' break' : ''}`;
+  div.innerHTML = `<span class="date-item-label">${d.label}</span><span class="date-item-value">${d.value}</span>`;
+  dateList.appendChild(div);
+});
+
+// ── Module schedule ──
+// Build a lookup: module number → chapters
+const chapByModule = {};
+CHAPTERS.forEach(ch => {
+  if (!chapByModule[ch.module]) chapByModule[ch.module] = [];
+  chapByModule[ch.module].push(ch.num);
+});
+
+const tbody = document.getElementById('moduleTableBody');
+COURSE.modules.forEach(mod => {
+  const tr = document.createElement('tr');
+  const chaps = (chapByModule[mod.num] || []).join(', ');
+  tr.innerHTML = `
+    <td class="module-num">Module ${mod.num}</td>
+    <td style="white-space:nowrap">${mod.dates}</td>
+    <td class="module-topic">${mod.topic}</td>
+    <td style="white-space:nowrap;color:var(--muted)">${chaps}</td>
+    <td style="white-space:nowrap;font-size:0.78rem">${mod.due}</td>
+  `;
+  tbody.appendChild(tr);
+
+  // Insert Thanksgiving break after Module 9
+  if (mod.num === 9) {
+    const brTr = document.createElement('tr');
+    brTr.className = 'module-break';
+    brTr.innerHTML = `<td colspan="5">⛅ Thanksgiving Break — November 23–27 — No classes</td>`;
+    tbody.appendChild(brTr);
+  }
+});
+</script>
+</body>
+</html>
