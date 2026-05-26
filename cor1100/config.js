@@ -376,6 +376,8 @@ const PAGES = {
   support:       `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html`,
   aiAssignments: ``,   // UPDATE: COR 1100 AI assignment URL once created
+  narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=cor1100`,
+  vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=cor1100`,
 };
 
 // ================================================================
