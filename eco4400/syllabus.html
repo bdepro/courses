@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!--
+  ECO 4400 — Applied Economics & Consulting
+  Syllabus Page — Fall 2026
+  Search UPDATE to find fields to refresh each semester
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:   #73000a;
+      --crimson-dk:#5a0008;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --green:     #788a38;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e8e3da;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Screen header ── */
+    .screen-header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .screen-header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .screen-eyebrow {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem;
+    }
+    .screen-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700; color: var(--white); line-height: 1.2;
+    }
+    .screen-actions { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-print {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: #1a1a1a;
+      border: none; padding: 0.55rem 1.25rem;
+      font-family: var(--font); font-size: 0.82rem; font-weight: 700;
+      border-radius: 5px; cursor: pointer; letter-spacing: 0.04em;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .btn-print:hover { background: var(--gold-lt); }
+    .btn-print svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    .print-header { display: none; }
+
+    /* ── Syllabus sections ── */
+    .syl-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .syl-section-header {
+      background: var(--crimson);
+      padding: 0.65rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .syl-section-header.teal  { background: var(--teal); }
+    .syl-section-header.green { background: var(--green); }
+    .syl-section-header.gold  { background: var(--gold-link); }
+
+    .syl-num {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.15);
+      padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+    }
+    .syl-section-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+
+    .syl-body { padding: 1.25rem 1.5rem; }
+    .syl-body p { font-size: 0.93rem; margin-bottom: 0.85rem; line-height: 1.7; color: var(--text); }
+    .syl-body p:last-child { margin-bottom: 0; }
+    .syl-body a { color: var(--gold-link); }
+    .syl-body a:hover { color: var(--crimson); }
+
+    /* Contact grid (dual instructors) */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2rem;
+      margin-bottom: 0.25rem;
+    }
+    .contact-instructor {
+      padding-bottom: 0.85rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px solid var(--warm-gray);
+    }
+    .contact-instructor:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .contact-instructor-name {
+      font-size: 0.9rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.35rem;
+    }
+    .contact-instructor-title {
+      font-size: 0.75rem; color: var(--muted); margin-bottom: 0.45rem; line-height: 1.4;
+    }
+    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; margin-bottom: 0.15rem; }
+    .contact-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 72px;
+    }
+    .contact-value { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+    .contact-value a { color: var(--gold-link); text-decoration: none; }
+    .contact-value a:hover { color: var(--crimson); }
+
+    /* Learning outcomes */
+    .goal-list { list-style: none; padding: 0; }
+    .goal-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray); font-size: 0.91rem;
+    }
+    .goal-item:first-child { padding-top: 0; }
+    .goal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .goal-num {
+      width: 24px; height: 24px; min-width: 24px; border-radius: 50%;
+      background: var(--crimson); color: var(--white);
+      font-size: 0.68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
+    }
+    .goal-text { line-height: 1.55; }
+
+    .di-badge {
+      display: inline-block; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      background: rgba(82,123,130,0.1); color: var(--teal);
+      border: 1px solid rgba(82,123,130,0.3);
+      padding: 0.12rem 0.5rem; border-radius: 2px;
+      margin-left: 0.5rem; vertical-align: middle;
+    }
+
+    /* Textbook block */
+    .textbook-block {
+      background: var(--warm-gray); border-radius: 6px;
+      padding: 0.85rem 1rem; font-size: 0.88rem;
+      line-height: 1.65; margin-bottom: 0.85rem;
+    }
+    .textbook-block cite { font-style: italic; }
+    .textbook-block:last-child { margin-bottom: 0; }
+
+    /* Sub-heading inside syl-body */
+    .syl-sub {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--teal);
+      margin: 1.1rem 0 0.4rem;
+    }
+    .syl-sub:first-child { margin-top: 0; }
+
+    /* Assessment */
+    .assess-block { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
+    .assess-block:last-child { margin-bottom: 0; }
+    .assess-header {
+      background: var(--warm-gray); padding: 0.6rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .assess-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .assess-weight {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--crimson);
+      background: rgba(115,0,10,0.08); padding: 0.15rem 0.55rem; border-radius: 3px;
+      white-space: nowrap;
+    }
+    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; color: var(--text); }
+    .assess-body p { margin-bottom: 0.65rem; }
+    .assess-body p:last-child { margin-bottom: 0; }
+    .assess-body ul { padding-left: 1.1rem; margin-top: 0.4rem; }
+    .assess-body li { margin-bottom: 0.45rem; line-height: 1.6; }
+
+    /* Weight bars */
+    .weight-bars { margin-bottom: 1.25rem; }
+    .wbar { margin-bottom: 0.75rem; }
+    .wbar:last-child { margin-bottom: 0; }
+    .wbar-label { display: flex; justify-content: space-between; font-size: 0.83rem; margin-bottom: 0.3rem; }
+    .wbar-label span:first-child { font-weight: 500; }
+    .wbar-label span:last-child  { font-weight: 700; color: var(--crimson); }
+    .wbar-track { height: 5px; background: rgba(0,0,0,0.07); border-radius: 3px; overflow: hidden; }
+    .wbar-fill  { height: 100%; border-radius: 3px; }
+    .wbar-fill.labs     { background: var(--crimson); }
+    .wbar-fill.research { background: var(--gold); }
+    .wbar-fill.econ     { background: var(--teal); }
+
+    /* Schedule table */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .sched-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.6rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .sched-table td {
+      padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .sched-table tr:last-child td { border-bottom: none; }
+    .sched-table tr:hover td { background: #fdfcfa; }
+
+    .sched-table .break-row td {
+      background: var(--warm-gray); color: var(--muted);
+      font-style: italic; font-size: 0.82rem;
+      text-align: center; padding: 0.55rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .week-tag {
+      display: inline-block; background: var(--crimson); color: var(--white);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.15rem 0.5rem;
+      border-radius: 3px; white-space: nowrap;
+    }
+    .ch-tag { font-size: 0.75rem; font-weight: 700; color: var(--gold-link); display: block; margin-bottom: 0.2rem; }
+    .data-tag {
+      display: inline-block; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(82,123,130,0.1); color: var(--teal);
+      border: 1px solid rgba(82,123,130,0.25);
+      padding: 0.1rem 0.4rem; border-radius: 2px;
+      margin-left: 4px; vertical-align: middle; white-space: nowrap;
+    }
+
+    /* SLO table */
+    .slo-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .slo-table th {
+      background: var(--teal); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; padding: 0.6rem 0.85rem; text-align: left;
+    }
+    .slo-table td {
+      padding: 0.85rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.6; font-size: 0.88rem;
+    }
+    .slo-table tr:last-child td { border-bottom: none; }
+    .slo-table tr:nth-child(even) td { background: rgba(82,123,130,0.04); }
+    .slo-num { font-weight: 700; color: var(--teal); white-space: nowrap; width: 80px; }
+    .slo-anchor { display: inline-block; background: var(--crimson); color: var(--white); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 2px; margin-left: 4px; vertical-align: middle; }
+    .slo-evidence { font-size: 0.8rem; color: var(--teal); font-style: italic; margin-top: 0.4rem; display: block; line-height: 1.5; }
+
+    /* Grade scale */
+    .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .scale-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.5rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .scale-table td { padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--warm-gray); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-grade { font-weight: 700; color: var(--crimson); }
+    .scale-desc  { color: var(--muted); font-size: 0.82rem; }
+
+    /* Policies */
+    .policy-list { list-style: none; padding: 0; }
+    .policy-item {
+      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1.1rem;
+      border-bottom: 1px solid var(--warm-gray);
+      position: relative; line-height: 1.65;
+    }
+    .policy-item:last-child { border-bottom: none; }
+    .policy-item::before {
+      content: ""; position: absolute; left: 0; top: 0.95rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    }
+    .policy-item strong { color: var(--text); }
+    .policy-item a { color: var(--gold-link); text-decoration: none; }
+    .policy-item a:hover { color: var(--crimson); }
+
+    .policy-callout {
+      background: rgba(82,123,130,0.06); border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.85rem 1rem;
+      margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.65;
+    }
+    .policy-callout strong { color: var(--teal); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .screen-header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .syl-body { padding: 1rem 1.1rem; }
+    }
+
+    /* Print */
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: white; font-size: 10.5pt; line-height: 1.55; color: #000; }
+      .screen-header { display: none; }
+      .print-header {
+        display: block; border-bottom: 3px solid #73000a;
+        padding-bottom: 0.75rem; margin-bottom: 1.5rem;
+      }
+      .print-title    { font-size: 16pt; font-weight: 700; color: #73000a; line-height: 1.2; }
+      .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
+      .print-meta     { font-size: 9pt; color: #666; margin-top: 0.5rem; }
+      main { max-width: 100%; padding: 0; margin: 0; }
+      .syl-section { box-shadow: none; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid; }
+      .syl-section-header { padding: 0.4rem 0.75rem; }
+      .syl-section-title  { font-size: 9.5pt; }
+      .syl-num            { display: none; }
+      .syl-body           { padding: 0.65rem 0.85rem; }
+      .syl-body p         { font-size: 10pt; margin-bottom: 0.5rem; }
+      .contact-grid       { font-size: 9.5pt; }
+      .assess-block       { page-break-inside: avoid; }
+      .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
+      .scale-table, .slo-table, .sched-table { font-size: 9.5pt; }
+      a { color: #000; text-decoration: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 7.5pt; color: #666; }
+      a[href^="mailto"]::after { content: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="screen-eyebrow">ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Fall 2026</p>
+    <h1 class="screen-title">Syllabus</h1>
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="print-header">
+  <div class="print-title">Applied Economics &amp; Consulting</div>
+  <div class="print-subtitle">ECO 4400 &mdash; Fall 2026</div>
+  <div class="print-meta">Brooks Depro &amp; Devon Hawkins &nbsp;&middot;&nbsp; Love School of Business &nbsp;&middot;&nbsp; Elon University</div>
+</div>
+
+<main>
+
+  <!-- ── SECTION 1: COURSE INFORMATION ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 1</span>
+      <span class="syl-section-title">Course Information</span>
+    </div>
+    <div class="syl-body">
+      <div class="contact-grid">
+        <div class="contact-instructor">
+          <div class="contact-instructor-name">Brooks Depro</div>
+          <div class="contact-instructor-title">Associate Professor of Economics</div>
+          <div class="contact-row"><span class="contact-label">Office</span><span class="contact-value">KoBC 122</span></div>
+          <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:bdepro@elon.edu">bdepro@elon.edu</a></span></div>
+          <div class="contact-row"><span class="contact-label">Phone</span><span class="contact-value">919-357-2316</span></div>
+          <div class="contact-row"><span class="contact-label">Hours</span><span class="contact-value">Mon / Wed / Fri, 4:00&ndash;5:00 PM</span></div><!-- UPDATE -->
+          <div class="contact-row"><span class="contact-label">Zoom</span><span class="contact-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank">elon.zoom.us/my/bdepro</a></span></div>
+        </div>
+        <div class="contact-instructor">
+          <div class="contact-instructor-name">Devon Hawkins</div>
+          <div class="contact-instructor-title">Assistant Teaching Professor of Economics</div>
+          <div class="contact-row"><span class="contact-label">Office</span><span class="contact-value">KoBC 120</span></div>
+          <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:dhawkins5@elon.edu">dhawkins5@elon.edu</a></span></div>
+          <div class="contact-row"><span class="contact-label">Phone</span><span class="contact-value">(336) 278-5977</span></div>
+          <div class="contact-row"><span class="contact-label">Hours</span><span class="contact-value">By appointment</span></div>
+        </div>
+      </div>
+      <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid var(--warm-gray);">
+        <div class="contact-row"><span class="contact-label">Course</span><span class="contact-value">ECO 4400 &mdash; Applied Economics &amp; Consulting &mdash; Fall 2026</span></div>
+        <div class="contact-row"><span class="contact-label">Credits</span><span class="contact-value">4 credit hours &mdash; in-person, Mon &amp; Wed</span></div>
+        <div class="contact-row"><span class="contact-label">Canvas</span><span class="contact-value"><a href="https://www.elon.edu/moodle/" target="_blank">elon.instructure.com</a></span></div>
+        <div class="contact-row"><span class="contact-label">Designation</span><span class="contact-value">Data Intensive (SLOs 2, 3, 4, 5)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: OVERVIEW ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 2</span>
+      <span class="syl-section-title">Course Overview</span>
+    </div>
+    <div class="syl-body">
+      <p>In this course you work as an analyst. The problems are real: a client needs to understand a market, defend a budget, or choose between options with uncertain outcomes. Your job is to gather the right data, build a model that holds up to scrutiny, and deliver advice that actually helps someone decide.</p>
+      <p>Most weeks divide cleanly. Mondays cover economic theory from <em>Managerial Economics</em> (Froeb et al.), and Wednesdays are split between your consulting team project and independent research assignments. Teams form in the first week and stay together through the final presentation.</p>
+      <p>By the end of the semester you will have a short portfolio of work&mdash;memos, data analyses, and a live client presentation&mdash;that demonstrates you can move from a messy real-world problem to a clear recommendation.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: REQUIRED MATERIALS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header green">
+      <span class="syl-num">Section 3</span>
+      <span class="syl-section-title">Required Materials</span>
+    </div>
+    <div class="syl-body">
+      <div class="textbook-block">
+        <strong>Textbook &amp; MindTap.</strong> Froeb, Luke M., Brian T. McCann, Michael R. Ward, and Mike Shor. <cite>Managerial Economics: A Problem-Solving Approach</cite>. 6th ed. Cengage Learning, 2023. One-term MindTap access is required; it includes the digital textbook.
+      </div>
+      <div class="textbook-block">
+        <strong>Harvard Business Publishing cases.</strong> Case materials for <em>FTC v. Amazon</em> and <em>Game Theory in Video Games</em> are purchased through the course Canvas site using the HBP Case Companion.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: LEARNING OUTCOMES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 4</span>
+      <span class="syl-section-title">Learning Outcomes</span>
+    </div>
+    <div class="syl-body">
+      <p>By the end of the semester, you should be able to do three things:</p>
+      <ul class="goal-list">
+        <li class="goal-item">
+          <div class="goal-num">1</div>
+          <div class="goal-text">Analyze a business problem, identify the relevant trade-offs, and recommend a course of action.</div>
+        </li>
+        <li class="goal-item">
+          <div class="goal-num">2</div>
+          <div class="goal-text">Apply data tools to test economic claims and support your recommendations with evidence.<span class="di-badge">Data Intensive</span></div>
+        </li>
+        <li class="goal-item">
+          <div class="goal-num">3</div>
+          <div class="goal-text">Write and present economic analyses that a non-specialist can read, follow, and act on.<span class="di-badge">Data Intensive</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: ASSESSMENT ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">Assessment &amp; Grading</span>
+    </div>
+    <div class="syl-body">
+      <div class="weight-bars">
+        <div class="wbar">
+          <div class="wbar-label"><span>Consulting Team Labs</span><span>35%</span></div>
+          <div class="wbar-track"><div class="wbar-fill labs" style="width:35%"></div></div>
+        </div>
+        <div class="wbar">
+          <div class="wbar-label"><span>Applied Research &amp; Case Analytics</span><span>35%</span></div>
+          <div class="wbar-track"><div class="wbar-fill research" style="width:35%"></div></div>
+        </div>
+        <div class="wbar">
+          <div class="wbar-label"><span>Applied Economics for the BSBA</span><span>30%</span></div>
+          <div class="wbar-track"><div class="wbar-fill econ" style="width:30%"></div></div>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Consulting Team Labs <span class="di-badge">Data Intensive</span></span>
+          <span class="assess-weight">35%</span>
+        </div>
+        <div class="assess-body">
+          <p>Wednesday lab sessions are where the Sustainable Alamance project gets built. Your team works through the full consulting cycle: scoping the problem, gathering and cleaning data, running analyses, and translating findings into a recommendation your client can use. You receive feedback at structured milestones, not just at the end. The final presentation goes to a live audience in Week 12.</p>
+          <p>Labs are the primary site for SLO 2 (data collection and ethics) and SLO 4 (communicating findings across modalities). Attendance and preparation matter because teams depend on each other.</p>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Applied Research &amp; Case Analytics <span class="di-badge">Data Intensive</span></span>
+          <span class="assess-weight">35%</span>
+        </div>
+        <div class="assess-body">
+          <p>Three assignments develop your analytical skills independently of the consulting project:</p>
+          <ul>
+            <li><strong>Journal Replication Project.</strong> Take a published study on housing and energy use, re-run the analysis on the original data, and write up what you find&mdash;including where the results hold and where they do not. Addresses SLO 3 and SLO 5.</li>
+            <li><strong>FTC v. Amazon (Harvard Case).</strong> Antitrust analysis using the HBP Case Companion. The question is whether Amazon&rsquo;s pricing practices harm consumers or competition, and your memo needs to take a defensible position.</li>
+            <li><strong>Game Theory in Video Games (Harvard Case).</strong> Strategic decision-making applied to an industry where payoffs are measurable and the strategies are explicit.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Applied Economics for the BSBA</span>
+          <span class="assess-weight">30%</span>
+        </div>
+        <div class="assess-body">
+          <p>Monday sessions work through <em>Managerial Economics</em> (Froeb et al.). Each chapter starts with a real business decision and shows how economic reasoning changes it. Topics include opportunity cost, incentive design, pricing strategy, and strategic games. Problem sets and in-class assessments measure whether you can apply the framework, not just define it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: SCHEDULE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">Course Schedule</span>
+    </div>
+    <div class="syl-body" style="padding-left:0; padding-right:0; padding-bottom:0;">
+      <p style="padding: 0 1.5rem 0.85rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week.</p>
+      <div style="overflow-x:auto;">
+        <table class="sched-table">
+          <thead>
+            <tr>
+              <th style="width:44px;">Wk</th>
+              <th style="width:36%;">Topic</th>
+              <th>Monday</th>
+              <th>Wednesday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="week-tag">0</span></td>
+              <td>Orientation</td>
+              <td>&mdash;</td>
+              <td>Introduction &amp; team formation</td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">1</span></td>
+              <td><span class="ch-tag">Ch. 1</span>Solving Problems with Economics</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">2</span></td>
+              <td><span class="ch-tag">Ch. 3</span>Benefits, Costs, and Decisions</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">3</span></td>
+              <td><span class="ch-tag">Ch. 4</span>How Much Decisions</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">4</span></td>
+              <td><span class="ch-tag">Ch. 5</span>Investment Decisions</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">5</span></td>
+              <td><span class="ch-tag">Ch. 10</span>Keeping Profit from Eroding</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">6</span></td>
+              <td><span class="ch-tag">Ch. 12</span>More Realistic Pricing</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr class="break-row">
+              <td colspan="4">Fall Break</td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">7</span></td>
+              <td><span class="ch-tag">Ch. 13&ndash;14</span>Price Discrimination</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">8</span></td>
+              <td><span class="ch-tag">Ch. 15</span>Strategic Games</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">9</span></td>
+              <td><span class="ch-tag">Ch. 16</span>Bargaining</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">10</span></td>
+              <td><span class="ch-tag">Ch. 21</span>Employee Incentives</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">11</span></td>
+              <td><span class="ch-tag">Ch. 22&ndash;23</span>Divisions &amp; Vertical Relationships</td>
+              <td>Applied Economics</td>
+              <td>Consulting Labs <span class="data-tag">DATA</span></td>
+            </tr>
+            <tr class="break-row">
+              <td colspan="4">Thanksgiving Week &mdash; No Class</td>
+            </tr>
+            <tr>
+              <td><span class="week-tag">12</span></td>
+              <td>Final Presentations</td>
+              <td colspan="2" style="text-align:center; color:var(--crimson); font-weight:500;">Live client presentation &mdash; Sustainable Alamance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 7: DATA NEXUS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header green">
+      <span class="syl-num">Section 7</span>
+      <span class="syl-section-title">Data Nexus Learning Outcomes</span>
+    </div>
+    <div class="syl-body">
+      <p>This course addresses four of Elon&rsquo;s five Data Intensive Student Learning Outcomes. SLO&nbsp;2 is the anchor&mdash;it runs through every consulting lab from Week 1 to the final presentation.</p>
+      <table class="slo-table" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th style="width:96px;">SLO</th>
+            <th>Outcome &amp; Course Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="slo-num">SLO 2<span class="slo-anchor">Anchor</span></td>
+            <td>Students <strong>access or collect</strong> data and <strong>explain</strong> the ethical considerations of how that data is gathered and used.<span class="slo-evidence">Integrated throughout the semester. Teams document every data sourcing decision for the Sustainable Alamance project and address ethics explicitly at each milestone. The journal replication project requires students to evaluate the original authors&rsquo; methodological choices and consider the limits of the published data.</span></td>
+          </tr>
+          <tr>
+            <td class="slo-num">SLO 3</td>
+            <td>Students <strong>identify</strong> appropriate data-analysis methods and <strong>explain</strong> associated limitations and interpretations.<span class="slo-evidence">Assessed in the journal replication project, where students re-run a published housing and energy analysis and evaluate where the methodology holds. Also addressed in the IMPLAN economic modeling component of the consulting project.</span></td>
+          </tr>
+          <tr>
+            <td class="slo-num">SLO 4</td>
+            <td>Students <strong>communicate</strong> data-intensive work through multiple modalities: written, visual, and verbal.<span class="slo-evidence">Each major deliverable uses a different mode. The consulting project produces a written impact report, census-tract maps, and a final oral presentation to a live audience. Case analyses are written memos. The journal replication is a structured report.</span></td>
+          </tr>
+          <tr>
+            <td class="slo-num">SLO 5</td>
+            <td>Students use software to <strong>visualize</strong> data, <strong>analyze</strong> it for pertinent information, and <strong>develop models</strong> that estimate relationships among variables.<span class="slo-evidence">Students use Excel for ROI calculations, IMPLAN for county-level economic modeling, and ACS data tools for census-tract mapping. The consulting project requires all three functions within a single analytical workflow.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 8: AI POLICY ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 8</span>
+      <span class="syl-section-title">AI in This Course</span>
+    </div>
+    <div class="syl-body">
+      <p>Use AI. I expect it, and at points I will ask you to use it in specific ways. We will talk in class about what that looks like in practice.</p>
+      <p>The constraint is simple: no assignment, or any substantial part of one, should be produced entirely by a language model. Your analysis, your judgment, and your voice need to be present in the work. AI is most useful when it pushes back on a draft you already wrote, not when it writes the draft for you.</p>
+      <p>When you use AI, revise what it produces until the text accurately reflects how you think. You will write a short reflection on your AI use for each major assignment&mdash;not to police the tool, but because paying attention to <em>how</em> you used it is part of learning to use it well. If you are unsure whether a particular use is appropriate for an assignment, ask before you submit.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9: GRADE SCALE ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Grading Scale</span>
+    </div>
+    <div class="syl-body">
+      <p>Canvas is the official record for your course grade. Check it after each assignment is returned. Do not wait until late in the semester to raise questions about a score.</p>
+      <table class="scale-table" style="margin-top:0.85rem;">
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Description</th>
+            <th>Letter</th>
+            <th>Quality Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&ge; 93%</td><td>Distinguished</td><td class="scale-grade">A</td><td>4.0</td></tr>
+          <tr><td>&ge; 90%</td><td class="scale-desc"></td><td class="scale-grade">A&minus;</td><td>3.7</td></tr>
+          <tr><td>&ge; 87%</td><td class="scale-desc"></td><td class="scale-grade">B+</td><td>3.3</td></tr>
+          <tr><td>&ge; 83%</td><td>Above Average</td><td class="scale-grade">B</td><td>3.0</td></tr>
+          <tr><td>&ge; 80%</td><td class="scale-desc"></td><td class="scale-grade">B&minus;</td><td>2.7</td></tr>
+          <tr><td>&ge; 77%</td><td class="scale-desc"></td><td class="scale-grade">C+</td><td>2.3</td></tr>
+          <tr><td>&ge; 73%</td><td>Average</td><td class="scale-grade">C</td><td>2.0</td></tr>
+          <tr><td>&ge; 70%</td><td class="scale-desc"></td><td class="scale-grade">C&minus;</td><td>1.7</td></tr>
+          <tr><td>&ge; 67%</td><td class="scale-desc"></td><td class="scale-grade">D+</td><td>1.3</td></tr>
+          <tr><td>&ge; 63%</td><td class="scale-desc"></td><td class="scale-grade">D</td><td>1.0</td></tr>
+          <tr><td>&ge; 60%</td><td>Passing</td><td class="scale-grade">D&minus;</td><td>0.7</td></tr>
+          <tr><td>&lt; 60%</td><td>Failure</td><td class="scale-grade">F</td><td>0.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── SECTION 10: POLICIES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 10</span>
+      <span class="syl-section-title">Course Policies &amp; Campus Resources</span>
+    </div>
+    <div class="syl-body">
+      <ul class="policy-list">
+        <li class="policy-item">
+          <strong>Honor Code.</strong> Elon&rsquo;s honor pledge covers Honesty, Integrity, Responsibility, and Respect. Academic violations&mdash;plagiarism, cheating, lying, stealing, and facilitating another student&rsquo;s dishonesty&mdash;are documented in an incident report filed with the Office of Student Conduct. Consequences range from a lowered course grade to an Honor Code F. If you are unsure whether something crosses a line, ask before you submit. <a href="https://www.elon.edu/u/student-conduct/honor-code/" target="_blank">Review the full Honor Code.</a>
+        </li>
+        <li class="policy-item">
+          <strong>Academic Accommodations &amp; Accessibility.</strong> Students who need accommodations should contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>. Accommodations are not retroactive. <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/academic-accommodations-accessibility/" target="_blank">AAA website.</a>
+        </li>
+        <li class="policy-item">
+          <strong>Learning Assistance.</strong> The Koenigsberger Learning Center offers tutoring, success coaching, and academic support. <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/learning-assistance/" target="_blank">Learning Assistance website</a> or <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a>.
+        </li>
+        <li class="policy-item">
+          <strong>Belk Library &amp; Writing Center.</strong> Librarians can help you find and evaluate sources. <a href="https://elon.libcal.com/appointments/" target="_blank">Schedule an appointment</a> or use the chat on the <a href="https://www.elon.edu/library/" target="_blank">library website</a>. The Writing Center (first floor, Belk Library) takes appointments for any stage of any writing project, including data memos and presentation scripts.
+        </li>
+        <li class="policy-item">
+          <strong>Religious Holiday Policy.</strong> Complete the <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/" target="_blank">Religious Observance Notification Form</a> by <strong>September 16, 2026</strong> if a holiday conflicts with the course calendar.<!-- UPDATE date -->
+        </li>
+        <li class="policy-item">
+          <strong>Enrollment, Dropping &amp; Withdrawing.</strong> Confirm enrollment through OnTrack. You may drop during drop/add without a transcript record. <a href="https://www.elon.edu/u/registrar/student-resources/individual-course-withdrawal/" target="_blank">Withdrawing</a> after the period produces a &ldquo;W.&rdquo; Not attending is not a withdrawal; complete the formal process in OnTrack.
+        </li>
+        <li class="policy-item">
+          <strong>E-Warnings &amp; Student Care.</strong> E-Warnings go to you and your advisor when an instructor has concerns about your progress. They are a communication tool, not a punishment. To report a concern about a classmate, use <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/when-to-share-concerns/" target="_blank">Elon&rsquo;s Share a Concern portal</a>.
+        </li>
+        <li class="policy-item">
+          <strong>University Policies &amp; Dates.</strong> See the <a href="https://elon.smartcatalogiq.com/2025-2026/academic-catalog/" target="_blank">Academic Catalog</a>, <a href="https://elon.smartcatalogiq.com/current/student-handbook/" target="_blank">Student Handbook</a>, and <a href="https://www.elon.edu/u/academic-calendar/2025-2026-academic-calendar/" target="_blank">Academic Calendar</a> for full policies and key dates.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

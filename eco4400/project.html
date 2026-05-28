@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--
+  ECO 4400 — Applied Economics & Consulting
+  Semester Project: Sustainable Alamance
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainable Alamance &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:   #73000a;
+      --crimson-dk:#5a0008;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --teal-tint: #edf4f5;
+      --green:     #788a38;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e8e3da;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; }
+    .header-sub { font-size: 0.85rem; color: rgba(255,255,255,0.68); margin-top: 0.35rem; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* ── Intro block ── */
+    .intro-block {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.6rem;
+      margin-bottom: 2rem;
+    }
+    .intro-block p { font-size: 0.93rem; line-height: 1.75; color: var(--text); margin-bottom: 0.85rem; }
+    .intro-block p:last-child { margin-bottom: 0; }
+    .intro-block strong { color: var(--crimson); }
+
+    /* ── Baseline stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.1rem 1.2rem;
+      text-align: center;
+    }
+    .stat-num { font-size: 1.85rem; font-weight: 700; color: var(--crimson); line-height: 1.1; }
+    .stat-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-link); margin-top: 0.2rem; }
+    .stat-note { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.4; }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--crimson);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+
+    /* ── Phase cards ── */
+    .phase-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+
+    .phase-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+
+    .phase-num {
+      background: var(--crimson);
+      color: var(--white);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      padding: 1rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      min-width: 36px;
+    }
+
+    .phase-body { padding: 1.1rem 1.3rem; }
+
+    .phase-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .phase-title strong { color: var(--crimson); }
+
+    .phase-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.75rem; }
+
+    .slo-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .slo-tag {
+      font-size: 0.64rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--teal-tint); color: var(--teal);
+      border: 1px solid rgba(82,123,130,0.3);
+      padding: 0.15rem 0.55rem; border-radius: 2px;
+    }
+
+    /* ── Tools / software block ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+    .tool-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1rem 1.1rem;
+    }
+    .tool-name { font-size: 0.9rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.3rem; }
+    .tool-use  { font-size: 0.81rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── Deliverables table ── */
+    .deliv-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-bottom: 2rem; }
+    .deliv-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.6rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+    }
+    .deliv-table td {
+      padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .deliv-table tr:last-child td { border-bottom: none; }
+    .deliv-table tr:hover td { background: #fdfcfa; }
+    .phase-tag {
+      display: inline-block; background: rgba(181,154,87,0.15); color: var(--gold-link);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+      border: 1px solid rgba(181,154,87,0.3);
+    }
+
+    /* ── Context callout ── */
+    .context-callout {
+      background: rgba(82,123,130,0.06); border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.9rem 1.1rem;
+      font-size: 0.88rem; line-height: 1.65; margin-bottom: 2rem;
+    }
+    .context-callout strong { color: var(--teal); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .phase-card { grid-template-columns: 1fr; }
+      .phase-num { writing-mode: horizontal-tb; transform: none; padding: 0.5rem 1rem; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag">ECO 4400 &middot; Semester Consulting Project</p>
+    <h1>Sustainable Alamance</h1>
+    <p class="header-sub">Economic Impact Study &mdash; Burlington, NC &mdash; Fall 2026</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- Intro -->
+  <div class="intro-block">
+    <p>Your consulting team project this semester is an economic impact study for <strong>Sustainable Alamance</strong>, a Burlington, NC nonprofit that runs re-entry programming for people leaving incarceration. The organization&rsquo;s last economic analysis was completed in 2017.</p>
+    <p>Those numbers held up well at the time&mdash;a recidivism rate of 9.8% against a 45% state average and a return of roughly $12 per dollar donated. But eight years is a long time. Incarceration costs have risen, wages have changed, and the program has grown. Your job is to update the numbers, tighten the methodology, and build materials that a county commissioner can read in ten minutes and defend in a budget meeting.</p>
+    <p>This project is the primary vehicle for the course&rsquo;s Data Intensive learning outcomes. Every phase involves real data, documented methodology, and deliverables for an actual client.</p>
+  </div>
+
+  <!-- Baseline stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">$12</div>
+      <div class="stat-label">ROI</div>
+      <div class="stat-note">Return per $1 donated (2017 baseline &mdash; your team will update this)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">9.8%</div>
+      <div class="stat-label">Recidivism Rate</div>
+      <div class="stat-note">vs. 45% NC state average (2017 data)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$5M+</div>
+      <div class="stat-label">Economic Benefit</div>
+      <div class="stat-note">Estimated benefit to Alamance County since 2014</div>
+    </div>
+  </div>
+
+  <!-- Why the 2017 numbers matter -->
+  <div class="context-callout">
+    <strong>Why this matters now.</strong> County commissioners and grant reviewers need current, defensible numbers. The 2017 report used a flat 40% economic multiplier and cost figures that are significantly out of date. An updated analysis&mdash;with county-specific modeling and current wage data&mdash;is the difference between a compelling funding case and a document a skeptic can dismiss in two minutes.
+  </div>
+
+  <!-- Project phases -->
+  <h2 class="section-heading">Project Phases</h2>
+
+  <div class="phase-list">
+
+    <div class="phase-card">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-body">
+        <p class="phase-title"><strong>Update the core numbers.</strong></p>
+        <p class="phase-desc">Recalculate recidivism savings using current incarceration rates and public defender costs. Update wage and employment figures from BLS and NC Department of Commerce sources. Rerun the ROI calculation against actual operational costs. Document every step so a skeptical official can follow the methodology without your help.</p>
+        <div class="slo-tags">
+          <span class="slo-tag">SLO 2 &mdash; Data collection &amp; ethics</span>
+          <span class="slo-tag">SLO 3 &mdash; Methods &amp; limitations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-num">Phase 2</div>
+      <div class="phase-body">
+        <p class="phase-title"><strong>IMPLAN input-output analysis.</strong></p>
+        <p class="phase-desc">The 2017 report applied a standard 40% economic multiplier. That is a defensible approximation, but it is not Alamance County. You will build a county-specific input-output model in IMPLAN that shows where participant wages go, which local industries they reach, and what tax revenue they generate. The result is a multiplier grounded in local data, not a national average.</p>
+        <div class="slo-tags">
+          <span class="slo-tag">SLO 5 &mdash; Economic modeling</span>
+          <span class="slo-tag">SLO 3 &mdash; Interpret results</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-body">
+        <p class="phase-title"><strong>ACS neighborhood context.</strong></p>
+        <p class="phase-desc">American Community Survey data at the census-tract level shows which neighborhoods Sustainable Alamance serves and what the economic conditions look like there. Mapped against participant zip codes, this gives a decision-maker a picture that a spreadsheet cannot. You will pull tract-level data on income, employment, and housing from the Census Bureau and map it against program service areas.</p>
+        <div class="slo-tags">
+          <span class="slo-tag">SLO 5 &mdash; Visualize data</span>
+          <span class="slo-tag">SLO 4 &mdash; Communicate findings</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-num">Phase 4</div>
+      <div class="phase-body">
+        <p class="phase-title"><strong>Public-facing deliverables.</strong></p>
+        <p class="phase-desc">The analysis becomes a website, a two-page printed summary for commissioner meetings, and a brand recommendation for the &ldquo;Second Chance Alamance&rdquo; identity. All materials are designed so Sustainable Alamance staff can update them without outside help. Your team presents the final work to a live client audience in Week 12.</p>
+        <div class="slo-tags">
+          <span class="slo-tag">SLO 4 &mdash; Multiple modalities</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Software and tools -->
+  <h2 class="section-heading">Software &amp; Data Sources</h2>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-name">Excel</div>
+      <div class="tool-use">ROI calculations, recidivism savings model, and cost-benefit analysis. The core analytical worksheet for Phase 1.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">IMPLAN</div>
+      <div class="tool-use">County-level economic input-output modeling for Phase 2. Produces industry-specific multipliers and tax impact estimates for Alamance County.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">American Community Survey</div>
+      <div class="tool-use">Census Bureau tract-level data on income, employment, and housing for Phase 3 neighborhood mapping.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">BLS / NC Commerce</div>
+      <div class="tool-use">Current wage and employment data for updating Phase 1 earnings figures. QCEW and Occupational Employment data.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">NC DOC / Vera Institute</div>
+      <div class="tool-use">Current incarceration cost data for recidivism savings calculations. State and county per-day cost estimates.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Canva / Adobe Express</div>
+      <div class="tool-use">Phase 4 public-facing deliverables&mdash;the two-page commissioner summary and the Second Chance Alamance brand materials.</div>
+    </div>
+  </div>
+
+  <!-- Deliverables table -->
+  <h2 class="section-heading">Deliverables by Phase</h2>
+
+  <table class="deliv-table">
+    <thead>
+      <tr>
+        <th style="width:80px;">Phase</th>
+        <th>Deliverable</th>
+        <th>Audience</th>
+        <th>SLOs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="phase-tag">Phase 1</span></td>
+        <td>Updated ROI model and methodology memo</td>
+        <td>Client &amp; peer review</td>
+        <td>SLO 2, 3</td>
+      </tr>
+      <tr>
+        <td><span class="phase-tag">Phase 2</span></td>
+        <td>IMPLAN input-output model and county multiplier report</td>
+        <td>Client &amp; peer review</td>
+        <td>SLO 3, 5</td>
+      </tr>
+      <tr>
+        <td><span class="phase-tag">Phase 3</span></td>
+        <td>ACS census-tract maps and neighborhood context analysis</td>
+        <td>Client &amp; peer review</td>
+        <td>SLO 4, 5</td>
+      </tr>
+      <tr>
+        <td><span class="phase-tag">Phase 4</span></td>
+        <td>Website, two-page printed summary, brand recommendation</td>
+        <td>Live client audience, Week 12</td>
+        <td>SLO 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
+
+</body>
+</html>

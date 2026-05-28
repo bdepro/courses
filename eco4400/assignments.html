@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+  ECO 4400 — Applied Economics & Consulting
+  Assignments Page — Fall 2026
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignments &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:   #73000a;
+      --crimson-dk:#5a0008;
+      --gold:      #b59a57;
+      --gold-lt:   #d4b97a;
+      --gold-link: #7a5c1e;
+      --teal:      #527b82;
+      --teal-tint: #edf4f5;
+      --green:     #788a38;
+      --cream:     #fcfaf7;
+      --warm-gray: #f7f4ef;
+      --border:    #e8e3da;
+      --text:      #2e2e2e;
+      --muted:     #6b6b6b;
+      --disabled:  #c0c0c0;
+      --white:     #ffffff;
+      --shadow:    0 2px 14px rgba(115,0,10,0.07);
+      --radius:    10px;
+      --font:      'Roboto', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--crimson);
+      border-bottom: 4px solid var(--gold);
+      padding: 2rem;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem; }
+    header h1  { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.2; }
+    .header-sub { font-size: 0.85rem; color: rgba(255,255,255,0.68); margin-top: 0.35rem; }
+
+    /* ── Main ── */
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* Weight summary */
+    .weight-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+    }
+    .weight-chip {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+    .weight-chip-pct { font-size: 1.6rem; font-weight: 700; color: var(--crimson); line-height: 1.1; }
+    .weight-chip-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.4; }
+
+    /* Section heading */
+    .section-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--crimson);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+    .section-heading:first-of-type { margin-top: 0; }
+
+    /* ── Category header ── */
+    .cat-header {
+      border-radius: var(--radius) var(--radius) 0 0;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .cat-header.crimson { background: var(--crimson); }
+    .cat-header.teal    { background: var(--teal); }
+    .cat-header.gold    { background: var(--gold-link); }
+
+    .cat-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .cat-weight {
+      font-size: 1.3rem; font-weight: 700; color: var(--white);
+      opacity: 0.9; white-space: nowrap; flex-shrink: 0;
+    }
+
+    .di-badge {
+      display: inline-block; font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      background: rgba(255,255,255,0.2); color: var(--white);
+      padding: 0.12rem 0.45rem; border-radius: 2px;
+      margin-left: 0.5rem; vertical-align: middle;
+    }
+
+    /* Category block */
+    .cat-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .cat-intro {
+      background: var(--white);
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+      border-bottom: 1px solid var(--warm-gray);
+    }
+
+    /* Individual assignment cards */
+    .assign-list { background: var(--white); }
+
+    .assign-item {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--warm-gray);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .assign-item:last-child { border-bottom: none; }
+
+    .assign-num {
+      width: 28px; height: 28px; min-width: 28px;
+      border-radius: 50%;
+      background: var(--warm-gray);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+    .assign-num.active { background: var(--crimson); color: var(--white); }
+
+    .assign-body {}
+    .assign-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .assign-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .assign-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.35rem; }
+    .assign-tag {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.12rem 0.5rem; border-radius: 2px;
+    }
+    .tag-slo  { background: var(--teal-tint); color: var(--teal); border: 1px solid rgba(82,123,130,0.25); }
+    .tag-tool { background: rgba(181,154,87,0.1); color: var(--gold-link); border: 1px solid rgba(181,154,87,0.3); }
+    .tag-due  { background: rgba(115,0,10,0.06); color: var(--crimson); border: 1px solid rgba(115,0,10,0.12); }
+
+    /* Problem set row (simple list inside Applied Economics) */
+    .pset-list { list-style: none; padding: 0; }
+    .pset-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      color: var(--text);
+    }
+    .pset-item:last-child { border-bottom: none; }
+    .pset-item::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 0.4rem;
+    }
+
+    /* Info callout */
+    .info-callout {
+      background: rgba(82,123,130,0.06);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-top: 1rem;
+    }
+    .info-callout strong { color: var(--teal); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.5rem 1rem 4rem; }
+      .weight-summary { grid-template-columns: 1fr; gap: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag">ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Fall 2026</p>
+    <h1>Assignments</h1>
+    <p class="header-sub">Three assessment categories &mdash; 35% &middot; 35% &middot; 30%</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- Weight summary -->
+  <div class="weight-summary">
+    <div class="weight-chip">
+      <div class="weight-chip-pct">35%</div>
+      <div class="weight-chip-label">Consulting Team Labs</div>
+    </div>
+    <div class="weight-chip">
+      <div class="weight-chip-pct">35%</div>
+      <div class="weight-chip-label">Applied Research &amp; Case Analytics</div>
+    </div>
+    <div class="weight-chip">
+      <div class="weight-chip-pct">30%</div>
+      <div class="weight-chip-label">Applied Economics for the BSBA</div>
+    </div>
+  </div>
+
+  <!-- ── CONSULTING TEAM LABS ── -->
+  <div class="cat-block">
+    <div class="cat-header crimson">
+      <span class="cat-title">Consulting Team Labs<span class="di-badge">Data Intensive</span></span>
+      <span class="cat-weight">35%</span>
+    </div>
+    <div class="cat-intro">
+      Wednesday lab sessions are where the Sustainable Alamance project gets built. Working in teams, you take on a real-world problem for an actual client&mdash;defining the issue, gathering and cleaning data, analyzing options, and developing recommendations. You receive structured feedback at key milestones throughout the semester, not just at the end. The final presentation goes to a live client audience in Week 12.
+    </div>
+    <div class="assign-list">
+      <div class="assign-item">
+        <div class="assign-num active">1</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 1 Milestone &mdash; Core Numbers Update</div>
+          <div class="assign-desc">Recalculate recidivism savings, update wage and employment figures, and rerun the ROI calculation. Submit a methodology memo with full documentation of data sources and decisions.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 2</span>
+            <span class="assign-tag tag-slo">SLO 3</span>
+            <span class="assign-tag tag-tool">Excel</span>
+            <span class="assign-tag tag-tool">BLS / NC Commerce</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">2</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 2 Milestone &mdash; IMPLAN Analysis</div>
+          <div class="assign-desc">Build a county-specific input-output model in IMPLAN. Report the industry multipliers, tax revenue estimates, and how they compare to the flat 40% used in the 2017 analysis.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 3</span>
+            <span class="assign-tag tag-slo">SLO 5</span>
+            <span class="assign-tag tag-tool">IMPLAN</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">3</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 3 Milestone &mdash; ACS Neighborhood Maps</div>
+          <div class="assign-desc">Pull American Community Survey data at the census-tract level and map it against participant zip codes. Deliver a set of annotated maps with a written interpretation for a non-specialist reader.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 4</span>
+            <span class="assign-tag tag-slo">SLO 5</span>
+            <span class="assign-tag tag-tool">ACS / Census Bureau</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">4</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 4 &mdash; Final Presentation (Week 12)</div>
+          <div class="assign-desc">Deliver the complete impact study to a live client audience. Package includes the website, two-page commissioner summary, and brand recommendation for the Second Chance Alamance identity. All materials must be updatable by Sustainable Alamance staff without outside help.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 4</span>
+            <span class="assign-tag tag-tool">Canva / Adobe Express</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── APPLIED RESEARCH & CASE ANALYTICS ── -->
+  <div class="cat-block">
+    <div class="cat-header teal">
+      <span class="cat-title">Applied Research &amp; Case Analytics<span class="di-badge">Data Intensive</span></span>
+      <span class="cat-weight">35%</span>
+    </div>
+    <div class="cat-intro">
+      Three independent assignments develop your analytical skills alongside the consulting project. Each one asks you to take a position and defend it with evidence&mdash;a replication study that tests published findings, and two Harvard Business Publishing cases that apply economic reasoning to real decisions.
+    </div>
+    <div class="assign-list">
+      <div class="assign-item">
+        <div class="assign-num active">1</div>
+        <div class="assign-body">
+          <div class="assign-title">Journal Replication Project</div>
+          <div class="assign-desc">Take a published study on housing and energy use, re-run the analysis on the original data, and write up what you find&mdash;including where the results hold and where they do not. This is not a summary; it is an audit. You are checking whether the authors&rsquo; conclusions survive your replication and, if they do not, explaining why.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 3 &mdash; Methods &amp; limitations</span>
+            <span class="assign-tag tag-slo">SLO 5 &mdash; Software analysis</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">2</div>
+        <div class="assign-body">
+          <div class="assign-title">FTC v. Amazon &mdash; Harvard Business Case</div>
+          <div class="assign-desc">Antitrust analysis using the HBP Case Companion. The question is whether Amazon&rsquo;s pricing practices harm consumers or competition. Your memo must take a defensible position&mdash;not summarize both sides. Apply the relevant economic frameworks from the course and cite evidence from the case.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-tool">HBP Case Companion</span>
+            <span class="assign-tag tag-slo">SLO 3 &mdash; Economic reasoning</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">3</div>
+        <div class="assign-body">
+          <div class="assign-title">Game Theory in Video Games &mdash; Harvard Business Case</div>
+          <div class="assign-desc">Strategic decision-making applied to an industry where payoffs are measurable and the strategies are explicit. Identify the game structure, the dominant strategies (if any), and what the equilibrium outcome predicts. Connect the analysis to the game theory concepts from Weeks 8&ndash;9.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-tool">HBP Case Companion</span>
+            <span class="assign-tag tag-slo">Ch. 15 &mdash; Strategic Games</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-callout">
+      <strong>AI reflection requirement.</strong> Each case submission includes a short reflection on how you used AI tools in the analysis&mdash;what you asked, what it produced, and what you changed. Details on the reflection format will be provided in class.
+    </div>
+  </div>
+
+  <!-- ── APPLIED ECONOMICS FOR THE BSBA ── -->
+  <div class="cat-block">
+    <div class="cat-header gold">
+      <span class="cat-title">Applied Economics for the BSBA</span>
+      <span class="cat-weight">30%</span>
+    </div>
+    <div class="cat-intro">
+      Monday sessions work through <em>Managerial Economics</em> (Froeb et al.). Each chapter starts with a real business decision and shows how economic thinking changes it. Problem sets and in-class assessments measure whether you can apply the framework, not just define it. The goal is to build a way of thinking that transfers to the consulting project, the cases, and your career.
+    </div>
+    <div class="assign-list">
+      <div class="assign-item">
+        <div class="assign-num">—</div>
+        <div class="assign-body">
+          <div class="assign-title">Chapter Problem Sets</div>
+          <div class="assign-desc">Problem sets follow the Monday lecture and are completed before the next class meeting. They are short&mdash;typically three to five applied problems drawn from the chapter&rsquo;s business decision framework. Submissions are through Canvas.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-tool">MindTap / Canvas</span>
+          </div>
+          <div style="margin-top:0.85rem;">
+            <ul class="pset-list">
+              <li>Ch. 1 &mdash; Solving Problems with Economics (Week 1)</li>
+              <li>Ch. 3 &mdash; Benefits, Costs, and Decisions (Week 2)</li>
+              <li>Ch. 4 &mdash; How Much Decisions (Week 3)</li>
+              <li>Ch. 5 &mdash; Investment Decisions (Week 4)</li>
+              <li>Ch. 10 &mdash; Keeping Profit from Eroding (Week 5)</li>
+              <li>Ch. 12 &mdash; More Realistic Pricing (Week 6)</li>
+              <li>Ch. 13&ndash;14 &mdash; Price Discrimination (Week 7)</li>
+              <li>Ch. 15 &mdash; Strategic Games (Week 8)</li>
+              <li>Ch. 16 &mdash; Bargaining (Week 9)</li>
+              <li>Ch. 21 &mdash; Employee Incentives (Week 10)</li>
+              <li>Ch. 22&ndash;23 &mdash; Divisions &amp; Vertical Relationships (Week 11)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num">—</div>
+        <div class="assign-body">
+          <div class="assign-title">In-Class Application Exercises</div>
+          <div class="assign-desc">Brief in-class work that asks you to apply the week&rsquo;s framework to a new decision. These are not announced in advance. They are completed in class and submitted at the end of the session. They measure whether you can use the tool, not whether you memorized the chapter.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
