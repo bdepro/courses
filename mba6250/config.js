@@ -16,7 +16,7 @@ const COURSE = {
   courseId:    "",                            // UPDATE each semester (Moodle course ID)
   semester:    "Fall 2025",                  // UPDATE each semester
   courseCode:  "MBA 6250",
-  courseTitle: "Managerial Economics",
+  courseTitle: "Essential Economics for Strategic Management",
   baseUrl:     "https://bdepro.github.io/courses/mba6250", // UPDATE if repo moves
 
   // Instructor details — UPDATE each semester if anything changes
