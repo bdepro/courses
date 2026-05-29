@@ -92,7 +92,7 @@ header {
 /* Page title */
 header h1 {
   font-family: 'Roboto', Arial, sans-serif;
-  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 500;
   color: var(--white);
   letter-spacing: 0.02em;
