@@ -439,6 +439,48 @@
     /* Skip link */
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
     .skip-link:focus { left: 0; }
+
+    /* ── Block summary header — flat section label, not a card ── */
+    .block-header {
+      list-style: none;
+      padding: 1rem 0.5rem 0.5rem;
+      border-top: 1.5px solid rgba(115,0,10,0.18);
+      margin-top: 6px;
+    }
+    .block-header-top {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 0.4rem;
+    }
+    .block-header-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--crimson);
+    }
+    .block-header-ci {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .block-due-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .block-chip {
+      font-size: 0.69rem;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .chip-puzzle { background: rgba(46,46,46,0.07);   color: var(--muted); }
+    .chip-mme    { background: rgba(181,154,87,0.18); color: var(--gold-link); }
+    .chip-ff     { background: rgba(82,123,130,0.12); color: var(--teal-dk); }
   </style>
 </head>
 <body>
@@ -461,7 +503,6 @@
 
 <main id="main">
   <p class="intro" id="introText"></p>
-  <div class="due-banner" id="dueBanner"></div>
   <ul class="session-list" id="sessionList"></ul>
 </main>
 
@@ -1090,6 +1131,78 @@ function bodyContent(session, type, isCurrent) {
 }
 
 // ================================================================
+//  BLOCK SUMMARY HEADER
+// ================================================================
+
+// Short date: "Oct 21"; Friday-shifted puzzles get "Fri Nov 20"
+const formatPuzzleDueShort = sessionNum => {
+  const d = puzzleDueDate(sessionNum);
+  if (!d) return 'TBA';
+  const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return d.getDay() === 5 ? `Fri ${dateStr}` : dateStr;
+};
+
+// Strip day-of-week and time from config strings: "Wed Oct 7, 11:59 p.m." → "Oct 7"
+const shortDate = str => str.replace(/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+/i, '').split(',')[0].trim();
+
+function blockHeader(block) {
+  const li = document.createElement('li');
+  li.className = 'block-header';
+
+  // Top row: label + CI date
+  const top = document.createElement('div');
+  top.className = 'block-header-top';
+
+  const label = document.createElement('span');
+  label.className = 'block-header-label';
+  label.textContent = block.label;
+  top.appendChild(label);
+
+  if (block.checkIn) {
+    const ci = CANVAS.checkIns.find(c => c.id === block.checkIn);
+    if (ci) {
+      const ciSpan = document.createElement('span');
+      ciSpan.className = 'block-header-ci';
+      ciSpan.textContent = `Check-In #${block.checkIn} · ${ci.date}`;
+      top.appendChild(ciSpan);
+    }
+  }
+  li.appendChild(top);
+
+  // Due-date chips row
+  const dueRow = document.createElement('div');
+  dueRow.className = 'block-due-row';
+
+  block.contentSessions.forEach(sNum => {
+    if (CANVAS.puzzles.find(p => p.session === sNum)) {
+      const chip = document.createElement('span');
+      chip.className = 'block-chip chip-puzzle';
+      chip.textContent = `Puzzle ${sNum} · ${formatPuzzleDueShort(sNum)}`;
+      dueRow.appendChild(chip);
+    }
+  });
+
+  (block.mmedueSessions || []).forEach(dueSession => {
+    CANVAS.mme.filter(m => m.dueSession === dueSession).forEach(m => {
+      const chip = document.createElement('span');
+      chip.className = 'block-chip chip-mme';
+      chip.textContent = `MME ${m.id} · ${shortDate(m.due)}`;
+      dueRow.appendChild(chip);
+    });
+  });
+
+  if (block.ffDue) {
+    const chip = document.createElement('span');
+    chip.className = 'block-chip chip-ff';
+    chip.textContent = `FF Narrative · ${shortDate(CANVAS.friday[0].due)}`;
+    dueRow.appendChild(chip);
+  }
+
+  if (dueRow.children.length) li.appendChild(dueRow);
+  return li;
+}
+
+// ================================================================
 //  RENDER SESSIONS
 // ================================================================
 
@@ -1102,10 +1215,6 @@ document.getElementById('introText').innerHTML    =
   `Each session meets Monday, Wednesday, and Friday. ` +
   `Your current session opens below. Work for each session is due Wednesday by 11:59 p.m. ` +
   `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
-document.getElementById('dueBanner').innerHTML    =
-  `<strong>Puzzles are due the Wednesday after each session at 11:59 p.m.</strong> ` +
-  `MME articles have their own dates (see the MME page). ` +
-  `Friday Focus written narrative due ${CANVAS.friday[0].due}. CI 4 always counts.`;
 
 // Auto-highlight
 const today  = new Date(); today.setHours(0, 0, 0, 0);
@@ -1118,6 +1227,8 @@ for (let i = 0; i < starts.length - 1; i++) {
 const list = document.getElementById('sessionList');
 
 SCHEDULE.sessions.forEach((session, idx) => {
+  const blockStart = BLOCKS.find(b => b.firstSession === session.num);
+  if (blockStart) list.appendChild(blockHeader(blockStart));
   const type      = sessType(session);
   const isCurrent = (idx === currentIdx) && !session.break;
   const cl        = chLabel(session);
@@ -1144,8 +1255,6 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (type === 'application')  tags.push(`<span class="sess-tag tag-app">Application</span>`);
   if (session.mmeFF)           tags.push(`<span class="sess-tag tag-mme">MME Launch</span>`);
   if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
-  if ((type === 'content' && session.num !== 7) || type === 'application')
-                               tags.push(`<span class="sess-tag tag-screensdown">Screens-down Wed</span>`);
   if (session.num === 13)      tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
 
   // Chapter subtitle

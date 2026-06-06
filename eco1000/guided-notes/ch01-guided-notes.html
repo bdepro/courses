@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 1: What Is Economics? — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Guidepost sub-header ── */
+.guidepost-sub {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 5pt 8pt;
+  margin: 8pt 0 0;
+  border-left: 3px solid var(--mid);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+  .section-block { page-break-inside: avoid; }
+  .summary-block { page-break-inside: avoid; }
+  .doc-footer { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 1: What Is Economics?</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Distinguish scarcity from poverty and explain why scarcity is permanent even if poverty is not.</li>
+    <li>Apply at least three of the eight guideposts to a real decision, identifying the opportunity cost and incentive structure involved.</li>
+    <li>Classify an economic statement as positive or normative and name the reasoning pitfall present in a flawed economic argument.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:58%" class="fill-col">Complete the definition</th>
+        <th style="width:20%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Scarcity</td>
+        <td>Scarcity exists when there is <span class="blank"></span> of a resource freely available than people <span class="blank"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Economic good</td>
+        <td>A good is an economic good when it is <span class="blank blank-lg"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Resources</td>
+        <td>The <span class="blank blank-lg"></span> people use to produce goods and services; may be human, <span class="blank"></span>, or natural.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Rationing</td>
+        <td>The method by which society <span class="blank blank-lg"></span> scarce resources among competing <span class="blank"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Opportunity cost</td>
+        <td>The <span class="blank blank-lg"></span> alternative you give up when you make a choice.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Economizing</td>
+        <td>Getting a specific <span class="blank"></span> at the <span class="blank"></span> possible cost.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Marginal analysis</td>
+        <td>Comparing <span class="blank"></span> costs to <span class="blank"></span> benefits to make a decision.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Ceteris paribus</td>
+        <td>Latin for "<span class="blank blank-xl"></span>" — holds <span class="blank"></span> constant while examining one change.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Positive economics</td>
+        <td>Studies "what <span class="blank blank-sm"></span>" — statements that can be proved <span class="blank blank-sm"></span> or <span class="blank blank-sm"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Normative economics</td>
+        <td>Makes judgments about "what <span class="blank blank-lg"></span>" — statements that <span class="blank blank-sm"></span> be proved true or false.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Fallacy of composition</td>
+        <td>Assuming what is true for the <span class="blank"></span> is also true for the <span class="blank"></span>.</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">What Is Economics About?</div>
+  <div class="connection-note">This is lecture one — no prior economics assumed. Scarcity is the foundation every other concept this semester builds on.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Scarcity and poverty both involve not having enough — so why do economists insist they're different, and why does the distinction matter?</td>
+        <td class="cornell-notes-col">
+          Scarcity = <span class="blank"></span> concept: limited resources, unlimited desires.<br><br>
+          Poverty = <span class="blank"></span> concept; people disagree on what "poor" means.<br><br>
+          Poverty <span class="blank"></span> be eliminated someday; scarcity <span class="blank blank-xl"></span>.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're on the committee that allocates transplant organs in the U.S. What criteria could you use? Which does the market rely on — and what does that imply about who gets the organ?</td>
+        <td class="cornell-notes-col">
+          Rationing methods: first-come/first-served; <span class="blank"></span>, need, ability to pay (price).<br><br>
+          Market uses <span class="blank blank-lg"></span>.<br><br>
+          Allocated to those willing to give up the most <span class="blank blank-lg"></span> to obtain ownership.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">New York City replaced free parking with paid meters. How did that change the <em>form</em> of competition for a parking spot without eliminating competition?</td>
+        <td class="cornell-notes-col">
+          Competition is a natural outgrowth of <span class="blank blank-lg"></span>.<br><br>
+          Change rationing → change the <span class="blank"></span> of competition, but NOT <span class="blank blank-xl"></span>.<br><br>
+          NYC example: <span class="blank-full"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">The Eight Guideposts to Economic Thinking</div>
+  <div class="connection-note">Scarcity forces choice. The eight guideposts tell you <em>how</em> economists think through those choices.</div>
+
+  <div class="guidepost-sub">Guideposts 1–4 &nbsp;·&nbsp; Scarcity, Choice, and Incentives</div>
+  <table>
+    <thead>
+      <tr>
+        <th class="num-cell">#</th>
+        <th style="width:18%">Guidepost</th>
+        <th style="width:42%" class="fill-col">Core idea (fill in)</th>
+        <th style="width:32%" class="fill-col">You're the decision-maker: apply it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num-cell">1</td>
+        <td class="row-label">Trade-offs</td>
+        <td>Using scarce resources always has an <span class="blank"></span> cost — the <span class="blank"></span> alternative foregone.</td>
+        <td><em>You're a hospital budget director. You spend $2M on a new MRI machine. What's the opportunity cost?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">2</td>
+        <td class="row-label">Purposeful choice</td>
+        <td>People <span class="blank"></span> — they try to get the <span class="blank"></span> from limited resources. This is called <span class="blank blank-lg"></span>.</td>
+        <td><em>You're hiring for a role that pays $60K or $80K. How does purposeful choice predict who applies?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">3</td>
+        <td class="row-label">Incentives</td>
+        <td>↑ benefit of an action → <span class="blank"></span> likely to do it. ↑ cost → <span class="blank"></span>. Both <span class="blank"></span> and <span class="blank"></span> incentives matter.</td>
+        <td><em>Uber raised surge pricing during a snowstorm in Boston. What happened to driver supply? Why?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">4</td>
+        <td class="row-label">Marginal thinking</td>
+        <td>Compare <span class="blank"></span> benefits to <span class="blank"></span> costs. Act when <span class="blank blank-sm"></span> &gt; <span class="blank blank-sm"></span>.</td>
+        <td><em>Amazon's fulfillment center is deciding whether to hire a 101st worker. What's the right question to ask?</em><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="guidepost-sub">Guideposts 5–8 &nbsp;·&nbsp; Information, Effects, and Evidence</div>
+  <table>
+    <thead>
+      <tr>
+        <th class="num-cell">#</th>
+        <th style="width:18%">Guidepost</th>
+        <th style="width:42%" class="fill-col">Core idea (fill in)</th>
+        <th style="width:32%" class="fill-col">You're the decision-maker: apply it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num-cell">5</td>
+        <td class="row-label">Costly information</td>
+        <td>Better information helps, but acquiring it is <span class="blank"></span>. Stop gathering info when its <span class="blank"></span> equals its <span class="blank"></span>.</td>
+        <td><em>You're a buyer at Target deciding how long to test a new product before a nationwide rollout. When do you stop?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">6</td>
+        <td class="row-label">Secondary effects</td>
+        <td>Actions generate <span class="blank"></span> effects in addition to the intended <span class="blank"></span> effects.</td>
+        <td><em>When San Francisco raised its minimum wage, what secondary effect on employment or hours would you predict?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">7</td>
+        <td class="row-label">Subjective value</td>
+        <td>Value is <span class="blank"></span> — the same good is worth different amounts to different <span class="blank blank-xl"></span>.</td>
+        <td><em>A Taylor Swift concert ticket resells for $800 above face value. What does guidepost 7 explain?</em><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="num-cell">8</td>
+        <td class="row-label">Testability</td>
+        <td>A theory's value is its ability to <span class="blank blank-xl"></span> behavior.</td>
+        <td><em>An economist claims raising interest rates reduces inflation. How would you test whether that's true?</em><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Synthesis — Guideposts 3 &amp; 6</div>
+    <p>New York City's rent stabilization law caps rent increases for covered apartments. You're a housing policy analyst advising the city. Using guidepost 3 (incentives) and guidepost 6 (secondary effects), what two consequences do you predict?</p>
+    <p style="margin-top:8pt; font-weight:500">Consequence 1 (incentives): <span class="blank-full"></span></p>
+    <p style="margin-top:6pt; font-weight:500">Consequence 2 (secondary effects): <span class="blank-full"></span></p>
+    <p style="margin-top:10pt"><strong>Cross-guidepost question:</strong> Two of the eight guideposts are in tension in this scenario. Identify which two, explain the tension, and decide which matters more for a housing policy analyst.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Positive vs. Normative Economics</div>
+  <div class="connection-note">The guideposts describe how economists analyze. Positive vs. normative describes <em>what kind of question</em> an economist can answer.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%"></th>
+        <th style="width:36%" class="fill-col">Positive</th>
+        <th style="width:36%" class="fill-col">Normative</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Asks…</td>
+        <td>"What <span class="blank"></span>?"</td>
+        <td>"What <span class="blank blank-lg"></span> to be?"</td>
+      </tr>
+      <tr>
+        <td class="row-label">Can be tested?</td>
+        <td><span class="blank blank-sm"></span>: can be proved <span class="blank blank-sm"></span> or <span class="blank blank-sm"></span></td>
+        <td><span class="blank blank-sm"></span>: reflects <span class="blank blank-lg"></span> judgments</td>
+      </tr>
+      <tr>
+        <td class="row-label">Chapter example</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Your own example</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Why it matters in policy debates</td>
+        <td colspan="2"><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Classify this:</td>
+        <td colspan="2">"When the Fed raises interest rates, inflation falls."<br>
+        Positive / Normative? <span class="blank blank-sm"></span><br>
+        Justify: <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Classify this:</td>
+        <td colspan="2">"The Fed should keep interest rates low to support job growth."<br>
+        Positive / Normative? <span class="blank blank-sm"></span><br>
+        Justify: <span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Pitfalls to Avoid in Economic Thinking</div>
+  <div class="connection-note">Even careful reasoning goes wrong. These four pitfalls are the most common errors in news coverage, textbooks, and policy arguments.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:28%" class="fill-col">The error (fill in)</th>
+        <th style="width:28%">Pre-filled example</th>
+        <th style="width:22%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Ceteris paribus violation</td>
+        <td>Failing to hold <span class="blank"></span> constant when isolating one <span class="blank"></span></td>
+        <td>"Cities that build more highways have worse traffic — so highway construction causes congestion." What's wrong?</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Good intentions ≠ good outcomes</td>
+        <td><span class="blank"></span> intentions don't guarantee <span class="blank"></span> outcomes; watch for <span class="blank"></span> secondary effects</td>
+        <td>A city bans plastic bags. Shoppers switch to reusable bags — but reusable bags require far more resources to produce. What went wrong?</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Association ≠ causation</td>
+        <td>Statistical <span class="blank"></span> alone does not establish <span class="blank"></span></td>
+        <td>Ice cream sales and drowning deaths both rise in summer. Does ice cream cause drowning?</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Fallacy of composition</td>
+        <td>What is true for the <span class="blank"></span> may not be true for the <span class="blank"></span></td>
+        <td>Each fan at a sold-out stadium can see better by standing up. So if everyone stands up, everyone sees better. True or false?</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column and the row headers from each matrix.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you give your own example for each of the eight guideposts?</li>
+    <li>Can you explain the difference between positive and normative without looking at the matrix?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world situation this made me think of: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & RECAPITULATE ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Recapitulate</div>
+  <div class="section-header">Housing Policy Analyst</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst advising North Carolina's housing agency. The governor wants to freeze rent increases to address affordability. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)? <em>Start your briefing: "The economic analysis suggests…"</em> You used rent stabilization in the Section II synthesis — revisit those guidepost answers as you write.</p>
+  <span class="write-lines-lg"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Which of the four reasoning pitfalls is most likely to trap a policymaker who supports this plan without doing the economic analysis? Explain.</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for 2 participation points.</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column. Quiz yourself out loud from the Questions column. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next lecture: How do prices coordinate the decisions of buyers and sellers? (Ch. 2)</p>
+</div>
+
+</body>
+</html>
