@@ -519,6 +519,44 @@ const CANVAS = {
 };
 
 // ================================================================
+//  BLOCKS
+//  Groups sessions by check-in block for the schedule summary strip.
+//  Block 4 is split: Application (4a) covers S12-13; Viva (4b) covers S15.
+//
+//  firstSession     — session number that opens the block (strip renders here)
+//  contentSessions  — session numbers with puzzles in this block
+//  mmedueSessions   — session numbers at which MME articles are due
+//  checkIn          — check-in number closing this block (null = Application phase)
+//  ffDue            — true if the FF Narrative is due in this block/phase
+// ================================================================
+const BLOCKS = [
+  {
+    id: 1,
+    label: 'Block 1',
+    firstSession: 1,
+    contentSessions: [1, 2],
+    mmedueSessions: [],
+    checkIn: 1,
+  },
+  {
+    id: 2,
+    label: 'Block 2',
+    firstSession: 4,
+    contentSessions: [4, 5],
+    mmedueSessions: [6],
+    checkIn: 2,
+  },
+  {
+    id: 3,
+    label: 'Block 3',
+    firstSession: 7,
+    contentSessions: [7, 9, 10],
+    mmedueSessions: [11],
+    checkIn: 3,
+  },
+];
+
+// ================================================================
 //  URL DERIVATION — do not edit
 //  Builds .url on every assignment entry from COURSE.canvasId + aid.
 //  Consumers continue to read .url as before; aid is the source of truth.
@@ -543,11 +581,22 @@ const puzzleDueDate = sessionNum => {
   const start = SCHEDULE.sessionStarts[idx];
   if (!start) return null;
 
-  // 1. Clone the start date so you don't mutate the original schedule object
-  let due = new Date(start.getTime()); 
+  let due = new Date(start.getTime());
+  due.setDate(due.getDate() + 9);
 
-  // 2. Add 9 calendar days safely (JS handles DST adjustments automatically here)
-  due.setDate(due.getDate() + 9); 
+  // If due date falls inside a break session, shift to Friday of session N (start + 4 days).
+  // Handles Thanksgiving: S13 puzzle would land Nov 25 → shifts to Fri Nov 20.
+  const dueTime = due.getTime();
+  const inBreak = SCHEDULE.breakSessions.some(breakIdx => {
+    const bStart = SCHEDULE.sessionStarts[breakIdx];
+    const bEnd   = SCHEDULE.sessionStarts[breakIdx + 1];
+    return bStart && bEnd && dueTime >= bStart.getTime() && dueTime < bEnd.getTime();
+  });
+
+  if (inBreak) {
+    due = new Date(start.getTime());
+    due.setDate(due.getDate() + 4);
+  }
 
   return due;
 };
@@ -571,4 +620,5 @@ const CONFIG = {
   questions:  QUESTIONS,
   pages:      PAGES,
   canvas:     CANVAS,
+  blocks:     BLOCKS,
 };
