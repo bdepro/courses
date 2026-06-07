@@ -151,6 +151,16 @@ body {
   print-color-adjust: exact;
 }
 
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
 /* ── Cue-column instruction ── */
 .cue-instruction {
   font-size: 8.5pt;
@@ -241,20 +251,6 @@ tr:nth-child(even) td {
   width: 26pt;
 }
 
-/* ── Action Lens column ── */
-.lens-col {
-  font-size: 8.5pt;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--muted);
-  line-height: 1.5;
-}
-.lens-col strong {
-  font-style: normal;
-  font-weight: 500;
-  color: var(--ink);
-}
-
 /* ── Cornell two-column ── */
 .cornell-table {
   width: 100%;
@@ -323,21 +319,6 @@ th.fill-col {
   letter-spacing: 0.07em;
   color: var(--muted);
   margin-bottom: 4pt;
-}
-
-/* ── Guidepost sub-header ── */
-.guidepost-sub {
-  font-size: 8pt;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--muted);
-  background: var(--warm-gray);
-  padding: 5pt 8pt;
-  margin: 8pt 0 0;
-  border-left: 3px solid var(--mid);
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
 }
 
 /* ── Prompt / synthesis blocks ── */
@@ -447,14 +428,13 @@ th.fill-col {
   /* Row integrity — never clip a row at a page boundary */
   tr { page-break-inside: avoid; page-break-after: auto; }
 
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
   /* Prevent orphaned headers — keep label/header attached to content below */
   .section-label   { page-break-after: avoid; }
   .section-header  { page-break-after: avoid; }
   .connection-note { page-break-after: avoid; }
-  .guidepost-sub   { page-break-after: avoid; }
-
-  /* Each major section starts on a new page */
-  .section-block   { page-break-before: always; }
 
   /* Small self-contained blocks — keep whole */
   .targets-block   { page-break-inside: avoid; }
@@ -498,61 +478,61 @@ th.fill-col {
   <table>
     <thead>
       <tr>
-        <th style="width:18%">Term</th>
-        <th style="width:42%" class="fill-col">Textbook Frame — fill in the blanks</th>
-        <th style="width:40%">Action Lens</th>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="row-label">Scarcity</td>
-        <td>There is <span class="blank"></span> of a good freely available than people <span class="blank"></span>.</td>
-        <td class="lens-col"><strong>The Universal Fact:</strong> It is the inescapable gap between limited resources and unlimited desires. It is the condition that forces us into exchanges.</td>
+        <td>Scarcity exists when there is <span class="blank"></span> of a resource freely available than people <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A resource scarce in your life:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
         <td class="row-label">Resources</td>
-        <td>The <span class="blank blank-lg"></span> people use to produce economic goods; may be human (<span class="blank"></span> or <span class="blank"></span>), <span class="blank"></span> (capital), or <span class="blank"></span> (land).</td>
-        <td class="lens-col"><strong>Labor</strong> as the one resource every individual possesses. Resources only become "goods" through the application of "mind powers" and purposeful plans.</td>
+        <td>The <span class="blank blank-lg"></span> people use to produce goods and services; may be human, <span class="blank"></span>, or natural.</td>
+        <td><span class="example-prompt">A resource you used or consumed today:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
         <td class="row-label">Rationing</td>
-        <td>Allocating a <span class="blank blank-lg"></span> of a good or resource among people who would like to have <span class="blank blank-lg"></span>; when price is used, the good goes to those willing to give up the <span class="blank blank-lg"></span>.</td>
-        <td class="lens-col"><strong>Conflict Resolution:</strong> Rationing is the peaceful alternative to violence. These are the rules society uses to resolve conflict when two people want the same unit of a scarce good for incompatible goals.</td>
+        <td>The method by which society <span class="blank blank-lg"></span> scarce resources among competing <span class="blank"></span>.</td>
+        <td><span class="example-prompt">Something rationed on your campus:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Opportunity Cost</td>
-        <td>The <span class="blank blank-lg"></span> that must be <span class="blank blank-lg"></span> as a result of choosing an option.</td>
-        <td class="lens-col"><strong>Subjective Value:</strong> This "cost" exists only in your mind at the moment of choice. It is the specific "hit" or sacrifice you take to move toward your highest-ranked goal.</td>
+        <td class="row-label">Opportunity cost</td>
+        <td>The <span class="blank blank-lg"></span> alternative you give up when you make a choice.</td>
+        <td><span class="example-prompt">Your last choice: you gave up ___</span><span class="blank-full"></span></td>
       </tr>
       <tr>
         <td class="row-label">Economizing</td>
-        <td>Choosing the option that offers the <span class="blank blank-lg"></span> at the <span class="blank blank-lg"></span>.</td>
-        <td class="lens-col"><strong>Beyond Money:</strong> Don't fall for the "Economic Man" stereotype. Economizing applies to Mother Teresa as much as a CEO; both use limited time to satisfy their highest-ranked subjective goals.</td>
+        <td>Getting a specific <span class="blank"></span> at the <span class="blank"></span> possible cost.</td>
+        <td><span class="example-prompt">A purchase where you economized:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Marginal</td>
+        <td class="row-label">Marginal analysis</td>
         <td>Comparing <span class="blank"></span> costs to <span class="blank"></span> benefits to make a decision.</td>
-        <td class="lens-col"><strong>The Water-Diamond Paradox:</strong> We value goods unit by unit, not as entire classes. Value depends on the subjective enjoyment of just one additional unit.</td>
+        <td><span class="example-prompt">A decision you made "one more" of:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Ceteris Paribus</td>
-        <td>Latin for "<span class="blank blank-xl"></span>" — holds <span class="blank"></span> constant while examining one <span class="blank"></span>.</td>
-        <td class="lens-col"><strong>Mental Lab:</strong> Because we can't use real labs like physicists, we use this to isolate cause and effect. If a law seems to fail, it usually means "other things" (like preferences) weren't constant.</td>
+        <td class="row-label">Ceteris paribus</td>
+        <td>Latin for "<span class="blank blank-xl"></span>" — holds <span class="blank"></span> constant while examining one change.</td>
+        <td><span class="example-prompt">A comparison where only one thing changed:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Positive Economics</td>
-        <td>The <span class="blank"></span> study of <span class="blank blank-lg"></span> among economic relationships.</td>
-        <td class="lens-col"><strong>Economic Geometry:</strong> These laws are discovered through mental reasoning and logical deduction. They are objective truths about how purposeful action works.</td>
+        <td class="row-label">Positive economics</td>
+        <td>Studies "what <span class="blank blank-sm"></span>" — statements that can be proved <span class="blank blank-sm"></span> or <span class="blank blank-sm"></span>.</td>
+        <td><span class="example-prompt">A testable claim from today's news:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Normative Economics</td>
-        <td>Makes judgments about <span class="blank blank-lg"></span> — statements that <span class="blank"></span> be proved true or false.</td>
-        <td class="lens-col"><strong>Value-Free Science:</strong> Economics is "humble" — it can tell you the consequences of a choice, but it cannot tell you what your goals should be. The "should" comes from your own values.</td>
+        <td class="row-label">Normative economics</td>
+        <td>Makes judgments about "what <span class="blank blank-lg"></span>" — statements that <span class="blank blank-sm"></span> be proved true or false.</td>
+        <td><span class="example-prompt">A policy opinion you hold:</span><span class="blank-full"></span></td>
       </tr>
       <tr>
-        <td class="row-label">Fallacy of Composition</td>
+        <td class="row-label">Fallacy of composition</td>
         <td>Assuming what is true for the <span class="blank"></span> is also true for the <span class="blank"></span>.</td>
-        <td class="lens-col"><strong>The Individual Acts:</strong> "Society" has no mind of its own. This fallacy often occurs when people try to add up subjective preferences to calculate a "social utility" score.</td>
+        <td><span class="example-prompt">True for one person, false for the group:</span><span class="blank-full"></span></td>
       </tr>
     </tbody>
   </table>
@@ -582,7 +562,7 @@ th.fill-col {
         </td>
       </tr>
       <tr>
-        <td class="cornell-cue-col">You're on the committee that allocates transplant organs in the U.S. What criteria could you use? Which does the market rely on — and what does that imply about who gets the organ?</td>
+        <td class="cornell-cue-col">You're on the committee that allocates transplant organs in the U.S. What criteria could you use to ration them? Which does the market rely on — and what does that imply about who gets the organ?</td>
         <td class="cornell-notes-col">
           Rationing methods: first-come/first-served; <span class="blank"></span>, need, ability to pay (price).<br><br>
           Market uses <span class="blank blank-lg"></span>.<br><br>
@@ -590,11 +570,11 @@ th.fill-col {
         </td>
       </tr>
       <tr>
-        <td class="cornell-cue-col">New York City replaced free parking with paid meters. How did that change the <em>form</em> of competition for a parking spot without eliminating competition?</td>
+        <td class="cornell-cue-col">New York City replaced free parking with paid meters in several neighborhoods. How did that change the <em>form</em> of competition for a parking spot without eliminating competition?</td>
         <td class="cornell-notes-col">
           Competition is a natural outgrowth of <span class="blank blank-lg"></span>.<br><br>
           Change rationing → change the <span class="blank"></span> of competition, but NOT <span class="blank blank-xl"></span>.<br><br>
-          NYC example: <span class="blank-full"></span>
+          Example from NYC: <span class="blank-full"></span>
         </td>
       </tr>
     </tbody>
@@ -612,7 +592,6 @@ th.fill-col {
   <div class="section-header">The Eight Guideposts to Economic Thinking</div>
   <div class="connection-note">Scarcity forces choice. The eight guideposts tell you <em>how</em> economists think through those choices.</div>
 
-  <div class="guidepost-sub">Guideposts 1–4 &nbsp;·&nbsp; Scarcity, Choice, and Incentives</div>
   <table>
     <thead>
       <tr>
@@ -647,20 +626,6 @@ th.fill-col {
         <td>Compare <span class="blank"></span> benefits to <span class="blank"></span> costs. Act when <span class="blank blank-sm"></span> &gt; <span class="blank blank-sm"></span>.</td>
         <td><em>Amazon's fulfillment center is deciding whether to hire a 101st worker. What's the right question to ask?</em><span class="blank-full"></span></td>
       </tr>
-    </tbody>
-  </table>
-
-  <div class="guidepost-sub">Guideposts 5–8 &nbsp;·&nbsp; Information, Effects, and Evidence</div>
-  <table>
-    <thead>
-      <tr>
-        <th class="num-cell">#</th>
-        <th style="width:18%">Guidepost</th>
-        <th style="width:42%" class="fill-col">Core idea (fill in)</th>
-        <th style="width:32%" class="fill-col">You're the decision-maker: apply it</th>
-      </tr>
-    </thead>
-    <tbody>
       <tr>
         <td class="num-cell">5</td>
         <td class="row-label">Costly information</td>
@@ -683,7 +648,7 @@ th.fill-col {
         <td class="num-cell">8</td>
         <td class="row-label">Testability</td>
         <td>A theory's value is its ability to <span class="blank blank-xl"></span> behavior.</td>
-        <td><em>An economist claims raising interest rates reduces inflation. How would you test whether that's true?</em><span class="blank-full"></span></td>
+        <td><em>An economist claims that raising interest rates reduces inflation. How would you test whether that's true?</em><span class="blank-full"></span></td>
       </tr>
     </tbody>
   </table>
@@ -778,7 +743,7 @@ th.fill-col {
       <tr>
         <td class="row-label">Good intentions ≠ good outcomes</td>
         <td><span class="blank"></span> intentions don't guarantee <span class="blank"></span> outcomes; watch for <span class="blank"></span> secondary effects</td>
-        <td>A city bans plastic bags. Shoppers switch to reusable bags — but reusable bags require far more resources to produce. What went wrong?</td>
+        <td>A city bans plastic bags to reduce waste. Shoppers switch to reusable bags — but reusable bags require far more resources to produce. What went wrong?</td>
         <td><span class="blank-full blank-full-tall"></span></td>
       </tr>
       <tr>
@@ -790,7 +755,7 @@ th.fill-col {
       <tr>
         <td class="row-label">Fallacy of composition</td>
         <td>What is true for the <span class="blank"></span> may not be true for the <span class="blank"></span></td>
-        <td>Each fan at a sold-out stadium can see better by standing up. So if everyone stands up, everyone sees better. True or false?</td>
+        <td>Each fan at a sold-out stadium can see better by standing up. So if everyone stands up, everyone sees better. True or false — and which pitfall is this?</td>
         <td><span class="blank-full blank-full-tall"></span></td>
       </tr>
     </tbody>
@@ -817,9 +782,9 @@ th.fill-col {
   <div class="summary-item">One real-world situation this made me think of: <span class="blank-full"></span></div>
 </div>
 
-<!-- ── REFLECT & APPLY ── -->
+<!-- ── REFLECT & RECAPITULATE ── -->
 <div class="section-block">
-  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-label">Reflect &amp; Recapitulate</div>
   <div class="section-header">Housing Policy Analyst</div>
   <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst advising North Carolina's housing agency. The governor wants to freeze rent increases to address affordability. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)?</p>
   <span class="write-lines-lg"></span>
