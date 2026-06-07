@@ -241,6 +241,20 @@ tr:nth-child(even) td {
   width: 26pt;
 }
 
+/* ── Action Lens column ── */
+.lens-col {
+  font-size: 8.5pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.lens-col strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+}
+
 /* ── Cornell two-column ── */
 .cornell-table {
   width: 100%;
@@ -429,9 +443,27 @@ th.fill-col {
 @media print {
   body { padding: 0.5in 0.75in; max-width: 100%; }
   .print-btn { display: none; }
-  .section-block { page-break-inside: avoid; }
-  .summary-block { page-break-inside: avoid; }
-  .doc-footer { page-break-inside: avoid; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+  .guidepost-sub   { page-break-after: avoid; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -466,66 +498,61 @@ th.fill-col {
   <table>
     <thead>
       <tr>
-        <th style="width:22%">Term</th>
-        <th style="width:58%" class="fill-col">Complete the definition</th>
-        <th style="width:20%" class="fill-col">Your example</th>
+        <th style="width:18%">Term</th>
+        <th style="width:42%" class="fill-col">Textbook Frame — fill in the blanks</th>
+        <th style="width:40%">Action Lens</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="row-label">Scarcity</td>
-        <td>Scarcity exists when there is <span class="blank"></span> of a resource freely available than people <span class="blank"></span>.</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="row-label">Economic good</td>
-        <td>A good is an economic good when it is <span class="blank blank-lg"></span>.</td>
-        <td></td>
+        <td>There is <span class="blank"></span> of a good freely available than people <span class="blank"></span>.</td>
+        <td class="lens-col"><strong>The Universal Fact:</strong> It is the inescapable gap between limited resources and unlimited desires. It is the condition that forces us into exchanges.</td>
       </tr>
       <tr>
         <td class="row-label">Resources</td>
-        <td>The <span class="blank blank-lg"></span> people use to produce goods and services; may be human, <span class="blank"></span>, or natural.</td>
-        <td></td>
+        <td>The <span class="blank blank-lg"></span> people use to produce economic goods; may be human (<span class="blank"></span> or <span class="blank"></span>), <span class="blank"></span> (capital), or <span class="blank"></span> (land).</td>
+        <td class="lens-col"><strong>Labor</strong> as the one resource every individual possesses. Resources only become "goods" through the application of "mind powers" and purposeful plans.</td>
       </tr>
       <tr>
         <td class="row-label">Rationing</td>
-        <td>The method by which society <span class="blank blank-lg"></span> scarce resources among competing <span class="blank"></span>.</td>
-        <td></td>
+        <td>Allocating a <span class="blank blank-lg"></span> of a good or resource among people who would like to have <span class="blank blank-lg"></span>; when price is used, the good goes to those willing to give up the <span class="blank blank-lg"></span>.</td>
+        <td class="lens-col"><strong>Conflict Resolution:</strong> Rationing is the peaceful alternative to violence. These are the rules society uses to resolve conflict when two people want the same unit of a scarce good for incompatible goals.</td>
       </tr>
       <tr>
-        <td class="row-label">Opportunity cost</td>
-        <td>The <span class="blank blank-lg"></span> alternative you give up when you make a choice.</td>
-        <td></td>
+        <td class="row-label">Opportunity Cost</td>
+        <td>The <span class="blank blank-lg"></span> that must be <span class="blank blank-lg"></span> as a result of choosing an option.</td>
+        <td class="lens-col"><strong>Subjective Value:</strong> This "cost" exists only in your mind at the moment of choice. It is the specific "hit" or sacrifice you take to move toward your highest-ranked goal.</td>
       </tr>
       <tr>
         <td class="row-label">Economizing</td>
-        <td>Getting a specific <span class="blank"></span> at the <span class="blank"></span> possible cost.</td>
-        <td></td>
+        <td>Choosing the option that offers the <span class="blank blank-lg"></span> at the <span class="blank blank-lg"></span>.</td>
+        <td class="lens-col"><strong>Beyond Money:</strong> Don't fall for the "Economic Man" stereotype. Economizing applies to Mother Teresa as much as a CEO; both use limited time to satisfy their highest-ranked subjective goals.</td>
       </tr>
       <tr>
-        <td class="row-label">Marginal analysis</td>
+        <td class="row-label">Marginal</td>
         <td>Comparing <span class="blank"></span> costs to <span class="blank"></span> benefits to make a decision.</td>
-        <td></td>
+        <td class="lens-col"><strong>The Water-Diamond Paradox:</strong> We value goods unit by unit, not as entire classes. Value depends on the subjective enjoyment of just one additional unit.</td>
       </tr>
       <tr>
-        <td class="row-label">Ceteris paribus</td>
-        <td>Latin for "<span class="blank blank-xl"></span>" — holds <span class="blank"></span> constant while examining one change.</td>
-        <td></td>
+        <td class="row-label">Ceteris Paribus</td>
+        <td>Latin for "<span class="blank blank-xl"></span>" — holds <span class="blank"></span> constant while examining one <span class="blank"></span>.</td>
+        <td class="lens-col"><strong>Mental Lab:</strong> Because we can't use real labs like physicists, we use this to isolate cause and effect. If a law seems to fail, it usually means "other things" (like preferences) weren't constant.</td>
       </tr>
       <tr>
-        <td class="row-label">Positive economics</td>
-        <td>Studies "what <span class="blank blank-sm"></span>" — statements that can be proved <span class="blank blank-sm"></span> or <span class="blank blank-sm"></span>.</td>
-        <td></td>
+        <td class="row-label">Positive Economics</td>
+        <td>The <span class="blank"></span> study of <span class="blank blank-lg"></span> among economic relationships.</td>
+        <td class="lens-col"><strong>Economic Geometry:</strong> These laws are discovered through mental reasoning and logical deduction. They are objective truths about how purposeful action works.</td>
       </tr>
       <tr>
-        <td class="row-label">Normative economics</td>
-        <td>Makes judgments about "what <span class="blank blank-lg"></span>" — statements that <span class="blank blank-sm"></span> be proved true or false.</td>
-        <td></td>
+        <td class="row-label">Normative Economics</td>
+        <td>Makes judgments about <span class="blank blank-lg"></span> — statements that <span class="blank"></span> be proved true or false.</td>
+        <td class="lens-col"><strong>Value-Free Science:</strong> Economics is "humble" — it can tell you the consequences of a choice, but it cannot tell you what your goals should be. The "should" comes from your own values.</td>
       </tr>
       <tr>
-        <td class="row-label">Fallacy of composition</td>
+        <td class="row-label">Fallacy of Composition</td>
         <td>Assuming what is true for the <span class="blank"></span> is also true for the <span class="blank"></span>.</td>
-        <td></td>
+        <td class="lens-col"><strong>The Individual Acts:</strong> "Society" has no mind of its own. This fallacy often occurs when people try to add up subjective preferences to calculate a "social utility" score.</td>
       </tr>
     </tbody>
   </table>
@@ -790,11 +817,11 @@ th.fill-col {
   <div class="summary-item">One real-world situation this made me think of: <span class="blank-full"></span></div>
 </div>
 
-<!-- ── REFLECT & RECAPITULATE ── -->
+<!-- ── REFLECT & APPLY ── -->
 <div class="section-block">
-  <div class="section-label">Reflect &amp; Recapitulate</div>
+  <div class="section-label">Reflect &amp; Apply</div>
   <div class="section-header">Housing Policy Analyst</div>
-  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst advising North Carolina's housing agency. The governor wants to freeze rent increases to address affordability. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)? <em>Start your briefing: "The economic analysis suggests…"</em> You used rent stabilization in the Section II synthesis — revisit those guidepost answers as you write.</p>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst advising North Carolina's housing agency. The governor wants to freeze rent increases to address affordability. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)?</p>
   <span class="write-lines-lg"></span>
   <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Which of the four reasoning pitfalls is most likely to trap a policymaker who supports this plan without doing the economic analysis? Explain.</p>
   <span class="write-lines"></span>
