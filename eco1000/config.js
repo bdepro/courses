@@ -252,13 +252,13 @@ const CHAPTERS = {
   // aid: Canvas assignment ID — UPDATE each semester if assignments are rebuilt.
   // Full URL is auto-built from COURSE.canvasId + aid at the bottom of this file.
   core: [
-    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842" },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843" },
-    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844" },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845" },
-    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853" },
-    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846" },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847" },
+    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch01-guided-notes.html` },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", guidedNotesUrl: null },
+    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", guidedNotesUrl: null },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", guidedNotesUrl: null },
+    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", guidedNotesUrl: null },
+    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846", guidedNotesUrl: null },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847", guidedNotesUrl: null },
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
@@ -532,7 +532,7 @@ const CANVAS = {
 const BLOCKS = [
   {
     id: 1,
-    label: 'Block 1',
+    label: 'Module 1',
     firstSession: 1,
     contentSessions: [1, 2],
     mmedueSessions: [],
@@ -540,7 +540,7 @@ const BLOCKS = [
   },
   {
     id: 2,
-    label: 'Block 2',
+    label: 'Module 2',
     firstSession: 4,
     contentSessions: [4, 5],
     mmedueSessions: [6],
@@ -548,11 +548,36 @@ const BLOCKS = [
   },
   {
     id: 3,
-    label: 'Block 3',
+    label: 'Module 3',
     firstSession: 7,
     contentSessions: [7, 9, 10],
     mmedueSessions: [11],
     checkIn: 3,
+  },
+  {
+    id: '4a',
+    label: 'Module 4',
+    sublabel: 'Application Block',
+    description: 'No new chapters — applying economics to real-world questions.',
+    firstSession: 12,
+    lastSession: 13,
+    contentSessions: [12, 13],
+    mmedueSessions: [],
+    checkIn: null,
+    phase: 'application',
+  },
+  {
+    id: '4b',
+    label: 'Module 4',
+    sublabel: 'Viva & Check-In',
+    firstSession: 15,
+    lastSession: 15,
+    contentSessions: [],
+    mmedueSessions: [15],
+    checkIn: 4,
+    phase: 'viva',
+    ffDue: true,
+    vivaSignupAlert: true,
   },
 ];
 

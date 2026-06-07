@@ -440,47 +440,164 @@
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
     .skip-link:focus { left: 0; }
 
-    /* ── Block summary header — flat section label, not a card ── */
-    .block-header {
+    /* ── Module banner — prominent section anchor above each module's sessions ── */
+    .module-banner {
       list-style: none;
-      padding: 1rem 0.5rem 0.5rem;
-      border-top: 1.5px solid rgba(115,0,10,0.18);
-      margin-top: 6px;
+      background: var(--white);
+      border-left: 5px solid var(--crimson);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      box-shadow: 0 2px 14px rgba(115,0,10,0.09);
+      padding: 0.9rem 1.1rem 0.85rem;
+      margin: 1.5rem 0 0.4rem;
     }
-    .block-header-top {
+    .module-banner-head {
       display: flex;
+      justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 0.4rem;
+      gap: 0.4rem;
+      margin-bottom: 0.2rem;
     }
-    .block-header-label {
-      font-size: 0.68rem;
+    .module-name {
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--crimson);
     }
-    .block-header-ci {
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--text);
+    .module-date-range {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 400;
     }
-    .block-due-row {
+    .module-ci-line {
+      font-size: 0.84rem;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      line-height: 1.45;
+    }
+    .module-ci-line strong { color: var(--crimson); }
+    .module-pills-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 6px;
     }
-    .block-chip {
-      font-size: 0.69rem;
-      font-weight: 500;
-      padding: 2px 7px;
-      border-radius: 3px;
-      white-space: nowrap;
+    .module-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 5px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: opacity 0.15s, box-shadow 0.15s;
+      line-height: 1.4;
     }
-    .chip-puzzle { background: rgba(46,46,46,0.07);   color: var(--muted); }
-    .chip-mme    { background: rgba(181,154,87,0.18); color: var(--gold-link); }
-    .chip-ff     { background: rgba(82,123,130,0.12); color: var(--teal-dk); }
+    .mpill-puzzle {
+      background: var(--warm-gray);
+      color: var(--text);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+    .mpill-puzzle:hover { opacity: 0.72; }
+    .mpill-mme {
+      background: rgba(181,154,87,0.18);
+      color: var(--gold-link);
+      border: 1px solid rgba(181,154,87,0.3);
+    }
+    .mpill-mme:hover { opacity: 0.72; }
+    .mpill-ci {
+      background: var(--crimson);
+      color: var(--white);
+    }
+    .mpill-ci:hover { opacity: 0.88; box-shadow: var(--shadow-sm); }
+    .mpill-inactive {
+      background: var(--warm-gray);
+      color: var(--disabled);
+      border: 1px solid #ddd;
+      cursor: default;
+      pointer-events: none;
+    }
+    /* Teal accent variant — Module 4 banners */
+    .module-banner--teal {
+      border-left-color: var(--teal);
+      box-shadow: 0 2px 14px rgba(82,123,130,0.12);
+    }
+    .module-banner--teal .module-name   { color: var(--teal-dk); }
+    .module-banner--teal .module-ci-line strong { color: var(--teal-dk); }
+    .module-banner--teal .mpill-ci {
+      background: var(--teal);
+    }
+    /* Sublabel — second identifier within the banner head */
+    .module-sublabel {
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--teal-dk); letter-spacing: 0.05em;
+    }
+    /* Viva sign-up alert strip */
+    .viva-signup-alert {
+      list-style: none;
+      background: rgba(115,0,10,0.04);
+      border: 1.5px solid rgba(115,0,10,0.22);
+      border-radius: var(--radius-card);
+      padding: 0.7rem 1.1rem;
+      margin: 0.75rem 0 0.35rem;
+      display: flex; flex-wrap: wrap;
+      align-items: center; gap: 0.65rem;
+    }
+    .viva-signup-alert-text {
+      font-size: 0.84rem; font-weight: 600;
+      color: var(--crimson); flex: 1; min-width: 200px;
+      line-height: 1.4;
+    }
+    .viva-signup-alert-text span {
+      font-weight: 400; color: var(--text);
+    }
+
+    /* ── Chapter-first session card header ── */
+    .session-card-head { display: flex; flex-direction: column; }
+
+    .sess-ch-badge {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--crimson);
+      background: rgba(115,0,10,0.07);
+      padding: 2px 7px; border-radius: 3px;
+      flex-shrink: 0; line-height: 1.5;
+    }
+    .sess-ch-title {
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text); line-height: 1.3;
+      margin-top: 3px;
+    }
+    .session-resource-row {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      padding: 0 1rem 0.7rem 1.1rem;
+    }
+    .resource-pill {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 3px 9px; border-radius: 4px;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.02em; text-decoration: none;
+      line-height: 1.4; transition: opacity 0.15s;
+    }
+    .rpill-ebook {
+      background: rgba(82,123,130,0.12);
+      color: var(--teal-dk);
+      border: 1px solid rgba(82,123,130,0.22);
+    }
+    .rpill-ebook:hover { opacity: 0.8; }
+    .rpill-notes {
+      background: rgba(122,92,30,0.1);
+      color: var(--gold-link);
+      border: 1px solid rgba(122,92,30,0.2);
+    }
+    .rpill-notes:hover { opacity: 0.8; }
+    .rpill-inactive {
+      background: var(--warm-gray);
+      color: var(--disabled);
+      border: 1px solid #ddd;
+      cursor: default; pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -628,6 +745,16 @@ function chTitle(session) {
   return ch ? ch.title : null;
 }
 
+// Returns array of chapter objects for a content session (1 or 2 entries)
+function sessionChapters(session) {
+  if (!session.chapter || session.chapter === 'application') return [];
+  if (session.chapter === 'ch8_ch16') {
+    return ['ch8', 'ch16'].map(k => CHAPTERS.core.find(c => c.key === k)).filter(Boolean);
+  }
+  const ch = CHAPTERS.core.find(c => c.key === session.chapter);
+  return ch ? [ch] : [];
+}
+
 // Build a pill element
 function pill(label, url, variant) {
   if (url) {
@@ -691,17 +818,17 @@ function bodyContent(session, type, isCurrent) {
   const frag = document.createDocumentFragment();
   const sc = SESSIONS_CONTENT[session.num] || {};
 
-  // ── Due date highlight — current session only ──
-  if (isCurrent && type !== 'break') {
+  // ── Due date highlight — current session only (not shown for content sessions — see module banner) ──
+  if (isCurrent && type !== 'break' && type !== 'content') {
     const dueDiv = document.createElement('div');
     dueDiv.className = 'due-highlight';
     let dueText;
 
     if (type === 'checkin') {
-      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last block's puzzle (and any MME due this block).`;
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last module's puzzle (and any MME due this module).`;
     } else if (type === 'viva') {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus written narrative — submit through Canvas.`;
-    } else if (type === 'content' || type === 'application') {
+    } else if (type === 'application') {
       dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
     } else {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> See assignments page.`;
@@ -726,16 +853,6 @@ function bodyContent(session, type, isCurrent) {
 
   // ── Content sessions ──
   if (type === 'content') {
-    const title = chTitle(session);
-    if (title) {
-      const p = document.createElement('p');
-      p.style.cssText = 'font-size:0.83rem;color:var(--muted);margin:0.75rem 0 0.5rem;font-style:italic;';
-      p.textContent = title;
-      frag.appendChild(p);
-    }
-
-    // Mon
-    const monDays = session.num === 7 ? ['Monday', 'mon'] : null;
     if (session.num === 7) {
       // Session 7 is Mon/Tue only — Fall Break begins Wednesday
       frag.appendChild(infoBox('gold-box', 'Short session — Monday and Tuesday only.',
@@ -781,19 +898,6 @@ function bodyContent(session, type, isCurrent) {
       mmePills.appendChild(pill(mmeEntry ? mmeEntry.title : 'MME Article', mmeUrl, 'gold'));
       mmeSection.appendChild(mmePills);
       frag.appendChild(mmeSection);
-    }
-
-    // Puzzle link — due the Wednesday of session N+1 (per puzzleDueDate)
-    const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
-    if (puzzleData) {
-      const puzDiv = document.createElement('div');
-      puzDiv.className = 'day-section';
-      puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Puzzle due ${formatPuzzleDue(session.num)}</div><div class="pills"></div>`;
-      puzDiv.querySelector('.pills').appendChild(
-        pill('Economic Puzzle', puzzleData.url || null, 'gold')
-      );
-      frag.appendChild(puzDiv);
     }
 
     return frag;
@@ -1131,7 +1235,7 @@ function bodyContent(session, type, isCurrent) {
 }
 
 // ================================================================
-//  BLOCK SUMMARY HEADER
+//  MODULE BANNER
 // ================================================================
 
 // Short date: "Oct 21"; Friday-shifted puzzles get "Fri Nov 20"
@@ -1142,63 +1246,123 @@ const formatPuzzleDueShort = sessionNum => {
   return d.getDay() === 5 ? `Fri ${dateStr}` : dateStr;
 };
 
-// Strip day-of-week and time from config strings: "Wed Oct 7, 11:59 p.m." → "Oct 7"
+// Strip day-of-week and time: "Wed Oct 7, 11:59 p.m." → "Oct 7"
 const shortDate = str => str.replace(/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+/i, '').split(',')[0].trim();
 
-function blockHeader(block) {
+function moduleHeader(block) {
+  const isCulmination = block.phase === 'application' || block.phase === 'viva';
   const li = document.createElement('li');
-  li.className = 'block-header';
+  li.className = `module-banner${isCulmination ? ' module-banner--teal' : ''}`;
 
-  // Top row: label + CI date
-  const top = document.createElement('div');
-  top.className = 'block-header-top';
-
-  const label = document.createElement('span');
-  label.className = 'block-header-label';
-  label.textContent = block.label;
-  top.appendChild(label);
-
-  if (block.checkIn) {
-    const ci = CANVAS.checkIns.find(c => c.id === block.checkIn);
-    if (ci) {
-      const ciSpan = document.createElement('span');
-      ciSpan.className = 'block-header-ci';
-      ciSpan.textContent = `Check-In #${block.checkIn} · ${ci.date}`;
-      top.appendChild(ciSpan);
-    }
+  // ── Date range ──
+  const firstIdx  = SCHEDULE.sessions.findIndex(s => s.num === block.firstSession);
+  const startDate = SCHEDULE.sessionStarts[firstIdx];
+  let endDate;
+  if (block.checkIn && block.phase !== 'application') {
+    const ciIdx = SCHEDULE.sessions.findIndex(s => s.checkIn === block.checkIn);
+    endDate = new Date(SCHEDULE.sessionStarts[ciIdx].getTime() + 4 * _DAY_MS);
+  } else {
+    const lastIdx = SCHEDULE.sessions.findIndex(s => s.num === block.lastSession);
+    endDate = new Date(SCHEDULE.sessionStarts[lastIdx].getTime() + 4 * _DAY_MS);
   }
-  li.appendChild(top);
+  const dateFmt  = { month: 'short', day: 'numeric' };
+  const rangeStr = `${startDate.toLocaleDateString('en-US', dateFmt)} – ${endDate.toLocaleDateString('en-US', dateFmt)}`;
 
-  // Due-date chips row
-  const dueRow = document.createElement('div');
-  dueRow.className = 'block-due-row';
+  // ── Header row: label (+ sublabel) + date range ──
+  const head = document.createElement('div');
+  head.className = 'module-banner-head';
+  const nameHtml = block.sublabel
+    ? `<span class="module-name">${block.label}</span> <span class="module-sublabel">· ${block.sublabel}</span>`
+    : `<span class="module-name">${block.label}</span>`;
+  head.innerHTML = `<div>${nameHtml}</div><span class="module-date-range">${rangeStr}</span>`;
+  li.appendChild(head);
 
+  // ── Info line (CI or description) ──
+  const ci       = CANVAS.checkIns.find(c => c.id === block.checkIn);
+  const ciCovers = CHAPTERS.checkIns[block.checkIn];
+
+  if (block.phase === 'application' && block.description) {
+    const descLine = document.createElement('div');
+    descLine.className = 'module-ci-line';
+    descLine.textContent = block.description;
+    li.appendChild(descLine);
+  } else if (block.phase === 'viva' && ci) {
+    const ciLine = document.createElement('div');
+    ciLine.className = 'module-ci-line';
+    ciLine.innerHTML = `<strong>Check-In #4</strong> · ${ci.date} · Always counts · Replaces your lowest CI&nbsp;1–3 if higher`;
+    li.appendChild(ciLine);
+  } else if (ci && ciCovers) {
+    const ciLine = document.createElement('div');
+    ciLine.className = 'module-ci-line';
+    ciLine.innerHTML = `<strong>Check-In #${block.checkIn}</strong> · ${ci.date} · Covers: ${ciCovers.label} + S&D + Guideposts`;
+    li.appendChild(ciLine);
+  }
+
+  // ── Assignment pills row ──
+  const pillsRow = document.createElement('div');
+  pillsRow.className = 'module-pills-row';
+
+  // Puzzle pills (Application phase: S12 + S13 only)
   block.contentSessions.forEach(sNum => {
-    if (CANVAS.puzzles.find(p => p.session === sNum)) {
-      const chip = document.createElement('span');
-      chip.className = 'block-chip chip-puzzle';
-      chip.textContent = `Puzzle ${sNum} · ${formatPuzzleDueShort(sNum)}`;
-      dueRow.appendChild(chip);
-    }
+    const puz = CANVAS.puzzles.find(p => p.session === sNum);
+    if (!puz) return;
+    const el = document.createElement(puz.url ? 'a' : 'span');
+    el.className = `module-pill mpill-puzzle${puz.url ? '' : ' mpill-inactive'}`;
+    el.textContent = `Puzzle ${sNum} · ${formatPuzzleDueShort(sNum)}`;
+    if (puz.url) { el.href = puz.url; el.target = '_blank'; el.rel = 'noopener'; }
+    pillsRow.appendChild(el);
   });
 
+  // MME pills (Viva phase: MME 4 · Dec 2)
   (block.mmedueSessions || []).forEach(dueSession => {
     CANVAS.mme.filter(m => m.dueSession === dueSession).forEach(m => {
-      const chip = document.createElement('span');
-      chip.className = 'block-chip chip-mme';
-      chip.textContent = `MME ${m.id} · ${shortDate(m.due)}`;
-      dueRow.appendChild(chip);
+      const el = document.createElement(m.url ? 'a' : 'span');
+      el.className = `module-pill mpill-mme${m.url ? '' : ' mpill-inactive'}`;
+      el.textContent = `MME ${m.id} · ${shortDate(m.due)}`;
+      if (m.url) { el.href = m.url; el.target = '_blank'; el.rel = 'noopener'; }
+      pillsRow.appendChild(el);
     });
   });
 
-  if (block.ffDue) {
-    const chip = document.createElement('span');
-    chip.className = 'block-chip chip-ff';
-    chip.textContent = `FF Narrative · ${shortDate(CANVAS.friday[0].due)}`;
-    dueRow.appendChild(chip);
+  // FF Narrative pill (Viva phase only)
+  if (block.ffDue && CANVAS.friday[0]) {
+    const ff = CANVAS.friday[0];
+    const el = document.createElement(ff.url ? 'a' : 'span');
+    el.className = `module-pill mpill-mme${ff.url ? '' : ' mpill-inactive'}`;
+    el.textContent = `FF Narrative · ${shortDate(ff.due)}`;
+    if (ff.url) { el.href = ff.url; el.target = '_blank'; el.rel = 'noopener'; }
+    pillsRow.appendChild(el);
   }
 
-  if (dueRow.children.length) li.appendChild(dueRow);
+  // Check-In pill (Modules 1–3: linked CI; Viva: CI #4)
+  if (ci) {
+    const el = document.createElement(ci.url ? 'a' : 'span');
+    el.className = `module-pill mpill-ci${ci.url ? '' : ' mpill-inactive'}`;
+    el.textContent = `Check-In #${block.checkIn}`;
+    if (ci.url) { el.href = ci.url; el.target = '_blank'; el.rel = 'noopener'; }
+    pillsRow.appendChild(el);
+  }
+
+  if (pillsRow.children.length) li.appendChild(pillsRow);
+  return li;
+}
+
+// ── Viva sign-up alert strip — gates the Viva banner ──
+function vivaSignupAlert() {
+  const li = document.createElement('li');
+  li.className = 'viva-signup-alert';
+
+  const text = document.createElement('div');
+  text.className = 'viva-signup-alert-text';
+  text.innerHTML = 'Sign up for your viva slot before Thanksgiving break <span>— by Fri Nov 20</span>';
+  li.appendChild(text);
+
+  const pills = document.createElement('div');
+  pills.className = 'pills';
+  pills.appendChild(pill('Viva Week Sign-Up',   CANVAS.viva.vivaWeekSignupUrl   || null, 'teal'));
+  pills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
+  li.appendChild(pills);
+
   return li;
 }
 
@@ -1227,8 +1391,8 @@ for (let i = 0; i < starts.length - 1; i++) {
 const list = document.getElementById('sessionList');
 
 SCHEDULE.sessions.forEach((session, idx) => {
-  const blockStart = BLOCKS.find(b => b.firstSession === session.num);
-  if (blockStart) list.appendChild(blockHeader(blockStart));
+  const moduleStart = BLOCKS.find(b => b.firstSession === session.num);
+  if (moduleStart) list.appendChild(moduleHeader(moduleStart));
   const type      = sessType(session);
   const isCurrent = (idx === currentIdx) && !session.break;
   const cl        = chLabel(session);
@@ -1241,6 +1405,7 @@ SCHEDULE.sessions.forEach((session, idx) => {
 
   // Break sessions — flat divider, no toggle
   if (type === 'break') {
+    if (session.breakType === 'thanksgiving') list.appendChild(vivaSignupAlert());
     const label = session.breakType === 'thanksgiving' ? 'Thanksgiving Break' : 'Fall Break';
     li.innerHTML = `<div class="break-label">${label} — No class</div>`;
     list.appendChild(li);
@@ -1257,44 +1422,79 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
   if (session.num === 13)      tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
 
-  // Chapter subtitle
-  let chSub = '';
-  if (cl && (type === 'content' || type === 'intro')) {
-    chSub = `<div class="session-chapter">${cl}${ct ? ' — ' + ct.split(':')[0].split('/')[0].trim() : ''}</div>`;
-  }
-  if (type === 'application') {
-    chSub = `<div class="session-chapter">Ch. 5, 6, 23, 26, 28 — reference</div>`;
-  }
-  if (type === 'checkin') {
-    const ci = CHAPTERS.checkIns[session.checkIn];
-    chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + S&D + Guideposts</div>`;
-  }
-  if (type === 'viva') {
-    chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
-  }
+  // ── Content sessions: static card — chapter + resource pills, no accordion ──
+  if (type === 'content') {
+    const chapters = sessionChapters(session);
+    const multi    = chapters.length > 1;
+    const badge    = chapters.map(c => c.num).join(' / ');
+    const title    = chapters.map(c => c.title.split(':')[0].trim()).join(' · ');
 
-  li.innerHTML = `
-    <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
-      <div class="session-header-text">
-        <div class="session-top-row">
-          <span class="session-label">${session.label}</span>
-          <span class="session-dates">${session.dates}</span>
+    const resourceHtml = chapters.map(ch => {
+      const prefix = multi ? `${ch.num} ` : '';
+      const ebook  = ch.url
+        ? `<a class="resource-pill rpill-ebook" href="${ch.url}" target="_blank" rel="noopener">${prefix}Ebook ↗</a>`
+        : `<span class="resource-pill rpill-inactive">${prefix}Ebook</span>`;
+      const notes  = ch.guidedNotesUrl
+        ? `<a class="resource-pill rpill-notes" href="${ch.guidedNotesUrl}" target="_blank" rel="noopener">${prefix}Guided Notes ↗</a>`
+        : `<span class="resource-pill rpill-inactive">${prefix}Guided Notes</span>`;
+      return ebook + notes;
+    }).join('');
+
+    li.innerHTML = `
+      <div class="session-card-head">
+        <div class="session-header-static" style="padding:0.85rem 1rem 0.85rem 1.1rem;flex:1;min-width:0;">
+          <div class="session-header-text">
+            <div class="session-top-row">
+              <span class="sess-ch-badge">${badge}</span>
+              <span class="session-dates">${session.dates}</span>
+            </div>
+            <div class="sess-ch-title">${title}</div>
+            ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+          </div>
         </div>
-        ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
-        ${chSub}
+        <div class="session-resource-row">${resourceHtml}</div>
       </div>
-      <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="session-body" id="body-${session.num}">
-      <div class="session-body-inner">
-        <div class="session-body-content"></div>
-      </div>
-    </div>
-  `;
+    `;
+  } else {
+    // ── All other session types: label-first header ──
+    let chSub = '';
+    if (cl && type === 'intro') {
+      chSub = `<div class="session-chapter">${cl}${ct ? ' — ' + ct.split(':')[0].split('/')[0].trim() : ''}</div>`;
+    }
+    if (type === 'application') {
+      chSub = `<div class="session-chapter">Ch. 5, 6, 23, 26, 28 — reference</div>`;
+    }
+    if (type === 'checkin') {
+      const ci = CHAPTERS.checkIns[session.checkIn];
+      chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + S&D + Guideposts</div>`;
+    }
+    if (type === 'viva') {
+      chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
+    }
 
-  // Inject body content
+    li.innerHTML = `
+      <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
+        <div class="session-header-text">
+          <div class="session-top-row">
+            <span class="session-label">${session.label}</span>
+            <span class="session-dates">${session.dates}</span>
+          </div>
+          ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+          ${chSub}
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="session-body" id="body-${session.num}">
+        <div class="session-body-inner">
+          <div class="session-body-content"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Inject body content (content sessions have no accordion body)
   const bodyDiv = li.querySelector('.session-body-content');
-  bodyDiv.appendChild(bodyContent(session, type, isCurrent));
+  if (bodyDiv) bodyDiv.appendChild(bodyContent(session, type, isCurrent));
 
   list.appendChild(li);
 
@@ -1302,8 +1502,8 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (isCurrent) {
     const toggle = li.querySelector('.session-toggle');
     const body   = li.querySelector('.session-body');
-    toggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    if (body) body.classList.add('open');
     // Scroll into view after render
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
