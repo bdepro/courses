@@ -112,7 +112,7 @@
 <main id="main">
 
   <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="schedule.html" target="_blank" rel="noopener">
+  <a class="card primary" id="scheduleCard" href="schedule.html">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
@@ -127,9 +127,9 @@
     <span class="arc-sep">→</span>
     <span class="arc-step"><strong>Complete</strong> Economic Puzzle</span>
     <span class="arc-sep">→</span>
-    <span class="arc-step"><strong>Read</strong> Monday Morning Economist</span>
+    <span class="arc-step"><strong>Annotate</strong> MME (when assigned)</span>
     <span class="arc-sep">→</span>
-    <span class="arc-step"><strong>Write</strong> Friday Focus</span>
+    <span class="arc-step"><strong>Develop</strong> your Friday Focus</span>
     <span class="arc-sep">·</span>
     <span class="arc-step" id="arcSummary"></span>
   </div>
@@ -270,6 +270,7 @@ const ALL_CARDS = [
     desc:    'Where to go when you need help.',
     badge:   null,
     badgeClass: null,
+    external: true,
   },
   {
     feature: 'aiPolicy',
@@ -279,6 +280,7 @@ const ALL_CARDS = [
     desc:    'What AI tools you can use in this course, and where the boundaries are.',
     badge:   null,
     badgeClass: null,
+    external: true,
   },
 ];
 
@@ -292,8 +294,7 @@ ALL_CARDS.forEach(card => {
   const a = document.createElement('a');
   a.className = 'card';
   a.href      = card.href;
-  a.target    = '_blank';
-  a.rel       = 'noopener';
+  if (card.external) { a.target = '_blank'; a.rel = 'noopener'; }
   a.style.animationDelay = `${delay}s`;
   delay += 0.07;
 
