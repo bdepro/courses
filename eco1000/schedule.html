@@ -833,7 +833,7 @@ function bodyContent(session, type, isCurrent) {
     if (type === 'checkin') {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last module's puzzle (and any MME due this module).`;
     } else if (type === 'viva') {
-      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus written narrative — submit through Canvas.`;
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Eli Review Final Narrative — submit through Eli Review.`;
     } else if (type === 'application') {
       dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
     } else {
@@ -1022,12 +1022,12 @@ function bodyContent(session, type, isCurrent) {
   if (type === 'viva') {
     const ci4 = CANVAS.checkIns.find(c => c.id === 4);
 
-    // FF written narrative due
+    // Eli Review Final Narrative due
     const ffDue = document.createElement('div');
     ffDue.className = 'due-highlight';
     ffDue.style.marginTop = '0.85rem';
-    ffDue.innerHTML = `<strong>Friday Focus written narrative due ${CANVAS.friday[0].due}.</strong>
-      Submit through Canvas before your viva conversation.`;
+    ffDue.innerHTML = `<strong>Eli Review Final Narrative due ${CANVAS.friday[0].due}.</strong>
+      Submit through Eli Review before your viva conversation.`;
     frag.appendChild(ffDue);
 
     // MME article due this week
@@ -1239,16 +1239,6 @@ function moduleHeader(block) {
       pillsRow.appendChild(el);
     });
   });
-
-  // FF Narrative pill (Viva phase only)
-  if (block.ffDue && CANVAS.friday[0]) {
-    const ff = CANVAS.friday[0];
-    const el = document.createElement(ff.url ? 'a' : 'span');
-    el.className = `module-pill mpill-mme${ff.url ? '' : ' mpill-inactive'}`;
-    el.textContent = `FF Narrative · ${shortDate(ff.due)}`;
-    if (ff.url) { el.href = ff.url; el.target = '_blank'; el.rel = 'noopener'; }
-    pillsRow.appendChild(el);
-  }
 
   // Eli Review/Writing pills
   (CANVAS.eli || [])
