@@ -23,6 +23,7 @@
   <title>ECO 1000 · Course Schedule</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
@@ -222,7 +223,6 @@
     .session-chapter {
       font-size: 0.78rem; color: var(--muted);
       font-weight: 400; line-height: 1.3;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
     /* ── Chevron ── */
@@ -434,6 +434,13 @@
       .session-toggle { padding: 0.75rem 0.85rem; gap: 9px; }
       .viva-flow { grid-template-columns: 1fr; }
       .pill { font-size: 0.72rem; padding: 4px 11px; }
+      .module-pill { padding: 7px 13px; }
+      .resource-pill { padding: 6px 11px; }
+    }
+    @media (max-width: 400px) {
+      header { padding: 1.25rem 1rem 1.1rem; }
+      .session-toggle { padding: 0.65rem 0.75rem; gap: 8px; }
+      .session-body-content { padding: 0 0.75rem 0 0.85rem; }
     }
 
     /* Skip link */
@@ -604,6 +611,36 @@
       border: 1px solid rgba(82,123,130,0.22);
     }
     .mpill-eli:hover { opacity: 0.72; }
+
+    /* ── How this course works — key terms ── */
+    .course-glossary {
+      background: var(--white);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      box-shadow: var(--shadow-sm);
+      padding: 0.85rem 1rem 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+    .glossary-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-dk); margin-bottom: 0.55rem;
+    }
+    .glossary-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .glossary-list li { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+    .glossary-list li strong { color: var(--text); }
+    .glossary-list a { color: var(--teal-dk); }
+
+    /* ── Module 4b viva path summary ── */
+    .module-path-summary {
+      font-size: 0.78rem; color: var(--muted);
+      line-height: 1.5; margin-top: 0.3rem;
+    }
+    .module-path-summary strong { color: var(--text); }
+    .module-path-summary a { color: var(--teal-dk); }
   </style>
 </head>
 <body>
@@ -626,6 +663,7 @@
 
 <main id="main">
   <p class="intro" id="introText"></p>
+  <div class="course-glossary" id="courseGlossary"></div>
   <ul class="session-list" id="sessionList"></ul>
 </main>
 
@@ -862,7 +900,7 @@ function bodyContent(session, type, isCurrent) {
     if (session.num === 7) {
       // Session 7 is Mon/Tue only — Fall Break begins Wednesday
       frag.appendChild(infoBox('gold-box', 'Short session — Monday and Tuesday only.',
-        'Fall Break begins Wednesday. No Wednesday or Friday class. Puzzle is still due Wednesday at 11:59 p.m.'));
+        `Fall Break begins Wednesday. No Wednesday or Friday class. Puzzle is due ${formatPuzzleDue(7)}.`));
       frag.appendChild(daySection('Monday', [pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))]));
       frag.appendChild(daySection('Tuesday', [pill('Tue — Skeleton', sc.tue || canvasPageUrl(`s${session.num}-tue`))]));
     } else {
@@ -1075,8 +1113,8 @@ function bodyContent(session, type, isCurrent) {
     // CI 4 policy
     const ci4Policy = document.createElement('div');
     ci4Policy.className = 'ci4-policy';
-    ci4Policy.innerHTML = `<strong>CI 4 always counts toward your grade.</strong>
-      If your CI 4 score is higher than your lowest score from CI 1, 2, or 3, it replaces that score. There is no opt out.`;
+    ci4Policy.innerHTML = `<strong>Check-In 4 can only help your grade.</strong>
+      If your score is higher than your lowest CI 1–3, it replaces it automatically. There is no downside — come prepared and you have nothing to lose.`;
     frag.appendChild(ci4Policy);
 
     // Three-population flow
@@ -1101,7 +1139,7 @@ function bodyContent(session, type, isCurrent) {
       {
         header: 'I did my viva during viva week and I am deferring CI 4.',
         items: [
-          { dot: 'dot-flex',       text: 'Friday of viva week is a reading day.' },
+          { dot: 'dot-flex',       text: 'Friday Dec 4 is the last day of class — you may attend without taking CI 4.' },
           { dot: 'dot-assessment', text: 'Take CI 4 during the final exam period.' },
           { dot: 'dot-teal',       text: 'That covers your contact hour.' },
         ]
@@ -1109,7 +1147,7 @@ function bodyContent(session, type, isCurrent) {
       {
         header: 'I am deferring my viva to the final exam period.',
         items: [
-          { dot: 'dot-flex',       text: 'Friday of viva week is a reading day.' },
+          { dot: 'dot-flex',       text: 'Friday Dec 4 is the last day of class — you may attend without taking CI 4.' },
           { dot: 'dot-assessment', text: 'Complete your viva during the exam period.' },
           { dot: 'dot-assessment', text: 'Take CI 4 during the exam period if not taken on Friday.' },
         ]
@@ -1199,8 +1237,18 @@ function moduleHeader(block) {
   } else if (block.phase === 'viva' && ci) {
     const ciLine = document.createElement('div');
     ciLine.className = 'module-ci-line';
-    ciLine.innerHTML = `<strong>Check-In #4</strong> · ${ci.date} · Always counts · Replaces your lowest CI&nbsp;1–3 if higher`;
+    ciLine.innerHTML = `<strong>Check-In #4</strong> · ${ci.date} · Can only help your grade — replaces your lowest CI&nbsp;1–3 if higher, automatically`;
     li.appendChild(ciLine);
+
+    const pathSummary = document.createElement('div');
+    pathSummary.className = 'module-path-summary';
+    pathSummary.innerHTML =
+      `<strong>Your exam-period obligation depends on when you complete your viva.</strong> ` +
+      `Path 1 (viva done + CI 4 done on Fri): complete a short online worksheet during your exam block. ` +
+      `Path 2 (CI 4 deferred): take CI 4 during the exam period. ` +
+      `Path 3 (viva deferred): complete viva and CI 4 during the exam period. ` +
+      `<a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Viva prep guide →</a>`;
+    li.appendChild(pathSummary);
   } else if (ci && ciCovers) {
     const ciLine = document.createElement('div');
     ciLine.className = 'module-ci-line';
@@ -1425,11 +1473,27 @@ SCHEDULE.sessions.forEach((session, idx) => {
     // Scroll into view after render
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const top = li.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
     });
   }
 });
+
+// ── How this course works — key terms ──
+(function buildGlossary() {
+  const el = document.getElementById('courseGlossary');
+  if (!el) return;
+  el.innerHTML =
+    `<div class="glossary-label">How this course works — key terms</div>` +
+    `<ul class="glossary-list">` +
+      `<li><strong>Check-In</strong> — a 60-minute in-class written exam at the end of each module. CI 4 can only help your grade.</li>` +
+      `<li><strong>Economic Puzzle</strong> — one short online assignment per content session, due the Wednesday of the following session at 11:59 p.m. Lowest score dropped.</li>` +
+      `<li><strong>Monday Morning Economist (MME)</strong> — a real-world economics article you read and annotate through Perusall. One per module; due Wednesday of check-in week.</li>` +
+      `<li><strong>Friday Focus</strong> — a semester-long written economic narrative (25% of your grade) developed through drafts and peer review. <a href="${PAGES.assignments}" target="_blank" rel="noopener">Details →</a></li>` +
+      `<li><strong>Viva</strong> — a 15–20 minute one-on-one conversation with Prof. Depro about your Friday Focus essay, scheduled during viva week. <a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Prep guide →</a></li>` +
+    `</ul>`;
+})();
 
 // ── Accordion toggle ──
 document.getElementById('sessionList').addEventListener('click', e => {
