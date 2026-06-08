@@ -516,6 +516,21 @@ const CANVAS = {
     // Friday Focus written narrative submission
     ffSubmitUrl:         "",   // UPDATE: Canvas Assignment URL (same as friday[0].url above)
   },
+
+  // Eli Review tasks — UPDATE urls as tasks are published in Eli
+  // module: block id (1, 2, 3, '4b') — determines which module banner shows this pill
+  // type: "writing" | "review" | "revision-plan" | "revision"
+  eli: [
+    { id: 1, module: 1,    label: "Draft 1",          type: "writing",       dueShort: "Sep 16", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
+    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", url: null },  // UPDATE
+    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  url: null },  // UPDATE
+    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  url: null },  // UPDATE
+    { id: 5, module: 2,    label: "Review 2",          type: "review",        dueShort: "Oct 9",  url: null },  // UPDATE
+    { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  url: null },  // UPDATE
+    { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  url: null },  // UPDATE
+    { id: 8, module: 3,    label: "Review 3",          type: "review",        dueShort: "Nov 6",  url: null },  // UPDATE
+    { id: 9, module: '4b', label: "Final Narrative",   type: "revision",      dueShort: "Dec 2",  url: null },  // UPDATE — submit through Eli + Canvas
+  ],
 };
 
 // ================================================================

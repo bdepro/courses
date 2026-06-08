@@ -598,6 +598,12 @@
       border: 1px solid #ddd;
       cursor: default; pointer-events: none;
     }
+    .mpill-eli {
+      background: rgba(82,123,130,0.12);
+      color: var(--teal-dk);
+      border: 1px solid rgba(82,123,130,0.22);
+    }
+    .mpill-eli:hover { opacity: 0.72; }
   </style>
 </head>
 <body>
@@ -918,10 +924,6 @@ function bodyContent(session, type, isCurrent) {
     monDesc.innerHTML = `<strong>Kahoot review:</strong> Supply and demand and the eight guideposts.
       <div class="sub">Bring your questions about the block. The last puzzle of this block is due Wednesday at 11:59 p.m.</div>`;
     monBox.appendChild(monDesc);
-    const monPills = document.createElement('div');
-    monPills.className = 'pills';
-    monPills.appendChild(pill('Mon — Review Guide', sc.review || canvasPageUrl(`s${session.num}-review`)));
-    monBox.appendChild(monPills);
     frag.appendChild(monBox);
 
     // Wednesday — check-in
@@ -948,49 +950,29 @@ function bodyContent(session, type, isCurrent) {
     }
     frag.appendChild(wedBox);
 
-    // Friday — MME launch + FF progress
+    // Eli review tasks for this check-in's Friday (in-class, 45 min)
+    const eliReviewTasks = (CANVAS.eli || []).filter(t =>
+      t.module === session.checkIn && t.type === 'review'
+    );
+
+    // Friday — Eli Review (or debrief)
     const friBox = document.createElement('div');
     friBox.className = 'day-section';
-    friBox.innerHTML = `<div class="day-label">Friday — MME launch and Friday Focus progress</div>`;
+    friBox.innerHTML = `<div class="day-label">Friday — ${eliReviewTasks.length ? 'Eli Review' : 'Check-In debrief'}</div>`;
 
     const friDesc = document.createElement('div');
     friDesc.className = 'info-box gold-box';
     friDesc.style.margin = '0.35rem 0 0.4rem';
-
-    // Find ALL MME entries for this session (session 11 has two)
-    const mmeEntries = CANVAS.mme.filter(m => m.session === session.num);
-    const mmeDue = mmeEntries.length > 0 ? mmeEntries[0].due : 'Wednesday of check-in week, 11:59 p.m.';
-    const multiMME = mmeEntries.length > 1;
-
-    friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome. Bring them.
-      <div class="sub">${multiMME
-        ? `Then we launch two Monday Morning Economist articles for the rest of the semester. Both are due ${mmeDue}.`
-        : `Then we launch the Monday Morning Economist article for this block. It is due ${mmeDue}, not this Wednesday.`
-      }</div>`;
+    friDesc.innerHTML = `<strong>Friday we review exam answers.</strong> Questions about your answers are welcome. Bring them.`;
     friBox.appendChild(friDesc);
 
-    const friDesc2 = document.createElement('div');
-    friDesc2.className = 'info-box viva-box';
-    friDesc2.style.margin = '0.4rem 0 0.4rem';
-    friDesc2.innerHTML = `<strong>Friday Focus progress:</strong> In-class work. Submit your artifact through Canvas before class ends.`;
-    friBox.appendChild(friDesc2);
-
-    const friPills = document.createElement('div');
-    friPills.className = 'pills';
-
-    // Render a pill for each MME tied to this session
-    mmeEntries.forEach(mmeData => {
-      const mmeUrl = sc.mmeUrl || mmeData.url || null;
-      friPills.appendChild(pill(mmeData.title, mmeUrl, 'gold'));
-    });
-    // Fallback if no MME entries found
-    if (mmeEntries.length === 0) {
-      friPills.appendChild(pill('MME — TBA', null, 'gold'));
+    if (eliReviewTasks.length > 0) {
+      const eliBox = document.createElement('div');
+      eliBox.className = 'info-box viva-box';
+      eliBox.style.margin = '0.4rem 0 0';
+      eliBox.innerHTML = `<strong>Eli Review — 45 minutes in class.</strong> Open Eli Review on your device and complete your peer review before class ends.`;
+      friBox.appendChild(eliBox);
     }
-
-    const ffUrl = sc.ffSubmit || CANVAS.viva.ffSubmitUrl || null;
-    friPills.appendChild(pill('FF Progress — Submit', ffUrl));
-    friBox.appendChild(friPills);
     frag.appendChild(friBox);
 
     // Vote element — Session 11 only
@@ -1013,28 +995,6 @@ function bodyContent(session, type, isCurrent) {
       `Reference chapters: ${appChs}`
     ));
 
-    frag.appendChild(daySection('Monday', [
-      pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))
-    ]));
-
-    const wedSection = document.createElement('div');
-    wedSection.className = 'day-section';
-    wedSection.innerHTML = `<div class="day-label">Wednesday</div>`;
-    const wedWarn = document.createElement('div');
-    wedWarn.className = 'wed-warning';
-    wedWarn.textContent = 'Wednesday is screens-down.';
-    const wedPills = document.createElement('div');
-    wedPills.className = 'pills';
-    wedPills.style.marginBottom = '0.35rem';
-    wedPills.appendChild(printPill('Wed — Print before Wednesday', sc.wed || canvasPageUrl(`s${session.num}-wed`)));
-    wedSection.appendChild(wedPills);
-    wedSection.appendChild(wedWarn);
-    frag.appendChild(wedSection);
-
-    frag.appendChild(daySection('Friday', [
-      pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
-    ]));
-
     const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
     const mmeDueApp  = CANVAS.mme.filter(m => m.dueSession === session.num);
     if (puzzleData) {
@@ -1053,50 +1013,6 @@ function bodyContent(session, type, isCurrent) {
       const mmePills = mmeDiv.querySelector('.pills');
       mmeDueApp.forEach(m => mmePills.appendChild(pill(m.title, m.url || null, 'gold')));
       frag.appendChild(mmeDiv);
-    }
-
-    // Pre-Thanksgiving sign-up block — Session 13 only
-    if (session.num === 13) {
-      // Section label
-      const vivaLabel = document.createElement('div');
-      vivaLabel.className = 'day-label';
-      vivaLabel.style.margin = '0.85rem 0 0.4rem';
-      vivaLabel.textContent = 'Before Thanksgiving break — action required';
-      frag.appendChild(vivaLabel);
-
-      // Sign-up instruction
-      const signupBox = document.createElement('div');
-      signupBox.className = 'info-box viva-box';
-      signupBox.innerHTML = `<strong>Sign up for your viva slot through the Canvas Calendar.</strong>
-        <div class="sub">Do this before Thanksgiving break. Use a computer. The Canvas scheduler does not work on phones.<br>
-        <span class="equity-note">${SCHEDULE.finalExamPeriod.signupEquityNote}</span></div>`;
-      frag.appendChild(signupBox);
-
-      // Sign-up pills
-      const signupPills = document.createElement('div');
-      signupPills.className = 'pills';
-      signupPills.style.margin = '0.3rem 0 0.6rem';
-      signupPills.appendChild(pill('Viva Week Sign-Up', CANVAS.viva.vivaWeekSignupUrl || null, 'teal'));
-      signupPills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
-      frag.appendChild(signupPills);
-
-      // FF narrative reminder
-      const ffReminder = document.createElement('div');
-      ffReminder.className = 'info-box gold-box';
-      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due ${CANVAS.friday[0].due}.</strong>
-        <div class="sub">Submit through Canvas before your viva conversation.
-        Use the Thanksgiving break to finish your narrative and prepare for your viva.</div>`;
-      frag.appendChild(ffReminder);
-
-      // FF submit pill
-      const ffPills = document.createElement('div');
-      ffPills.className = 'pills';
-      ffPills.style.margin = '0.3rem 0 0';
-      const ffUrl = SESSIONS_CONTENT[13] && SESSIONS_CONTENT[13].ffSubmit
-        ? SESSIONS_CONTENT[13].ffSubmit
-        : (CANVAS.viva.ffSubmitUrl || null);
-      ffPills.appendChild(pill('Submit Friday Focus Narrative', ffUrl));
-      frag.appendChild(ffPills);
     }
 
     return frag;
@@ -1334,12 +1250,22 @@ function moduleHeader(block) {
     pillsRow.appendChild(el);
   }
 
-  // Check-In pill (Modules 1–3: linked CI; Viva: CI #4)
+  // Eli Review/Writing pills
+  (CANVAS.eli || [])
+    .filter(t => t.module === block.id)
+    .forEach(t => {
+      const el = document.createElement(t.url ? 'a' : 'span');
+      el.className = `module-pill mpill-eli${t.url ? '' : ' mpill-inactive'}`;
+      el.textContent = `Eli · ${t.label} · ${t.dueShort}`;
+      if (t.url) { el.href = t.url; el.target = '_blank'; el.rel = 'noopener'; }
+      pillsRow.appendChild(el);
+    });
+
+  // Check-In pill — always a plain label (administered in class, never linked)
   if (ci) {
-    const el = document.createElement(ci.url ? 'a' : 'span');
-    el.className = `module-pill mpill-ci${ci.url ? '' : ' mpill-inactive'}`;
-    el.textContent = `Check-In #${block.checkIn}`;
-    if (ci.url) { el.href = ci.url; el.target = '_blank'; el.rel = 'noopener'; }
+    const el = document.createElement('span');
+    el.className = 'module-pill mpill-ci';
+    el.textContent = `Check-In #${block.checkIn} · ${ci.date}`;
     pillsRow.appendChild(el);
   }
 
@@ -1377,8 +1303,9 @@ document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon Univ
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
   `Each session meets Monday, Wednesday, and Friday. ` +
-  `Your current session opens below. Work for each session is due Wednesday by 11:59 p.m. ` +
-  `See the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
+  `Content sessions show chapter resources and Eli Review assignments directly. ` +
+  `Expand check-in and viva sessions for daily schedule details. ` +
+  `Work is due Wednesday by 11:59 p.m. — see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 
 // Auto-highlight
 const today  = new Date(); today.setHours(0, 0, 0, 0);
@@ -1418,7 +1345,6 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (session.checkIn)         tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
   if (type === 'viva')         tags.push(`<span class="sess-tag tag-viva">Viva + CI #4</span>`);
   if (type === 'application')  tags.push(`<span class="sess-tag tag-app">Application</span>`);
-  if (session.mmeFF)           tags.push(`<span class="sess-tag tag-mme">MME Launch</span>`);
   if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
   if (session.num === 13)      tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
 
@@ -1472,14 +1398,22 @@ SCHEDULE.sessions.forEach((session, idx) => {
       chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
     }
 
+    const displayLabel = type === 'checkin' ? `Check-In #${session.checkIn}` : session.label;
+    const isCheckIn = type === 'checkin';
+    // For check-in: CI badge moves to top row; filter it from tags, keep Current/Vote
+    const displayTags = isCheckIn ? tags.filter(t => !t.includes('tag-checkin')) : tags;
     li.innerHTML = `
       <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
         <div class="session-header-text">
           <div class="session-top-row">
-            <span class="session-label">${session.label}</span>
+            ${isCheckIn
+              ? `<span class="sess-ch-badge">CI #${session.checkIn}</span>`
+              : `<span class="session-label">${displayLabel}</span>`
+            }
             <span class="session-dates">${session.dates}</span>
           </div>
-          ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+          ${isCheckIn ? `<div class="sess-ch-title">${displayLabel}</div>` : ''}
+          ${displayTags.length ? `<div class="session-tags">${displayTags.join('')}</div>` : ''}
           ${chSub}
         </div>
         <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
