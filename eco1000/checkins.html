@@ -14,6 +14,7 @@
   <meta name="description" content="Check-in dates, coverage, and policies for ECO 1000 at Elon University.">
   <title>ECO 1000 · Check-Ins</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
@@ -74,16 +75,20 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Check-Ins</h1>
-    <p class="screen-sub">50% of your course grade · pen and paper · Wednesday in class · 60 minutes</p>
+    <p class="screen-sub">50% of your course grade · pen and paper · in class · 60 minutes</p>
   </div>
 </div>
 <main id="main">
   <div class="callout red">
     <strong>Check-In 4 always counts.</strong> If your CI 4 score is higher than your
-    lowest score from CI 1, 2, or 3, I replace that score automatically. You don't
-    need to ask. If you miss a Check-In, CI 4 is the makeup. There are no separate
-    makeup exams. CI 4 covers the full course, so it's the fairest measure of where
-    you land.
+    lowest score from CI 1, 2, or 3, I replace that score automatically — one score,
+    no request needed. CI 4 replaces only one score: if you miss more than one check-in,
+    the others still count. If you miss a Check-In, CI 4 is the makeup. There are no
+    separate makeup exams. CI 4 covers the full course, so it is the fairest measure of
+    where you land. If you cannot attend on December 4, CI 4 is also available during
+    the final exam period (December 7–11) — contact Prof. Depro to arrange.
+    If 75% of the class completes the end-of-semester survey, everyone earns one
+    bonus point on CI 4.
   </div>
 
   <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.65;">
@@ -126,11 +131,10 @@ CANVAS.checkIns.forEach(function(ci) {
       '<div class="c-title">' + ci.title + '</div>' +
       '<div class="c-meta">' + ci.date + ' &nbsp;·&nbsp; ' + ci.covers + '</div>' +
     '</div>' +
-    '<a class="c-link' + (hasUrl ? '' : ' inactive') + '"' +
-      (hasUrl ? ' href="' + ci.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'View Results' : 'Not yet') +
-      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
-    '</a>';
+    (hasUrl
+      ? '<a class="c-link" href="' + ci.url + '" target="_blank" rel="noopener">View Results<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>'
+      : '<span class="c-link inactive">Not yet</span>'
+    );
   list.appendChild(row);
 });
 </script>
