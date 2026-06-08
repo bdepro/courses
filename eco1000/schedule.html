@@ -833,7 +833,7 @@ function bodyContent(session, type, isCurrent) {
     if (type === 'checkin') {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last module's puzzle (and any MME due this module).`;
     } else if (type === 'viva') {
-      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Eli Review Final Narrative — submit through Eli Review.`;
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus narrative — submit through Canvas.`;
     } else if (type === 'application') {
       dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
     } else {
@@ -958,7 +958,7 @@ function bodyContent(session, type, isCurrent) {
     // Friday — Eli Review (or debrief)
     const friBox = document.createElement('div');
     friBox.className = 'day-section';
-    friBox.innerHTML = `<div class="day-label">Friday — ${eliReviewTasks.length ? 'Eli Review' : 'Check-In debrief'}</div>`;
+    friBox.innerHTML = `<div class="day-label">Friday — ${eliReviewTasks.length ? 'Peer Review' : 'Check-In debrief'}</div>`;
 
     const friDesc = document.createElement('div');
     friDesc.className = 'info-box gold-box';
@@ -970,7 +970,7 @@ function bodyContent(session, type, isCurrent) {
       const eliBox = document.createElement('div');
       eliBox.className = 'info-box viva-box';
       eliBox.style.margin = '0.4rem 0 0';
-      eliBox.innerHTML = `<strong>Eli Review — 45 minutes in class.</strong> Open Eli Review on your device and complete your peer review before class ends.`;
+      eliBox.innerHTML = `<strong>Peer review — 45 minutes in class.</strong> Open the peer review on your device and complete it before class ends.`;
       friBox.appendChild(eliBox);
     }
     frag.appendChild(friBox);
@@ -1022,25 +1022,6 @@ function bodyContent(session, type, isCurrent) {
   if (type === 'viva') {
     const ci4 = CANVAS.checkIns.find(c => c.id === 4);
 
-    // Eli Review Final Narrative due
-    const ffDue = document.createElement('div');
-    ffDue.className = 'due-highlight';
-    ffDue.style.marginTop = '0.85rem';
-    ffDue.innerHTML = `<strong>Eli Review Final Narrative due ${CANVAS.friday[0].due}.</strong>
-      Submit through Eli Review before your viva conversation.`;
-    frag.appendChild(ffDue);
-
-    // MME article due this week
-    const mmeDueViva = CANVAS.mme.filter(m => m.dueSession === session.num);
-    if (mmeDueViva.length > 0) {
-      const mmeDueVivaBox = infoBox('gold-box',
-        'Also due Wednesday at 11:59 p.m.:',
-        mmeDueViva.map(m => m.title).join(' and ') + '. Annotate through Perusall.'
-      );
-      mmeDueVivaBox.style.margin = '0.4rem 0 0.35rem';
-      frag.appendChild(mmeDueVivaBox);
-    }
-
     // Sign-up confirmation — action should already be done from Session 13
     const signupBox = document.createElement('div');
     signupBox.className = 'info-box viva-box';
@@ -1064,6 +1045,19 @@ function bodyContent(session, type, isCurrent) {
     monWedPills.appendChild(pill('CI 4 Review Worksheet', sc.worksheet || CANVAS.viva.worksheetUrl || null));
     monWedPills.appendChild(pill('Submit Worksheet', sc.worksheetSubmit || CANVAS.viva.worksheetSubmitUrl || null));
     monWedBox.appendChild(monWedPills);
+
+    // Due Wednesday note — FF narrative + any MME due this session
+    const mmeDueViva = CANVAS.mme.filter(m => m.dueSession === session.num);
+    const mmePart = mmeDueViva.length > 0
+      ? ` Also: ${mmeDueViva.map(m => m.title).join(' and ')} — annotate through Perusall.`
+      : '';
+    const wedDueBox = infoBox('gold-box',
+      `Due Wednesday ${shortDate(CANVAS.friday[0].due)} at 11:59 p.m.:`,
+      `Friday Focus narrative — submit through Canvas.${mmePart}`
+    );
+    wedDueBox.style.margin = '0.35rem 0 0';
+    monWedBox.appendChild(wedDueBox);
+
     frag.appendChild(monWedBox);
 
     // Friday
@@ -1293,7 +1287,7 @@ document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon Univ
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
   `Each session meets Monday, Wednesday, and Friday. ` +
-  `Content sessions show chapter resources and Eli Review assignments directly. ` +
+  `Content sessions show chapter resources and Friday Focus assignments directly. ` +
   `Expand check-in and viva sessions for daily schedule details. ` +
   `Work is due Wednesday by 11:59 p.m. — see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 
@@ -1332,8 +1326,8 @@ SCHEDULE.sessions.forEach((session, idx) => {
   // Tags
   const tags = [];
   if (isCurrent)               tags.push(`<span class="sess-tag tag-current">Current</span>`);
-  if (session.checkIn)         tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
-  if (type === 'viva')         tags.push(`<span class="sess-tag tag-viva">Viva + CI #4</span>`);
+  if (session.checkIn && type !== 'viva') tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
+  if (type === 'viva')                    tags.push(`<span class="sess-tag tag-viva">CI #4 + Viva</span>`);
   if (type === 'application')  tags.push(`<span class="sess-tag tag-app">Application</span>`);
   if (session.vote)            tags.push(`<span class="sess-tag tag-vote">Vote</span>`);
   if (session.num === 13)      tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
