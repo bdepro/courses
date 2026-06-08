@@ -14,6 +14,7 @@
   <meta name="description" content="Monday Morning Economist guided readings and annotation schedule for ECO 1000.">
   <title>ECO 1000 · Monday Morning Economist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
@@ -75,12 +76,13 @@
 </div>
 <main id="main">
   <div class="callout teal">
-    <strong>The Canvas link takes you straight to Perusall.</strong> No separate account needed.
-    Each article is introduced on a Friday and due on a Wednesday roughly three weeks later.
-    MME 3 is introduced October 23 and due November 18, ahead of Thanksgiving break.
-    MME 4 is introduced November 6 and due December 2. A strong response pushes back on
-    the article, asks what the author left out, or connects the argument to something from
-    the course. A weak response restates what the article already said.
+    <strong>A Monday Morning Economist reads the news like an economist</strong> — looking
+    past what happened to what drove it. That is the mindset for every annotation.
+    Perusall is an online reading tool built into Canvas. Click the assignment link and
+    the article opens automatically. No separate account needed. Introduced and due dates
+    are listed for each article below. A strong response disagrees with or critiques the
+    article's argument, asks what the author left out, or connects the argument to
+    something from the course. A weak response restates what the article already said.
   </div>
   <p class="section-label">Articles — click to open in Perusall</p>
   <div class="mme-list" id="mmeList"></div>
@@ -103,11 +105,10 @@ CANVAS.mme.forEach(function(m) {
       '<div class="m-title">' + m.title + '</div>' +
       '<div class="m-dates">Introduced ' + m.introduced + ' &nbsp;·&nbsp; Due ' + m.due + '</div>' +
     '</div>' +
-    '<a class="m-link' + (hasUrl ? '' : ' inactive') + '"' +
-      (hasUrl ? ' href="' + m.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'Open Article' : 'Coming Soon') +
-      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
-    '</a>';
+    (hasUrl
+      ? '<a class="m-link" href="' + m.url + '" target="_blank" rel="noopener">Open Article<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>'
+      : '<span class="m-link inactive">Coming Soon</span>'
+    );
   list.appendChild(row);
 });
 </script>

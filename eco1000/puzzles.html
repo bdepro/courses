@@ -14,6 +14,7 @@
   <meta name="description" content="Weekly Economic Puzzles for ECO 1000 — schedule, attempts, and late policy.">
   <title>ECO 1000 · Economic Puzzles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
@@ -78,7 +79,8 @@
     <strong>Two attempts per puzzle.</strong> Canvas shows your score between attempts
     but not which questions you missed. Attempt two rewards genuine re-engagement.
     I drop your lowest puzzle score at the end of the semester. If you miss the Wednesday
-    deadline, you have one more week to submit for 80% credit.
+    11:59 p.m. deadline, you may still submit for 80% credit until the following Wednesday
+    at 11:59 p.m.
   </div>
   <p class="section-label">Puzzles — click to open in Canvas</p>
   <div class="puzzle-list" id="puzzleList"></div>
@@ -112,11 +114,10 @@ CANVAS.puzzles.forEach(function(p) {
       (chTitle ? '<span class="p-session">' + chTitle + '</span>' : '') +
       '<span class="p-due">Due ' + formatPuzzleDue(p.session) + '</span>' +
     '</div>' +
-    '<a class="p-link' + (hasUrl ? '' : ' inactive') + '"' +
-      (hasUrl ? ' href="' + p.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'Open Puzzle' : 'Coming Soon') +
-      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
-    '</a>';
+    (hasUrl
+      ? '<a class="p-link" href="' + p.url + '" target="_blank" rel="noopener">Open Puzzle<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>'
+      : '<span class="p-link inactive">Coming Soon</span>'
+    );
   list.appendChild(row);
 });
 </script>
