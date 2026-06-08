@@ -495,7 +495,7 @@ const CANVAS = {
       covers: "Ch. 4 & 7 / S&D / Guideposts", url: "" },           // UPDATE
     { id: 3, title: "Check-In #3", date: "Wed Nov 4",
       covers: "Ch. 8, 16, 18 / S&D / Guideposts", url: "" },       // UPDATE
-    { id: 4, title: "Check-In #4", date: "Fri Dec 4 or exam period",
+    { id: 4, title: "Check-In #4", date: "Fri Dec 4",
       covers: "Comprehensive / Ch. 18 + Application block / S&D / Guideposts", url: "" }, // UPDATE
   ],
 
