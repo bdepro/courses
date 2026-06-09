@@ -362,16 +362,6 @@ const CARDS = [
     enabled: true,
   },
   {
-    id: "badges",
-    title: "Achievement Badges",
-    desc: "Earn a badge for each chapter by completing the Chapter Quiz in MindTap's Apply It section. 9 badges total.",
-    badge: "20% of Grade",
-    badgeClass: "badge-grade",
-    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>`,
-    url: () => PAGES.badges,
-    enabled: true,
-  },
-  {
     id: "friday",
     title: "Friday Focus: Critical Thinking",
     desc: "One written narrative and one 12-minute Zoom conversation with your instructor. Together they are 30% of your grade.",
@@ -382,13 +372,13 @@ const CARDS = [
     enabled: true,
   },
   {
-    id: "aiPolicy",
-    title: "AI in This Course",
-    desc: "What AI tools you can use in this course, and where the boundaries are.",
-    badge: "Policy",
-    badgeClass: "badge-resource",
-    icon: `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
-    url: () => PAGES.aiPolicy,
+    id: "badges",
+    title: "Achievement Badges",
+    desc: "Earn a badge for each chapter by completing the Chapter Quiz in MindTap's Apply It section. 9 badges total.",
+    badge: "20% of Grade",
+    badgeClass: "badge-grade",
+    icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+    url: () => PAGES.badges,
     enabled: true,
   },
   // MME — only shown when enabled in config.js
@@ -402,6 +392,16 @@ const CARDS = [
     url: () => PAGES.mme,
     enabled: true,
   }] : []),
+  {
+    id: "aiPolicy",
+    title: "AI in This Course",
+    desc: "What AI tools you can use in this course, and where the boundaries are.",
+    badge: "Policy",
+    badgeClass: "badge-resource",
+    icon: `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
+    url: () => PAGES.aiPolicy,
+    enabled: true,
+  },
 ];
 
 // Wire header from config
