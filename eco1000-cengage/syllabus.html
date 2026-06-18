@@ -208,6 +208,15 @@
     }
     .policy-callout strong { color: var(--teal); }
 
+    .oh-callout {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: #f0f7f8; border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.7rem 1rem;
+      margin-top: 0.85rem; font-size: 0.88rem; line-height: 1.5;
+    }
+    .oh-callout svg { flex-shrink: 0; }
+    .oh-callout strong { color: var(--teal); }
+
     .policy-list { list-style: none; padding: 0; }
     .policy-item {
       font-size: 0.88rem; padding: 0.5rem 0 0.5rem 1rem;
@@ -329,10 +338,6 @@
           <span class="contact-value" id="syl-office"></span>
         </div>
         <div class="contact-row">
-          <span class="contact-label">Office Hours</span>
-          <span class="contact-value" id="syl-hours"></span>
-        </div>
-        <div class="contact-row">
           <span class="contact-label">Course Site</span>
           <span class="contact-value">Moodle</span>
         </div>
@@ -348,6 +353,10 @@
           <span class="contact-label">Textbook</span>
           <span class="contact-value" id="syl-textbook"></span>
         </div>
+      </div>
+      <div class="oh-callout">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span><strong>Office Hours</strong> &mdash; <span id="syl-hours"></span></span>
       </div>
     </div>
   </div>
