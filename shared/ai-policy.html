@@ -188,10 +188,13 @@
 </footer>
 
 <script>
-  // Dynamic back link — returns student to whichever course page opened this
+  // Dynamic back link — ?return= param takes priority (Canvas URL), then referrer, then fallback
   const backLink = document.getElementById('backLink');
+  const returnParam = new URLSearchParams(location.search).get('return');
   const referrer = document.referrer;
-  if (referrer && referrer.includes('bdepro.github.io/courses')) {
+  if (returnParam) {
+    backLink.href = returnParam;
+  } else if (referrer && referrer.includes('bdepro.github.io/courses')) {
     backLink.href = referrer;
   } else {
     backLink.href = 'https://bdepro.github.io/courses/';
