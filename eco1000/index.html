@@ -112,7 +112,7 @@
 <main id="main">
 
   <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="schedule.html">
+  <a class="card primary" id="scheduleCard" href="schedule.html" target="_top">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
@@ -295,6 +295,7 @@ ALL_CARDS.forEach(card => {
   a.className = 'card';
   a.href      = card.href;
   if (card.external) { a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.target = '_top'; }
   a.style.animationDelay = `${delay}s`;
   delay += 0.07;
 
