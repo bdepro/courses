@@ -411,6 +411,7 @@ const QUESTIONS = {
 // ================================================================
 const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
+  canvasHome:  `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
   schedule:    `${COURSE.baseUrl}/schedule.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
   assignments: `${COURSE.baseUrl}/assignments.html`,
