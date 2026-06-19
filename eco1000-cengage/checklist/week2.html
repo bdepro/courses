@@ -9,71 +9,77 @@
   <script src="../config.js"></script>
   <style>
     :root {
-      --crimson:#73000a;--crimson-dk:#5a0008;--gold:#b59a57;--gold-lt:#d4b97a;--gold-link:#7a5c1e;
-      --cream:#fcfaf7;--warm-gray:#f7f4ef;--text:#2e2e2e;--muted:#6b6b6b;--white:#ffffff;
-      --shadow:0 2px 16px rgba(115,0,10,0.07);--shadow-md:0 6px 24px rgba(115,0,10,0.12);--radius:16px;
+      --crimson:    #73000a;
+      --crimson-dk: #5a0008;
+      --gold:       #b59a57;
+      --gold-lt:    #d4b97a;
+      --gold-link:  #7a5c1e;
+      --cream:      #fcfaf7;
+      --warm-gray:  #f7f4ef;
+      --text:       #2e2e2e;
+      --muted:      #6b6b6b;
+      --white:      #ffffff;
+      --shadow:     0 2px 16px rgba(115,0,10,0.07);
+      --shadow-md:  0 6px 24px rgba(115,0,10,0.12);
+      --radius:     16px;
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Roboto',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
-    header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem 2rem 1.75rem;}
-    .header-inner{max-width:860px;margin:0 auto;}
-    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;transition:color 0.15s;}
-    .back-link:hover{color:var(--white);}
-    .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.5;}
-    .week-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.4rem;}
-    .week-title{font-family:'Roboto',sans-serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.5rem;}
-    .week-meta{font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;}
-    .progress-wrap{background:var(--warm-gray);border-bottom:1px solid rgba(181,154,87,0.2);padding:1rem 2rem;position:sticky;top:0;z-index:100;}
-    .progress-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:1rem;}
-    .progress-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
-    .progress-track{flex:1;height:8px;background:rgba(115,0,10,0.1);border-radius:100px;overflow:hidden;}
-    .progress-fill{height:100%;width:0%;background:var(--crimson);border-radius:100px;transition:width 0.4s ease,background 0.4s ease;}
-    .progress-fill.complete{background:var(--gold);}
-    .progress-pct{font-size:0.78rem;font-weight:700;color:var(--crimson);min-width:36px;text-align:right;}
-    .progress-pct.complete{color:var(--gold-link);}
-    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
-    .story-band{background:var(--white);border-radius:var(--radius);border-left:5px solid var(--gold);box-shadow:var(--shadow);padding:1.5rem 1.6rem;margin-bottom:2.5rem;}
-    .story-label{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-link);margin-bottom:0.5rem;}
-    .story-text{font-family:'Roboto',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.7;}
-    .due-banner{background:rgba(115,0,10,0.06);border:1px solid rgba(115,0,10,0.15);border-radius:10px;padding:0.85rem 1.2rem;display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem;}
-    .due-banner svg{width:18px;height:18px;stroke:var(--crimson);fill:none;stroke-width:2;flex-shrink:0;}
-    .due-banner-text{font-size:0.85rem;color:var(--crimson);font-weight:500;}
-    .due-banner-text strong{font-weight:700;}
-    .chapter-block{margin-bottom:2rem;}
-    .chapter-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
-    .chapter-num{background:var(--crimson);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius:5px;flex-shrink:0;}
-    .chapter-name{font-size:1.05rem;font-weight:700;color:var(--crimson);line-height:1.3;letter-spacing:0.01em;}
-    .chapter-progress{margin-left:auto;font-size:0.72rem;font-weight:500;color:var(--muted);white-space:nowrap;}
-    .checklist{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);overflow:hidden;}
-    .check-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;border-bottom:1px solid rgba(181,154,87,0.1);cursor:pointer;transition:background 0.15s;user-select:none;}
-    .check-item:last-child{border-bottom:none;}
-    .check-item:hover{background:var(--warm-gray);}
-    .check-item.checked{background:rgba(181,154,87,0.06);}
-    .check-box{width:22px;height:22px;border-radius:6px;border:2px solid rgba(115,0,10,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all 0.2s ease;background:var(--white);}
-    .check-item.checked .check-box{background:var(--crimson);border-color:var(--crimson);}
-    .check-item.checked .check-box svg{opacity:1;}
-    .check-box svg{width:13px;height:13px;stroke:var(--white);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity 0.15s;}
-    .check-content{flex:1;}
-    .check-title{font-size:0.92rem;font-weight:500;color:var(--text);line-height:1.4;transition:color 0.2s;}
-    .check-item.checked .check-title{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(107,107,107,0.4);}
-    .check-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;margin-top:0.25rem;}
-    .check-item.checked .check-desc{color:rgba(107,107,107,0.6);}
-    .check-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.18rem 0.55rem;border-radius:4px;margin-top:0.4rem;}
-    .tag-read{background:rgba(181,154,87,0.15);color:var(--gold-link);}
-    .tag-watch{background:rgba(115,0,10,0.08);color:var(--crimson);}
-    .tag-badge{background:rgba(46,46,46,0.08);color:var(--text);}
-    .tag-puzzle{background:rgba(181,154,87,0.25);color:var(--gold-link);}
-    .check-link{display:inline-flex;align-items:center;gap:4px;color:var(--gold-link);text-decoration:none;font-size:0.78rem;font-weight:500;margin-top:0.5rem;}
-    .check-link svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;}
-    .check-link:hover{color:var(--crimson);}
-    .section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:2.5rem 0 1rem;}
-    .complete-msg{display:none;background:linear-gradient(135deg,#788a38,#5a6828);border-radius:var(--radius);padding:1.5rem;text-align:center;margin-top:2rem;box-shadow:var(--shadow-md);}
-    .complete-msg.show{display:block;}
-    .complete-msg h3{font-family:'Roboto',sans-serif;color:var(--white);font-size:1.2rem;margin-bottom:0.4rem;}
-    .complete-msg p{color:rgba(255,255,255,0.8);font-size:0.85rem;}
-    .complete-gold{color:var(--white);font-weight:700;}
-    footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:rgba(107,107,107,0.6);border-top:1px solid rgba(181,154,87,0.15);}
-    @media(max-width:600px){header{padding:1.5rem 1.25rem;}.progress-wrap{padding:0.85rem 1.25rem;}main{padding:1.75rem 1rem 4rem;}.story-band{padding:1.25rem;}.check-item{padding:1rem;gap:0.75rem;}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem 2rem 1.75rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .week-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.4rem; }
+    .week-title { font-family: 'Roboto', sans-serif; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; }
+    .week-meta { font-size: 0.83rem; color: rgba(255,255,255,0.65); font-weight: 300; }
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+    .print-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--gold); border-radius: 8px; padding: 0.6rem 1.1rem; font-family: 'Roboto', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-link); cursor: pointer; margin-bottom: 2rem; }
+    .print-btn:hover { background: var(--warm-gray); }
+    .print-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .story-band { background: var(--white); border-radius: var(--radius); border-left: 5px solid var(--gold); box-shadow: var(--shadow); padding: 1.5rem 1.6rem; margin-bottom: 2.5rem; }
+    .story-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-link); margin-bottom: 0.5rem; }
+    .story-text { font-family: 'Roboto', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.7; }
+    .due-banner { background: rgba(115,0,10,0.06); border: 1px solid rgba(115,0,10,0.15); border-radius: 10px; padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; }
+    .due-banner svg { width: 18px; height: 18px; stroke: var(--crimson); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .due-banner-text { font-size: 0.85rem; color: var(--crimson); font-weight: 500; }
+    .due-banner-text strong { font-weight: 700; }
+    .chapter-block { margin-bottom: 2rem; }
+    .chapter-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .chapter-num { background: var(--crimson); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 5px; flex-shrink: 0; }
+    .chapter-name { font-size: 1.05rem; font-weight: 700; color: var(--crimson); line-height: 1.3; letter-spacing: 0.01em; }
+    .checklist { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15); overflow: hidden; }
+    .check-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.3rem; border-bottom: 1px solid rgba(181,154,87,0.1); }
+    .check-item:last-child { border-bottom: none; }
+    .check-box { width: 22px; height: 22px; border-radius: 4px; border: 2px solid rgba(115,0,10,0.3); flex-shrink: 0; margin-top: 1px; background: var(--white); }
+    .check-content { flex: 1; }
+    .check-title { font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1.4; }
+    .check-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin-top: 0.25rem; }
+    .check-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 4px; margin-top: 0.4rem; }
+    .tag-read    { background: rgba(181,154,87,0.15); color: var(--gold-link); }
+    .tag-watch   { background: rgba(115,0,10,0.08);  color: var(--crimson); }
+    .tag-badge   { background: rgba(46,46,46,0.08);  color: var(--text); }
+    .tag-puzzle  { background: rgba(181,154,87,0.25); color: var(--gold-link); }
+    .tag-submit  { background: rgba(115,0,10,0.12);  color: var(--crimson); }
+    .check-link { display: inline-flex; align-items: center; gap: 4px; color: var(--gold-link); text-decoration: none; font-size: 0.78rem; font-weight: 500; margin-top: 0.5rem; }
+    .check-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .check-link:hover { color: var(--crimson); }
+    .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 2.5rem 0 1rem; }
+    footer { text-align: center; padding: 2rem 1rem; font-size: 0.75rem; color: rgba(107,107,107,0.6); border-top: 1px solid rgba(181,154,87,0.15); }
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.75rem 1rem 4rem; }
+      .story-band { padding: 1.25rem; }
+      .check-item { padding: 1rem; gap: 0.75rem; }
+    }
+    @media print {
+      .print-btn { display: none; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .checklist { box-shadow: none; }
+      .story-band { box-shadow: none; }
+      .check-link { display: none; }
+      body { background: white; }
+    }
   </style>
 </head>
 <body>
@@ -89,15 +95,11 @@
   </div>
 </header>
 
-<div class="progress-wrap">
-  <div class="progress-inner">
-    <span class="progress-label">Progress</span>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <span class="progress-pct" id="progressPct">0%</span>
-  </div>
-</div>
-
 <main>
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Print Checklist
+  </button>
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
@@ -120,11 +122,10 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 7</span>
       <span class="chapter-name">Taking the Nation's Economic Pulse</span>
-      <span class="chapter-progress" id="prog-ch7">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch7">
       <div class="check-item" data-id="ch7-read" data-chapter="ch7">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Read Chapter 7 in your Cengage e-book</div>
           <div class="check-desc">GDP, national income, and how we measure economic output. Ask yourself: what does GDP miss? That question drives some of the most important debates in modern economics.</div>
@@ -133,7 +134,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch7-watch" data-chapter="ch7">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Watch the Chapter 7 Lecture Videos in MindTap</div>
           <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The lecture videos break down the expenditure approach to GDP with current examples. Pay attention to what counts and what doesn't. What gets left out tells you as much as what goes in.</div>
@@ -142,7 +143,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch7-badge" data-chapter="ch7">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Earn your Chapter 7 Achievement Badge</div>
           <div class="check-desc">Find the <strong>Chapter 07 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Know the components of GDP cold — consumption, investment, government spending, net exports — and why each matters.</div>
@@ -151,7 +152,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch7-puzzle" data-chapter="ch7">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Complete the Chapter 7 Economic Puzzle</div>
           <div class="check-desc">Find the <strong>Chapter 07 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply GDP and national income concepts to a real-world scenario.</div>
@@ -168,11 +169,10 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 8</span>
       <span class="chapter-name">Economic Fluctuations, Unemployment, and Inflation</span>
-      <span class="chapter-progress" id="prog-ch8">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch8">
       <div class="check-item" data-id="ch8-read" data-chapter="ch8">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Read Chapter 8 in your Cengage e-book</div>
           <div class="check-desc">Business cycles, unemployment rates, and inflation — you've lived through all three recently. This chapter gives you the vocabulary and framework to analyze what actually happened.</div>
@@ -181,7 +181,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch8-watch" data-chapter="ch8">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Watch the Chapter 8 Lecture Videos in MindTap</div>
           <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The lecture videos connect recent economic events — post-COVID inflation, labor market shifts — to the concepts in the chapter.</div>
@@ -190,7 +190,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch8-badge" data-chapter="ch8">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Earn your Chapter 8 Achievement Badge</div>
           <div class="check-desc">Find the <strong>Chapter 08 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Know the difference between frictional, structural, and cyclical unemployment, and why that distinction matters for policy.</div>
@@ -199,7 +199,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch8-puzzle" data-chapter="ch8">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Complete the Chapter 8 Economic Puzzle</div>
           <div class="check-desc">Find the <strong>Chapter 08 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Use the specific terms from the chapter: "frictional," "structural," "CPI." Don't just describe what happened in plain language.</div>
@@ -216,11 +216,10 @@
     <div class="chapter-header">
       <span class="chapter-num">Ch 16</span>
       <span class="chapter-name">Creating an Environment for Growth and Prosperity</span>
-      <span class="chapter-progress" id="prog-ch16">0 / 4</span>
     </div>
     <div class="checklist" id="list-ch16">
       <div class="check-item" data-id="ch16-read" data-chapter="ch16">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Read Chapter 16 in your Cengage e-book</div>
           <div class="check-desc">Why are some countries wealthy and others poor? This is Gwartney's signature chapter — entrepreneurship, institutions, property rights, and economic freedom. No other principles text covers this as well. Read it slowly.</div>
@@ -229,7 +228,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch16-watch" data-chapter="ch16">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Watch the Chapter 16 Lecture Videos in MindTap</div>
           <div class="check-desc">Find these in the <strong>Learn It</strong> section of MindTap. The lecture videos include cross-country comparisons showing why institutions matter more than natural resources for long-run prosperity.</div>
@@ -238,7 +237,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch16-badge" data-chapter="ch16">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Earn your Chapter 16 Achievement Badge</div>
           <div class="check-desc">Find the <strong>Chapter 16 Quiz</strong> in the <strong>Apply It</strong> section of MindTap — that's your Achievement Badge. Focus on property rights, rule of law, and entrepreneurship. Those are the concepts the badge tests most heavily.</div>
@@ -247,7 +246,7 @@
         </div>
       </div>
       <div class="check-item" data-id="ch16-puzzle" data-chapter="ch16">
-        <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Complete the Chapter 16 Economic Puzzle</div>
           <div class="check-desc">Find the <strong>Chapter 16 Homework</strong> in the <strong>Study It</strong> section of MindTap — that's your Economic Puzzle. Apply growth and prosperity concepts to a real-world scenario involving institutions and economic development.</div>
@@ -264,11 +263,7 @@
     <span class="due-banner-text"><strong>Friday Focus 1</strong> is also due this week (<strong id="ff1Due"></strong>), and viva sign-ups are due by the same deadline. <a id="ff1FridayLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Instructions, submission, and sign-up &rarr;</a></span>
   </div>
 
-  <div class="complete-msg" id="completeMsg">
-    <h3>Week 2 Complete</h3>
-    <p>Outstanding work. <span class="complete-gold">Six badges earned so far.</span><br>
-    <span id="w2-teaser"></span></p>
-  </div>
+
 </main>
 
 <footer><span id="footerText"></span></footer>
@@ -279,8 +274,6 @@ document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${
 document.getElementById('weekMeta').textContent    = `${COURSE.weeks[1].dates} · All work due ${COURSE.weeks[1].due}`;
 document.getElementById('week2Due').textContent    = COURSE.weeks[1].due;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
-var w2Teaser = document.getElementById('w2-teaser');
-if (w2Teaser) w2Teaser.textContent = COURSE.weeks[1].nextTeaser;
 document.getElementById('ff1Due').textContent      = FRIDAY.assignments[0].due;
 var ff1FridayLink = document.getElementById('ff1FridayLink');
 if (ff1FridayLink) ff1FridayLink.href = PAGES.friday;
@@ -305,42 +298,6 @@ Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
   if (el) { url ? el.href = url : el.style.display = 'none'; }
 });
-
-const STORAGE_KEY = 'eco1000_week2_checklist';
-const items = document.querySelectorAll('.check-item');
-const fill  = document.getElementById('progressFill');
-const pct   = document.getElementById('progressPct');
-const completeMsg = document.getElementById('completeMsg');
-const chapterItems = {};
-items.forEach(item => { const ch = item.dataset.chapter; chapterItems[ch] = (chapterItems[ch] || 0) + 1; });
-const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-items.forEach(item => { if (saved[item.dataset.id]) item.classList.add('checked'); });
-
-function updateProgress() {
-  const total = items.length;
-  const done  = document.querySelectorAll('.check-item.checked').length;
-  const p     = Math.round((done / total) * 100);
-  fill.style.width = p + '%';
-  pct.textContent  = p + '%';
-  if (p === 100) { fill.classList.add('complete'); pct.classList.add('complete'); completeMsg.classList.add('show'); }
-  else { fill.classList.remove('complete'); pct.classList.remove('complete'); completeMsg.classList.remove('show'); }
-  ['ch7','ch8','ch16'].forEach(ch => {
-    const t = chapterItems[ch] || 0;
-    const d = document.querySelectorAll(`.check-item.checked[data-chapter="${ch}"]`).length;
-    const el = document.getElementById(`prog-${ch}`);
-    if (el) el.textContent = `${d} / ${t}`;
-  });
-}
-items.forEach(item => {
-  item.addEventListener('click', e => {
-    if (e.target.closest('a')) return;
-    item.classList.toggle('checked');
-    saved[item.dataset.id] = item.classList.contains('checked');
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-    updateProgress();
-  });
-});
-updateProgress();
 </script>
 </body>
 </html>
