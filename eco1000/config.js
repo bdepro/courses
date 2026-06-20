@@ -253,7 +253,7 @@ const CHAPTERS = {
   // Full URL is auto-built from COURSE.canvasId + aid at the bottom of this file.
   core: [
     { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch01-guided-notes.html` },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", guidedNotesUrl: null },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch03-guided-notes.html` },
     { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", guidedNotesUrl: null },
     { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", guidedNotesUrl: null },
     { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", guidedNotesUrl: null },
