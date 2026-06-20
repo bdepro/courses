@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 3: Supply, Demand, and the Market Process — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 3: Supply, Demand, and the Market Process</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Apply the laws of demand and supply to predict how buyers and sellers respond to a price change.</li>
+    <li>Distinguish a change in demand/supply (a shift) from a change in quantity demanded/supplied (a movement), and identify which one a real scenario describes.</li>
+    <li>Analyze how a market moves toward equilibrium, and evaluate why that point is also the most efficient outcome.</li>
+    <li>Predict how a shift in demand or supply changes equilibrium price and quantity.</li>
+    <li>Defend why market prices — without a planner — coordinate buyers' and sellers' decisions.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Law of demand</td>
+        <td>As price rises, all else equal, buyers plan to purchase <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A price increase you've reacted to by buying less:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Law of supply</td>
+        <td>As price rises, all else equal, sellers plan to supply <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A price increase that would make you produce/sell more of something:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Consumer surplus</td>
+        <td>The gap between what a buyer is <span class="blank"></span> to pay and what they <span class="blank"></span> pay.</td>
+        <td><span class="example-prompt">A purchase where you'd have paid more than you did:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Producer surplus</td>
+        <td>The gap between the <span class="blank"></span> price a seller would accept and the price they <span class="blank"></span> receive.</td>
+        <td><span class="example-prompt">A time you sold or were paid more than your minimum:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Change in demand vs. quantity demanded</td>
+        <td>A change in demand <span class="blank blank-sm"></span>s the curve; a change in quantity demanded is a <span class="blank"></span> along the same curve.</td>
+        <td><span class="example-prompt">A scenario where price alone changed your plans:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Change in supply vs. quantity supplied</td>
+        <td>A change in supply <span class="blank blank-sm"></span>s the curve; a change in quantity supplied is a <span class="blank"></span> along the same curve.</td>
+        <td><span class="example-prompt">A scenario where a cost (not price) changed a seller's plans:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Market equilibrium</td>
+        <td>The price where quantity demanded <span class="blank"></span> quantity supplied.</td>
+        <td><span class="example-prompt">A market you've watched settle at a stable price:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Economic efficiency</td>
+        <td>A situation where all potential gains from <span class="blank blank-lg"></span> have been realized.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Invisible hand</td>
+        <td>The tendency of market prices to direct self-interested choices toward outcomes that also benefit <span class="blank blank-lg"></span>.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span> <span class="lt-tag">LT 3</span> <span class="lt-tag">LT 5</span></div>
+  <div class="section-header">How a Market Finds Its Price</div>
+  <div class="connection-note">Last time we established that scarcity forces choice and that people respond to incentives. Today's concept of demand and supply extends that because price is the incentive signal buyers and sellers actually respond to: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Predict: if a good's price rises, what happens to the quantity buyers plan to purchase — and why does the existence of substitutes explain that response? Is this a change in demand or a change in quantity demanded?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Predict: if a good's price rises, what happens to the quantity sellers plan to supply — and why? Is this a change in supply or a change in quantity supplied?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Distinguish: when buyers move along a fixed demand curve versus when the entire curve shifts — what triggers each?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Distinguish: when sellers move along a fixed supply curve versus when the entire curve shifts — what triggers each?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Trace: starting from a price above equilibrium, what forces push the price back down? Starting below, what pushes it up?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: why is the equilibrium point also the point of maximum combined consumer and producer surplus?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Defend: how do market prices communicate information, coordinate decisions, and motivate action — all without anyone directing them?</td>
+        <td class="cornell-notes-col"><span class="write-lines"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 4</span></div>
+  <div class="section-header">What Shifts Each Curve</div>
+  <div class="connection-note">These factors move the <em>entire</em> curve — they are not the price effects you just traced in Section I.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Demand Shifter</th>
+        <th style="width:22%" class="fill-col">Direction it pushes demand</th>
+        <th style="width:56%" class="fill-col">Apply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Buyer income</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><em>Modeled:</em> Delta raises baggage fees → some travelers' disposable income for trips falls → demand for connecting flights shifts left.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Number of buyers in the market</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><em>Combined:</em> If the number of buyers in a market rises <strong>and</strong> buyer income falls at the same time, can you predict what happens to price and quantity — or is it ambiguous? Explain.<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Price or availability of a related good</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Buyer expectations</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Demographic changes</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Buyer tastes and preferences</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Supply Shifter</th>
+        <th style="width:22%" class="fill-col">Direction it pushes supply</th>
+        <th style="width:56%" class="fill-col">Apply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Resource (input) prices</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Production technology</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><em>Modeled:</em> Tesla's new battery-cell process cuts production cost per car → supply of electric vehicles shifts right.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Natural or political disruptions</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><em>Combined:</em> If a natural disruption cuts supply <strong>and</strong> new technology simultaneously cuts production costs, can you predict the net effect on price — or is it ambiguous? Explain.<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Taxes</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td>A real scenario:<span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Synthesis</div>
+    <p>Pick one demand shifter and one supply shifter. If both hit the same market at once, can you predict what happens to price? To quantity? Why or why not?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Shift vs. Movement</div>
+  <div class="connection-note">Section II covered what shifts a curve. This section drills the distinction that trips up more students on exams than any other in this chapter.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:26%" class="fill-col">Trigger</th>
+        <th style="width:26%" class="fill-col">Graph appearance</th>
+        <th style="width:26%" class="fill-col">What does NOT cause it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Change in demand</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Change in quantity demanded</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Change in supply</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Change in quantity supplied</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace</div>
+  <div class="graph-draw-area"></div>
+  Market for: <span class="blank blank-lg"></span> &nbsp;&nbsp; Label axes: Price ($ per <span class="blank blank-sm"></span>) | Quantity of <span class="blank blank-sm"></span><br>
+  Starting equilibrium: P* = <span class="blank blank-sm"></span> &nbsp; Q* = <span class="blank blank-sm"></span><br>
+  What shifted? <span class="blank blank-xl"></span><br>
+  New equilibrium: P* = <span class="blank blank-sm"></span> &nbsp; Q* = <span class="blank blank-sm"></span>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 2</span> <span class="lt-tag">LT 5</span></div>
+  <div class="section-header">Pitfalls to Avoid</div>
+  <div class="connection-note">These three errors come up most often once students move past the basic shift-vs-movement distinction already drilled in Section III.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Pitfall</th>
+        <th style="width:35%" class="fill-col">Why it's wrong</th>
+        <th style="width:35%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Seeing price and quantity both rise and assuming it must be a supply-side change</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating a profit signal as a firm-level fact with no broader market effect</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Assuming producer surplus for existing sellers rises when the market price falls</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column in Section I. Use only your Questions.</p>
+  <ul>
+    <li>Can you explain each answer out loud, in your own words — without looking?</li>
+    <li>Can you state, for each Section I question, whether it's a shift or a movement?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & RECAPITULATE ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Recapitulate</div>
+  <div class="section-header">Pricing Analyst, Regional Grocery Chain</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You are the pricing analyst at a regional grocery chain. The wholesale price of eggs just spiked.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. Is this a shift or a movement? How do you know?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. What does the new price tell you about whether resources should flow toward or away from egg production?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Advise your VP of Merchandising: hold your retail price, raise it, or absorb the cost short-term? Defend your answer using the invisible hand principle — not just "because price went up."</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for participation credit (5 pts).</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column in Section I. Quiz yourself out loud using the Questions. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next lecture: How do price controls and taxes change who actually bears the cost? (Ch. 4)</p>
+</div>
+
+</body>
+</html>
