@@ -40,7 +40,7 @@ const INSTRUCTOR = {
   email:       "bdepro@elon.edu",
   phone:       "919-357-2316",
   office:      "KoBC 122",
-  officeHours: "",                                 // UPDATE each semester
+  officeHours: "Mon & Wed, 4:00–5:00 p.m. in KoBC 122 · Tue & Thu, 10:00 a.m.–12:00 p.m. on Zoom", // UPDATE each semester
   zoomUrl:     "https://elon.zoom.us/my/bdepro",
   zoomDisplay: "elon.zoom.us/my/bdepro",
 };

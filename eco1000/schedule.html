@@ -532,9 +532,6 @@
     }
     .module-banner--teal .module-name   { color: var(--teal-dk); }
     .module-banner--teal .module-ci-line strong { color: var(--teal-dk); }
-    .module-banner--teal .mpill-ci {
-      background: var(--teal);
-    }
     /* Sublabel — second identifier within the banner head */
     .module-sublabel {
       font-size: 0.74rem; font-weight: 500;
@@ -641,6 +638,13 @@
     }
     .module-path-summary strong { color: var(--text); }
     .module-path-summary a { color: var(--teal-dk); }
+    .path-list {
+      list-style: none; margin: 0.4rem 0 0.5rem; padding: 0;
+    }
+    .path-list li {
+      padding-left: 0.9rem; text-indent: -0.9rem; margin-bottom: 0.25rem;
+    }
+    .path-list strong { color: var(--text); }
   </style>
 </head>
 <body>
@@ -1243,11 +1247,13 @@ function moduleHeader(block) {
     const pathSummary = document.createElement('div');
     pathSummary.className = 'module-path-summary';
     pathSummary.innerHTML =
-      `<strong>Your exam-period obligation depends on when you complete your viva.</strong> ` +
-      `Path 1 (viva done + CI 4 done on Fri): complete a short online worksheet during your exam block. ` +
-      `Path 2 (CI 4 deferred): take CI 4 during the exam period. ` +
-      `Path 3 (viva deferred): complete viva and CI 4 during the exam period. ` +
-      `<a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Viva prep guide →</a>`;
+      `<strong>Your final exam-period obligation depends on when you complete your viva.</strong>` +
+      `<ul class="path-list">` +
+        `<li><strong>Path 1</strong> — viva + CI 4 done by Fri: complete a short online worksheet during the final exam period.</li>` +
+        `<li><strong>Path 2</strong> — CI 4 deferred: take CI 4 during the final exam period.</li>` +
+        `<li><strong>Path 3</strong> — viva deferred: complete viva and CI 4 during the final exam period.</li>` +
+      `</ul>` +
+      `<a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Viva prep guide&nbsp;→</a>`;
     li.appendChild(pathSummary);
   } else if (ci && ciCovers) {
     const ciLine = document.createElement('div');
@@ -1288,7 +1294,7 @@ function moduleHeader(block) {
     .forEach(t => {
       const el = document.createElement(t.url ? 'a' : 'span');
       el.className = `module-pill mpill-eli${t.url ? '' : ' mpill-inactive'}`;
-      el.textContent = `Eli · ${t.label} · ${t.dueShort}`;
+      el.textContent = `Friday Focus · ${t.label} · ${t.dueShort}`;
       if (t.url) { el.href = t.url; el.target = '_blank'; el.rel = 'noopener'; }
       pillsRow.appendChild(el);
     });
@@ -1490,8 +1496,8 @@ SCHEDULE.sessions.forEach((session, idx) => {
       `<li><strong>Check-In</strong> — a 60-minute in-class written exam at the end of each module. CI 4 can only help your grade.</li>` +
       `<li><strong>Economic Puzzle</strong> — one short online assignment per content session, due the Wednesday of the following session at 11:59 p.m. Lowest score dropped.</li>` +
       `<li><strong>Monday Morning Economist (MME)</strong> — a real-world economics article you read and annotate through Perusall. One per module; due Wednesday of check-in week.</li>` +
-      `<li><strong>Friday Focus</strong> — a semester-long written economic narrative (25% of your grade) developed through drafts and peer review. <a href="${PAGES.assignments}" target="_blank" rel="noopener">Details →</a></li>` +
-      `<li><strong>Viva</strong> — a 15–20 minute one-on-one conversation with Prof. Depro about your Friday Focus essay, scheduled during viva week. <a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Prep guide →</a></li>` +
+      `<li><strong>Friday Focus</strong> — a semester-long written economic narrative (25% of your grade) developed through drafts and peer review. <a href="${PAGES.assignments}" target="_blank" rel="noopener">Details&nbsp;→</a></li>` +
+      `<li><strong>Viva</strong> — a 15–20 minute conversation with Prof. Depro about your Friday Focus essay, during viva week. <a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Prep guide&nbsp;→</a></li>` +
     `</ul>`;
 })();
 

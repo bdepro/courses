@@ -135,6 +135,15 @@
       text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 95px;
     }
     .contact-value { color: var(--text); }
+
+    .oh-callout {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: #f0f7f8; border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.7rem 1rem;
+      margin-top: 0.85rem; font-size: 0.88rem; line-height: 1.5;
+    }
+    .oh-callout svg { flex-shrink: 0; }
+    .oh-callout strong { color: var(--teal); }
     .contact-value a { color: var(--gold-link); text-decoration: none; }
     .contact-value a:hover { color: var(--crimson); }
 
@@ -189,7 +198,7 @@
       border-radius: 3px; white-space: nowrap;
     }
     .session-tag.break { background: var(--muted); }
-    .session-tag.checkin { background: var(--teal); }
+    .session-tag.checkin { background: var(--crimson); }
     .session-tag.viva { background: var(--gold-link); }
     .ch-tag {
       font-size: 0.78rem; font-weight: 600; color: var(--gold-link);
@@ -402,10 +411,6 @@
           <span class="contact-label">Office</span>
           <span class="contact-value" id="syl-office"></span>
         </div>
-        <div class="contact-row" id="syl-hours-row">
-          <span class="contact-label">Office Hours</span>
-          <span class="contact-value" id="syl-hours"></span>
-        </div>
         <div class="contact-row">
           <span class="contact-label">Zoom</span>
           <span class="contact-value"><a id="syl-zoom-link" href="#" target="_blank" rel="noopener"></a></span>
@@ -430,6 +435,10 @@
           <span class="contact-label">Format</span>
           <span class="contact-value">In-person</span>
         </div>
+      </div>
+      <div class="oh-callout" id="syl-hours-row">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span><strong>Office Hours</strong> &mdash; <span id="syl-hours"></span></span>
       </div>
     </div>
   </div>
@@ -619,7 +628,8 @@
       <span class="syl-section-title">How Can I Use AI in This Class?</span>
     </div>
     <div class="syl-body">
-      <p>AI use in this course is conditional. You can use AI tools to work through material you found confusing or to quiz yourself before assessments. Submitting AI-generated work as your own, or using AI during a restricted assessment, is an Honor Code violation. If you are not sure, ask first.</p>
+      <p><strong>AI Conditional Use Policy Statement</strong></p>
+      <p>When used appropriately, you may employ AI tools to support your learning in this course. For example, using AI tools to quiz you over course material, prompting AI tools to explain or clarify course concepts, or using AI tools as instructed by your professor for a class activity or assignment are all allowable uses. However, using AI tools in ways that bypass learning is not considered appropriate. Submitting AI generated work as your own, using AI tools to answer questions during exams or assessments when prohibited by your professor, or other similar uses of AI are inappropriate and represent Elon Honor Code violations. If you are uncertain if your use of AI tools is appropriate, ask your professor.</p>
     </div>
   </div>
 
@@ -782,7 +792,7 @@ SCHEDULE.sessions.forEach(function(s) {
   else if (s.checkIn) tagClass += ' checkin';
   else if (s.viva) tagClass += ' viva';
 
-  var sessionLabel = s.num === 0 ? 'Intro' : s.viva ? 'Viva' : s.break ? s.label : 'S' + s.num;
+  var sessionLabel = s.num === 0 ? 'Intro' : s.viva ? 'Viva' : s.break ? s.label : 'Week ' + s.num;
 
   // Topic
   var topic = s.label;
