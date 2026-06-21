@@ -23,6 +23,7 @@
   <title>COR 1100 · Course Schedule</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
@@ -417,11 +418,205 @@
       .session-toggle { padding: 0.75rem 0.85rem; gap: 9px; }
       .viva-flow { grid-template-columns: 1fr; }
       .pill { font-size: 0.72rem; padding: 4px 11px; }
+      .module-pill { padding: 7px 13px; }
+      .resource-pill { padding: 6px 11px; }
+    }
+    @media (max-width: 400px) {
+      header { padding: 1.25rem 1rem 1.1rem; }
+      .session-toggle { padding: 0.65rem 0.75rem; gap: 8px; }
+      .session-body-content { padding: 0 0.75rem 0 0.85rem; }
     }
 
     /* Skip link */
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
     .skip-link:focus { left: 0; }
+
+    /* ── Module banner — prominent section anchor above each module's sessions ── */
+    .module-banner {
+      list-style: none;
+      background: var(--white);
+      border-left: 5px solid var(--crimson);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      box-shadow: 0 2px 14px rgba(115,0,10,0.09);
+      padding: 0.9rem 1.1rem 0.85rem;
+      margin: 1.5rem 0 0.4rem;
+    }
+    .module-banner-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+    .module-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--crimson);
+    }
+    .module-date-range {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .module-ci-line {
+      font-size: 0.84rem;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      line-height: 1.45;
+    }
+    .module-ci-line strong { color: var(--crimson); }
+    .module-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .module-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 5px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: opacity 0.15s, box-shadow 0.15s;
+      line-height: 1.4;
+    }
+    .mpill-puzzle {
+      background: var(--warm-gray);
+      color: var(--text);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+    .mpill-puzzle:hover { opacity: 0.72; }
+    .mpill-tms {
+      background: rgba(181,154,87,0.18);
+      color: var(--gold-link);
+      border: 1px solid rgba(181,154,87,0.3);
+    }
+    .mpill-tms:hover { opacity: 0.72; }
+    .mpill-ci {
+      background: var(--crimson);
+      color: var(--white);
+    }
+    .mpill-ci:hover { opacity: 0.88; box-shadow: var(--shadow-sm); }
+    .mpill-inactive {
+      background: var(--warm-gray);
+      color: var(--disabled);
+      border: 1px solid #ddd;
+      cursor: default;
+      pointer-events: none;
+    }
+    /* Teal accent variant — Module 4 banner */
+    .module-banner--teal {
+      border-left-color: var(--teal);
+      box-shadow: 0 2px 14px rgba(82,123,130,0.12);
+    }
+    .module-banner--teal .module-name   { color: var(--teal-dk); }
+    .module-banner--teal .module-ci-line strong { color: var(--teal-dk); }
+    /* Sublabel — second identifier within the banner head */
+    .module-sublabel {
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--teal-dk); letter-spacing: 0.05em;
+    }
+    /* Viva sign-up alert strip */
+    .viva-signup-alert {
+      list-style: none;
+      background: rgba(115,0,10,0.04);
+      border: 1.5px solid rgba(115,0,10,0.22);
+      border-radius: var(--radius-card);
+      padding: 0.7rem 1.1rem;
+      margin: 0.75rem 0 0.35rem;
+      display: flex; flex-wrap: wrap;
+      align-items: center; gap: 0.65rem;
+    }
+    .viva-signup-alert-text {
+      font-size: 0.84rem; font-weight: 600;
+      color: var(--crimson); flex: 1; min-width: 200px;
+      line-height: 1.4;
+    }
+    .viva-signup-alert-text span {
+      font-weight: 400; color: var(--text);
+    }
+
+    /* ── Chapter-first session card header ── */
+    .session-card-head { display: flex; flex-direction: column; }
+
+    .sess-ch-badge {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--crimson);
+      background: rgba(115,0,10,0.07);
+      padding: 2px 7px; border-radius: 3px;
+      flex-shrink: 0; line-height: 1.5;
+    }
+    .sess-ch-title {
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text); line-height: 1.3;
+      margin-top: 3px;
+    }
+    .session-resource-row {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      padding: 0 1rem 0.7rem 1.1rem;
+    }
+    .resource-pill {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 3px 9px; border-radius: 4px;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.02em; text-decoration: none;
+      line-height: 1.4; transition: opacity 0.15s;
+    }
+    .rpill-perusall {
+      background: rgba(82,123,130,0.12);
+      color: var(--teal-dk);
+      border: 1px solid rgba(82,123,130,0.22);
+    }
+    .rpill-perusall:hover { opacity: 0.8; }
+    .rpill-inactive {
+      background: var(--warm-gray);
+      color: var(--disabled);
+      border: 1px solid #ddd;
+      cursor: default; pointer-events: none;
+    }
+
+    /* ── How this course works — key terms ── */
+    .course-glossary {
+      background: var(--white);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      box-shadow: var(--shadow-sm);
+      padding: 0.85rem 1rem 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+    .glossary-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-dk); margin-bottom: 0.55rem;
+    }
+    .glossary-list {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .glossary-list li { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+    .glossary-list li strong { color: var(--text); }
+    .glossary-list a { color: var(--teal-dk); }
+
+    /* ── Module 4 viva path summary ── */
+    .module-path-summary {
+      font-size: 0.78rem; color: var(--muted);
+      line-height: 1.5; margin-top: 0.3rem;
+    }
+    .module-path-summary strong { color: var(--text); }
+    .module-path-summary a { color: var(--teal-dk); }
+    .path-list {
+      list-style: none; margin: 0.4rem 0 0.5rem; padding: 0;
+    }
+    .path-list li {
+      padding-left: 0.9rem; text-indent: -0.9rem; margin-bottom: 0.25rem;
+    }
+    .path-list strong { color: var(--text); }
   </style>
 </head>
 <body>
@@ -444,7 +639,7 @@
 
 <main id="main">
   <p class="intro" id="introText"></p>
-  <div class="due-banner" id="dueBanner"></div>
+  <div class="course-glossary" id="courseGlossary"></div>
   <ul class="session-list" id="sessionList"></ul>
 </main>
 
@@ -566,6 +761,12 @@ function chTitle(session) {
   return titles.length ? titles.join(' / ') : null;
 }
 
+// Returns array of chapter objects for a content session
+function sessionChapters(session) {
+  if (!session.chapters || session.chapters.length === 0) return [];
+  return session.chapters.map(key => CHAPTERS.all.find(c => c.key === key)).filter(Boolean);
+}
+
 // Build a pill element
 function pill(label, url, variant) {
   if (url) {
@@ -629,18 +830,16 @@ function bodyContent(session, type, isCurrent) {
   const frag = document.createDocumentFragment();
   const sc = SESSIONS_CONTENT[session.num] || {};
 
-  // ── Due date highlight — current session only ──
-  if (isCurrent && type !== 'break') {
+  // ── Due date highlight — current session only (not shown for content sessions — see module banner) ──
+  if (isCurrent && type !== 'break' && type !== 'content') {
     const dueDiv = document.createElement('div');
     dueDiv.className = 'due-highlight';
     let dueText;
 
     if (type === 'checkin') {
-      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last block's puzzle (and any TMS passage due this block).`;
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Last module's puzzle (and any TMS passage due this module).`;
     } else if (type === 'viva') {
-      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus written narrative — submit through Canvas.`;
-    } else if (type === 'content') {
-      dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
+      dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus narrative — submit through Canvas.`;
     } else {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> See assignments page.`;
     }
@@ -654,144 +853,11 @@ function bodyContent(session, type, isCurrent) {
   // ── Intro session ──
   if (type === 'intro') {
     frag.appendChild(infoBox('gold-box', 'Wednesday and Friday only this week',
-      'No Monday class. Course introduction begins Wednesday. No reading assigned this session.'));
+      'No Monday class. Course introduction begins Wednesday.'));
     if (sc.wed || sc.fri) {
       if (sc.wed) frag.appendChild(daySection('Wednesday', [pill('Wed Materials', sc.wed)]));
       if (sc.fri) frag.appendChild(daySection('Friday', [pill('Fri Materials', sc.fri)]));
     }
-    return frag;
-  }
-
-  // ── Content sessions ──
-  if (type === 'content') {
-
-    // Chapter list
-    if (session.chapters && session.chapters.length > 0) {
-      const chapterItems = session.chapters.map(key => {
-        const ch = CHAPTERS.all.find(c => c.key === key);
-        return ch ? `${ch.num} — ${ch.title}` : null;
-      }).filter(Boolean);
-      if (chapterItems.length) {
-        const p = document.createElement('p');
-        p.style.cssText = 'font-size:0.83rem;color:var(--muted);margin:0.75rem 0 0.5rem;font-style:italic;';
-        p.textContent = chapterItems.join(' · ');
-        frag.appendChild(p);
-      }
-    }
-
-    // Session 7 — Mon/Tue only, Fall Break begins Wednesday
-    if (session.num === 7) {
-      frag.appendChild(infoBox('gold-box', 'Short session — Monday and Tuesday only.',
-        'Fall Break begins Wednesday. No Wednesday or Friday class. Perusall reading is due Tuesday at 11:59 p.m. No puzzle this session.'));
-      frag.appendChild(daySection('Monday', [pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))]));
-      frag.appendChild(daySection('Tuesday', [pill('Tue — Skeleton', sc.tue || canvasPageUrl(`s${session.num}-tue`))]));
-      return frag;
-    }
-
-    // Standard content session — Mon / Wed / Fri
-    frag.appendChild(daySection('Monday', [
-      pill('Mon — Skeleton', sc.mon || canvasPageUrl(`s${session.num}-mon`))
-    ]));
-
-    // Wednesday — screens-down
-    const wedSection = document.createElement('div');
-    wedSection.className = 'day-section';
-    wedSection.innerHTML = `<div class="day-label">Wednesday</div><div class="pills"></div>`;
-    wedSection.querySelector('.pills').appendChild(
-      printPill('Wed — Print before Wednesday', sc.wed || canvasPageUrl(`s${session.num}-wed`))
-    );
-    const wedWarn = document.createElement('div');
-    wedWarn.className = 'wed-warning';
-    wedWarn.textContent = 'Wednesday is screens-down.';
-    wedSection.appendChild(wedWarn);
-    frag.appendChild(wedSection);
-
-    frag.appendChild(daySection('Friday', [
-      pill('Fri — Skeleton', sc.fri || canvasPageUrl(`s${session.num}-fri`))
-    ]));
-
-    // TMS launch on Friday — content sessions where tmsFF is true (S9)
-    if (session.tmsFF) {
-      const tmsEntry = CANVAS.tms.find(m => m.session === session.num);
-      const tmsSection = document.createElement('div');
-      tmsSection.className = 'day-section';
-      tmsSection.innerHTML = '<div class="day-label">Friday — TMS launch</div>';
-      const tmsDesc = document.createElement('div');
-      tmsDesc.className = 'info-box gold-box';
-      tmsDesc.style.margin = '0.35rem 0 0.4rem';
-      tmsDesc.innerHTML = `<strong>We introduce the ${SOURCE_TEXT.title} passage for this block.</strong>`
-        + '<div class="sub">Due ' + (tmsEntry ? tmsEntry.due : 'Wednesday, 11:59 p.m.') + ' — not this Wednesday.</div>';
-      tmsSection.appendChild(tmsDesc);
-      const tmsPills = document.createElement('div');
-      tmsPills.className = 'pills';
-      const tmsUrl = sc.tmsUrl || (tmsEntry && tmsEntry.url ? tmsEntry.url : null);
-      tmsPills.appendChild(pill(tmsEntry && tmsEntry.title ? tmsEntry.title : 'TMS Passage', tmsUrl, 'gold'));
-      tmsSection.appendChild(tmsPills);
-      frag.appendChild(tmsSection);
-    }
-
-    // Puzzle link — due the Wednesday of session N+1 (per puzzleDueDate)
-    const puzzleData = CANVAS.puzzles.find(p => p.session === session.num);
-    if (puzzleData) {
-      const puzDiv = document.createElement('div');
-      puzDiv.className = 'day-section';
-      puzDiv.style.marginTop = '0.6rem';
-      puzDiv.innerHTML = `<div class="day-label">Puzzle due ${formatPuzzleDue(session.num)}</div><div class="pills"></div>`;
-      puzDiv.querySelector('.pills').appendChild(
-        pill('Puzzle', puzzleData.url || null, 'gold')
-      );
-      frag.appendChild(puzDiv);
-    }
-
-    // TMS passage due this session (e.g. S13 — TMS 3 due Wed Nov 18)
-    const tmsDueCont = CANVAS.tms.filter(m => m.dueSession === session.num);
-    if (tmsDueCont.length > 0) {
-      const tmsDiv = document.createElement('div');
-      tmsDiv.className = 'day-section';
-      tmsDiv.style.marginTop = '0.6rem';
-      tmsDiv.innerHTML = `<div class="day-label">TMS passage due Wednesday at 11:59 p.m.</div><div class="pills"></div>`;
-      const tmsPills = tmsDiv.querySelector('.pills');
-      tmsDueCont.forEach(m => tmsPills.appendChild(pill(m.title || 'TMS Passage', m.url || null, 'gold')));
-      frag.appendChild(tmsDiv);
-    }
-
-    // Pre-Thanksgiving sign-up block — Session 13 only
-    if (session.num === 13) {
-      const vivaLabel = document.createElement('div');
-      vivaLabel.className = 'day-label';
-      vivaLabel.style.margin = '0.85rem 0 0.4rem';
-      vivaLabel.textContent = 'Before Thanksgiving break — action required';
-      frag.appendChild(vivaLabel);
-
-      const signupBox = document.createElement('div');
-      signupBox.className = 'info-box viva-box';
-      signupBox.innerHTML = `<strong>Sign up for your viva slot through the Canvas Calendar.</strong>
-        <div class="sub">Do this before Thanksgiving break. Use a computer — the Canvas scheduler does not work on phones.<br>
-        <span class="equity-note">${SCHEDULE.finalExamPeriod.signupEquityNote}</span></div>`;
-      frag.appendChild(signupBox);
-
-      const signupPills = document.createElement('div');
-      signupPills.className = 'pills';
-      signupPills.style.margin = '0.3rem 0 0.6rem';
-      signupPills.appendChild(pill('Viva Week Sign-Up', CANVAS.viva.vivaWeekSignupUrl || null, 'teal'));
-      signupPills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
-      frag.appendChild(signupPills);
-
-      const ffReminder = document.createElement('div');
-      ffReminder.className = 'info-box gold-box';
-      ffReminder.innerHTML = `<strong>Friday Focus written narrative is due ${CANVAS.friday[0].due}.</strong>
-        <div class="sub">Submit through Canvas before your viva conversation.
-        Use the Thanksgiving break to finish your narrative and prepare for your viva.</div>`;
-      frag.appendChild(ffReminder);
-
-      const ffPills = document.createElement('div');
-      ffPills.className = 'pills';
-      ffPills.style.margin = '0.3rem 0 0';
-      const ffUrl = sc.ffSubmit || CANVAS.viva.ffSubmitUrl || null;
-      ffPills.appendChild(pill('Submit Friday Focus Narrative', ffUrl));
-      frag.appendChild(ffPills);
-    }
-
     return frag;
   }
 
@@ -1018,6 +1084,138 @@ function bodyContent(session, type, isCurrent) {
 }
 
 // ================================================================
+//  MODULE BANNER
+// ================================================================
+
+// Short date: "Oct 21"; Friday-shifted puzzles get "Fri Nov 20"
+const formatPuzzleDueShort = sessionNum => {
+  const d = puzzleDueDate(sessionNum);
+  if (!d) return 'TBA';
+  const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return d.getDay() === 5 ? `Fri ${dateStr}` : dateStr;
+};
+
+// Strip day-of-week and time: "Wed Oct 7, 11:59 p.m." → "Oct 7"
+const shortDate = str => str.replace(/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+/i, '').split(',')[0].trim();
+
+function moduleHeader(block) {
+  const isCulmination = block.phase === 'viva';
+  const li = document.createElement('li');
+  li.className = `module-banner${isCulmination ? ' module-banner--teal' : ''}`;
+
+  // ── Date range ──
+  const firstIdx  = SCHEDULE.sessions.findIndex(s => s.num === block.firstSession);
+  const startDate = SCHEDULE.sessionStarts[firstIdx];
+  const ciIdx     = SCHEDULE.sessions.findIndex(s => s.checkIn === block.checkIn);
+  const endDate   = new Date(SCHEDULE.sessionStarts[ciIdx].getTime() + 4 * _DAY_MS);
+  const dateFmt   = { month: 'short', day: 'numeric' };
+  const rangeStr  = `${startDate.toLocaleDateString('en-US', dateFmt)} – ${endDate.toLocaleDateString('en-US', dateFmt)}`;
+
+  // ── Header row: label (+ sublabel) + date range ──
+  const head = document.createElement('div');
+  head.className = 'module-banner-head';
+  const nameHtml = block.sublabel
+    ? `<span class="module-name">${block.label}</span> <span class="module-sublabel">· ${block.sublabel}</span>`
+    : `<span class="module-name">${block.label}</span>`;
+  head.innerHTML = `<div>${nameHtml}</div><span class="module-date-range">${rangeStr}</span>`;
+  li.appendChild(head);
+
+  // ── Info line (CI or viva path summary) ──
+  const ci       = CANVAS.checkIns.find(c => c.id === block.checkIn);
+  const ciCovers = CHAPTERS.checkIns[block.checkIn];
+
+  if (block.phase === 'viva' && ci) {
+    const ciLine = document.createElement('div');
+    ciLine.className = 'module-ci-line';
+    ciLine.innerHTML = `<strong>Check-In #4</strong> · ${ci.date} · Can only help your grade — replaces your lowest CI&nbsp;1–3 if higher, automatically`;
+    li.appendChild(ciLine);
+
+    const pathSummary = document.createElement('div');
+    pathSummary.className = 'module-path-summary';
+    pathSummary.innerHTML =
+      `<strong>Your final exam-period obligation depends on when you complete your viva.</strong>` +
+      `<ul class="path-list">` +
+        `<li><strong>Path 1</strong> — viva + CI 4 done by Fri: complete a short online worksheet during the final exam period.</li>` +
+        `<li><strong>Path 2</strong> — CI 4 deferred: take CI 4 during the final exam period.</li>` +
+        `<li><strong>Path 3</strong> — viva deferred: complete viva and CI 4 during the final exam period.</li>` +
+      `</ul>`;
+    li.appendChild(pathSummary);
+  } else if (ci && ciCovers) {
+    const ciLine = document.createElement('div');
+    ciLine.className = 'module-ci-line';
+    ciLine.innerHTML = `<strong>Check-In #${block.checkIn}</strong> · ${ci.date} · Covers: ${ciCovers.label} + standing threads`;
+    li.appendChild(ciLine);
+  }
+
+  // ── Assignment pills row ──
+  const pillsRow = document.createElement('div');
+  pillsRow.className = 'module-pills-row';
+
+  // Puzzle pills
+  block.contentSessions.forEach(sNum => {
+    const puzIdx = CANVAS.puzzles.findIndex(p => p.session === sNum);
+    if (puzIdx < 0) return;
+    const puz = CANVAS.puzzles[puzIdx];
+    const el = document.createElement(puz.url ? 'a' : 'span');
+    el.className = `module-pill mpill-puzzle${puz.url ? '' : ' mpill-inactive'}`;
+    el.textContent = `Puzzle ${puzIdx + 1} · ${formatPuzzleDueShort(sNum)}`;
+    if (puz.url) { el.href = puz.url; el.target = '_blank'; el.rel = 'noopener'; }
+    pillsRow.appendChild(el);
+  });
+
+  // TMS pills
+  (block.tmsdueSessions || []).forEach(dueSession => {
+    CANVAS.tms.filter(m => m.dueSession === dueSession).forEach(m => {
+      const el = document.createElement(m.url ? 'a' : 'span');
+      el.className = `module-pill mpill-tms${m.url ? '' : ' mpill-inactive'}`;
+      el.textContent = `TMS ${m.id} · ${shortDate(m.due)}`;
+      if (m.url) { el.href = m.url; el.target = '_blank'; el.rel = 'noopener'; }
+      pillsRow.appendChild(el);
+    });
+  });
+
+  // Friday Focus pill — viva phase only
+  if (block.ffDue) {
+    const ffUrl = CANVAS.viva.ffSubmitUrl || null;
+    const el = document.createElement(ffUrl ? 'a' : 'span');
+    el.className = `module-pill mpill-tms${ffUrl ? '' : ' mpill-inactive'}`;
+    el.textContent = `Friday Focus Narrative · ${shortDate(CANVAS.friday[0].due)}`;
+    if (ffUrl) { el.href = ffUrl; el.target = '_blank'; el.rel = 'noopener'; }
+    pillsRow.appendChild(el);
+  }
+
+  // Check-In pill — always a plain label (administered in class, never linked)
+  if (ci) {
+    const el = document.createElement('span');
+    el.className = 'module-pill mpill-ci';
+    el.textContent = `Check-In #${block.checkIn} · ${ci.date}`;
+    pillsRow.appendChild(el);
+  }
+
+  if (pillsRow.children.length) li.appendChild(pillsRow);
+  return li;
+}
+
+// ── Viva sign-up alert strip — gates the Module 4 banner ──
+function vivaSignupAlert() {
+  const li = document.createElement('li');
+  li.className = 'viva-signup-alert';
+
+  const text = document.createElement('div');
+  text.className = 'viva-signup-alert-text';
+  text.innerHTML = 'Sign up for your viva slot before Thanksgiving break <span>— by Fri Nov 20</span>';
+  li.appendChild(text);
+
+  const pills = document.createElement('div');
+  pills.className = 'pills';
+  pills.appendChild(pill('Viva Week Sign-Up',   CANVAS.viva.vivaWeekSignupUrl   || null, 'teal'));
+  pills.appendChild(pill('Exam Period Sign-Up', CANVAS.viva.examPeriodSignupUrl || null, 'teal'));
+  li.appendChild(pills);
+
+  return li;
+}
+
+// ================================================================
 //  RENDER SESSIONS
 // ================================================================
 
@@ -1027,13 +1225,25 @@ document.getElementById('backLink').href          = PAGES.home;
 document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
 document.getElementById('pageFooter').textContent = `${COURSE.code} · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
-  `The semester runs in three-day sessions: Monday, Wednesday, Friday. ` +
-  `Your current session opens below. Perusall readings and Puzzles are due Wednesday by 11:59 p.m.; ` +
-  `see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
-document.getElementById('dueBanner').innerHTML    =
-  `<strong>Puzzles are due the Wednesday after each session at 11:59 p.m.</strong> ` +
-  `TMS passages have their own dates (see the TMS page). ` +
-  `Friday Focus written narrative due ${CANVAS.friday[0].due}. CI 4 always counts.`;
+  `Each session meets Monday, Wednesday, and Friday. ` +
+  `Content sessions show chapter resources directly. ` +
+  `Expand check-in and viva sessions for daily schedule details. ` +
+  `Work is due Wednesday by 11:59 p.m. — see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
+
+// ── How this course works — key terms ──
+(function buildGlossary() {
+  const el = document.getElementById('courseGlossary');
+  if (!el) return;
+  el.innerHTML =
+    `<div class="glossary-label">How this course works — key terms</div>` +
+    `<ul class="glossary-list">` +
+      `<li><strong>Check-In</strong> — a 60-minute in-class written exam at the end of each module. CI 4 can only help your grade.</li>` +
+      `<li><strong>Puzzle</strong> — one short online assignment per content session (no Puzzle in Session 7), due the Wednesday of the following session at 11:59 p.m. Lowest score dropped.</li>` +
+      `<li><strong>Theory of Moral Sentiments (TMS)</strong> — a passage from Adam Smith you read and respond to. Introduced Friday of a designated session; due the following Wednesday.</li>` +
+      `<li><strong>Friday Focus</strong> — a semester-long written narrative on Hanley and Smith (25% of your grade). <a href="${PAGES.assignments}" target="_blank" rel="noopener">Details&nbsp;→</a></li>` +
+      `<li><strong>Viva</strong> — a short conversation with Prof. Depro about your Friday Focus narrative, during viva week. <a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Prep guide&nbsp;→</a></li>` +
+    `</ul>`;
+})();
 
 // Auto-highlight current session
 const today  = new Date(); today.setHours(0, 0, 0, 0);
@@ -1046,8 +1256,11 @@ for (let i = 0; i < starts.length - 1; i++) {
 const list = document.getElementById('sessionList');
 
 SCHEDULE.sessions.forEach((session, idx) => {
+  const moduleStart = BLOCKS.find(b => b.firstSession === session.num);
+  if (moduleStart) list.appendChild(moduleHeader(moduleStart));
   const type      = sessType(session);
   const isCurrent = (idx === currentIdx) && !session.break;
+  const cl        = chLabel(session);
 
   // ── Build list item ──
   const li = document.createElement('li');
@@ -1056,6 +1269,7 @@ SCHEDULE.sessions.forEach((session, idx) => {
 
   // Break sessions — flat divider, no toggle
   if (type === 'break') {
+    if (session.breakType === 'thanksgiving') list.appendChild(vivaSignupAlert());
     const label = session.breakType === 'thanksgiving' ? 'Thanksgiving Break' : 'Fall Break';
     li.innerHTML = `<div class="break-label">${label} — No class</div>`;
     list.appendChild(li);
@@ -1067,48 +1281,73 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (isCurrent)        tags.push(`<span class="sess-tag tag-current">Current</span>`);
   if (session.checkIn)  tags.push(`<span class="sess-tag tag-checkin">CI #${session.checkIn}</span>`);
   if (type === 'viva')  tags.push(`<span class="sess-tag tag-viva">Viva + CI #4</span>`);
-  if (session.tmsFF)    tags.push(`<span class="sess-tag tag-tms">TMS Launch</span>`);
-  if (type === 'content' && session.num !== 7)
-                        tags.push(`<span class="sess-tag tag-screensdown">Screens-down Wed</span>`);
   if (session.num === 13)
                         tags.push(`<span class="sess-tag tag-action">Sign-up Required</span>`);
 
-  // Chapter subtitle
-  let chSub = '';
-  const cl = chLabel(session);
-  if (type === 'content' && cl) {
-    chSub = `<div class="session-chapter">${cl}</div>`;
-  }
-  if (type === 'checkin') {
-    const ci = CHAPTERS.checkIns[session.checkIn];
-    chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + standing threads</div>`;
-  }
-  if (type === 'viva') {
-    chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
-  }
+  // ── Content sessions: static card — chapter + resource pills, no accordion ──
+  if (type === 'content') {
+    const chapters = sessionChapters(session);
+    const badge    = chapters.map(c => c.num).join(' / ');
+    const title    = chapters.map(c => c.title).join(' · ');
 
-  li.innerHTML = `
-    <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
-      <div class="session-header-text">
-        <div class="session-top-row">
-          <span class="session-label">${session.label}</span>
-          <span class="session-dates">${session.dates}</span>
+    const resourceHtml = chapters.map(ch => {
+      return ch.url
+        ? `<a class="resource-pill rpill-perusall" href="${ch.url}" target="_blank" rel="noopener">${ch.num} ↗</a>`
+        : `<span class="resource-pill rpill-inactive">${ch.num}</span>`;
+    }).join('');
+
+    li.innerHTML = `
+      <div class="session-card-head">
+        <div class="session-header-static" style="padding:0.85rem 1rem 0.85rem 1.1rem;flex:1;min-width:0;">
+          <div class="session-header-text">
+            <div class="session-top-row">
+              <span class="sess-ch-badge">${badge}</span>
+              <span class="session-dates">${session.dates}</span>
+            </div>
+            <div class="sess-ch-title">${title}</div>
+            ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+          </div>
         </div>
-        ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
-        ${chSub}
+        <div class="session-resource-row">${resourceHtml}</div>
       </div>
-      <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="session-body" id="body-${session.num}">
-      <div class="session-body-inner">
-        <div class="session-body-content"></div>
-      </div>
-    </div>
-  `;
+    `;
+  } else {
+    // ── All other session types: label-first header ──
+    let chSub = '';
+    if (cl && type === 'intro') {
+      chSub = `<div class="session-chapter">${cl}</div>`;
+    }
+    if (type === 'checkin') {
+      const ci = CHAPTERS.checkIns[session.checkIn];
+      chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + standing threads</div>`;
+    }
+    if (type === 'viva') {
+      chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
+    }
 
-  // Inject body content
+    li.innerHTML = `
+      <button class="session-toggle" aria-expanded="false" data-session="${session.num}">
+        <div class="session-header-text">
+          <div class="session-top-row">
+            <span class="session-label">${session.label}</span>
+            <span class="session-dates">${session.dates}</span>
+          </div>
+          ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+          ${chSub}
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="session-body" id="body-${session.num}">
+        <div class="session-body-inner">
+          <div class="session-body-content"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Inject body content (content sessions have no accordion body)
   const bodyDiv = li.querySelector('.session-body-content');
-  bodyDiv.appendChild(bodyContent(session, type, isCurrent));
+  if (bodyDiv) bodyDiv.appendChild(bodyContent(session, type, isCurrent));
 
   list.appendChild(li);
 
@@ -1116,11 +1355,12 @@ SCHEDULE.sessions.forEach((session, idx) => {
   if (isCurrent) {
     const toggle = li.querySelector('.session-toggle');
     const body   = li.querySelector('.session-body');
-    toggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    if (body) body.classList.add('open');
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const top = li.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
     });
   }

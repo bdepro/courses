@@ -464,6 +464,56 @@ const CANVAS = {
 };
 
 // ================================================================
+//  BLOCKS
+//  Groups sessions by check-in block for the schedule summary strip.
+//
+//  firstSession     — session number that opens the block (strip renders here)
+//  contentSessions  — session numbers with puzzles in this block
+//  tmsdueSessions   — session numbers at which TMS passages are due
+//  checkIn          — check-in number closing this block
+//  ffDue            — true if the FF written narrative is due in this block
+//  vivaSignupAlert  — true to show the viva sign-up alert before this block's break
+// ================================================================
+const BLOCKS = [
+  {
+    id: 1,
+    label: 'Module 1',
+    firstSession: 1,
+    contentSessions: [1, 2],
+    tmsdueSessions: [],
+    checkIn: 1,
+  },
+  {
+    id: 2,
+    label: 'Module 2',
+    firstSession: 4,
+    contentSessions: [4, 5],
+    tmsdueSessions: [6],
+    checkIn: 2,
+  },
+  {
+    id: 3,
+    label: 'Module 3',
+    firstSession: 7,
+    contentSessions: [7, 9, 10],
+    tmsdueSessions: [11],
+    checkIn: 3,
+  },
+  {
+    id: 4,
+    label: 'Module 4',
+    sublabel: 'Viva & Check-In',
+    firstSession: 12,
+    contentSessions: [12, 13],
+    tmsdueSessions: [13, 15],
+    checkIn: 4,
+    phase: 'viva',
+    ffDue: true,
+    vivaSignupAlert: true,
+  },
+];
+
+// ================================================================
 //  URL DERIVATION — do not edit
 //  Builds .url on every assignment entry from COURSE.canvasId + aid.
 //  Consumers continue to read .url as before; aid is the source of truth.
@@ -517,4 +567,5 @@ const CONFIG = {
   sourceText:  SOURCE_TEXT,
   pages:       PAGES,
   canvas:      CANVAS,
+  blocks:      BLOCKS,
 };

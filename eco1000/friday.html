@@ -107,9 +107,7 @@
       your thinking — why you chose this topic, what evidence you found most convincing,
       what the strongest objection to your argument is. This is a conversation, not a
       quiz. There are no surprise questions about course content.</p>
-      <p>Sign up for a slot during viva week, November 30 through December 4. If you
-      cannot schedule during viva week, exam period slots are available December 7
-      through 11 — no approval needed, just use the sign-up link.</p>
+      <p id="vivaDateText"></p>
       <div class="callout teal">
         <strong>Sign up before Thanksgiving break.</strong> Slots fill. Use a computer
         or a campus library computer — the Canvas scheduler does not work reliably on
@@ -126,6 +124,17 @@ document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.assignments;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+// Viva date text — pull from schedule and finalExamPeriod
+var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });
+var vivaWeekDates = vivaSession ? vivaSession.dates : '';
+var examDates = SCHEDULE.finalExamPeriod ? SCHEDULE.finalExamPeriod.dates : '';
+var vivaDateEl = document.getElementById('vivaDateText');
+var dateText = 'Sign up for a slot during viva week';
+if (vivaWeekDates) dateText += ', ' + vivaWeekDates;
+dateText += '.';
+if (examDates) dateText += ' If you cannot schedule during viva week, exam period slots are available ' + examDates + ' — no approval needed, just use the sign-up link.';
+vivaDateEl.textContent = dateText;
 
 function pill(label, url) {
   var hasUrl = url && url.length > 0;
