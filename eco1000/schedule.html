@@ -19,7 +19,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Session-by-session schedule for ECO 1000 with chapter coverage, check-in dates, and weekly due times.">
+  <meta name="description" content="Week-by-week schedule for ECO 1000 with chapter coverage, check-in dates, and weekly due times.">
   <title>ECO 1000 · Course Schedule</title>
   <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1021,7 +1021,7 @@ function bodyContent(session, type, isCurrent) {
     if (session.vote) {
       const voteDiv = document.createElement('div');
       voteDiv.className = 'vote-box';
-      voteDiv.innerHTML = `<strong>Friday: the vote closes.</strong> The top 6 questions are announced at the end of class. Your votes decide what we cover in Sessions 12 and 13.
+      voteDiv.innerHTML = `<strong>Friday: the vote closes.</strong> The top 6 questions are announced at the end of class. Your votes decide what we cover in Weeks 12 and 13.
         <div class="sub" style="margin-top:0.4rem;font-size:0.78rem;color:var(--muted);">Can&rsquo;t be in class Friday? Submit your vote through the Canvas poll any time before it closes.</div>`;
       frag.appendChild(voteDiv);
     }
@@ -1340,9 +1340,9 @@ document.getElementById('backLink').href          = PAGES.canvasHome;
 document.getElementById('pageMeta').textContent   = `${COURSE.code} · Elon University · ${COURSE.semester}`;
 document.getElementById('pageFooter').textContent = `ECO 1000 · Elon University · ${COURSE.semester} · ${INSTRUCTOR.nameShort}`;
 document.getElementById('introText').innerHTML    =
-  `Each session meets Monday, Wednesday, and Friday. ` +
-  `Content sessions show chapter resources and Friday Focus assignments directly. ` +
-  `Expand check-in and viva sessions for daily schedule details. ` +
+  `Each week meets Monday, Wednesday, and Friday. ` +
+  `Content weeks show chapter resources and Friday Focus assignments directly. ` +
+  `Expand check-in and viva weeks for daily schedule details. ` +
   `Work is due Wednesday by 11:59 p.m. — see the <a href="${PAGES.syllabus}">course syllabus</a> for complete details.`;
 
 // Auto-highlight
@@ -1494,7 +1494,7 @@ SCHEDULE.sessions.forEach((session, idx) => {
     `<div class="glossary-label">How this course works — key terms</div>` +
     `<ul class="glossary-list">` +
       `<li><strong>Check-In</strong> — a 60-minute in-class written exam at the end of each module. CI 4 can only help your grade.</li>` +
-      `<li><strong>Economic Puzzle</strong> — one short online assignment per content session, due the Wednesday of the following session at 11:59 p.m. Lowest score dropped.</li>` +
+      `<li><strong>Economic Puzzle</strong> — one short online assignment per content week, due the Wednesday of the following week at 11:59 p.m. Lowest score dropped.</li>` +
       `<li><strong>Monday Morning Economist (MME)</strong> — a real-world economics article you read and annotate through Perusall. One per module; due Wednesday of check-in week.</li>` +
       `<li><strong>Friday Focus</strong> — a semester-long written economic narrative (25% of your grade) developed through drafts and peer review. <a href="${PAGES.assignments}" target="_blank" rel="noopener">Details&nbsp;→</a></li>` +
       `<li><strong>Viva</strong> — a 15–20 minute conversation with Prof. Depro about your Friday Focus essay, during viva week. <a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Prep guide&nbsp;→</a></li>` +

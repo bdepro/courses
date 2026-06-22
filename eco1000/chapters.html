@@ -85,8 +85,8 @@
     <strong>Click any chapter to open it in Canvas.</strong> The link takes you directly
     to your e-book through Canvas. No separate login required. Core chapters are
     tested on Check-Ins. Application chapters are your reference for the Application Block
-    in Sessions 12 and 13 — after the Session 11 class vote selects six questions, each
-    question draws on one of these chapters. Read those chapters during Sessions 12 and
+    in Weeks 12 and 13 — after the Week 11 class vote selects six questions, each
+    question draws on one of these chapters. Read those chapters during Weeks 12 and
     13, not before.
   </div>
 
@@ -111,7 +111,7 @@ SCHEDULE.sessions.forEach(function(s){ sessionLabel[s.num] = s.label; });
 function buildRow(ch, sessionNum) {
   var row = document.createElement('div');
   row.className = 'ch-row';
-  var sub = sessionNum ? '<span class="ch-session">Session ' + sessionNum + '</span>' : '';
+  var sub = sessionNum ? '<span class="ch-session">Week ' + sessionNum + '</span>' : '';
   var notesLink = ch.guidedNotesUrl ?
     '<a class="ch-notes-link" href="' + ch.guidedNotesUrl + '" target="_blank" rel="noopener">' +
       'Guided Notes' +

@@ -112,7 +112,7 @@
 <main id="main">
 
   <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="#" target="_blank" rel="noopener">
+  <a class="card primary" id="scheduleCard" href="#" target="_top">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
@@ -272,6 +272,7 @@ const ALL_CARDS = [
     desc:      'Tutoring, office hours, and the right person to call when something is not working.',
     badge:     null,
     badgeClass: null,
+    external:  true,
   },
   {
     feature:   'aiPolicy',
@@ -281,15 +282,7 @@ const ALL_CARDS = [
     desc:      'What AI tools you can use in this course, and where the boundaries are.',
     badge:     null,
     badgeClass: null,
-  },
-  {
-    feature:   'aiAssignments',
-    href:      PAGES.aiAssignments || '#',
-    icon:      'bot',
-    title:     'AI Assignment',
-    desc:      'The COR 1100 AI assignment. Instructions and submission details.',
-    badge:     null,
-    badgeClass: null,
+    external:  true,
   },
 ];
 
@@ -303,8 +296,8 @@ ALL_CARDS.forEach(card => {
   const a = document.createElement('a');
   a.className = 'card';
   a.href      = card.href;
-  a.target    = '_blank';
-  a.rel       = 'noopener';
+  if (card.external) { a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.target = '_top'; }
   a.style.animationDelay = `${delay}s`;
   delay += 0.07;
 
