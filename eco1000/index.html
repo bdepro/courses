@@ -185,7 +185,7 @@ metaItems.forEach(item => {
 const coreCount = CHAPTERS.core.length;
 const appCount  = CHAPTERS.application.length;
 document.getElementById('arcSummary').textContent =
-  `${SCHEDULE.sessions.filter(s => !s.break && s.chapter).length} sessions · ${coreCount} core chapters · ${appCount} application chapters`;
+  `${SCHEDULE.sessions.filter(s => !s.break && s.chapter).length} weeks · ${coreCount} core chapters · ${appCount} application chapters`;
 
 // Schedule card
 document.getElementById('scheduleCard').href = PAGES.schedule;
@@ -240,7 +240,7 @@ const ALL_CARDS = [
     href:    PAGES.puzzles,
     icon:    'puzzle',
     title:   'Economic Puzzles',
-    desc:    'One per session. Test your economic reasoning on a real decision. Your lowest score drops at the end.',
+    desc:    'One per week. Test your economic reasoning on a real decision. Your lowest score drops at the end.',
     badge:   gradeLabel('puzzles'),
     badgeClass: 'badge-grade',
   },

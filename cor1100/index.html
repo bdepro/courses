@@ -116,7 +116,7 @@
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
-      <div class="card-desc">Session-by-session schedule, chapter coverage, and check-in dates. Open this every week.</div>
+      <div class="card-desc">Week-by-week schedule, chapter coverage, and check-in dates. Open this every week.</div>
     </div>
     <span class="card-arrow">→</span>
   </a>
@@ -187,7 +187,7 @@ metaItems.forEach(item => {
 const chapterCount    = CHAPTERS.all.length;
 const contentSessions = SCHEDULE.sessions.filter(s => !s.break && s.chapters.length > 0).length;
 document.getElementById('arcSummary').textContent =
-  `${contentSessions} content sessions · ${chapterCount} Hanley chapters · ${SOURCE_TEXT.author}`;
+  `${contentSessions} content weeks · ${chapterCount} Hanley chapters · ${SOURCE_TEXT.author}`;
 
 // Schedule card
 document.getElementById('scheduleCard').href = PAGES.schedule;
@@ -242,7 +242,7 @@ const ALL_CARDS = [
     href:      PAGES.puzzles,
     icon:      'puzzle',
     title:     'Puzzles',
-    desc:      'Eight formative quizzes, one per content session (no quiz in S7). Lowest score dropped at end of semester.',
+    desc:      'Eight formative quizzes, one per content week (no quiz in Week 7). Lowest score dropped at end of semester.',
     badge:     gradeLabel('puzzles'),
     badgeClass: 'badge-grade',
   },
@@ -251,7 +251,7 @@ const ALL_CARDS = [
     href:      PAGES.tms,
     icon:      'scroll',
     title:     'Theory of Moral Sentiments',
-    desc:      `Four passages from ${SOURCE_TEXT.title} by ${SOURCE_TEXT.author}. Introduced Friday of designated sessions.`,
+    desc:      `Four passages from ${SOURCE_TEXT.title} by ${SOURCE_TEXT.author}. Introduced Friday of designated weeks.`,
     badge:     gradeLabel('tms'),
     badgeClass: 'badge-grade',
   },

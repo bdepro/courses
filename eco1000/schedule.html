@@ -877,7 +877,7 @@ function bodyContent(session, type, isCurrent) {
     } else if (type === 'viva') {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> Friday Focus narrative — submit through Canvas.`;
     } else if (type === 'application') {
-      dueText = `<strong>This session's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
+      dueText = `<strong>This week's puzzle is due ${formatPuzzleDue(session.num)}.</strong>`;
     } else {
       dueText = `<strong>Due this Wednesday by 11:59 p.m.</strong> See assignments page.`;
     }
@@ -959,7 +959,7 @@ function bodyContent(session, type, isCurrent) {
     // Monday — review
     const monBox = document.createElement('div');
     monBox.className = 'day-section';
-    monBox.innerHTML = `<div class="day-label">Monday — Review session</div>`;
+    monBox.innerHTML = `<div class="day-label">Monday — Review</div>`;
     const monDesc = document.createElement('div');
     monDesc.className = 'info-box ci-box';
     monDesc.style.margin = '0.35rem 0 0.4rem';
