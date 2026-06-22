@@ -38,7 +38,7 @@ const INSTRUCTOR = {
   email:       "bdepro@elon.edu",
   phone:       "919-357-2316",
   office:      "KoBC 122",
-  officeHours: "",                                 // UPDATE each semester
+  officeHours: "Mon & Wed, 4:00–5:00 p.m. in KoBC 122 · Tue & Thu, 10:00 a.m.–12:00 p.m. on Zoom", // UPDATE each semester
   zoomUrl:     "https://elon.zoom.us/my/bdepro",
   zoomDisplay: "elon.zoom.us/my/bdepro",
 };
@@ -95,43 +95,43 @@ const SCHEDULE = {
       note: "Wed/Fri only — course introduction, no reading assigned",
     },
     {
-      num: 1, dates: "Aug 31-Sep 4", label: "Session 1",
+      num: 1, dates: "Aug 31-Sep 4", label: "Week 1",
       chapters: ["intro", "ch1", "ch2"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Intro / Ch. I On Self-Interest / Ch. II On Caring for Others",
     },
     {
-      num: 2, dates: "Sep 7-11", label: "Session 2",
+      num: 2, dates: "Sep 7-11", label: "Week 2",
       chapters: ["ch3", "ch4", "ch5"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
     },
     {
-      num: 3, dates: "Sep 14-18", label: "Session 3",
+      num: 3, dates: "Sep 14-18", label: "Week 3",
       chapters: [], checkIn: 1, checkInDay: "Wed Sep 16",
       tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: MME launch + FF progress",
     },
     {
-      num: 4, dates: "Sep 21-25", label: "Session 4",
+      num: 4, dates: "Sep 21-25", label: "Week 4",
       chapters: ["ch6", "ch7", "ch8"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
-      num: 5, dates: "Sep 28-Oct 2", label: "Session 5",
+      num: 5, dates: "Sep 28-Oct 2", label: "Week 5",
       chapters: ["ch9", "ch10", "ch12"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
     },
     {
-      num: 6, dates: "Oct 5-9", label: "Session 6",
+      num: 6, dates: "Oct 5-9", label: "Week 6",
       chapters: [], checkIn: 2, checkInDay: "Wed Oct 7",
       tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: MME launch + FF progress",
     },
     {
-      num: 7, dates: "Oct 12-13", label: "Session 7",
+      num: 7, dates: "Oct 12-13", label: "Week 7",
       chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Mon & Tue only — Ch. XIII On Being Loved / Perusall reading assigned, no quiz / Fall Break begins Wed",
@@ -143,31 +143,31 @@ const SCHEDULE = {
       note: "No class",
     },
     {
-      num: 9, dates: "Oct 19-23", label: "Session 9",
+      num: 9, dates: "Oct 19-23", label: "Week 9",
       chapters: ["ch14", "ch15", "ch16"], checkIn: null, tmsFF: true, viva: false,
       break: false, breakType: null,
       note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress",
     },
     {
-      num: 10, dates: "Oct 26-30", label: "Session 10",
+      num: 10, dates: "Oct 26-30", label: "Week 10",
       chapters: ["ch17", "ch18", "ch19"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
     },
     {
-      num: 11, dates: "Nov 2-6", label: "Session 11",
+      num: 11, dates: "Nov 2-6", label: "Week 11",
       chapters: [], checkIn: 3, checkInDay: "Wed Nov 4",
       tmsFF: true, viva: false, break: false, breakType: null,
       note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: MME launch + FF progress",
     },
     {
-      num: 12, dates: "Nov 9-13", label: "Session 12",
+      num: 12, dates: "Nov 9-13", label: "Week 12",
       chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
-      num: 13, dates: "Nov 16-20", label: "Session 13",
+      num: 13, dates: "Nov 16-20", label: "Week 13",
       chapters: ["ch23", "ch24", "ch25"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
@@ -332,7 +332,6 @@ const FEATURES = {
   wellness:      false,
   support:       true,
   aiPolicy:      true,
-  aiAssignments: true,    // COR 1100-specific AI assignment
   checklist:     false,
   officeHours:   false,
 };
@@ -375,7 +374,6 @@ const PAGES = {
   chapters:      `${COURSE.baseUrl}/chapters.html`,
   support:       `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html`,
-  aiAssignments: ``,   // UPDATE: COR 1100 AI assignment URL once created
   narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=cor1100`,
   vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=cor1100`,
 };

@@ -189,15 +189,7 @@
     }
     .sched-table tr:last-child td { border-bottom: none; }
     .sched-table tr:hover td { background: #fdfcfa; }
-    .session-tag {
-      display: inline-block; background: var(--crimson); color: var(--white);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.15rem 0.5rem;
-      border-radius: 3px; white-space: nowrap;
-    }
-    .session-tag.break   { background: var(--muted); }
-    .session-tag.checkin { background: var(--crimson); }
-    .session-tag.viva    { background: var(--gold-link); }
+    .week-num { color: var(--muted); font-weight: 500; }
     .ch-tag {
       font-size: 0.78rem; font-weight: 600; color: var(--gold-link);
     }
@@ -576,7 +568,7 @@
       <table class="sched-table" id="syl-sched-table">
         <thead>
           <tr>
-            <th>Session</th>
+            <th>Week</th>
             <th>Dates</th>
             <th>Topic</th>
             <th>Hanley</th>
@@ -848,16 +840,8 @@ CHAPTERS.all.forEach(function(c) { chapterMap[c.key] = c.num; });
 SCHEDULE.sessions.forEach(function(s) {
   var tr = document.createElement('tr');
 
-  // Session tag class
-  var tagClass = 'session-tag';
-  if (s.break)   tagClass += ' break';
-  else if (s.checkIn) tagClass += ' checkin';
-  else if (s.viva)    tagClass += ' viva';
-
-  var sessionLabel = s.num === 0 ? 'Intro'
-                   : s.viva      ? 'Viva'
-                   : s.break     ? 'Break'
-                   :               'S' + s.num;
+  // Week number — blank for break weeks
+  var weekNum = s.break ? '' : s.num;
 
   // Topic label
   var topic = s.label;
@@ -880,7 +864,7 @@ SCHEDULE.sessions.forEach(function(s) {
   }
 
   tr.innerHTML =
-    '<td><span class="' + tagClass + '">' + sessionLabel + '</span></td>' +
+    '<td><span class="week-num">' + weekNum + '</span></td>' +
     '<td>' + s.dates + '</td>' +
     '<td>' + topic + '</td>' +
     '<td><span class="ch-tag">' + chLabel + '</span></td>';
