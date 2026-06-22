@@ -71,7 +71,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Economic Puzzles</h1>
-    <p class="screen-sub">15% of your course grade · one per content session · due Wednesday 11:59 p.m.</p>
+    <p class="screen-sub">15% of your course grade · one per content week · due Wednesday 11:59 p.m.</p>
   </div>
 </div>
 <main id="main">
@@ -109,7 +109,7 @@ CANVAS.puzzles.forEach(function(p) {
   var row = document.createElement('div');
   row.className = 'puzzle-row';
   row.innerHTML =
-    '<div class="p-num">S' + p.session + '</div>' +
+    '<div class="p-num">Week ' + p.session + '</div>' +
     '<div class="p-title">' + p.title +
       (chTitle ? '<span class="p-session">' + chTitle + '</span>' : '') +
       '<span class="p-due">Due ' + formatPuzzleDue(p.session) + '</span>' +

@@ -71,7 +71,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Puzzles</h1>
-    <p class="screen-sub">15% of your course grade &middot; one per content session &middot; due Wednesday 11:59 p.m.</p>
+    <p class="screen-sub">15% of your course grade &middot; one per content week &middot; due Wednesday 11:59 p.m.</p>
   </div>
 </div>
 <main id="main">
@@ -79,7 +79,7 @@
     <strong>Two attempts per puzzle.</strong> Canvas shows your score between attempts. Figure out where to spend your time, then come back for a sharper attempt.
     I drop your lowest puzzle score at the end of the semester. If you
     miss the Wednesday deadline, you have one more week to submit for 80% credit.
-    There is no Puzzle in Session 7 (Mon&ndash;Tue only before Fall Break).
+    There is no Puzzle in Week 7 (Mon&ndash;Tue only before Fall Break).
   </div>
   <p class="section-label">Puzzles &mdash; click to open in Canvas</p>
   <div class="puzzle-list" id="puzzleList"></div>
@@ -99,7 +99,7 @@ CANVAS.puzzles.forEach(function(p) {
   var row = document.createElement('div');
   row.className = 'puzzle-row';
   row.innerHTML =
-    '<div class="p-num">S' + p.session + '</div>' +
+    '<div class="p-num">Week ' + p.session + '</div>' +
     '<div class="p-title">' + p.title +
       '<span class="p-due">Due ' + formatPuzzleDue(p.session) + '</span>' +
     '</div>' +

@@ -869,12 +869,12 @@ function bodyContent(session, type, isCurrent) {
     // Monday — review session
     const monBox = document.createElement('div');
     monBox.className = 'day-section';
-    monBox.innerHTML = `<div class="day-label">Monday — Review session</div>`;
+    monBox.innerHTML = `<div class="day-label">Monday — Review</div>`;
     const monDesc = document.createElement('div');
     monDesc.className = 'info-box ci-box';
     monDesc.style.margin = '0.35rem 0 0.4rem';
     monDesc.innerHTML = `<strong>Review of Hanley chapters from this block.</strong>
-      <div class="sub">Bring your questions. The puzzle from the previous session is due Wednesday at 11:59 p.m.</div>`;
+      <div class="sub">Bring your questions. The puzzle from the previous week is due Wednesday at 11:59 p.m.</div>`;
     monBox.appendChild(monDesc);
     const monPills = document.createElement('div');
     monPills.className = 'pills';
