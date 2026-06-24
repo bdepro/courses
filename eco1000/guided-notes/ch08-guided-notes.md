@@ -182,7 +182,7 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
-## Reflect & Recapitulate
+## Reflect & Apply
 
 You're an economic advisor preparing a briefing for a city council. Unemployment in the city just fell from 7% to 5%, and the council wants to announce a "major economic win."
 
