@@ -27,6 +27,9 @@
 | Market equilibrium | The price where quantity demanded _____ quantity supplied. | A market you've watched settle at a stable price: |
 | Economic efficiency | A situation where all potential gains from _____ have been realized. | — |
 | Invisible hand | The tendency of market prices to direct self-interested choices toward outcomes that also benefit _____. | — |
+| Elastic demand | Quantity demanded is _____ to price changes — easy to substitute away from the good. | A good you'd stop buying after a small price hike: |
+| Inelastic demand | Quantity demanded is _____ to price changes — difficult to substitute away from the good. | A good you'd keep buying even if the price rose a lot: |
+| Entrepreneur | A market actor who _____ and acts on market opportunities — a source of economic _____. | — |
 
 ---
 
@@ -45,7 +48,17 @@ Last time we established that scarcity forces choice and that people respond to 
 | Distinguish: when sellers move along a fixed supply curve versus when the entire curve shifts — what triggers each? | |
 | Trace: starting from a price above equilibrium, what forces push the price back down? Starting below, what pushes it up? | |
 | Evaluate: why is the equilibrium point also the point of maximum combined consumer and producer surplus? | |
+| An entrepreneur spots that egg prices are rising. How does the resulting profit opportunity direct resources toward egg production — and why is this what economists mean by "economic progress"? | |
 | Defend: how do market prices communicate information, coordinate decisions, and motivate action — all without anyone directing them? | |
+
+**Elastic vs. inelastic demand — does the response match the curve?**
+
+| | Elastic demand | Inelastic demand |
+|---|---|---|
+| Quantity demanded responds to a price change | _____ | _____ |
+| Substitutes available | _____ | _____ |
+| If sellers raise price, total revenue tends to | _____ | _____ |
+| A good that fits this case | _________________ | _________________ |
 
 **Section Summary — in your own words before moving on:**
 _________________________________________________
@@ -125,6 +138,8 @@ Cover your Notes column in Section I. Use only your Questions.
 
 - Can you explain each answer out loud, in your own words — without looking?
 - Can you state, for each Section I question, whether it's a shift or a movement?
+- Can you explain how an entrepreneur's profit-seeking connects a price signal to economic progress?
+- Can you say, for a good of your choice, whether its demand is elastic or inelastic — and why?
 
 Uncover and compare. **Mark anything incomplete or wrong with a star ★.**
 
