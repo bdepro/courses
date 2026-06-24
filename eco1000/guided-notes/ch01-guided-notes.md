@@ -143,7 +143,7 @@ One real-world situation this made me think of: _______________________
 
 ---
 
-## Reflect & Recapitulate
+## Reflect & Apply
 
 You're a policy analyst advising a coastal state's emergency management agency. Following a hurricane evacuation order, the governor wants to ban bottled-water sellers from raising prices above pre-storm levels to protect evacuees. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)?
 

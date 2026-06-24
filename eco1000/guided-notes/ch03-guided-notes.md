@@ -158,7 +158,7 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
-## Reflect & Recapitulate
+## Reflect & Apply
 
 You are the pricing analyst at a regional grocery chain. The wholesale price of eggs just spiked.
 

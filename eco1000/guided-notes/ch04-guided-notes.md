@@ -165,7 +165,7 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
-## Reflect & Recapitulate
+## Reflect & Apply
 
 You're a tax policy analyst at a state revenue department. A legislator proposes a new excise tax on a good and wants to know, before the bill is drafted, who will actually end up paying it and how much revenue it will realistically raise.
 

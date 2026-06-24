@@ -192,7 +192,7 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
-## Reflect & Recapitulate
+## Reflect & Apply
 
 You're an economic advisor to a newly elected governor. The governor wants to announce in a press conference: "Our state's economy grew 6% last year — the best growth in a decade."
 
