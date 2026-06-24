@@ -40,7 +40,7 @@ This is lecture one — no prior economics assumed. Scarcity is the foundation e
 |---|---|
 | Scarcity and poverty both involve not having enough — so why do economists insist they're different, and why does the distinction matter? | Scarcity = _____ concept: limited resources, unlimited desires. Poverty = _____ concept; people disagree on what "poor" means. Poverty _____ be eliminated someday; scarcity _______. |
 | You're on the committee that allocates transplant organs in the U.S. What criteria could you use to ration them? Which does the market rely on — and what does that imply about who gets the organ? | Rationing methods: first-come/first-served; _____, need, ability to pay (price). Market uses _____. Allocated to those willing to give up the most _____ to obtain ownership. |
-| New York City replaced free parking with paid meters in several neighborhoods. How did that change the *form* of competition for a parking spot without eliminating competition? | Competition is a natural outgrowth of _____. Change rationing → change the _____ of competition, but NOT _____. Example from NYC: _______ |
+| Many ski resorts replaced first-come-first-served lift lines with a reservation app for popular powder days. How did that change the *form* of competition for a lift-line spot without eliminating competition? | Competition is a natural outgrowth of _____. Change rationing → change the _____ of competition, but NOT _____. Example from the resort: _______ |
 
 ---
 
@@ -59,20 +59,20 @@ Scarcity forces choice. The eight guideposts tell you *how* economists think thr
 | 4 | Marginal thinking | Compare _____ benefits to _____ costs. Act when _____ > _____. | Amazon's fulfillment center is deciding whether to hire a 101st worker. What's the right question to ask? _______ |
 | 5 | Costly information | Better information helps, but acquiring it is _____. Stop gathering info when its _____ equals its _____. | You're a buyer at Target deciding how long to test a new product before a nationwide rollout. When do you stop? _______ |
 | 6 | Secondary effects | Actions generate _____ effects in addition to the intended _____ effects. | When San Francisco raised its minimum wage, what secondary effect on employment or hours would you predict? _______ |
-| 7 | Subjective value | Value is _____ — the same good is worth different amounts to different _____. | A Taylor Swift concert ticket resells for $800 above face value. What does guidepost 7 explain? _______ |
+| 7 | Subjective value | Value is _____ — the same good is worth different amounts to different _____. | Limited-edition sneakers that retail for $150 resell online for $400. What does guidepost 7 explain? _______ |
 | 8 | Testability | A theory's value is its ability to _____ behavior. | An economist claims that raising interest rates reduces inflation. How would you test whether that's true? _______ |
 
 **Synthesis — Guideposts 3 & 6 + Cross-guidepost tension:**
 
-New York City's rent stabilization law caps rent increases for covered apartments. You're a housing policy analyst advising the city.
+Following a hurricane evacuation order, a coastal city bans bottled-water sellers from raising prices above pre-storm levels. You're a policy analyst advising the city's emergency management agency.
 
-Using guidepost 3 (incentives) and guidepost 6 (secondary effects), what two consequences do you predict for the housing market?
+Using guidepost 3 (incentives) and guidepost 6 (secondary effects), what two consequences do you predict for bottled-water availability?
 
 Consequence 1 (incentives): _________________________________________
 
 Consequence 2 (secondary effects): _________________________________________
 
-**Cross-guidepost question:** Two of the eight guideposts are in tension in this rent-stabilization scenario. Identify which two, explain the tension, and decide which matters more for a housing policy analyst.
+**Cross-guidepost question:** Two of the eight guideposts are in tension in this price-cap scenario. Identify which two, explain the tension, and decide which matters more for an emergency management analyst.
 
 _________________________________________
 
@@ -112,7 +112,7 @@ Even careful reasoning goes wrong. These four pitfalls are the most common error
 |---|---|---|---|
 | Ceteris paribus violation | Failing to hold _____ constant when isolating one _____ | "Cities that build more highways have worse traffic — so highway construction causes congestion." What's wrong? | |
 | Good intentions ≠ good outcomes | _____ intentions don't guarantee _____ outcomes; watch for _____ secondary effects | A city bans plastic bags to reduce waste. Shoppers switch to reusable bags — but reusable bags require far more resources to produce. What went wrong? | |
-| Association ≠ causation | Statistical _____ alone does not establish _____ | Ice cream sales and drowning deaths both rise in summer. Does ice cream cause drowning? | |
+| Association ≠ causation | Statistical _____ alone does not establish _____ | Countries with higher chocolate consumption per capita also report more Nobel Prize winners per capita. Does eating chocolate make a country more likely to win Nobel Prizes? | |
 | Fallacy of composition | What is true for the _____ may not be true for the _____ | Each fan at a sold-out stadium can see better by standing up. So if everyone stands up, everyone sees better. True or false — and which pitfall is this? | |
 
 ---
@@ -145,7 +145,7 @@ One real-world situation this made me think of: _______________________
 
 ## Reflect & Recapitulate
 
-You're a policy analyst advising North Carolina's housing agency. The governor wants to freeze rent increases to address affordability. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)?
+You're a policy analyst advising a coastal state's emergency management agency. Following a hurricane evacuation order, the governor wants to ban bottled-water sellers from raising prices above pre-storm levels to protect evacuees. Using at least three concepts from today — scarcity, rationing, opportunity cost, incentives, secondary effects, positive vs. normative — draft the opening of a one-paragraph briefing: what does the economic analysis say (positive) and what would you recommend (normative)?
 
 _________________________________________________
 
