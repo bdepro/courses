@@ -161,7 +161,7 @@ _________________________________________________
 
 ---
 
-*Submit your completed notes to Canvas by [Date] for **2 participation points**.*
+*Submit your completed notes to Canvas by [Date] for an optional +2 point bonus toward that week's Puzzle score.*
 *Notes will be checked for completion — summary box and Self-Test marks required.*
 
 **STUDY TIP:** Don't re-read these notes passively.
