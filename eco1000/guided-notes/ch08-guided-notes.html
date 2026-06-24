@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 8: Economic Fluctuations, Unemployment, and Inflation — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 8: Economic Fluctuations, Unemployment, and Inflation</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Apply knowledge of the four business cycle phases to classify a real economic scenario, and explain why cycles don't follow a predictable schedule.</li>
+    <li>Calculate the labor force participation rate, unemployment rate, and employment-population ratio, and explain why these three measures can tell different stories about the same economy.</li>
+    <li>Distinguish frictional, structural, and cyclical unemployment, and explain why job search actually improves how well workers and employers are matched.</li>
+    <li>Analyze how the gap between actual and natural unemployment corresponds to the gap between actual and potential GDP.</li>
+    <li>Differentiate anticipated from unanticipated inflation, and evaluate why high <em>and variable</em> inflation does more damage than high inflation alone.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Business cycle</td>
+        <td>Recurring but irregular swings in economic activity through four phases: expansion, <span class="blank"></span>, contraction, and <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Labor force</td>
+        <td>People who are employed plus people who are <span class="blank blank-lg"></span> — actively searching for work.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Unemployed</td>
+        <td>Counted as unemployed if a person is on <span class="blank"></span> (temporarily not working but expecting to return) or is actively <span class="blank"></span> for work — not simply "without a job."</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Labor force participation rate</td>
+        <td>Labor force ÷ <span class="blank blank-lg"></span> — the share of the population working or looking for work.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Unemployment rate</td>
+        <td>Number unemployed ÷ <span class="blank blank-lg"></span> — not divided by total population.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Employment-population ratio</td>
+        <td>Number employed ÷ <span class="blank blank-lg"></span> — a measure some economists prefer because it's harder to distort.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Frictional unemployment</td>
+        <td>Unemployment caused by <span class="blank"></span> information — workers and employers don't instantly find each other.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Structural unemployment</td>
+        <td>Unemployment caused by a mismatch between workers' <span class="blank"></span> and the skills jobs require.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Cyclical unemployment</td>
+        <td>Unemployment that rises and falls with the <span class="blank blank-lg"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Full employment</td>
+        <td>The level of employment when unemployment reflects only <span class="blank"></span> and <span class="blank"></span> causes — no cyclical unemployment.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Natural rate of unemployment</td>
+        <td>The unemployment rate consistent with <span class="blank blank-lg"></span> sustainable output — not zero, and not fixed by nature.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Potential GDP</td>
+        <td>The maximum <span class="blank"></span> level of output an economy can produce given its resources.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Anticipated inflation</td>
+        <td>A price-level change that is widely <span class="blank"></span> in advance.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Unanticipated inflation</td>
+        <td>A price-level change that comes as a <span class="blank"></span> to most people.</td>
+        <td><span class="example-prompt">A price change recently that surprised you:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">The Business Cycle</div>
+  <div class="connection-note">You've measured GDP and prices. This section asks a new question: does the economy grow at a steady pace, or does it move in swings — and if it swings, can you predict when? <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Name the four phases of the business cycle in order, and describe what's happening to output in each one.</td>
+        <td class="cornell-notes-col">Expansion: output <span class="blank"></span>. Peak: growth <span class="blank"></span>. Contraction: output <span class="blank"></span>. Recessionary trough: output <span class="blank"></span>, before the cycle restarts.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're a research associate at Bloomberg. A guest commentator on air claims that because the current expansion has lasted three years, a downturn is "overdue" — business cycles run on a predictable timer. Evaluate this claim.</td>
+        <td class="cornell-notes-col">This claim is <span class="blank"></span> — cycles vary in both <span class="blank"></span> and <span class="blank"></span>; no fixed schedule exists.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're an economist at the Federal Reserve Bank of Atlanta. GDP has grown for nine straight quarters, the unemployment rate has fallen to its lowest level in years, and several major retailers have just announced hiring freezes. Classify the current phase, and defend your answer using more than one signal.</td>
+        <td class="cornell-notes-col">This looks like the <span class="blank"></span> phase: growth has <span class="blank"></span> after a long expansion, and a downturn may follow — not yet a contraction, because output <span class="blank"></span>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Measuring the Labor Market</div>
+  <div class="connection-note">The business cycle explains why unemployment rises and falls. But how do we know exactly how many people are unemployed — and why might that one number tell a misleading story?</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:35%" class="fill-col">Formula</th>
+        <th style="width:35%" class="fill-col">What it tells you</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Labor force participation rate</td>
+        <td>Labor force ÷ <span class="blank blank-sm"></span></td>
+        <td>What share of the population is working or looking</td>
+      </tr>
+      <tr>
+        <td class="row-label">Unemployment rate</td>
+        <td>Number unemployed ÷ <span class="blank blank-sm"></span></td>
+        <td>What share of the labor force can't find work</td>
+      </tr>
+      <tr>
+        <td class="row-label">Employment-population ratio</td>
+        <td>Number employed ÷ <span class="blank blank-sm"></span></td>
+        <td>What share of the population actually has a job</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Applied — you're a labor economist reviewing Tucson, Arizona's latest data</div>
+    <p>100,000 adults age 16 and older, of whom 63,000 are employed and 7,000 are unemployed and actively searching.</p>
+    <p style="margin-top:8pt">Calculate the labor force participation rate. Show your work:</p>
+    <span class="write-lines"></span>
+    <p style="margin-top:8pt">Using the same data, calculate the unemployment rate. Show your work:</p>
+    <span class="write-lines"></span>
+    <p style="margin-top:8pt">Using the same data, calculate the employment-population ratio. Show your work:</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Applied — a city's unemployment rate falls from 5% to 4%, while its labor force participation rate drops from 64% to 62% over the same period</div>
+    <p>You're an analyst preparing a briefing. Which explanation best fits both numbers moving this way at once — and why doesn't a falling unemployment rate automatically mean the job market improved?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Why Unemployment Isn't All the Same Problem</div>
+  <div class="connection-note">You can now measure <em>how much</em> unemployment exists. This section asks <em>why</em> it exists — because the three types call for very different policy responses, and one of them isn't really a problem at all.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%"></th>
+        <th style="width:42%" class="fill-col">What causes it</th>
+        <th style="width:32%" class="fill-col">Tied to the business cycle?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Frictional unemployment</td>
+        <td><span class="blank blank-sm"></span> information — workers and employers haven't found each other yet</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Structural unemployment</td>
+        <td>A mismatch between workers' <span class="blank blank-sm"></span> and what jobs require</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Cyclical unemployment</td>
+        <td>A general <span class="blank blank-sm"></span> in business activity</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Applied — you're a Bureau of Labor Statistics analyst classifying this case</div>
+    <p>During a downturn, airlines ground part of their fleets as business travel drops, and flight attendants are furloughed across the industry.</p>
+    <p style="margin-top:8pt">Classify this unemployment, and defend your answer by ruling out the other two types:</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">The job search myth — many students assume all unemployment signals economic waste. Is that true?</div>
+    <p>Think about someone who just graduated and is searching for the right-fit job instead of taking the first offer. Explain why the time they spend searching can make the <em>whole economy</em> more productive, not less — even though it shows up as unemployment in the statistics.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 4</span></div>
+  <div class="section-header">Full Employment and the Output Gap</div>
+  <div class="connection-note">You now know unemployment is never zero, even in a healthy economy. This section defines exactly what "healthy" means, and connects it to GDP.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Define full employment using frictional and structural unemployment only — what's deliberately left out of this definition, and why?</td>
+        <td class="cornell-notes-col">Full employment means unemployment reflects only <span class="blank"></span> and <span class="blank"></span> causes — <span class="blank"></span> unemployment is absent.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">The natural rate of unemployment sounds like a fixed law of nature. Evaluate: is it fixed, or can policy change it? Give one policy example.</td>
+        <td class="cornell-notes-col">The natural rate is <span class="blank"></span> fixed — it can shift with policy, such as <span class="blank blank-xl"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">When the economy enters a recession, predict what happens to actual unemployment relative to the natural rate — and what that implies about actual GDP relative to potential GDP.</td>
+        <td class="cornell-notes-col">Actual unemployment rises <span class="blank"></span> the natural rate as cyclical unemployment adds on top; actual GDP falls <span class="blank"></span> potential GDP by a matching gap.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're a macroeconomic forecaster. An economist estimates the natural rate at 4%, and actual unemployment is 7.5%. What can you conclude about this economy's output?</td>
+        <td class="cornell-notes-col">The 3.5-point gap is <span class="blank"></span> unemployment, meaning actual GDP is currently <span class="blank"></span> potential GDP.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — Actual vs. Potential GDP Over the Business Cycle</div>
+  <div class="graph-draw-area"></div>
+  Potential GDP as a smooth upward trend line; Actual GDP as a wavy line around it.<br>
+  Label the vertical axis: Real GDP. Label the horizontal axis: Year.<br>
+  Mark one point where actual GDP is below potential — what's happening to unemployment there? <span class="blank-full"></span>
+  Mark one point where actual GDP is at potential — what's true about unemployment there? <span class="blank-full"></span>
+</div>
+
+<!-- ── SECTION V ── -->
+<div class="section-block">
+  <div class="section-label">Section V &nbsp;<span class="lt-tag">LT 5</span></div>
+  <div class="section-header">Anticipated vs. Unanticipated Inflation</div>
+  <div class="connection-note">You've just measured gaps in output and employment. Inflation creates a different kind of gap — between what people expect prices to do and what prices actually do.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%"></th>
+        <th style="width:37%" class="fill-col">Anticipated inflation</th>
+        <th style="width:37%" class="fill-col">Unanticipated inflation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Definition</td>
+        <td>Widely <span class="blank blank-sm"></span> in advance</td>
+        <td>Comes as a <span class="blank blank-sm"></span> to most people</td>
+      </tr>
+      <tr>
+        <td class="row-label">Effect on long-term contracts</td>
+        <td>People can adjust contract terms <span class="blank blank-sm"></span></td>
+        <td>One side gains, the other side <span class="blank blank-sm"></span> — the terms were locked in before the surprise</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Applied — you're advising a restaurant owner who's confused: the price of cooking oil she buys has been climbing for several months</div>
+    <p>Is this rising cost specific to cooking oil, or part of a broader price increase across the economy? Explain why distinguishing between the two is difficult during a period of inflation — and why that difficulty is itself an economic cost, separate from who wins or loses financially.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Why variability matters as much as the level — you manage a logistics company</div>
+    <p>Inflation has swung between 6% and 16% annually over the past two years, with no consistent pattern.</p>
+    <p style="margin-top:8pt">How does this kind of unpredictable inflation change what your managers spend their time doing — even before you factor in the inflation rate itself?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column and matrix blanks throughout Sections I–V. Use only your Questions and prompts.</p>
+  <ul>
+    <li>Can you name and describe all four phases of the business cycle, out loud, without looking?</li>
+    <li>Can you explain who counts as "unemployed," and calculate the labor force participation rate, unemployment rate, and employment-population ratio from raw numbers?</li>
+    <li>Can you explain why job search-driven unemployment can make the economy more efficient, not less?</li>
+    <li>Can you trace why a gap between actual and natural unemployment means a matching gap between actual and potential GDP?</li>
+    <li>Can you explain two distinct ways inflation harms an economy — not just one?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & RECAPITULATE ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Recapitulate</div>
+  <div class="section-header">Economic Advisor, City Council Briefing</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're an economic advisor preparing a briefing for a city council. Unemployment in the city just fell from 7% to 5%, and the council wants to announce a "major economic win."</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. What additional labor market data would you check before confirming this is genuinely good news?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. Name one scenario in which falling unemployment would <em>not</em> indicate a stronger job market.</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Advise the council: what's the most accurate one-sentence way to describe this change, given what you don't yet know?</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for participation credit (5 pts).</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column and matrix blanks in Sections I–V. Quiz yourself out loud using the Questions and prompts. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next lecture: How does the Federal Reserve try to smooth out these swings? (Ch. 16)</p>
+</div>
+
+</body>
+</html>
