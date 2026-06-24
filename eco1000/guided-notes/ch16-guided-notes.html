@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 16: Creating an Environment for Growth and Prosperity — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 16: Creating an Environment for Growth and Prosperity</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Apply the Rule of 70 to project how long it takes a growth rate to double living standards, and analyze why small differences in growth rates compound into large income gaps over decades.</li>
+    <li>Distinguish the three sources of economic growth, and evaluate why high investment in any one of them does not guarantee rapid growth.</li>
+    <li>Analyze how each of six institutional and policy factors either protects or undermines the incentive to invest, trade, and produce.</li>
+    <li>Apply the four-part definition of economic freedom to evaluate whether a specific policy change would raise or lower a country's measured freedom.</li>
+    <li>Evaluate the evidence linking economic freedom to income, poverty, life expectancy, and environmental quality — including the case that seems to break the pattern.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Per capita GDP</td>
+        <td>Total output divided by <span class="blank"></span> — not total output alone.</td>
+        <td><span class="example-prompt">A country's total output rising while population <span class="blank-sm"></span> even faster:</span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Rule of 70</td>
+        <td>Approximate years to double = 70 ÷ <span class="blank blank-sm"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Gains from trade</td>
+        <td>Trading over a <span class="blank blank-lg"></span> market area lowers per-unit costs and raises output.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Technological advancement</td>
+        <td>New techniques that increase output per unit of <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Physical capital</td>
+        <td>Machines, tools, and factories — capital you can <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Human capital</td>
+        <td>Workers' <span class="blank"></span> and skills, built through education and training.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Institutions</td>
+        <td>The legal, regulatory, and <span class="blank blank-lg"></span> constraints that affect property rights and contract enforcement.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Secure property rights</td>
+        <td>Legal protection against having what you've earned <span class="blank"></span> without consent.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Competitive markets</td>
+        <td>A process that disciplines both buyers and sellers by rewarding businesses that offer <span class="blank"></span> value at low cost.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Stable money and prices</td>
+        <td>Low, predictable inflation that keeps <span class="blank"></span> prices forecastable.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Marginal tax rate</td>
+        <td>The tax rate on the <span class="blank"></span> dollar earned — the rate that affects the decision to earn one more.</td>
+        <td><span class="example-prompt">A decision you'd make differently if the next dollar you earned were taxed at 90%:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Trade openness</td>
+        <td>Freedom for residents to trade with <span class="blank"></span> without tariffs, quotas, or currency restrictions.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Economic freedom</td>
+        <td>Personal choice, voluntary exchange, freedom to <span class="blank"></span> and compete, and protection from <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Economic Freedom of the World (EFW) index</td>
+        <td>An annual ranking that <span class="blank blank-lg"></span> the degree of economic freedom across countries.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Purchasing power parity (PPP)</td>
+        <td>A method that converts each country's GDP using what a common bundle of goods would <span class="blank"></span> in each currency.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Why Growth Rates (Not Just Growth) Matter</div>
+  <div class="connection-note">Last time, you measured GDP as a single number for a single year: <span class="blank-full"></span> (state it in your own words). Today's idea of a <em>growth rate</em> [circle one: extends / challenges / depends on] that idea, because: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Why does a rising total GDP not automatically mean a rising standard of living? What's the missing variable?</td>
+        <td class="cornell-notes-col">Total output can rise while <span class="blank"></span> rises even faster, so output <span class="blank"></span> may actually fall.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Vietnam's per capita income has grown at roughly 7% per year over the past two decades. Using the Rule of 70, how many years would it take per capita income to double at that pace if it continued?</td>
+        <td class="cornell-notes-col">70 ÷ 7 = <span class="blank blank-sm"></span> years.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Since 1990, Poland's per capita income has grown at roughly 4% per year, while Argentina's has grown at roughly 1% per year — even though the two started near the same income level. Predict, without calculating exactly, how much further ahead Poland will be after 35 years, and why the gap is bigger than "four times the growth rate, four times the gap."</td>
+        <td class="cornell-notes-col">Because growth compounds, the gap <span class="blank"></span> — it's much larger than just <span class="blank blank-lg"></span> the difference in rates.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Three Sources of Economic Growth</div>
+  <div class="connection-note">You now know growth rates compound. This section asks where growth actually comes from — and whether pouring resources into any one source is enough by itself.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%"></th>
+        <th style="width:46%" class="fill-col">What it is</th>
+        <th style="width:30%" class="fill-col">Does it guarantee growth by itself?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Gains from trade</td>
+        <td>Access to a broader market lowers per-unit costs and raises <span class="blank blank-sm"></span></td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Technological advancement</td>
+        <td>New methods raise output per unit of <span class="blank blank-sm"></span></td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Investment in capital</td>
+        <td>Building physical capital and/or human capital <span class="blank blank-sm"></span> productive capacity, but draws resources away from current <span class="blank blank-sm"></span> goods</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're an analyst at a private equity firm evaluating a logistics company</div>
+    <p>The company has spent the past decade installing automated warehouses and new equipment across every facility — but output per worker has barely moved.</p>
+    <p style="margin-top:8pt">What does this chapter say is missing from "high investment" as a growth guarantee — and what question would you ask next about <em>how</em> that capital was used?</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Distinguishing the two kinds of capital — Rwanda has prioritized investment in education and digital skills; Kazakhstan has prioritized oil infrastructure and physical capital</div>
+    <p>Explain, in your own words, why a country might weight investment toward human capital over physical capital, or vice versa — and name one risk of overinvesting in either one alone.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Six Institutions and Policies That Promote Growth</div>
+  <div class="connection-note">Trade, technology, and capital investment are the <em>sources</em> of growth. This section asks what has to be true about a country's legal and policy environment before those sources can actually operate.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%"></th>
+        <th style="width:40%" class="fill-col">What it protects or enables</th>
+        <th style="width:34%" class="fill-col">What erodes it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Secure property rights &amp; contract enforcement</td>
+        <td>The incentive to <span class="blank blank-sm"></span> and trade with strangers</td>
+        <td>Weak courts, expropriation risk</td>
+      </tr>
+      <tr>
+        <td class="row-label">Competitive markets</td>
+        <td>Discipline that rewards businesses offering <span class="blank blank-sm"></span> value at low cost</td>
+        <td>Barriers to entry, protected incumbents</td>
+      </tr>
+      <tr>
+        <td class="row-label">Stable money and prices</td>
+        <td>Predictable <span class="blank blank-sm"></span> prices, so contracts hold their value</td>
+        <td>Volatile inflation</td>
+      </tr>
+      <tr>
+        <td class="row-label">Avoidance of high marginal tax rates</td>
+        <td>The incentive to earn one <span class="blank blank-sm"></span> dollar</td>
+        <td>Rates so high the next dollar isn't worth earning</td>
+      </tr>
+      <tr>
+        <td class="row-label">Trade openness</td>
+        <td>Access to a broader <span class="blank blank-sm"></span> area</td>
+        <td>Tariffs, quotas, currency controls</td>
+      </tr>
+      <tr>
+        <td class="row-label">Avoidance of entry-blocking regulation</td>
+        <td>The natural regulatory effect of <span class="blank blank-sm"></span> markets</td>
+        <td>Licensing and rules that protect insiders, not consumers</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're an emerging-markets analyst at an investment bank deciding whether to recommend Venezuela as a destination for client capital</div>
+    <p>Venezuela's courts have a documented record of ruling against foreign companies in commercial disputes with state-aligned domestic firms, and getting profits out of the country is notoriously difficult.</p>
+    <p style="margin-top:8pt">What does this chapter predict happens to entrepreneurial activity and outside investment here — and why is the mechanism about <em>incentives</em>, not just about fairness?</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a tax policy advisor reviewing a real case for a client government considering something similar</div>
+    <p>France once raised its top marginal income tax rate to 75% on incomes above €1 million, expecting a revenue windfall.</p>
+    <p style="margin-top:8pt">Why might actual revenue rise by less than projected, or even fall? Trace the behavioral response step by step.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a city council member reviewing Chicago's food truck rules, which bar trucks from parking within 200 feet of any restaurant, citing food safety</div>
+    <p>This chapter argues that property rights, contract law, and liability already create accountability for harm. What is the strongest objection to treating this restriction as the better safety mechanism?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 4</span></div>
+  <div class="section-header">Defining and Measuring Economic Freedom</div>
+  <div class="connection-note">You've seen six institutional factors that support growth. Economic freedom is the single measure that tries to capture all of them in one number — but only if its four parts are kept distinct from each other.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Name the four defining characteristics of economic freedom, in your own words — not as a single blurred idea.</td>
+        <td class="cornell-notes-col">Personal <span class="blank"></span>, voluntary <span class="blank"></span> coordinated by markets, freedom to <span class="blank"></span> and compete, and protection from <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Generate your own example of a policy change that would improve "freedom to enter and compete" without affecting any of the other three characteristics. Then explain why a change to "voluntary exchange" wouldn't accomplish the same thing.</td>
+        <td class="cornell-notes-col">My example: <span class="blank-full"></span> It improves entry/competition because <span class="blank-full"></span> but wouldn't change voluntary exchange because <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Several U.S. states require up to 1,500 hours of cosmetology training before someone can legally braid hair for pay, even though braiding involves no chemicals or cutting. Name the specific characteristic of economic freedom this restricts, and explain why it is fundamentally a market-entry problem rather than a pricing or exchange problem.</td>
+        <td class="cornell-notes-col">This restricts freedom to <span class="blank"></span>. It's an entry problem because <span class="blank-lg"></span>, not an exchange problem because <span class="blank-lg"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What does the Economic Freedom of the World (EFW) index actually measure, and who publishes it?</td>
+        <td class="cornell-notes-col">A worldwide network of institutes that <span class="blank blank-lg"></span> the degree of economic freedom across more than 90 countries.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — Compounding Growth Rates Over Time</div>
+  <div class="graph-draw-area"></div>
+  Two lines starting from the same point on the vertical axis, one rising steeply (4% growth) and one rising gradually (1% growth), tracked over 35 years.<br>
+  Label the vertical axis: Per capita income. Label the horizontal axis: Years.<br>
+  Mark the point where each line doubles its starting value.<br>
+  What does the widening gap between the two lines — not just their starting difference — illustrate about growth rates? <span class="blank-full"></span>
+</div>
+
+<!-- ── SECTION V ── -->
+<div class="section-block">
+  <div class="section-label">Section V &nbsp;<span class="lt-tag">LT 5</span></div>
+  <div class="section-header">Does Economic Freedom Actually Predict Outcomes?</div>
+  <div class="connection-note">You can now define and measure economic freedom. This section asks the harder question: does the measure actually line up with outcomes people care about — or is it just an abstract index?</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:34%"></th>
+        <th style="width:33%" class="fill-col">Most economically free quartile</th>
+        <th style="width:33%" class="fill-col">Least economically free quartile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Per capita income</td>
+        <td>Higher</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Poverty rate (share below the extreme/moderate poverty line)</td>
+        <td>Lower</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Life expectancy</td>
+        <td>Higher</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Environmental quality</td>
+        <td>Higher</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">The exception that tests the rule — Saudi Arabia and Kuwait are among a small number of oil-exporting countries that have achieved high per capita income without scoring high on economic freedom</div>
+    <p>Does this exception disprove the freedom–income link, or does it reveal something else the link depends on? Explain what resource wealth is substituting for in these cases.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a research assistant at a policy think tank, fact-checking a claim before a brief goes out</div>
+    <p>The author argues that countries with fewer environmental regulations inevitably pollute more than tightly regulated ones, since less government oversight can only mean weaker environmental outcomes.</p>
+    <p style="margin-top:8pt">Based on the pattern across freedom quartiles, how would you respond — and what would change your mind if the data ran the other way?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column and matrix blanks throughout Sections I–V. Use only your Questions and prompts.</p>
+  <ul>
+    <li>Can you state the Rule of 70 from memory and apply it to a growth rate you make up on the spot?</li>
+    <li>Can you name all three sources of growth and explain why none of them guarantees growth alone?</li>
+    <li>Can you name all six institutional/policy factors and explain the incentive each one protects?</li>
+    <li>Can you state all four characteristics of economic freedom without collapsing any two together?</li>
+    <li>Can you state, without looking, whether the most or least economically free quartile scores higher on income, poverty, life expectancy, and environmental quality — all four, not just one?</li>
+    <li>Can you explain the oil-exporter exception without concluding it disproves the freedom–income link?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Finance Ministry Advisor</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're advising a small country's finance ministry. They've asked for three concrete policy changes that would most plausibly raise long-run growth, based on this chapter.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. Name three changes, each tied to a different institutional/policy factor from Section III.</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. For each, explain the specific incentive mechanism it would improve — not just "it helps growth."</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Identify one risk: a way a well-intentioned version of one of your three changes could backfire if implemented badly.</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for participation credit (5 pts).</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column and matrix blanks in Sections I–V. Quiz yourself out loud using the Questions and prompts. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next lecture: If trade within a country raises living standards, what happens when trade crosses borders? (Ch. 18)</p>
+</div>
+
+</body>
+</html>
