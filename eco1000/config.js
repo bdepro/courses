@@ -254,11 +254,11 @@ const CHAPTERS = {
   core: [
     { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch01-guided-notes.html` },
     { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch03-guided-notes.html` },
-    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", guidedNotesUrl: null },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", guidedNotesUrl: null },
-    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", guidedNotesUrl: null },
-    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846", guidedNotesUrl: null },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847", guidedNotesUrl: null },
+    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch04-guided-notes.html` },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch07-guided-notes.html` },
+    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch08-guided-notes.html` },
+    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch16-guided-notes.html` },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch18-guided-notes.html` },
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
