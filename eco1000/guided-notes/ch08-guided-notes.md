@@ -45,7 +45,7 @@ You've measured GDP and prices. This section asks a new question: does the econo
 | Questions | Notes |
 |---|---|
 | Name the four phases of the business cycle in order, and describe what's happening to output in each one. | Expansion: output _____. Peak: growth _____. Contraction: output _____. Recessionary trough: output _____, before the cycle restarts. |
-| You're a research associate at Bloomberg. A guest commentator on air claims that because the current expansion has lasted three years, a downturn is "overdue" — business cycles run on a predictable timer. Evaluate this claim. | This claim is _____ — cycles vary in both _____ and _____; no fixed schedule exists. |
+| You're a research associate at Bloomberg. A guest commentator on air claims that because growth has continued for five straight years, a downturn is "overdue" — business cycles run on a predictable timer. Evaluate this claim. | This claim is _____ — cycles vary in both _____ and _____; no fixed schedule exists. |
 | You're an economist at the Federal Reserve Bank of Atlanta. GDP has grown for nine straight quarters, the unemployment rate has fallen to its lowest level in years, and several major retailers have just announced hiring freezes. Classify the current phase, and defend your answer using more than one signal. | This looks like the _____ phase: growth has _____ after a long expansion, and a downturn may follow — not yet a contraction, because output _____. |
 
 **Section Summary — in your own words before moving on:**

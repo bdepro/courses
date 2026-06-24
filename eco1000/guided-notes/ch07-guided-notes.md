@@ -65,7 +65,7 @@ Section I defined what counts. This section asks: once you know what counts, whi
 | What it sums | Spending on final goods across _____ categories | _____ paid to resource suppliers (wages, rents, interest, profit) |
 | Core components | Personal consumption, _____, _____, and net exports | Employee compensation, _____, rents, _____, plus adjustments |
 | Applied: you're classifying GDP components for the Bureau of Economic Analysis. A homebuilder completes 50 new houses this year | Which expenditure category, and why? _________________ | — |
-| Applied: Shopify pays $800,000 in wages, earns $200,000 in profit, and pays $50,000 in indirect business taxes this quarter | — | Which of these three count toward national income, and why? _________________ |
+| Applied: Shopify pays $600,000 in wages, earns $150,000 in profit, and pays $40,000 in indirect business taxes this quarter | — | Which of these three count toward national income, and why? _________________ |
 
 **Why the totals must match — you're explaining this to a skeptical classmate:**
 
@@ -82,7 +82,7 @@ Plain-language walkthrough — fill in the blanks:
 
 **So:** GDP = national income + indirect business taxes + depreciation + net income of foreigners.
 
-Applied: Shopify pays $800,000 in wages, earns $200,000 in profit, and pays $50,000 in taxes that raise its prices. Which of these belongs in *national income*, and which is one of the three bridge items above? _________________________________________________
+Applied: Shopify pays $600,000 in wages, earns $150,000 in profit, and pays $40,000 in taxes that raise its prices. Which of these belongs in *national income*, and which is one of the three bridge items above? _________________________________________________
 
 ---
 
