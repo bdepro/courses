@@ -40,10 +40,10 @@ Last time we established that markets are interconnected — a change in one mar
 
 | Questions | Notes |
 |---|---|
-| New York City caps rents on covered apartments below the equilibrium rent. Trace the chain: what's the direct effect on quantity demanded vs. supplied, and what happens next? | Direct effect: a _____ — quantity demanded _____ quantity supplied at the capped price. Over time: quality _____, future supply _____, non-price rationing becomes _____ important. |
-| You're an HR director and the federal minimum wage rises above your entry-level workers' equilibrium wage. What's the direct effect on employment, and what's one *indirect* effect you'd consider beyond just headcount? | Direct effect: employment _____ because quantity of labor demanded falls _____ quantity supplied. Indirect effect (your choice): _________________________ |
-| After years of rent control, an apartment search in a capped city requires large informal deposits and personal connections — not just cash. What does this illustrate, and why does it happen specifically *because* of the price ceiling? | This is _________________ — non-price rationing fills the gap a frozen price can't close. It happens because: _________________ |
-| You're advising a city council that wants to double the minimum wage to fight poverty. What's the strongest economic objection — not "it will hurt business," but something more precise about who the policy actually reaches? | Objection: many minimum-wage earners _____ in poverty, and the workers most likely to lose hours or jobs are _________________ |
+| A mid-sized city imposes a cap on rent increases for older apartment buildings, holding rent below the new equilibrium level after a local population boom. Trace the chain: what's the direct effect on quantity demanded vs. supplied, and what happens next? | Direct effect: a _____ — quantity demanded _____ quantity supplied at the capped price. Over time: quality _____, future supply _____, non-price rationing becomes _____ important. |
+| A franchise owner watches a state raise its minimum wage well above the market wage for entry-level fast-food workers. What's the direct effect on employment, and what's one *indirect* effect the franchise owner might consider beyond just headcount? | Direct effect: employment _____ because quantity of labor demanded falls _____ quantity supplied. Indirect effect (your choice): _________________________ |
+| After a decade of rent caps, renters in that city report that landlords demand large cash deposits up front and prioritize applicants they already know personally, rather than renting to whoever applies first. What does this illustrate, and why does it happen specifically *because* of the price ceiling? | This is _________________ — non-price rationing fills the gap a frozen price can't close. It happens because: _________________ |
+| A mayor proposes tripling the city's minimum wage, arguing it's the most direct way to reduce poverty among low-income workers. What's the strongest economic objection — not "it will hurt business," but something more precise about who the policy actually reaches? | Objection: many minimum-wage earners _____ in poverty, and the workers most likely to lose hours or jobs are _________________ |
 
 **Section Summary — in your own words before moving on:**
 _________________________________________________
@@ -73,12 +73,12 @@ Price controls block the price mechanism by law. A tax doesn't block it — it a
 |---|---|---|
 | Demand elasticity | Demand is _____ (few substitutes) | Demand is _____ (many substitutes) |
 | Supply elasticity | Supply is _____ (easy to expand/exit) | Supply is _____ (hard to expand/exit) |
-| Applied: a $50 excise tax on a generic prescription drug with no substitutes | Who bears most of this tax, and why? _________________ | |
-| Applied: an excise tax on ride-share trips, where drivers can easily switch to delivery work | Who bears most of this tax, and why? _________________ | |
+| Applied: a $35 excise tax on a brand-name medication with no generic alternative | Who bears most of this tax, and why? _________________ | |
+| Applied: an excise tax on food-delivery orders, where couriers can easily shift to ride-share driving instead | Who bears most of this tax, and why? _________________ | |
 
 **Statutory vs. actual incidence — you're a tax policy analyst:**
 
-Congress debates placing a new payroll tax on employers instead of employees, hoping this protects workers from the burden. You're asked to brief the committee.
+A city council proposes requiring restaurants — not customers — to pay a new 3% "meals tax" directly, hoping this keeps menu prices stable for diners. You're asked to brief the committee.
 
 What does economic analysis predict, and why does it contradict the bill's stated goal? _________________________________________________
 
@@ -104,9 +104,9 @@ Which market has the larger deadweight loss, and why? (Hint: deadweight loss dep
 
 **Laffer curve — you're a state budget analyst:**
 
-The state council expects a 20-percentage-point property tax rate increase to raise revenue by 20%. What concern would you raise, using the relationship between tax rate and tax base? _________________________________________________
+The state council expects a 15-percentage-point increase in the hotel occupancy tax to raise revenue by 15%. What concern would you raise, using the relationship between tax rate and tax base? _________________________________________________
 
-A legislator argues: "We should tax cigarettes heavily — smokers have few substitutes, so the tax raises lots of revenue without hurting the economy much." Evaluate: what part of this claim is correct, and what does it leave out about who bears the burden? _________________________________________________
+A legislator argues: "We should tax bottled soft drinks heavily — there's no good substitute for the brands people like, so the tax raises lots of revenue without hurting the economy much." Evaluate: what part of this claim is correct, and what does it leave out about who bears the burden? _________________________________________________
 
 ---
 
