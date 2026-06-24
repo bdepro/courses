@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 18: Gaining from International Trade — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 18: Gaining from International Trade</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Indicate how the U.S. trade sector has changed in size since 1980, and explain why exports and imports are economically linked rather than independent.</li>
+    <li>Apply the law of comparative advantage to determine which of two trading partners should specialize in which good, even when one partner is more efficient at producing everything.</li>
+    <li>Analyze how opening trade in a good shifts its domestic price, production, and consumption — and distinguish the comparative-advantage case from the comparative-disadvantage case.</li>
+    <li>Compare how tariffs and quotas raise domestic prices through different mechanisms, and evaluate who gains and who is harmed.</li>
+    <li>Evaluate the strongest arguments nations use to justify trade restrictions, and identify why two popular trade fallacies don't hold up.</li>
+    <li>Compare the economic performance of open and closed economies, and explain what "trade openness" actually measures.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Law of comparative advantage</td>
+        <td>A group gains a larger joint output when each producer specializes in goods for which it has a <span class="blank"></span> opportunity cost.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Absolute advantage</td>
+        <td>Producing <span class="blank"></span> output with the same resources than another producer can — says nothing about opportunity cost.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">World price</td>
+        <td>The price at which a good trades on the <span class="blank"></span> market, once a country opens trade.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Economies of scale</td>
+        <td>Reductions in per-unit cost that come from producing for a <span class="blank blank-lg"></span> market.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Tariff</td>
+        <td>A <span class="blank"></span> on an imported good that raises its domestic price.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Quota</td>
+        <td>A specific <span class="blank"></span> on the quantity of a good allowed to enter the country.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Exchange rate control</td>
+        <td>A government restriction on converting currency that makes trade artificially <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Dumping</td>
+        <td>Selling a good abroad below its <span class="blank"></span> and below its price in the seller's own domestic market.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Infant-industry argument</td>
+        <td>The case for temporarily protecting a <span class="blank"></span> industry so it can develop.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Special-interest effect</td>
+        <td>Concentrated, visible benefits to a small group outweigh dispersed, <span class="blank blank-lg"></span> costs spread across everyone else — politically.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Trade openness</td>
+        <td>The freedom of residents to trade across borders, measured by low <span class="blank"></span>, currency convertibility, and few quotas.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Productivity-driven wages</td>
+        <td>A country's wage level reflects worker <span class="blank"></span>, not the wage rates of its trading partners.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">The Trade Sector of the United States</div>
+  <div class="connection-note">Last time, you measured GDP as a single total for the whole economy: <span class="blank-full"></span> (state it in your own words). Today's idea of a <em>trade sector</em> [circle one: extends / challenges / depends on] that idea, because: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Between 1980 and 2023, did imports or exports grow faster as a share of U.S. output — and what does that imply about how "open" the U.S. economy has become?</td>
+        <td class="cornell-notes-col">Imports grew from about <span class="blank blank-sm"></span>% to <span class="blank blank-sm"></span>%; exports grew from about <span class="blank blank-sm"></span>% to <span class="blank blank-sm"></span>%. <span class="blank blank-sm"></span> grew faster.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Why does the chapter insist that exports and imports are economically linked, not two separate markets? What would happen to our imports if our exports collapsed?</td>
+        <td class="cornell-notes-col">Exports give foreigners the <span class="blank"></span> they need to buy from us; without exports, foreigners couldn't <span class="blank"></span> our goods.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Gains from Specialization and Trade</div>
+  <div class="connection-note">You now know trade is large and growing. This section asks why trade happens at all — and the answer turns out not to require being the best at anything.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Distinguish absolute advantage from comparative advantage. Why does only one of them determine what a country should trade?</td>
+        <td class="cornell-notes-col">Absolute advantage means producing <span class="blank"></span> output with the same resources. Comparative advantage means a <span class="blank"></span> opportunity cost. Trade gains come from differences in <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Brazil takes 3 hours to produce a unit of coffee and 12 hours to produce a unit of textiles. Vietnam takes 7 hours to produce a unit of coffee and 21 hours to produce a unit of textiles. Calculate each country's opportunity cost of textiles in terms of coffee, then determine which country should specialize in textiles.</td>
+        <td class="cornell-notes-col">Brazil's opportunity cost of textiles = <span class="blank blank-sm"></span> ÷ <span class="blank blank-sm"></span> = <span class="blank blank-sm"></span> units of coffee per textile. Vietnam's opportunity cost of textiles = <span class="blank blank-sm"></span> ÷ <span class="blank blank-sm"></span> = <span class="blank blank-sm"></span> units of coffee per textile. <span class="blank blank-sm"></span> should specialize in textiles because its opportunity cost is lower.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Even a country that is less efficient at producing <em>everything</em> can still gain from trade. Explain why, using opportunity cost rather than total output.</td>
+        <td class="cornell-notes-col">Gains come from <span class="blank"></span> differences, not from being the most <span class="blank"></span> producer.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">How does trade let a country consume combinations of goods its own resources alone could never produce?</td>
+        <td class="cornell-notes-col">Specialization plus trade lets a country's consumption move <span class="blank blank-lg"></span> its own production possibilities.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">American Giant, a U.S. apparel company that markets itself on domestic manufacturing, lobbies for tariffs on imported fabric, arguing this will strengthen its own production without costing the country anything elsewhere</div>
+    <p>Using opportunity cost, explain why what's good for American Giant specifically isn't the same as what's good for the country as a whole.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Supply, Demand, and International Trade</div>
+  <div class="connection-note">You know trade creates gains overall. This section asks what trade does to <em>one specific market</em> — and the direction depends entirely on which side of comparative advantage that market is on.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:35%" class="fill-col">Comparative-advantage good (we export)</th>
+        <th style="width:35%" class="fill-col">Comparative-disadvantage good (we import)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Domestic price after trade opens</td>
+        <td>Moves <span class="blank blank-sm"></span> toward the world price</td>
+        <td>Moves <span class="blank blank-sm"></span> toward the world price</td>
+      </tr>
+      <tr>
+        <td class="row-label">Domestic production</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Domestic consumption</td>
+        <td><span class="blank blank-sm"></span></td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a market analyst at the USDA reviewing the U.S. almond market — a good where U.S. growers hold a comparative advantage, and the world price sits above the pre-trade domestic price</div>
+    <p>Predict what happens to the domestic price, domestic production, and domestic consumption once trade opens, and explain the mechanism — not just the direction.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a sourcing manager at a furniture retailer reviewing the U.S. furniture market — a good where foreign producers hold a comparative advantage, and the world price sits below the pre-trade domestic price</div>
+    <p>Predict the same three outcomes for this case, and explain why the mechanism runs in the opposite direction from the almond example.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — Trade's Effect on a Single Market</div>
+  <div class="graph-draw-area"></div>
+  Panel 1 — Export case: domestic Supply and Demand crossing at the pre-trade price, with a horizontal World Price line ABOVE that crossing.<br>
+  Label the vertical axis: Price. Label the horizontal axis: Quantity.<br>
+  Mark the gap between domestic quantity supplied and quantity demanded at the world price — what does that gap become once trade opens? <span class="blank-full"></span>
+  <div class="graph-draw-area" style="margin-top:10pt"></div>
+  Panel 2 — Import case: domestic Supply and Demand crossing at the pre-trade price, with a horizontal World Price line BELOW that crossing.<br>
+  Mark the same gap in this panel — what does it become once trade opens?<br>
+  What's different about which curve "gives way" in each panel? <span class="blank-full"></span>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 4</span></div>
+  <div class="section-header">Tariffs, Quotas, and the Price Effects of Trade Restrictions</div>
+  <div class="connection-note">You've seen what trade does to a market when it's left alone. This section asks what happens when policy pushes back against it — and why a tax and a quantity limit produce the same price effect through different mechanisms.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:39%" class="fill-col">Tariff</th>
+        <th style="width:39%" class="fill-col">Quota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Mechanism</td>
+        <td>A <span class="blank blank-sm"></span> on each imported unit</td>
+        <td>A hard <span class="blank blank-sm"></span> on import quantity</td>
+      </tr>
+      <tr>
+        <td class="row-label">Effect on domestic price</td>
+        <td>Rises, because foreign supply to the domestic market <span class="blank blank-sm"></span></td>
+        <td>Rises, because foreign supply to the domestic market <span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Effect on world price</td>
+        <td>Stays <span class="blank blank-sm"></span>, because the rest of the world's trade is <span class="blank blank-sm"></span></td>
+        <td>Stays <span class="blank blank-sm"></span>, because the rest of the world's trade is <span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Who gains</td>
+        <td>Domestic <span class="blank blank-sm"></span></td>
+        <td>Domestic <span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Who is harmed</td>
+        <td>Domestic <span class="blank blank-sm"></span> and <span class="blank blank-sm"></span> industries</td>
+        <td>Domestic <span class="blank blank-sm"></span> and <span class="blank blank-sm"></span> industries</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:9pt; font-style:italic; color:var(--muted); margin-bottom:10pt;">A third, less common tool: exchange rate controls restrict currency conversion to make trade artificially <span class="blank blank-sm"></span> — without taxing or capping any single good directly.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a trade compliance analyst at a handbag retailer. The government imposes a tariff on imported leather handbags, sourced mostly from Italy, raising their domestic price above the world price</div>
+    <p>What happens to domestic handbag production and domestic consumption — and does the world price of leather handbags change? Explain why or why not.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're a supply chain manager at a bicycle retailer. The government caps imported bicycles, many of them sourced from China, at a fixed quantity per year — well below the amount previously imported at the world price</div>
+    <p>Predict what happens to the domestic bicycle price and domestic bicycle production once the cap binds.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION V ── -->
+<div class="section-block">
+  <div class="section-label">Section V &nbsp;<span class="lt-tag">LT 5</span></div>
+  <div class="section-header">Why Nations Restrict Trade (and Two Fallacies That Don't Hold Up)</div>
+  <div class="connection-note">You now know restrictions raise domestic prices and help one group at the expense of others. This section asks why nations adopt them anyway — and which justifications survive scrutiny.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Argument for restriction</th>
+        <th style="width:39%" class="fill-col">The claim</th>
+        <th style="width:39%" class="fill-col">The complication</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">National defense</td>
+        <td>Protect industries vital to <span class="blank blank-sm"></span>, such as shipbuilding</td>
+        <td>Easy to overextend to industries with no real defense link</td>
+      </tr>
+      <tr>
+        <td class="row-label">Infant industry</td>
+        <td>Protect <span class="blank blank-sm"></span> industries so they can develop</td>
+        <td>Protection is supposed to be temporary — often isn't</td>
+      </tr>
+      <tr>
+        <td class="row-label">Antidumping</td>
+        <td>Block goods sold below <span class="blank blank-sm"></span> cost</td>
+        <td>Domestic companies are <span class="blank blank-sm"></span> permitted to sell below cost too</td>
+      </tr>
+      <tr>
+        <td class="row-label">Special-interest politics</td>
+        <td>Concentrated <span class="blank blank-sm"></span> for a few, dispersed costs for everyone else</td>
+        <td>The group that benefits is loud; the group that pays is often unaware</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Fallacy check 1 — "Restricting imports saves jobs and raises overall employment"</div>
+    <p>Using the special-interest logic above, explain what this claim leaves out about export-sector jobs.</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Fallacy check 2 — "Free trade with lower-wage countries must lower American wages"</div>
+    <p>What does this chapter say actually determines a country's wage level, if not the wage rates of its trading partners?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION VI ── -->
+<div class="section-block">
+  <div class="section-label">Section VI &nbsp;<span class="lt-tag">LT 6</span></div>
+  <div class="section-header">Do More Open Economies Perform Better?</div>
+  <div class="connection-note">You've seen the arguments nations use to restrict trade. This section asks the same question Ch. 16 asked about economic freedom generally: does openness to trade specifically line up with better outcomes?</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:34%"></th>
+        <th style="width:33%" class="fill-col">Most open economies</th>
+        <th style="width:33%" class="fill-col">Least open economies</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Tariff rates</td>
+        <td>Low</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Currency convertibility</td>
+        <td>Freely convertible</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Quotas and trade-restricting regulation</td>
+        <td>Few</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">GDP per person</td>
+        <td>Higher</td>
+        <td><span class="blank blank-sm"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">You're an analyst at the IMF reviewing a country's trade profile: extensive capital controls limit how the local currency converts to dollars, tariffs protect a handful of favored domestic industries, and import licenses create months-long delays for many goods</div>
+    <p>Where would this country likely fall on the trade openness scale, and what does the evidence in this section suggest about the likely consequence for living standards?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column and matrix blanks throughout Sections I–VI. Use only your Questions and prompts.</p>
+  <ul>
+    <li>Can you explain why comparative advantage, not absolute advantage, determines what a country should trade?</li>
+    <li>Can you calculate an opportunity cost from a hours-to-produce table and use it to decide who specializes in what?</li>
+    <li>Can you predict the direction of the price, production, and consumption change for both the export case and the import case?</li>
+    <li>Can you explain why a tariff and a quota produce the same price effect through different mechanisms?</li>
+    <li>Can you name all four arguments for trade restriction and the complication that weakens each one?</li>
+    <li>Can you explain what's wrong with both trade fallacies, in your own words?</li>
+    <li>Can you name all three criteria of trade openness — tariff rates, currency convertibility, and quotas/regulation — and state how each one tends to differ between the most and least open economies?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Policy Aide, Tariff Vote</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy aide preparing talking points for a representative who has to vote on a proposed tariff next week.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. Identify the strongest argument in favor of the tariff, from Section V's four arguments.</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. Identify the strongest argument against it, drawing on Sections III and IV.</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Recommend a vote, and name the one piece of evidence that would most change your recommendation if it turned out to be false.</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for participation credit (5 pts).</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column and matrix blanks in Sections I–VI. Quiz yourself out loud using the Questions and prompts. Repeat daily until the quiz.</p>
+</div>
+
+</body>
+</html>
