@@ -227,6 +227,6 @@ _________________________________________________
 
 ---
 
-*Submit your completed notes to Canvas by [Date] for participation credit (5 pts).*
+*Submit your completed notes to Canvas by [Date] for an optional +2 point bonus toward that week's Puzzle score.*
 
 **STUDY TIP:** Don't re-read these notes passively. Cover the Notes column and matrix blanks in Sections I–VI and quiz yourself out loud using the Questions and prompts. Repeat daily until the quiz.
