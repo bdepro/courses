@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ch. 4: Demand and Supply: Applications and Extensions — ECO 1000 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Chapter 4: Demand and Supply: Applications and Extensions</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this lecture, I should be able to:</div>
+  <ol>
+    <li>Predict the shortage or surplus, and the non-price rationing that follows, when a price ceiling or floor moves a market away from equilibrium.</li>
+    <li>Analyze how relative elasticity — not who the law names — determines who actually bears a tax's burden or keeps a subsidy's benefit.</li>
+    <li>Evaluate why the revenue-maximizing point on the Laffer curve is not the economically optimal tax rate.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Price ceiling</td>
+        <td>A legally established <span class="blank"></span> price sellers may charge — below equilibrium, it causes a <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A price ceiling you've encountered (rent, tickets, etc.):</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Price floor</td>
+        <td>A legally established <span class="blank"></span> price buyers must pay — above equilibrium, it causes a <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A price floor you've encountered:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Non-price rationing</td>
+        <td>When price can't adjust to clear a market, goods get allocated by <span class="blank blank-lg"></span> instead — queuing, connections, discrimination.</td>
+        <td><span class="example-prompt">A line, waitlist, or lottery you've waited in:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Underground market</td>
+        <td>A market operating <span class="blank"></span> the legal system — illegal goods, or legal goods at illegal <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Statutory incidence</td>
+        <td>The <span class="blank"></span> assignment of who must pay a tax.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Actual incidence</td>
+        <td>The real division of a tax's burden, determined by relative <span class="blank blank-lg"></span> — independent of statutory incidence.</td>
+        <td><span class="example-prompt">A tax you've paid that you think someone else really absorbed (or vice versa):</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Deadweight loss</td>
+        <td>The loss of gains from trade that don't happen because a tax raises the <span class="blank"></span> of the activity.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Average tax rate</td>
+        <td>Tax liability ÷ <span class="blank"></span> income.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Marginal tax rate</td>
+        <td>Change in tax liability ÷ change in <span class="blank"></span> income — the rate relevant to earning one more dollar.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Tax base</td>
+        <td>The level of activity being taxed; <span class="blank blank-lg"></span> related to the tax rate.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Laffer curve</td>
+        <td>Relationship between tax rates and tax <span class="blank"></span> — low at both very low and very high rates.</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Subsidy</td>
+        <td>A payment whose benefit splits between buyers and sellers by relative elasticity — the mirror image of a <span class="blank"></span>.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Price Controls and Underground Markets</div>
+  <div class="connection-note">Last time we established that markets are interconnected — a change in one market's price ripples into the markets for the resources used to produce that good. Today's concept of price controls <em>interferes with</em> that same price mechanism directly, on purpose: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">New York City caps rents on covered apartments below the equilibrium rent. Trace the chain: what's the direct effect on quantity demanded vs. supplied, and what happens next?</td>
+        <td class="cornell-notes-col">Direct effect: a <span class="blank"></span> — quantity demanded <span class="blank"></span> quantity supplied at the capped price. Over time: quality <span class="blank"></span>, future supply <span class="blank"></span>, non-price rationing becomes <span class="blank"></span> important.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're an HR director and the federal minimum wage rises above your entry-level workers' equilibrium wage. What's the direct effect on employment, and what's one <em>indirect</em> effect you'd consider beyond just headcount?</td>
+        <td class="cornell-notes-col">Direct effect: employment <span class="blank"></span> because quantity of labor demanded falls <span class="blank"></span> quantity supplied. Indirect effect (your choice): <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">After years of rent control, an apartment search in a capped city requires large informal deposits and personal connections — not just cash. What does this illustrate, and why does it happen specifically <em>because</em> of the price ceiling?</td>
+        <td class="cornell-notes-col">This is <span class="blank blank-xl"></span> — non-price rationing fills the gap a frozen price can't close. It happens because: <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're advising a city council that wants to double the minimum wage to fight poverty. What's the strongest economic objection — not "it will hurt business," but something more precise about who the policy actually reaches?</td>
+        <td class="cornell-notes-col">Objection: many minimum-wage earners <span class="blank"></span> in poverty, and the workers most likely to lose hours or jobs are <span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE: PRICE CEILING/FLOOR ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — Price Ceiling or Floor</div>
+  <div class="graph-draw-area"></div>
+  Market for: <span class="blank blank-lg"></span> &nbsp;&nbsp; Label axes: Price ($ per <span class="blank blank-sm"></span>) | Quantity of <span class="blank blank-sm"></span><br>
+  Equilibrium price/quantity: P* = <span class="blank blank-sm"></span> &nbsp; Q* = <span class="blank blank-sm"></span><br>
+  Ceiling or floor line: <span class="blank blank-xl"></span><br>
+  Shortage or surplus: the gap between <span class="blank blank-sm"></span> and <span class="blank blank-sm"></span> at the controlled price
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Tax Incidence and Deadweight Loss</div>
+  <div class="connection-note">Price controls block the price mechanism by law. A tax doesn't block it — it adds a wedge between what buyers pay and what sellers receive. The question this section answers: who absorbs that wedge?</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%"></th>
+        <th style="width:37%" class="fill-col">Buyers bear more of the burden when...</th>
+        <th style="width:37%" class="fill-col">Sellers bear more of the burden when...</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Demand elasticity</td>
+        <td>Demand is <span class="blank blank-sm"></span> (few substitutes)</td>
+        <td>Demand is <span class="blank blank-sm"></span> (many substitutes)</td>
+      </tr>
+      <tr>
+        <td class="row-label">Supply elasticity</td>
+        <td>Supply is <span class="blank blank-sm"></span> (easy to expand/exit)</td>
+        <td>Supply is <span class="blank blank-sm"></span> (hard to expand/exit)</td>
+      </tr>
+      <tr>
+        <td class="row-label">Applied: a $50 excise tax on a generic prescription drug with no substitutes</td>
+        <td>Who bears most of this tax, and why? <span class="blank-full"></span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Applied: an excise tax on ride-share trips, where drivers can easily switch to delivery work</td>
+        <td>Who bears most of this tax, and why? <span class="blank-full"></span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Statutory vs. actual incidence — you're a tax policy analyst</div>
+    <p>Congress debates placing a new payroll tax on employers instead of employees, hoping this protects workers from the burden. You're asked to brief the committee.</p>
+    <p style="margin-top:8pt">What does economic analysis predict, and why does it contradict the bill's stated goal?</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Deadweight loss — fill in the relationship</div>
+    <p>Two markets face the same tax. Market A has highly inelastic demand and supply. Market B has highly elastic demand and supply.</p>
+    <p style="margin-top:8pt">Which market has the larger deadweight loss, and why? (Hint: deadweight loss depends on how much <em>quantity</em> falls, not on how high the price rises.)</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Tax Rates, Tax Revenue, and the Laffer Curve</div>
+  <div class="connection-note">Section II established that elasticity, not legal assignment, determines who bears a tax. This section turns to a different question: as tax rates rise, what happens to the revenue collected?</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:39%" class="fill-col">Definition (fill in)</th>
+        <th style="width:39%" class="fill-col">Tells you...</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Average tax rate</td>
+        <td>Tax liability ÷ <span class="blank"></span> income</td>
+        <td>How much of your total income goes to tax</td>
+      </tr>
+      <tr>
+        <td class="row-label">Marginal tax rate</td>
+        <td>Change in tax liability ÷ change in <span class="blank"></span> income</td>
+        <td>Whether earning one more dollar is worth it</td>
+      </tr>
+      <tr>
+        <td class="row-label">Progressive tax</td>
+        <td>Average rate <span class="blank"></span> as income rises</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Proportional tax</td>
+        <td>Average rate stays <span class="blank"></span> across income levels</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Regressive tax</td>
+        <td>Average rate <span class="blank"></span> as income rises</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Laffer curve — you're a state budget analyst</div>
+    <p>The state council expects a 20-percentage-point property tax rate increase to raise revenue by 20%. What concern would you raise, using the relationship between tax rate and tax base?</p>
+    <span class="write-lines"></span>
+    <p style="margin-top:10pt">A legislator argues: "We should tax cigarettes heavily — smokers have few substitutes, so the tax raises lots of revenue without hurting the economy much." Evaluate: what part of this claim is correct, and what does it leave out about who bears the burden?</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE: LAFFER CURVE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — Laffer Curve</div>
+  <div class="graph-draw-area"></div>
+  Axes: Tax rate (horizontal) vs. Tax revenue (vertical)<br>
+  Mark the revenue-maximizing rate: <span class="blank blank-lg"></span><br>
+  Is this rate economically optimal? Why or why not? <span class="blank-full"></span>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Subsidies and Pitfalls to Avoid</div>
+  <div class="connection-note">A subsidy is the mirror image of a tax — same elasticity logic, opposite direction. The pitfalls below are the errors that trip up students across this entire chapter.</div>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Subsidies — the mirror image of a tax</div>
+    <p>A subsidy splits its <em>benefit</em> between buyers and sellers by the same elasticity logic that splits a tax's <em>burden</em>. You're a policy analyst: a new subsidy pays $30 toward each college tuition bill, regardless of whether the check goes to the student or the school.</p>
+    <p style="margin-top:8pt">Who actually captures more of that $30 — and what determines it, regardless of who the check is made out to?</p>
+    <span class="write-lines"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Pitfall</th>
+        <th style="width:35%" class="fill-col">The error</th>
+        <th style="width:35%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Statutory incidence = actual incidence</td>
+        <td>Assuming whoever legally pays a tax is whoever economically bears it</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Revenue-maximizing rate = optimal rate</td>
+        <td>Treating the top of the Laffer curve as the best policy choice, ignoring excess burden</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Inelastic = larger deadweight loss</td>
+        <td>Confusing who bears the <em>burden</em> (inelastic side) with who causes the <em>deadweight loss</em> (driven by elasticity, not inelasticity)</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Fixing the price" = no further effects</td>
+        <td>Treating a ceiling or floor as the end of the story instead of the start of non-price rationing and quality effects</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Subsidy benefit flows to the named recipient</td>
+        <td>Assuming whoever receives the subsidy check is whoever keeps the benefit</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column in Sections I–III. Use only your Questions.</p>
+  <ul>
+    <li>Can you trace the full causal chain from a price ceiling to non-price rationing, out loud, without looking?</li>
+    <li>Can you explain why statutory incidence and actual incidence are different things?</li>
+    <li>Can you explain why the revenue-maximizing tax rate isn't the optimal one?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Lecture Summary</div>
+  <div class="summary-item">The main idea of today's lecture was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & RECAPITULATE ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Recapitulate</div>
+  <div class="section-header">Tax Policy Analyst, State Revenue Department</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a tax policy analyst at a state revenue department. A legislator proposes a new excise tax on a good and wants to know, before the bill is drafted, who will actually end up paying it and how much revenue it will realistically raise.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. What two pieces of information do you need before you can answer "who bears the burden"?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. Why might the legislator's revenue estimate be too high?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Advise the legislator: is this a good candidate for a high tax rate, or not? Defend your answer using elasticity — not just "it depends."</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Submit your completed notes to Canvas by [Date] for participation credit (5 pts).</p>
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column in Sections I–III. Quiz yourself out loud using the Questions. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next lecture: How do we measure the size of an entire economy? (Ch. 7)</p>
+</div>
+
+</body>
+</html>
