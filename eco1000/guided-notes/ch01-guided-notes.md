@@ -49,7 +49,7 @@ This is lecture one — no prior economics assumed. Scarcity is the foundation e
 *Comparison matrix — 8 rows*
 
 **Connection to Section I:**
-Scarcity forces choice. The eight guideposts tell you *how* economists think through those choices.
+Scarcity forces choice. The eight guideposts tell you *how* economists think through those choices — and they all rest on one basic postulate: people respond predictably to changes in their own self-interest. That's what makes every guidepost below *predictive* rather than just descriptive.
 
 | # | Guidepost | Core idea (fill in) | You're the decision-maker: apply it |
 |---|---|---|---|
@@ -73,6 +73,10 @@ Consequence 1 (incentives): _________________________________________
 Consequence 2 (secondary effects): _________________________________________
 
 **Cross-guidepost question:** Two of the eight guideposts are in tension in this rent-stabilization scenario. Identify which two, explain the tension, and decide which matters more for a housing policy analyst.
+
+_________________________________________
+
+**Looking ahead — Adam Smith:** Adam Smith is often called the father of modern economics for noticing that self-interest, channeled through markets, can produce outcomes that benefit society — an idea later called the "invisible hand." Which one or two guideposts above does this idea depend on, and why? What would have to be true about people's self-interest for this idea to work? (We'll return to this in Chapter 3.)
 
 _________________________________________
 
@@ -120,6 +124,7 @@ Cover your Notes column. Use only your Questions column and the row headers from
 - Can you explain each answer in your own words — without looking?
 - Can you give your own example for each of the eight guideposts?
 - Can you explain the difference between positive and normative without looking at the matrix?
+- Can you name which guidepost(s) the invisible-hand idea depends on, and explain why?
 
 Uncover and compare. **Mark anything incomplete or wrong with a star ★.**
 
