@@ -552,7 +552,7 @@
       <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>All assigned readings are on Perusall, accessible through the Canvas link. You do not need to purchase or download anything separately.</p>
+      <p>All assigned readings are PDF chapters, linked through Canvas. You do not need to purchase or download anything separately.</p>
       <div class="textbook-block" id="syl-textbook-block"></div>
       <p style="margin-top:0.85rem;">Four passages from Adam Smith&rsquo;s <cite>Theory of Moral Sentiments</cite> are assigned across the semester as separate Canvas assignments. I introduce each one in class on the designated Friday. Access them through Canvas when they are assigned.</p>
     </div>
@@ -627,7 +627,7 @@
           <p>One Puzzle per content week, due the following Wednesday at 11:59&nbsp;p.m. Eight days gives you time to try the puzzle after the reading, sit in Monday&rsquo;s class, and come back with a sharper answer. Each puzzle asks you to apply the concepts from that week&rsquo;s Hanley chapters.</p>
           <p>You have two attempts. Take the first one after the reading. After Monday&rsquo;s class, go back to what you missed. Canvas shows your score between attempts. You can use it to figure out where to spend your time.</p>
           <p>I drop your lowest puzzle score at the end of the semester. One bad week does not sink your grade. If you miss the Wednesday deadline, you have one more week to submit for 80% credit. After that, the puzzle closes.</p>
-          <p>There is no Puzzle in Week 7 (Mon&ndash;Tue only before Fall Break). That week has a Perusall reading but no quiz.</p>
+          <p>There is no Puzzle in Week 7 (Mon&ndash;Tue only before Fall Break). That week has a PDF reading but no quiz.</p>
         </div>
       </div>
 
@@ -826,10 +826,10 @@ if (INSTRUCTOR.officeHours) {
 }
 
 // Section 4 — Textbook block
-// COR 1100: TEXTBOOK.author (singular), TEXTBOOK.publisher, TEXTBOOK.platform
+// COR 1100: TEXTBOOK.author (singular), TEXTBOOK.publisher
 document.getElementById('syl-textbook-block').innerHTML =
   TEXTBOOK.author + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
-  TEXTBOOK.publisher + '. Available on ' + TEXTBOOK.platform + ' through Canvas.';
+  TEXTBOOK.publisher + '. Assigned chapters are linked as PDFs through Canvas.';
 
 // Section 5 — Schedule table
 // COR 1100: sessions use s.chapters[] array; chapters keyed in CHAPTERS.all

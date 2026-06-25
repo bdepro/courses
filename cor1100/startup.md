@@ -23,7 +23,7 @@ Update the checklist below as items are completed.
 First-year seminar modeled on ECO 1000. Same weekly structure, same grading component
 names and weights, same HTML framework. Key differences from ECO 1000:
 
-- **Text:** Hanley, *Our Great Purpose* (Princeton UP) — PDFs via Perusall, no Cengage
+- **Text:** Hanley, *Our Great Purpose* (Princeton UP) — direct PDF links via Canvas Files, no Perusall, no Cengage
 - **Source text:** Smith, *Theory of Moral Sentiments* — 4 passages serve as the TMS component
 - **No application block** — W12–W13 continue with Hanley chapters through the end
 - **25 chapters** — Intro + Ch. I–XXV, Ch. XI omitted (intentionally curated)
@@ -44,7 +44,7 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 | W4 | Sep 21–25 | Ch. VI, VII, VIII | Puzzle 3 |
 | W5 | Sep 28–Oct 2 | Ch. IX, X, XII | Puzzle 4 |
 | W6 | Oct 5–9 | — | CI #2 Wed Oct 7 · TMS 2 launched Fri |
-| W7 | Oct 12–13 | Ch. XIII | Perusall only — no separate quiz; tested in Puzzle 5 with W9 |
+| W7 | Oct 12–13 | Ch. XIII | PDF reading only — no separate quiz; tested in Puzzle 5 with W9 |
 | W8 | Oct 14–18 | — | Fall Break |
 | W9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 (covers Ch. XIII–XVI, incl. W7) · TMS 3 launched Fri |
 | W10 | Oct 26–30 | Ch. XVII, XVIII, XIX | Puzzle 6 |
@@ -72,14 +72,13 @@ All readings and quizzes due Wednesday 11:59 p.m. of each week.
 ## config.js — what still needs to be filled in
 
 - [ ] `CHAPTERS.threads` — standing analytical threads for every CI (not yet decided)
-- [ ] `CHAPTERS.all[*].url` — 25 Perusall assignment URLs (after Perusall is set up)
+- [ ] `CHAPTERS.all[*].fileId` — 24 Canvas Files file IDs, once that term's chapter PDFs are uploaded
 - [ ] `CANVAS.tms[*].title` and `.url` — 4 TMS passage titles and Canvas URLs
 - [ ] `CANVAS.puzzles[*].url` — 8 quiz URLs
 - [ ] `CANVAS.checkIns[*].url` — 4 check-in URLs
 - [ ] `CANVAS.friday[*].url` — narrative submission + Canvas Scheduler URL
 - [ ] `CANVAS.viva.*` — all viva week URLs
 - [ ] `PAGES.aiAssignments` — COR 1100 AI assignment URL (page not yet built)
-- [ ] `TEXTBOOK.perusallUrl` — Perusall course URL once registered
 - [ ] `INSTRUCTOR.officeHours` — update each semester
 - [ ] `SCHEDULE.finalExam` — update both COR 1100 and ECO 1000 when Elon posts schedule
 
@@ -96,7 +95,7 @@ Build in this order, using ECO 1000 equivalents as the model:
 - [x] `puzzles.html`
 - [x] `tms.html`
 - [x] `friday.html`
-- [x] `chapters.html` — Hanley chapter list with Perusall links (no Cengage)
+- [x] `chapters.html` — Hanley chapter list with direct PDF links (no Cengage, no Perusall)
 - [x] `syllabus.html`
 
 ---
@@ -105,12 +104,13 @@ Build in this order, using ECO 1000 equivalents as the model:
 
 - Each week (config key `session`) uses a `chapters: []` array (not a single `chapter:` string key)
 - No `QUESTIONS` block — no application block, no vote
-- `TEXTBOOK` has `perusallUrl` not `ebookUrl`
+- `TEXTBOOK` has no platform/ebook URL field — chapters are individual PDFs (see `CHAPTERS.all[*].fileId`), not a single textbook platform link
 - New `SOURCE_TEXT` block (Smith, TMS) — referenced in tms.html
-- `CHAPTERS.all` replaces `CHAPTERS.core` + `CHAPTERS.application`
+- `CHAPTERS.all` replaces `CHAPTERS.core` + `CHAPTERS.application`; each entry's `.url` is built from `fileId` via `FILE_URL()`, a Canvas Files link — not `ASSIGNMENT_URL()` like puzzles/TMS
 - Puzzle titles include full chapter titles, not just a topic phrase
-- Perusall grading policy TBD — currently listed as ungraded in config
+- Readings are ungraded (ungraded.id: "readings") — comprehension is checked via guided notes + the week's Puzzle instead of a Perusall annotation requirement
 - **"MME" is never used** — all JS keys, labels, and page names use `tms` / TMS throughout (`CANVAS.tms`, `session.tmsFF`, `tmsUrl`, `tms.html`)
+- **No Perusall** (decided 2026-06-25) — readings are direct PDF links via Canvas Files, not an annotation-tool LTI assignment
 
 ---
 

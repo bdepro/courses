@@ -8,8 +8,8 @@
 //  3. SCHEDULE block     — session dates, sessionStarts, finalExam,
 //                          finalExamPeriod
 //  4. CANVAS block       — all assignment IDs (aid), viva sign-up URL
-//  5. TEXTBOOK block     — perusallUrl once Perusall course is set up
-//  6. CHAPTERS block     — threads once finalized, Perusall aids
+//  5. TEXTBOOK block     — publisher/title/author only, no platform link
+//  6. CHAPTERS block     — threads once finalized, Canvas file IDs (fileId)
 //  That is it. All HTML files pull from this file automatically.
 // ================================================================
 
@@ -135,7 +135,7 @@ const SCHEDULE = {
       num: 7, dates: "Oct 12-13", label: "Week 7",
       chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
-      note: "Mon & Tue only — Ch. XIII On Being Loved / Perusall reading assigned; tested in Puzzle 5 with Week 9 / Fall Break begins Wed",
+      note: "Mon & Tue only — Ch. XIII On Being Loved / PDF reading assigned; tested in Puzzle 5 with Week 9 / Fall Break begins Wed",
     },
     {
       num: 8, dates: "Oct 14-18", label: "Fall Break",
@@ -237,37 +237,40 @@ const SCHEDULE = {
 // ================================================================
 //  CHAPTERS
 //  Hanley, Our Great Purpose (Ch. XI omitted — not assigned)
-//  aid: Canvas assignment ID — URL auto-built at bottom of this file
-//  UPDATE each semester if Perusall assignments are rebuilt
+//  fileId: Canvas Files file ID for that chapter's PDF — URL auto-built
+//  at the bottom of this file. No Perusall — students get a direct PDF
+//  link (guided notes + a Puzzle cover the reading instead of an
+//  annotation tool).
+//  UPDATE each semester once that term's PDFs are uploaded to Canvas Files
 // ================================================================
 const CHAPTERS = {
 
   all: [
-    { key: "intro", num: "Intro",      title: "Introduction",                   session: 1,  aid: "" },
-    { key: "ch1",   num: "Ch. I",      title: "On Self-Interest",               session: 1,  aid: "" },
-    { key: "ch2",   num: "Ch. II",     title: "On Caring for Others",           session: 1,  aid: "" },
-    { key: "ch3",   num: "Ch. III",    title: "On Acting for Others",           session: 2,  aid: "" },
-    { key: "ch4",   num: "Ch. IV",     title: "On Imagination",                 session: 2,  aid: "" },
-    { key: "ch5",   num: "Ch. V",      title: "On Bettering Our Condition",     session: 2,  aid: "" },
-    { key: "ch6",   num: "Ch. VI",     title: "On Miseries and Disorders",      session: 4,  aid: "" },
-    { key: "ch7",   num: "Ch. VII",    title: "On the Healthy Mind",            session: 4,  aid: "" },
-    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  aid: "" },
-    { key: "ch9",   num: "Ch. IX",     title: "On Worshipping Wealth",          session: 5,  aid: "" },
-    { key: "ch10",  num: "Ch. X",      title: "On Friendship",                  session: 5,  aid: "" },
-    { key: "ch12",  num: "Ch. XII",    title: "On Hatred and Anger",            session: 5,  aid: "" },
-    { key: "ch13",  num: "Ch. XIII",   title: "On Being Loved",                 session: 7,  aid: "" },
-    { key: "ch14",  num: "Ch. XIV",    title: "On Loving",                      session: 9,  aid: "" },
-    { key: "ch15",  num: "Ch. XV",     title: "On Flourishing",                 session: 9,  aid: "" },
-    { key: "ch16",  num: "Ch. XVI",    title: "On Being Lovely",                session: 9,  aid: "" },
-    { key: "ch17",  num: "Ch. XVII",   title: "On Seeing Ourselves",            session: 10, aid: "" },
-    { key: "ch18",  num: "Ch. XVIII",  title: "On Dignity",                     session: 10, aid: "" },
-    { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, aid: "" },
-    { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, aid: "" },
-    { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, aid: "" },
-    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, aid: "" },
-    { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, aid: "" },
-    { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, aid: "" },
-    { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, aid: "" },
+    { key: "intro", num: "Intro",      title: "Introduction",                   session: 1,  fileId: "" },
+    { key: "ch1",   num: "Ch. I",      title: "On Self-Interest",               session: 1,  fileId: "" },
+    { key: "ch2",   num: "Ch. II",     title: "On Caring for Others",           session: 1,  fileId: "" },
+    { key: "ch3",   num: "Ch. III",    title: "On Acting for Others",           session: 2,  fileId: "" },
+    { key: "ch4",   num: "Ch. IV",     title: "On Imagination",                 session: 2,  fileId: "" },
+    { key: "ch5",   num: "Ch. V",      title: "On Bettering Our Condition",     session: 2,  fileId: "" },
+    { key: "ch6",   num: "Ch. VI",     title: "On Miseries and Disorders",      session: 4,  fileId: "" },
+    { key: "ch7",   num: "Ch. VII",    title: "On the Healthy Mind",            session: 4,  fileId: "" },
+    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  fileId: "" },
+    { key: "ch9",   num: "Ch. IX",     title: "On Worshipping Wealth",          session: 5,  fileId: "" },
+    { key: "ch10",  num: "Ch. X",      title: "On Friendship",                  session: 5,  fileId: "" },
+    { key: "ch12",  num: "Ch. XII",    title: "On Hatred and Anger",            session: 5,  fileId: "" },
+    { key: "ch13",  num: "Ch. XIII",   title: "On Being Loved",                 session: 7,  fileId: "" },
+    { key: "ch14",  num: "Ch. XIV",    title: "On Loving",                      session: 9,  fileId: "" },
+    { key: "ch15",  num: "Ch. XV",     title: "On Flourishing",                 session: 9,  fileId: "" },
+    { key: "ch16",  num: "Ch. XVI",    title: "On Being Lovely",                session: 9,  fileId: "" },
+    { key: "ch17",  num: "Ch. XVII",   title: "On Seeing Ourselves",            session: 10, fileId: "" },
+    { key: "ch18",  num: "Ch. XVIII",  title: "On Dignity",                     session: 10, fileId: "" },
+    { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, fileId: "" },
+    { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, fileId: "" },
+    { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, fileId: "" },
+    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, fileId: "" },
+    { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, fileId: "" },
+    { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, fileId: "" },
+    { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, fileId: "" },
   ],
 
   // Standing analytical threads — appear on every check-in
@@ -309,8 +312,8 @@ const GRADING = {
       note: "4 passages from The Theory of Moral Sentiments. Introduced Friday of designated sessions. Due Wednesday at 11:59 p.m." },
   ],
   ungraded: [
-    { id: "perusall", label: "Perusall Readings",
-      note: "One assignment per chapter. Due Wednesday 11:59 p.m. of each session. Reading preparation for class and quizzes." },
+    { id: "readings", label: "Chapter Readings",
+      note: "One PDF per chapter, linked through Canvas. Due Wednesday 11:59 p.m. of each session. Reading preparation for class, guided notes, and Puzzles." },
   ],
 };
 
@@ -324,7 +327,7 @@ const FEATURES = {
   syllabus:      true,
   assignments:   true,
   textbook:      false,
-  chapters:      true,    // Hanley chapter list with Perusall links
+  chapters:      true,    // Hanley chapter list with direct PDF links
   checkins:      false,
   puzzles:       false,
   badges:        false,
@@ -338,15 +341,14 @@ const FEATURES = {
 };
 
 // ================================================================
-//  TEXTBOOK — Hanley, accessed via Perusall
-//  UPDATE: perusallUrl once Perusall course is set up
+//  TEXTBOOK — Hanley, accessed as PDF chapters through Canvas Files
+//  (see CHAPTERS.all for the per-chapter file links — no separate
+//  textbook-platform URL needed)
 // ================================================================
 const TEXTBOOK = {
   publisher:   "Princeton University Press",
-  platform:    "Perusall",
   title:       "Our Great Purpose: Adam Smith on Living a Better Life",
   author:      "Ryan Patrick Hanley",
-  perusallUrl: "",   // UPDATE: Perusall course URL once registered
 };
 
 // ================================================================
@@ -516,13 +518,19 @@ const BLOCKS = [
 
 // ================================================================
 //  URL DERIVATION — do not edit
-//  Builds .url on every assignment entry from COURSE.canvasId + aid.
-//  Consumers continue to read .url as before; aid is the source of truth.
+//  Builds .url on every assignment/file entry from COURSE.canvasId + aid
+//  (or fileId for CHAPTERS.all). Consumers continue to read .url as
+//  before; aid/fileId is the source of truth.
 // ================================================================
 const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
-[CHAPTERS.all, CANVAS.puzzles, CANVAS.tms]
+const FILE_URL = fileId =>
+  fileId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/${fileId}` : '';
+
+CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
+
+[CANVAS.puzzles, CANVAS.tms]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 // ================================================================
