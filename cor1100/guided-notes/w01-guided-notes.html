@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1: Introduction, On Self-Interest, On Caring for Others — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 1: Introduction, On Self-Interest, On Caring for Others</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Distinguish sympathy from the impartial spectator as two distinct mechanisms in Smith's moral psychology, and apply each to a new scenario.</li>
+    <li>Analyze a real decision to determine whether it reflects Smith's narrow sense of self-interest (basic self-care) or a culturally shaped "want," and explain why the distinction matters morally.</li>
+    <li>Analyze how the "great division of our affections" — self-concern and concern for others — operates as two equally natural, independent drives, and evaluate why neither extreme produces a good life.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Wisdom and virtue (synthesis)</td>
+        <td>Smith's philosophy of living pairs <span class="blank"></span> (practical judgment in action) with <span class="blank"></span> (character formed through reflection).</td>
+        <td><span class="example-prompt">A moment you acted wisely but didn't reflect on it:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Sympathy</td>
+        <td>Sympathy is the sentiment that leads a person to <span class="blank"></span>, in some measure, what another person <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time you caught someone else's mood without being told:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Impartial spectator</td>
+        <td>An <span class="blank"></span> judge, unclouded by self-interest, who evaluates conduct the way a <span class="blank"></span> third party would.</td>
+        <td><span class="example-prompt">A moment you paused to imagine a stranger's judgment of you:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Awful virtues" (self-command, magnanimity)</td>
+        <td>Govern how we manage our own <span class="blank"></span> and <span class="blank"></span>; they are self-regarding.</td>
+        <td><span class="example-prompt">A recent moment you had to govern your own impulse:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Amiable virtues" (benevolence, love)</td>
+        <td>Govern our <span class="blank"></span> and <span class="blank"></span> toward other people; they are other-regarding.</td>
+        <td><span class="example-prompt">A recent moment you acted from concern for someone else:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Division and unity</td>
+        <td>Names the tension between competing pulls — self vs. <span class="blank"></span> — and the project of holding one life together as a coherent <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A choice where self-concern and other-concern pulled in different directions:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Critical distance</td>
+        <td>The capacity to step outside yourself and see your own conduct the way an <span class="blank"></span> <span class="blank"></span> would — distinct from simple self-control.</td>
+        <td><span class="example-prompt">A time you saw your own behavior "from the outside":</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Self-interest (Smith's sense)</td>
+        <td>A natural drive to attend to one's own basic <span class="blank"></span> — not to <span class="blank"></span> or status.</td>
+        <td><span class="example-prompt">One basic need (not want) you took care of today:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Needs vs. wants</td>
+        <td>Needs are determined by <span class="blank"></span> and limited to specific goods; wants come from <span class="blank blank-lg"></span>.</td>
+        <td><span class="example-prompt">A recent want you have that isn't a true need:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Invisible hand (distributive sense)</td>
+        <td>Pursuing self-interest can unintentionally <span class="blank"></span> others too — even though that wasn't the <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time your self-interested choice happened to help someone else:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Interest in others / "necessary"</td>
+        <td>Others' happiness is <span class="blank"></span> to our own — a stronger claim than ordinary <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time someone else's bad news affected your mood, unprompted:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Great division of our affections</td>
+        <td>Our affections divide into the <span class="blank"></span> and the <span class="blank"></span> — two equally natural, independent pulls.</td>
+        <td><span class="example-prompt">A recent decision where you felt both pulls at once:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: INTRODUCTION ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Introduction: What Standard Guides a Life?</div>
+  <div class="connection-note">This Introduction names two mechanisms (sympathy, the impartial spectator) and a recurring tension (division and unity) before either has been tested against a real case. Watch for it across this week: Part II's self-interest argument and Part III's interest-in-others argument are both applications of that same division — not new, unrelated ideas.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, where Hanley states what standard Smith's TMS offers for judging a life (p. 1). Then predict: if a person never adopts <em>any</em> external standard for judging their choices, what happens to the idea that their life has "unity"?</td>
+        <td class="cornell-notes-col">
+          Hanley's line (paraphrase + page): <span class="blank-full"></span>
+          Without a standard, "unity" becomes <span class="blank blank-xl"></span> because: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Trace the chain: how does Smith's emphasis on TMS over WN change what Hanley claims Smith is offering readers?</td>
+        <td class="cornell-notes-col">
+          WN offers: <span class="blank blank-xl"></span><br><br>
+          TMS offers (per Hanley): <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Your friend Soren insists something is fine simply because he feels the same urge you do. Which mechanism is missing from his reasoning — sympathy, or the impartial spectator?</td>
+        <td class="cornell-notes-col">
+          Missing mechanism: <span class="blank blank-lg"></span><br><br>
+          Why it's missing: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Name one "awful" virtue and one "amiable" virtue. Which one are you drawing on when you calm your own anger before responding to a provocation?</td>
+        <td class="cornell-notes-col">
+          Awful virtue: <span class="blank blank-lg"></span> &nbsp; Amiable virtue: <span class="blank blank-lg"></span><br><br>
+          You're drawing on: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: Hanley names two sources of challenge to a unified life — human nature and the modern world. Compare them: which is harder to resist, and why?</td>
+        <td class="cornell-notes-col">
+          Human-nature challenge: <span class="blank-full"></span>
+          Modern-world challenge: <span class="blank-full"></span>
+          Harder to resist: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: critical distance is described as distinct from self-command. Defend why someone could have excellent self-command but weak critical distance.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Read both: (1) Watching her friend trip and drop a tray in front of a packed restaurant, Mei feels her own face flush with embarrassment, as if it had happened to her. (2) Before criticizing his roommate's messy cooking habits out loud, Conor stops to imagine how a stranger with no stake in their household would judge his own complaint, given that he never washes his own dishes either. Which person is exhibiting sympathy, and which is exhibiting the impartial spectator? Justify each answer.</td>
+        <td class="cornell-notes-col">
+          Mei illustrates: <span class="blank blank-lg"></span> because: <span class="blank-full"></span>
+          Conor illustrates: <span class="blank blank-lg"></span> because: <span class="blank-full"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Item</th>
+        <th style="width:18%">Register</th>
+        <th style="width:18%">Which side</th>
+        <th style="width:34%" class="fill-col">What it governs / creates — and your own example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Self-command &amp; magnanimity ("awful" virtues)</td>
+        <td>Virtue pair</td>
+        <td>Self-regarding</td>
+        <td>Governs: <span class="blank-full"></span> Your example: <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Benevolence &amp; love ("amiable" virtues)</td>
+        <td>Virtue pair</td>
+        <td>Other-regarding</td>
+        <td>Governs: <span class="blank-full"></span> Your example: <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label"><span class="blank blank-xl"></span> (name the challenge)</td>
+        <td>Challenge</td>
+        <td>Human nature</td>
+        <td>Creates: self-concern vs. concern for others. Your example: <span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label"><span class="blank blank-xl"></span> (name the challenge)</td>
+        <td>Challenge</td>
+        <td>Modern world</td>
+        <td>Creates: reward for self-advancement vs. admiration for self-sacrifice. Your example: <span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON SELF-INTEREST ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 1 — On Self-Interest</div>
+  <div class="connection-note">Part I introduced sympathy and the impartial spectator before testing them against a real case. This chapter is the first test: Smith's self-interest, narrowed and applied.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: where does Smith say self-interest is something each person is "by nature... recommended to his own care" (p. 11–12)? Then: Hanley says capitalism's defenders and critics share one mistake about Smith's self-interest. Identify the mistake, then explain why both sides fall into it.</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Shared mistake: <span class="blank-full"></span>
+          Why both sides fall into it: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply the needs/wants distinction to a recent purchase decision of your own: which category does it fall into, and how do you know?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Aditi, a freelance illustrator, takes on a high-profile project purely to build her own portfolio — but finishing it also trains two junior contractors she brings on, who go on to find steady work elsewhere. Trace how this connects to the "invisible hand" as Hanley uses it here, and state what this version of the idea does <em>not</em> claim.</td>
+        <td class="cornell-notes-col">
+          Connection to invisible hand: <span class="blank-full"></span>
+          What it does NOT claim: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: Smith calls some self-interested acts "laudable" and others "unjust and extravagant." Defend the claim that self-interest's moral status depends on <em>how</em> it's pursued, not on whether it's present.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Explain what Smith means by "each person is fitter and abler to take care of himself than of any other person." Predict what's lost when you let someone else make a decision about your own life that you're fully capable of making yourself — even if they mean well.</td>
+        <td class="cornell-notes-col">
+          What Smith means: <span class="blank-full"></span>
+          What's lost: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Bashir grows vegetables in his backyard purely to cut his grocery bill, but ends up with more produce than he can use and gives the extra to elderly neighbors on his block. Does this scenario best illustrate the needs/wants distinction, or the invisible hand (distributive sense)? Justify your choice by explaining why the other concept doesn't fit as well.</td>
+        <td class="cornell-notes-col">
+          Best-fitting concept: <span class="blank blank-xl"></span><br><br>
+          Why the other concept fits less well: <span class="blank-full"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%"></th>
+        <th style="width:38%" class="fill-col">Popular reading (Gekko/Stigler)</th>
+        <th style="width:38%" class="fill-col">Smith's actual claim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Scope of the drive</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Example</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Moral status</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — PART III: ON CARING FOR OTHERS ── -->
+<div class="section-block">
+  <div class="section-label">Part III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Ch. 2 — On Caring for Others</div>
+  <div class="connection-note">Part II narrowed self-interest down to basic self-care — one half of the division named in the Introduction. This chapter establishes the other half: interest in others, equally natural and equally strong.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write out (or closely paraphrase) the actual opening line of TMS that Hanley quotes (p. 15–16). Then analyze: why does Hanley treat its placement as significant, given Smith's popular reputation?</td>
+        <td class="cornell-notes-col">
+          Opening line (paraphrase + page): <span class="blank-full"></span>
+          Why the placement matters: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Distinguish Smith's claim from ordinary "egoism vs. altruism" talk. What single word makes his claim stronger than ordinary altruism?</td>
+        <td class="cornell-notes-col">
+          The word: <span class="blank blank-lg"></span><br><br>
+          Why it's stronger: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Recall a time you felt real happiness about good news that happened to someone else — a stranger's win, an acquaintance's success — even though it didn't benefit you personally. What does this suggest about whether happiness is something each of us experiences alone?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze the "great division of our affections." Explain why this division ties back to the nature-based challenge named in the Introduction.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: Hanley says neither a life of pure self-interest nor a life of pure devotion to others does justice to human nature — even though either path would be more consistent. Defend this claim using your own reasoning, not just Hanley's.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Ingrid feels both a strong pull to spend her weekend finishing her own thesis chapter and an equally strong pull to drive four hours home because her sister is going through a hard breakup. Does this best illustrate the "great division of our affections," or is it simply a scheduling conflict with no deeper structure? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%">Path</th>
+        <th style="width:25%" class="fill-col">What's gained</th>
+        <th style="width:25%" class="fill-col">What's lost</th>
+        <th style="width:26%" class="fill-col">Why it fails to honor both sides of nature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Pure self-interest</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Pure devotion to others</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part IV</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the three chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:30%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Sympathy vs. impartial spectator</td>
+        <td>Same mechanism</td>
+        <td>Distinct: one feels-with, one judges as a neutral third party</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Smith = capitalism"</td>
+        <td>Self-interest/market vocabulary applies here</td>
+        <td>This text is about moral psychology in TMS, not Wealth of Nations</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Self-interest = greed</td>
+        <td>Status- and luxury-seeking</td>
+        <td>Narrow drive toward basic self-care only</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Useful ≠ moral</td>
+        <td>Economically helpful = morally good</td>
+        <td>Two separate claims; only the first is automatic</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Interest in others = ordinary altruism</td>
+        <td>"Caring sometimes"</td>
+        <td>A stronger claim — others' happiness is "necessary" to us</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Resolving the division by picking a side</td>
+        <td>Consistently choosing self <em>or</em> others settles it</td>
+        <td>Requires ongoing balance — neither extreme is adequate</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you distinguish sympathy from the impartial spectator without looking at Part I?</li>
+    <li>Can you explain why self-interest's moral status depends on how it's pursued, not just whether it's present?</li>
+    <li>Can you explain why the "great division of our affections" is a structural feature of human nature, not a personal flaw?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Three Chapters Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why Hanley centers TMS rather than Wealth of Nations, I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Caleb tells you he only trusts people who "look out for themselves first," and dismisses anyone who claims to care about others as naive. Using this week's three chapters, what would you say to him — and where, if anywhere, do you think he has a point?</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Return to the decision you analyzed in Part II's needs/wants prompt. Now factor in Part III's claim that others' happiness is "necessary" to your own. Does that change how you'd justify the decision? Why or why not?</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next week: Ch. III–V — On Acting for Others, On Imagination, and On Bettering Our Condition (W2)</p>
+</div>
+
+</body>
+</html>
