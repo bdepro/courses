@@ -45,6 +45,26 @@ body {
 }
 .print-btn:hover { background: #333; }
 
+/* ── Submit button ── */
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+.submit-btn.inactive {
+  background: var(--mid);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 /* ── Header ── */
 .doc-header {
   border-bottom: 2px solid var(--ink);
@@ -435,6 +455,7 @@ th.fill-col {
 @media print {
   body { padding: 0.5in 0.75in; max-width: 100%; }
   .print-btn { display: none; }
+  .submit-btn { display: none; }
 
   /* Row integrity — never clip a row at a page boundary */
   tr { page-break-inside: avoid; page-break-after: auto; }
@@ -912,9 +933,17 @@ th.fill-col {
   </table>
 </div>
 
+<!-- ── SUBMIT YOUR NOTES ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Notes</div>
+  <div class="connection-note">Submitting your completed notes is optional and worth 2 points toward this week's Puzzle score (1.6 points if submitted within one week late). Skipping it costs you nothing.</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/920/assignments/9073" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
 <!-- ── FOOTER ── -->
 <div class="doc-footer">
-  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="submit-line">Use the Submit button above to turn in your notes for credit.</p>
   <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
   Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
   <p class="next-lecture">Next week: Ch. XXIII, XXIV, XXV — On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness (W13)</p>

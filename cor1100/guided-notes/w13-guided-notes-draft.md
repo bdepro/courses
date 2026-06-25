@@ -148,9 +148,17 @@ This is a global experience class with students from many backgrounds. Here's ho
 
 ---
 
+## Submit Your Notes
+
+Submitting your completed notes is optional and worth 2 points toward this week's Puzzle score (1.6 points if submitted within one week late). Skipping it costs you nothing.
+
+**[Submit to Canvas](https://elon.instructure.com/courses/920/assignments/9074)**
+
+---
+
 ## Footer
 ```
-Upload your completed notes to Canvas by [Date] for participation credit.
+Use the Submit button above to turn in your notes for credit.
 
 STUDY TIP: Do not re-read these notes passively.
 Cover the Notes column. Use the Questions column to quiz yourself — out loud.

@@ -174,9 +174,17 @@ This is a global experience class with students from many backgrounds. Here's ho
 
 ---
 
+## Submit Your Notes
+
+This one document covers both W7 and W9 — submit it once, after completing all four chapters. Submitting is optional and worth 2 points toward the combined Puzzle 5 score (1.6 points if submitted within one week late). Skipping it costs you nothing.
+
+**[Submit to Canvas](https://elon.instructure.com/courses/920/assignments/9071)**
+
+---
+
 ## Footer
 ```
-Upload your completed notes to Canvas by [Date] for participation credit.
+Use the Submit button above to turn in your notes for credit.
 
 STUDY TIP: Do not re-read these notes passively.
 Cover the Notes column. Use the Questions column to quiz yourself — out loud.
