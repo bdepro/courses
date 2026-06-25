@@ -5,14 +5,14 @@
   Hosted: bdepro.github.io/courses/cor1100/chapters.html
   All chapter data pulls from CHAPTERS.all in config.js.
   Chapter XI is intentionally omitted from CHAPTERS.all.
-  UPDATE: chapter aids in config.js once Perusall is set up.
+  UPDATE: chapter fileIds in config.js once PDFs are uploaded to Canvas Files.
 ================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hanley chapter directory with Perusall links for COR 1100 at Elon University.">
+  <meta name="description" content="Hanley chapter directory with PDF links for COR 1100 at Elon University.">
   <title>COR 1100 · Hanley Chapters</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +76,7 @@
 </div>
 <main id="main">
   <div class="callout teal">
-    <strong>Click any chapter to open it in Perusall through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned.
+    <strong>Click any chapter to open the PDF through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned.
   </div>
   <p class="section-label" id="chapterLabel"></p>
   <div class="chapter-list" id="chapterList"></div>
@@ -89,7 +89,7 @@ document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon Uni
 document.getElementById('pageSub').textContent     = TEXTBOOK.title + ' · ' + TEXTBOOK.publisher;
 document.getElementById('pageFooter').textContent  = COURSE.code + ' · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
 document.getElementById('chapterLabel').textContent =
-  'All chapters (' + CHAPTERS.all.length + ') — click to open in Perusall';
+  'All chapters (' + CHAPTERS.all.length + ') — click to open the PDF';
 
 var list = document.getElementById('chapterList');
 

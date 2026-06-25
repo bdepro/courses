@@ -568,12 +568,12 @@
       letter-spacing: 0.02em; text-decoration: none;
       line-height: 1.4; transition: opacity 0.15s;
     }
-    .rpill-perusall {
+    .rpill-reading {
       background: rgba(82,123,130,0.12);
       color: var(--teal-dk);
       border: 1px solid rgba(82,123,130,0.22);
     }
-    .rpill-perusall:hover { opacity: 0.8; }
+    .rpill-reading:hover { opacity: 0.8; }
     .rpill-inactive {
       background: var(--warm-gray);
       color: var(--disabled);
@@ -1292,7 +1292,7 @@ SCHEDULE.sessions.forEach((session, idx) => {
 
     const resourceHtml = chapters.map(ch => {
       return ch.url
-        ? `<a class="resource-pill rpill-perusall" href="${ch.url}" target="_blank" rel="noopener">${ch.num} ↗</a>`
+        ? `<a class="resource-pill rpill-reading" href="${ch.url}" target="_blank" rel="noopener">${ch.num} ↗</a>`
         : `<span class="resource-pill rpill-inactive">${ch.num}</span>`;
     }).join('');
 
