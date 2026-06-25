@@ -26,7 +26,7 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 - **Text:** Hanley, *Our Great Purpose* (Princeton UP) — PDFs via Perusall, no Cengage
 - **Source text:** Smith, *Theory of Moral Sentiments* — 4 passages serve as the TMS component
 - **No application block** — W12–W13 continue with Hanley chapters through the end
-- **24 chapters** — Intro + Ch. I–XXV, Ch. XI and Ch. XXII omitted (intentionally curated)
+- **25 chapters** — Intro + Ch. I–XXV, Ch. XI omitted (intentionally curated)
 - **8 Puzzles** — formative MC quizzes; W7 (Ch. XIII, Mon/Tue only before Fall Break) has no quiz of its own — its content is tested in Puzzle 5 together with W9
 
 **Terminology note (updated 2026-06-24):** the syllabus and `config.js` (`label: "Week N"`) use **Week** (W0–W15), not "Session" (S0–S15). This file previously used "Session" throughout — numbering is unchanged, only the label changed. The JS array is still internally named `SCHEDULE.sessions` and individual chapter entries still carry a `session:` key (e.g. `session: 1`); that internal field name is unaffected by the student-facing label change.
@@ -49,7 +49,7 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 | W9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 (covers Ch. XIII–XVI, incl. W7) · TMS 3 launched Fri |
 | W10 | Oct 26–30 | Ch. XVII, XVIII, XIX | Puzzle 6 |
 | W11 | Nov 2–6 | — | CI #3 Wed Nov 4 · TMS 4 launched Fri |
-| W12 | Nov 9–13 | Ch. XX, XXI | Puzzle 7 |
+| W12 | Nov 9–13 | Ch. XX, XXI, XXII | Puzzle 7 |
 | W13 | Nov 16–20 | Ch. XXIII, XXIV, XXV | Puzzle 8 |
 | W14 | Nov 23–27 | — | Thanksgiving Break |
 | W15 | Nov 30–Dec 4 | — | Viva week · CI #4 Fri Dec 4 |
@@ -111,3 +111,18 @@ Build in this order, using ECO 1000 equivalents as the model:
 - Puzzle titles include full chapter titles, not just a topic phrase
 - Perusall grading policy TBD — currently listed as ungraded in config
 - **"MME" is never used** — all JS keys, labels, and page names use `tms` / TMS throughout (`CANVAS.tms`, `session.tmsFF`, `tmsUrl`, `tms.html`)
+
+---
+
+## Session log
+
+### 2026-06-25 — Guided notes reconciled with mcq-bank Ch. 22 correction
+
+After the mcq-bank repo built Ch. 22's MCQ bank + instructor manual (it had been mistakenly treated as skipped) and fixed Ch. 23's instructor manual to correctly credit Ch. 22 with introducing the absolute/relative perfection distinction, the COR 1100 guided notes were audited and reconciled to match:
+
+- **Confirmed clean, no changes:** W1–W5, W7–09, W10's content, Puzzles 1–4, Puzzle 5 — none touch the affected chapters.
+- **Fixed:** `w10-guided-notes.html` footer's stale "next lecture" line claimed Ch. XXII wasn't assigned — corrected to list Ch. XX, XXI, XXII.
+- **Rebuilt:** `w12-guided-notes-draft.md` + `.html` — previously only covered Ch. 20–21 as a 2-chapter week (flagged "NEEDS UPDATE"). Added a full Part III for Ch. 22 (cues, Matrix 3, new Key Terms, new Pitfalls rows) and expanded the week to the standard 3-chapter shape: 3 Learning Targets, 12 Key Terms, 6 Pitfalls rows. New name used: Solveig. Verbatim-audited against `mcq-bank/cor1100/ch22-on-perfection/perfection-and-social-harmony/formative.md`.
+- **Corrected:** `w13-guided-notes-draft.md` + `.html` previously presented the absolute/relative perfection distinction as if Ch. 23 introduced it. Fixed Learning Target 1, the two perfection rows in Key Terms, the Part I connection-note, Part I's Apply cue, Matrix 1's caption (draft only), and a Common Pitfalls row to correctly credit Ch. 22 as the distinction's origin, with Ch. 23 applying it to wisdom specifically.
+
+No further guided-notes follow-up pending. Course-site chapter/week mapping in `config.js` was already correct from the prior correction session.

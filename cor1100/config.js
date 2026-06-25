@@ -163,9 +163,9 @@ const SCHEDULE = {
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
-      chapters: ["ch20", "ch21"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. XX On Choice / Ch. XXI On Self and Others",
+      note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Week 13",
@@ -236,7 +236,7 @@ const SCHEDULE = {
 
 // ================================================================
 //  CHAPTERS
-//  Hanley, Our Great Purpose (Ch. XI and Ch. XXII omitted — not assigned)
+//  Hanley, Our Great Purpose (Ch. XI omitted — not assigned)
 //  aid: Canvas assignment ID — URL auto-built at bottom of this file
 //  UPDATE each semester if Perusall assignments are rebuilt
 // ================================================================
@@ -264,6 +264,7 @@ const CHAPTERS = {
     { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, aid: "" },
     { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, aid: "" },
     { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, aid: "" },
+    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, aid: "" },
     { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, aid: "" },
     { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, aid: "" },
     { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, aid: "" },
@@ -415,7 +416,7 @@ const CANVAS = {
     { session: 5,  title: "Puzzle 4: On Worshipping Wealth, On Friendship, On Hatred and Anger",                          aid: "" },  // UPDATE
     { session: 9,  title: "Puzzle 5: On Being Loved, On Loving, On Flourishing, On Being Lovely",                          aid: "" },  // UPDATE
     { session: 10, title: "Puzzle 6: On Seeing Ourselves, On Dignity, On Equality",                                       aid: "" },  // UPDATE
-    { session: 12, title: "Puzzle 7: On Choice, On Self and Others",                                                     aid: "" },  // UPDATE
+    { session: 12, title: "Puzzle 7: On Choice, On Self and Others, On Perfection",                                      aid: "" },  // UPDATE
     { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "" },  // UPDATE
   ],
 
