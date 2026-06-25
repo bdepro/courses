@@ -26,8 +26,8 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 - **Text:** Hanley, *Our Great Purpose* (Princeton UP) — PDFs via Perusall, no Cengage
 - **Source text:** Smith, *Theory of Moral Sentiments* — 4 passages serve as the TMS component
 - **No application block** — W12–W13 continue with Hanley chapters through the end
-- **25 chapters** — Intro + Ch. I–XXV, Ch. XI omitted (intentionally curated)
-- **8 Puzzles** — formative MC quizzes; no quiz in W7 (Mon/Tue only before Fall Break)
+- **24 chapters** — Intro + Ch. I–XXV, Ch. XI and Ch. XXII omitted (intentionally curated)
+- **8 Puzzles** — formative MC quizzes; W7 (Ch. XIII, Mon/Tue only before Fall Break) has no quiz of its own — its content is tested in Puzzle 5 together with W9
 
 **Terminology note (updated 2026-06-24):** the syllabus and `config.js` (`label: "Week N"`) use **Week** (W0–W15), not "Session" (S0–S15). This file previously used "Session" throughout — numbering is unchanged, only the label changed. The JS array is still internally named `SCHEDULE.sessions` and individual chapter entries still carry a `session:` key (e.g. `session: 1`); that internal field name is unaffected by the student-facing label change.
 
@@ -44,12 +44,12 @@ names and weights, same HTML framework. Key differences from ECO 1000:
 | W4 | Sep 21–25 | Ch. VI, VII, VIII | Puzzle 3 |
 | W5 | Sep 28–Oct 2 | Ch. IX, X, XII | Puzzle 4 |
 | W6 | Oct 5–9 | — | CI #2 Wed Oct 7 · TMS 2 launched Fri |
-| W7 | Oct 12–13 | Ch. XIII | Perusall only — no quiz |
+| W7 | Oct 12–13 | Ch. XIII | Perusall only — no separate quiz; tested in Puzzle 5 with W9 |
 | W8 | Oct 14–18 | — | Fall Break |
-| W9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 · TMS 3 launched Fri |
+| W9 | Oct 19–23 | Ch. XIV, XV, XVI | Puzzle 5 (covers Ch. XIII–XVI, incl. W7) · TMS 3 launched Fri |
 | W10 | Oct 26–30 | Ch. XVII, XVIII, XIX | Puzzle 6 |
 | W11 | Nov 2–6 | — | CI #3 Wed Nov 4 · TMS 4 launched Fri |
-| W12 | Nov 9–13 | Ch. XX, XXI, XXII | Puzzle 7 |
+| W12 | Nov 9–13 | Ch. XX, XXI | Puzzle 7 |
 | W13 | Nov 16–20 | Ch. XXIII, XXIV, XXV | Puzzle 8 |
 | W14 | Nov 23–27 | — | Thanksgiving Break |
 | W15 | Nov 30–Dec 4 | — | Viva week · CI #4 Fri Dec 4 |

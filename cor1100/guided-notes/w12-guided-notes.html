@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 12: On Choice, On Self and Others — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Note callout ── */
+.note-block {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 6pt 10pt;
+  margin-bottom: 14pt;
+}
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 12: On Choice, On Self and Others</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<div class="note-block">Note: Ch. XXII ("On Perfection") is not assigned this semester — only Ch. XI and Ch. XXII are skipped. This week covers two chapters, not the usual three.</div>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Evaluate Smith's framing of two roads to others' respect — wealth/greatness vs. wisdom/virtue — and defend Hanley's three reasons for preferring the road less traveled.</li>
+    <li>Analyze why Smith defines "the man of the most perfect virtue" through portrait rather than explanation, and explain why perfect virtue requires both awful and amiable virtues together.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Two roads</td>
+        <td>Smith reduces the choice to two paths toward others' respect and admiration: the road of <span class="blank"></span> and <span class="blank"></span>, or the road of wisdom and virtue.</td>
+        <td><span class="example-prompt">A choice you've seen someone make between visibility and quiet integrity:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Excessive self-admiration enabling success</td>
+        <td>The very vanity that seems unattractive often "<span class="blank"></span>" the multitude and helps its possessors succeed in the world.</td>
+        <td><span class="example-prompt">A confident, self-promoting person you've seen succeed despite (or because of) it:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Three reasons for the road less traveled</td>
+        <td>Ties to <span class="blank"></span> (Ch. 8), ties to <span class="blank"></span> (Ch. 13), and — most importantly — ties to "real littleness" (Ch. 18).</td>
+        <td><span class="example-prompt">Which of these three reasons feels most personally relevant to you, and why:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A different standard of progress</td>
+        <td>Travelers on the virtue road can't measure progress by <span class="blank"></span> to others — they need a different, non-<span class="blank"></span> standard.</td>
+        <td><span class="example-prompt">A goal of yours that isn't measured by comparing yourself to others:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"The man of most perfect virtue"</td>
+        <td>Smith defines virtue not by abstract explanation but by a <span class="blank"></span> of a particular kind of person.</td>
+        <td><span class="example-prompt">Someone you'd point to as a portrait of genuine virtue:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Virtue as excellence</td>
+        <td>Smith calls virtue "<span class="blank"></span>," something uncommonly great and beautiful — closer to <span class="blank"></span> philosophy than modern treatments of virtue as a life skill.</td>
+        <td><span class="example-prompt">A quality you'd call genuinely excellent, not just competent:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Awful virtues</td>
+        <td>Govern our relationship with <span class="blank"></span>: they <span class="blank"></span> our sensitivity to our own selfish feelings.</td>
+        <td><span class="example-prompt">A recent moment you exercised firm self-discipline:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Amiable virtues</td>
+        <td>Govern our relationship with <span class="blank"></span>: they <span class="blank"></span> our sensitivity to others' feelings.</td>
+        <td><span class="example-prompt">A recent moment your sensitivity to someone else's feelings shaped your action:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: ON CHOICE ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Ch. 20 — On Choice</div>
+  <div class="connection-note">Ch. 20 poses the choice the whole book has been building toward: wealth and greatness, or wisdom and virtue? It closes asking what wisdom and virtue actually are.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's framing of the two roads toward "the respect and admiration of mankind" (p. 92–93). Then analyze: what shared goal do both roads pursue?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Shared goal: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Adaora's blustery, overconfident colleague gets promoted ahead of her despite weaker results, mostly because he projects total certainty in every meeting. Does this outcome mean Smith is endorsing the colleague's self-admiration as admirable, or is it a critical, almost cynical observation about how the world often works? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: name Hanley's three reasons for preferring the road of wisdom and virtue, and tie each one to the earlier chapter it connects to.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why the third reason (real littleness) is "most important" — not just one more consideration, but what makes the other road actually <em>unavailable</em>.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's claim that rejecting comparison to others doesn't mean rejecting all standards of progress. What might a genuinely non-comparative standard look like?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: the chapter closes asking what wisdom and virtue actually are. Propose your own tentative working definition of one of these terms, before reading how Ch. 21 answers it.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20%"></th>
+        <th style="width:20%">Character/temperament</th>
+        <th style="width:20%">Audience size</th>
+        <th style="width:20%" class="fill-col">What enables success</th>
+        <th style="width:20%" class="fill-col">Relation to tranquility/love/littleness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Wealth and greatness</td>
+        <td>"Gaudy and glittering"</td>
+        <td>The "great mob of mankind"</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Wisdom and virtue</td>
+        <td>"Humbly modest"</td>
+        <td>A "small party"</td>
+        <td><span class="blank-full"></span></td>
+        <td>Better secures all three</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON SELF AND OTHERS ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 21 — On Self and Others</div>
+  <div class="connection-note">Ch. 20 closed asking what virtue actually is. This chapter begins answering it — and reconnects directly to the awful/amiable virtues pairing first named back in the Introduction (Ch. 0).</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, how Smith defines "the man of the most perfect virtue" (p. 96). Then analyze: why does Smith define virtue this way rather than through abstract explanation?</td>
+        <td class="cornell-notes-col">
+          Smith's approach (paraphrase + page): <span class="blank-full"></span>
+          Why a portrait, not an explanation: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Eero pays off his demanding ex-business-partner's debt without complaint to avoid a long legal fight, and separately spends his weekend teaching his nephew to read because the boy's parents are overwhelmed. Which of Eero's actions illustrates the "awful virtues," and which illustrates the "amiable virtues"? Justify each answer.</td>
+        <td class="cornell-notes-col">
+          Paying off the debt illustrates: <span class="blank blank-xl"></span><br><br>
+          Teaching his nephew illustrates: <span class="blank blank-xl"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain the actor-spectator dynamic that explains why virtue divides into exactly these two sets.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: distinguish "tough types" from "tender types." Why does Smith reject both as incomplete on their own?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge whether "perfection" can mean anything coherent without one single natural end to measure against — the open question Hanley flags but doesn't resolve.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: explain the callback to Ch. 0's awful/amiable virtues pairing. Why does Hanley flag this as a deliberate callback rather than a coincidence?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%"></th>
+        <th style="width:24%">What they govern</th>
+        <th style="width:28%" class="fill-col">What they do</th>
+        <th style="width:24%" class="fill-col">Who admires only this set</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Awful virtues</td>
+        <td>Self</td>
+        <td><span class="blank-full"></span></td>
+        <td>"Tough types"</td>
+      </tr>
+      <tr>
+        <td class="row-label">Amiable virtues</td>
+        <td><span class="blank-full"></span></td>
+        <td>Increase sensitivity to others' feelings</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part III</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the two chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:28%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Treating vanity-enables-success as endorsement</td>
+        <td>Smith is praising self-admiration because it correlates with success</td>
+        <td>This is a critical, almost cynical observation, not a recommendation</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Missing why the third reason is "most important"</td>
+        <td>All three reasons for the virtue road carry equal weight</td>
+        <td>The littleness-based reason makes the *other* road actually unavailable, not just less appealing</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating "awful" as a value judgment</td>
+        <td>"Awful virtues" means bad or unpleasant virtues</td>
+        <td>Smith means "awe-inspiring" / commanding self-discipline, not morally negative</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Picking a side (tough vs. tender)</td>
+        <td>Smith ultimately privileges one virtue-set over the other</td>
+        <td>Perfect virtue requires both together — "you can't have one without the other"</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you name Hanley's three reasons for preferring the road of wisdom and virtue, and which earlier chapter each ties to?</li>
+    <li>Can you distinguish awful virtues from amiable virtues without looking at Part II?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Two Chapters Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why Hanley calls the "real littleness" reason the <em>most important</em> of the three reasons for choosing the virtue road, I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Casimir says he wants to be "naturally gifted and effortlessly successful" like the most confident people he knows, and feels discouraged that genuine humility seems to get him nowhere. Using this week's two chapters, what would you say to him about the two roads Smith describes?</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Return to your Part I answer about the road of wisdom and virtue. Now factor in Part II's claim that perfect virtue requires both awful and amiable virtues together. Which of the two virtue-sets feels more natural to you personally, and which would take more deliberate work?</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next week: Ch. XXIII, XXIV, XXV — On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness (W13)</p>
+</div>
+
+</body>
+</html>

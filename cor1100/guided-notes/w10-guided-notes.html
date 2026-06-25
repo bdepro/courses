@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 10: On Seeing Ourselves, On Dignity, On Equality — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 10: On Seeing Ourselves, On Dignity, On Equality</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Apply Smith's concept of the impartial spectator — dividing oneself into actor and judge — to a real decision, explaining why neither others nor unaided self-judgment can substitute for it.</li>
+    <li>Analyze why Hanley calls "we are no better than anyone else" the impartial spectator's hardest verdict, and explain why this realization is both humbling and liberating.</li>
+    <li>Evaluate Smith's claim that natural talents are roughly equal across people, and defend or challenge what this implies about who deserves credit for success.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Dividing into two persons</td>
+        <td>To judge our own conduct, Smith says we must divide ourselves into the <span class="blank"></span> whose conduct is examined, and the "<span class="blank"></span> and judge."</td>
+        <td><span class="example-prompt">A time you stepped back to judge your own behavior as if you were someone else:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">The impartial spectator</td>
+        <td>A "third sort of person" between ourselves and others — free of others' limited <span class="blank"></span> and free of our own self-interest and <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A moment you imagined a neutral stranger's honest view of your choice:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Impartial spectator vs. the Golden Rule</td>
+        <td>The Golden Rule guides <span class="blank"></span> toward others; the impartial spectator is at least as concerned with teaching us how to <span class="blank"></span>, especially moral merit.</td>
+        <td><span class="example-prompt">A situation where you needed to judge fairly, not just act kindly:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Division embraced for the sake of unity</td>
+        <td>The book's earlier divisions are the problem; this further, self-conscious division (actor/judge) is, paradoxically, the means to <span class="blank"></span>, not its enemy.</td>
+        <td><span class="example-prompt">A time splitting your attention into two roles actually helped you, not hurt you:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Hardest of all the lessons of morality"</td>
+        <td>The impartial spectator's verdict: we are merely "one of the <span class="blank"></span>," in no respect <span class="blank"></span> than anyone else.</td>
+        <td><span class="example-prompt">A moment you had to accept you weren't more special than someone else:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Two effects of self-love</td>
+        <td>Self-love (1) <span class="blank"></span> our own concerns out of proportion, and (2) <span class="blank"></span> out others' concerns from our view.</td>
+        <td><span class="example-prompt">A time your own worry crowded out noticing someone else's struggle:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Discipline (vs. abstract thought)</td>
+        <td>Real self-control requires practiced <span class="blank"></span> of conforming to the impartial spectator's view — life is a "<span class="blank"></span> ground," not a seminar room.</td>
+        <td><span class="example-prompt">A habit you had to practice repeatedly, not just understand once:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Liberation through littleness</td>
+        <td>Embracing "real littleness" reverses both effects of self-love: it's simultaneously <span class="blank"></span> and <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time accepting you weren't special actually felt freeing:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Natural talents roughly equal</td>
+        <td>The difference in natural talents between people is "much <span class="blank"></span> than we are aware of" — apparent differences come from habit, <span class="blank"></span>, and education.</td>
+        <td><span class="example-prompt">Two people who started out similar but later diverged through practice or schooling:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Philosopher and street porter</td>
+        <td>Smith's example pair: indistinguishable as <span class="blank"></span>, only later diverging through habit, custom, and education — eventually fueling the philosopher's <span class="blank"></span>.</td>
+        <td><span class="example-prompt">Two people you know who were alike young but grew very different:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Plato's "noble lie"</td>
+        <td>Socrates calls it a "<span class="blank"></span>" that some people are born with gold, silver, or iron souls; Smith <span class="blank"></span>, insisting on real natural equality.</td>
+        <td><span class="example-prompt">A "myth" people sometimes treat as literal truth to justify hierarchy:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Smith vs. Jefferson</td>
+        <td>Jefferson grounds equality in rights endowed by the <span class="blank"></span>; Smith grounds it in roughly equal natural <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A debate where two people agree on a conclusion but for very different reasons:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: ON SEEING OURSELVES ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Ch. 17 — On Seeing Ourselves</div>
+  <div class="connection-note">Ch. 16 closed with two open questions about worthiness: what does it consist in, and how do I know whether I possess it? This chapter answers the second with Smith's most famous move — the impartial spectator.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim about dividing ourselves into two persons to judge our own conduct (p. 78). Then analyze: why does judging our own worth require this division at all?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Why the division is necessary: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Before publishing a critical review of a colleague's work, Linnea texts three friends to ask whether they think it's fair, and concludes that because most of them agreed, the review must be impartial. Does Linnea's approach reflect genuine use of the impartial spectator, or does it miss what the impartial spectator actually is? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain the two distinct reasons Smith gives for why we can't simply judge ourselves unaided.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: distinguish the impartial spectator from the Golden Rule — what does each one actually govern?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's claim that healing the book's earlier divisions paradoxically requires a further, deliberate division (actor vs. judge).</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: explain the second implication of impartial self-seeing — that it reshapes not just our own behavior but how we weigh our own interests against others'. Use a real example, not just a personal-habit change.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:28%" class="fill-col">What they have access to</th>
+        <th style="width:28%" class="fill-col">What biases them</th>
+        <th style="width:22%">Can they judge fairly?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Others</td>
+        <td>Only appearances</td>
+        <td><span class="blank-full"></span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td class="row-label">Ourselves (unaided)</td>
+        <td>Full inner access</td>
+        <td><span class="blank-full"></span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td class="row-label">The impartial spectator</td>
+        <td><span class="blank-full"></span></td>
+        <td>None</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON DIGNITY ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 18 — On Dignity</div>
+  <div class="connection-note">Ch. 17 established the impartial spectator as the only reliable judge of our worth. This chapter reveals what that judge actually tells us — its hardest, most consequential verdict.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, what the impartial spectator's perspective reveals about our standing relative to others (p. 83–84). Then analyze: why does Hanley call this the "hardest of all the lessons of morality"?</td>
+        <td class="cornell-notes-col">
+          Smith's verdict (paraphrase + page): <span class="blank-full"></span>
+          Why it's the hardest lesson: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">After being passed over for a promotion, Roshan spends the whole week privately rehearsing why he deserved it more than his colleague, and barely registers that his colleague has been dealing with a family emergency the same week. Which of the two effects of self-love does each half of Roshan's reaction illustrate?</td>
+        <td class="cornell-notes-col">
+          Rehearsing his own case illustrates: <span class="blank blank-xl"></span><br><br>
+          Not registering the family emergency illustrates: <span class="blank blank-xl"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain the grandmother's two-part exhortation — why is "you're not any better than anyone else" harder to accept than "nobody is better than you"?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: name the two effects of self-love, and explain why naming only one of them misses half the chapter's point.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: explain how the same realization (real littleness) can be both humbling and liberating at once, rather than two separate, coincidental effects.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: propose your own tentative answer to the chapter's closing question — what kind of greatness might suit someone who has genuinely accepted their own littleness?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%">Effect of self-love</th>
+        <th style="width:36%" class="fill-col">What it produces</th>
+        <th style="width:36%" class="fill-col">Its reversal through real littleness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Magnifies our own concerns</td>
+        <td><span class="blank-full"></span></td>
+        <td>Proportionate self-concern</td>
+      </tr>
+      <tr>
+        <td class="row-label">Crowds out others' concerns</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — PART III: ON EQUALITY ── -->
+<div class="section-block">
+  <div class="section-label">Part III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Ch. 19 — On Equality</div>
+  <div class="connection-note">Ch. 18 showed the impartial spectator's hardest lesson is that we're no better than anyone else. This chapter asks: was that lesson invented by Smith, or does it describe how nature actually made us?</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim about the difference in natural talents between people (p. 88). Then apply: where does Smith say apparent differences actually come from?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Where apparent differences come from: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Selma's younger brother insists their family's modest means prove the Selmas are simply less naturally gifted than their wealthier neighbors, and that no amount of effort will ever change that. Does the brother's view align with Smith's claim about natural talents, or with the literal misreading of Plato's "noble lie" that Smith rejects? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why Hanley finds it significant that Smith chose his own profession (philosopher) as the example of self-flattering vanity.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: distinguish Smith's view from Plato's "noble lie" — does each treat the claim as sincere, or as a useful fiction?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: compare Smith's grounding of equality (roughly equal natural talents) with Jefferson's (rights endowed by the Creator). Defend or challenge which framing you find more persuasive, or whether they're complementary.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: explain how this chapter's claim supports Ch. 18's "hardest lesson" — why does honestly reflecting on who deserves credit for success make the fortunate humbler and the less fortunate viewed more generously?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%"></th>
+        <th style="width:30%" class="fill-col">What grounds equality</th>
+        <th style="width:26%">Sincere claim or fiction?</th>
+        <th style="width:26%" class="fill-col">Implication for hierarchy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Smith</td>
+        <td>Roughly equal natural talents</td>
+        <td>Sincere</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Plato (Socrates)</td>
+        <td>Gold/silver/iron souls</td>
+        <td><span class="blank-full"></span></td>
+        <td>Justifies hierarchy (if taken literally)</td>
+      </tr>
+      <tr>
+        <td class="row-label">Jefferson</td>
+        <td><span class="blank-full"></span></td>
+        <td>Sincere</td>
+        <td>Rejects hierarchy</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part IV</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the three chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:30%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Treating the impartial spectator as "asking someone else"</td>
+        <td>The impartial spectator is a real external person you consult</td>
+        <td>It's an imagined, internalized third position, not an actual other person</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Missing one of the two reasons we can't judge ourselves</td>
+        <td>Self-interest alone (or self-delusion alone) explains the problem</td>
+        <td>Smith gives two distinct, compounding reasons</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Softening "in no respect better"</td>
+        <td>This means "we're all equally valuable" in a generic, feel-good sense</td>
+        <td>Smith intends a specifically humbling, comparative claim</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating discipline as a one-time decision</td>
+        <td>Accepting the lesson intellectually is enough</td>
+        <td>Smith insists on repeated, practiced conformity to the impartial spectator's view</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Conflating talents with outcomes</td>
+        <td>Smith claims everyone ends up equally successful</td>
+        <td>The claim is about starting natural talent; habit, custom, and education produce real later differences</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating Plato's "noble lie" as Plato's sincere belief</td>
+        <td>Socrates himself believed the gold/iron-souls story</td>
+        <td>Socrates explicitly calls it a lie; later readers misread it as literal truth</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you explain why the impartial spectator is different from both other people's judgment and your own unaided judgment?</li>
+    <li>Can you explain why "real littleness" is both humbling and liberating?</li>
+    <li>Can you explain how Ch. 19's talent claim supports Ch. 18's "hardest lesson"?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Three Chapters Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why the impartial spectator is arguably the single most important concept in this course, I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Nikos insists he's simply a "naturally gifted" public speaker and that his quieter classmates just don't have what it takes — never mentioning the years he spent on his school's debate team. Using this week's three chapters, what would you say to him, and which chapter's claim is most directly relevant?</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Return to your Part I answer about the impartial spectator. Now factor in Part II's claim that its verdict is "real littleness." Is occupying the impartial spectator's position itself humbling, liberating, or both? Explain using your own example.</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next: Check-In #3 (Wed) and TMS 4 launch (Fri) — no new Hanley chapters this week (W11). W12 resumes with Ch. XX–XXI (Ch. XXII not assigned).</p>
+</div>
+
+</body>
+</html>

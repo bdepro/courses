@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 13: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Note callout ── */
+.note-block {
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 6pt 10pt;
+  margin-bottom: 14pt;
+}
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 13: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<div class="note-block">Note: Ch. XXV is the final chapter of the book and of this course's reading. This week is the climax the whole semester has been building toward.</div>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Analyze Smith's distinction between absolute and relative perfection, and explain how it resolves Ch. 21's open question about perfection without a teleological framework.</li>
+    <li>Apply the two ways wisdom shapes virtue (relationship to self, relationship to others) to a real example, explaining why self-judgment against absolute perfection produces humility rather than pride.</li>
+    <li>Evaluate Smith's claim that self-approbation provides the "highest" pleasure, and defend or challenge why this resolves both Ch. 24's "good for whom?" question and Ch. 14's disinterested-love question.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">The wise and virtuous man</td>
+        <td>Smith's peak figure of ethics — distinguished by possessing both <span class="blank"></span> and <span class="blank"></span> together, rejecting the ancient division between them.</td>
+        <td><span class="example-prompt">Someone you'd point to as combining both qualities:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Absolute perfection</td>
+        <td>The standard of "exact propriety and perfection" that no human conduct has ever <span class="blank"></span> — the wise person's "<span class="blank"></span> attention."</td>
+        <td><span class="example-prompt">A standard you hold yourself to that you'll never fully reach:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Relative perfection</td>
+        <td>The standard distinguishing the <span class="blank"></span> of actual human activities — the wise person is aware of it but doesn't <span class="blank"></span> focus on it.</td>
+        <td><span class="example-prompt">Being "the best" at something by ordinary comparison:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Exists in the mind of every man"</td>
+        <td>The idea of perfection requires no special <span class="blank"></span> — it exists in everyone; what distinguishes the wise person is the <span class="blank"></span> of refining it through observation.</td>
+        <td><span class="example-prompt">A sense of "how things should be done" you've refined through experience, not training:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Carrying perfection back into the world</td>
+        <td>Rather than resting content with his vision of perfection, the wise and virtuous man brings the standard back to judge <span class="blank"></span> — above all, himself.</td>
+        <td><span class="example-prompt">A high standard you apply to your own conduct, not just admire abstractly:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Self-judgment against absolute perfection</td>
+        <td>Measured against this standard, even the wisest among us finds "nothing but <span class="blank"></span> and imperfection" — producing <span class="blank"></span>, not pride.</td>
+        <td><span class="example-prompt">A moment a personal standard humbled you more than any comparison to others could:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Indulgent commiseration toward others</td>
+        <td>Because the wise person knows firsthand how hard genuine virtue is, he cannot view others' imperfections with <span class="blank"></span> — instead he feels <span class="blank"></span> and wants to help.</td>
+        <td><span class="example-prompt">A time your own struggles made you more patient with someone else's mistakes:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Privileging others'/society's interest</td>
+        <td>The wise and virtuous person is willing to sacrifice his own <span class="blank"></span> interest to the <span class="blank"></span> interest — enacting the impartial spectator's lesson from Ch. 18.</td>
+        <td><span class="example-prompt">A choice where you put a group's good ahead of your own:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">The "highest" pleasure</td>
+        <td>Not just pleasure, but the highest pleasure, from knowing one's conduct is <span class="blank"></span> — even when no actual <span class="blank"></span> is ever given.</td>
+        <td><span class="example-prompt">Something you did well that no one ever noticed, and how that felt:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Smith's paradox</td>
+        <td>By sacrificing familiar pleasures (attention, recognition), the wise person realizes a deeper self-interest: <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time giving something up led to a different, deeper satisfaction:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Self-approbation as principal object</td>
+        <td>What motivates the wise person isn't others' <span class="blank"></span> but their own <span class="blank"></span> — "the love of it, is the love of virtue."</td>
+        <td><span class="example-prompt">A choice you made that you were proud of regardless of who noticed:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"The most sublime and godlike motive"</td>
+        <td>The book's climactic claim: acting solely from regard to what is <span class="blank"></span>, even unrecognized, is the highest motive human nature can <span class="blank"></span>.</td>
+        <td><span class="example-prompt">An action you can imagine taking purely because it's right, with zero recognition:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: ON WISDOM AND VIRTUE ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Ch. 23 — On Wisdom and Virtue</div>
+  <div class="connection-note">Ch. 20 closed asking what wisdom and virtue actually are. Ch. 21 began answering "virtue" but left perfection itself unresolved. This chapter resolves it.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, why Smith rejects the ancient division between the life of wisdom and the life of virtue (p. 105–106). Then analyze: what does Smith offer instead?</td>
+        <td class="cornell-notes-col">
+          Smith's position (paraphrase + page): <span class="blank-full"></span>
+          What he offers instead: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Vesna assumes that only people who've studied moral philosophy formally could possibly have a refined sense of what virtuous conduct looks like — and is surprised to learn her unschooled grandmother has spent decades quietly refining the same kind of judgment through life experience. Does Vesna's assumption align with Smith's claim about where the idea of perfection comes from, or does it reflect the misconception Smith explicitly rejects? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain how the absolute/relative perfection distinction resolves Ch. 21's open question about perfection without a teleological framework.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: contrast Smith's source of the idea of perfection with Plato's forms and Christian revelation.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's claim that simply possessing the idea of perfection isn't what distinguishes the wise person — the work of refining it is.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: explain why wisdom "compels rather than excuses" active virtue. What would it look like to get this wrong?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:26%">Attainability</th>
+        <th style="width:26%" class="fill-col">Who attends to it principally</th>
+        <th style="width:26%" class="fill-col">Role in the wise person's life</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Absolute perfection</td>
+        <td>Never fully attained</td>
+        <td>The wise and virtuous man</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Relative perfection</td>
+        <td>Attainable (the best of actual achievement)</td>
+        <td><span class="blank-full"></span></td>
+        <td>A secondary awareness, not the focus</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON HUMILITY AND BENEFICENCE ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 24 — On Humility and Beneficence</div>
+  <div class="connection-note">Ch. 23 explained the wise and virtuous man's wisdom. This chapter explains how that wisdom shapes his virtue — in two directions: toward himself, and toward others.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, the two ways wisdom shapes virtue (p. 109). Then analyze: what does each way actually involve?</td>
+        <td class="cornell-notes-col">
+          The two ways (paraphrase + page): <span class="blank-full"></span>
+          What each involves: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Having spent years confronting how often her own good intentions fell short in practice, Zinnia finds she can no longer feel smug superiority when a struggling new colleague makes the same kinds of mistakes she once made — instead she quietly offers to help him improve. Does Zinnia's reaction illustrate "indulgent commiseration" as the chapter describes it, or something else? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain why measuring oneself against absolute perfection produces humility rather than pride.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain how the wise person's own felt difficulty in becoming virtuous produces indulgent commiseration toward others — not as a separate kindness, but as something that follows directly from self-knowledge.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's claim that privileging others'/society's interest directly enacts the impartial spectator's lesson from Ch. 18.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: the chapter closes asking what's good for the wise person themselves, not just for others. Propose your own tentative answer before reading how Ch. 25 resolves it.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:35%" class="fill-col">What wisdom does</th>
+        <th style="width:35%" class="fill-col">What virtue results</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Relationship to self</td>
+        <td>Humbles via absolute perfection</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Relationship to others</td>
+        <td><span class="blank-full"></span></td>
+        <td>Beneficence, indulgent commiseration</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — PART III: ON PRAISE AND PRAISEWORTHINESS ── -->
+<div class="section-block">
+  <div class="section-label">Part III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Ch. 25 — On Praise and Praiseworthiness (final chapter)</div>
+  <div class="connection-note">Ch. 24 closed asking what makes the wise and virtuous life good for the person who lives it, not just for others. This final chapter answers that — and, in doing so, also resolves Ch. 14's much earlier question about disinterested love.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, what the wise person feels when doing what they know to be praiseworthy, even if no praise is ever given (p. 113). Then analyze: why is this the "highest" pleasure, not just more of the same pleasure discussed in earlier chapters?</td>
+        <td class="cornell-notes-col">
+          Smith's claim (paraphrase + page): <span class="blank-full"></span>
+          Why it's different in kind, not degree: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Anouk obsessively checks whether her boss noticed her staying late to fix a colleague's mistake, and feels deflated for days when no one mentions it. Does Anouk's reaction reflect the security of self-approbation this chapter describes, or does it illustrate the opposite — anxiety about praise as "a mark... of some degree of weakness"? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain "Smith's paradox" — how does sacrificing familiar pleasures (attention, recognition) make a deeper pleasure (self-approbation) available?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain how this chapter resolves Ch. 14's open question about whether Smith's system has room for disinterested love.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Smith's claim that the wise/virtuous life's apparent "forsaken opportunity," as outsiders see it, is actually mistaken — that it provides genuine tranquility, not just sacrifice.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: the book closes calling this motive "the most sublime and godlike" human nature can conceive. Defend or challenge whether this climactic claim is earned by the book's argument, or overstated.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:39%" class="fill-col">What outside observers see</th>
+        <th style="width:39%" class="fill-col">What Smith says is actually true</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Appearance</td>
+        <td>Forsaken opportunity, missed rewards</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">Reality</td>
+        <td>—</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part IV</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the three chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:30%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Conflating absolute and relative perfection</td>
+        <td>The two standards are the same thing</td>
+        <td>Only absolute perfection occupies the wise person's "principal attention"</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Assuming the idea of perfection requires special access</td>
+        <td>Only the gifted or specially trained can access it</td>
+        <td>Smith says the idea "exists in the mind of every man"</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Confusing self-judgment by absolute perfection with low self-esteem</td>
+        <td>This humility means the wise person actually performs poorly</td>
+        <td>It's the standard, not his actual competence, producing humility</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Resolving Ch. 24's closing question prematurely</td>
+        <td>The chapter already explained what's good for the wise person themselves</td>
+        <td>This is explicitly left open until Ch. 25</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating "highest pleasure" as just more of the same pleasure</td>
+        <td>Self-approbation's pleasure is the same as earlier chapters' attention/recognition pleasures</td>
+        <td>This chapter contrasts them as different in kind, not degree</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Reading anxiety about praise as itself praiseworthy</td>
+        <td>Caring about recognition shows proper humility</td>
+        <td>Smith explicitly calls this anxiety "a mark... of some degree of weakness"</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you distinguish absolute perfection from relative perfection without looking at Part I?</li>
+    <li>Can you explain why humility, not low self-esteem, results from self-judgment against absolute perfection?</li>
+    <li>Can you explain how Ch. 25 resolves both Ch. 24's and Ch. 14's open questions?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Whole Course Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why Hanley treats Ch. 25 as the destination the whole book has been building toward since Ch. 0, I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Dashiell spent months mentoring a struggling new coworker with no recognition from their manager, and seems completely unbothered when someone else gets credit for the team's improved performance. Using this week's three chapters, what does Smith's account of self-approbation say is actually going on for Dashiell — and is his unbothered reaction a sign of genuine wisdom, or something else?</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Trace the thread from Ch. 0's opening claim — that a life needs an external standard to count as "better" — through this week's resolution: self-approbation as the highest pleasure. In your own words, what is Smith's full answer, across the whole course, to "what does it take to live a good life?"</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">This is the final content week. Next: Thanksgiving Break (W14), then Viva Week and Check-In #4 (W15) — comprehensive, covering the whole book and standing analytical threads.</p>
+</div>
+
+</body>
+</html>
