@@ -111,6 +111,9 @@ Build in this order, using ECO 1000 equivalents as the model:
 - Readings are ungraded (ungraded.id: "readings") — comprehension is checked via guided notes + the week's Puzzle instead of a Perusall annotation requirement
 - **"MME" is never used** — all JS keys, labels, and page names use `tms` / TMS throughout (`CANVAS.tms`, `session.tmsFF`, `tmsUrl`, `tms.html`)
 - **No Perusall** (decided 2026-06-25) — readings are direct PDF links via Canvas Files, not an annotation-tool LTI assignment
+- **Guided notes submission architecture** (decided 2026-06-25): `chapters.html` now shows 3 pills per chapter row — Guided Notes, Open Chapter (PDF), Submit Notes — plus the submit button is duplicated on each guided-notes HTML page itself, right before the footer. See `GUIDED_NOTES` in `config.js` for the 8-document grouping (NOT one per chapter — several documents span multiple chapters, e.g. w07-09 covers Ch. XIII-XVI). Grading mechanic mirrors ECO 1000's proven 0-points-possible add-only bonus (see project memory "ECO 1000 Guided Notes Bonus Policy"): 2 pts on time, 1.6 pts late. Submit pill + "Covers Ch. X, Y, Z" note appear ONLY on the last chapter of each block (`item.notesCoversLabel` in `config.js`), not on every chapter in the span — avoids implying students must submit per chapter.
+- **Both syllabi document the Guided Notes bonus** (2026-06-25) — ECO 1000 already had it (Puzzles section); added the matching blurb to COR 1100's Puzzles section.
+- **All Canvas IDs filled in (2026-06-25):** `COURSE.canvasId` confirmed "920". All 25 `CHAPTERS.all[*].fileId` filled from the `hanley-chapters` Canvas Files folder (folder id 23058) via `GET /api/v1/folders/23058/files`. All 8 `GUIDED_NOTES[*].aid` filled in as 9067-9074 (sequential, W1→W13 order). Files are flagged `hidden: true` in Canvas — expected for link-only distribution, but worth a one-time student-view sanity check that the links actually load.
 
 ---
 

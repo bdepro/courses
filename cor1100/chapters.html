@@ -46,16 +46,26 @@
     .ch-num{background:var(--warm-gray);padding:0.9rem 0.5rem;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;}
     .ch-body{padding:0.85rem 1rem;font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
     .ch-session{font-size:0.72rem;color:var(--muted);display:block;margin-top:2px;font-weight:400;}
-    .ch-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--gold-link);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .ch-scope-note{font-size:0.72rem;color:var(--crimson);display:block;margin-top:2px;font-weight:600;}
+    .ch-actions{display:flex;align-items:stretch;}
+    .ch-link,.ch-notes-link,.ch-submit-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .ch-link{color:var(--gold-link);}
     .ch-link:hover{background:var(--warm-gray);}
-    .ch-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
-    .ch-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
+    .ch-notes-link{color:var(--teal-dk);}
+    .ch-notes-link:hover{background:var(--warm-gray);}
+    .ch-submit-link{color:var(--crimson);}
+    .ch-submit-link:hover{background:var(--warm-gray);}
+    .ch-link svg,.ch-notes-link svg,.ch-submit-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .ch-link.inactive,.ch-notes-link.inactive,.ch-submit-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
     footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
     @media(max-width:600px){
       .screen-header{padding:1.5rem 1.25rem;}
       main{padding:1.5rem 1rem 4rem;}
       .ch-row{grid-template-columns:3.5rem 1fr auto;}
       .ch-body{font-size:0.82rem;}
+      .ch-actions{flex-direction:column;}
+      .ch-link,.ch-notes-link,.ch-submit-link{padding:0.6rem 0.75rem;border-left:none;border-top:1px solid rgba(181,154,87,0.12);}
+      .ch-actions>:first-child{border-top:none;}
     }
     .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
     .skip-link:focus{left:0;}
@@ -76,7 +86,7 @@
 </div>
 <main id="main">
   <div class="callout teal">
-    <strong>Click any chapter to open the PDF through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned.
+    <strong>Click any chapter to open the PDF through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned. Guided notes are optional — submit completed notes through Canvas for 2 points toward that week's Puzzle score (1.6 points if submitted within one week late). Each guided-notes document covers several chapters — submit once, using the Submit Notes link on the last chapter it covers (marked below).
   </div>
   <p class="section-label" id="chapterLabel"></p>
   <div class="chapter-list" id="chapterList"></div>
@@ -94,19 +104,47 @@ document.getElementById('chapterLabel').textContent =
 var list = document.getElementById('chapterList');
 
 CHAPTERS.all.forEach(function(ch) {
-  var hasUrl = ch.url && ch.url.length > 0;
+  var hasUrl      = ch.url && ch.url.length > 0;
+  var hasNotes    = ch.guidedNotesUrl && ch.guidedNotesUrl.length > 0;
+  // Submit is a one-time action per guided-notes document, not per
+  // chapter — ch.notesCoversLabel is only set (by config.js) on the
+  // LAST chapter in that document's span, so the Submit pill and the
+  // "covers" note only ever appear once per document, on that row.
+  var isSubmitRow = ch.notesCoversLabel && ch.notesCoversLabel.length > 0;
+  var hasSubmit   = ch.notesSubmitUrl && ch.notesSubmitUrl.length > 0;
+
+  var notesLink = hasNotes ?
+    '<a class="ch-notes-link" href="' + ch.guidedNotesUrl + '" target="_blank" rel="noopener">' +
+      'Guided Notes' +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>' : '';
+
+  var readingLink =
+    '<a class="ch-link' + (hasUrl ? '' : ' inactive') + '"' +
+      (hasUrl ? ' href="' + ch.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasUrl ? 'Open Chapter' : 'Coming Soon') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>';
+
+  var submitLink = isSubmitRow ?
+    '<a class="ch-submit-link' + (hasSubmit ? '' : ' inactive') + '"' +
+      (hasSubmit ? ' href="' + ch.notesSubmitUrl + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasSubmit ? 'Submit Notes' : 'Submit (Coming Soon)') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>' : '';
+
+  var scopeNote = isSubmitRow ?
+    '<span class="ch-scope-note">' + ch.notesCoversLabel + ' — submit once here</span>' : '';
+
   var row = document.createElement('div');
   row.className = 'ch-row';
   row.innerHTML =
     '<div class="ch-num">' + ch.num + '</div>' +
     '<div class="ch-body">' + ch.title +
       '<span class="ch-session">Week ' + ch.session + '</span>' +
+      scopeNote +
     '</div>' +
-    '<a class="ch-link' + (hasUrl ? '' : ' inactive') + '"' +
-      (hasUrl ? ' href="' + ch.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'Open Chapter' : 'Coming Soon') +
-      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
-    '</a>';
+    '<div class="ch-actions">' + notesLink + readingLink + submitLink + '</div>';
   list.appendChild(row);
 });
 </script>

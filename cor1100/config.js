@@ -246,31 +246,31 @@ const SCHEDULE = {
 const CHAPTERS = {
 
   all: [
-    { key: "intro", num: "Intro",      title: "Introduction",                   session: 1,  fileId: "" },
-    { key: "ch1",   num: "Ch. I",      title: "On Self-Interest",               session: 1,  fileId: "" },
-    { key: "ch2",   num: "Ch. II",     title: "On Caring for Others",           session: 1,  fileId: "" },
-    { key: "ch3",   num: "Ch. III",    title: "On Acting for Others",           session: 2,  fileId: "" },
-    { key: "ch4",   num: "Ch. IV",     title: "On Imagination",                 session: 2,  fileId: "" },
-    { key: "ch5",   num: "Ch. V",      title: "On Bettering Our Condition",     session: 2,  fileId: "" },
-    { key: "ch6",   num: "Ch. VI",     title: "On Miseries and Disorders",      session: 4,  fileId: "" },
-    { key: "ch7",   num: "Ch. VII",    title: "On the Healthy Mind",            session: 4,  fileId: "" },
-    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  fileId: "" },
-    { key: "ch9",   num: "Ch. IX",     title: "On Worshipping Wealth",          session: 5,  fileId: "" },
-    { key: "ch10",  num: "Ch. X",      title: "On Friendship",                  session: 5,  fileId: "" },
-    { key: "ch12",  num: "Ch. XII",    title: "On Hatred and Anger",            session: 5,  fileId: "" },
-    { key: "ch13",  num: "Ch. XIII",   title: "On Being Loved",                 session: 7,  fileId: "" },
-    { key: "ch14",  num: "Ch. XIV",    title: "On Loving",                      session: 9,  fileId: "" },
-    { key: "ch15",  num: "Ch. XV",     title: "On Flourishing",                 session: 9,  fileId: "" },
-    { key: "ch16",  num: "Ch. XVI",    title: "On Being Lovely",                session: 9,  fileId: "" },
-    { key: "ch17",  num: "Ch. XVII",   title: "On Seeing Ourselves",            session: 10, fileId: "" },
-    { key: "ch18",  num: "Ch. XVIII",  title: "On Dignity",                     session: 10, fileId: "" },
-    { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, fileId: "" },
-    { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, fileId: "" },
-    { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, fileId: "" },
-    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, fileId: "" },
-    { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, fileId: "" },
-    { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, fileId: "" },
-    { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, fileId: "" },
+    { key: "intro", num: "Intro",      title: "Introduction",                   session: 1,  fileId: "363042" },
+    { key: "ch1",   num: "Ch. I",      title: "On Self-Interest",               session: 1,  fileId: "363043" },
+    { key: "ch2",   num: "Ch. II",     title: "On Caring for Others",           session: 1,  fileId: "363044" },
+    { key: "ch3",   num: "Ch. III",    title: "On Acting for Others",           session: 2,  fileId: "363045" },
+    { key: "ch4",   num: "Ch. IV",     title: "On Imagination",                 session: 2,  fileId: "363046" },
+    { key: "ch5",   num: "Ch. V",      title: "On Bettering Our Condition",     session: 2,  fileId: "363047" },
+    { key: "ch6",   num: "Ch. VI",     title: "On Miseries and Disorders",      session: 4,  fileId: "363048" },
+    { key: "ch7",   num: "Ch. VII",    title: "On the Healthy Mind",            session: 4,  fileId: "363049" },
+    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  fileId: "363050" },
+    { key: "ch9",   num: "Ch. IX",     title: "On Worshipping Wealth",          session: 5,  fileId: "363051" },
+    { key: "ch10",  num: "Ch. X",      title: "On Friendship",                  session: 5,  fileId: "363053" },
+    { key: "ch12",  num: "Ch. XII",    title: "On Hatred and Anger",            session: 5,  fileId: "363056" },
+    { key: "ch13",  num: "Ch. XIII",   title: "On Being Loved",                 session: 7,  fileId: "363057" },
+    { key: "ch14",  num: "Ch. XIV",    title: "On Loving",                      session: 9,  fileId: "363058" },
+    { key: "ch15",  num: "Ch. XV",     title: "On Flourishing",                 session: 9,  fileId: "363059" },
+    { key: "ch16",  num: "Ch. XVI",    title: "On Being Lovely",                session: 9,  fileId: "363060" },
+    { key: "ch17",  num: "Ch. XVII",   title: "On Seeing Ourselves",            session: 10, fileId: "363061" },
+    { key: "ch18",  num: "Ch. XVIII",  title: "On Dignity",                     session: 10, fileId: "363062" },
+    { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, fileId: "363063" },
+    { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, fileId: "363064" },
+    { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, fileId: "363065" },
+    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, fileId: "363066" },
+    { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, fileId: "363067" },
+    { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, fileId: "363068" },
+    { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, fileId: "363069" },
   ],
 
   // Standing analytical threads — appear on every check-in
@@ -289,6 +289,31 @@ const CHAPTERS = {
          label: "Comprehensive (Intro + Ch. I–XXV) / standing threads" },
   },
 };
+
+// ================================================================
+//  GUIDED NOTES
+//  One document per guided-notes file (8 total) — NOT one per chapter.
+//  Several documents span multiple chapters (e.g. w07-09 covers Ch.
+//  XIII-XVI in one file/one submission). `chapters` lists every chapter
+//  key that document covers; chapters.html uses this to show the same
+//  Guided Notes / Submit links on every row in that span.
+//  aid: Canvas assignment ID for the 0-points-possible submission
+//  assignment (2 pts on time / 1.6 pts late, graded manually — see
+//  project memory "ECO 1000 Guided Notes Bonus Policy" for the Canvas
+//  setup this mirrors).
+//  UPDATE: aid for each entry once that term's 8 submission assignments
+//  are built in Canvas.
+// ================================================================
+const GUIDED_NOTES = [
+  { id: "w01",    label: "Week 1 Guided Notes",      chapters: ["intro", "ch1", "ch2"],         url: `${COURSE.baseUrl}/guided-notes/w01-guided-notes.html`,    aid: "9067" },
+  { id: "w02",    label: "Week 2 Guided Notes",      chapters: ["ch3", "ch4", "ch5"],           url: `${COURSE.baseUrl}/guided-notes/w02-guided-notes.html`,    aid: "9068" },
+  { id: "w04",    label: "Week 4 Guided Notes",      chapters: ["ch6", "ch7", "ch8"],           url: `${COURSE.baseUrl}/guided-notes/w04-guided-notes.html`,    aid: "9069" },
+  { id: "w05",    label: "Week 5 Guided Notes",      chapters: ["ch9", "ch10", "ch12"],         url: `${COURSE.baseUrl}/guided-notes/w05-guided-notes.html`,    aid: "9070" },
+  { id: "w07-09", label: "Weeks 7 & 9 Guided Notes", chapters: ["ch13", "ch14", "ch15", "ch16"], url: `${COURSE.baseUrl}/guided-notes/w07-09-guided-notes.html`, aid: "9071" },
+  { id: "w10",    label: "Week 10 Guided Notes",     chapters: ["ch17", "ch18", "ch19"],        url: `${COURSE.baseUrl}/guided-notes/w10-guided-notes.html`,    aid: "9072" },
+  { id: "w12",    label: "Week 12 Guided Notes",     chapters: ["ch20", "ch21", "ch22"],        url: `${COURSE.baseUrl}/guided-notes/w12-guided-notes.html`,    aid: "9073" },
+  { id: "w13",    label: "Week 13 Guided Notes",     chapters: ["ch23", "ch24", "ch25"],        url: `${COURSE.baseUrl}/guided-notes/w13-guided-notes.html`,    aid: "9074" },
+];
 
 // ================================================================
 //  GRADING
@@ -533,6 +558,36 @@ CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
 [CANVAS.puzzles, CANVAS.tms]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
+// Build each guided-notes doc's submission URL. Attach the guided-notes
+// URL to every chapter it covers (so each chapter row can link to the
+// notes), but attach the Submit link + a "covers" label ONLY to the
+// LAST chapter in that doc's span — submitting is a one-time action per
+// document, not per chapter, and showing the Submit pill on every row
+// in a multi-chapter span reads as "submit separately for each chapter,"
+// which is wrong. chapters.html reads ch.guidedNotesUrl / ch.notesSubmitUrl
+// / ch.notesCoversLabel directly.
+GUIDED_NOTES.forEach(gn => {
+  gn.submitUrl     = ASSIGNMENT_URL(gn.aid);
+  gn.lastChapterKey = gn.chapters[gn.chapters.length - 1];
+});
+
+const numByKey = {};
+CHAPTERS.all.forEach(c => { numByKey[c.key] = c.num; });
+
+const guidedNotesByChapterKey = {};
+GUIDED_NOTES.forEach(gn => {
+  gn.chapters.forEach(key => { guidedNotesByChapterKey[key] = gn; });
+});
+CHAPTERS.all.forEach(item => {
+  const gn = guidedNotesByChapterKey[item.key];
+  const isLastInGroup = gn && gn.lastChapterKey === item.key;
+  item.guidedNotesUrl  = gn ? gn.url : '';
+  item.notesSubmitUrl  = isLastInGroup ? gn.submitUrl : '';
+  item.notesCoversLabel = isLastInGroup
+    ? 'Covers ' + gn.chapters.map(k => numByKey[k]).join(', ')
+    : '';
+});
+
 // ================================================================
 //  PUZZLE DUE-DATE DERIVATION
 //  Puzzle for session N is due the Wednesday of session N+1 at 11:59 p.m.
@@ -570,6 +625,7 @@ const CONFIG = {
   instructor:  INSTRUCTOR,
   schedule:    SCHEDULE,
   chapters:    CHAPTERS,
+  guidedNotes: GUIDED_NOTES,
   grading:     GRADING,
   features:    FEATURES,
   textbook:    TEXTBOOK,
