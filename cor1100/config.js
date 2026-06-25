@@ -67,7 +67,8 @@ const INSTRUCTOR = {
 //    (sessionStart + 9 days). If that date falls inside a break session,
 //    due shifts to FRIDAY OF SESSION N (sessionStart + 4 days). See
 //    puzzleDueDate() at the bottom of this file.
-//    No quiz in S7 (Mon/Tue only before Fall Break — Perusall only).
+//    S7 (Ch. XIII, Mon/Tue only before Fall Break) has no quiz of its own —
+//      its content is folded into Puzzle 5 together with S9.
 //    MME passages introduced Friday of designated session;
 //      due Wednesday of the following CI week — see CANVAS.tms[].due.
 //    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
@@ -134,7 +135,7 @@ const SCHEDULE = {
       num: 7, dates: "Oct 12-13", label: "Week 7",
       chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
-      note: "Mon & Tue only — Ch. XIII On Being Loved / Perusall reading assigned, no quiz / Fall Break begins Wed",
+      note: "Mon & Tue only — Ch. XIII On Being Loved / Perusall reading assigned; tested in Puzzle 5 with Week 9 / Fall Break begins Wed",
     },
     {
       num: 8, dates: "Oct 14-18", label: "Fall Break",
@@ -146,7 +147,7 @@ const SCHEDULE = {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       chapters: ["ch14", "ch15", "ch16"], checkIn: null, tmsFF: true, viva: false,
       break: false, breakType: null,
-      note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress",
+      note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
@@ -162,9 +163,9 @@ const SCHEDULE = {
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
-      chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch20", "ch21"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
+      note: "Ch. XX On Choice / Ch. XXI On Self and Others",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Week 13",
@@ -235,7 +236,7 @@ const SCHEDULE = {
 
 // ================================================================
 //  CHAPTERS
-//  Hanley, Our Great Purpose (Ch. XI omitted — not assigned)
+//  Hanley, Our Great Purpose (Ch. XI and Ch. XXII omitted — not assigned)
 //  aid: Canvas assignment ID — URL auto-built at bottom of this file
 //  UPDATE each semester if Perusall assignments are rebuilt
 // ================================================================
@@ -263,7 +264,6 @@ const CHAPTERS = {
     { key: "ch19",  num: "Ch. XIX",    title: "On Equality",                    session: 10, aid: "" },
     { key: "ch20",  num: "Ch. XX",     title: "On Choice",                      session: 12, aid: "" },
     { key: "ch21",  num: "Ch. XXI",    title: "On Self and Others",             session: 12, aid: "" },
-    { key: "ch22",  num: "Ch. XXII",   title: "On Perfection",                  session: 12, aid: "" },
     { key: "ch23",  num: "Ch. XXIII",  title: "On Wisdom and Virtue",           session: 13, aid: "" },
     { key: "ch24",  num: "Ch. XXIV",   title: "On Humility and Beneficence",    session: 13, aid: "" },
     { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, aid: "" },
@@ -293,7 +293,7 @@ const CHAPTERS = {
 //    Puzzles for session N due Wednesday of session N+1 at 11:59 p.m.
 //    If that Wednesday falls in a break, due shifts to Friday of session N.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
-//    No quiz in S7.
+//    S7 has no quiz of its own — Ch. XIII is tested in Puzzle 5 with S9.
 // ================================================================
 const GRADING = {
   dueTime: "11:59 p.m.",
@@ -303,7 +303,7 @@ const GRADING = {
     { id: "friday",   label: "Friday Focus",            weight: 25,
       note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
-      note: "8 formative MC quizzes, one per content session (no quiz in S7). Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
+      note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "tms",      label: "Theory of Moral Sentiments", weight: 10,
       note: "4 passages from The Theory of Moral Sentiments. Introduced Friday of designated sessions. Due Wednesday at 11:59 p.m." },
   ],
@@ -403,7 +403,9 @@ const CANVAS = {
   courseUrl: `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
   pageBase:  `${COURSE.canvasBase}/courses/${COURSE.canvasId}/pages`,
 
-  // Formative MC quizzes — 8 total, no quiz in S7, lowest dropped
+  // Formative MC quizzes — 8 total, lowest dropped.
+  // Puzzle 5 (session 9) covers Week 7's Ch. XIII as well as Week 9's
+  // chapters — Week 7 has no separate quiz of its own.
   // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
   // UPDATE each semester
   puzzles: [
@@ -411,9 +413,9 @@ const CANVAS = {
     { session: 2,  title: "Puzzle 2: On Acting for Others, On Imagination, On Bettering Our Condition",                    aid: "" },  // UPDATE
     { session: 4,  title: "Puzzle 3: On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure",        aid: "" },  // UPDATE
     { session: 5,  title: "Puzzle 4: On Worshipping Wealth, On Friendship, On Hatred and Anger",                          aid: "" },  // UPDATE
-    { session: 9,  title: "Puzzle 5: On Loving, On Flourishing, On Being Lovely",                                         aid: "" },  // UPDATE
+    { session: 9,  title: "Puzzle 5: On Being Loved, On Loving, On Flourishing, On Being Lovely",                          aid: "" },  // UPDATE
     { session: 10, title: "Puzzle 6: On Seeing Ourselves, On Dignity, On Equality",                                       aid: "" },  // UPDATE
-    { session: 12, title: "Puzzle 7: On Choice, On Self and Others, On Perfection",                                       aid: "" },  // UPDATE
+    { session: 12, title: "Puzzle 7: On Choice, On Self and Others",                                                     aid: "" },  // UPDATE
     { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "" },  // UPDATE
   ],
 
