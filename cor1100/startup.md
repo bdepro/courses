@@ -126,3 +126,20 @@ After the mcq-bank repo built Ch. 22's MCQ bank + instructor manual (it had been
 - **Corrected:** `w13-guided-notes-draft.md` + `.html` previously presented the absolute/relative perfection distinction as if Ch. 23 introduced it. Fixed Learning Target 1, the two perfection rows in Key Terms, the Part I connection-note, Part I's Apply cue, Matrix 1's caption (draft only), and a Common Pitfalls row to correctly credit Ch. 22 as the distinction's origin, with Ch. 23 applying it to wisdom specifically.
 
 No further guided-notes follow-up pending. Course-site chapter/week mapping in `config.js` was already correct from the prior correction session.
+
+### 2026-06-25 — Name pronunciation/origin glossary added to all guided notes
+
+This is a global-experience class with students from varied backgrounds, and the third-person scenario names used across the guided notes (drawn from `mcq-gen`'s diverse name pool, per-week, never repeating the immediately preceding week's names) may be unfamiliar. Added a "Names in This Week's Notes" table to the end of every week's guided notes (draft `.md` and `.html`), listing each name's plain-phonetic pronunciation and the country/region it's common in. Per-week (not cumulative) — each week only lists its own names.
+
+Full corpus audited directly against each file's Core Content and Reflect & Apply sections (not just the "Verbatim Audit Record" notes, which undercounted names in a couple of files — W01's "Caleb" and W07-09's "Imara"/"Tamsin" were missed by the audit notes but caught here):
+
+- W01: Aditi (India), Soren (Denmark, Norway), Caleb (United States)
+- W02: Briony (England), Kemal (Turkey), Niamh (Ireland), Anton (Germany, Russia, Scandinavia)
+- W04: Zara (UK, Middle East, South Asia), Bilal (Arabic-speaking world), Constance (England, France), Edvard (Norway, Sweden)
+- W05: Petra (Germany, Czech Republic), Rohan (India), Ilse (Germany, Netherlands), Saoirse (Ireland)
+- W07-09: Mireille (France), Imara (East Africa), Tamsin (England), Bram (Netherlands, Belgium)
+- W10: Linnea (Sweden), Roshan (Iran, India, Pakistan), Selma (Sweden, Bosnia, Turkey), Nikos (Greece)
+- W12: Adaora (Nigeria), Eero (Finland), Casimir (Poland), Solveig (Norway)
+- W13: Vesna (Croatia, Serbia, Slovenia), Zinnia (US, UK, India), Anouk (France, Netherlands), Dashiell (United States)
+
+New section sits between Reflect & Apply and the Footer in each document, styled as a standard `.section-block` (no new CSS needed).

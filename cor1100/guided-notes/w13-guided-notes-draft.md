@@ -135,6 +135,19 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
+## Names in This Week's Notes
+
+This is a global experience class with students from many backgrounds. Here's how to say the names used in this week's scenarios, and where they're common.
+
+| Name | Pronunciation | Common in |
+|---|---|---|
+| Vesna | VES-nah | Croatia, Serbia, Slovenia, Czech Republic |
+| Zinnia | ZIN-ee-ah | United States, United Kingdom, India |
+| Anouk | ah-NOOK | France, Netherlands |
+| Dashiell | DASH-ul | United States |
+
+---
+
 ## Footer
 ```
 Upload your completed notes to Canvas by [Date] for participation credit.

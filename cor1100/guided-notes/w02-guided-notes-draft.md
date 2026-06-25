@@ -134,6 +134,19 @@ One real-world example I thought of on my own: _______________________
 
 ---
 
+## Names in This Week's Notes
+
+This is a global experience class with students from many backgrounds. Here's how to say the names used in this week's scenarios, and where they're common.
+
+| Name | Pronunciation | Common in |
+|---|---|---|
+| Briony | BRY-oh-nee | England, United Kingdom |
+| Kemal | keh-MAHL | Turkey |
+| Niamh | NEEV | Ireland |
+| Anton | AHN-tohn | Germany, Russia, Scandinavia |
+
+---
+
 ## Footer
 ```
 Upload your completed notes to Canvas by [Date] for participation credit.
