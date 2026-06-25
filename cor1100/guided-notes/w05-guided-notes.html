@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 5: On Worshipping Wealth, On Friendship, On Hatred and Anger — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 5: On Worshipping Wealth, On Friendship, On Hatred and Anger</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Analyze why Hanley treats worshipping wealth as the single disposition underlying the costs diagnosed in Ch. 1–8, and explain its two distinct costs (individual and relational).</li>
+    <li>Apply Smith's claim that friendship restores tranquility and provides enjoyment, distinguishing genuine reciprocal friendship from an instrumental approach to it.</li>
+    <li>Evaluate Smith's claim that ordering our passions — less hatred/anger, more love/gratitude — serves both ourselves and others at once, including the sympathetic-indignation exception.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Worship of the rich / corruption of moral sentiments</td>
+        <td>Admiring the rich and despising the poor is simultaneously <span class="blank"></span> for social order and the great cause of the <span class="blank"></span> of our moral sentiments.</td>
+        <td><span class="example-prompt">A time you noticed yourself (or others) treating someone differently based on status:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">First cost (individual/psychic)</td>
+        <td>Worshipping wealth sacrifices the <span class="blank"></span> our minds need, chasing what the world <span class="blank"></span> instead.</td>
+        <td><span class="example-prompt">A time chasing distinction cost you your own peace of mind:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Second cost (relational)</td>
+        <td>Worshipping wealth leads us to actively <span class="blank"></span> and even <span class="blank"></span> the less powerful — stronger than mere distance.</td>
+        <td><span class="example-prompt">A time you noticed someone being overlooked because they weren't useful or impressive:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Shift from diagnosis to solution</td>
+        <td>This chapter marks Hanley's explicit pivot: from naming the <span class="blank"></span> to proposing what we should actually <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A problem in your own life where you've moved from diagnosing it to acting on it:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Friendship restores tranquility</td>
+        <td>Smith's first practical claim: the company of a <span class="blank"></span> restores the mind to <span class="blank"></span> and sedateness.</td>
+        <td><span class="example-prompt">A time a friend's company calmed you down:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Against instrumental friendship</td>
+        <td>Treating friendship as useful only for restoring your own tranquility <span class="blank"></span> undermines actually getting it — friendship requires mutual <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A friendship that works because it's two-way, not one-sided:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Solitary-compatible vs. mutually created activities</td>
+        <td>Some shared activities could be done <span class="blank"></span>; others, like <span class="blank"></span>, require both people to create something new.</td>
+        <td><span class="example-prompt">An activity you and a friend do that neither of you could do alone:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Love of virtue (choosing friends)</td>
+        <td>Friendships founded on virtue are simultaneously the most <span class="blank"></span>, the happiest, and the most <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A friend you'd call virtuous, and why:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Unsocial passions</td>
+        <td>Hatred and anger destroy the <span class="blank"></span> needed for happiness — harmful to both the person who feels them and the person they're <span class="blank"></span> at.</td>
+        <td><span class="example-prompt">A time anger cost you your own peace, not just the other person's:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Love and gratitude</td>
+        <td>The contrary passions to hatred/anger — they bring <span class="blank"></span> to both the person who feels them and the person they're <span class="blank"></span> toward.</td>
+        <td><span class="example-prompt">A time gratitude improved your own mood, not just someone else's:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Smith's "master question"</td>
+        <td>The recurring standard: finding a way of living that is good for <span class="blank"></span> others and <span class="blank"></span> at once.</td>
+        <td><span class="example-prompt">A choice you made that was good for you and someone else simultaneously:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Sympathetic indignation</td>
+        <td>Anger felt on behalf of victims of <span class="blank"></span> — painful for the individual, yet <span class="blank"></span> for social order; a crucial exception to the rule.</td>
+        <td><span class="example-prompt">A time you felt angry on someone else's behalf, not your own:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: ON WORSHIPPING WEALTH ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Ch. 9 — On Worshipping Wealth</div>
+  <div class="connection-note">Ch. 9 names the single disposition — worshipping wealth — behind everything diagnosed since Ch. 1, then pivots: from here forward, the book proposes remedies rather than further diagnoses.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim that worshipping the rich is both necessary for social order and the chief cause of moral corruption (p. 44–45). Then analyze: why does Hanley treat this as Smith modeling mature, two-sided debate, rather than a contradiction to resolve?</td>
+        <td class="cornell-notes-col">
+          Smith's claim (paraphrase + page): <span class="blank-full"></span>
+          Why this is mature debate, not contradiction: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Petra spends years cultivating relationships with senior partners at her firm purely because of what they can do for her career, and feels a flicker of contempt whenever she's introduced to a new intern. Which cost of worshipping wealth does each half of Petra's behavior best illustrate — the individual/psychic cost, or the relational cost?</td>
+        <td class="cornell-notes-col">
+          Cultivating senior partners illustrates: <span class="blank blank-xl"></span><br><br>
+          Contempt for the intern illustrates: <span class="blank blank-xl"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain the "second cost" (relational) using Hanley's claim that it's worse than Marx's "alienation."</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain how the second cost directly conflicts with TMS's opening line from Ch. 2 — that others' happiness is "necessary" to us.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: Hanley notes Rousseau independently diagnosed a similar tension in <em>Emile</em>. Defend or challenge why this parallel strengthens (or doesn't strengthen) Smith's diagnosis.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: this chapter marks an explicit pivot from diagnosis to solution. Propose one specific habit or virtue that might counter your own tendency to worship wealth or status.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%"></th>
+        <th style="width:28%" class="fill-col">What's sacrificed</th>
+        <th style="width:24%">Which earlier chapter it connects to</th>
+        <th style="width:24%" class="fill-col">Your own example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">First cost (individual)</td>
+        <td><span class="blank-full"></span></td>
+        <td>Ch. 6, Ch. 8</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Second cost (relational)</td>
+        <td><span class="blank-full"></span></td>
+        <td>Ch. 2, Ch. 5</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON FRIENDSHIP ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 10 — On Friendship</div>
+  <div class="connection-note">Ch. 9 pivoted from diagnosis to solution. This chapter gives remedy #1: friendship — something we can actually <em>do</em>.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's first solution-oriented claim about what restores a disturbed mind (p. 49). Then apply: what does Smith recommend, exactly, and why is this advice simpler than it might first appear?</td>
+        <td class="cornell-notes-col">
+          Smith's claim (paraphrase + page): <span class="blank-full"></span>
+          Why it's simpler than expected: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Rohan only calls his oldest friend when he needs advice or a favor, and rarely asks what's happening in his friend's life unless prompted. Is Rohan's friendship reciprocal in the way Smith describes, or does it risk the instrumental trap Hanley warns against? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: distinguish solitary-compatible activities from mutually created ones, using two examples of your own.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain why Smith singles out conversation as friendship's "most powerful remedy," rather than treating it as one option among many.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Smith's claim that virtue-based friendships are simultaneously the most moral, the happiest, and the most secure.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why Smith says virtue-based friendship isn't limited to a single best friend.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:34%">Activity</th>
+        <th style="width:33%">Could it be done alone?</th>
+        <th style="width:33%">Requires mutual engagement to create something new?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label"><span class="blank-full"></span> (e.g. dining, running, fishing)</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td class="row-label"><span class="blank-full"></span> (e.g. conversation, making music)</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — PART III: ON HATRED AND ANGER ── -->
+<div class="section-block">
+  <div class="section-label">Part III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Ch. 12 — On Hatred and Anger</div>
+  <div class="connection-note">Ch. 10 gave remedy #1: friendship, something we do. This chapter gives remedy #2: ordering our passions — something we feel differently, not a restatement of the first remedy.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim that hatred and anger destroy the tranquility happiness requires (p. 56–57). Then analyze: why is "ordering ourselves" (this chapter) a different kind of remedy than friendship (Ch. 10)?</td>
+        <td class="cornell-notes-col">
+          Smith's claim (paraphrase + page): <span class="blank-full"></span>
+          Why it's a different kind of remedy: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Ilse witnesses a stranger shove an elderly passenger to grab a subway seat and feels a surge of anger, wanting the stranger held accountable — and stays rattled for the rest of her commute. Is Ilse's anger an ordinary case of the destructive "unsocial passions," or does it fit the sympathetic-indignation exception? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain what kind of "love" Smith means here, and why this distinction matters.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why sympathetic indignation is a crucial exception to the rule that hatred and anger are destructive — and how it parallels the poor man's son (Ch. 6).</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's "bumper-sticker" critique — that "feel less hate, more love" is true but not yet philosophy.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: propose your own tentative answer to Hanley's open question — what specific practice might help someone actually become more loving or grateful?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:26%" class="fill-col">Effect on the person who feels it</th>
+        <th style="width:26%" class="fill-col">Effect on the person it's directed at</th>
+        <th style="width:26%">Relationship to tranquility</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Hatred / anger*</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td>Destroys it</td>
+      </tr>
+      <tr>
+        <td class="row-label">Love / gratitude</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td>Supports it</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:8.5pt; font-style:italic; color:var(--muted); margin-top:-6pt; margin-bottom:10pt;">*Except sympathetic indignation — painful for the individual, yet socially constructive.</p>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part IV</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the three chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:30%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Resolving the two-sided quote into one side</td>
+        <td>Smith's real view is either "necessary for order" or "corrupts sentiments"</td>
+        <td>Hanley presents both as simultaneously true</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Missing the connection back to Ch. 2</td>
+        <td>The relational cost is a freestanding new claim</td>
+        <td>It directly conflicts with TMS's opening line about others' happiness being "necessary"</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Reading the chapter's quote as purely self-interested advice</td>
+        <td>"Friends restore your tranquility" means friendship is just a mood-fix tool</td>
+        <td>Smith's friendship is a two-way street; instrumental use defeats the purpose</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Conflating the two categories of activities</td>
+        <td>Any shared activity counts equally as a "friendship activity"</td>
+        <td>Some could be done alone; others require mutual engagement to exist at all</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Defaulting to romantic love</td>
+        <td>"Love" in this chapter means romantic love</td>
+        <td>Smith means neighbor love/charity, not romance</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating sympathetic indignation as a contradiction</td>
+        <td>This passage undermines the chapter's main claim</td>
+        <td>It's an explicit, narrow exception to a rule that otherwise still holds</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you explain the two costs of worshipping wealth without looking at Part I?</li>
+    <li>Can you distinguish reciprocal friendship from instrumental friendship?</li>
+    <li>Can you explain why sympathetic indignation is an exception, not a contradiction?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Three Chapters Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why Ch. 9 functions as a pivot point in this book, I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Saoirse only wants to spend time with people who can introduce her to influential contacts, and recently dropped a longtime friend who "wasn't going anywhere" professionally. Using this week's three chapters, what does Smith's advice about choosing friends "founded upon the love of virtue" suggest is missing from Saoirse's approach — and how does this connect to Ch. 9's diagnosis of worshipping wealth and status?</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Return to your Part I answer about the two costs of worshipping wealth. Now factor in Part III's claim about love and gratitude meeting Smith's "master question" (good for self and others at once). Which of this week's two remedies — friendship or ordering your passions — feels more relevant to your own life right now? Why?</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next: Check-In #2 (Wed) and TMS 2 launch (Fri) — no new Hanley chapters this week (W6). W7 resumes with Ch. XIII (Perusall only, no quiz).</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4: On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure — COR 1100 Guided Notes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience</div>
+  <div class="chapter-title">Week 4: On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Analyze Smith's two discrete errors (over-rating the future, under-valuing the present) using the parable of the poor man's son, and explain why pursuing economic betterment isn't itself the problem.</li>
+    <li>Analyze why Hanley treats the division-of-labor paradox (WN Book 1 vs. Book 5) as evidence that happiness depends on the mind's state, not just material comfort.</li>
+    <li>Evaluate Smith's claim that happiness requires tranquility and enjoyment together, and defend or challenge what kind of tranquility might suit active beings.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Over-rating</td>
+        <td>Avarice, ambition, and vain-glory all <span class="blank"></span> the actual difference between situations — like poverty vs. riches.</td>
+        <td><span class="example-prompt">A time you imagined a future situation as more different from your present one than it really would be:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Under-valuing the present</td>
+        <td>The flip side of over-rating: failing to recognize that ordinary life can already offer <span class="blank"></span>, cheerfulness, and <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A part of your current life you sometimes take for granted:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Tranquility (as foundation)</td>
+        <td>The "principle and foundation of all real and satisfactory <span class="blank"></span>," undermined — not supported — by the pleasures of vanity and <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A moment of genuine calm you experienced recently:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Parable of the poor man's son</td>
+        <td>A young man pursues wealth and greatness, achieving them — but at the cost of his available <span class="blank"></span>, regretting it on his <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A pursuit where the cost might outweigh the prize, even if you "win":</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Das Adam Smith Problem</td>
+        <td>The scholarly dispute over whether TMS (sympathy) and WN (self-interest) <span class="blank"></span> as one system, or are two <span class="blank"></span> projects.</td>
+        <td><span class="example-prompt">A time two ideas you held seemed contradictory but turned out to fit together:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Happiness as psychological, not physical</td>
+        <td>Happiness depends more on the mind's healthy or <span class="blank"></span> state than on the <span class="blank"></span>'s condition.</td>
+        <td><span class="example-prompt">A time you had everything you needed physically but still felt unhappy:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Creature comforts / "baubles and trinkets"</td>
+        <td>Things that bring physical <span class="blank"></span> and pleasure, but are not the same as <span class="blank"></span> itself.</td>
+        <td><span class="example-prompt">A comfort you enjoy that doesn't actually make you happier:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Division of labor paradox</td>
+        <td>Specialized labor increases <span class="blank"></span>, but repetitive narrow tasks risk "mutilating" workers' <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A repetitive task (yours or someone else's) that trades engagement for output:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Tranquillity and enjoyment"</td>
+        <td>Happiness consists in these two things <span class="blank"></span> — not tranquility <span class="blank blank-lg"></span>.</td>
+        <td><span class="example-prompt">A moment that felt calm AND enjoyable at the same time:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Being vs. getting</td>
+        <td>Real happiness lies not in <span class="blank"></span> a certain thing but in <span class="blank"></span> a certain way.</td>
+        <td><span class="example-prompt">A time getting something didn't change how you felt the way you expected:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">The middle path</td>
+        <td>The position between two extremes: the <span class="blank"></span> (sacrifices enjoyment for tranquility) and the poor man's son (sacrifices <span class="blank"></span> for enjoyment).</td>
+        <td><span class="example-prompt">A time you found a balance between two extremes:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Tranquility for active beings (open question)</td>
+        <td>Humans are fundamentally <span class="blank"></span> beings, yet the needed tranquility is described partly in <span class="blank"></span> terms — an open question.</td>
+        <td><span class="example-prompt">A kind of "active rest" you've experienced that wasn't just sitting still:</span><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I — PART I: ON MISERIES AND DISORDERS ── -->
+<div class="section-block">
+  <div class="section-label">Part I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Ch. 6 — On Miseries and Disorders</div>
+  <div class="connection-note">Week 2 ended with a trade-off: wealth supplies attention but not bodily ease or mental tranquility. This week follows that thread to its conclusion. Ch. 6 shows what can go wrong when betterment is chased without limit.</div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim about avarice, ambition, and vain-glory over-rating the difference between situations (p. 32–33). Then trace: how is under-valuing the present a separate, second error from over-rating the future?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Why it's a separate error: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Zara has spent six years chasing a competitive fellowship, certain that winning it will finally make her happy — but she barely registers the comfortable, stable life she already has with her partner and close friends in the meantime. Is Zara's situation a clearer example of over-rating the future, or under-valuing the present — or both? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: narrate the parable of the poor man's son as a chain — admiration, pursuit, achievement, regret. What does he actually get, and what does he actually lose?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain why Hanley says the parable's lesson is "good for society, bad for happiness," not "ambition never works."</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge Hanley's caution against concluding that Smith wants us to abandon bettering our condition altogether.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: the chapter ends on an open question — is there a way to better our condition that's good for both society and the individual? Propose your own tentative answer and defend it.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%"></th>
+        <th style="width:30%" class="fill-col">What it misjudges</th>
+        <th style="width:28%" class="fill-col">Named vice / error</th>
+        <th style="width:24%" class="fill-col">Your own example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Over-rating</td>
+        <td><span class="blank-full"></span></td>
+        <td>Avarice, ambition, vain-glory</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Under-valuing</td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION II — PART II: ON THE HEALTHY MIND ── -->
+<div class="section-block">
+  <div class="section-label">Part II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Ch. 7 — On the Healthy Mind</div>
+  <div class="connection-note">Ch. 6 closed with an open question. This chapter bridges to the answer by showing that Smith's own economics text — Wealth of Nations — already agrees that happiness is psychological, not just material.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim (drawn from WN) that happiness depends on the mind's state more than the body's (p. 36–37). Then analyze: what is the "Das Adam Smith Problem," and how does this chapter complicate it?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Das Adam Smith Problem: <span class="blank-full"></span>
+          How this chapter complicates it: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Bilal's company offers a fully stocked break room, a gym membership, and a generous salary, but he still feels mentally flat and disengaged at work most days. Does this best illustrate that creature comforts alone aren't sufficient for happiness, or does it best illustrate the division-of-labor paradox? Justify your choice.</td>
+        <td class="cornell-notes-col">
+          Best-fitting concept: <span class="blank blank-xl"></span><br><br>
+          Why the other concept fits less well: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain why Smith doesn't call creature comforts worthless, even though he says they're insufficient for happiness.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: trace the division-of-labor paradox. What does WN Book 1 claim about specialized labor, and what does WN Book 5 reveal as its cost?</td>
+        <td class="cornell-notes-col">
+          WN Book 1 claims: <span class="blank-full"></span>
+          WN Book 5 reveals: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge the claim that Smith's call for publicly funded education is surprising, given his popular reputation.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why Hanley insists institutions "can do only so much." What does the personal half of the solution actually require someone to do?</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:39%" class="fill-col">Benefit claimed</th>
+        <th style="width:39%" class="fill-col">Cost revealed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">WN Book 1</td>
+        <td><span class="blank-full"></span></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td class="row-label">WN Book 5</td>
+        <td>—</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III — PART III: ON TRANQUILITY AND PLEASURE ── -->
+<div class="section-block">
+  <div class="section-label">Part III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Ch. 8 — On Tranquility and Pleasure</div>
+  <div class="connection-note">Ch. 7 promised this book would explore what a happy mind looks like. This chapter delivers: tranquility paired with enjoyment, for beings who are fundamentally active.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">First, locate the line: write or paraphrase, with a page reference, Smith's claim that happiness consists in "tranquillity and enjoyment" together (p. 40). Then distinguish: why does Smith pair tranquility with enjoyment rather than treating tranquility alone as the goal?</td>
+        <td class="cornell-notes-col">
+          Smith's line (paraphrase + page): <span class="blank-full"></span>
+          Why both, not tranquility alone: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Constance burns out at her demanding job, quits, and immediately fills her schedule with five new self-improvement classes, two volunteer commitments, and a strict workout regimen — busier than before, just on different things. Is Constance still caught in the poor man's son's extreme, has she found the ascetic's extreme, or has she found the middle path? Justify your answer.</td>
+        <td class="cornell-notes-col">
+          Best-fitting answer: <span class="blank blank-xl"></span><br><br>
+          Justification: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Apply: explain Hanley's "being vs. getting" distinction using a recent example of your own.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Analyze: explain why asceticism is rejected as Smith's model, even though it also values tranquility.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: defend or challenge whether a specific modern wellness practice (an app, a class, a retreat) reflects genuine engagement with the world, or functions instead as ascetic-style withdrawal.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: Smith holds that humans are fundamentally active beings, yet describes tranquility partly in passive terms ("sit still"). Propose your own tentative answer to what tranquility suited to active beings might look like.</td>
+        <td class="cornell-notes-col"><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%"></th>
+        <th style="width:36%" class="fill-col">What's sacrificed</th>
+        <th style="width:36%" class="fill-col">What's retained</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">The ascetic</td>
+        <td>Enjoyment</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">The poor man's son</td>
+        <td>Tranquility</td>
+        <td><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">The middle path</td>
+        <td><span class="blank-full"></span></td>
+        <td>Both</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION IV — COMMON PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">Part IV</div>
+  <div class="section-header">Common Pitfalls Across This Week</div>
+  <div class="connection-note">These are the most common ways students flatten or misapply the three chapters above.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:24%">What students assume</th>
+        <th style="width:30%">What the text actually claims</th>
+        <th style="width:24%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Collapsing two discrete errors into one</td>
+        <td>Over-rating the future and under-valuing the present are the same point restated</td>
+        <td>Hanley presents them as two separate, discrete errors</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Concluding Smith condemns ambition outright</td>
+        <td>The parable means "don't try to get ahead"</td>
+        <td>Hanley explicitly blocks this — economic growth depends on the same drive</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Reading the division-of-labor paradox as a reversal</td>
+        <td>WN Book 5 contradicts or retracts Book 1's productivity claims</td>
+        <td>Smith holds both — productivity gains <em>and</em> mental costs — simultaneously</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Assuming Smith's policy fits his reputation</td>
+        <td>Smith would favor minimal government, even here</td>
+        <td>Smith explicitly calls for serious government attention and public-funded education</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Treating "sit still" as the full answer</td>
+        <td>The obvious lesson (slow down) is Hanley's whole point</td>
+        <td>Hanley flags two further, less-obvious claims as more important</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Resolving the middle path by picking a side</td>
+        <td>"Tranquility and enjoyment together" still requires choosing one</td>
+        <td>Both are jointly necessary, not a choice</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column. Use only your Questions column.</p>
+  <ul>
+    <li>Can you explain each answer in your own words — without looking?</li>
+    <li>Can you distinguish over-rating the future from under-valuing the present without looking at Part I?</li>
+    <li>Can you explain the division-of-labor paradox in your own words?</li>
+    <li>Can you explain why Smith pairs tranquility with enjoyment, rather than recommending tranquility alone?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item">The main idea of this week was: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Bringing the Three Chapters Together</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">If I had to explain in one sentence why this week's three chapters all return to "tranquility," I would say:</p>
+  <span class="blank-full"></span>
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">because:</p>
+  <span class="blank-full"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:8pt">Your friend Edvard just turned down a promotion that would double his salary but require 60-hour weeks, telling you he'd rather keep his current pace and "actually enjoy his life." Using this week's three chapters, is Edvard closer to the middle path Smith recommends, or is he at risk of a different kind of error? Justify your answer.</p>
+  <span class="write-lines-lg"></span>
+
+  <p style="font-size:9.5pt; font-weight:400; margin-top:14pt; margin-bottom:6pt">Return to your Part I answer about the poor man's son's parable. Now factor in Part III's claim that tranquility must be paired with enjoyment, not asceticism. Was the poor man's son's actual mistake that he was too active, or that he was active in the wrong way? Explain.</p>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="submit-line">Upload your completed notes to Canvas by [Date] for participation credit.</p>
+  <p class="study-tip">STUDY TIP: Do not re-read these notes passively.<br>
+  Cover the Notes column. Use the Questions column to quiz yourself — out loud. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next week: Ch. IX, X, XII — On Worshipping Wealth, On Friendship, On Hatred and Anger (Ch. XI intentionally omitted) (W5)</p>
+</div>
+
+</body>
+</html>
