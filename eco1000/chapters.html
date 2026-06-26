@@ -53,6 +53,10 @@
     .ch-notes-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--teal-dk);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
     .ch-notes-link:hover{background:var(--warm-gray);}
     .ch-notes-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .ch-submit-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--crimson);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .ch-submit-link:hover{background:var(--warm-gray);}
+    .ch-submit-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .ch-submit-link.inactive{color:var(--muted);pointer-events:none;font-weight:400;}
     footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
     @media(max-width:600px){
       .screen-header{padding:1.5rem 1.25rem;}
@@ -60,8 +64,8 @@
       .ch-row{grid-template-columns:3rem 1fr auto;}
       .ch-body{font-size:0.82rem;}
       .ch-actions{flex-direction:column;}
-      .ch-link,.ch-notes-link{padding:0.6rem 0.75rem;border-left:none;border-top:1px solid rgba(181,154,87,0.12);}
-      .ch-notes-link{border-top:none;}
+      .ch-link,.ch-notes-link,.ch-submit-link{padding:0.6rem 0.75rem;border-left:none;border-top:1px solid rgba(181,154,87,0.12);}
+      .ch-actions>:first-child{border-top:none;}
     }
     .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
     .skip-link:focus{left:0;}
@@ -87,7 +91,9 @@
     tested on Check-Ins. Application chapters are your reference for the Application Block
     in Weeks 12 and 13 — after the Week 11 class vote selects six questions, each
     question draws on one of these chapters. Read those chapters during Weeks 12 and
-    13, not before.
+    13, not before. Guided notes for core chapters are optional — submit completed
+    notes through Canvas for 2 points toward that week's Puzzle score (1.6 points if
+    submitted within one week late).
   </div>
 
   <p class="section-label">Core Chapters — Check-Ins #1 through #3</p>
@@ -117,6 +123,13 @@ function buildRow(ch, sessionNum) {
       'Guided Notes' +
       '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
     '</a>' : '';
+  var hasSubmit = ch.notesSubmitUrl && ch.notesSubmitUrl.length > 0;
+  var submitLink = ch.guidedNotesUrl ?
+    '<a class="ch-submit-link' + (hasSubmit ? '' : ' inactive') + '"' +
+      (hasSubmit ? ' href="' + ch.notesSubmitUrl + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasSubmit ? 'Submit Notes' : 'Submit (Coming Soon)') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>' : '';
   row.innerHTML =
     '<div class="ch-num">' + ch.num + '</div>' +
     '<div class="ch-body">' + ch.title + sub + '</div>' +
@@ -126,6 +139,7 @@ function buildRow(ch, sessionNum) {
         'Open Chapter' +
         '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
       '</a>' +
+      submitLink +
     '</div>';
   return row;
 }

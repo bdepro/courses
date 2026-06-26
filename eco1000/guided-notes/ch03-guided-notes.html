@@ -45,6 +45,26 @@ body {
 }
 .print-btn:hover { background: #333; }
 
+/* ── Submit button ── */
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+.submit-btn.inactive {
+  background: var(--mid);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 /* ── Header ── */
 .doc-header {
   border-bottom: 2px solid var(--ink);
@@ -876,9 +896,16 @@ th.fill-col {
   <span class="write-lines-lg"></span>
 </div>
 
+<!-- ── SUBMIT YOUR NOTES ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Notes</div>
+  <div class="connection-note">Submitting your completed notes is optional and worth 2 points toward this week's Puzzle score (1.6 points if submitted within one week late). Skipping it costs you nothing.</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/1397/assignments/9154" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
 <!-- ── FOOTER ── -->
 <div class="doc-footer">
-  <p class="submit-line">Submit your completed notes to Canvas by [Date] for an optional +2 point bonus toward that week's Puzzle score.</p>
   <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
   Study tip: Don't re-read these notes passively. Cover the Notes column in Section I. Quiz yourself out loud using the Questions. Repeat daily until the quiz.</p>
   <p class="next-lecture">Next lecture: How do price controls and taxes change who actually bears the cost? (Ch. 4)</p>

@@ -250,15 +250,20 @@ const CHAPTERS = {
 
   // Core chapters — tested on Check-Ins #1 through #3
   // aid: Canvas assignment ID — UPDATE each semester if assignments are rebuilt.
-  // Full URL is auto-built from COURSE.canvasId + aid at the bottom of this file.
+  // notesAid: Canvas assignment ID for the 0-points-possible guided-notes
+  // submission (2 pts on time / 1.6 pts late, graded manually, same
+  // Assignment Group as Puzzles, outside drop-lowest — see project memory
+  // "ECO 1000 Guided Notes Bonus Policy"). UPDATE once that term's 7
+  // submission assignments are built in Canvas.
+  // Full URLs are auto-built from COURSE.canvasId + aid/notesAid at the bottom of this file.
   core: [
-    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch01-guided-notes.html` },
-    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch03-guided-notes.html` },
-    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch04-guided-notes.html` },
-    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch07-guided-notes.html` },
-    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch08-guided-notes.html` },
-    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch16-guided-notes.html` },
-    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch18-guided-notes.html` },
+    { key: "ch1",  num: "Ch. 1",  title: "The Economic Approach",                              session: 1,  aid: "2842", notesAid: "9153", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch01-guided-notes.html` },
+    { key: "ch3",  num: "Ch. 3",  title: "Demand, Supply, and the Market Process",             session: 2,  aid: "2843", notesAid: "9154", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch03-guided-notes.html` },
+    { key: "ch4",  num: "Ch. 4",  title: "Demand and Supply: Applications and Extensions",     session: 4,  aid: "2844", notesAid: "9155", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch04-guided-notes.html` },
+    { key: "ch7",  num: "Ch. 7",  title: "Taking the Nation's Economic Pulse",                 session: 5,  aid: "2845", notesAid: "9156", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch07-guided-notes.html` },
+    { key: "ch8",  num: "Ch. 8",  title: "Economic Fluctuations, Unemployment, and Inflation", session: 7,  aid: "2853", notesAid: "9157", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch08-guided-notes.html` },
+    { key: "ch16", num: "Ch. 16", title: "Creating an Environment for Growth and Prosperity",  session: 9,  aid: "2846", notesAid: "9158", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch16-guided-notes.html` },
+    { key: "ch18", num: "Ch. 18", title: "Gaining from International Trade",                   session: 10, aid: "2847", notesAid: "9159", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/ch18-guided-notes.html` },
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
@@ -483,9 +488,9 @@ const CANVAS = {
   // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
     { id: 1, title: "Friday Focus: The Economic Narrative",
-      due: "Wed Dec 2, 11:59 p.m.", url: "" },                    // UPDATE: Canvas assignment URL
+      due: "Wed Dec 2, 11:59 p.m.", url: "https://elon.instructure.com/courses/1397/assignments/2455" },
     { id: 2, title: "Friday Focus: The Narrative Viva",
-      due: "Viva week Nov 30-Dec 4 (by appointment)", url: "" },   // UPDATE: Canvas Scheduler URL
+      due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
   // Check-Ins — UPDATE each semester
@@ -500,13 +505,15 @@ const CANVAS = {
       covers: "Comprehensive / Ch. 18 + Application block / S&D / Guideposts", url: "" }, // UPDATE
   ],
 
-  // ── NEW: viva week resources ──────────────────────────────────
-  // UPDATE: URLs after Canvas Scheduler and assignments are set up
+  // ── Viva week resources ──────────────────────────────────
+  // vivaWeekSignupUrl and examPeriodSignupUrl point into the SAME Canvas
+  // Appointment Group (one signup, three date/time blocks: Mon Nov 30,
+  // Wed Dec 2, and Wed Dec 9 exam-period) — deep-linked to different
+  // months for clarity. A student can only ever book one slot total
+  // (Canvas "limit to one appointment" setting).
   viva: {
-    // Canvas Scheduler appointment group — viva week slots (Mon/Wed Nov 30, Dec 2)
-    vivaWeekSignupUrl:   "",   // UPDATE: Canvas Calendar appointment group URL
-    // Canvas Scheduler appointment group — final exam period slots (Dec 7-11)
-    examPeriodSignupUrl: "",   // UPDATE: Canvas Calendar appointment group URL
+    vivaWeekSignupUrl:   "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
+    examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-09",
     // Viva week review worksheet — Mon and Wed of viva week
     worksheetUrl:        "",   // UPDATE: Canvas Page URL (s15-worksheet)
     // Viva week worksheet submission — for contact hour record
@@ -514,8 +521,8 @@ const CANVAS = {
     // Final exam period worksheet — Population 1 students
     examWorksheetUrl:    "",   // UPDATE: Canvas Page URL
     examWorksheetSubmitUrl: "", // UPDATE: Canvas Assignment URL
-    // Friday Focus written narrative submission
-    ffSubmitUrl:         "",   // UPDATE: Canvas Assignment URL (same as friday[0].url above)
+    // Friday Focus written narrative submission — same as friday[0].url
+    ffSubmitUrl:         "https://elon.instructure.com/courses/1397/assignments/2455",
   },
 
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
@@ -523,9 +530,9 @@ const CANVAS = {
   // type: "writing" | "review" | "revision-plan" | "revision"
   eli: [
     { id: 1, module: 1,    label: "Draft 1",          type: "writing",       dueShort: "Sep 16", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
-    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", url: null },  // UPDATE
-    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  url: null },  // UPDATE
-    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  url: null },  // UPDATE
+    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
+    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
+    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
     { id: 5, module: 2,    label: "Review 2",          type: "review",        dueShort: "Oct 9",  url: null },  // UPDATE
     { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  url: null },  // UPDATE
     { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  url: null },  // UPDATE
@@ -607,6 +614,10 @@ const ASSIGNMENT_URL = aid =>
 
 [CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
+
+// Guided-notes submission link — one per core chapter (1:1, no grouping
+// needed since each chapter has its own guided-notes document).
+CHAPTERS.core.forEach(item => { item.notesSubmitUrl = ASSIGNMENT_URL(item.notesAid); });
 
 // ================================================================
 //  PUZZLE DUE-DATE DERIVATION
