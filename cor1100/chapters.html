@@ -86,7 +86,7 @@
 </div>
 <main id="main">
   <div class="callout teal">
-    <strong>Click any chapter to open the PDF through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned. Guided notes are optional — submit completed notes through Canvas for 2 points toward that week's Puzzle score (1.6 points if submitted within one week late). Each guided-notes document covers several chapters — submit once, using the Submit Notes link on the last chapter it covers (marked below).
+    <strong>Click any chapter to open the PDF through Canvas.</strong> No separate account is needed. All chapters are due Wednesday at 11:59 p.m. of the relevant week; Chapter XI is not assigned. Guided notes are optional — submit completed notes through Canvas for 2 points toward that week's Puzzle score (1.6 points if submitted within one week late). Each guided-notes document covers several chapters — the Guided Notes link appears on the first chapter it covers, and the Submit Notes link appears once, on the last (both marked below).
   </div>
   <p class="section-label" id="chapterLabel"></p>
   <div class="chapter-list" id="chapterList"></div>
@@ -104,14 +104,16 @@ document.getElementById('chapterLabel').textContent =
 var list = document.getElementById('chapterList');
 
 CHAPTERS.all.forEach(function(ch) {
-  var hasUrl      = ch.url && ch.url.length > 0;
-  var hasNotes    = ch.guidedNotesUrl && ch.guidedNotesUrl.length > 0;
-  // Submit is a one-time action per guided-notes document, not per
-  // chapter — ch.notesCoversLabel is only set (by config.js) on the
-  // LAST chapter in that document's span, so the Submit pill and the
-  // "covers" note only ever appear once per document, on that row.
+  var hasUrl = ch.url && ch.url.length > 0;
+  // Guided Notes and Submit are each a one-time action per guided-notes
+  // document, not per chapter. config.js sets ch.guidedNotesUrl only on
+  // the FIRST chapter in that document's span (read notes as you start)
+  // and ch.notesSubmitUrl only on the LAST chapter (submit once you
+  // finish) — so each pill, and its accompanying "covers" note, appears
+  // exactly once per document, never repeated across the span.
+  var hasNotes  = ch.guidedNotesUrl && ch.guidedNotesUrl.length > 0;
+  var hasSubmit = ch.notesSubmitUrl && ch.notesSubmitUrl.length > 0;
   var isSubmitRow = ch.notesCoversLabel && ch.notesCoversLabel.length > 0;
-  var hasSubmit   = ch.notesSubmitUrl && ch.notesSubmitUrl.length > 0;
 
   var notesLink = hasNotes ?
     '<a class="ch-notes-link" href="' + ch.guidedNotesUrl + '" target="_blank" rel="noopener">' +
@@ -133,8 +135,8 @@ CHAPTERS.all.forEach(function(ch) {
       '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
     '</a>' : '';
 
-  var scopeNote = isSubmitRow ?
-    '<span class="ch-scope-note">' + ch.notesCoversLabel + ' — submit once here</span>' : '';
+  var scopeNote = (ch.notesStartLabel || ch.notesCoversLabel) ?
+    '<span class="ch-scope-note">' + (ch.notesStartLabel || ch.notesCoversLabel) + '</span>' : '';
 
   var row = document.createElement('div');
   row.className = 'ch-row';

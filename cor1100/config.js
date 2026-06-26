@@ -437,14 +437,14 @@ const CANVAS = {
   // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
   // UPDATE each semester
   puzzles: [
-    { session: 1,  title: "Puzzle 1: Introduction, On Self-Interest, On Caring for Others",                                aid: "" },  // UPDATE
-    { session: 2,  title: "Puzzle 2: On Acting for Others, On Imagination, On Bettering Our Condition",                    aid: "" },  // UPDATE
-    { session: 4,  title: "Puzzle 3: On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure",        aid: "" },  // UPDATE
-    { session: 5,  title: "Puzzle 4: On Worshipping Wealth, On Friendship, On Hatred and Anger",                          aid: "" },  // UPDATE
-    { session: 9,  title: "Puzzle 5: On Being Loved, On Loving, On Flourishing, On Being Lovely",                          aid: "" },  // UPDATE
-    { session: 10, title: "Puzzle 6: On Seeing Ourselves, On Dignity, On Equality",                                       aid: "" },  // UPDATE
-    { session: 12, title: "Puzzle 7: On Choice, On Self and Others, On Perfection",                                      aid: "" },  // UPDATE
-    { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "" },  // UPDATE
+    { session: 1,  title: "Puzzle 1: Introduction, On Self-Interest, On Caring for Others",                                aid: "7768" },
+    { session: 2,  title: "Puzzle 2: On Acting for Others, On Imagination, On Bettering Our Condition",                    aid: "7936" },
+    { session: 4,  title: "Puzzle 3: On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure",        aid: "8762" },
+    { session: 5,  title: "Puzzle 4: On Worshipping Wealth, On Friendship, On Hatred and Anger",                          aid: "8116" },
+    { session: 9,  title: "Puzzle 5: On Being Loved, On Loving, On Flourishing, On Being Lovely",                          aid: "8767" },
+    { session: 10, title: "Puzzle 6: On Seeing Ourselves, On Dignity, On Equality",                                       aid: "8768" },
+    { session: 12, title: "Puzzle 7: On Choice, On Self and Others, On Perfection",                                      aid: "8769" },
+    { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "8770" },
   ],
 
   // MME — 4 passages from The Theory of Moral Sentiments
@@ -463,7 +463,7 @@ const CANVAS = {
     { id: 1, title: "Friday Focus: The Narrative",
       due: "Wed Dec 2, 11:59 p.m.", url: "" },                      // UPDATE
     { id: 2, title: "Friday Focus: The Narrative Viva",
-      due: "Viva week Nov 30-Dec 4 (by appointment)", url: "" },    // UPDATE: Canvas Scheduler URL
+      due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
   // Check-Ins — direct URLs (no aid pattern)
@@ -479,10 +479,15 @@ const CANVAS = {
       covers: "Comprehensive / Intro + Ch. I–XXV / standing threads", url: "" },  // UPDATE
   ],
 
-  // Viva week resources — UPDATE after Canvas is set up
+  // Viva week resources
+  // Both URLs point into the SAME Canvas Appointment Group (one signup,
+  // two date/time blocks) — vivaWeekSignupUrl deep-links to the Nov 30
+  // month view, examPeriodSignupUrl to the Dec 7 month view. A student
+  // can only ever book one slot total (Canvas "limit to one appointment"
+  // setting), regardless of which link they click first.
   viva: {
-    vivaWeekSignupUrl:      "",  // UPDATE: Canvas Calendar appointment group URL
-    examPeriodSignupUrl:    "",  // UPDATE: Canvas Calendar appointment group URL
+    vivaWeekSignupUrl:      "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
+    examPeriodSignupUrl:    "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-07",
     worksheetUrl:           "",  // UPDATE: Canvas Page URL (s15-worksheet)
     worksheetSubmitUrl:     "",  // UPDATE: Canvas Assignment URL
     examWorksheetUrl:       "",  // UPDATE: Canvas Page URL
@@ -558,17 +563,19 @@ CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
 [CANVAS.puzzles, CANVAS.tms]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
-// Build each guided-notes doc's submission URL. Attach the guided-notes
-// URL to every chapter it covers (so each chapter row can link to the
-// notes), but attach the Submit link + a "covers" label ONLY to the
-// LAST chapter in that doc's span — submitting is a one-time action per
-// document, not per chapter, and showing the Submit pill on every row
-// in a multi-chapter span reads as "submit separately for each chapter,"
-// which is wrong. chapters.html reads ch.guidedNotesUrl / ch.notesSubmitUrl
-// / ch.notesCoversLabel directly.
+// Build each guided-notes doc's submission URL. Both the Guided Notes
+// link and the Submit link are one-time-per-document actions, not
+// per-chapter, so each only appears on ONE row in that document's span:
+// Guided Notes on the FIRST chapter (read the notes as you start the
+// reading), Submit on the LAST chapter (turn them in once you finish).
+// Showing either pill on every row in a multi-chapter span reads as
+// "do this separately for each chapter," which is wrong.
+// chapters.html reads ch.guidedNotesUrl / ch.notesStartLabel /
+// ch.notesSubmitUrl / ch.notesCoversLabel directly.
 GUIDED_NOTES.forEach(gn => {
-  gn.submitUrl     = ASSIGNMENT_URL(gn.aid);
-  gn.lastChapterKey = gn.chapters[gn.chapters.length - 1];
+  gn.submitUrl      = ASSIGNMENT_URL(gn.aid);
+  gn.firstChapterKey = gn.chapters[0];
+  gn.lastChapterKey  = gn.chapters[gn.chapters.length - 1];
 });
 
 const numByKey = {};
@@ -580,11 +587,17 @@ GUIDED_NOTES.forEach(gn => {
 });
 CHAPTERS.all.forEach(item => {
   const gn = guidedNotesByChapterKey[item.key];
-  const isLastInGroup = gn && gn.lastChapterKey === item.key;
-  item.guidedNotesUrl  = gn ? gn.url : '';
-  item.notesSubmitUrl  = isLastInGroup ? gn.submitUrl : '';
+  const isFirstInGroup = gn && gn.firstChapterKey === item.key;
+  const isLastInGroup  = gn && gn.lastChapterKey === item.key;
+  const coversText = gn ? gn.chapters.map(k => numByKey[k]).join(', ') : '';
+
+  item.guidedNotesUrl   = isFirstInGroup ? gn.url : '';
+  item.notesStartLabel  = isFirstInGroup && gn.chapters.length > 1
+    ? 'Covers ' + coversText + ' — notes start here'
+    : '';
+  item.notesSubmitUrl   = isLastInGroup ? gn.submitUrl : '';
   item.notesCoversLabel = isLastInGroup
-    ? 'Covers ' + gn.chapters.map(k => numByKey[k]).join(', ')
+    ? 'Covers ' + coversText + ' — submit once here'
     : '';
 });
 
