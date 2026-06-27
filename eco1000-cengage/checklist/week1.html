@@ -121,6 +121,12 @@
     <span class="due-banner-text">All Week 1 work due <strong id="week1Due"></strong> — badges, puzzles, and readings.</span>
   </div>
 
+  <!-- Heads-up: viva is coming, flagged early so it's never a surprise -->
+  <div class="due-banner">
+    <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    <span class="due-banner-text"><strong>Heads up:</strong> Week 3 includes a 12-minute graded Narrative Viva (<strong>30% of your course grade</strong>). You'll submit a short written narrative in Week 2 and sign up for your viva slot at the same time. <a id="vivaHeadsUpLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">See what's coming &rarr;</a></span>
+  </div>
+
   <!-- Syllabus — read once at start of course -->
   <p class="section-label">Before You Begin</p>
   <div class="chapter-block">
@@ -140,7 +146,7 @@
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Purchase and set up your Cengage access</div>
-          <div class="check-desc">Follow the step-by-step instructions to purchase MindTap access before your first assignment is due. Don't wait until the last day — setup can take time if you hit a technical snag.</div>
+          <div class="check-desc">Follow the step-by-step instructions to purchase MindTap access by <strong>July 8</strong> &mdash; three days before your first badge and puzzle are due. Don't wait until the deadline itself; setup can take time if you hit a technical snag.</div>
           <span class="check-tag tag-read">Setup</span>
           <br><a class="check-link" href="#" id="link-cengage-setup" target="_blank" rel="noopener">
             Cengage Access Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -343,6 +349,8 @@ document.getElementById('weekEyebrow').textContent = `${COURSE.courseCode} · ${
 document.getElementById('weekMeta').textContent    = `${COURSE.weeks[0].dates} · All work due ${COURSE.weeks[0].due}`;
 document.getElementById('week1Due').textContent    = COURSE.weeks[0].due;
 document.getElementById('footerText').textContent  = `${COURSE.courseCode} · ${COURSE.courseTitle} · ${COURSE.semester}`;
+var vivaHeadsUpLink = document.getElementById('vivaHeadsUpLink');
+if (vivaHeadsUpLink) vivaHeadsUpLink.href = PAGES.friday;
 
 const moodleUrl = typeof MOODLE_COURSE !== 'undefined' ? MOODLE_COURSE : `${COURSE.moodleBase}/course/view.php?id=78855`;
 
