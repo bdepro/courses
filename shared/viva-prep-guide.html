@@ -246,13 +246,36 @@
     <div class="sched-row"><div class="sched-label">Duration</div><div class="sched-value">12 minutes</div></div>
     <div class="sched-row"><div class="sched-label">Zoom</div><div class="sched-value"><a id="prep-zoom" href="#" target="_blank" rel="noopener"></a></div></div>
     <div class="sched-row" id="prep-email-row"><div class="sched-label">Email</div><div class="sched-value">Can't make any slot? Email me before <span id="prep-email-deadline"></span> and we'll find one that does.</div></div>
-    <div class="sched-row"><div class="sched-label">Sign Up</div><div class="sched-value"><a id="signupLink" href="#" target="_blank" rel="noopener">Sign-up link</a></div></div>
+    <div class="sched-row"><div class="sched-label" id="prep-signup-label">Sign Up</div><div class="sched-value"><a id="signupLink" href="#" target="_blank" rel="noopener">Sign-up link</a></div></div>
+    <div class="sched-row" id="prep-signup-exam-row" style="display:none;"><div class="sched-label">Or Exam Period</div><div class="sched-value"><a id="signupLinkExam" href="#" target="_blank" rel="noopener">Sign-up link</a></div></div>
     <div class="guide-text" style="margin-top:0.75rem;">
-      <p>Slots go in order of sign-up. Sign up as soon as you submit your narrative.</p>
+      <p id="prep-signup-note">Slots go in order of sign-up. Sign up as soon as you submit your narrative.</p>
     </div>
     <a class="btn-primary" id="signupBtn" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Sign Up for Your Viva
+      <span id="signupBtnText">Sign Up for Your Viva</span>
+    </a>
+    <a class="btn-primary" id="signupBtnExam" href="#" target="_blank" rel="noopener" style="display:none;margin-left:0.6rem;">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Sign Up — Exam Period
+    </a>
+  </div>
+
+  <!-- Final exam period — only shown for courses with a separate exam-period option -->
+  <p class="section-label" id="examPeriodLabel" style="display:none;">Your Final Exam Period</p>
+  <div class="guide-card" id="examPeriodCard" style="display:none;">
+    <div class="guide-text"><p>What you do during the final exam period depends on what you've already finished.</p></div>
+    <div class="sched-row"><div class="sched-label">Done both</div><div class="sched-value">Already did your viva and Check-In 4? Just complete a short worksheet — no in-person obligation.</div></div>
+    <div class="sched-row"><div class="sched-label">Viva only</div><div class="sched-value">Did your viva but deferred Check-In 4? Take Check-In 4 during your exam block.</div></div>
+    <div class="sched-row"><div class="sched-label">Deferred</div><div class="sched-value">Deferred your viva entirely? Complete your viva and Check-In 4 during your exam block.</div></div>
+    <div class="guide-text" style="margin-top:0.75rem;"><p>If you only need the worksheet:</p></div>
+    <a class="btn-primary" id="examWorksheetBtn" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M9 8h6"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
+      Exam Period Worksheet
+    </a>
+    <a class="btn-primary" id="examWorksheetSubmitBtn" href="#" target="_blank" rel="noopener" style="margin-left:0.6rem;">
+      <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+      Submit Exam Worksheet
     </a>
   </div>
 
@@ -287,6 +310,10 @@
     var vivaZoomUrl       = '';
     var vivaZoomDisplay   = '';
     var vivaSignupUrl     = null;
+    var examSignupUrl     = null;
+    var examWorksheetUrl       = null;
+    var examWorksheetSubmitUrl = null;
+    var hasExamPeriod     = false;
 
     // Cengage schema: COURSE.viva, COURSE.instructor, FRIDAY.vivaSignupUrl
     if (typeof COURSE !== 'undefined' && COURSE.viva) {
@@ -296,13 +323,17 @@
       vivaZoomDisplay   = (COURSE.instructor) ? COURSE.instructor.zoomDisplay : '';
       vivaSignupUrl     = (typeof FRIDAY !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
     }
-    // ECO 1000 schema: CANVAS.viva, SCHEDULE.sessions, INSTRUCTOR
+    // ECO 1000 / COR 1100 schema: CANVAS.viva, SCHEDULE.sessions, INSTRUCTOR
     else if (typeof CANVAS !== 'undefined' && CANVAS.viva && typeof SCHEDULE !== 'undefined') {
       var vivaSession = SCHEDULE.sessions.find(function (s) { return s.viva; });
       vivaWhen        = vivaSession ? 'Viva Week, ' + vivaSession.dates : '';
       vivaZoomUrl     = (typeof INSTRUCTOR !== 'undefined') ? INSTRUCTOR.zoomUrl    : '';
       vivaZoomDisplay = (typeof INSTRUCTOR !== 'undefined') ? INSTRUCTOR.zoomDisplay : '';
       vivaSignupUrl   = CANVAS.viva.vivaWeekSignupUrl || null;
+      examSignupUrl   = CANVAS.viva.examPeriodSignupUrl || null;
+      examWorksheetUrl       = CANVAS.viva.examWorksheetUrl || null;
+      examWorksheetSubmitUrl = CANVAS.viva.examWorksheetSubmitUrl || null;
+      hasExamPeriod   = true;
     }
 
     // ── Populate scheduling rows ──────────────────────────────────
@@ -336,6 +367,45 @@
     } else {
       if (signupLink) signupLink.textContent = 'Sign-up link coming soon';
       if (signupBtn)  { signupBtn.style.opacity = '0.5'; signupBtn.style.pointerEvents = 'none'; }
+    }
+
+    // ── Exam-period option — only for courses with a separate exam-period slot ──
+    if (hasExamPeriod) {
+      var signupLabelEl = document.getElementById('prep-signup-label');
+      var signupBtnText  = document.getElementById('signupBtnText');
+      if (signupLabelEl) signupLabelEl.textContent = 'Viva Week';
+      if (signupBtnText) signupBtnText.textContent = 'Sign Up — Viva Week';
+
+      var signupNoteEl = document.getElementById('prep-signup-note');
+      if (signupNoteEl) signupNoteEl.textContent =
+        'Pick one — Viva Week or the Exam Period, not both. Both links open the same sign-up calendar; Canvas only lets you reserve a single slot total, whichever one you choose first.';
+
+      var examRow = document.getElementById('prep-signup-exam-row');
+      var signupLinkExam = document.getElementById('signupLinkExam');
+      var signupBtnExam  = document.getElementById('signupBtnExam');
+      if (examSignupUrl) {
+        if (examRow) examRow.style.display = '';
+        if (signupLinkExam) signupLinkExam.href = examSignupUrl;
+        if (signupBtnExam)  { signupBtnExam.href = examSignupUrl; signupBtnExam.style.display = ''; }
+      }
+
+      var examLabel = document.getElementById('examPeriodLabel');
+      var examCard  = document.getElementById('examPeriodCard');
+      if (examLabel) examLabel.style.display = '';
+      if (examCard)  examCard.style.display  = '';
+
+      var examWorksheetBtn       = document.getElementById('examWorksheetBtn');
+      var examWorksheetSubmitBtn = document.getElementById('examWorksheetSubmitBtn');
+      if (examWorksheetUrl && examWorksheetBtn) {
+        examWorksheetBtn.href = examWorksheetUrl;
+      } else if (examWorksheetBtn) {
+        examWorksheetBtn.style.opacity = '0.5'; examWorksheetBtn.style.pointerEvents = 'none';
+      }
+      if (examWorksheetSubmitUrl && examWorksheetSubmitBtn) {
+        examWorksheetSubmitBtn.href = examWorksheetSubmitUrl;
+      } else if (examWorksheetSubmitBtn) {
+        examWorksheetSubmitBtn.style.opacity = '0.5'; examWorksheetSubmitBtn.style.pointerEvents = 'none';
+      }
     }
   }
 

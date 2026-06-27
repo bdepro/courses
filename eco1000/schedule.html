@@ -556,6 +556,10 @@
     .viva-signup-alert-text span {
       font-weight: 400; color: var(--text);
     }
+    .viva-signup-alert-note {
+      font-size: 0.76rem; font-weight: 400;
+      color: var(--muted); margin-top: 0.2rem;
+    }
 
     /* ── Chapter-first session card header ── */
     .session-card-head { display: flex; flex-direction: column; }
@@ -631,20 +635,25 @@
     .glossary-list li strong { color: var(--text); }
     .glossary-list a { color: var(--teal-dk); }
 
-    /* ── Module 4b viva path summary ── */
+    /* ── Module 4b exam-period decision rows ── */
     .module-path-summary {
       font-size: 0.78rem; color: var(--muted);
       line-height: 1.5; margin-top: 0.3rem;
     }
     .module-path-summary strong { color: var(--text); }
     .module-path-summary a { color: var(--teal-dk); }
-    .path-list {
-      list-style: none; margin: 0.4rem 0 0.5rem; padding: 0;
+    .decision-rows {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      margin: 0.5rem 0 0.6rem;
     }
-    .path-list li {
-      padding-left: 0.9rem; text-indent: -0.9rem; margin-bottom: 0.25rem;
+    .decision-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; padding: 0.55rem 0.7rem;
+      background: var(--white); border-radius: 6px;
+      font-size: 0.78rem;
     }
-    .path-list strong { color: var(--text); }
+    .decision-row .q { color: var(--muted); }
+    .decision-row .a { color: var(--text); font-weight: 600; text-align: right; }
   </style>
 </head>
 <body>
@@ -1121,64 +1130,9 @@ function bodyContent(session, type, isCurrent) {
       If your score is higher than your lowest CI 1–3, it replaces it automatically. There is no downside — come prepared and you have nothing to lose.`;
     frag.appendChild(ci4Policy);
 
-    // Three-population flow
-    const flowLabel = document.createElement('div');
-    flowLabel.className = 'day-label';
-    flowLabel.style.margin = '0.75rem 0 0.4rem';
-    flowLabel.textContent = 'Final exam period — which path is yours?';
-    frag.appendChild(flowLabel);
-
-    const flow = document.createElement('div');
-    flow.className = 'viva-flow';
-
-    const paths = [
-      {
-        header: 'I did my viva during viva week and took CI 4 on Friday.',
-        items: [
-          { dot: 'dot-teal',       text: 'You are done with assessments.' },
-          { dot: 'dot-assessment', text: 'Complete the online worksheet within your scheduled exam block.' },
-          { dot: 'dot-flex',       text: 'You may do it from anywhere.' },
-        ]
-      },
-      {
-        header: 'I did my viva during viva week and I am deferring CI 4.',
-        items: [
-          { dot: 'dot-flex',       text: 'Friday Dec 4 is the last day of class — you may attend without taking CI 4.' },
-          { dot: 'dot-assessment', text: 'Take CI 4 during the final exam period.' },
-          { dot: 'dot-teal',       text: 'That covers your contact hour.' },
-        ]
-      },
-      {
-        header: 'I am deferring my viva to the final exam period.',
-        items: [
-          { dot: 'dot-flex',       text: 'Friday Dec 4 is the last day of class — you may attend without taking CI 4.' },
-          { dot: 'dot-assessment', text: 'Complete your viva during the exam period.' },
-          { dot: 'dot-assessment', text: 'Take CI 4 during the exam period if not taken on Friday.' },
-        ]
-      },
-    ];
-
-    paths.forEach(path => {
-      const card = document.createElement('div');
-      card.className = 'viva-path';
-      card.innerHTML = `<div class="viva-path-header">${path.header}</div>`;
-      path.items.forEach(item => {
-        const row = document.createElement('div');
-        row.className = 'path-item';
-        row.innerHTML = `<span class="path-dot ${item.dot}"></span><span>${item.text}</span>`;
-        card.appendChild(row);
-      });
-      flow.appendChild(card);
-    });
-    frag.appendChild(flow);
-
-    // Exam period worksheet pill for population 1
-    const examPills = document.createElement('div');
-    examPills.className = 'pills';
-    examPills.style.marginTop = '0.5rem';
-    examPills.appendChild(pill('Exam Period Worksheet', CANVAS.viva.examWorksheetUrl || null));
-    examPills.appendChild(pill('Submit Exam Worksheet', CANVAS.viva.examWorksheetSubmitUrl || null));
-    frag.appendChild(examPills);
+    // What happens during the final exam period is covered once, in the
+    // always-visible Module 4 banner above — see moduleHeader(). Repeating
+    // it here would be the same decision logic shown a second time.
 
     return frag;
   }
@@ -1247,13 +1201,13 @@ function moduleHeader(block) {
     const pathSummary = document.createElement('div');
     pathSummary.className = 'module-path-summary';
     pathSummary.innerHTML =
-      `<strong>Your final exam-period obligation depends on when you complete your viva.</strong>` +
-      `<ul class="path-list">` +
-        `<li><strong>Path 1</strong> — viva + CI 4 done by Fri: complete a short online worksheet during the final exam period.</li>` +
-        `<li><strong>Path 2</strong> — CI 4 deferred: take CI 4 during the final exam period.</li>` +
-        `<li><strong>Path 3</strong> — viva deferred: complete viva and CI 4 during the final exam period.</li>` +
-      `</ul>` +
-      `<a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Viva prep guide&nbsp;→</a>`;
+      `<strong>What you do during the exam period depends on what you've already finished</strong>` +
+      `<div class="decision-rows">` +
+        `<div class="decision-row"><span class="q">Already did viva + Check-In 4?</span><span class="a">Just a short worksheet</span></div>` +
+        `<div class="decision-row"><span class="q">Did viva, still need Check-In 4?</span><span class="a">Take Check-In 4</span></div>` +
+        `<div class="decision-row"><span class="q">Deferred your viva?</span><span class="a">Viva + Check-In 4</span></div>` +
+      `</div>` +
+      `<a href="${PAGES.vivaPrep}" target="_blank" rel="noopener">Full viva prep guide — what to expect, scheduling, exam-period worksheet links&nbsp;→</a>`;
     li.appendChild(pathSummary);
   } else if (ci && ciCovers) {
     const ciLine = document.createElement('div');
@@ -1318,7 +1272,8 @@ function vivaSignupAlert() {
 
   const text = document.createElement('div');
   text.className = 'viva-signup-alert-text';
-  text.innerHTML = 'Sign up for your viva slot before Thanksgiving break <span>— by Fri Nov 20</span>';
+  text.innerHTML = 'Sign up for your viva slot before Thanksgiving break <span>— by Fri Nov 20</span>' +
+    '<div class="viva-signup-alert-note">Pick one — Viva Week or the Exam Period, not both. Both buttons open the same sign-up calendar; Canvas only lets you reserve a single slot total, whichever one you choose first.</div>';
   li.appendChild(text);
 
   const pills = document.createElement('div');
@@ -1419,6 +1374,27 @@ SCHEDULE.sessions.forEach((session, idx) => {
         <div class="session-resource-row">${resourceHtml}</div>
       </div>
     `;
+  } else if (type === 'viva') {
+    // ── Viva week: static card, no accordion ──
+    // The exam-period decision logic lives once, in the always-visible
+    // Module 4 banner above (moduleHeader()) — this row only needs to
+    // show in-class day-by-day detail, so it stays open by default
+    // instead of hiding behind a click.
+    li.innerHTML = `
+      <div class="session-card-head">
+        <div class="session-header-static" style="padding:0.85rem 1rem 0.5rem 1.1rem;flex:1;min-width:0;">
+          <div class="session-header-text">
+            <div class="session-top-row">
+              <span class="session-label">${session.label}</span>
+              <span class="session-dates">${session.dates}</span>
+            </div>
+            ${tags.length ? `<div class="session-tags">${tags.join('')}</div>` : ''}
+            <div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>
+          </div>
+        </div>
+      </div>
+      <div class="session-body-content" style="padding-bottom:1rem;"></div>
+    `;
   } else {
     // ── All other session types: label-first header ──
     let chSub = '';
@@ -1431,9 +1407,6 @@ SCHEDULE.sessions.forEach((session, idx) => {
     if (type === 'checkin') {
       const ci = CHAPTERS.checkIns[session.checkIn];
       chSub = `<div class="session-chapter">Covers: ${ci ? ci.label : 'TBA'} + S&D + Guideposts</div>`;
-    }
-    if (type === 'viva') {
-      chSub = `<div class="session-chapter">Mon and Wed: viva slots · Fri: Check-In #4</div>`;
     }
 
     const displayLabel = type === 'checkin' ? `Check-In #${session.checkIn}` : session.label;
