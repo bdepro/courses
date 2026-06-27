@@ -266,8 +266,8 @@
   <div class="guide-card" id="examPeriodCard" style="display:none;">
     <div class="guide-text"><p>What you do during the final exam period depends on what you've already finished.</p></div>
     <div class="sched-row"><div class="sched-label">Done both</div><div class="sched-value">Already did your viva and Check-In 4? Just complete a short worksheet — no in-person obligation.</div></div>
-    <div class="sched-row"><div class="sched-label">Viva only</div><div class="sched-value">Did your viva but deferred Check-In 4? Take Check-In 4 during your exam block.</div></div>
-    <div class="sched-row"><div class="sched-label">Deferred</div><div class="sched-value">Deferred your viva entirely? Complete your viva and Check-In 4 during your exam block.</div></div>
+    <div class="sched-row"><div class="sched-label">Viva only</div><div class="sched-value">Did your viva but deferred Check-In 4? No sign-up needed — just take Check-In 4 during the final exam block: <span id="prep-exam-block-date"></span></div></div>
+    <div class="sched-row"><div class="sched-label">Deferred</div><div class="sched-value">Deferred your viva entirely? Complete your viva and Check-In 4 during the final exam block: <span id="prep-exam-block-date-2"></span></div></div>
     <div class="guide-text" style="margin-top:0.75rem;"><p>If you only need the worksheet:</p></div>
     <a class="btn-primary" id="examWorksheetBtn" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M9 8h6"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
@@ -371,6 +371,16 @@
 
     // ── Exam-period option — only for courses with a separate exam-period slot ──
     if (hasExamPeriod) {
+      var examBlockDate = (CANVAS.viva && typeof SCHEDULE !== 'undefined' && SCHEDULE.finalExamPeriod)
+        ? (SCHEDULE.finalExamPeriod.date && SCHEDULE.finalExamPeriod.time
+            ? SCHEDULE.finalExamPeriod.date + ', ' + SCHEDULE.finalExamPeriod.time
+            : SCHEDULE.finalExamPeriod.dates)
+        : '';
+      var dateSpan1 = document.getElementById('prep-exam-block-date');
+      var dateSpan2 = document.getElementById('prep-exam-block-date-2');
+      if (dateSpan1) dateSpan1.textContent = examBlockDate;
+      if (dateSpan2) dateSpan2.textContent = examBlockDate;
+
       var signupLabelEl = document.getElementById('prep-signup-label');
       var signupBtnText  = document.getElementById('signupBtnText');
       if (signupLabelEl) signupLabelEl.textContent = 'Viva Week';

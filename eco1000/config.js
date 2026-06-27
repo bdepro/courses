@@ -215,14 +215,10 @@ const SCHEDULE = {
   // Break sessions by index — never highlighted
   breakSessions: [8, 14],
 
-  // Final exam period — UPDATE each semester when posted
-  // CI 4 may be taken on the last day of class (Fri Dec 4) OR
-  // during the final exam period below. Student's choice.
-  finalExam: [
-    { section: "8:00 a.m. section",  date: "TBA", time: "TBA" },  // UPDATE
-    { section: "12:30 p.m. section", date: "TBA", time: "TBA" },  // UPDATE
-  ],
-
+  // Final exam period — UPDATE each semester when posted (one section only)
+  // CI 4 may be taken on the last day of class (Fri Dec 4) OR during the
+  // final exam block below — student's choice, no sign-up or arrangement
+  // needed, just show up to whichever one they plan to take.
   // ── CHANGED: expanded from makeupViva to finalExamPeriod ──────
   // Final exam period covers three student populations:
   //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
@@ -232,9 +228,11 @@ const SCHEDULE = {
   //   Population 3 — viva deferred. Completes viva + CI 4 during exam block.
   // Viva sign-up and worksheet links live in CANVAS block below.
   finalExamPeriod: {
-    dates:          "December 7-11, 2026",          // UPDATE each semester
+    date:           "Wed Dec 9, 2026",               // UPDATE each semester
+    time:           "1:00–2:10 p.m.",                // UPDATE each semester
+    dates:          "Wed Dec 9, 2026, 1:00–2:10 p.m.", // UPDATE each semester — display string
     // Viva week sign-up URL lives in CANVAS.viva.vivaWeekSignupUrl (single source).
-    // Population 1 worksheet — completed online within the 3-hour exam block
+    // Population 1 worksheet — completed online within the exam block
     worksheetNote:  "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
     // Equity note — displayed near the viva sign-up pill
     signupEquityNote: "No computer access? Contact Prof. Depro and he will assign your slot.",
