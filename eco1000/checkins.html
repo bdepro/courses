@@ -85,8 +85,9 @@
     no request needed. CI 4 replaces only one score: if you miss more than one check-in,
     the others still count. If you miss a Check-In, CI 4 is the makeup. There are no
     separate makeup exams. CI 4 covers the full course, so it is the fairest measure of
-    where you land. If you cannot attend on December 4, CI 4 is also available during
-    the final exam period (December 7–11) — contact Prof. Depro to arrange.
+    where you land. If you cannot attend on December 4, just take CI 4 during the
+    final exam block instead — <span id="ciFinalExamDate"></span> No sign-up or
+    arrangement needed, simply show up.
     If 75% of the class completes the end-of-semester survey, everyone earns one
     bonus point on CI 4.
   </div>
@@ -111,6 +112,7 @@ document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.assignments;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+document.getElementById('ciFinalExamDate').textContent = SCHEDULE.finalExamPeriod.date + ', ' + SCHEDULE.finalExamPeriod.time;
 
 var list = document.getElementById('ciList');
 

@@ -1117,7 +1117,7 @@ function bodyContent(session, type, isCurrent) {
     friBox.innerHTML = `<div class="day-label">Friday — ${session.checkInDay}</div>`;
     const friDesc = infoBox('ci-box',
       'Check-In #4 — administered in class.',
-      'Come if you are ready to take it. Work independently elsewhere if you are deferring to the exam period.'
+      `Come if you are ready to take it. Deferring? No sign-up needed — just take it during the final exam block instead: ${SCHEDULE.finalExamPeriod.date}, ${SCHEDULE.finalExamPeriod.time}`
     );
     friDesc.style.margin = '0.35rem 0 0.4rem';
     friBox.appendChild(friDesc);
