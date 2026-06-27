@@ -164,6 +164,13 @@
       <div class="divider"></div>
 
       <div class="prompt-section">
+        <div class="prompt-heading">Before You Submit</div>
+        <div class="prompt-text"><p>The viva is built around this narrative, so it's worth a second pair of eyes before July 18. Email me to set up a time during office hours (Monday, Wednesday, or Friday, 10:30&ndash;11:45 a.m.) for a quick gut-check &mdash; is the story specific enough, does it have something real at stake. I open the Zoom room once I hear from you, so the email comes first. <a id="ff1OfficeHoursLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Office hours &amp; how to email me &rarr;</a></p></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="prompt-section">
         <div class="prompt-heading">Submission</div>
         <div class="prompt-text"><p>Submit through Moodle as a single document, Word or PDF. Your name and the date at the top. Nothing else.</p></div>
       </div>
@@ -200,7 +207,7 @@
 
       <div class="prompt-section">
         <div class="prompt-text">
-          <p>A viva (pronounced <em>VEE-vah</em>) is a short conversation about something you wrote. This one is 12 minutes on Zoom. It starts with your story and ranges across the course.</p>
+          <p>A viva (pronounced <em>VEE-vah</em>) is a short conversation about something you wrote &mdash; the oral-exam equivalent of a paper conference, not a test with right or wrong answers to memorize. This one is 12 minutes on Zoom. It starts with your story and ranges across the course. If you've never done an oral exam before, that's normal; you'll have written the material yourself, so you're talking through your own thinking, not someone else's.</p>
         </div>
       </div>
 
@@ -233,7 +240,7 @@
           </div>
         </div>
         <div class="note-box green">
-          The point values above are a proposal. In Week 1, I'll share a short Moodle survey and ask whether the scale feels proportionate. You'll know the final values before the narrative is due.
+          The point values above are a proposal. A short Moodle survey opens July 6 and closes July 8 — tell me whether the scale feels proportionate. Final values post by July 9, well before your narrative is due.
         </div>
       </div>
 
@@ -282,6 +289,8 @@ if (ff1Id) {
 } else {
   ff1Btn.style.opacity = '0.5';
   ff1Btn.style.pointerEvents = 'none';
+  ff1Btn.setAttribute('aria-disabled', 'true');
+  ff1Btn.lastChild.textContent = ' Submission link coming soon';
 }
 
 const signupUrl = (typeof FRIDAY.vivaSignupUrl !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
@@ -293,6 +302,8 @@ if (signupUrl) {
 } else {
   vivaSignupBtn.style.opacity = '0.5';
   vivaSignupBtn.style.pointerEvents = 'none';
+  vivaSignupBtn.setAttribute('aria-disabled', 'true');
+  vivaSignupBtn.lastChild.textContent = ' Sign-up link coming soon';
   vivaSignup.textContent = 'Sign-up link coming soon';
 }
 
@@ -303,6 +314,8 @@ document.getElementById('prepGuideBtn').href = (typeof PAGES.vivaPrep !== 'undef
 document.getElementById('narrativeGuideBtn').href = (typeof PAGES.narrativeGuide !== 'undefined' && PAGES.narrativeGuide)
   ? PAGES.narrativeGuide
   : `${COURSE.baseUrl}/narrative-guide.html`;
+
+document.getElementById('ff1OfficeHoursLink').href = PAGES.officeHours;
 </script>
 </body>
 </html>
