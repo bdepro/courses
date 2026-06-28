@@ -28,6 +28,10 @@
     .header-inner { max-width: 960px; }
     main { max-width: 960px; padding: 2.5rem 1.5rem 4rem; }
 
+    /* Separate the primary checklist card from the crimson header above it —
+       without this it visually merges into one continuous crimson block. */
+    .card.primary { margin-top: 1.25rem; box-shadow: 0 8px 28px rgba(115,0,10,0.25); }
+
     /* Meta bar */
     .meta {
       display: flex; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap;
@@ -205,15 +209,6 @@ const ALL_CARDS = [
     icon:    'book-open',
     title:   'Course Syllabus &amp; Policies',
     desc:    'Read this first. It covers how the course works and how your grade is calculated.',
-    badge:   null,
-    badgeClass: null,
-  },
-  {
-    feature: 'assignments',
-    href:    PAGES.assignments,
-    icon:    'clipboard-list',
-    title:   'Assignments',
-    desc:    'Grade weights and due dates for every assignment in the course.',
     badge:   null,
     badgeClass: null,
   },

@@ -201,8 +201,8 @@ const dueBannerText = document.getElementById('dueBannerText');
 dueBannerText.innerHTML = `The Chapter 3 puzzle and your Friday Focus draft are due Wednesday, the same day as Check-In #1. Review 1 follows on Friday.`;
 
 if (puzzle2) document.getElementById('ci1-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(2)}`;
-if (draft1) document.getElementById('ci1-draft-tag').textContent = `Friday Focus · Due ${draft1.dueShort}`;
-if (review1) document.getElementById('ci1-review1-tag').textContent = `Friday Focus · Due ${review1.dueShort}`;
+if (draft1) document.getElementById('ci1-draft-tag').textContent = `Friday Focus · Due ${draft1.due}`;
+if (review1) document.getElementById('ci1-review1-tag').textContent = `Friday Focus · Due ${review1.due}`;
 
 const L = {
   'link-ci1-puzzle': puzzle2 ? puzzle2.url : '',
