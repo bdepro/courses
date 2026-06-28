@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ECO 1000 Principles of Economics at Elon University — course home with syllabus, schedule, assignments, and resources.">
+  <meta name="description" content="ECO 1000 Principles of Economics at Elon University, course home with syllabus, checklist, assignments, and resources.">
   <meta property="og:title" content="ECO 1000 · Principles of Economics">
   <meta property="og:description" content="Elon University · Principles of Economics course home.">
   <meta property="og:type" content="website">
@@ -111,8 +111,8 @@
 
 <main id="main">
 
-  <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="schedule.html" target="_top">
+  <!-- Primary card — Checklist -->
+  <a class="card primary" id="checklistCard" href="checklist.html" target="_top">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
@@ -188,7 +188,7 @@ document.getElementById('arcSummary').textContent =
   `${SCHEDULE.sessions.filter(s => !s.break && s.chapter).length} weeks · ${coreCount} core chapters · ${appCount} application chapters`;
 
 // Schedule card
-document.getElementById('scheduleCard').href = PAGES.schedule;
+document.getElementById('checklistCard').href = PAGES.checklist;
 
 // ================================================================
 //  Card definitions — driven by FEATURES and GRADING from config

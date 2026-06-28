@@ -64,7 +64,7 @@ const INSTRUCTOR = {
 //                  without relying on label string matching
 //    note        — optional internal note (not student-facing)
 //
-//  Due date logic (locked — do not change without updating schedule.html
+//  Due date logic (locked — do not change without updating checklist pages
 //  and puzzles.html):
 //    Puzzles for session N are due the WEDNESDAY OF SESSION N+1 at 11:59 p.m.
 //    (sessionStart + 9 days). If that date falls inside a break session,
@@ -189,7 +189,7 @@ const SCHEDULE = {
     },
   ],
 
-  // Session start dates — drive auto-highlighting in schedule.html
+  // Session start dates — drive auto-highlighting in checklist.html
   // UPDATE each semester. Format: new Date(year, month (0=Jan), day)
   // Last entry = day after classes end
   sessionStarts: [
@@ -321,7 +321,6 @@ const GRADING = {
 //  UPDATE if sections are added or removed
 // ================================================================
 const FEATURES = {
-  schedule:    true,
   syllabus:    true,
   assignments: true,   // overview page — routes to dedicated assignment pages
   textbook:    false,  // replaced by chapters card (per-chapter LTI links)
@@ -335,8 +334,8 @@ const FEATURES = {
   support:        true,
   aiPolicy:       true,
   aiAssignments:  true,
-  checklist:   false,  // not used in face-to-face course
-  officeHours: false,
+  checklist:   true,
+  officeHours: true,
 };
 
 // ================================================================
@@ -415,7 +414,8 @@ const QUESTIONS = {
 const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
   canvasHome:  `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
-  schedule:    `${COURSE.baseUrl}/schedule.html`,
+  checklist:   `${COURSE.baseUrl}/checklist.html`,
+  officeHours: `${COURSE.baseUrl}/office-hours.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
   assignments: `${COURSE.baseUrl}/assignments.html`,
   checkins:    `${COURSE.baseUrl}/checkins.html`,
@@ -455,7 +455,7 @@ const CANVAS = {
   courseUrl: `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
 
   // ── CHANGED: added pageBase helper for Canvas Pages ──────────
-  // Used by schedule.html to build Canvas Page URLs from slugs
+  // Used to build Canvas Page URLs from slugs
   pageBase: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/pages`,
 
   // Economic Puzzles — one per content session, UPDATE each semester
