@@ -322,14 +322,13 @@ const GRADING = {
 // ================================================================
 const FEATURES = {
   syllabus:    true,
-  assignments: true,   // overview page — routes to dedicated assignment pages
   textbook:    false,  // replaced by chapters card (per-chapter LTI links)
   chapters:    true,   // per-chapter e-book links via Canvas LTI
-  checkins:    false,  // accessed via assignments.html
-  puzzles:     false,  // accessed via assignments.html
+  checkins:    true,
+  puzzles:     true,
   badges:      false,  // replaced by check-ins in fall
-  mme:         false,  // accessed via assignments.html
-  friday:      false,  // accessed via assignments.html
+  mme:         true,
+  friday:      true,
   wellness:    false,  // ungraded — practice only, no card needed
   support:        true,
   aiPolicy:       true,
@@ -417,7 +416,6 @@ const PAGES = {
   checklist:   `${COURSE.baseUrl}/checklist.html`,
   officeHours: `${COURSE.baseUrl}/office-hours.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
-  assignments: `${COURSE.baseUrl}/assignments.html`,
   checkins:    `${COURSE.baseUrl}/checkins.html`,
   puzzles:     `${COURSE.baseUrl}/puzzles.html`,
   mme:         `${COURSE.baseUrl}/mme.html`,
@@ -527,15 +525,15 @@ const CANVAS = {
   // module: block id (1, 2, 3, '4b') — determines which module banner shows this pill
   // type: "writing" | "review" | "revision-plan" | "revision"
   eli: [
-    { id: 1, module: 1,    label: "Draft 1",          type: "writing",       dueShort: "Sep 16", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
-    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
-    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
-    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
-    { id: 5, module: 2,    label: "Review 2",          type: "review",        dueShort: "Oct 9",  url: null },  // UPDATE
-    { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  url: null },  // UPDATE
-    { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  url: null },  // UPDATE
-    { id: 8, module: 3,    label: "Review 3",          type: "review",        dueShort: "Nov 6",  url: null },  // UPDATE
-    { id: 9, module: '4b', label: "Final Narrative",   type: "revision",      dueShort: "Dec 2",  url: null },  // UPDATE — submit through Eli + Canvas
+    { id: 1, module: 1,    label: "Draft 1",          type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
+    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
+    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
+    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
+    { id: 5, module: 2,    label: "Review 2",          type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: null },  // UPDATE
+    { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
+    { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
+    { id: 8, module: 3,    label: "Review 3",          type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: null },  // UPDATE
+    { id: 9, module: '4b', label: "Final Narrative",   type: "revision",      dueShort: "Dec 2",  due: "Wed Dec 2, 11:59 p.m.",  url: null },  // UPDATE — submit through Eli + Canvas
   ],
 };
 

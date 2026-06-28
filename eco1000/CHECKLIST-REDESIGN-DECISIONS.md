@@ -229,9 +229,91 @@ considered and deliberately left out:
   later, since it's informational rather than action-oriented and doesn't
   obviously belong on a weekly checklist either.
 
+## Post-launch tweaks (after first real Canvas review)
+
+After reviewing the live site in Canvas, four issues came back. Addressed
+one at a time, each verified live before moving to the next.
+
+17. **`checklist.html`'s back-link was the one inconsistent one.**
+    Every other top-level page (`assignments.html` before deletion,
+    `chapters.html`, and the old `schedule.html`) pointed its back-link to
+    `PAGES.canvasHome` — the real Canvas course page, full Canvas chrome —
+    rather than `PAGES.home` (the bare GitHub Pages `index.html`, no Canvas
+    chrome). `checklist.html` was the only page using the wrong one,
+    breaking the "still feels like Canvas" experience when navigating back
+    from deep in the checklist. Fixed to match the established convention.
+    The 15 week pages and `office-hours.html` already correctly pointed to
+    `PAGES.checklist` (one level up), so no other back-link changes were
+    needed.
+
+18. **E-book Cengage link "double hop" — investigated, no fix applied.**
+    User tried the most likely Canvas-side lever ("Load This Tool in a New
+    Tab" on the External Tool assignment) and didn't like the resulting
+    behavior either. Decided to leave as-is. This was never a static-site
+    code issue — the link only points to a Canvas assignment URL; everything
+    after that click is Canvas/LTI launch behavior outside what editing
+    `config.js` or the HTML can control.
+
+19. **Friday Focus pills now show weekday + time, matching Puzzle/MME.**
+    `CANVAS.eli[]` only ever had a terse `dueShort` field ("Sep 16", no
+    weekday, no time), while `CANVAS.puzzles` (via `formatPuzzleDue()`) and
+    `CANVAS.mme[].due` both render full strings ("Wed, Sep 30, 11:59 p.m.").
+    Added a `due` field to all 9 `eli` entries in config.js, hand-typed in
+    the same format as `CANVAS.mme[].due` (not computed — Friday Focus due
+    dates are one-off, not formula-derived like puzzles). Weekdays were
+    cross-checked against the existing `checkInDay` anchors already in
+    config.js (e.g. id 1 due "Sep 16" confirmed Wednesday via
+    `SCHEDULE.sessions[3].checkInDay === "Wed Sep 16"`), not guessed.
+    Updated the 8 consuming lines across `week3.html`, `week6.html`, and
+    `week11.html` from `.dueShort` to `.due`. Kept `dueShort` in config.js
+    rather than removing it, in case it's useful elsewhere later.
+
+20. **`assignments.html` deleted; `checkins.html`, `puzzles.html`,
+    `mme.html`, `friday.html` promoted to their own home-page cards.**
+    Investigated before deciding: `syllabus.html` Section 6 already
+    duplicates `assignments.html`'s weight breakdown and per-category prose,
+    so the page itself was genuinely redundant. But the four pages it gated
+    are **not** redundant — `checkins`/`puzzles`/`mme` each have a
+    full-semester list view (every instance, every link, in one place) that
+    the week-by-week checklist never shows all at once, and `friday.html`
+    has the actual assignment prompt and viva expectations, which exist
+    nowhere else, including the checklist (which only ever links to
+    "submit," never explains what to write). Their `ALL_CARDS` entries in
+    `index.html` already existed fully authored, just gated behind disabled
+    `FEATURES` flags with the comment "accessed via assignments.html" — this
+    was a flag flip, not a rebuild. Flipped `checkins`/`puzzles`/`mme`/
+    `friday` to `true`, removed the `assignments` entry from `ALL_CARDS` and
+    from `FEATURES`/`PAGES`, deleted the file, and repointed all four pages'
+    back-links from `PAGES.assignments` to `PAGES.canvasHome` (same
+    top-level-page convention as #17).
+
+21. **Primary checklist card separated from the header.** A real screenshot
+    of the live page (not a recreation) confirmed the hypothesis: the
+    crimson header and the crimson "How will your learning be organized?"
+    card sat back-to-back with only a 4px gold border between them, reading
+    as one continuous block — which is why it was easy to scroll past
+    without registering it as a separate, clickable thing. Considered two
+    fixes: (A) keep the card's deliberate crimson "most important" treatment
+    but add visible separation, or (B) fold it into the white card grid as a
+    badged featured card, matching the user's original instinct. Recommended
+    A: the checklist is opened every week, unlike the one-time references
+    (Syllabus, E-Book Chapters, Help, AI Policy) it would sit alongside in
+    the grid under option B, so collapsing it into "first among equals"
+    would erase the one signal that currently tells a new student what to
+    prioritize. The visual hierarchy mainly needs to win the first few
+    visits, before weekly habit takes over. Implemented as a **page-scoped**
+    CSS override inside `eco1000/index.html`'s own `<style>` block
+    (`margin-top` + stronger `box-shadow` on `.card.primary`), not a change
+    to the shared `brand.css` — that file is used by other courses
+    (COR 1100, the Cengage course) and this fix was only requested for
+    ECO 1000's home page.
+
 ## Open items
 
-- The three "decided not to add" items above could be revisited if real
-  student confusion shows up around viva sign-up deadlines or double-booking.
+- The three "decided not to add" items from the schedule.html audit above
+  could be revisited if real student confusion shows up around viva
+  sign-up deadlines or double-booking.
+- Whether the primary-card fix (item 21) actually solves the visibility
+  problem in practice — confirm after the next live Canvas review.
 - COR 1100's equivalent redesign (mentioned as the eventual follow-on in
   this log's opening) has not been started.
