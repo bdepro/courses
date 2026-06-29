@@ -111,12 +111,12 @@
 
 <main id="main">
 
-  <!-- Primary card — Schedule -->
-  <a class="card primary" id="scheduleCard" href="#" target="_top">
+  <!-- Primary card — Checklist -->
+  <a class="card primary" id="checklistCard" href="checklist.html" target="_top">
     <div class="card-icon"><i data-lucide="calendar"></i></div>
     <div class="card-content">
       <div class="card-title">How will your learning be organized?</div>
-      <div class="card-desc">Week-by-week schedule, chapter coverage, and check-in dates. Open this every week.</div>
+      <div class="card-desc">Open this every week. It shows where you are in the course and what comes next.</div>
     </div>
     <span class="card-arrow">→</span>
   </a>
@@ -189,9 +189,6 @@ const contentSessions = SCHEDULE.sessions.filter(s => !s.break && s.chapters.len
 document.getElementById('arcSummary').textContent =
   `${contentSessions} content weeks · ${chapterCount} Hanley chapters · ${SOURCE_TEXT.author}`;
 
-// Schedule card
-document.getElementById('scheduleCard').href = PAGES.schedule;
-
 // ================================================================
 //  Card definitions — driven by FEATURES and GRADING from config
 // ================================================================
@@ -207,15 +204,6 @@ const ALL_CARDS = [
     icon:      'book-open',
     title:     'Course Syllabus &amp; Policies',
     desc:      'Policies, expectations, and the grading breakdown. Read this first.',
-    badge:     null,
-    badgeClass: null,
-  },
-  {
-    feature:   'assignments',
-    href:      PAGES.assignments,
-    icon:      'clipboard-list',
-    title:     'Assignments',
-    desc:      'Grade weights, policies, and links to every assignment. Start here before the semester begins.',
     badge:     null,
     badgeClass: null,
   },
