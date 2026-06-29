@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weekly checklist for COR 1100, showing what to read, work on, and submit each week.">
+  <title>Weekly Checklist · COR 1100</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:    #73000a;
+      --crimson-dk: #5a0008;
+      --gold:       #b59a57;
+      --gold-lt:    #d4b97a;
+      --gold-link:  #7a5c1e;
+      --teal:       #527b82;
+      --teal-dk:    #3d5e63;
+      --cream:      #fcfaf7;
+      --warm-gray:  #f7f4ef;
+      --text:       #2e2e2e;
+      --muted:      #6b6b6b;
+      --white:      #ffffff;
+      --shadow:     0 2px 14px rgba(115,0,10,0.07);
+      --radius:     14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', Arial, sans-serif; background: var(--cream); color: var(--text); min-height: 100vh; }
+    header { background: var(--crimson); border-bottom: 4px solid var(--gold); padding: 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--white); }
+    .back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .course-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem; }
+    header h1 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 500; color: var(--white); }
+
+    main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+    .week-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+
+    .week-card {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15);
+      border-left: 6px solid var(--crimson);
+      text-decoration: none; color: inherit;
+      display: flex; align-items: stretch; position: relative;
+      padding: 1.1rem 2.6rem 1.1rem 1.4rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .week-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
+    .week-card.variant-viva { border-left-color: var(--teal); }
+    .week-card.current {
+      background: #eef4f5; border-left-color: var(--teal);
+      box-shadow: 0 0 0 2px var(--teal), var(--shadow);
+    }
+
+    .week-body { flex: 1; }
+    .week-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .week-card.current .week-num { color: var(--teal-dk); }
+    .week-title { font-size: 1rem; font-weight: 600; color: var(--crimson); line-height: 1.3; margin-bottom: 0.3rem; }
+    .week-card.current .week-title { color: var(--teal-dk); }
+    .week-dates { font-size: 0.8rem; color: var(--muted); }
+    .week-arrow { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--gold-link); }
+    .week-card.current .week-arrow { color: var(--teal-dk); }
+
+    .break-row { display: flex; align-items: center; gap: 8px; padding: 0.5rem 0.2rem; font-size: 0.78rem; color: var(--muted); }
+    .break-row::before, .break-row::after { content: ""; flex: 1; height: 1px; background: rgba(181,154,87,0.25); }
+
+    .divider { height: 1px; background: rgba(181,154,87,0.2); margin: 2rem 0; }
+
+    .office-card {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1px solid rgba(181,154,87,0.15);
+      padding: 1.4rem 1.5rem; display: flex; align-items: center; gap: 1.1rem;
+      text-decoration: none; color: inherit;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .office-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(115,0,10,0.13); }
+    .oc-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--crimson); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .oc-icon svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .oc-body { flex: 1; }
+    .oc-title { font-size: 1rem; font-weight: 600; color: var(--crimson); }
+    .oc-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.25rem; line-height: 1.5; }
+
+    @media (max-width: 600px) {
+      header { padding: 1.5rem 1.25rem; }
+      main { padding: 1.75rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="course-tag" id="courseTag"></p>
+    <h1>Weekly Checklist</h1>
+  </div>
+</header>
+
+<main>
+  <p class="section-label">Weekly Checklist</p>
+  <div class="week-list" id="weekList"></div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">One-on-One Support</p>
+  <a class="office-card" id="officeLink" href="#">
+    <div class="oc-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="oc-body">
+      <div class="oc-title">Office Hours</div>
+      <div class="oc-desc">When and where to find me, plus how to reach me by email or Zoom.</div>
+    </div>
+    <svg style="width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</main>
+
+<script>
+document.getElementById('backLink').href         = PAGES.canvasHome;
+document.getElementById('courseTag').textContent = `${COURSE.code} · ${COURSE.semester}`;
+document.getElementById('officeLink').href       = PAGES.officeHours;
+
+const WEEKS = [
+  { num: 0,  badge: "Wk 0",                  title: "Introduction" },
+  { num: 1,  badge: "Wk 1 · Intro, Ch. I-II", title: "On Self-Interest, On Caring for Others" },
+  { num: 2,  badge: "Wk 2 · Ch. III-V",       title: "On Acting for Others, On Imagination, On Bettering Our Condition" },
+  { num: 3,  badge: "Wk 3",                   title: "Check-In #1 · Intro + Ch. I-V", variant: "ci" },
+  { num: 4,  badge: "Wk 4 · Ch. VI-VIII",     title: "On Miseries and Disorders, On the Healthy Mind, On Tranquility and Pleasure" },
+  { num: 5,  badge: "Wk 5 · Ch. IX-X, XII",   title: "On Worshipping Wealth, On Friendship, On Hatred and Anger" },
+  { num: 6,  badge: "Wk 6",                   title: "Check-In #2 · Ch. VI-XII", variant: "ci" },
+  { num: 7,  badge: "Wk 7 · Ch. XIII",        title: "On Being Loved" },
+  { break: true, label: "Fall Break" },
+  { num: 9,  badge: "Wk 9 · Ch. XIV-XVI",     title: "On Loving, On Flourishing, On Being Lovely" },
+  { num: 10, badge: "Wk 10 · Ch. XVII-XIX",   title: "On Seeing Ourselves, On Dignity, On Equality" },
+  { num: 11, badge: "Wk 11",                  title: "Check-In #3 · Ch. XIII-XIX", variant: "ci" },
+  { num: 12, badge: "Wk 12 · Ch. XX-XXII",    title: "On Choice, On Self and Others, On Perfection" },
+  { num: 13, badge: "Wk 13 · Ch. XXIII-XXV",  title: "On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness" },
+  { break: true, label: "Thanksgiving Break" },
+  { num: 15, badge: "Wk 15",                  title: "Viva Week · Check-In #4", variant: "viva" },
+  { divider: true, label: "Final Exam Period" },
+  { final: true, badge: "Make-Up", title: "Final Exam Period · Worksheet, Check-In #4, or Viva", variant: "viva" },
+];
+
+// Auto-highlight current week, same start-date logic the old schedule page used
+const today  = new Date(); today.setHours(0, 0, 0, 0);
+const starts = SCHEDULE.sessionStarts;
+let currentSessionNum = null;
+for (let i = 0; i < starts.length - 1; i++) {
+  if (today >= starts[i] && today < starts[i + 1]) {
+    currentSessionNum = SCHEDULE.sessions[i] ? SCHEDULE.sessions[i].num : null;
+    break;
+  }
+}
+
+const list = document.getElementById('weekList');
+WEEKS.forEach(w => {
+  if (w.break) {
+    const div = document.createElement('div');
+    div.className = 'break-row';
+    div.textContent = w.label + ', no class';
+    list.appendChild(div);
+    return;
+  }
+
+  if (w.divider) {
+    const div = document.createElement('div');
+    div.className = 'break-row';
+    div.textContent = w.label;
+    list.appendChild(div);
+    return;
+  }
+
+  const session  = w.final ? null : SCHEDULE.sessions.find(s => s.num === w.num);
+  const dates    = w.final ? SCHEDULE.finalExamPeriod.dates : (session ? session.dates : '');
+  const href     = w.final ? 'checklist/final-exam.html' : `checklist/week${w.num}.html`;
+  const isCurrent = !w.final && w.num === currentSessionNum;
+
+  const a = document.createElement('a');
+  a.className = `week-card${w.variant ? ' variant-' + w.variant : ''}${isCurrent ? ' current' : ''}`;
+  a.href = href;
+  a.innerHTML = `
+    <div class="week-body">
+      <div class="week-num">${w.badge}${isCurrent ? ' · Current' : ''}</div>
+      <div class="week-title">${w.title}</div>
+      <div class="week-dates">${dates}</div>
+    </div>
+    <svg class="week-arrow" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  `;
+  list.appendChild(a);
+});
+</script>
+</body>
+</html>

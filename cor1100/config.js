@@ -348,21 +348,19 @@ const GRADING = {
 //  UPDATE if sections are added or removed
 // ================================================================
 const FEATURES = {
-  schedule:      true,
   syllabus:      true,
-  assignments:   true,
   textbook:      false,
   chapters:      true,    // Hanley chapter list with direct PDF links
-  checkins:      false,
-  puzzles:       false,
+  checkins:      true,
+  puzzles:       true,
   badges:        false,
-  tms:           false,
-  friday:        false,
+  tms:           true,
+  friday:        true,
   wellness:      false,
   support:       true,
   aiPolicy:      true,
-  checklist:     false,
-  officeHours:   false,
+  checklist:     true,
+  officeHours:   true,
 };
 
 // ================================================================
@@ -392,9 +390,10 @@ const SOURCE_TEXT = {
 // ================================================================
 const PAGES = {
   home:          `${COURSE.baseUrl}/index.html`,
-  schedule:      `${COURSE.baseUrl}/schedule.html`,
+  canvasHome:    `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
+  checklist:     `${COURSE.baseUrl}/checklist.html`,
+  officeHours:   `${COURSE.baseUrl}/office-hours.html`,
   syllabus:      `${COURSE.baseUrl}/syllabus.html`,
-  assignments:   `${COURSE.baseUrl}/assignments.html`,
   checkins:      `${COURSE.baseUrl}/checkins.html`,
   puzzles:       `${COURSE.baseUrl}/puzzles.html`,
   tms:           `${COURSE.baseUrl}/tms.html`,
