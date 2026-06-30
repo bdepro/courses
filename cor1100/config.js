@@ -446,15 +446,28 @@ const CANVAS = {
     { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "8770" },
   ],
 
-  // MME — 4 passages from The Theory of Moral Sentiments
-  // Introduced Friday of designated session. Due Wednesday of dueSession.
-  // aid: Canvas assignment ID; full URL is auto-built at the bottom of this file
-  // UPDATE: titles and aids once passages are selected
+  // TMS — Perusall Fishbowl peer-review rounds on The Theory of Moral Sentiments,
+  // paired with a passage from Hanif Abdurraqib's summer reading.
+  // Restructured 2026-06-30: 3 rounds (not 4), each anchored to the Friday
+  // immediately after a Check-In. Single submission mechanism — students submit
+  // only inside Perusall; aid below is the Canvas LTI launch link, not a
+  // separate text-entry assignment.
+  // introduced = assignment visible / reading document opens
+  // due        = student submission deadline (authors upload here)
+  // reviewDue  = reviewer annotation + rubric deadline
+  // respondDue = author reply-to-reviewers deadline
+  // aid: Canvas assignment ID for the Perusall LTI launch; full URL auto-built below
+  // PENDING: ids 2 and 3 (Fishbowl 2 / Fishbowl 3) not yet built — round 2 keeps its
+  // existing Fri Oct 9 anchor below; round 3 needs a fresh date design anchored to
+  // Fri Nov 6 (after CI3) that lands before Thanksgiving, not reusing the old
+  // session-15/Dec-2 date, which collides with viva week and FF narrative due date.
   tms: [
-    { id: 1, session: 3,  dueSession: 6,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",  title: "", aid: "" },  // UPDATE
-    { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE
-    { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.", title: "", aid: "" },  // UPDATE
-    { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",  title: "", aid: "" },  // UPDATE
+    { id: 1, session: 3, dueSession: 6, introduced: "Fri Sep 18",
+      title: "Fishbowl 1: Sympathy, Attention, and LeBron", aid: "",
+      due: "Wed Oct 7, 11:59 p.m.",
+      reviewDue: "Sun Oct 11, 11:59 p.m.",
+      respondDue: "Tue Oct 13, 11:59 p.m." },  // UPDATE aid once Perusall/Canvas link exists
+    { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE — content/cascade not yet built
   ],
 
   // Friday Focus — direct URLs (no aid pattern; Canvas Scheduler links differ)

@@ -144,11 +144,11 @@
       <div class="check-item" data-id="ci2-tms-due">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your TMS passage</div>
-          <div class="check-desc" id="ci2-tms-desc">The passage you got on Friday of Week 3 is due today.</div>
-          <span class="check-tag tag-submit" id="ci2-tms-tag">TMS</span>
+          <div class="check-title">Submit your Fishbowl 1 response</div>
+          <div class="check-desc" id="ci2-tms-desc">The reading you got on Friday of Week 3 is due today — submit in Perusall. This is the submission step only; if you're a reviewer this round, your review window opens after this and runs through the weekend.</div>
+          <span class="check-tag tag-submit" id="ci2-tms-tag">Fishbowl</span>
           <br><a class="check-link" href="#" id="link-ci2-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Fishbowl 1 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -214,12 +214,12 @@ dueBannerText.innerHTML = `Puzzle 4 and your TMS passage are both due Wednesday,
 if (puzzle4) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 if (tms1) {
   const tms1Title = tms1.title && tms1.title.length > 0 ? tms1.title : `${SOURCE_TEXT.title} — Passage 1`;
-  document.getElementById('ci2-tms-tag').textContent = `TMS · Due ${tms1.due}`;
+  document.getElementById('ci2-tms-tag').textContent = `Fishbowl · Due ${tms1.due}`;
   document.getElementById('ci2-tms-desc').textContent = `${tms1Title} is due today.`;
 }
 if (tms2) {
   const tms2Title = tms2.title && tms2.title.length > 0 ? tms2.title : `${SOURCE_TEXT.title} — Passage 2`;
-  document.getElementById('wk6-tms-tag').textContent = `TMS · Due ${tms2.due}`;
+  document.getElementById('wk6-tms-tag').textContent = `Fishbowl · Due ${tms2.due}`;
   document.getElementById('wk6-tms-desc').textContent = `${tms2Title} is introduced Friday, due ${tms2.due}`;
 }
 

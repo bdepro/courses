@@ -153,11 +153,11 @@
       <div class="check-item" data-id="wk3-tms-launch">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Get your TMS passage on Friday</div>
-          <div class="check-desc" id="wk3-tms-desc">Introduced in class. Read it and respond in writing — due in a few weeks.</div>
-          <span class="check-tag tag-submit" id="wk3-tms-tag">TMS</span>
+          <div class="check-title">Get your Fishbowl 1 reading on Friday</div>
+          <div class="check-desc" id="wk3-tms-desc">Introduced in class — a Smith passage paired with an excerpt from our summer reading. Read it, then write and submit your response in Perusall — due in a few weeks.</div>
+          <span class="check-tag tag-submit" id="wk3-tms-tag">Fishbowl</span>
           <br><a class="check-link" href="#" id="link-wk3-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Fishbowl 1 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -196,12 +196,12 @@ const ci1     = CANVAS.checkIns.find(c => c.id === 1);
 const tms1    = CANVAS.tms.find(t => t.session === 3);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 2 is due Wednesday, the same day as Check-In #1. Your TMS passage arrives Friday — due in a few weeks, not this week.`;
+dueBannerText.innerHTML = `Puzzle 2 is due Wednesday, the same day as Check-In #1. Your Fishbowl 1 reading arrives Friday — due in a few weeks, not this week.`;
 
 if (puzzle2) document.getElementById('ci1-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(2)}`;
 if (tms1) {
   const tmsTitle = tms1.title && tms1.title.length > 0 ? tms1.title : `${SOURCE_TEXT.title} — Passage 1`;
-  document.getElementById('wk3-tms-tag').textContent = `TMS · Due ${tms1.due}`;
+  document.getElementById('wk3-tms-tag').textContent = `Fishbowl · Due ${tms1.due}`;
   document.getElementById('wk3-tms-desc').textContent = `${tmsTitle} is introduced Friday, due ${tms1.due}`;
 }
 
