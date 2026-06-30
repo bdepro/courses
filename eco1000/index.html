@@ -107,7 +107,7 @@
 <header>
   <div class="header-inner">
     <p class="course-code" id="courseCode"></p>
-    <h1>Where do I start?</h1>
+    <h1 id="courseTitle"></h1>
     <p class="header-meta" id="headerMeta"></p>
     <div class="meta" id="metaBar"></div>
   </div>
@@ -157,6 +157,7 @@
 // ================================================================
 document.title = `${document.title} · ${COURSE.semester}`;
 document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
+document.getElementById('courseTitle').textContent = COURSE.title;
 document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
 
