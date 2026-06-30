@@ -139,6 +139,18 @@
           </a>
         </div>
       </div>
+
+      <div class="check-item" data-id="wk7-fishbowl1-respond">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Fishbowl 1: respond to your reviewers</div>
+          <div class="check-desc" id="wk7-fishbowl1-desc">If you submitted a Fishbowl 1 response, reply to your reviewers' comments in Perusall by Tuesday. If you were a reviewer this round, your review window already closed Sunday — nothing further due from you.</div>
+          <span class="check-tag tag-submit" id="wk7-fishbowl1-tag">Fishbowl</span>
+          <br><a class="check-link" href="#" id="link-wk7-fishbowl1" target="_blank" rel="noopener">
+            Open Fishbowl 1 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -157,11 +169,18 @@ const session7 = SCHEDULE.sessions.find(s => s.num === 7);
 document.getElementById('weekMeta').textContent = session7 ? session7.dates : '';
 
 const ch13 = CHAPTERS.all.find(c => c.key === 'ch13');
+const tms1 = CANVAS.tms.find(t => t.session === 3);
 
-document.getElementById('dueBannerText').innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XIII before Fall Break — it comes back in Puzzle 5 with Week 9's chapters.`;
+if (tms1 && tms1.respondDue) {
+  document.getElementById('dueBannerText').innerHTML = `Read Ch. XIII before Fall Break — it comes back in Puzzle 5 with Week 9's chapters. <strong>Fishbowl 1 authors:</strong> reply to your reviewers by ${tms1.respondDue}`;
+  document.getElementById('wk7-fishbowl1-tag').textContent = `Fishbowl · Due ${tms1.respondDue}`;
+} else {
+  document.getElementById('dueBannerText').innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XIII before Fall Break — it comes back in Puzzle 5 with Week 9's chapters.`;
+}
 
 const L = {
-  'link-ch13-read': ch13 ? ch13.url : '',
+  'link-ch13-read':     ch13 ? ch13.url : '',
+  'link-wk7-fishbowl1': tms1 ? tms1.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

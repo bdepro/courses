@@ -71,17 +71,21 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Theory of Moral Sentiments</h1>
-    <p class="screen-sub">10% of your course grade &middot; four passages &middot; introduced Friday &middot; due Wednesday 11:59 p.m.</p>
+    <p class="screen-sub">10% of your course grade &middot; three Fishbowl rounds &middot; via Perusall &middot; introduced Friday after each Check-In</p>
   </div>
 </div>
 <main id="main">
   <div class="callout gold">
-    <strong>Each passage is a Canvas assignment.</strong> I introduce it on the designated Friday; it is due the following Wednesday at 11:59 p.m. A strong
-    response pushes back on the passage, asks what Smith left out, or connects his
-    argument to something from Hanley. A weak response restates what the passage
-    already said.
+    <strong>Each round is a Perusall Fishbowl assignment, launched through a link in Canvas.</strong>
+    I introduce a Smith passage and a paired excerpt from our summer reading, Hanif
+    Abdurraqib's <cite>There&rsquo;s Always This Year</cite>, on the designated Friday.
+    Half the class writes a response; the other half reviews it in Perusall, then the
+    writers reply to their reviewers. A strong response pushes back on the Smith passage
+    using the Abdurraqib excerpt as a concrete case, or shows where Abdurraqib&rsquo;s
+    account extends or complicates Smith&rsquo;s. A weak response just restates what
+    either passage already said.
   </div>
-  <p class="section-label">Passages &mdash; click to open in Canvas</p>
+  <p class="section-label">Fishbowl rounds &mdash; click to open in Perusall (via Canvas)</p>
   <div class="tms-list" id="tmsList"></div>
 </main>
 <footer id="pageFooter"></footer>
@@ -97,19 +101,23 @@ CANVAS.tms.forEach(function(t) {
   var hasUrl = t.url && t.url.length > 0;
   var titleText = t.title && t.title.length > 0
     ? t.title
-    : SOURCE_TEXT.title + ' &mdash; Passage ' + t.id;
+    : SOURCE_TEXT.title + ' &mdash; Fishbowl ' + t.id;
+
+  var datesText = 'Introduced ' + t.introduced + ' &nbsp;&middot;&nbsp; Submit ' + t.due;
+  if (t.reviewDue)  datesText += ' &nbsp;&middot;&nbsp; Review ' + t.reviewDue;
+  if (t.respondDue) datesText += ' &nbsp;&middot;&nbsp; Respond ' + t.respondDue;
 
   var row = document.createElement('div');
   row.className = 'tms-row';
   row.innerHTML =
-    '<div class="t-num">TMS ' + t.id + '</div>' +
+    '<div class="t-num">Fishbowl ' + t.id + '</div>' +
     '<div class="t-body">' +
       '<div class="t-title">' + titleText + '</div>' +
-      '<div class="t-dates">Introduced ' + t.introduced + ' &nbsp;&middot;&nbsp; Due ' + t.due + '</div>' +
+      '<div class="t-dates">' + datesText + '</div>' +
     '</div>' +
     '<a class="t-link' + (hasUrl ? '' : ' inactive') + '"' +
       (hasUrl ? ' href="' + t.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'Open Passage' : 'Coming Soon') +
+      (hasUrl ? 'Open in Perusall' : 'Coming Soon') +
       '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
     '</a>';
   list.appendChild(row);
