@@ -1,0 +1,8 @@
+# Internal build notes belong in the private bdepro/course-notes repo, not here.
+# This repo is public (GitHub Pages) — keep it to student-facing course content only.
+STARTUP.md
+startup.md
+STATUS.md
+CHECKLIST-REDESIGN-DECISIONS.md
+**/internal-notes/
+**/tms-abdurraqib/
