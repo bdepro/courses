@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Check-In #2 covers Ch. VI through XII — disorder, health, tranquility, wealth, friendship, and anger, all at once. Your first TMS passage is also due Wednesday.
+      Check-In #2 covers Ch. VI through XII — disorder, health, tranquility, wealth, friendship, and anger, all at once. Your Fishbowl 1 response is also due Wednesday.
     </p>
   </div>
 
@@ -165,11 +165,11 @@
       <div class="check-item" data-id="wk6-tms-launch">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Get your next TMS passage on Friday</div>
+          <div class="check-title">Get your Fishbowl 2 reading on Friday</div>
           <div class="check-desc" id="wk6-tms-desc">Introduced in class. Due in a few weeks.</div>
-          <span class="check-tag tag-submit" id="wk6-tms-tag">TMS</span>
+          <span class="check-tag tag-submit" id="wk6-tms-tag">Fishbowl</span>
           <br><a class="check-link" href="#" id="link-wk6-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Fishbowl 2 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -209,7 +209,7 @@ const tms1    = CANVAS.tms.find(t => t.dueSession === 6);
 const tms2    = CANVAS.tms.find(t => t.session === 6);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 4 and your TMS passage are both due Wednesday, the same day as Check-In #2. Your next TMS passage arrives Friday.`;
+dueBannerText.innerHTML = `Puzzle 4 and your Fishbowl 1 response are both due Wednesday, the same day as Check-In #2. Your Fishbowl 2 reading arrives Friday.`;
 
 if (puzzle4) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 if (tms1) {
