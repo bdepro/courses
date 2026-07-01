@@ -216,17 +216,6 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk9-tms-launch">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Get your next TMS passage on Friday</div>
-          <div class="check-desc" id="wk9-tms-desc">Introduced in class. Due in a few weeks.</div>
-          <span class="check-tag tag-submit" id="wk9-tms-tag">TMS</span>
-          <br><a class="check-link" href="#" id="link-wk9-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -249,21 +238,15 @@ const ch15 = CHAPTERS.all.find(c => c.key === 'ch15');
 const ch16 = CHAPTERS.all.find(c => c.key === 'ch16');
 const wk9Notes = GUIDED_NOTES.find(g => g.id === 'w07-09');
 const puzzle5  = CANVAS.puzzles.find(p => p.session === 9);
-const tms3     = CANVAS.tms.find(t => t.session === 9);
 
 const dueBannerText = document.getElementById('dueBannerText');
 if (puzzle5) {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XIV–XVI, then start Puzzle 5 early — it's due next ${formatPuzzleDue(9)} A new TMS passage arrives Friday.`;
+  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XIV–XVI, then start Puzzle 5 early — it's due next ${formatPuzzleDue(9)}`;
 } else {
   dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Focus on Ch. XIV–XVI.`;
 }
 
 if (puzzle5) document.getElementById('wk9-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(9)}`;
-if (tms3) {
-  const tms3Title = tms3.title && tms3.title.length > 0 ? tms3.title : `${SOURCE_TEXT.title} — Passage 3`;
-  document.getElementById('wk9-tms-tag').textContent = `TMS · Due ${tms3.due}`;
-  document.getElementById('wk9-tms-desc').textContent = `${tms3Title} is introduced Friday, due ${tms3.due}`;
-}
 
 const L = {
   'link-ch14-read':        ch14 ? ch14.url : '',
@@ -272,7 +255,6 @@ const L = {
   'link-wk9-notes':        wk9Notes ? wk9Notes.url : '',
   'link-wk9-notes-submit': wk9Notes ? wk9Notes.submitUrl : '',
   'link-wk9-puzzle':       puzzle5 ? puzzle5.url : '',
-  'link-wk9-tms':          tms3 ? tms3.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

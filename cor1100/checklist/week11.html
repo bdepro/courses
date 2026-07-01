@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Check-In #3 covers Ch. XIII through XIX — love, flourishing, and how you see yourself, building toward dignity and equality. Your second TMS passage is also due Wednesday.
+      Check-In #3 covers Ch. XIII through XIX — love, flourishing, and how you see yourself, building toward dignity and equality. Your Fishbowl 2 response is also due Wednesday.
     </p>
   </div>
 
@@ -144,11 +144,11 @@
       <div class="check-item" data-id="ci3-tms-due">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your TMS passage</div>
-          <div class="check-desc" id="ci3-tms-desc">The passage you got on Friday of Week 6 is due today.</div>
-          <span class="check-tag tag-submit" id="ci3-tms-tag">TMS</span>
+          <div class="check-title">Submit your Fishbowl 2 response</div>
+          <div class="check-desc" id="ci3-tms-desc">The reading you got on Friday of Week 6 is due today — submit in Perusall.</div>
+          <span class="check-tag tag-submit" id="ci3-tms-tag">Fishbowl</span>
           <br><a class="check-link" href="#" id="link-ci3-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Fishbowl 2 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -159,18 +159,6 @@
           <div class="check-title">Take Check-In #3 in class Wednesday</div>
           <div class="check-desc">Sixty minutes, paper and pencil, for the full class period. Covers Ch. XIII&ndash;XIX, plus standing analytical threads.</div>
           <span class="check-tag tag-submit">Exam &middot; In Class</span>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk11-tms-launch">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Get your final TMS passage on Friday</div>
-          <div class="check-desc" id="wk11-tms-desc">Introduced in class. Due during Viva Week.</div>
-          <span class="check-tag tag-submit" id="wk11-tms-tag">TMS</span>
-          <br><a class="check-link" href="#" id="link-wk11-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
         </div>
       </div>
 
@@ -206,27 +194,20 @@ document.getElementById('weekMeta').textContent = session11 ? session11.dates : 
 const puzzle6 = CANVAS.puzzles.find(p => p.session === 10);
 const ci3     = CANVAS.checkIns.find(c => c.id === 3);
 const tms2    = CANVAS.tms.find(t => t.dueSession === 11);
-const tms4    = CANVAS.tms.find(t => t.session === 11);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 6 and your TMS passage are both due Wednesday, the same day as Check-In #3. Your final TMS passage arrives Friday.`;
+dueBannerText.innerHTML = `Puzzle 6 and your Fishbowl 2 response are both due Wednesday, the same day as Check-In #3.`;
 
 if (puzzle6) document.getElementById('ci3-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
 if (tms2) {
-  const tms2Title = tms2.title && tms2.title.length > 0 ? tms2.title : `${SOURCE_TEXT.title} — Passage 2`;
-  document.getElementById('ci3-tms-tag').textContent = `TMS · Due ${tms2.due}`;
-  document.getElementById('ci3-tms-desc').textContent = `${tms2Title} is due today.`;
-}
-if (tms4) {
-  const tms4Title = tms4.title && tms4.title.length > 0 ? tms4.title : `${SOURCE_TEXT.title} — Passage 4`;
-  document.getElementById('wk11-tms-tag').textContent = `TMS · Due ${tms4.due}`;
-  document.getElementById('wk11-tms-desc').textContent = `${tms4Title} is introduced Friday, due ${tms4.due}`;
+  const tms2Title = tms2.title && tms2.title.length > 0 ? tms2.title : `${SOURCE_TEXT.title} — Fishbowl 2`;
+  document.getElementById('ci3-tms-tag').textContent = `Fishbowl · Due ${tms2.due}`;
+  document.getElementById('ci3-tms-desc').textContent = `${tms2Title} is due today — submit in Perusall.`;
 }
 
 const L = {
   'link-ci3-puzzle': puzzle6 ? puzzle6.url : '',
   'link-ci3-tms':    tms2 ? tms2.url : '',
-  'link-wk11-tms':   tms4 ? tms4.url : '',
   'link-wk11-ff':    (CANVAS.viva && CANVAS.viva.ffSubmitUrl) ? CANVAS.viva.ffSubmitUrl : '',
 };
 Object.entries(L).forEach(([id, url]) => {

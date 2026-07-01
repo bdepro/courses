@@ -138,18 +138,6 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk13-tms-due">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit your TMS passage</div>
-          <div class="check-desc" id="wk13-tms-desc">The passage introduced back in Week 9 is due Wednesday.</div>
-          <span class="check-tag tag-submit" id="wk13-tms-tag">TMS</span>
-          <br><a class="check-link" href="#" id="link-wk13-tms" target="_blank" rel="noopener">
-            Open TMS Passage <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
       <div class="check-item" data-id="wk13-notes">
         <div class="check-box"></div>
         <div class="check-content">
@@ -249,20 +237,14 @@ const ch24 = CHAPTERS.all.find(c => c.key === 'ch24');
 const ch25 = CHAPTERS.all.find(c => c.key === 'ch25');
 const wk13Notes = GUIDED_NOTES.find(g => g.id === 'w13');
 const puzzle8   = CANVAS.puzzles.find(p => p.session === 13);
-const tms3      = CANVAS.tms.find(t => t.dueSession === 13);
 
 const dueBannerText = document.getElementById('dueBannerText');
-let dueMsg = 'Your TMS passage is due Wednesday.';
+let dueMsg = 'Read Ch. XXIII–XXV before Thanksgiving Break.';
 if (puzzle8) {
-  dueMsg += ` Read Ch. XXIII–XXV, then start Puzzle 8 — it's due ${formatPuzzleDue(13)}, after Thanksgiving Break.`;
+  dueMsg += ` Then start Puzzle 8 — it's due ${formatPuzzleDue(13)}, after Thanksgiving Break.`;
 }
 dueBannerText.innerHTML = dueMsg;
 
-if (tms3) {
-  const tms3Title = tms3.title && tms3.title.length > 0 ? tms3.title : `${SOURCE_TEXT.title} — Passage 3`;
-  document.getElementById('wk13-tms-tag').textContent = `TMS · Due ${tms3.due}`;
-  document.getElementById('wk13-tms-desc').textContent = `${tms3Title} is due Wednesday.`;
-}
 if (puzzle8) {
   document.getElementById('wk13-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(13)}`;
 }
@@ -271,7 +253,6 @@ const L = {
   'link-ch23-read':         ch23 ? ch23.url : '',
   'link-ch24-read':         ch24 ? ch24.url : '',
   'link-ch25-read':         ch25 ? ch25.url : '',
-  'link-wk13-tms':          tms3 ? tms3.url : '',
   'link-wk13-notes':        wk13Notes ? wk13Notes.url : '',
   'link-wk13-notes-submit': wk13Notes ? wk13Notes.submitUrl : '',
   'link-wk13-puzzle':       puzzle8 ? puzzle8.url : '',

@@ -333,8 +333,8 @@ const GRADING = {
       note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
-    { id: "tms",      label: "Theory of Moral Sentiments", weight: 10,
-      note: "4 passages from The Theory of Moral Sentiments. Introduced Friday of designated sessions. Due Wednesday at 11:59 p.m." },
+    { id: "tms",      label: "Fishbowl", weight: 10,
+      note: "3 Perusall Fishbowl rounds pairing Smith's Theory of Moral Sentiments with our summer reading. Introduced Friday after each Check-In." },
   ],
   ungraded: [
     { id: "readings", label: "Chapter Readings",
