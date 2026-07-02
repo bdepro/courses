@@ -52,11 +52,23 @@ const INSTRUCTORS = [
     email:  "dhawkins5@elon.edu",
     office: "KoBC 120",
     phone:  "(336) 278-5977",
-    hours:  "",   // UPDATE — TBD until Fall 2026 hours are set
+    hours:  "TBD",   // UPDATE — TBD until Fall 2026 hours are set
     zoomUrl: null,     // UPDATE — TBD until Fall 2026 Zoom link is confirmed
     zoomDisplay: null,
   },
 ];
+
+// ================================================================
+//  TEXTBOOK — required text, UPDATE if edition changes
+// ================================================================
+const TEXTBOOK = {
+  authors:   "Froeb, Luke M., Brian T. McCann, Michael R. Ward, and Mike Shor",
+  title:     "Managerial Economics: A Problem-Solving Approach",
+  edition:   "6th",
+  publisher: "Cengage Learning",
+  year:      2023,
+  note:      "Available as an e-book only, linked through Canvas. No print copy is required.",
+};
 
 // ================================================================
 //  DATES — key academic dates, UPDATE each semester

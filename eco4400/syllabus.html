@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <!--
-  ECO 4400 — Applied Economics & Consulting
-  Syllabus Page — Fall 2026
-  Search UPDATE to find fields to refresh each semester
+================================================================
+  ECO 4400 — SYLLABUS
+  Hosted: bdepro.github.io/courses/eco4400/syllabus.html
+
+  Page heading convention (locked, matches COR 1100 / ECO 1000):
+    h1 is hardcoded: "What do I need to know?"
+    All semester-specific data pulls from config.js.
+
+  Two-instructor variant: Section 1 loops INSTRUCTORS instead of
+  assuming a single INSTRUCTOR object. Course-level fields render
+  once below both instructor blocks.
+
+  Data Intensive SLO table is folded into Section 3 (Learning
+  Goals) rather than kept as a standalone section, so the page
+  stays on the same 9-section skeleton as COR 1100 / ECO 1000.
+
+  Section 5 keeps the Monday/Wednesday split (this course runs two
+  different activities per week) instead of the single-topic row
+  used by COR 1100 / ECO 1000.
+
+  Section 9: campus resources boilerplate, verbatim with COR 1100 /
+  ECO 1000. Do not edit.
+================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syllabus &middot; ECO 4400</title>
+  <meta name="description" content="Course syllabus, policies, learning goals, and grading structure for ECO 4400 at Elon University.">
+  <title>ECO 4400 · Syllabus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
   <script src="config.js"></script>
   <style>
     :root {
@@ -20,10 +42,10 @@
       --gold-lt:   #d4b97a;
       --gold-link: #7a5c1e;
       --teal:      #527b82;
-      --green:     #788a38;
+      --teal-dk:   #3d5e63;
       --cream:     #fcfaf7;
       --warm-gray: #f7f4ef;
-      --border:    #e8e3da;
+      --border:    #e0ddd5;
       --text:      #2e2e2e;
       --muted:     #6b6b6b;
       --white:     #ffffff;
@@ -61,7 +83,7 @@
 
     .screen-eyebrow {
       font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
-      text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.3rem;
     }
     .screen-title {
       font-size: clamp(1.4rem, 4vw, 2rem);
@@ -82,9 +104,11 @@
 
     /* ── Main ── */
     main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    /* ── Print header ── */
     .print-header { display: none; }
 
-    /* ── Syllabus sections ── */
+    /* ── Section cards ── */
     .syl-section {
       background: var(--white);
       border: 1px solid var(--border);
@@ -93,15 +117,13 @@
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow);
     }
-
     .syl-section-header {
       background: var(--crimson);
       padding: 0.65rem 1.25rem;
       display: flex; align-items: center; gap: 0.75rem;
     }
-    .syl-section-header.teal  { background: var(--teal); }
-    .syl-section-header.green { background: var(--green); }
-    .syl-section-header.gold  { background: var(--gold-link); }
+    .syl-section-header.teal { background: var(--teal); }
+    .syl-section-header.gold { background: var(--gold-link); }
 
     .syl-num {
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
@@ -110,57 +132,65 @@
       padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
     }
     .syl-section-title { font-size: 0.95rem; font-weight: 700; color: var(--white); }
-
     .syl-body { padding: 1.25rem 1.5rem; }
-    .syl-body p { font-size: 0.93rem; margin-bottom: 0.85rem; line-height: 1.7; color: var(--text); }
-    .syl-body p:last-child { margin-bottom: 0; }
-    .syl-body a { color: var(--gold-link); }
-    .syl-body a:hover { color: var(--crimson); }
 
-    /* Contact grid (dual instructors) */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 2rem;
-      margin-bottom: 0.25rem;
-    }
-    .contact-instructor {
-      padding-bottom: 0.85rem;
-      margin-bottom: 0.85rem;
-      border-bottom: 1px solid var(--warm-gray);
-    }
-    .contact-instructor:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    /* ── Contact grid (per instructor) ── */
     .contact-instructor-name {
-      font-size: 0.9rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.35rem;
+      font-size: 0.9rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.15rem;
     }
     .contact-instructor-title {
-      font-size: 0.75rem; color: var(--muted); margin-bottom: 0.45rem; line-height: 1.4;
+      font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.4;
     }
-    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; margin-bottom: 0.15rem; }
+    .contact-instructor { margin-bottom: 1rem; }
+    .contact-instructor + .contact-instructor {
+      padding-top: 1rem; border-top: 1px solid var(--warm-gray);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem; font-size: 0.88rem;
+    }
+    .contact-grid.course-grid {
+      margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--warm-gray);
+    }
+    .contact-row { display: flex; gap: 0.5rem; align-items: baseline; }
     .contact-label {
       font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 72px;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap; min-width: 95px;
     }
-    .contact-value { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+    .contact-value { color: var(--text); }
+
+    .oh-callout {
+      display: flex; align-items: center; gap: 0.65rem;
+      background: #f0f7f8; border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0; padding: 0.7rem 1rem;
+      margin-top: 0.65rem; font-size: 0.88rem; line-height: 1.5;
+    }
+    .oh-callout svg { flex-shrink: 0; }
+    .oh-callout strong { color: var(--teal); }
     .contact-value a { color: var(--gold-link); text-decoration: none; }
     .contact-value a:hover { color: var(--crimson); }
 
-    /* Learning outcomes */
+    /* ── Prose ── */
+    .syl-body p { margin-bottom: 0.85rem; font-size: 0.93rem; }
+    .syl-body p:last-child { margin-bottom: 0; }
+
+    /* ── Learning goals ── */
     .goal-list { list-style: none; padding: 0; }
     .goal-item {
       display: flex; gap: 1rem; align-items: flex-start;
-      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray); font-size: 0.91rem;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--warm-gray);
+      font-size: 0.91rem;
     }
-    .goal-item:first-child { padding-top: 0; }
     .goal-item:last-child { border-bottom: none; padding-bottom: 0; }
     .goal-num {
-      width: 24px; height: 24px; min-width: 24px; border-radius: 50%;
-      background: var(--crimson); color: var(--white);
-      font-size: 0.68rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; margin-top: 0.1rem;
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%; background: var(--crimson);
+      color: var(--white); font-size: 0.68rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem;
     }
     .goal-text { line-height: 1.55; }
-
+    .goal-text strong { color: var(--text); font-weight: 600; }
     .di-badge {
       display: inline-block; font-size: 0.62rem; font-weight: 700;
       letter-spacing: 0.07em; text-transform: uppercase;
@@ -170,25 +200,61 @@
       margin-left: 0.5rem; vertical-align: middle;
     }
 
-    /* Textbook block */
+    /* ── Data Intensive SLO table (folded into Section 3) ── */
+    .slo-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-top: 1.1rem; }
+    .slo-table th {
+      background: var(--teal); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; padding: 0.55rem 0.85rem; text-align: left;
+    }
+    .slo-table td {
+      padding: 0.8rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.6; font-size: 0.88rem;
+    }
+    .slo-table tr:last-child td { border-bottom: none; }
+    .slo-table tr:nth-child(even) td { background: rgba(82,123,130,0.04); }
+    .slo-num { font-weight: 700; color: var(--teal); white-space: nowrap; width: 78px; }
+    .slo-evidence { font-size: 0.8rem; color: var(--teal); font-style: italic; margin-top: 0.4rem; display: block; line-height: 1.5; }
+
+    /* ── Textbook block ── */
     .textbook-block {
       background: var(--warm-gray); border-radius: 6px;
       padding: 0.85rem 1rem; font-size: 0.88rem;
-      line-height: 1.65; margin-bottom: 0.85rem;
+      line-height: 1.65; margin-top: 0.85rem;
     }
+    .textbook-block + .textbook-block { margin-top: 0.6rem; }
     .textbook-block cite { font-style: italic; }
-    .textbook-block:last-child { margin-bottom: 0; }
 
-    /* Sub-heading inside syl-body */
-    .syl-sub {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
-      text-transform: uppercase; color: var(--teal);
-      margin: 1.1rem 0 0.4rem;
+    /* ── Schedule table (Week / Topic / Monday / Wednesday) ── */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .sched-table th {
+      background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      padding: 0.55rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
     }
-    .syl-sub:first-child { margin-top: 0; }
+    .sched-table td {
+      padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
+      vertical-align: top; line-height: 1.5;
+    }
+    .sched-table tr:last-child td { border-bottom: none; }
+    .sched-table tr:hover td { background: #fdfcfa; }
+    .sched-table tr.break-row td { color: var(--muted); font-style: italic; }
+    .week-num { color: var(--muted); font-weight: 500; }
+    .ch-tag { font-size: 0.78rem; font-weight: 600; color: var(--gold-link); display: block; }
+    .data-tag {
+      display: inline-block; font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: rgba(82,123,130,0.1); color: var(--teal);
+      border: 1px solid rgba(82,123,130,0.25);
+      padding: 0.08rem 0.4rem; border-radius: 2px;
+      margin-left: 4px; vertical-align: middle; white-space: nowrap;
+    }
 
-    /* Assessment */
-    .assess-block { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
+    /* ── Assessment blocks ── */
+    .assess-block {
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
+    }
     .assess-block:last-child { margin-bottom: 0; }
     .assess-header {
       background: var(--warm-gray); padding: 0.6rem 1rem;
@@ -199,83 +265,30 @@
     .assess-weight {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--crimson);
-      background: rgba(115,0,10,0.08); padding: 0.15rem 0.55rem; border-radius: 3px;
-      white-space: nowrap;
+      background: rgba(115,0,10,0.08);
+      padding: 0.15rem 0.55rem; border-radius: 3px; white-space: nowrap;
     }
-    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; color: var(--text); }
+    .assess-body { padding: 0.85rem 1rem; font-size: 0.88rem; line-height: 1.65; }
     .assess-body p { margin-bottom: 0.65rem; }
     .assess-body p:last-child { margin-bottom: 0; }
-    .assess-body ul { padding-left: 1.1rem; margin-top: 0.4rem; }
-    .assess-body li { margin-bottom: 0.45rem; line-height: 1.6; }
+    .assess-sub {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.35rem; margin-top: 0.75rem;
+    }
 
-    /* Weight bars */
-    .weight-bars { margin-bottom: 1.25rem; }
-    .wbar { margin-bottom: 0.75rem; }
-    .wbar:last-child { margin-bottom: 0; }
-    .wbar-label { display: flex; justify-content: space-between; font-size: 0.83rem; margin-bottom: 0.3rem; }
-    .wbar-label span:first-child { font-weight: 500; }
-    .wbar-label span:last-child  { font-weight: 700; color: var(--crimson); }
-    .wbar-track { height: 5px; background: rgba(0,0,0,0.07); border-radius: 3px; overflow: hidden; }
-    .wbar-fill  { height: 100%; border-radius: 3px; }
-    .wbar-fill.labs     { background: var(--crimson); }
-    .wbar-fill.research { background: var(--gold); }
-    .wbar-fill.econ     { background: var(--teal); }
-
-    /* Schedule table */
-    .sched-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
-    .sched-table th {
+    /* ── Grade weight table ── */
+    .grade-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .grade-table th {
       background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      padding: 0.6rem 0.85rem; text-align: left; border-bottom: 2px solid var(--border);
+      padding: 0.55rem 1rem; text-align: left; border-bottom: 2px solid var(--border);
     }
-    .sched-table td {
-      padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
-      vertical-align: top; line-height: 1.5;
-    }
-    .sched-table tr:last-child td { border-bottom: none; }
-    .sched-table tr:hover td { background: #fdfcfa; }
+    .grade-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--warm-gray); }
+    .grade-table tr:last-child td { border-bottom: 2px solid var(--border); font-weight: 700; }
+    .grade-pct { font-weight: 700; color: var(--crimson); font-size: 1rem; }
 
-    .sched-table .break-row td {
-      background: var(--warm-gray); color: var(--muted);
-      font-style: italic; font-size: 0.82rem;
-      text-align: center; padding: 0.55rem 0.85rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .week-tag {
-      display: inline-block; background: var(--crimson); color: var(--white);
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.15rem 0.5rem;
-      border-radius: 3px; white-space: nowrap;
-    }
-    .ch-tag { font-size: 0.75rem; font-weight: 700; color: var(--gold-link); display: block; margin-bottom: 0.2rem; }
-    .data-tag {
-      display: inline-block; font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      background: rgba(82,123,130,0.1); color: var(--teal);
-      border: 1px solid rgba(82,123,130,0.25);
-      padding: 0.1rem 0.4rem; border-radius: 2px;
-      margin-left: 4px; vertical-align: middle; white-space: nowrap;
-    }
-
-    /* SLO table */
-    .slo-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
-    .slo-table th {
-      background: var(--teal); color: var(--white);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
-      text-transform: uppercase; padding: 0.6rem 0.85rem; text-align: left;
-    }
-    .slo-table td {
-      padding: 0.85rem 0.85rem; border-bottom: 1px solid var(--warm-gray);
-      vertical-align: top; line-height: 1.6; font-size: 0.88rem;
-    }
-    .slo-table tr:last-child td { border-bottom: none; }
-    .slo-table tr:nth-child(even) td { background: rgba(82,123,130,0.04); }
-    .slo-num { font-weight: 700; color: var(--teal); white-space: nowrap; width: 80px; }
-    .slo-anchor { display: inline-block; background: var(--crimson); color: var(--white); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 2px; margin-left: 4px; vertical-align: middle; }
-    .slo-evidence { font-size: 0.8rem; color: var(--teal); font-style: italic; margin-top: 0.4rem; display: block; line-height: 1.5; }
-
-    /* Grade scale */
+    /* ── Grading scale ── */
     .scale-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
     .scale-table th {
       background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
@@ -287,38 +300,61 @@
     .scale-grade { font-weight: 700; color: var(--crimson); }
     .scale-desc  { color: var(--muted); font-size: 0.82rem; }
 
-    /* Policies */
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0; font-size: 0.88rem; line-height: 1.65;
+    }
+    .callout.teal { background: rgba(82,123,130,0.09); border-left: 4px solid var(--teal); }
+    .callout.red  { background: rgba(115,0,10,0.06);   border-left: 4px solid var(--crimson); }
+    .callout strong.lbl-teal { color: var(--teal-dk); }
+    .callout strong.lbl-red  { color: var(--crimson); }
+
+    /* ── Policy list ── */
     .policy-list { list-style: none; padding: 0; }
     .policy-item {
-      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1.1rem;
-      border-bottom: 1px solid var(--warm-gray);
-      position: relative; line-height: 1.65;
+      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1rem;
+      border-bottom: 1px solid var(--warm-gray); position: relative;
+      line-height: 1.6;
     }
     .policy-item:last-child { border-bottom: none; }
     .policy-item::before {
-      content: ""; position: absolute; left: 0; top: 0.95rem;
+      content: ""; position: absolute; left: 0; top: 0.9rem;
       width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
     }
-    .policy-item strong { color: var(--text); }
     .policy-item a { color: var(--gold-link); text-decoration: none; }
     .policy-item a:hover { color: var(--crimson); }
 
-    .policy-callout {
-      background: rgba(82,123,130,0.06); border-left: 4px solid var(--teal);
-      border-radius: 0 6px 6px 0; padding: 0.85rem 1rem;
-      margin-bottom: 1rem; font-size: 0.88rem; line-height: 1.65;
+    /* ── Table note ── */
+    .table-note {
+      padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--muted);
+      border-top: 1px solid var(--warm-gray);
     }
-    .policy-callout strong { color: var(--teal); }
 
-    /* Responsive */
+    /* ── Campus resources (Section 9) ── */
+    .resources-list { list-style: none; padding: 0; }
+    .resource-item {
+      font-size: 0.88rem; padding: 0.75rem 0;
+      border-bottom: 1px solid var(--warm-gray);
+      line-height: 1.65;
+    }
+    .resource-item:last-child { border-bottom: none; }
+    .resource-item a { color: var(--gold-link); text-decoration: none; }
+    .resource-item a:hover { color: var(--crimson); }
+
+    /* ── Mobile ── */
     @media (max-width: 600px) {
       .screen-header { padding: 1.5rem 1.25rem; }
       main { padding: 1.5rem 1rem 4rem; }
       .contact-grid { grid-template-columns: 1fr; }
       .syl-body { padding: 1rem 1.1rem; }
+      .assess-header { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .sched-table { font-size: 0.78rem; }
+      .sched-table th, .sched-table td { padding: 0.5rem; }
     }
 
-    /* Print */
+    /* ── Print ── */
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       body { background: white; font-size: 10.5pt; line-height: 1.55; color: #000; }
@@ -331,48 +367,68 @@
       .print-subtitle { font-size: 11pt; color: #444; margin-top: 0.2rem; }
       .print-meta     { font-size: 9pt; color: #666; margin-top: 0.5rem; }
       main { max-width: 100%; padding: 0; margin: 0; }
-      .syl-section { box-shadow: none; border: 1px solid #ccc; border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid; }
+      .syl-section {
+        box-shadow: none; border: 1px solid #ccc;
+        border-radius: 0; margin-bottom: 1rem; page-break-inside: avoid;
+      }
       .syl-section-header { padding: 0.4rem 0.75rem; }
       .syl-section-title  { font-size: 9.5pt; }
       .syl-num            { display: none; }
       .syl-body           { padding: 0.65rem 0.85rem; }
       .syl-body p         { font-size: 10pt; margin-bottom: 0.5rem; }
-      .contact-grid       { font-size: 9.5pt; }
+      .contact-grid       { font-size: 9.5pt; gap: 0.2rem 1rem; }
       .assess-block       { page-break-inside: avoid; }
       .assess-body        { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
-      .scale-table, .slo-table, .sched-table { font-size: 9.5pt; }
+      .grade-table        { font-size: 10pt; }
+      .scale-table        { font-size: 9.5pt; }
+      .sched-table        { font-size: 9pt; }
+      .slo-table          { font-size: 9pt; }
+      .goal-item          { padding: 0.4rem 0; font-size: 9.5pt; }
+      .callout            { font-size: 9.5pt; padding: 0.6rem 0.75rem; }
       a { color: #000; text-decoration: none; }
-      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 7.5pt; color: #666; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
       a[href^="mailto"]::after { content: none; }
     }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--crimson); color: var(--white); padding: 8px 14px; font-weight: 600; font-size: 0.85rem; text-decoration: none; z-index: 100; }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- SCREEN HEADER -->
 <div class="screen-header">
   <div class="screen-header-inner">
-    <a class="back-link" href="index.html">
+    <a class="back-link" id="syl-back" href="index.html">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Course Home
     </a>
-    <p class="screen-eyebrow">ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Fall 2026</p>
-    <h1 class="screen-title">Syllabus</h1>
+    <p class="screen-eyebrow" id="syl-eyebrow"></p>
+    <h1 class="screen-title">What do I need to know?</h1>
     <div class="screen-actions">
       <button class="btn-print" onclick="window.print()">
-        <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <svg viewBox="0 0 24 24">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
         Print / Save PDF
       </button>
     </div>
   </div>
 </div>
 
+<!-- PRINT HEADER -->
 <div class="print-header">
   <div class="print-title">Applied Economics &amp; Consulting</div>
-  <div class="print-subtitle">ECO 4400 &mdash; Fall 2026</div>
-  <div class="print-meta">Brooks Depro &amp; Devon Hawkins &nbsp;&middot;&nbsp; Love School of Business &nbsp;&middot;&nbsp; Elon University</div>
+  <div class="print-subtitle" id="syl-print-subtitle"></div>
+  <div class="print-meta" id="syl-print-meta"></div>
 </div>
 
-<main>
+<main id="main">
 
   <!-- ── SECTION 1: COURSE INFORMATION ── -->
   <div class="syl-section">
@@ -381,274 +437,87 @@
       <span class="syl-section-title">Course Information</span>
     </div>
     <div class="syl-body">
-      <div class="contact-grid">
-        <div class="contact-instructor">
-          <div class="contact-instructor-name">Brooks Depro</div>
-          <div class="contact-instructor-title">Associate Professor of Economics</div>
-          <div class="contact-row"><span class="contact-label">Office</span><span class="contact-value">KoBC 122</span></div>
-          <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:bdepro@elon.edu">bdepro@elon.edu</a></span></div>
-          <div class="contact-row"><span class="contact-label">Phone</span><span class="contact-value">919-357-2316</span></div>
-          <div class="contact-row"><span class="contact-label">Hours</span><span class="contact-value">Mon / Wed / Fri, 4:00&ndash;5:00 PM</span></div><!-- UPDATE -->
-          <div class="contact-row"><span class="contact-label">Zoom</span><span class="contact-value"><a href="https://elon.zoom.us/my/bdepro" target="_blank">elon.zoom.us/my/bdepro</a></span></div>
+      <div id="syl-instructors"></div>
+      <div class="contact-grid course-grid">
+        <div class="contact-row">
+          <span class="contact-label">Department</span>
+          <span class="contact-value" id="syl-dept"></span>
         </div>
-        <div class="contact-instructor">
-          <div class="contact-instructor-name">Devon Hawkins</div>
-          <div class="contact-instructor-title">Assistant Teaching Professor of Economics</div>
-          <div class="contact-row"><span class="contact-label">Office</span><span class="contact-value">KoBC 120</span></div>
-          <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:dhawkins5@elon.edu">dhawkins5@elon.edu</a></span></div>
-          <div class="contact-row"><span class="contact-label">Phone</span><span class="contact-value">(336) 278-5977</span></div>
-          <div class="contact-row"><span class="contact-label">Hours</span><span class="contact-value">By appointment</span></div>
+        <div class="contact-row">
+          <span class="contact-label">Course Site</span>
+          <span class="contact-value">Canvas</span>
         </div>
-      </div>
-      <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid var(--warm-gray);">
-        <div class="contact-row"><span class="contact-label">Course</span><span class="contact-value">ECO 4400 &mdash; Applied Economics &amp; Consulting &mdash; Fall 2026</span></div>
-        <div class="contact-row"><span class="contact-label">Credits</span><span class="contact-value">4 credit hours &mdash; in-person, Mon &amp; Wed</span></div>
-        <div class="contact-row"><span class="contact-label">Canvas</span><span class="contact-value"><a href="https://www.elon.edu/moodle/" target="_blank">elon.instructure.com</a></span></div>
-        <div class="contact-row"><span class="contact-label">Designation</span><span class="contact-value">Data Intensive (SLOs 2, 3, 4, 5)</span></div>
+        <div class="contact-row">
+          <span class="contact-label">Course</span>
+          <span class="contact-value" id="syl-course"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Credits</span>
+          <span class="contact-value" id="syl-credits"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Semester</span>
+          <span class="contact-value" id="syl-semester"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Format</span>
+          <span class="contact-value" id="syl-format"></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Designation</span>
+          <span class="contact-value" id="syl-designation"></span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ── SECTION 2: OVERVIEW ── -->
+  <!-- ── SECTION 2: WHY THIS COURSE ── -->
   <div class="syl-section">
     <div class="syl-section-header teal">
       <span class="syl-num">Section 2</span>
-      <span class="syl-section-title">Course Overview</span>
+      <span class="syl-section-title">Why Should You Take This Course?</span>
     </div>
     <div class="syl-body">
-      <p>In this course you work as an analyst. The problems are real: a client needs to understand a market, defend a budget, or choose between options with uncertain outcomes. Your job is to gather the right data, build a model that holds up to scrutiny, and deliver advice that actually helps someone decide.</p>
-      <p>Most weeks divide cleanly. Mondays cover economic theory from <em>Managerial Economics</em> (Froeb et al.), and Wednesdays are split between your consulting team project and independent research assignments. Teams form in the first week and stay together through the final presentation.</p>
-      <p>By the end of the semester you will have a short portfolio of work&mdash;memos, data analyses, and a live client presentation&mdash;that demonstrates you can move from a messy real-world problem to a clear recommendation.</p>
+      <p>In this course you work as an analyst. Your client this semester is Sustainable Alamance, a Burlington nonprofit that needs to know whether its programs are worth what they cost, and your job is to find the evidence, test it, and turn it into a recommendation they can act on.</p>
+      <p>Mondays work through economic theory from <cite>Managerial Economics</cite> (Froeb et al.). The consulting project and independent research fill Wednesdays, and teams that form in the first week stay together through the final presentation in Week 12.</p>
+      <p>By the end of the semester, you will have a portfolio of economic writing and a live client presentation that shows you can move from a messy real-world problem to a clear recommendation.</p>
     </div>
   </div>
 
-  <!-- ── SECTION 3: REQUIRED MATERIALS ── -->
-  <div class="syl-section">
-    <div class="syl-section-header green">
-      <span class="syl-num">Section 3</span>
-      <span class="syl-section-title">Required Materials</span>
-    </div>
-    <div class="syl-body">
-      <div class="textbook-block">
-        <strong>Textbook &amp; MindTap.</strong> Froeb, Luke M., Brian T. McCann, Michael R. Ward, and Mike Shor. <cite>Managerial Economics: A Problem-Solving Approach</cite>. 6th ed. Cengage Learning, 2023. One-term MindTap access is required; it includes the digital textbook.
-      </div>
-      <div class="textbook-block">
-        <strong>Harvard Business Publishing cases.</strong> Case materials for <em>FTC v. Amazon</em> and <em>Game Theory in Video Games</em> are purchased through the course Canvas site using the HBP Case Companion.
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SECTION 4: LEARNING OUTCOMES ── -->
-  <div class="syl-section">
-    <div class="syl-section-header gold">
-      <span class="syl-num">Section 4</span>
-      <span class="syl-section-title">Learning Outcomes</span>
-    </div>
-    <div class="syl-body">
-      <p>By the end of the semester, you should be able to do three things:</p>
-      <ul class="goal-list">
-        <li class="goal-item">
-          <div class="goal-num">1</div>
-          <div class="goal-text">Analyze a business problem, identify the relevant trade-offs, and recommend a course of action.</div>
-        </li>
-        <li class="goal-item">
-          <div class="goal-num">2</div>
-          <div class="goal-text">Apply data tools to test economic claims and support your recommendations with evidence.<span class="di-badge">Data Intensive</span></div>
-        </li>
-        <li class="goal-item">
-          <div class="goal-num">3</div>
-          <div class="goal-text">Write and present economic analyses that a non-specialist can read, follow, and act on.<span class="di-badge">Data Intensive</span></div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ── SECTION 5: ASSESSMENT ── -->
-  <div class="syl-section">
-    <div class="syl-section-header">
-      <span class="syl-num">Section 5</span>
-      <span class="syl-section-title">Assessment &amp; Grading</span>
-    </div>
-    <div class="syl-body">
-      <div class="weight-bars">
-        <div class="wbar">
-          <div class="wbar-label"><span>Consulting Team Labs</span><span>35%</span></div>
-          <div class="wbar-track"><div class="wbar-fill labs" style="width:35%"></div></div>
-        </div>
-        <div class="wbar">
-          <div class="wbar-label"><span>Applied Research &amp; Case Analytics</span><span>35%</span></div>
-          <div class="wbar-track"><div class="wbar-fill research" style="width:35%"></div></div>
-        </div>
-        <div class="wbar">
-          <div class="wbar-label"><span>Applied Economics for the BSBA</span><span>30%</span></div>
-          <div class="wbar-track"><div class="wbar-fill econ" style="width:30%"></div></div>
-        </div>
-      </div>
-
-      <div class="assess-block">
-        <div class="assess-header">
-          <span class="assess-name">Consulting Team Labs <span class="di-badge">Data Intensive</span></span>
-          <span class="assess-weight">35%</span>
-        </div>
-        <div class="assess-body">
-          <p>Wednesday lab sessions are where the Sustainable Alamance project gets built. Your team works through the full consulting cycle: scoping the problem, gathering and cleaning data, running analyses, and translating findings into a recommendation your client can use. You receive feedback at structured milestones, not just at the end. The final presentation goes to a live audience in Week 12.</p>
-          <p>Labs are the primary site for SLO 2 (data collection and ethics) and SLO 4 (communicating findings across modalities). Attendance and preparation matter because teams depend on each other.</p>
-        </div>
-      </div>
-
-      <div class="assess-block">
-        <div class="assess-header">
-          <span class="assess-name">Applied Research &amp; Case Analytics <span class="di-badge">Data Intensive</span></span>
-          <span class="assess-weight">35%</span>
-        </div>
-        <div class="assess-body">
-          <p>Three assignments develop your analytical skills independently of the consulting project:</p>
-          <ul>
-            <li><strong>Journal Replication Project.</strong> Take a published study on housing and energy use, re-run the analysis on the original data, and write up what you find&mdash;including where the results hold and where they do not. Addresses SLO 3 and SLO 5.</li>
-            <li><strong>FTC v. Amazon (Harvard Case).</strong> Antitrust analysis using the HBP Case Companion. The question is whether Amazon&rsquo;s pricing practices harm consumers or competition, and your memo needs to take a defensible position.</li>
-            <li><strong>Game Theory in Video Games (Harvard Case).</strong> Strategic decision-making applied to an industry where payoffs are measurable and the strategies are explicit.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="assess-block">
-        <div class="assess-header">
-          <span class="assess-name">Applied Economics for the BSBA</span>
-          <span class="assess-weight">30%</span>
-        </div>
-        <div class="assess-body">
-          <p>Monday sessions work through <em>Managerial Economics</em> (Froeb et al.). Each chapter starts with a real business decision and shows how economic reasoning changes it. Topics include opportunity cost, incentive design, pricing strategy, and strategic games. Problem sets and in-class assessments measure whether you can apply the framework, not just define it.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SECTION 6: SCHEDULE ── -->
+  <!-- ── SECTION 3: LEARNING GOALS ── -->
   <div class="syl-section">
     <div class="syl-section-header teal">
-      <span class="syl-num">Section 6</span>
-      <span class="syl-section-title">Course Schedule</span>
-    </div>
-    <div class="syl-body" style="padding-left:0; padding-right:0; padding-bottom:0;">
-      <p style="padding: 0 1.5rem 0.85rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week.</p>
-      <div style="overflow-x:auto;">
-        <table class="sched-table">
-          <thead>
-            <tr>
-              <th style="width:44px;">Wk</th>
-              <th style="width:36%;">Topic</th>
-              <th>Monday</th>
-              <th>Wednesday</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="week-tag">0</span></td>
-              <td>Orientation</td>
-              <td>&mdash;</td>
-              <td>Introduction &amp; team formation</td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">1</span></td>
-              <td><span class="ch-tag">Ch. 1</span>Solving Problems with Economics</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">2</span></td>
-              <td><span class="ch-tag">Ch. 3</span>Benefits, Costs, and Decisions</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">3</span></td>
-              <td><span class="ch-tag">Ch. 4</span>How Much Decisions</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">4</span></td>
-              <td><span class="ch-tag">Ch. 5</span>Investment Decisions</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">5</span></td>
-              <td><span class="ch-tag">Ch. 10</span>Keeping Profit from Eroding</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">6</span></td>
-              <td><span class="ch-tag">Ch. 12</span>More Realistic Pricing</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr class="break-row">
-              <td colspan="4">Fall Break</td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">7</span></td>
-              <td><span class="ch-tag">Ch. 13&ndash;14</span>Price Discrimination</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">8</span></td>
-              <td><span class="ch-tag">Ch. 15</span>Strategic Games</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">9</span></td>
-              <td><span class="ch-tag">Ch. 16</span>Bargaining</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">10</span></td>
-              <td><span class="ch-tag">Ch. 21</span>Employee Incentives</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">11</span></td>
-              <td><span class="ch-tag">Ch. 22&ndash;23</span>Divisions &amp; Vertical Relationships</td>
-              <td>Applied Economics</td>
-              <td>Consulting Labs <span class="data-tag">DATA</span></td>
-            </tr>
-            <tr class="break-row">
-              <td colspan="4">Thanksgiving Week &mdash; No Class</td>
-            </tr>
-            <tr>
-              <td><span class="week-tag">12</span></td>
-              <td>Final Presentations</td>
-              <td colspan="2" style="text-align:center; color:var(--crimson); font-weight:500;">Live client presentation &mdash; Sustainable Alamance</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SECTION 7: DATA NEXUS ── -->
-  <div class="syl-section">
-    <div class="syl-section-header green">
-      <span class="syl-num">Section 7</span>
-      <span class="syl-section-title">Data Nexus Learning Outcomes</span>
+      <span class="syl-num">Section 3</span>
+      <span class="syl-section-title">What Will You Be Able to Do?</span>
     </div>
     <div class="syl-body">
-      <p>This course addresses four of Elon&rsquo;s five Data Intensive Student Learning Outcomes. SLO&nbsp;2 is the anchor&mdash;it runs through every consulting lab from Week 1 to the final presentation.</p>
-      <table class="slo-table" style="margin-top:1rem;">
+      <ul class="goal-list">
+        <li class="goal-item">
+          <span class="goal-num">1</span>
+          <span class="goal-text"><strong>Analyze a business problem</strong>, identify the relevant trade-offs, and recommend a course of action.</span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">2</span>
+          <span class="goal-text"><strong>Apply data tools to test economic claims</strong> and support your recommendations with evidence.<span class="di-badge">Data Intensive</span></span>
+        </li>
+        <li class="goal-item">
+          <span class="goal-num">3</span>
+          <span class="goal-text"><strong>Write and present economic analyses</strong> that a non-specialist can read, follow, and act on.<span class="di-badge">Data Intensive</span></span>
+        </li>
+      </ul>
+
+      <div class="assess-sub" style="margin-top:1.1rem;">Data Intensive Learning Outcomes</div>
+      <p>This course addresses four of Elon&rsquo;s five Data Intensive Student Learning Outcomes.</p>
+      <table class="slo-table">
         <thead>
           <tr>
-            <th style="width:96px;">SLO</th>
+            <th style="width:88px;">SLO</th>
             <th>Outcome &amp; Course Evidence</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="slo-num">SLO 2<span class="slo-anchor">Anchor</span></td>
+            <td class="slo-num">SLO 2</td>
             <td>Students <strong>access or collect</strong> data and <strong>explain</strong> the ethical considerations of how that data is gathered and used.<span class="slo-evidence">Integrated throughout the semester. Teams document every data sourcing decision for the Sustainable Alamance project and address ethics explicitly at each milestone. The journal replication project requires students to evaluate the original authors&rsquo; methodological choices and consider the limits of the published data.</span></td>
           </tr>
           <tr>
@@ -668,94 +537,372 @@
     </div>
   </div>
 
-  <!-- ── SECTION 8: AI POLICY ── -->
+  <!-- ── SECTION 4: COURSE MATERIALS ── -->
   <div class="syl-section">
-    <div class="syl-section-header gold">
-      <span class="syl-num">Section 8</span>
-      <span class="syl-section-title">AI in This Course</span>
+    <div class="syl-section-header teal">
+      <span class="syl-num">Section 4</span>
+      <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>Use AI. I expect it, and at points I will ask you to use it in specific ways. We will talk in class about what that looks like in practice.</p>
-      <p>The constraint is simple: no assignment, or any substantial part of one, should be produced entirely by a language model. Your analysis, your judgment, and your voice need to be present in the work. AI is most useful when it pushes back on a draft you already wrote, not when it writes the draft for you.</p>
-      <p>When you use AI, revise what it produces until the text accurately reflects how you think. You will write a short reflection on your AI use for each major assignment&mdash;not to police the tool, but because paying attention to <em>how</em> you used it is part of learning to use it well. If you are unsure whether a particular use is appropriate for an assignment, ask before you submit.</p>
+      <div class="textbook-block" id="syl-textbook-block"></div>
+      <div class="textbook-block">
+        <strong>Harvard Business Publishing cases.</strong> Case materials for <em>FTC v. Amazon</em> and <em>Game Theory in Video Games</em> are purchased through the course Canvas site using the HBP Case Companion.
+      </div>
     </div>
   </div>
 
-  <!-- ── SECTION 9: GRADE SCALE ── -->
+  <!-- ── SECTION 5: COURSE SCHEDULE ── -->
   <div class="syl-section">
     <div class="syl-section-header">
-      <span class="syl-num">Section 9</span>
-      <span class="syl-section-title">Grading Scale</span>
+      <span class="syl-num">Section 5</span>
+      <span class="syl-section-title">How Will Your Learning Be Organized?</span>
     </div>
-    <div class="syl-body">
-      <p>Canvas is the official record for your course grade. Check it after each assignment is returned. Do not wait until late in the semester to raise questions about a score.</p>
-      <table class="scale-table" style="margin-top:0.85rem;">
+    <div class="syl-body" style="padding:0;">
+      <p style="padding: 1rem 1.5rem 0.5rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week.</p>
+      <table class="sched-table" id="syl-sched-table">
         <thead>
           <tr>
-            <th>Score</th>
-            <th>Description</th>
-            <th>Letter</th>
-            <th>Quality Points</th>
+            <th>Week</th>
+            <th>Topic</th>
+            <th>Monday</th>
+            <th>Wednesday</th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td>&ge; 93%</td><td>Distinguished</td><td class="scale-grade">A</td><td>4.0</td></tr>
-          <tr><td>&ge; 90%</td><td class="scale-desc"></td><td class="scale-grade">A&minus;</td><td>3.7</td></tr>
-          <tr><td>&ge; 87%</td><td class="scale-desc"></td><td class="scale-grade">B+</td><td>3.3</td></tr>
-          <tr><td>&ge; 83%</td><td>Above Average</td><td class="scale-grade">B</td><td>3.0</td></tr>
-          <tr><td>&ge; 80%</td><td class="scale-desc"></td><td class="scale-grade">B&minus;</td><td>2.7</td></tr>
-          <tr><td>&ge; 77%</td><td class="scale-desc"></td><td class="scale-grade">C+</td><td>2.3</td></tr>
-          <tr><td>&ge; 73%</td><td>Average</td><td class="scale-grade">C</td><td>2.0</td></tr>
-          <tr><td>&ge; 70%</td><td class="scale-desc"></td><td class="scale-grade">C&minus;</td><td>1.7</td></tr>
-          <tr><td>&ge; 67%</td><td class="scale-desc"></td><td class="scale-grade">D+</td><td>1.3</td></tr>
-          <tr><td>&ge; 63%</td><td class="scale-desc"></td><td class="scale-grade">D</td><td>1.0</td></tr>
-          <tr><td>&ge; 60%</td><td>Passing</td><td class="scale-grade">D&minus;</td><td>0.7</td></tr>
-          <tr><td>&lt; 60%</td><td>Failure</td><td class="scale-grade">F</td><td>0.0</td></tr>
-        </tbody>
+        <tbody id="syl-sched-body"></tbody>
       </table>
     </div>
   </div>
 
-  <!-- ── SECTION 10: POLICIES ── -->
+  <!-- ── SECTION 6: ASSESSMENTS ── -->
+  <div class="syl-section">
+    <div class="syl-section-header gold">
+      <span class="syl-num">Section 6</span>
+      <span class="syl-section-title">How Will Your Learning Be Assessed?</span>
+    </div>
+    <div class="syl-body">
+
+      <!-- Consulting Team Labs -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Consulting Team Labs <span class="di-badge">Data Intensive</span> <span class="di-badge">Community Engaged</span></span>
+          <span class="assess-weight" id="labs-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>Wednesday lab sessions are where the Sustainable Alamance project gets built. Your team works through the full consulting cycle: scoping the problem, gathering and cleaning data, running analyses, and translating findings into a recommendation your client can use. You receive feedback at structured milestones, not just at the end. The final presentation goes to a live audience in Week 12.</p>
+          <p>Labs are the primary site for SLO 2 (data collection and ethics) and SLO 4 (communicating findings across modalities). Attendance and preparation matter because teams depend on each other.</p>
+        </div>
+      </div>
+
+      <!-- Applied Research & Case Analytics -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Applied Research &amp; Case Analytics <span class="di-badge">Data Intensive</span></span>
+          <span class="assess-weight" id="research-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>Three assignments develop your analytical skills independently of the consulting project.</p>
+
+          <div class="assess-sub">Journal Replication Project</div>
+          <p>Take a published study on housing and energy use, re-run the analysis on the original data, and write up what you find &mdash; including where the results hold and where they do not. Addresses SLO 3 and SLO 5.</p>
+
+          <div class="assess-sub">FTC v. Amazon (Harvard Case)</div>
+          <p>Antitrust analysis using the HBP Case Companion. The question is whether Amazon&rsquo;s pricing practices harm consumers or competition, and your memo needs to take a defensible position.</p>
+
+          <div class="assess-sub">Game Theory in Video Games (Harvard Case)</div>
+          <p>Strategic decision-making applied to an industry where payoffs are measurable and the strategies are explicit.</p>
+        </div>
+      </div>
+
+      <!-- Applied Economics for the BSBA -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Applied Economics for the BSBA</span>
+          <span class="assess-weight" id="econ-weight"></span>
+        </div>
+        <div class="assess-body">
+          <p>Monday sessions work through <cite>Managerial Economics</cite> (Froeb et al.). Each chapter starts with a real business decision and shows how economic reasoning changes it. Topics include opportunity cost, incentive design, pricing strategy, and strategic games. Problem sets and in-class assessments measure whether you can apply the framework, not just define it.</p>
+        </div>
+      </div>
+
+      <!-- Grade table -->
+      <div style="margin-top:1.25rem;">
+        <table class="grade-table">
+          <thead>
+            <tr><th>Assessment</th><th>Weight</th></tr>
+          </thead>
+          <tbody id="syl-grade-rows"></tbody>
+        </table>
+        <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
+      </div>
+
+      <!-- Grading scale -->
+      <div style="margin-top:1.25rem;">
+        <table class="scale-table">
+          <thead>
+            <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th><th>Quality Points</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td><td>4.0</td></tr>
+            <tr><td>&ge; 90%</td><td class="scale-grade">A&ndash;</td><td class="scale-desc"></td><td>3.7</td></tr>
+            <tr><td>&ge; 87%</td><td class="scale-grade">B+</td> <td class="scale-desc"></td><td>3.3</td></tr>
+            <tr><td>&ge; 83%</td><td class="scale-grade">B</td>  <td class="scale-desc">Above Average</td><td>3.0</td></tr>
+            <tr><td>&ge; 80%</td><td class="scale-grade">B&ndash;</td><td class="scale-desc"></td><td>2.7</td></tr>
+            <tr><td>&ge; 77%</td><td class="scale-grade">C+</td> <td class="scale-desc"></td><td>2.3</td></tr>
+            <tr><td>&ge; 73%</td><td class="scale-grade">C</td>  <td class="scale-desc">Average</td><td>2.0</td></tr>
+            <tr><td>&ge; 70%</td><td class="scale-grade">C&ndash;</td><td class="scale-desc"></td><td>1.7</td></tr>
+            <tr><td>&ge; 67%</td><td class="scale-grade">D+</td> <td class="scale-desc"></td><td>1.3</td></tr>
+            <tr><td>&ge; 63%</td><td class="scale-grade">D</td>  <td class="scale-desc"></td><td>1.0</td></tr>
+            <tr><td>&ge; 60%</td><td class="scale-grade">D&ndash;</td><td class="scale-desc">Passing</td><td>0.7</td></tr>
+            <tr><td>&lt; 60%</td><td class="scale-grade">F</td>  <td class="scale-desc">Failure</td><td>0.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 7: AI POLICY ── -->
   <div class="syl-section">
     <div class="syl-section-header teal">
-      <span class="syl-num">Section 10</span>
-      <span class="syl-section-title">Course Policies &amp; Campus Resources</span>
+      <span class="syl-num">Section 7</span>
+      <span class="syl-section-title">How Can I Use AI in This Class?</span>
+    </div>
+    <div class="syl-body">
+      <p><strong>AI Conditional Use Policy Statement</strong></p>
+      <p>When used appropriately, you may employ AI tools to support your learning in this course. For example, using AI tools to quiz you over course material, prompting AI tools to explain or clarify course concepts, or using AI tools as instructed by your professor for a class activity or assignment are all allowable uses. However, using AI tools in ways that bypass learning is not considered appropriate. Submitting AI generated work as your own, using AI tools to answer questions during exams or assessments when prohibited by your professor, or other similar uses of AI are inappropriate and represent Elon Honor Code violations. If you are uncertain if your use of AI tools is appropriate, ask your professor.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 8: COURSE POLICIES ── -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 8</span>
+      <span class="syl-section-title">What Do I Need to Know About Policies?</span>
     </div>
     <div class="syl-body">
       <ul class="policy-list">
         <li class="policy-item">
-          <strong>Honor Code.</strong> Elon&rsquo;s honor pledge covers Honesty, Integrity, Responsibility, and Respect. Academic violations&mdash;plagiarism, cheating, lying, stealing, and facilitating another student&rsquo;s dishonesty&mdash;are documented in an incident report filed with the Office of Student Conduct. Consequences range from a lowered course grade to an Honor Code F. If you are unsure whether something crosses a line, ask before you submit. <a href="https://www.elon.edu/u/student-conduct/honor-code/" target="_blank">Review the full Honor Code.</a>
+          <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon&rsquo;s Honor Code may result in a failing grade for the course.
         </li>
         <li class="policy-item">
-          <strong>Academic Accommodations &amp; Accessibility.</strong> Students who need accommodations should contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>. Accommodations are not retroactive. <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/academic-accommodations-accessibility/" target="_blank">AAA website.</a>
+          <strong>Academic accommodations.</strong> If you need accommodations, contact the Office of Academic Accommodations and Accessibility at <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a> before the first week of class.
         </li>
         <li class="policy-item">
-          <strong>Learning Assistance.</strong> The Koenigsberger Learning Center offers tutoring, success coaching, and academic support. <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/learning-assistance/" target="_blank">Learning Assistance website</a> or <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a>.
+          <strong>Withdrawal deadline.</strong> The last day to withdraw from this course without penalty is <strong id="pol-withdraw"></strong>. Start the official withdrawal through OnTrack. Stopping work without withdrawing results in a failing grade.
         </li>
         <li class="policy-item">
-          <strong>Belk Library &amp; Writing Center.</strong> Librarians can help you find and evaluate sources. <a href="https://elon.libcal.com/appointments/" target="_blank">Schedule an appointment</a> or use the chat on the <a href="https://www.elon.edu/library/" target="_blank">library website</a>. The Writing Center (first floor, Belk Library) takes appointments for any stage of any writing project, including data memos and presentation scripts.
+          <strong>Course resources.</strong> Course materials are in Canvas and on the course home page.
         </li>
-        <li class="policy-item">
-          <strong>Religious Holiday Policy.</strong> Complete the <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/" target="_blank">Religious Observance Notification Form</a> by <strong>September 16, 2026</strong> if a holiday conflicts with the course calendar.<!-- UPDATE date -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── SECTION 9: CAMPUS RESOURCES & UNIVERSITY POLICIES ── -->
+  <!-- Boilerplate, verbatim with COR 1100 / ECO 1000 — do not edit. -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Campus Resources &amp; University Policies</span>
+    </div>
+    <div class="syl-body">
+      <ul class="resources-list">
+
+        <li class="resource-item">
+          <strong>Honor Code.</strong> Elon&rsquo;s honor pledge calls for a commitment to Elon&rsquo;s shared values of Honesty, Integrity, Responsibility, and Respect. Students should review code of conduct <a href="https://www.elon.edu/u/student-conduct/honor-code/" target="_blank" rel="noopener">policies described in the student handbook</a>. Violations in academic-related areas will be documented in an incident report maintained in the Office of Student Conduct and may result in a lowering of the course grade and/or failure of the course with an Honor Code F. Violations specifically covered by academic honor code policies include plagiarism, cheating, lying, stealing, and the facilitation of another&rsquo;s dishonesty.
         </li>
-        <li class="policy-item">
-          <strong>Enrollment, Dropping &amp; Withdrawing.</strong> Confirm enrollment through OnTrack. You may drop during drop/add without a transcript record. <a href="https://www.elon.edu/u/registrar/student-resources/individual-course-withdrawal/" target="_blank">Withdrawing</a> after the period produces a &ldquo;W.&rdquo; Not attending is not a withdrawal; complete the formal process in OnTrack.
+
+        <li class="resource-item">
+          <strong>Office of Academic Accommodations and Accessibility.</strong> Elon University is committed to providing an inclusive experience, accessible learning environments and equal opportunity to students with disabilities in accordance with the Americans with Disabilities Act and Section 504 of the Rehabilitation Act. Students needing reasonable accommodations should contact the Office of Academic Accommodations and Accessibility at 336.278.6568 or <a href="mailto:accommodations@elon.edu">accommodations@elon.edu</a>. Reasonable accommodations can be requested at any time throughout the semester; however, they are not retroactive. For more information visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/academic-accommodations-accessibility/" target="_blank" rel="noopener">AAA website</a>.
         </li>
-        <li class="policy-item">
-          <strong>E-Warnings &amp; Student Care.</strong> E-Warnings go to you and your advisor when an instructor has concerns about your progress. They are a communication tool, not a punishment. To report a concern about a classmate, use <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/when-to-share-concerns/" target="_blank">Elon&rsquo;s Share a Concern portal</a>.
+
+        <li class="resource-item">
+          <strong>Learning Assistance.</strong> The Koenigsberger Learning Center offers tutoring, success coaching, and other academic support services. Students are encouraged to visit the <a href="https://www.elon.edu/u/academics/koenigsberger-learning-center/learning-assistance/" target="_blank" rel="noopener">Learning Assistance website</a> to view supported courses and explore additional resources. For questions, contact <a href="mailto:learningassistance@elon.edu">learningassistance@elon.edu</a>.
         </li>
-        <li class="policy-item">
+
+        <li class="resource-item">
+          <strong>Belk Library.</strong> The librarians in Belk Library help students find appropriate resources for course assignments. Students can <a href="https://elon.libcal.com/appointments/" target="_blank" rel="noopener">schedule an appointment</a> or chat with a librarian on the <a href="https://www.elon.edu/library/" target="_blank" rel="noopener">library website</a>.
+        </li>
+
+        <li class="resource-item">
+          <strong>The Writing Center.</strong> Located on the first floor of Belk Library, Elon&rsquo;s <a href="https://www.elon.edu/u/academics/writing-excellence/the-writing-center/" target="_blank" rel="noopener">Writing Center</a> is staffed by well-trained undergraduate consultants who work with students on any kind of writing at any stage of the writing process. The Writing Center is a welcoming place for all writers, regardless of experience or expertise.
+        </li>
+
+        <li class="resource-item">
+          <strong>Religious Holidays.</strong> Elon has a <a href="https://www.elon.edu/u/truitt-center/multifaith-religious-holidays/holiday-observance-policy/" target="_blank" rel="noopener">policy and procedures</a> for students who wish to observe religious holidays that conflict with the academic calendar. Students must complete the online Religious Observance Notification Form (RONF) by the date published each semester. Students are required to make prior arrangements with the instructor for completion of any work missed during the absence.
+        </li>
+
+        <li class="resource-item">
+          <strong>Enrollment.</strong> Students should confirm their enrollment through their OnTrack account. Students who do not appear on the course roll should consult with their instructor immediately.
+        </li>
+
+        <li class="resource-item">
+          <strong>Dropping a Course.</strong> Students may drop a course during the designated drop/add period through OnTrack. A course dropped during the drop/add period will not appear on the student&rsquo;s transcript.
+        </li>
+
+        <li class="resource-item">
+          <strong>Withdrawing from a Course.</strong> After the drop/add period, students may <a href="https://www.elon.edu/u/registrar/student-resources/individual-course-withdrawal/" target="_blank" rel="noopener">withdraw from a course</a> without penalty before the withdrawal deadline published in the Academic Calendar. Withdrawing will result in a mark of &ldquo;W&rdquo; on the student&rsquo;s transcript. Students may withdraw via OnTrack. Students should not assume they will be officially withdrawn based on failure to attend or notifying a faculty member of intent to withdraw.
+        </li>
+
+        <li class="resource-item">
+          <strong>E-Warnings.</strong> E-Warnings are used to communicate with students and advisors when concerns arise about academic performance. Advisors are copied on every e-warning submitted. E-Warnings are part of a standard process and not a personal judgment.
+        </li>
+
+        <li class="resource-item">
+          <strong>Student Care &amp; Outreach.</strong> Students who become concerned about a fellow classmate&rsquo;s well-being are encouraged to share concerns through Elon&rsquo;s <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/when-to-share-concerns/" target="_blank" rel="noopener">Share a Concern</a> website. See the <a href="https://www.elon.edu/u/administration/student-life/dean-of-students/student-concerns-outreach/resources/" target="_blank" rel="noopener">Student Care and Outreach website</a> for additional resources.
+        </li>
+
+        <li class="resource-item">
           <strong>Substance Use.</strong> Substance use can affect individuals in different ways. Elon offers confidential, nonjudgmental, recovery-affirming support for students who want to make changes to their use of alcohol, cannabis, opioids, or other substances. Peer-led support is available through the Phoenix Free collegiate recovery program, including harm reduction education. Students facing an immediate medical emergency should call 911. Visit the <a href="https://www.elon.edu/u/health-promotion/substance-education/collegiate-recovery/" target="_blank" rel="noopener">Collegiate Recovery webpage</a> for more information or email <a href="mailto:phoenixfree@elon.edu">phoenixfree@elon.edu</a>.
         </li>
-        <li class="policy-item">
-          <strong>University Policies &amp; Dates.</strong> See the <a href="https://elon.smartcatalogiq.com/2026-2027/academic-catalog/" target="_blank">Academic Catalog</a>, <a href="https://elon.smartcatalogiq.com/current/student-handbook/" target="_blank">Student Handbook</a>, and <a href="https://www.elon.edu/u/academic-calendar/2026-2027-academic-calendar/" target="_blank">Academic Calendar</a> for full policies and key dates.
-        </li>
+
       </ul>
     </div>
   </div>
 
 </main>
 
+<script>
+// ================================================================
+//  Wire all dynamic values from config.js
+// ================================================================
+
+// Header
+document.title += ' · ' + COURSE.semester;
+document.getElementById('syl-eyebrow').textContent =
+  COURSE.code + ' · ' + COURSE.semester;
+
+// Print header
+var instructorNames = INSTRUCTORS.map(function(i) { return i.name; }).join(' & ');
+document.getElementById('syl-print-subtitle').textContent =
+  COURSE.code + ' — ' + COURSE.semester + ' — ' + instructorNames;
+document.getElementById('syl-print-meta').textContent =
+  COURSE.school + ' · Elon University';
+
+// Section 1 — Course Information (loops INSTRUCTORS; ECO 4400 has two)
+var instructorsEl = document.getElementById('syl-instructors');
+INSTRUCTORS.forEach(function(inst) {
+  var block = document.createElement('div');
+  block.className = 'contact-instructor';
+
+  var grid = document.createElement('div');
+  grid.className = 'contact-grid';
+
+  var rows = [
+    { label: 'Instructor', value: inst.name },
+    { label: 'Email',      value: inst.email, href: 'mailto:' + inst.email },
+    { label: 'Phone',      value: inst.phone },
+    { label: 'Office',     value: inst.office + ' · Elon University' },
+  ];
+  if (inst.zoomUrl) {
+    rows.push({ label: 'Zoom', value: inst.zoomDisplay, href: inst.zoomUrl, external: true });
+  }
+
+  rows.forEach(function(r) {
+    var row = document.createElement('div');
+    row.className = 'contact-row';
+    var valueHtml = r.href
+      ? '<a href="' + r.href + '"' + (r.external ? ' target="_blank" rel="noopener"' : '') + '>' + r.value + '</a>'
+      : r.value;
+    row.innerHTML =
+      '<span class="contact-label">' + r.label + '</span>' +
+      '<span class="contact-value">' + valueHtml + '</span>';
+    grid.appendChild(row);
+  });
+
+  block.innerHTML =
+    '<div class="contact-instructor-name">' + inst.name + '</div>' +
+    '<div class="contact-instructor-title">' + inst.title + '</div>';
+  block.appendChild(grid);
+
+  if (inst.hours) {
+    var callout = document.createElement('div');
+    callout.className = 'oh-callout';
+    callout.innerHTML =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
+      '<span><strong>Office Hours</strong> &mdash; ' + inst.hours + '</span>';
+    block.appendChild(callout);
+  }
+
+  instructorsEl.appendChild(block);
+});
+
+// Section 1 — Course-level fields
+document.getElementById('syl-dept').textContent       = COURSE.school;
+document.getElementById('syl-course').textContent      = COURSE.code + ' — ' + COURSE.title;
+document.getElementById('syl-credits').textContent     = COURSE.credits + ' credit hours';
+document.getElementById('syl-semester').textContent    = COURSE.semester;
+document.getElementById('syl-format').textContent      = COURSE.format === 'in-person' ? 'In-person' : COURSE.format;
+
+var designations = [];
+if (COURSE.dataIntensive)    designations.push('Data Intensive');
+if (COURSE.communityEngaged) designations.push('Community Engaged');
+document.getElementById('syl-designation').textContent = designations.join(' · ') || 'None';
+
+// Section 4 — Textbook block
+document.getElementById('syl-textbook-block').innerHTML =
+  '<strong>E-Book Only.</strong> ' + TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
+  TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + ', ' + TEXTBOOK.year + '. ' + TEXTBOOK.note;
+
+// Section 5 — Schedule table (Week / Topic / Monday / Wednesday)
+var schedBody = document.getElementById('syl-sched-body');
+SCHEDULE.forEach(function(row) {
+  var tr = document.createElement('tr');
+
+  if (row.break) {
+    tr.className = 'break-row';
+    tr.innerHTML =
+      '<td></td>' +
+      '<td>' + row.label + '</td>' +
+      '<td>&mdash;</td>' +
+      '<td>&mdash;</td>';
+    schedBody.appendChild(tr);
+    return;
+  }
+
+  var topicHtml = row.chapter
+    ? '<span class="ch-tag">' + row.chapter + '</span>' + row.topic
+    : row.topic;
+
+  var wedHtml = row.wednesday
+    ? row.wednesday + (row.chapter ? ' <span class="data-tag">DATA</span>' : '')
+    : '&mdash;';
+
+  tr.innerHTML =
+    '<td><span class="week-num">' + row.num + '</span></td>' +
+    '<td>' + topicHtml + '</td>' +
+    '<td>' + (row.monday || '&mdash;') + '</td>' +
+    '<td>' + wedHtml + '</td>';
+  schedBody.appendChild(tr);
+});
+
+// Section 6 — Assessment weights
+function gradeWeight(id) {
+  var g = GRADING.components.find(function(c) { return c.id === id; });
+  return g ? g.weight + '% of Grade' : '';
+}
+document.getElementById('labs-weight').textContent     = gradeWeight('labs');
+document.getElementById('research-weight').textContent = gradeWeight('research');
+document.getElementById('econ-weight').textContent      = gradeWeight('econ');
+
+// Grade table
+var tbody = document.getElementById('syl-grade-rows');
+var total = 0;
+GRADING.components.forEach(function(c) {
+  total += c.weight;
+  var tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td>' + c.label + '</td>' +
+    '<td><span class="grade-pct">' + c.weight + '%</span></td>';
+  tbody.appendChild(tr);
+});
+var trTot = document.createElement('tr');
+trTot.innerHTML =
+  '<td><strong>Total</strong></td>' +
+  '<td><span class="grade-pct">' + total + '%</span></td>';
+tbody.appendChild(trTot);
+
+// Section 8 — Withdrawal deadline
+document.getElementById('pol-withdraw').textContent = DATES.withdrawDeadline;
+</script>
 </body>
 </html>
