@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <!--
   ECO 4400 — Applied Economics & Consulting
-  Semester Project: Sustainable Alamance
+  Consulting Team Labs — Sustainable Alamance Project — Fall 2026
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sustainable Alamance &middot; ECO 4400</title>
+  <title>Consulting Team Labs &middot; ECO 4400</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="config.js"></script>
@@ -65,6 +65,14 @@
 
     /* ── Main ── */
     main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+    .weight-chip-solo {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow); padding: 0.85rem 1.25rem; margin-bottom: 2rem;
+    }
+    .weight-chip-solo .pct { font-size: 1.6rem; font-weight: 700; color: var(--crimson); }
+    .weight-chip-solo .label { font-size: 0.8rem; color: var(--muted); }
 
     /* ── Intro block ── */
     .intro-block {
@@ -224,19 +232,24 @@
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Course Home
     </a>
-    <p class="course-tag">ECO 4400 &middot; Semester Consulting Project</p>
-    <h1>Sustainable Alamance</h1>
-    <p class="header-sub">Economic Impact Study &mdash; Burlington, NC &mdash; Fall 2026</p>
+    <p class="course-tag">ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Fall 2026</p>
+    <h1>Consulting Team Labs</h1>
+    <p class="header-sub">Sustainable Alamance &mdash; Economic Impact Study, Burlington, NC &mdash; 35% of course grade</p>
   </div>
 </header>
 
 <main>
 
+  <div class="weight-chip-solo">
+    <span class="pct">35%</span>
+    <span class="label">of course grade</span>
+  </div>
+
   <!-- Intro -->
   <div class="intro-block">
     <p>Your consulting team project this semester is an economic impact study for <strong>Sustainable Alamance</strong>, a Burlington, NC nonprofit that runs re-entry programming for people leaving incarceration. The organization&rsquo;s last economic analysis was completed in 2017.</p>
     <p>Those numbers held up well at the time&mdash;a recidivism rate of 9.8% against a 45% state average and a return of roughly $12 per dollar donated. But eight years is a long time. Incarceration costs have risen, wages have changed, and the program has grown. Your job is to update the numbers, tighten the methodology, and build materials that a county commissioner can read in ten minutes and defend in a budget meeting.</p>
-    <p>This project is the primary vehicle for the course&rsquo;s Data Intensive learning outcomes. Every phase involves real data, documented methodology, and deliverables for an actual client.</p>
+    <p>This project is the primary vehicle for the course&rsquo;s Data Intensive learning outcomes. Every phase involves real data, documented methodology, and deliverables for an actual client. Wednesday lab sessions are where the work gets done, with structured feedback at each milestone rather than only at the end.</p>
   </div>
 
   <!-- Baseline stats -->
@@ -307,7 +320,7 @@
     <div class="phase-card">
       <div class="phase-num">Phase 4</div>
       <div class="phase-body">
-        <p class="phase-title"><strong>Public-facing deliverables.</strong></p>
+        <p class="phase-title"><strong>Public-facing deliverables (Week 12).</strong></p>
         <p class="phase-desc">The analysis becomes a website, a two-page printed summary for commissioner meetings, and a brand recommendation for the &ldquo;Second Chance Alamance&rdquo; identity. All materials are designed so Sustainable Alamance staff can update them without outside help. Your team presents the final work to a live client audience in Week 12.</p>
         <div class="slo-tags">
           <span class="slo-tag">SLO 4 &mdash; Multiple modalities</span>

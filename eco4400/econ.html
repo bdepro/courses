@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 4400 — APPLIED ECONOMICS FOR THE BSBA
+  Hosted: bdepro.github.io/courses/eco4400/econ.html
+  E-book chapter and quiz directory — pulls from SCHEDULE in config.js.
+  UPDATE chapterUrl / quizUrl in config.js each semester once available.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Managerial Economics e-book chapters and quiz links for ECO 4400 at Elon University.">
+  <title>Applied Economics for the BSBA &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.85rem;margin-top:0.35rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .weight-chip-solo {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow); padding: 0.85rem 1.25rem; margin-bottom: 1.5rem;
+    }
+    .weight-chip-solo .pct { font-size: 1.6rem; font-weight: 700; color: var(--crimson); }
+    .weight-chip-solo .label { font-size: 0.8rem; color: var(--muted); }
+    .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.88rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:var(--teal-dk);}
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;margin-top:1.75rem;}
+    .section-label:first-of-type{margin-top:0;}
+    .chapter-list{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:0.5rem;}
+    .ch-row{background:var(--white);border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.12);display:grid;grid-template-columns:3.5rem 1fr auto;align-items:center;overflow:hidden;}
+    .ch-num{background:var(--warm-gray);padding:0.9rem 0.5rem;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;}
+    .ch-body{padding:0.85rem 1rem;font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
+    .ch-session{font-size:0.72rem;color:var(--muted);display:block;margin-top:2px;font-weight:400;}
+    .ch-actions{display:flex;align-items:stretch;}
+    .ch-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--gold-link);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .ch-link:hover{background:var(--warm-gray);}
+    .ch-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .ch-quiz-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--crimson);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .ch-quiz-link:hover{background:var(--warm-gray);}
+    .ch-quiz-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .ch-link.inactive,.ch-quiz-link.inactive{color:var(--muted);pointer-events:none;font-weight:400;}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .ch-row{grid-template-columns:3rem 1fr auto;}
+      .ch-body{font-size:0.82rem;}
+      .ch-actions{flex-direction:column;}
+      .ch-link,.ch-quiz-link{padding:0.6rem 0.75rem;border-left:none;border-top:1px solid rgba(181,154,87,0.12);}
+      .ch-actions>:first-child{border-top:none;}
+    }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">Applied Economics for the BSBA</h1>
+    <p class="screen-sub">Managerial Economics e-book chapters and quiz links, by week</p>
+  </div>
+</div>
+<main id="main">
+
+  <div class="weight-chip-solo">
+    <span class="pct">30%</span>
+    <span class="label">of course grade</span>
+  </div>
+
+  <div class="callout teal">
+    <strong>Click a chapter to open it in MindTap/Canvas, or go straight to that week&rsquo;s quiz.</strong> Problem sets and in-class application exercises drawn from these chapters make up 30% of your course grade &mdash; see the syllabus for the full grading policy.
+  </div>
+
+  <p class="section-label">Managerial Economics — Chapter &amp; Quiz Directory</p>
+  <div class="chapter-list" id="chapterList"></div>
+
+</main>
+<footer id="pageFooter"></footer>
+<script>
+document.title += ' · ' + COURSE.semester;
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COURSE.title + ' · ' + COURSE.semester;
+
+function buildRow(row) {
+  var div = document.createElement('div');
+  div.className = 'ch-row';
+
+  var hasChapter = !!row.chapterUrl;
+  var hasQuiz    = !!row.quizUrl;
+
+  var chapterLink =
+    '<a class="ch-link' + (hasChapter ? '' : ' inactive') + '"' +
+      (hasChapter ? ' href="' + row.chapterUrl + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasChapter ? 'Open Chapter' : 'Chapter (Coming Soon)') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>';
+
+  var quizLink =
+    '<a class="ch-quiz-link' + (hasQuiz ? '' : ' inactive') + '"' +
+      (hasQuiz ? ' href="' + row.quizUrl + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
+      (hasQuiz ? 'Take Quiz' : 'Quiz (Coming Soon)') +
+      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
+    '</a>';
+
+  div.innerHTML =
+    '<div class="ch-num">' + row.chapter + '</div>' +
+    '<div class="ch-body">' + row.topic + '<span class="ch-session">Week ' + row.num + '</span></div>' +
+    '<div class="ch-actions">' + chapterLink + quizLink + '</div>';
+  return div;
+}
+
+var chapterList = document.getElementById('chapterList');
+SCHEDULE.forEach(function(row) {
+  if (row.break || !row.chapter) return;
+  chapterList.appendChild(buildRow(row));
+});
+</script>
+</body>
+</html>
