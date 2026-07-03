@@ -87,7 +87,7 @@ const DATES = {
 // ================================================================
 //  SCHEDULE — UPDATE chapter sequence if it changes
 //  break: true marks no-class rows
-//  chapterUrl / quizUrl: UPDATE with MindTap chapter link and Canvas quiz
+//  chapterUrl / quizUrl: UPDATE with Cengage e-book chapter link and Canvas quiz
 //  link once available each semester — null renders as "Coming Soon" on
 //  the Applied Economics materials page (econ.html)
 // ================================================================

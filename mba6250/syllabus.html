@@ -407,7 +407,7 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Course Site</span>
-          <span class="contact-value">Moodle</span>
+          <span class="contact-value">Canvas</span>
         </div>
         <div class="contact-row">
           <span class="contact-label">Course</span>
@@ -489,7 +489,6 @@
       <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>You need the Cengage MindTap e-book, available through the link in Moodle. There is no print copy &mdash; MindTap also hosts the problem sets for each module.</p>
       <div class="textbook-block" id="syl-textbook-block"></div>
     </div>
   </div>
@@ -532,7 +531,7 @@
             <span class="assess-weight" id="cases-weight"></span>
           </div>
           <div class="assess-body">
-            <p>One case analysis per module. Each case presents a real or realistic managerial decision scenario. You will identify the economic problem, apply the module's framework, and recommend a course of action &mdash; with supporting analysis. Cases are submitted via Moodle. Length: 400&ndash;600 words plus any supporting quantitative work. <strong>AI disclosure required if used.</strong></p>
+            <p>One case analysis per module. Each case presents a real or realistic managerial decision scenario. You will identify the economic problem, apply the module's framework, and recommend a course of action &mdash; with supporting analysis. Cases are submitted via Canvas. Length: 400&ndash;600 words plus any supporting quantitative work. <strong>AI disclosure required if used.</strong></p>
           </div>
         </div>
 
@@ -542,7 +541,7 @@
             <span class="assess-weight" id="problems-weight"></span>
           </div>
           <div class="assess-body">
-            <p>One quantitative problem set per module via Cengage MindTap. Problems are drawn from the textbook's end-of-chapter exercises and focus on the calculative and graphical skills underlying each framework. Graded automatically in MindTap; linked from Moodle. Due Friday at 11:59 p.m. of the module's week.</p>
+            <p>One quantitative problem set per module via the Cengage e-book platform. Problems are drawn from the textbook's end-of-chapter exercises and focus on the calculative and graphical skills underlying each framework. Graded automatically, linked from Canvas. Due Friday at 11:59 p.m. of the module's week.</p>
           </div>
         </div>
 
@@ -562,7 +561,7 @@
             <span class="assess-weight" id="participation-weight"></span>
           </div>
           <div class="assess-body">
-            <p>Discussion-board engagement in Moodle. Each module includes at least one discussion prompt. You are expected to post a substantive initial response and reply to at least one peer. Graded on quality of economic reasoning, not volume.</p>
+            <p>Discussion-board engagement in Canvas. Each module includes at least one discussion prompt. You are expected to post a substantive initial response and reply to at least one peer. Graded on quality of economic reasoning, not volume.</p>
           </div>
         </div>
 
@@ -576,14 +575,14 @@
           </thead>
           <tbody id="syl-grade-rows"></tbody>
         </table>
-        <div class="table-note">The Moodle Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
+        <div class="table-note">The Canvas Gradebook calculates your final course grade and is the official record. Check it regularly.</div>
       </div>
 
       <!-- Grading scale -->
       <div style="margin-top:1.25rem;">
         <table class="scale-table">
           <thead>
-            <tr><th>Moodle %</th><th>Letter Grade</th><th>Description</th></tr>
+            <tr><th>Canvas %</th><th>Letter Grade</th><th>Description</th></tr>
           </thead>
           <tbody>
             <tr><td>&ge; 93%</td><td class="scale-grade">A</td>  <td class="scale-desc">Distinguished</td></tr>
@@ -641,10 +640,10 @@
           <strong>Communication.</strong> I will respond to email within 48 hours on business days. For complex questions, schedule a Zoom office-hours appointment using the link on the course home page. Discussion-board questions that are broadly useful will be answered there so all students benefit.
         </li>
         <li class="policy-item">
-          <strong>Technical requirements.</strong> Reliable internet access, a current browser, and access to Moodle and Cengage MindTap are required. Technical difficulties are not an automatic extension; contact me promptly if you encounter a persistent platform problem.
+          <strong>Technical requirements.</strong> Reliable internet access, a current browser, and access to Canvas and the Cengage e-book platform are required. Technical difficulties are not an automatic extension; contact me promptly if you encounter a persistent platform problem.
         </li>
         <li class="policy-item">
-          <strong>Course resources.</strong> Course materials are in Moodle and on the course home page.
+          <strong>Course resources.</strong> Course materials are in Canvas and on the course home page.
         </li>
       </ul>
     </div>
@@ -764,8 +763,8 @@ if (INSTRUCTOR.officeHours) {
 
 // Section 4 — Textbook
 document.getElementById('syl-textbook-block').innerHTML =
-  TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
-  TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + ' ' + TEXTBOOK.platform + '.';
+  '<strong>E-Book Only.</strong> ' + TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
+  TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + '. ' + TEXTBOOK.note;
 
 // Section 5 — Module schedule table
 var schedBody = document.getElementById('syl-sched-body');
