@@ -47,19 +47,35 @@
 
     .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
 
-    /* Registration card */
+    /* Registration card — collapsible, closed by default so it doesn't
+       push chapter materials below the fold for students who already registered */
     .register-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid rgba(181,154,87,0.15);
-      padding: 1.75rem 1.75rem 1.5rem;
       margin-bottom: 2.5rem;
+      overflow: hidden;
     }
-    .register-card h2 {
-      font-size: 1.05rem; font-weight: 600; color: var(--crimson);
-      margin-bottom: 0.85rem;
+    .register-card > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1.1rem 1.5rem;
     }
+    .register-card > summary::-webkit-details-marker { display: none; }
+    .register-card > summary::marker { content: ""; }
+    .rc-title { display: flex; align-items: center; gap: 0.6rem; font-size: 1.02rem; font-weight: 600; color: var(--crimson); }
+    .rc-badge {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gold-link); background: rgba(181,154,87,0.14);
+      padding: 0.2rem 0.55rem; border-radius: 4px; white-space: nowrap;
+    }
+    .rc-chevron { flex-shrink: 0; color: var(--muted); transition: transform 0.2s ease; }
+    .rc-chevron svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .register-card[open] > summary .rc-chevron { transform: rotate(90deg); }
+    .register-card[open] > summary { border-bottom: 1px solid rgba(181,154,87,0.15); }
+    .register-card-body { padding: 1.25rem 1.5rem 1.5rem; }
     .register-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text); margin-bottom: 0.85rem; }
     .register-card p:last-of-type { margin-bottom: 1.25rem; }
     .video-embed {
@@ -141,17 +157,27 @@
     <svg style="width:20px;height:20px;stroke:rgba(255,255,255,0.7);fill:none;stroke-width:2;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
   </a>
 
-  <div class="register-card">
-    <h2>How Do I Register for Cengage?</h2>
-    <p>You need to purchase Cengage access to reach this class's videos and assignments. The video below walks you through registration.</p>
-    <p>If you already paid for Cengage Unlimited in another course this spring, you may not need to pay again for this class. Cengage Unlimited bills once per subscription period and can apply across your other courses that term. If that period is still active, signing up here could be free.</p>
-    <p>Register with the same account you used for your other class. A Cengage customer service representative can confirm your Unlimited subscription applied correctly if anything looks off.</p>
-    <div class="video-embed">
-      <iframe id="registerVideo" src="" title="Cengage eBook Registration and Access on Moodle" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+  <details class="register-card">
+    <summary>
+      <span class="rc-title">
+        How Do I Register for Cengage?
+        <span class="rc-badge">First time? Start here</span>
+      </span>
+      <span class="rc-chevron">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+    </summary>
+    <div class="register-card-body">
+      <p>You need to purchase Cengage access to reach this class's videos and assignments. The video below walks you through registration.</p>
+      <p>If you already paid for Cengage Unlimited in another course this spring, you may not need to pay again for this class. Cengage Unlimited bills once per subscription period and can apply across your other courses that term. If that period is still active, signing up here could be free.</p>
+      <p>Register with the same account you used for your other class. A Cengage customer service representative can confirm your Unlimited subscription applied correctly if anything looks off.</p>
+      <div class="video-embed">
+        <iframe id="registerVideo" src="" title="Cengage eBook Registration and Access on Moodle" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+      </div>
     </div>
-  </div>
+  </details>
 
   <p class="section-label">Chapter E-Book &amp; Lecture Videos (Learn It)</p>
   <div class="chapter-table" id="videoTable"></div>
