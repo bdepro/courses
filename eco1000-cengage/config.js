@@ -120,6 +120,10 @@ const CENGAGE = {
   // Master link — all e-book and MindTap resources
   allResources: "https://moodle.elon.edu/mod/lti/view.php?id=3110897",
 
+  // Registration walkthrough video — YouTube embed URL
+  // UPDATE only if the video changes; otherwise reusable across semesters
+  registrationVideoUrl: "https://www.youtube.com/embed/SHN1H1M7hD8",
+
   // Chapter E-Book Reading (Learn It → Read)
   reads: {
     ch1:  "https://moodle.elon.edu/mod/lti/view.php?id=3110860",

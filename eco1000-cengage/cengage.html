@@ -46,6 +46,27 @@
 
     .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
 
+    /* Registration card */
+    .register-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(181,154,87,0.15);
+      padding: 1.75rem 1.75rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .register-card h2 {
+      font-size: 1.05rem; font-weight: 600; color: var(--crimson);
+      margin-bottom: 0.85rem;
+    }
+    .register-card p { font-size: 0.9rem; line-height: 1.65; color: var(--text); margin-bottom: 0.85rem; }
+    .register-card p:last-of-type { margin-bottom: 1.25rem; }
+    .video-embed {
+      position: relative; width: 100%; padding-top: 56.25%;
+      border-radius: 10px; overflow: hidden; background: #000;
+    }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
     /* Chapter table */
     .chapter-table { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
 
@@ -119,6 +140,16 @@
     <svg style="width:20px;height:20px;stroke:rgba(255,255,255,0.7);fill:none;stroke-width:2;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
   </a>
 
+  <div class="register-card">
+    <h2>How Do I Register for Cengage?</h2>
+    <p>You need to purchase Cengage access to reach this class's videos and assignments. The video below walks you through registration.</p>
+    <p>If you already paid for Cengage Unlimited in another course this spring, you may not need to pay again for this class. Cengage Unlimited bills once per subscription period and can apply across your other courses that term. If that period is still active, signing up here could be free.</p>
+    <p>Register with the same account you used for your other class. A Cengage customer service representative can confirm your Unlimited subscription applied correctly if anything looks off.</p>
+    <div class="video-embed">
+      <iframe id="registerVideo" src="" title="How to Register for Cengage" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
   <p class="section-label">Chapter E-Book &amp; Lecture Videos (Learn It)</p>
   <div class="chapter-table" id="videoTable"></div>
 
@@ -135,6 +166,7 @@
 document.getElementById('backLink').href    = PAGES.home;
 document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
 document.getElementById('masterLink').href  = CENGAGE.allResources;
+document.getElementById('registerVideo').src = CENGAGE.registrationVideoUrl;
 
 // Group chapters by week from config — no local chapter list needed
 const byWeek = {};
