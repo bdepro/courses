@@ -1,691 +1,292 @@
 <!DOCTYPE html>
 <!--
 ================================================================
-  MBA6250 — COURSE HOME PAGE
+  MBA 6250 — COURSE HOME PAGE
   Hosted: bdepro.github.io/courses/mba6250/index.html
-  Search UPDATE to find spots that need editing each semester.
+  All dynamic content pulls from config.js — do not hardcode
+  semester, instructor, or grade information here.
 ================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MBA 6250 · Elon University</title>
+  <meta name="description" content="MBA 6250 Essential Economics for Strategic Management at Elon University — course home with syllabus, cases, problem sets, and resources.">
+  <meta property="og:title" content="MBA 6250 · Essential Economics for Strategic Management">
+  <meta property="og:description" content="Elon University · Essential Economics for Strategic Management course home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdepro.github.io/courses/mba6250/">
+  <title>MBA 6250 · Essential Economics for Strategic Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
   <script src="config.js"></script>
-  <script>document.title = COURSE.courseCode + ' · ' + COURSE.courseTitle + ' · Elon University';</script>
+  <script src="https://unpkg.com/lucide@0.469.0"></script>
   <style>
-    :root {
-      --crimson:      #73000a;
-      --crimson-dk:   #500007;
-      --crimson-xdk:  #3a0005;
-      --gold:         #b59a57;
-      --gold-lt:      #d4b97a;
-      --gold-link:    #7a5c1e;
-      --gold-pale:    rgba(181,154,87,0.12);
-      --cream:        #faf9f7;
-      --warm-white:   #ffffff;
-      --surface:      #f4f2ef;
-      --text:         #1a1a1a;
-      --text-secondary: #4a4a4a;
-      --muted:        #777;
-      --border:       rgba(181,154,87,0.18);
-      --border-soft:  rgba(0,0,0,0.07);
-      --shadow-sm:    0 1px 4px rgba(0,0,0,0.06), 0 2px 12px rgba(115,0,10,0.05);
-      --shadow-md:    0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(115,0,10,0.06);
-      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12), 0 4px 16px rgba(115,0,10,0.10);
-      --radius:       14px;
-      --radius-sm:    8px;
-    }
+    /* ── Page-specific overrides ── */
+    .header-inner { max-width: 960px; }
+    main { max-width: 960px; padding: 2.5rem 1.5rem 4rem; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Separate the primary card from the crimson header above it —
+       without this it visually merges into one continuous crimson block. */
+    .card.primary { margin-top: 1.25rem; box-shadow: 0 8px 28px rgba(115,0,10,0.25); }
 
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+    /* Format pill */
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.28rem 0.7rem;
+      border-radius: var(--radius-pill); background: var(--teal); color: var(--white);
     }
+    .pill svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.5; flex-shrink: 0; }
 
-    /* ── Header ── */
-    header {
-      background: var(--crimson-xdk);
-      background: linear-gradient(135deg, #3a0005 0%, #73000a 60%, #8a1015 100%);
-      border-bottom: 3px solid var(--gold);
-      padding: 3rem 2rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(181,154,87,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .header-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .header-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-    .header-badge {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(181,154,87,0.4);
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
-      background: rgba(181,154,87,0.06);
-    }
-    .header-divider {
-      width: 1px;
-      height: 16px;
-      background: rgba(255,255,255,0.2);
-    }
-    .header-program {
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.08em;
-    }
-    header h1 {
-      font-family: 'Roboto', Arial, sans-serif;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 500;
-      color: #fff;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.75rem;
-    }
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .header-meta-item {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.6);
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .header-meta-item svg {
-      width: 13px; height: 13px;
-      stroke: rgba(255,255,255,0.45);
-      fill: none; stroke-width: 2;
-      stroke-linecap: round; stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .header-meta-sep {
-      width: 3px; height: 3px;
-      background: rgba(255,255,255,0.25);
-      border-radius: 50%;
-    }
-
-    /* ── Main layout ── */
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 5rem;
-    }
-
-    /* ── Quick-start banner ── */
-    .quickstart {
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--crimson);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-    }
-    .quickstart-icon {
-      width: 40px; height: 40px;
-      background: rgba(115,0,10,0.07);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-    .quickstart-icon svg {
-      width: 20px; height: 20px;
-      stroke: var(--crimson); fill: none;
-      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-    }
-    .quickstart-body { flex: 1; }
-    .quickstart-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--crimson);
-      margin-bottom: 0.3rem;
-    }
-    .quickstart-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-      line-height: 1.3;
-    }
-    .quickstart-desc {
-      font-size: 0.83rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-    .quickstart-cta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--crimson);
-      text-decoration: none;
-    }
-    .quickstart-cta:hover { color: var(--crimson-dk); }
-    .quickstart-cta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-
-    /* ── Course arc ── */
-    .arc {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 0.9rem 1.25rem;
-      margin-bottom: 2.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .arc-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-right: 0.25rem;
+    /* Arc strip */
+    .arc-strip {
+      background: var(--warm-gray);
+      border: 1px solid rgba(181,154,87,0.2);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-wrap: wrap; margin-bottom: 1.75rem;
     }
     .arc-step {
-      font-size: 0.77rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
     }
     .arc-step strong { color: var(--crimson); font-weight: 600; }
-    .arc-sep { color: var(--gold); font-size: 0.75rem; }
-    .arc-meta {
-      margin-left: auto;
-      font-size: 0.72rem;
-      color: var(--muted);
-      font-style: italic;
-    }
+    .arc-sep { color: var(--gold); font-size: 0.8rem; }
 
-    /* ── Section headers ── */
-    .section-hd {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    /* ── Primary card (modules hub) ── */
-    .card-hero {
-      background: var(--crimson);
-      background: linear-gradient(135deg, #73000a 0%, #8a1015 100%);
-      border-radius: var(--radius);
-      box-shadow: 0 6px 28px rgba(115,0,10,0.22);
-      padding: 1.75rem 2rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      cursor: pointer;
-    }
-    .card-hero:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 36px rgba(115,0,10,0.30);
-    }
-    .card-hero-icon {
-      width: 54px; height: 54px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-hero-icon svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-    .card-hero-body { flex: 1; }
-    .card-hero-label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.35rem;
-    }
-    .card-hero-title {
-      font-family: 'Roboto', Arial, sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.25;
-      margin-bottom: 0.35rem;
-    }
-    .card-hero-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.5;
-    }
-    .card-hero-arrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gold-lt);
-      display: flex; align-items: center; gap: 5px;
-      margin-top: 0.6rem;
-    }
-    .card-hero-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-    .card-hero-chevron { color: rgba(255,255,255,0.35); flex-shrink: 0; }
-    .card-hero-chevron svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.75; }
-
-    /* ── Card grid ── */
+    /* Card grid — auto-fill for variable card count */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-      gap: 1.1rem;
-      margin-bottom: 2.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
     }
 
-    .card {
-      background: var(--warm-white);
-      border-radius: var(--radius);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-sm);
-      padding: 1.5rem 1.4rem 1.3rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(181,154,87,0.30);
-    }
-    .card.disabled {
-      opacity: 0.45;
-      cursor: default;
-      pointer-events: none;
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      header { padding: 1.75rem 1.25rem 1.5rem; }
+      .arc-strip { gap: 0.4rem; }
     }
 
-    .card-icon {
-      width: 40px; height: 40px;
-      border-radius: var(--radius-sm);
-      background: rgba(115,0,10,0.07);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 0.15rem;
-      flex-shrink: 0;
+    /* Skip link — keyboard accessibility */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--crimson); color: var(--white);
+      padding: 8px 14px; font-weight: 600; font-size: 0.85rem;
+      text-decoration: none; z-index: 100;
     }
-    .card.disabled .card-icon { background: rgba(0,0,0,0.05); }
-    .card-icon svg {
-      width: 20px; height: 20px;
-      stroke: var(--crimson); fill: none;
-      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-    }
-    .card.disabled .card-icon svg { stroke: var(--muted); }
-
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-    .card.disabled .card-title { color: var(--muted); }
-
-    .card-desc {
-      font-size: 0.81rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      flex: 1;
-    }
-
-    .card-tag {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.66rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.22rem 0.55rem;
-      border-radius: 4px;
-      margin-top: 0.15rem;
-      align-self: flex-start;
-    }
-    .tag-grade    { background: rgba(115,0,10,0.07); color: var(--crimson); }
-    .tag-resource { background: var(--gold-pale); color: var(--gold-link); }
-    .tag-policy   { background: rgba(0,0,0,0.05); color: var(--muted); }
-
-    .card-link {
-      margin-top: 0.45rem;
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: var(--gold-link);
-      display: flex; align-items: center; gap: 4px;
-    }
-    .card-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-
-    /* ── Instructor strip ── */
-    .instructor-strip {
-      background: var(--warm-white);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.25rem;
-    }
-    .instructor-avatar {
-      width: 48px; height: 48px;
-      background: var(--crimson);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #fff;
-    }
-    .instructor-info { flex: 1; }
-    .instructor-name {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-    }
-    .instructor-details {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-    .instructor-details a {
-      color: var(--gold-link);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .instructor-details a:hover { text-decoration: underline; }
-    .instructor-zoom {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--crimson);
-      text-decoration: none;
-      border: 1px solid rgba(115,0,10,0.2);
-      padding: 0.45rem 0.9rem;
-      border-radius: 6px;
-      background: rgba(115,0,10,0.04);
-      transition: background 0.15s ease;
-      white-space: nowrap;
-    }
-    .instructor-zoom:hover { background: rgba(115,0,10,0.08); }
-    .instructor-zoom svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.75rem;
-      color: #bbb;
-      border-top: 1px solid var(--border-soft);
-    }
-    footer a { color: var(--gold-link); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Mobile ── */
-    @media (max-width: 640px) {
-      header { padding: 2rem 1.25rem 1.75rem; }
-      main   { padding: 1.75rem 1rem 3.5rem; }
-      .card-grid { grid-template-columns: 1fr; gap: 0.9rem; }
-      .card-hero { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
-      .card-hero-chevron { display: none; }
-      .quickstart { flex-direction: column; gap: 0.9rem; }
-      .arc-meta { display: none; }
-      .instructor-strip { gap: 1rem; }
-    }
+    .skip-link:focus { left: 0; }
   </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <header>
   <div class="header-inner">
-    <div class="header-eyebrow">
-      <span class="header-badge" id="headerBadge"></span>
-      <span class="header-divider"></span>
-      <span class="header-program">Martha and Spencer Love School of Business</span>
-    </div>
+    <p class="course-code" id="courseCode"></p>
     <h1 id="courseTitle"></h1>
-    <div class="header-meta" id="headerMeta"></div>
+    <p class="header-meta" id="headerMeta"></p>
+
+    <div class="pill-row" id="pillRow"></div>
+
+    <div class="meta" id="metaBar"></div>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- Instructor strip -->
-  <div class="instructor-strip" id="instructorStrip">
-    <div class="instructor-avatar" id="instructorInitials"></div>
-    <div class="instructor-info">
-      <div class="instructor-name" id="instructorName"></div>
-      <div class="instructor-details" id="instructorDetails"></div>
+  <!-- Primary card — Moodle course home -->
+  <a class="card primary" id="moodleCard" href="#" target="_blank" rel="noopener">
+    <div class="card-icon"><i data-lucide="layout-dashboard"></i></div>
+    <div class="card-content">
+      <div class="card-title">Where does the weekly work happen?</div>
+      <div class="card-desc">All ten modules — readings, problem sets, case submissions, and discussion boards — live in Moodle. Open this every week.</div>
     </div>
-    <a class="instructor-zoom" id="zoomLink" href="#" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.889L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
-      Office Hours via Zoom
-    </a>
-  </div>
-
-  <!-- Quick-start notice -->
-  <div class="quickstart">
-    <div class="quickstart-icon">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    </div>
-    <div class="quickstart-body">
-      <p class="quickstart-label">Getting Started</p>
-      <p class="quickstart-title">Begin with the syllabus, then open Module 1</p>
-      <p class="quickstart-desc">Each module contains the reading, problem set, and case analysis for that week.
-        All assignments are due <strong>Friday at 11:59 p.m.</strong> of the module's week.
-        Review the AI policy before submitting any work.</p>
-      <a class="quickstart-cta" href="#" id="syllabusLink">
-        Read the Syllabus
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-    </div>
-  </div>
+    <span class="card-arrow">→</span>
+  </a>
 
   <!-- Course arc -->
-  <div class="arc">
-    <span class="arc-label">Each Module</span>
-    <span class="arc-step"><strong>Read</strong> textbook chapter</span>
+  <div class="arc-strip" id="arcStrip">
+    <span class="arc-step"><strong>Read</strong> the chapter</span>
     <span class="arc-sep">→</span>
-    <span class="arc-step"><strong>Complete</strong> MindTap problem set</span>
+    <span class="arc-step"><strong>Complete</strong> the problem set</span>
     <span class="arc-sep">→</span>
     <span class="arc-step"><strong>Analyze</strong> the case</span>
     <span class="arc-sep">·</span>
-    <span class="arc-step">10 modules · Case Analysis (40%) · Problem Sets (30%) · Executive Memo (20%) · Participation (10%)</span>
-    <span class="arc-meta" id="arcMeta"></span>
+    <span class="arc-step" id="arcSummary"></span>
   </div>
 
-  <!-- Primary card -->
-  <p class="section-hd">Course Hub</p>
-  <a class="card-hero" id="modulesCard" href="#">
-    <div class="card-hero-icon">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-    </div>
-    <div class="card-hero-body">
-      <p class="card-hero-label">Your Weekly Starting Point</p>
-      <p class="card-hero-title">Course Modules</p>
-      <p class="card-hero-desc">All readings, problem sets, and case assignments — organized by module with due dates. Open here at the start of each week.</p>
-      <div class="card-hero-arrow">
-        Open Course Modules
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-    </div>
-    <div class="card-hero-chevron">
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    </div>
-  </a>
+  <!-- Section label -->
+  <p class="section-heading">Assessments &amp; Resources</p>
 
-  <!-- Card grid -->
-  <p class="section-hd">Assessments &amp; Resources</p>
+  <!-- Card grid — built from config -->
   <div class="card-grid" id="cardGrid"></div>
 
 </main>
 
 <footer>
-  <span id="footerText"></span>
+  <span id="footerText"></span> &nbsp;·&nbsp;
+  <a href="https://www.elon.edu" target="_blank" rel="noopener">Elon University</a>
   &nbsp;·&nbsp;
-  <a href="https://www.elon.edu" target="_blank">Elon University</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.elon.edu/u/academics/business/mba/" target="_blank">Elon MBA</a>
+  <a href="https://www.elon.edu/u/academics/business/mba/" target="_blank" rel="noopener">Elon MBA</a>
 </footer>
 
 <script>
-const CARDS = [
+// ================================================================
+//  Wire header from config
+// ================================================================
+document.title = `${document.title} · ${COURSE.semester}`;
+document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.school} · Elon University`;
+document.getElementById('courseTitle').textContent = COURSE.title;
+document.getElementById('headerMeta').textContent  = `${COURSE.semester} · ${INSTRUCTOR.name}`;
+document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+
+// Format pill
+const pillRow = document.getElementById('pillRow');
+pillRow.innerHTML = `<span class="pill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online — Elon MBA</span>`;
+
+// Meta bar
+const metaItems = [
+  { label: 'Semester',      value: COURSE.semester },
+  { label: 'Instructor',    value: INSTRUCTOR.name },
+  { label: 'Office',        value: INSTRUCTOR.office },
+  { label: 'Email',         value: INSTRUCTOR.email, href: `mailto:${INSTRUCTOR.email}` },
+  { label: 'Office Hours',  value: INSTRUCTOR.officeHours },
+  { label: 'Zoom',          value: INSTRUCTOR.zoomDisplay, href: INSTRUCTOR.zoomUrl },
+];
+const metaBar = document.getElementById('metaBar');
+metaItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'meta-item';
+  div.innerHTML = `
+    <span class="meta-label">${item.label}</span>
+    <span class="meta-value">${item.href
+      ? `<a href="${item.href}" target="_blank" rel="noopener">${item.value}</a>`
+      : item.value
+    }</span>
+  `;
+  metaBar.appendChild(div);
+});
+
+// Arc summary
+document.getElementById('arcSummary').textContent =
+  `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Problem Sets (${GRADING.components.find(c => c.id === 'problems').weight}%) · Executive Memo (${GRADING.components.find(c => c.id === 'memo').weight}%) · Participation (${GRADING.components.find(c => c.id === 'participation').weight}%)`;
+
+// Moodle card
+document.getElementById('moodleCard').href = MOODLE_COURSE;
+
+// ================================================================
+//  Card definitions — driven by FEATURES and GRADING from config
+// ================================================================
+function gradeLabel(id) {
+  const g = GRADING.components.find(c => c.id === id);
+  return g ? `${g.weight}% of Grade` : null;
+}
+
+const ALL_CARDS = [
   {
-    title: "Case Analyses",
-    desc:  "One structured case analysis per module. Apply the chapter's economic framework to a real managerial decision. AI-assisted analysis is permitted with disclosure.",
-    tag:   "40% of Grade",
-    tagClass: "tag-grade",
-    icon:  `<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-    url:   () => PAGES.cases,
-    enabled: true,
+    feature: 'syllabus',
+    href:    PAGES.syllabus,
+    icon:    'book-open',
+    title:   'Course Syllabus &amp; Policies',
+    desc:    'Read this first. It covers how the course works, the module schedule, and how your grade is calculated.',
+    badge:   null,
+    badgeClass: null,
   },
   {
-    title: "Problem Sets",
-    desc:  "Quantitative and analytical problems via Cengage MindTap — one set per module. Builds the calculative fluency behind each chapter's framework.",
-    tag:   "30% of Grade",
-    tagClass: "tag-grade",
-    icon:  `<svg viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>`,
-    url:   () => PAGES.problems,
-    enabled: true,
+    feature: 'cases',
+    href:    MOODLE_COURSE,
+    icon:    'file-text',
+    title:   'Case Analyses',
+    desc:    'One structured case analysis per module. Apply that module\'s economic framework to a real managerial decision, submitted in Moodle.',
+    badge:   gradeLabel('cases'),
+    badgeClass: 'badge-grade',
+    external: true,
   },
   {
-    title: "Executive Memo",
-    desc:  "A capstone deliverable: select a real managerial decision, apply course frameworks, and present your analysis as a professional executive memorandum.",
-    tag:   "20% of Grade",
-    tagClass: "tag-grade",
-    icon:  `<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
-    url:   () => PAGES.memo,
-    enabled: true,
+    feature: 'problems',
+    href:    CENGAGE.allResources || MOODLE_COURSE,
+    icon:    'trending-up',
+    title:   'Problem Sets',
+    desc:    'Quantitative and analytical problems via Cengage MindTap — one set per module. Builds the calculative fluency behind each framework.',
+    badge:   gradeLabel('problems'),
+    badgeClass: 'badge-grade',
+    external: true,
   },
   {
-    title: "Course Materials &amp; Textbook",
-    desc:  "Access the Cengage MindTap e-book and all supplementary resources for <em>Managerial Economics: A Problem Solving Approach</em> (Froeb et al.).",
-    tag:   "Resource",
-    tagClass: "tag-resource",
-    icon:  `<svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
-    url:   () => CENGAGE.allResources || MOODLE_COURSE,
-    enabled: true,
+    feature: 'memo',
+    href:    MOODLE_COURSE,
+    icon:    'send',
+    title:   'Executive Memo',
+    desc:    'A capstone deliverable: select a real managerial decision, apply course frameworks, and present your analysis as a professional executive memorandum.',
+    badge:   gradeLabel('memo'),
+    badgeClass: 'badge-grade',
+    external: true,
   },
   {
-    title: "Course Schedule",
-    desc:  "Module-by-module calendar with all readings, assignments, and key MBA academic dates for Fall 2025.",
-    tag:   "Resource",
-    tagClass: "tag-resource",
-    icon:  `<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-    url:   () => PAGES.schedule,
-    enabled: true,
+    feature: 'materials',
+    href:    CENGAGE.allResources || MOODLE_COURSE,
+    icon:    'book-open',
+    title:   'Course Materials &amp; Textbook',
+    desc:    `Access the Cengage MindTap e-book and all supplementary resources for <em>${TEXTBOOK.title}</em> (${TEXTBOOK.authors}).`,
+    badge:   'Resource',
+    badgeClass: 'badge-resource',
+    external: true,
   },
   {
-    title: "AI in This Course",
-    desc:  "Policy on AI tool use, disclosure requirements, and how AI fits the case-analysis and problem-solving methodology of this course.",
-    tag:   "Policy",
-    tagClass: "tag-policy",
-    icon:  `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
-    url:   () => PAGES.aiPolicy,
-    enabled: true,
+    feature: 'aiPolicy',
+    href:    PAGES.aiPolicy,
+    icon:    'cpu',
+    title:   'AI in This Course',
+    desc:    'Policy on AI tool use, disclosure requirements, and how AI fits the case-analysis and problem-solving methodology of this course.',
+    badge:   null,
+    badgeClass: null,
+    external: true,
+  },
+  {
+    feature: 'support',
+    href:    PAGES.support,
+    icon:    'life-buoy',
+    title:   'Help &amp; Support',
+    desc:    'Where to go when you need help.',
+    badge:   null,
+    badgeClass: null,
+    external: true,
   },
 ];
 
-// ── Wire header ──
-document.getElementById('headerBadge').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
-document.getElementById('courseTitle').textContent  = COURSE.courseTitle;
-
-const meta = document.getElementById('headerMeta');
-[
-  { icon: `<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`, text: COURSE.instructor.name },
-  { icon: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`, text: COURSE.semester },
-  { icon: `<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`, text: 'Online — Elon MBA' },
-].forEach((item, i) => {
-  if (i > 0) { const sep = document.createElement('span'); sep.className = 'header-meta-sep'; meta.appendChild(sep); }
-  const div = document.createElement('span');
-  div.className = 'header-meta-item';
-  div.innerHTML = `${item.icon} ${item.text}`;
-  meta.appendChild(div);
-});
-
-// ── Wire instructor ──
-const initials = COURSE.instructor.name.split(' ').map(w => w[0]).join('');
-document.getElementById('instructorInitials').textContent = initials;
-document.getElementById('instructorName').textContent     = COURSE.instructor.name;
-document.getElementById('instructorDetails').innerHTML    =
-  `${COURSE.instructor.email} &nbsp;·&nbsp; ${COURSE.instructor.office} &nbsp;·&nbsp; ${COURSE.instructor.officeHours}`;
-document.getElementById('zoomLink').href = COURSE.instructor.zoomUrl;
-
-// ── Wire links ──
-document.getElementById('syllabusLink').href = PAGES.syllabus;
-document.getElementById('modulesCard').href  = PAGES.modules;
-
-// ── Arc meta ──
-document.getElementById('arcMeta').textContent =
-  `${COURSE.dates.classesBegin} – ${COURSE.dates.classesEnd}`;
-
-// ── Build card grid ──
+// Build cards — only render if feature flag is true
 const grid = document.getElementById('cardGrid');
-CARDS.forEach(card => {
+let delay  = 0.05;
+
+ALL_CARDS.forEach(card => {
+  if (!FEATURES[card.feature]) return;
+
   const a = document.createElement('a');
-  a.className = `card${card.enabled ? '' : ' disabled'}`;
-  a.href      = card.enabled ? card.url() : '#';
+  a.className = 'card';
+  a.href      = card.href;
+  if (card.external) { a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.target = '_top'; }
+  a.style.animationDelay = `${delay}s`;
+  delay += 0.07;
+
   a.innerHTML = `
-    <div class="card-icon">${card.icon}</div>
-    <div class="card-title">${card.title}</div>
-    <div class="card-desc">${card.desc}</div>
-    <span class="card-tag ${card.tagClass}">${card.tag}</span>
-    <div class="card-link">
-      Open &nbsp;<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+    <div class="card-content">
+      <div class="card-title">${card.title}</div>
+      <div class="card-desc">${card.desc}</div>
+      ${card.badge ? `<span class="card-badge ${card.badgeClass}">${card.badge}</span>` : ''}
     </div>
+    <span class="card-arrow">→</span>
   `;
   grid.appendChild(a);
 });
+
+// Init Lucide icons after cards are built
+lucide.createIcons();
 </script>
 </body>
 </html>

@@ -1,66 +1,93 @@
 // ================================================================
-//  MBA6250 — COURSE CONFIGURATION
+//  MBA 6250 — COURSE CONFIGURATION
+//  Generated from: shared/config-template.js (adapted for Moodle)
 //  Hosted at: bdepro.github.io/courses/mba6250/
 // ================================================================
 //  SEMESTER UPDATE CHECKLIST (search UPDATE to find each spot):
-//  1. COURSE block: courseId, semester, instructor details, dates
-//  2. MODULES array: adjust module dates and titles if needed
-//  3. CENGAGE block: all LTI IDs when you register a new Cengage course
-//  4. CASES block: case titles and Moodle activity IDs
-//  5. MEMO block: Moodle activity ID for the Executive Memo
-//  That is it. All HTML files pull from this file automatically.
+//  1. COURSE block        — semester, moodleId
+//  2. INSTRUCTOR block    — officeHours each semester
+//  3. SCHEDULE block      — dates and module date ranges each semester
+//  4. CENGAGE block       — allResources + all reads/problems LTI links
+//                           when you register a new Cengage course
+//  5. CASES block         — case titles (drafted below) and
+//                           moodleActivityId once cases are built in Moodle
+//  6. MEMO block          — moodleActivityId once the memo assignment
+//                           is built in Moodle
+//  That is it. index.html and syllabus.html pull from this file automatically.
 // ================================================================
 
+// ================================================================
+//  COURSE
+//  UPDATE: semester and moodleId each term
+// ================================================================
 const COURSE = {
-  moodleBase:  "https://moodle.elon.edu",   // UPDATE if institution changes
-  courseId:    "",                            // UPDATE each semester (Moodle course ID)
-  semester:    "Fall 2025",                  // UPDATE each semester
-  courseCode:  "MBA 6250",
-  courseTitle: "Essential Economics for Strategic Management",
-  baseUrl:     "https://bdepro.github.io/courses/mba6250", // UPDATE if repo moves
-
-  // Instructor details — UPDATE each semester if anything changes
-  instructor: {
-    name:        "Brooks Depro",
-    nameShort:   "Prof. Depro",
-    email:       "bdepro@elon.edu",
-    phone:       "919-357-2316",
-    office:      "KoBC 122",
-    officeHours: "By appointment via Zoom",
-    zoomUrl:     "https://elon.zoom.us/my/bdepro",
-    zoomDisplay: "elon.zoom.us/my/bdepro",
-  },
-
-  // UPDATE each semester — 10 modules, Thanksgiving excluded
-  // Modules run Sunday–Saturday; assignments due Friday midnight
-  modules: [
-    { num: 1,  dates: "Sept 21–27",   due: "September 26, 11:59 p.m.",  topic: "The Economic Approach to Decisions" },
-    { num: 2,  dates: "Sept 28–Oct 4", due: "October 3, 11:59 p.m.",    topic: "Benefits, Costs, and the Margin" },
-    { num: 3,  dates: "Oct 5–11",      due: "October 10, 11:59 p.m.",   topic: "Extent Decisions and Optimal Quantity" },
-    { num: 4,  dates: "Oct 12–18",     due: "October 17, 11:59 p.m.",   topic: "Investment Decisions and Resource Allocation" },
-    { num: 5,  dates: "Oct 19–25",     due: "October 24, 11:59 p.m.",   topic: "Simple Pricing and the Demand Curve" },
-    { num: 6,  dates: "Oct 26–Nov 1",  due: "October 31, 11:59 p.m.",   topic: "Economies of Scale, Scope, and Industry Structure" },
-    { num: 7,  dates: "Nov 2–8",       due: "November 7, 11:59 p.m.",   topic: "Game Theory and Strategic Interaction" },
-    { num: 8,  dates: "Nov 9–15",      due: "November 14, 11:59 p.m.",  topic: "Bargaining, Contracting, and Incentives" },
-    { num: 9,  dates: "Nov 16–22",     due: "November 21, 11:59 p.m.",  topic: "Pricing with Market Power and Price Discrimination" },
-    { num: 10, dates: "Nov 30–Dec 4",  due: "December 4, 11:59 p.m.",   topic: "Information, Risk, and Agency Problems" },
-  ],
-
-  // Key academic dates — UPDATE each semester
-  dates: {
-    orientationBegins:   "August 31, 2025",
-    classesBegin:        "September 21, 2025",
-    dropDeadline:        "October 20, 2025",
-    thanksgivingBreak:   "November 23–27, 2025",
-    classesEnd:          "December 4, 2025",
-    examsBegin:          "December 7, 2025",
-    examsEnd:            "December 11, 2025",
-    gradesDue:           "December 16, 2025",
-  },
+  code:        "MBA 6250",
+  title:       "Essential Economics for Strategic Management",
+  semester:    "Fall 2026",                        // UPDATE each semester
+  format:      "online",
+  credits:     3,
+  baseUrl:     "https://bdepro.github.io/courses/mba6250",
+  school:      "Martha and Spencer Love School of Business",
+  moodleBase:  "https://moodle.elon.edu",
+  moodleId:    "",                                 // UPDATE each semester (Moodle course ID)
 };
 
 // ================================================================
-//  CHAPTER LIST — SINGLE SOURCE OF TRUTH
+//  INSTRUCTOR
+//  UPDATE: officeHours each semester
+// ================================================================
+const INSTRUCTOR = {
+  name:        "Brooks Depro",
+  nameShort:   "Prof. Depro",
+  email:       "bdepro@elon.edu",
+  phone:       "919-357-2316",
+  office:      "KoBC 122",
+  officeHours: "By appointment via Zoom",           // UPDATE each semester
+  zoomUrl:     "https://elon.zoom.us/my/bdepro",
+  zoomDisplay: "elon.zoom.us/my/bdepro",
+};
+
+// ================================================================
+//  SCHEDULE
+//  UPDATE: all dates and module ranges each semester
+//
+//  Modules run Sunday–Saturday; assignments due Friday at 11:59 p.m.
+//  10 modules total. A no-module Thanksgiving week falls between
+//  Module 9 and Module 10 — handled in syllabus.html rendering,
+//  not as a listed module here.
+// ================================================================
+const SCHEDULE = {
+
+  // Key academic dates — UPDATE each semester
+  dates: {
+    orientationBegins:  "August 30, 2026",           // UPDATE
+    classesBegin:       "September 20, 2026",         // UPDATE
+    dropDeadline:       "October 19, 2026",            // UPDATE
+    thanksgivingBreak:  "November 23–27, 2026",        // UPDATE
+    classesEnd:         "December 4, 2026",            // UPDATE
+    examsBegin:         "December 7, 2026",            // UPDATE
+    examsEnd:           "December 11, 2026",           // UPDATE
+    gradesDue:          "December 16, 2026",           // UPDATE
+  },
+
+  // Modules — UPDATE dates each semester; topics/chapters locked
+  // unless course structure changes.
+  modules: [
+    { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "The Economic Approach to Decisions" },
+    { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and the Margin" },
+    { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Extent Decisions and Optimal Quantity" },
+    { num: 4,  dates: "Oct 11–17",      due: "October 16, 11:59 p.m.",   topic: "Investment Decisions and Resource Allocation" },
+    { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "Simple Pricing and the Demand Curve" },
+    { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "Economies of Scale, Scope, and Industry Structure" },
+    { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Game Theory and Strategic Interaction" },
+    { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Bargaining, Contracting, and Incentives" },
+    { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Pricing with Market Power and Price Discrimination" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "December 4, 11:59 p.m.",   topic: "Information, Risk, and Agency Problems" },
+  ],
+};
+
+// ================================================================
+//  CHAPTERS — SINGLE SOURCE OF TRUTH
 //  Froeb, McCann, Ward & Shor, Managerial Economics: A Problem
 //  Solving Approach (Cengage). Keys must match keys in CENGAGE.
 //  UPDATE each semester if chapter selection changes.
@@ -103,23 +130,70 @@ const CHAPTERS = [
 ];
 
 // ================================================================
-//  MOODLE COURSE LINK
+//  GRADING
+//  Weights must sum to 100. UPDATE only if course structure changes.
 // ================================================================
-const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=${COURSE.courseId}`; // UPDATE courseId above
+const GRADING = {
+  dueTime: "11:59 p.m.",                            // universal due time — Friday of each module
+  components: [
+    { id: "cases",       label: "Case Analyses",              weight: 40,
+      note: "One structured case analysis per module. Applies the module's economic framework to a real managerial decision." },
+    { id: "problems",    label: "Problem Sets",                weight: 30,
+      note: "One quantitative problem set per module via Cengage MindTap." },
+    { id: "memo",        label: "Executive Memo",              weight: 20,
+      note: "Capstone deliverable due at the end of the course." },
+    { id: "participation", label: "Participation",             weight: 10,
+      note: "Discussion-board engagement in Moodle, one prompt per module." },
+  ],
+};
 
 // ================================================================
-//  SECTION PAGE URLS
+//  FEATURES
+//  true = show on home page, false = hide
+//  UPDATE if sections are added or removed
+// ================================================================
+const FEATURES = {
+  syllabus:      true,
+  cases:         true,   // links out to Moodle case-analysis activities
+  problems:      true,   // links out to Cengage MindTap problem sets
+  memo:          true,   // links out to Moodle memo assignment
+  materials:     true,   // links out to Cengage e-book / MindTap resources
+  support:       true,
+  aiPolicy:      true,
+};
+
+// ================================================================
+//  TEXTBOOK — e-book only via Cengage MindTap
+//  UPDATE: ebookUrl once Moodle/Cengage course is registered
+// ================================================================
+const TEXTBOOK = {
+  publisher:  "Cengage",
+  platform:   "MindTap",
+  edition:    "5th",
+  title:      "Managerial Economics: A Problem Solving Approach",
+  authors:    "Froeb, McCann, Ward, and Shor",
+  ebookUrl:   "",   // UPDATE: paste Moodle LTI URL once registered
+};
+
+// ================================================================
+//  PAGES
+//  Stable GitHub Pages URLs — update only if files move or rename.
+//  MBA 6250 keeps its weekly content in Moodle; there are no separate
+//  GitHub Pages content pages beyond syllabus.html (unlike ECO 1000's
+//  checklist/puzzles pages). Cards on index.html link straight to
+//  Moodle and Cengage instead.
 // ================================================================
 const PAGES = {
-  home:       `${COURSE.baseUrl}/index.html`,
-  syllabus:   `${COURSE.baseUrl}/syllabus.html`,
-  modules:    `${COURSE.baseUrl}/modules.html`,
-  cases:      `${COURSE.baseUrl}/cases.html`,
-  problems:   `${COURSE.baseUrl}/problems.html`,
-  memo:       `${COURSE.baseUrl}/memo.html`,
-  schedule:   `${COURSE.baseUrl}/schedule.html`,
-  aiPolicy:   `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  home:        `${COURSE.baseUrl}/index.html`,
+  syllabus:    `${COURSE.baseUrl}/syllabus.html`,
+  support:     `https://bdepro.github.io/courses/shared/support.html`,
+  aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
 };
+
+// ================================================================
+//  MOODLE COURSE LINK
+// ================================================================
+const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=${COURSE.moodleId}`; // UPDATE moodleId above
 
 // ================================================================
 //  CENGAGE / MINDTAP LINKS
@@ -129,14 +203,14 @@ const CENGAGE = {
   // Master link — all e-book and MindTap resources
   allResources: "", // UPDATE each semester
 
-  // Chapter E-Book Readings
+  // Chapter E-Book Readings — keyed by CHAPTERS[].key
   reads: {
     ch1:  "", ch2:  "", ch3:  "", ch4:  "", ch5:  "",
     ch6:  "", ch7:  "", ch8:  "", ch11: "", ch12: "",
     ch15: "", ch16: "", ch17: "", ch18: "", ch19: "",
   },
 
-  // Chapter Problem Sets (MindTap Apply It)
+  // Chapter Problem Sets (MindTap Apply It) — keyed by CHAPTERS[].key
   problems: {
     ch1:  "", ch2:  "", ch3:  "", ch4:  "", ch5:  "",
     ch6:  "", ch7:  "", ch8:  "", ch11: "", ch12: "",
@@ -147,21 +221,23 @@ const CENGAGE = {
 // ================================================================
 //  CASE ANALYSES
 //  One case per module. Students receive the case, analyze using
-//  the chapter's framework, and submit a structured response.
+//  the module's framework, and submit a structured response.
 //  AI-assisted analysis is permitted with proper disclosure.
-//  UPDATE moodleActivityId each semester after course copy.
+//  Titles below are drafted to match each module's framework —
+//  UPDATE once real case materials are selected. moodleActivityId
+//  stays blank until the Moodle assignment is built.
 // ================================================================
 const CASES = [
-  { module: 1,  title: "TBD — The Economic Approach",              due: "September 26",  moodleActivityId: "" },
-  { module: 2,  title: "TBD — Benefits, Costs, and the Margin",    due: "October 3",     moodleActivityId: "" },
-  { module: 3,  title: "TBD — Extent Decisions",                   due: "October 10",    moodleActivityId: "" },
-  { module: 4,  title: "TBD — Investment Decisions",               due: "October 17",    moodleActivityId: "" },
-  { module: 5,  title: "TBD — Pricing Decisions",                  due: "October 24",    moodleActivityId: "" },
-  { module: 6,  title: "TBD — Industry Structure",                 due: "October 31",    moodleActivityId: "" },
-  { module: 7,  title: "TBD — Strategic Games",                    due: "November 7",    moodleActivityId: "" },
-  { module: 8,  title: "TBD — Bargaining and Contracts",           due: "November 14",   moodleActivityId: "" },
-  { module: 9,  title: "TBD — Pricing with Market Power",          due: "November 21",   moodleActivityId: "" },
-  { module: 10, title: "TBD — Information and Agency Problems",    due: "December 4",    moodleActivityId: "" },
+  { module: 1,  title: "The One Lesson in Practice: A Make-or-Buy Decision",            due: "September 25", moodleActivityId: "" },
+  { module: 2,  title: "Weighing the Marginal Costs of a New Product Line",             due: "October 2",    moodleActivityId: "" },
+  { module: 3,  title: "How Much to Produce: Scaling a Manufacturing Run",              due: "October 9",    moodleActivityId: "" },
+  { module: 4,  title: "Look Ahead, Reason Back: Evaluating a Capital Investment",      due: "October 16",   moodleActivityId: "" },
+  { module: 5,  title: "Setting the Price: Demand Analysis for a New Service",          due: "October 23",   moodleActivityId: "" },
+  { module: 6,  title: "Scale, Scope, and Structure in a Consolidating Industry",       due: "October 30",   moodleActivityId: "" },
+  { module: 7,  title: "A Pricing Standoff: Strategic Games Between Rivals",            due: "November 6",   moodleActivityId: "" },
+  { module: 8,  title: "Negotiating Under Asymmetric Information",                      due: "November 13",  moodleActivityId: "" },
+  { module: 9,  title: "Bundling and Price Discrimination in Subscription Services",    due: "November 20",  moodleActivityId: "" },
+  { module: 10, title: "Designing Incentives to Curb Moral Hazard",                     due: "December 4",   moodleActivityId: "" },
 ];
 
 // ================================================================
@@ -172,6 +248,29 @@ const CASES = [
 // ================================================================
 const MEMO = {
   title:            "Executive Memo: Applied Managerial Analysis",
-  due:              "December 4, 2025, 11:59 p.m.",
+  due:              "December 4, 2026, 11:59 p.m.",   // UPDATE each semester
   moodleActivityId: "", // UPDATE each semester
+};
+
+// ================================================================
+//  URL DERIVATION — do not edit
+// ================================================================
+CASES.forEach(item => { item.moodleUrl = item.moodleActivityId ? `${COURSE.moodleBase}/mod/assign/view.php?id=${item.moodleActivityId}` : ''; });
+MEMO.moodleUrl = MEMO.moodleActivityId ? `${COURSE.moodleBase}/mod/assign/view.php?id=${MEMO.moodleActivityId}` : '';
+
+// ================================================================
+//  DERIVED — do not edit
+// ================================================================
+const CONFIG = {
+  course:      COURSE,
+  instructor:  INSTRUCTOR,
+  schedule:    SCHEDULE,
+  chapters:    CHAPTERS,
+  grading:     GRADING,
+  features:    FEATURES,
+  textbook:    TEXTBOOK,
+  pages:       PAGES,
+  cengage:     CENGAGE,
+  cases:       CASES,
+  memo:        MEMO,
 };
