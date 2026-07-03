@@ -1,24 +1,25 @@
 // ================================================================
 //  MBA 6250 — COURSE CONFIGURATION
-//  Generated from: shared/config-template.js (adapted for Moodle)
+//  Generated from: shared/config-template.js
 //  Hosted at: bdepro.github.io/courses/mba6250/
 // ================================================================
 //  SEMESTER UPDATE CHECKLIST (search UPDATE to find each spot):
-//  1. COURSE block        — semester, moodleId
+//  1. COURSE block        — semester, canvasId
 //  2. INSTRUCTOR block    — officeHours each semester
 //  3. SCHEDULE block      — dates and module date ranges each semester
 //  4. CENGAGE block       — allResources + all reads/problems LTI links
 //                           when you register a new Cengage course
 //  5. CASES block         — case titles (drafted below) and
-//                           moodleActivityId once cases are built in Moodle
-//  6. MEMO block          — moodleActivityId once the memo assignment
-//                           is built in Moodle
+//                           aid (Canvas assignment ID) once cases are
+//                           built in Canvas
+//  6. MEMO block          — aid (Canvas assignment ID) once the memo
+//                           assignment is built in Canvas
 //  That is it. index.html and syllabus.html pull from this file automatically.
 // ================================================================
 
 // ================================================================
 //  COURSE
-//  UPDATE: semester and moodleId each term
+//  UPDATE: semester and canvasId each term
 // ================================================================
 const COURSE = {
   code:        "MBA 6250",
@@ -28,8 +29,8 @@ const COURSE = {
   credits:     3,
   baseUrl:     "https://bdepro.github.io/courses/mba6250",
   school:      "Martha and Spencer Love School of Business",
-  moodleBase:  "https://moodle.elon.edu",
-  moodleId:    "",                                 // UPDATE each semester (Moodle course ID)
+  canvasBase:  "https://elon.instructure.com",
+  canvasId:    "",                                 // UPDATE each semester (Canvas course ID)
 };
 
 // ================================================================
@@ -139,11 +140,11 @@ const GRADING = {
     { id: "cases",       label: "Case Analyses",              weight: 40,
       note: "One structured case analysis per module. Applies the module's economic framework to a real managerial decision." },
     { id: "problems",    label: "Problem Sets",                weight: 30,
-      note: "One quantitative problem set per module via Cengage MindTap." },
+      note: "One quantitative problem set per module via the Cengage e-book platform." },
     { id: "memo",        label: "Executive Memo",              weight: 20,
       note: "Capstone deliverable due at the end of the course." },
     { id: "participation", label: "Participation",             weight: 10,
-      note: "Discussion-board engagement in Moodle, one prompt per module." },
+      note: "Discussion-board engagement in Canvas, one prompt per module." },
   ],
 };
 
@@ -154,34 +155,35 @@ const GRADING = {
 // ================================================================
 const FEATURES = {
   syllabus:      true,
-  cases:         true,   // links out to Moodle case-analysis activities
-  problems:      true,   // links out to Cengage MindTap problem sets
-  memo:          true,   // links out to Moodle memo assignment
-  materials:     true,   // links out to Cengage e-book / MindTap resources
+  cases:         true,   // links out to Canvas case-analysis activities
+  problems:      true,   // links out to Cengage e-book problem sets
+  memo:          true,   // links out to Canvas memo assignment
+  materials:     true,   // links out to Cengage e-book resources
   support:       true,
   aiPolicy:      true,
 };
 
 // ================================================================
-//  TEXTBOOK — e-book only via Cengage MindTap
-//  UPDATE: ebookUrl once Moodle/Cengage course is registered
+//  TEXTBOOK — e-book only via Cengage
+//  UPDATE: ebookUrl once Canvas/Cengage course is registered
 // ================================================================
 const TEXTBOOK = {
   publisher:  "Cengage",
-  platform:   "MindTap",
+  platform:   "E-Book",
   edition:    "5th",
   title:      "Managerial Economics: A Problem Solving Approach",
   authors:    "Froeb, McCann, Ward, and Shor",
-  ebookUrl:   "",   // UPDATE: paste Moodle LTI URL once registered
+  ebookUrl:   "",   // UPDATE: paste Canvas LTI URL once registered
+  note:       "Available as an e-book only, linked through Canvas. No print copy is required.",
 };
 
 // ================================================================
 //  PAGES
 //  Stable GitHub Pages URLs — update only if files move or rename.
-//  MBA 6250 keeps its weekly content in Moodle; there are no separate
+//  MBA 6250 keeps its weekly content in Canvas; there are no separate
 //  GitHub Pages content pages beyond syllabus.html (unlike ECO 1000's
 //  checklist/puzzles pages). Cards on index.html link straight to
-//  Moodle and Cengage instead.
+//  Canvas and Cengage instead.
 // ================================================================
 const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
@@ -191,16 +193,16 @@ const PAGES = {
 };
 
 // ================================================================
-//  MOODLE COURSE LINK
+//  CANVAS COURSE LINK
 // ================================================================
-const MOODLE_COURSE = `${COURSE.moodleBase}/course/view.php?id=${COURSE.moodleId}`; // UPDATE moodleId above
+const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDATE canvasId above
 
 // ================================================================
-//  CENGAGE / MINDTAP LINKS
+//  CENGAGE LINKS
 //  UPDATE this entire block when you register a new Cengage course.
 // ================================================================
 const CENGAGE = {
-  // Master link — all e-book and MindTap resources
+  // Master link — all e-book resources
   allResources: "", // UPDATE each semester
 
   // Chapter E-Book Readings — keyed by CHAPTERS[].key
@@ -210,7 +212,7 @@ const CENGAGE = {
     ch15: "", ch16: "", ch17: "", ch18: "", ch19: "",
   },
 
-  // Chapter Problem Sets (MindTap Apply It) — keyed by CHAPTERS[].key
+  // Chapter Problem Sets (Cengage Apply It) — keyed by CHAPTERS[].key
   problems: {
     ch1:  "", ch2:  "", ch3:  "", ch4:  "", ch5:  "",
     ch6:  "", ch7:  "", ch8:  "", ch11: "", ch12: "",
@@ -224,20 +226,20 @@ const CENGAGE = {
 //  the module's framework, and submit a structured response.
 //  AI-assisted analysis is permitted with proper disclosure.
 //  Titles below are drafted to match each module's framework —
-//  UPDATE once real case materials are selected. moodleActivityId
-//  stays blank until the Moodle assignment is built.
+//  UPDATE once real case materials are selected. aid (Canvas
+//  assignment ID) stays blank until the Canvas assignment is built.
 // ================================================================
 const CASES = [
-  { module: 1,  title: "The One Lesson in Practice: A Make-or-Buy Decision",            due: "September 25", moodleActivityId: "" },
-  { module: 2,  title: "Weighing the Marginal Costs of a New Product Line",             due: "October 2",    moodleActivityId: "" },
-  { module: 3,  title: "How Much to Produce: Scaling a Manufacturing Run",              due: "October 9",    moodleActivityId: "" },
-  { module: 4,  title: "Look Ahead, Reason Back: Evaluating a Capital Investment",      due: "October 16",   moodleActivityId: "" },
-  { module: 5,  title: "Setting the Price: Demand Analysis for a New Service",          due: "October 23",   moodleActivityId: "" },
-  { module: 6,  title: "Scale, Scope, and Structure in a Consolidating Industry",       due: "October 30",   moodleActivityId: "" },
-  { module: 7,  title: "A Pricing Standoff: Strategic Games Between Rivals",            due: "November 6",   moodleActivityId: "" },
-  { module: 8,  title: "Negotiating Under Asymmetric Information",                      due: "November 13",  moodleActivityId: "" },
-  { module: 9,  title: "Bundling and Price Discrimination in Subscription Services",    due: "November 20",  moodleActivityId: "" },
-  { module: 10, title: "Designing Incentives to Curb Moral Hazard",                     due: "December 4",   moodleActivityId: "" },
+  { module: 1,  title: "The One Lesson in Practice: A Make-or-Buy Decision",            due: "September 25", aid: "" },
+  { module: 2,  title: "Weighing the Marginal Costs of a New Product Line",             due: "October 2",    aid: "" },
+  { module: 3,  title: "How Much to Produce: Scaling a Manufacturing Run",              due: "October 9",    aid: "" },
+  { module: 4,  title: "Look Ahead, Reason Back: Evaluating a Capital Investment",      due: "October 16",   aid: "" },
+  { module: 5,  title: "Setting the Price: Demand Analysis for a New Service",          due: "October 23",   aid: "" },
+  { module: 6,  title: "Scale, Scope, and Structure in a Consolidating Industry",       due: "October 30",   aid: "" },
+  { module: 7,  title: "A Pricing Standoff: Strategic Games Between Rivals",            due: "November 6",   aid: "" },
+  { module: 8,  title: "Negotiating Under Asymmetric Information",                      due: "November 13",  aid: "" },
+  { module: 9,  title: "Bundling and Price Discrimination in Subscription Services",    due: "November 20",  aid: "" },
+  { module: 10, title: "Designing Incentives to Curb Moral Hazard",                     due: "December 4",   aid: "" },
 ];
 
 // ================================================================
@@ -249,14 +251,18 @@ const CASES = [
 const MEMO = {
   title:            "Executive Memo: Applied Managerial Analysis",
   due:              "December 4, 2026, 11:59 p.m.",   // UPDATE each semester
-  moodleActivityId: "", // UPDATE each semester
+  aid:              "", // UPDATE each semester (Canvas assignment ID)
 };
 
 // ================================================================
 //  URL DERIVATION — do not edit
+//  Builds .url on every assignment entry from COURSE.canvasId + aid.
 // ================================================================
-CASES.forEach(item => { item.moodleUrl = item.moodleActivityId ? `${COURSE.moodleBase}/mod/assign/view.php?id=${item.moodleActivityId}` : ''; });
-MEMO.moodleUrl = MEMO.moodleActivityId ? `${COURSE.moodleBase}/mod/assign/view.php?id=${MEMO.moodleActivityId}` : '';
+const ASSIGNMENT_URL = aid =>
+  aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
+
+CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
+MEMO.url = ASSIGNMENT_URL(MEMO.aid);
 
 // ================================================================
 //  DERIVED — do not edit

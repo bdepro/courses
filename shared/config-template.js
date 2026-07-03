@@ -140,7 +140,7 @@ const FEATURES = {
 // ================================================================
 const TEXTBOOK = {
   publisher:   "Cengage",                     // UPDATE: publisher name
-  platform:    "MindTap",                     // UPDATE: platform name
+  platform:    "E-Book",                       // UPDATE: platform name
   edition:     "17th",                        // UPDATE: edition
   title:       "Economics: Private and Public Choice", // UPDATE
   authors:     "Gwartney et al.",             // UPDATE

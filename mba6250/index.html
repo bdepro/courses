@@ -98,12 +98,12 @@
 
 <main id="main">
 
-  <!-- Primary card — Moodle course home -->
-  <a class="card primary" id="moodleCard" href="#" target="_blank" rel="noopener">
+  <!-- Primary card — Canvas course home -->
+  <a class="card primary" id="canvasCard" href="#" target="_blank" rel="noopener">
     <div class="card-icon"><i data-lucide="layout-dashboard"></i></div>
     <div class="card-content">
       <div class="card-title">Where does the weekly work happen?</div>
-      <div class="card-desc">All ten modules — readings, problem sets, case submissions, and discussion boards — live in Moodle. Open this every week.</div>
+      <div class="card-desc">All ten modules — readings, problem sets, case submissions, and discussion boards — live in Canvas. Open this every week.</div>
     </div>
     <span class="card-arrow">→</span>
   </a>
@@ -175,8 +175,8 @@ metaItems.forEach(item => {
 document.getElementById('arcSummary').textContent =
   `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Problem Sets (${GRADING.components.find(c => c.id === 'problems').weight}%) · Executive Memo (${GRADING.components.find(c => c.id === 'memo').weight}%) · Participation (${GRADING.components.find(c => c.id === 'participation').weight}%)`;
 
-// Moodle card
-document.getElementById('moodleCard').href = MOODLE_COURSE;
+// Canvas card
+document.getElementById('canvasCard').href = CANVAS_COURSE;
 
 // ================================================================
 //  Card definitions — driven by FEATURES and GRADING from config
@@ -198,27 +198,27 @@ const ALL_CARDS = [
   },
   {
     feature: 'cases',
-    href:    MOODLE_COURSE,
+    href:    CANVAS_COURSE,
     icon:    'file-text',
     title:   'Case Analyses',
-    desc:    'One structured case analysis per module. Apply that module\'s economic framework to a real managerial decision, submitted in Moodle.',
+    desc:    'One structured case analysis per module. Apply that module\'s economic framework to a real managerial decision, submitted in Canvas.',
     badge:   gradeLabel('cases'),
     badgeClass: 'badge-grade',
     external: true,
   },
   {
     feature: 'problems',
-    href:    CENGAGE.allResources || MOODLE_COURSE,
+    href:    CENGAGE.allResources || CANVAS_COURSE,
     icon:    'trending-up',
     title:   'Problem Sets',
-    desc:    'Quantitative and analytical problems via Cengage MindTap — one set per module. Builds the calculative fluency behind each framework.',
+    desc:    'Quantitative and analytical problems via the Cengage e-book platform — one set per module. Builds the calculative fluency behind each framework.',
     badge:   gradeLabel('problems'),
     badgeClass: 'badge-grade',
     external: true,
   },
   {
     feature: 'memo',
-    href:    MOODLE_COURSE,
+    href:    CANVAS_COURSE,
     icon:    'send',
     title:   'Executive Memo',
     desc:    'A capstone deliverable: select a real managerial decision, apply course frameworks, and present your analysis as a professional executive memorandum.',
@@ -228,10 +228,10 @@ const ALL_CARDS = [
   },
   {
     feature: 'materials',
-    href:    CENGAGE.allResources || MOODLE_COURSE,
+    href:    CENGAGE.allResources || CANVAS_COURSE,
     icon:    'book-open',
     title:   'Course Materials &amp; Textbook',
-    desc:    `Access the Cengage MindTap e-book and all supplementary resources for <em>${TEXTBOOK.title}</em> (${TEXTBOOK.authors}).`,
+    desc:    `Access the Cengage e-book and all supplementary resources for <em>${TEXTBOOK.title}</em> (${TEXTBOOK.authors}).`,
     badge:   'Resource',
     badgeClass: 'badge-resource',
     external: true,
