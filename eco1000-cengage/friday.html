@@ -165,7 +165,7 @@
 
       <div class="prompt-section">
         <div class="prompt-heading">Before You Submit</div>
-        <div class="prompt-text"><p>The viva is built around this narrative, so it's worth a second pair of eyes before July 18. Email me to set up a time during office hours (Monday, Wednesday, or Friday, 10:30&ndash;11:45 a.m.) for a quick gut-check &mdash; is the story specific enough, does it have something real at stake. I open the Zoom room once I hear from you, so the email comes first. <a id="ff1OfficeHoursLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Office hours &amp; how to email me &rarr;</a></p></div>
+        <div class="prompt-text"><p>The viva is built around this narrative, so it's worth a second pair of eyes before Sat Jul 18. Email me to set up a time during office hours (Monday, Wednesday, or Friday, 10:30&ndash;11:45 a.m.) for a quick gut-check &mdash; is the story specific enough, does it have something real at stake. I open the Zoom room once I hear from you, so the email comes first. <a id="ff1OfficeHoursLink" href="#" target="_blank" rel="noopener" style="color:var(--crimson);font-weight:600;">Office hours &amp; how to email me &rarr;</a></p></div>
       </div>
 
       <div class="divider"></div>
@@ -240,7 +240,7 @@
           </div>
         </div>
         <div class="note-box green">
-          The point values above are a proposal. A short Moodle survey opens July 6 and closes July 8 — tell me whether the scale feels proportionate. Final values post by July 9, well before your narrative is due.
+          The point values above are a proposal. Fill out this short <a id="scaleSurveyLink" href="#" target="_blank" rel="noopener">Google Form</a> between Mon Jul 6 and Wed Jul 8 to tell me whether the scale feels proportionate. Final values post by Thu Jul 9, well before your narrative is due.
         </div>
       </div>
 
@@ -291,6 +291,14 @@ if (ff1Id) {
   ff1Btn.style.pointerEvents = 'none';
   ff1Btn.setAttribute('aria-disabled', 'true');
   ff1Btn.lastChild.textContent = ' Submission link coming soon';
+}
+
+const scaleSurveyUrl = (typeof FRIDAY.scaleSurveyUrl !== 'undefined' && FRIDAY.scaleSurveyUrl) ? FRIDAY.scaleSurveyUrl : null;
+const scaleSurveyLink = document.getElementById('scaleSurveyLink');
+if (scaleSurveyUrl) {
+  scaleSurveyLink.href = scaleSurveyUrl;
+} else {
+  scaleSurveyLink.textContent = 'survey link coming soon';
 }
 
 const signupUrl = (typeof FRIDAY.vivaSignupUrl !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;

@@ -33,11 +33,11 @@ const COURSE = {
 
   // UPDATE each semester
   weeks: [
-    { num: 1, dates: "July 6\u201311",  due: "July 11, 12:00 p.m.",
+    { num: 1, dates: "July 6\u201311",  due: "Sat Jul 11, 11:59 p.m.",
       nextTeaser: "Week 2 opens July 12 \u2014 Economic Pulse, Fluctuations, and Growth." },
-    { num: 2, dates: "July 12\u201318", due: "July 18, 12:00 p.m.",
+    { num: 2, dates: "July 12\u201318", due: "Sat Jul 18, 11:59 p.m.",
       nextTeaser: "Week 3 opens July 19 \u2014 Policy, Labor Markets, and Economic Outcomes." },
-    { num: 3, dates: "July 19\u201324", due: "July 24, 12:00 p.m.",
+    { num: 3, dates: "July 19\u201324", due: "Fri Jul 24, 11:59 p.m.",
       nextTeaser: "" },
   ],
 
@@ -206,9 +206,9 @@ const MME = {
   enabled: true,    // UPDATE to true when Perusall is ready
   perusallBase: "", // UPDATE: e.g. "https://perusall.com/courses/your-course-id"
   articles: [
-    { week: 1, title: "When People Cut Back on Instagram, Where Do They Go?", due: "July 11", moodleActivityId: "3112561" },
-    { week: 2, title: "The Real Price of Being Home Alone",                    due: "July 18", moodleActivityId: "3112562" },
-    { week: 3, title: "The Economics of the No Tax on Tips Policy",            due: "July 24", moodleActivityId: "3112563" },
+    { week: 1, title: "When People Cut Back on Instagram, Where Do They Go?", due: "Sat Jul 11", moodleActivityId: "3112561" },
+    { week: 2, title: "The Real Price of Being Home Alone",                    due: "Sat Jul 18", moodleActivityId: "3112562" },
+    { week: 3, title: "The Economics of the No Tax on Tips Policy",            due: "Fri Jul 24", moodleActivityId: "3112563" },
   ],
 };
 
@@ -219,8 +219,9 @@ const MME = {
 // ================================================================
 const FRIDAY = {
   vivaSignupUrl: "https://docs.google.com/spreadsheets/d/1qtnxOyXOJVDJVHwQigvNVxFM_Isf92wW3_iFTSeVNvw/edit?usp=drive_link", // UPDATE each semester
+  scaleSurveyUrl: "https://forms.gle/rcy9my3BHJbhB2Hp8", // Viva scoring feedback survey — UPDATE each semester
   assignments: [
-    { id: 1, title: "Friday Focus 1: The Economic Narrative", due: "July 18, 12:00 p.m.", moodleActivityId: "3112496" }, // UPDATE each semester
+    { id: 1, title: "Friday Focus 1: The Economic Narrative", due: "Sat Jul 18, 11:59 p.m.", moodleActivityId: "3112496" }, // UPDATE each semester
     { id: 2, title: "Friday Focus 2: The Narrative Viva",     due: "July 19-24" }, // No submission -- graded directly in Moodle gradebook. Sign-up via vivaSignupUrl above.
   ],
 };
