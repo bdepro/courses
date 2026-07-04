@@ -483,10 +483,10 @@
     </div>
     <div class="ib-body">
       <div class="deadline-box">
-        <div class="deadline-label">Each newsletter is due by 12:00 p.m. on the Friday of its week.</div>
+        <div class="deadline-label">Each newsletter is due by 11:59 p.m. on the date shown above.</div>
         <ul class="plain-list">
           <li>All three newsletters are available from the first day of class. You may work ahead on any week.</li>
-          <li>Work submitted after the deadline does not earn credit. Plan your three visits before Friday arrives.</li>
+          <li>Work submitted after the deadline does not earn credit. Plan your three visits well before the deadline arrives.</li>
         </ul>
       </div>
     </div>
@@ -507,9 +507,9 @@
   // Build article cards
   const grid = document.getElementById('articleGrid');
   const weeks = [
-    { week: 1, due: 'Friday, ' + COURSE.weeks[0].due },
-    { week: 2, due: 'Friday, ' + COURSE.weeks[1].due },
-    { week: 3, due: 'Friday, ' + COURSE.weeks[2].due },
+    { week: 1, due: COURSE.weeks[0].due },
+    { week: 2, due: COURSE.weeks[1].due },
+    { week: 3, due: COURSE.weeks[2].due },
   ];
 
   // Use MME.articles if available, otherwise fall back to placeholders
