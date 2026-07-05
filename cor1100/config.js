@@ -71,7 +71,7 @@ const INSTRUCTOR = {
 //      its content is folded into Puzzle 5 together with S9.
 //    MME passages introduced Friday of designated session;
 //      due Wednesday of the following CI week — see CANVAS.tms[].due.
-//    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
+//    Friday Focus written narrative due Friday Nov 20 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -330,7 +330,7 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",               weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes standing analytical threads." },
     { id: "friday",   label: "Friday Focus",            weight: 25,
-      note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
+      note: "Written narrative due Fri Nov 20 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "tms",      label: "Fishbowl", weight: 10,
@@ -460,7 +460,8 @@ const CANVAS = {
   // PENDING: ids 2 and 3 (Fishbowl 2 / Fishbowl 3) not yet built — round 2 keeps its
   // existing Fri Oct 9 anchor below; round 3 needs a fresh date design anchored to
   // Fri Nov 6 (after CI3) that lands before Thanksgiving, not reusing the old
-  // session-15/Dec-2 date, which collides with viva week and FF narrative due date.
+  // session-15/Dec-2 date, which collides with viva week itself (FF narrative now
+  // due Fri Nov 20, no longer part of this conflict).
   tms: [
     { id: 1, session: 3, dueSession: 6, introduced: "Fri Sep 18",
       title: "Fishbowl 1: Sympathy, Attention, and LeBron", aid: "",
@@ -473,7 +474,7 @@ const CANVAS = {
   // Friday Focus — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
     { id: 1, title: "Friday Focus: The Narrative",
-      due: "Wed Dec 2, 11:59 p.m.", url: "" },                      // UPDATE
+      due: "Fri Nov 20, 11:59 p.m.", url: "" },                      // UPDATE
     { id: 2, title: "Friday Focus: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
@@ -498,6 +499,7 @@ const CANVAS = {
   // can only ever book one slot total (Canvas "limit to one appointment"
   // setting), regardless of which link they click first.
   viva: {
+    durationMinutes:        10,
     vivaWeekSignupUrl:      "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
     examPeriodSignupUrl:    "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-07",
     worksheetUrl:           "",  // UPDATE: Canvas Page URL (s15-worksheet)

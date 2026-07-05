@@ -109,7 +109,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      The narrative you've been building all semester is due this week, and then you talk about it in your viva. Check-In #4 happens Friday, and if your score beats your lowest Check-In so far, it replaces it automatically.
+      The narrative you've been building all semester was due before Thanksgiving break — now you talk about it in your viva. Check-In #4 happens Friday, and if your score beats your lowest Check-In so far, it replaces it automatically.
     </p>
   </div>
 
@@ -129,11 +129,11 @@
       <div class="check-item" data-id="viva-narrative">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your Friday Focus narrative</div>
-          <div class="check-desc" id="viva-narrative-desc">This is the written piece your viva conversation will be about.</div>
+          <div class="check-title">Review your Friday Focus narrative before your viva</div>
+          <div class="check-desc" id="viva-narrative-desc">You submitted this before Thanksgiving break. Reread it before your conversation — this is what your viva will be about.</div>
           <span class="check-tag tag-submit" id="viva-narrative-tag">Friday Focus</span>
           <br><a class="check-link" href="#" id="link-viva-narrative" target="_blank" rel="noopener">
-            Submit Narrative <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Review Narrative <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -194,12 +194,11 @@ document.getElementById('weekMeta').textContent = session15 ? session15.dates : 
 const friday1 = (CANVAS.friday || []).find(f => f.id === 1);
 
 const dueBannerText = document.getElementById('dueBannerText');
-const fridayDue = friday1 ? friday1.due : 'TBA';
-dueBannerText.innerHTML = `Your Friday Focus narrative is due Wednesday, ${fridayDue.replace(/^.*?,\s*/, '')} Your viva happens Monday or Wednesday by appointment, and Check-In #4 happens in class Friday.`;
+dueBannerText.innerHTML = `Your viva happens Monday or Wednesday by appointment, and Check-In #4 happens in class Friday.`;
 
 if (friday1) {
-  document.getElementById('viva-narrative-tag').textContent = `Friday Focus · Due ${friday1.due}`;
-  document.getElementById('viva-narrative-desc').textContent = `This is the written piece your viva conversation will be about. Due ${friday1.due}`;
+  document.getElementById('viva-narrative-tag').textContent = `Friday Focus · Submitted ${friday1.due}`;
+  document.getElementById('viva-narrative-desc').textContent = `You submitted this before Thanksgiving break (due ${friday1.due}). Reread it before your conversation — this is what your viva will be about.`;
 }
 
 const L = {
