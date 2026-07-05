@@ -54,6 +54,7 @@ const COURSE = {
     week:        "Week 3",
     dates:       "July 19\u201324",
     emailDeadline: "July 18",
+    durationMinutes: 12,
   },
 };
 

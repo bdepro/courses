@@ -72,7 +72,7 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    MME articles are introduced Friday of check-in week and due Wednesday
 //    11:59 p.m. several weeks later — see CANVAS.mme[].due for each article.
-//    Friday Focus written narrative due Wednesday Dec 2 at 11:59 p.m.
+//    Friday Focus written narrative due Friday Nov 20 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -303,7 +303,7 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",              weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
     { id: "friday",   label: "Friday Focus",           weight: 25,
-      note: "Written narrative due Wed Dec 2 at 11:59 p.m. Viva conversation during viva week." },
+      note: "Written narrative due Fri Nov 20 at 11:59 p.m. Viva conversation during viva week." },
     { id: "puzzles",  label: "Economic Puzzles",       weight: 15,
       note: "One per content session. Lowest score dropped. Late within one week at 80%. Due Wednesday 11:59 p.m." },
     { id: "mme",      label: "Monday Morning Economist", weight: 10,
@@ -480,11 +480,11 @@ const CANVAS = {
     { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",   title: "MME 4: The Economics of the No Tax on Tips Policy",             aid: "2857" },
   ],
 
-  // FF1: written narrative — due Wed Dec 2 at 11:59 p.m. (before viva)
+  // FF1: written narrative — due Fri Nov 20 at 11:59 p.m. (before viva)
   // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
     { id: 1, title: "Friday Focus: The Economic Narrative",
-      due: "Wed Dec 2, 11:59 p.m.", url: "https://elon.instructure.com/courses/1397/assignments/2455" },
+      due: "Fri Nov 20, 11:59 p.m.", url: "https://elon.instructure.com/courses/1397/assignments/2455" },
     { id: 2, title: "Friday Focus: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
@@ -508,6 +508,7 @@ const CANVAS = {
   // months for clarity. A student can only ever book one slot total
   // (Canvas "limit to one appointment" setting).
   viva: {
+    durationMinutes:     10,
     vivaWeekSignupUrl:   "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
     examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-09",
     // Viva week review worksheet — Mon and Wed of viva week
@@ -533,7 +534,7 @@ const CANVAS = {
     { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
     { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
     { id: 8, module: 3,    label: "Review 3",          type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: null },  // UPDATE
-    { id: 9, module: '4b', label: "Final Narrative",   type: "revision",      dueShort: "Dec 2",  due: "Wed Dec 2, 11:59 p.m.",  url: null },  // UPDATE — submit through Eli + Canvas
+    { id: 9, module: '4a', label: "Final Narrative",   type: "revision",      dueShort: "Nov 20",  due: "Fri Nov 20, 11:59 p.m.",  url: null },  // UPDATE — submit through Eli + Canvas
   ],
 };
 
@@ -584,6 +585,7 @@ const BLOCKS = [
     mmedueSessions: [],
     checkIn: null,
     phase: 'application',
+    ffDue: true,
   },
   {
     id: '4b',
@@ -595,7 +597,6 @@ const BLOCKS = [
     mmedueSessions: [15],
     checkIn: 4,
     phase: 'viva',
-    ffDue: true,
     vivaSignupAlert: true,
   },
 ];

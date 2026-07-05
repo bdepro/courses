@@ -117,41 +117,41 @@
   <div class="guide-card">
     <div class="guide-text">
       <p>A viva is a short conversation about a piece of writing you have already completed. The Latin root is <em>viva voce</em>, meaning "with living voice." Universities use it at every level, from introductory courses to doctoral defenses, as a way of going behind the text to the thinking that produced it.</p>
-      <p>The Narrative Viva is a 12-minute Zoom conversation about the story you submitted for Friday Focus 1. I'll ask you to walk me through what happened and what you think was driving it.</p>
+      <p>The Narrative Viva is a short Zoom conversation about the story you submitted for Friday Focus 1. I'll ask you to walk me through what happened and what you think was driving it.</p>
     </div>
   </div>
 
   <!-- What happens -->
-  <p class="section-label">What Happens in the 12 Minutes</p>
+  <p class="section-label">What Happens During the Viva</p>
   <div class="guide-card">
     <div class="guide-text"><p>I don't follow a rigid script, but the shape holds.</p></div>
     <div class="act-list">
       <div class="act-item">
         <div class="act-header">
           <span class="act-num">Part 1</span>
-          <span class="act-time">approximately 4 minutes</span>
+          <span class="act-time">Early</span>
         </div>
         <div class="act-title">Your Story</div>
         <div class="act-desc">We start with the narrative. I'll ask you to take me back to the moment you wrote about.</div>
-        <div class="act-examples">I'll ask you to put me in the room — where exactly you were and what you remember thinking.</div>
+        <div class="act-examples">Put me in the room. Where were you, and what do you remember thinking?</div>
       </div>
       <div class="act-item">
         <div class="act-header">
           <span class="act-num">Part 2</span>
-          <span class="act-time">approximately 4 minutes</span>
+          <span class="act-time">Midway</span>
         </div>
         <div class="act-title">The Economics in Your Story</div>
         <div class="act-desc">We turn to what is happening economically in your narrative. I want to know how you thought about what you saw.</div>
-        <div class="act-examples">Expect questions about what was driving the choices and outcomes you described: what made each person do what they did.</div>
+        <div class="act-examples">Expect questions about what was driving the choices and outcomes in your story.</div>
       </div>
       <div class="act-item">
         <div class="act-header">
           <span class="act-num">Part 3</span>
-          <span class="act-time">approximately 4 minutes</span>
+          <span class="act-time">Toward the end</span>
         </div>
         <div class="act-title">Looking Back</div>
-        <div class="act-desc">We close by stepping back. I'll ask what your story revealed when you looked at it economically, and one question about what three weeks of economics has done to how you see things.</div>
-        <div class="act-examples">You've spent three weeks looking at the world through an economic lens. Where does it help, and where does it fall short?</div>
+        <div class="act-desc">We step back from the story to the course as a whole, and I'll ask one closing question: how has studying economics changed the way you see things?</div>
+        <div class="act-examples">You've spent the term looking at the world through an economic lens. Where does it help, and where does it fall short?</div>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@
         <div class="thing-desc">Say so when you don't know the answer, and pause when something catches you off guard. Saying something true after a moment of thinking is exactly what I'm looking for.</div>
       </div>
       <div class="thing-item">
-        <div class="thing-name">Honest Reflection on Three Weeks of Economics</div>
+        <div class="thing-name">Honest Reflection on the Course</div>
         <div class="thing-desc">Tell me what you actually noticed, even if that's that economics didn't add much.</div>
       </div>
     </div>
@@ -234,7 +234,7 @@
       <div class="signal-item"><div class="signal-dot"></div><span>She talks about her story the way she'd describe it to someone who wasn't there. The details are specific enough that you could picture the place.</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>Without labeling it, she explains the economics. The example she gives is reasoning: "I knew if I waited, someone else would take it."</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>"I hadn't thought about it that way. Give me a moment." Working through something hard out loud is exactly what I'm looking for.</span></div>
-      <div class="signal-item"><div class="signal-dot"></div><span>When she doesn't know something, she says so rather than filling the silence with words that sound right but don't mean anything.</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span>She says so when she doesn't know something, instead of reaching for words that just sound right.</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>When a question is hard, she goes back to the specific moment she wrote about. The story is always a way back in.</span></div>
     </div>
   </div>
@@ -243,7 +243,7 @@
   <p class="section-label">Scheduling Your Viva</p>
   <div class="guide-card">
     <div class="sched-row"><div class="sched-label">When</div><div class="sched-value" id="prep-viva-when"></div></div>
-    <div class="sched-row"><div class="sched-label">Duration</div><div class="sched-value">12 minutes</div></div>
+    <div class="sched-row"><div class="sched-label">Duration</div><div class="sched-value" id="prep-viva-duration"></div></div>
     <div class="sched-row"><div class="sched-label">Zoom</div><div class="sched-value"><a id="prep-zoom" href="#" target="_blank" rel="noopener"></a></div></div>
     <div class="sched-row" id="prep-email-row"><div class="sched-label">Email</div><div class="sched-value">Can't make any slot? Email me before <span id="prep-email-deadline"></span> and we'll find one that does.</div></div>
     <div class="sched-row"><div class="sched-label" id="prep-signup-label">Sign Up</div><div class="sched-value"><a id="signupLink" href="#" target="_blank" rel="noopener">Sign-up link</a></div></div>
@@ -314,6 +314,7 @@
     var examWorksheetUrl       = null;
     var examWorksheetSubmitUrl = null;
     var hasExamPeriod     = false;
+    var vivaDuration      = null;
 
     // Cengage schema: COURSE.viva, COURSE.instructor, FRIDAY.vivaSignupUrl
     if (typeof COURSE !== 'undefined' && COURSE.viva) {
@@ -322,6 +323,7 @@
       vivaZoomUrl       = (COURSE.instructor) ? COURSE.instructor.zoomUrl    : '';
       vivaZoomDisplay   = (COURSE.instructor) ? COURSE.instructor.zoomDisplay : '';
       vivaSignupUrl     = (typeof FRIDAY !== 'undefined' && FRIDAY.vivaSignupUrl) ? FRIDAY.vivaSignupUrl : null;
+      vivaDuration      = COURSE.viva.durationMinutes || null;
     }
     // ECO 1000 / COR 1100 schema: CANVAS.viva, SCHEDULE.sessions, INSTRUCTOR
     else if (typeof CANVAS !== 'undefined' && CANVAS.viva && typeof SCHEDULE !== 'undefined') {
@@ -334,11 +336,15 @@
       examWorksheetUrl       = CANVAS.viva.examWorksheetUrl || null;
       examWorksheetSubmitUrl = CANVAS.viva.examWorksheetSubmitUrl || null;
       hasExamPeriod   = true;
+      vivaDuration    = CANVAS.viva.durationMinutes || null;
     }
 
     // ── Populate scheduling rows ──────────────────────────────────
     var whenEl = document.getElementById('prep-viva-when');
     if (whenEl) whenEl.textContent = vivaWhen;
+
+    var durationEl = document.getElementById('prep-viva-duration');
+    if (durationEl) durationEl.textContent = vivaDuration ? 'approximately ' + vivaDuration + ' minutes' : 'TBA';
 
     var zoomEl = document.getElementById('prep-zoom');
     if (zoomEl) {
