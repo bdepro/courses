@@ -197,6 +197,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="ci3-draft3">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Draft 3: The Narrative</div>
+          <div class="check-desc">Bring the scene and the economic heart together into one continuous story — this is close to the final version.</div>
+          <span class="check-tag tag-submit" id="ci3-draft3-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-ci3-draft3" target="_blank" rel="noopener">
+            Open Draft 3 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="ci3-review3">
         <div class="check-box"></div>
         <div class="check-content">
@@ -228,12 +240,13 @@ document.getElementById('weekMeta').textContent = session11 ? session11.dates : 
 
 const puzzle10 = CANVAS.puzzles.find(p => p.session === 10);
 const mme2     = CANVAS.mme.find(m => m.dueSession === 11);
-const revPlan2 = (CANVAS.eli || []).find(t => t.id === 6);
-const revision2= (CANVAS.eli || []).find(t => t.id === 7);
-const review3  = (CANVAS.eli || []).find(t => t.id === 8);
+const revPlan2 = (CANVAS.eli || []).find(t => t.id === 7);
+const revision2= (CANVAS.eli || []).find(t => t.id === 8);
+const draft3   = (CANVAS.eli || []).find(t => t.id === 9);
+const review3  = (CANVAS.eli || []).find(t => t.id === 10);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `The Chapter 18 puzzle, MME 2, your Friday Focus revision plan, and Revision 2 are all due Wednesday, the same day as Check-In #3 and the start of the class vote. Review 3 and the vote close on Friday.`;
+dueBannerText.innerHTML = `The Chapter 18 puzzle, MME 2, your Friday Focus revision plan, Revision 2, and Draft 3 are all due Wednesday, the same day as Check-In #3 and the start of the class vote. Review 3 and the vote close on Friday.`;
 
 if (puzzle10) document.getElementById('ci3-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
 if (mme2) {
@@ -242,6 +255,7 @@ if (mme2) {
 }
 if (revPlan2) document.getElementById('ci3-revplan2-tag').textContent = `Friday Focus · Due ${revPlan2.due}`;
 if (revision2) document.getElementById('ci3-revision2-tag').textContent = `Friday Focus · Due ${revision2.due}`;
+if (draft3) document.getElementById('ci3-draft3-tag').textContent = `Friday Focus · Due ${draft3.due}`;
 if (review3) document.getElementById('ci3-review3-tag').textContent = `Friday Focus · Due ${review3.due}`;
 
 const L = {
@@ -249,6 +263,7 @@ const L = {
   'link-ci3-mme2':     mme2 ? mme2.url : '',
   'link-ci3-revplan2': revPlan2 ? revPlan2.url : '',
   'link-ci3-revision2':revision2 ? revision2.url : '',
+  'link-ci3-draft3':   draft3 ? draft3.url : '',
   'link-ci3-review3':  review3 ? review3.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {

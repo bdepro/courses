@@ -525,17 +525,26 @@ const CANVAS = {
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
   // module: block id (1, 2, 3, '4b') — determines which module banner shows this pill
   // type: "writing" | "review" | "revision-plan" | "revision"
+  // label: matches Eli's own task-list naming exactly, so config and the Eli
+  // dashboard never drift into different names for the same task.
   eli: [
-    { id: 1, module: 1,    label: "Draft 1",          type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
-    { id: 2, module: 1,    label: "Review 1",          type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
-    { id: 3, module: 2,    label: "Revision Plan 1",   type: "revision-plan", dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
-    { id: 4, module: 2,    label: "Revision 1",        type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
-    { id: 5, module: 2,    label: "Review 2",          type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: null },  // UPDATE
-    { id: 6, module: 3,    label: "Revision Plan 2",   type: "revision-plan", dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
-    { id: 7, module: 3,    label: "Revision 2",        type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: null },  // UPDATE
-    { id: 8, module: 3,    label: "Review 3",          type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: null },  // UPDATE
-    { id: 9, module: '4a', label: "Final Narrative",   type: "revision",      dueShort: "Nov 20",  due: "Fri Nov 20, 11:59 p.m.",  url: null },  // UPDATE — submit through Eli + Canvas
+    { id: 1,  module: 1,    label: "Draft 1: The Scene",                          type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
+    { id: 2,  module: 1,    label: "Review of Draft 1: The Scene",                type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
+    { id: 3,  module: 2,    label: "Revision Plan for Draft 1: The Scene",        type: "revision-plan", dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
+    { id: 4,  module: 2,    label: "Revision of Draft 1: The Scene",              type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
+    { id: 5,  module: 2,    label: "Draft 2: The Economic Thinking",              type: "writing",       dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144514/compose" },
+    { id: 6,  module: 2,    label: "Review of Draft 2: The Economic Thinking",    type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114410/work" },
+    { id: 7,  module: 3,    label: "Revision Plan for Draft 2: The Economic Thinking", type: "revision-plan", dueShort: "Nov 4", due: "Wed Nov 4, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/revision-plan/292" },
+    { id: 8,  module: 3,    label: "Revision of Draft 2: The Economic Thinking", type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/293/work" },
+    { id: 9,  module: 3,    label: "Draft 3: The Narrative",                     type: "writing",       dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144515/compose" },
+    { id: 10, module: 3,    label: "Review of Draft 3: The Narrative",           type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114415/work" },
+    { id: 11, module: '4a', label: "Final Narrative",   type: "revision",      dueShort: "Nov 20",  due: "Fri Nov 20, 11:59 p.m.",  url: null },  // Canvas only — no Eli task; student leaves Eli after Review of Draft 3 and submits a PDF via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
   ],
+
+  // Course-level landing page in the review platform (student view, not a
+  // specific task) — friday.html links here once instead of one pill per
+  // stage. NOT the same as the task-specific urls above.
+  eliDashboardUrl: "https://app.elireview.com/student/course/20937",
 };
 
 // ================================================================
