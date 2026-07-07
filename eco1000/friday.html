@@ -89,7 +89,7 @@
       class. Take a clear position and support it with economic reasoning. Use the
       whole semester to develop it, and three Friday classes are set aside for
       that purpose. Come to those classes with something on the page.</p>
-      <p>Submit as a Canvas assignment. Due <span id="narrativeDueText"></span>.</p>
+      <p>Submit as a Canvas assignment. Due <span id="narrativeDueText"></span></p>
       <div class="pill-row" id="narrativePills"></div>
     </div>
   </div>
@@ -162,6 +162,8 @@ function pill(label, url) {
 }
 
 var narrativePills = document.getElementById('narrativePills');
+narrativePills.appendChild(pill('Open your Friday Focus workspace', CANVAS.eliDashboardUrl));
+
 var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
 if(ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));

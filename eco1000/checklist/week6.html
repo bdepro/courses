@@ -189,6 +189,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="ci2-draft2">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Draft 2: The Economic Thinking</div>
+          <div class="check-desc">Add the economic heart to the scene you revised — what happened, how, and why.</div>
+          <span class="check-tag tag-submit" id="ci2-draft2-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-ci2-draft2" target="_blank" rel="noopener">
+            Open Draft 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="ci2-review2">
         <div class="check-box"></div>
         <div class="check-content">
@@ -223,11 +235,12 @@ const mme1    = CANVAS.mme.find(m => m.dueSession === 6);
 const ci2     = CANVAS.checkIns.find(c => c.id === 2);
 const revPlan = (CANVAS.eli || []).find(t => t.id === 3);
 const revision = (CANVAS.eli || []).find(t => t.id === 4);
-const review2  = (CANVAS.eli || []).find(t => t.id === 5);
+const draft2   = (CANVAS.eli || []).find(t => t.id === 5);
+const review2  = (CANVAS.eli || []).find(t => t.id === 6);
 
 // Due banner — every real deadline this week, computed from config.js, not hand-typed
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `The Chapter 7 puzzle, MME 1, and your Friday Focus revision are all due Wednesday, the same day as Check-In #2. Review 2 follows on Friday.`;
+dueBannerText.innerHTML = `The Chapter 7 puzzle, MME 1, and your Friday Focus revision and Draft 2 are all due Wednesday, the same day as Check-In #2. Review 2 follows on Friday.`;
 
 if (puzzle5) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 if (mme1) {
@@ -236,6 +249,7 @@ if (mme1) {
 }
 if (revPlan) document.getElementById('ci2-revplan-tag').textContent = `Friday Focus · Due ${revPlan.due}`;
 if (revision) document.getElementById('ci2-revision-tag').textContent = `Friday Focus · Due ${revision.due}`;
+if (draft2) document.getElementById('ci2-draft2-tag').textContent = `Friday Focus · Due ${draft2.due}`;
 if (review2) document.getElementById('ci2-review2-tag').textContent = `Friday Focus · Due ${review2.due}`;
 
 const L = {
@@ -243,6 +257,7 @@ const L = {
   'link-ci2-mme':     mme1 ? mme1.url : '',
   'link-ci2-revplan': revPlan ? revPlan.url : '',
   'link-ci2-revision':revision ? revision.url : '',
+  'link-ci2-draft2':  draft2 ? draft2.url : '',
   'link-ci2-review2': review2 ? review2.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
