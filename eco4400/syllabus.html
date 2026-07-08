@@ -558,14 +558,14 @@
       <span class="syl-section-title">How Will Your Learning Be Organized?</span>
     </div>
     <div class="syl-body" style="padding:0;">
-      <p style="padding: 1rem 1.5rem 0.5rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week. Wednesdays serve as lab time for both the Consulting Team project and Applied Research &amp; Case Analytics work, including the Harvard Business cases and journal replication project.</p>
+      <p style="padding: 1rem 1.5rem 0.5rem; font-size:0.83rem; color:var(--muted);">Mondays cover the Applied Economics chapter below. Every Wednesday is lab time for the Consulting Team project and Applied Research &amp; Case Analytics work, including the Harvard Business cases and journal replication project.</p>
       <table class="sched-table" id="syl-sched-table">
         <thead>
           <tr>
             <th>Week</th>
+            <th>Dates</th>
             <th>Topic</th>
-            <th>Monday</th>
-            <th>Wednesday</th>
+            <th>Chapter</th>
           </tr>
         </thead>
         <tbody id="syl-sched-body"></tbody>
@@ -843,7 +843,7 @@ document.getElementById('syl-textbook-block').innerHTML =
   '<strong>E-Book Only.</strong> ' + TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
   TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + ', ' + TEXTBOOK.year + '. ' + TEXTBOOK.note;
 
-// Section 5 — Schedule table (Week / Topic / Monday / Wednesday)
+// Section 5 — Schedule table (Week / Dates / Topic / Chapter)
 var schedBody = document.getElementById('syl-sched-body');
 SCHEDULE.forEach(function(row) {
   var tr = document.createElement('tr');
@@ -852,26 +852,18 @@ SCHEDULE.forEach(function(row) {
     tr.className = 'break-row';
     tr.innerHTML =
       '<td></td>' +
+      '<td>' + row.dates + '</td>' +
       '<td>' + row.label + '</td>' +
-      '<td>&mdash;</td>' +
       '<td>&mdash;</td>';
     schedBody.appendChild(tr);
     return;
   }
 
-  var topicHtml = row.chapter
-    ? '<span class="ch-tag">' + row.chapter + '</span>' + row.topic
-    : row.topic;
-
-  var wedHtml = row.wednesday
-    ? row.wednesday + (row.num > 0 ? ' <span class="data-tag">DATA</span>' : '')
-    : '&mdash;';
-
   tr.innerHTML =
     '<td><span class="week-num">' + row.num + '</span></td>' +
-    '<td>' + topicHtml + '</td>' +
-    '<td>' + (row.monday || '&mdash;') + '</td>' +
-    '<td>' + wedHtml + '</td>';
+    '<td>' + row.dates + '</td>' +
+    '<td>' + row.topic + '</td>' +
+    '<td>' + (row.chapter ? '<span class="ch-tag">' + row.chapter + '</span>' : '&mdash;') + '</td>';
   schedBody.appendChild(tr);
 });
 

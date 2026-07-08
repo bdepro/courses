@@ -97,21 +97,21 @@ const DATES = {
 //  separate Applied Economics session.
 // ================================================================
 const SCHEDULE = [
-  { num: 0,  chapter: null,       topic: "Orientation",                                              monday: null,                                     wednesday: "Introduction & team formation" },
-  { num: 1,  chapter: "Ch. 1",    topic: "Solving Problems with Economics",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4252", quizUrl: null },
-  { num: 2,  chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",                           monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4258", quizUrl: null },
-  { num: 3,  chapter: "Ch. 15",   topic: "Strategic Games",                                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4256", quizUrl: null },
-  { num: 4,  chapter: "Ch. 19",   topic: "The Problem of Adverse Selection",                         monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4253", quizUrl: null },
-  { num: 5,  chapter: "Ch. 20",   topic: "The Problem of Moral Hazard",                              monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4255", quizUrl: null },
-  { num: 6,  chapter: "Ch. 21",   topic: "Getting Employees to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/10408", quizUrl: null },
-  { break: true, label: "Fall Break" },
-  { num: 7,  chapter: "Ch. 22",   topic: "Getting Divisions to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4254", quizUrl: null },
-  { num: 8,  chapter: "Ch. 23",   topic: "Managing Vertical Relationships",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4257", quizUrl: null },
-  { num: 9,  chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
-  { num: 10, chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
-  { num: 11, chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
-  { break: true, label: "Thanksgiving Week — No Class" },
-  { num: 12, chapter: null,       topic: "Final Presentations",                                      monday: "Live client presentation — Sustainable Alamance", wednesday: null },
+  { num: 0,  dates: "Aug 26",         chapter: null,       topic: "Orientation",                                              monday: null,                                     wednesday: "Introduction & team formation" },
+  { num: 1,  dates: "Aug 31-Sep 2",   chapter: "Ch. 1",    topic: "Solving Problems with Economics",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4252", quizUrl: null },
+  { num: 2,  dates: "Sep 7-9",        chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",                           monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4258", quizUrl: null },
+  { num: 3,  dates: "Sep 14-16",      chapter: "Ch. 15",   topic: "Strategic Games",                                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4256", quizUrl: null },
+  { num: 4,  dates: "Sep 21-23",      chapter: "Ch. 19",   topic: "The Problem of Adverse Selection",                         monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4253", quizUrl: null },
+  { num: 5,  dates: "Sep 28-30",      chapter: "Ch. 20",   topic: "The Problem of Moral Hazard",                              monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4255", quizUrl: null },
+  { num: 6,  dates: "Oct 5-7",        chapter: "Ch. 21",   topic: "Getting Employees to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/10408", quizUrl: null },
+  { break: true, dates: "Oct 14-18",  label: "Fall Break" },
+  { num: 7,  dates: "Oct 19-21",      chapter: "Ch. 22",   topic: "Getting Divisions to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4254", quizUrl: null },
+  { num: 8,  dates: "Oct 26-28",      chapter: "Ch. 23",   topic: "Managing Vertical Relationships",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4257", quizUrl: null },
+  { num: 9,  dates: "Nov 2-4",        chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { num: 10, dates: "Nov 9-11",       chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { num: 11, dates: "Nov 16-18",      chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { break: true, dates: "Nov 23-27",  label: "Thanksgiving Week — No Class" },
+  { num: 12, dates: "Nov 30",         chapter: null,       topic: "Final Presentations",                                      monday: "Live client presentation — Sustainable Alamance", wednesday: null },
 ];
 
 // ================================================================

@@ -571,7 +571,7 @@
             <th>Week</th>
             <th>Dates</th>
             <th>Topic</th>
-            <th>Hanley</th>
+            <th>Chapter</th>
           </tr>
         </thead>
         <tbody id="syl-sched-body"></tbody>
@@ -845,8 +845,8 @@ SCHEDULE.sessions.forEach(function(s) {
   // Week number — blank for break weeks
   var weekNum = s.break ? '' : s.num;
 
-  // Topic label
-  var topic = s.label;
+  // Topic label — short thematic phrase for content weeks, special label otherwise
+  var topic = s.topic || s.label;
   if (s.checkIn) topic = 'Check-In ' + s.checkIn + ' / Review';
   if (s.viva)    topic = 'Viva Week / Check-In 4';
   if (s.break && s.breakType === 'fall')         topic = 'Fall Break';
