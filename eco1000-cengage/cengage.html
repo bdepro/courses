@@ -157,7 +157,7 @@
     <svg style="width:20px;height:20px;stroke:rgba(255,255,255,0.7);fill:none;stroke-width:2;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
   </a>
 
-  <details class="register-card">
+  <details class="register-card" id="register">
     <summary>
       <span class="rc-title">
         How Do I Register for Cengage?
@@ -196,6 +196,12 @@ document.getElementById('backLink').href    = PAGES.home;
 document.getElementById('courseTag').textContent = `${COURSE.courseCode} · ${COURSE.semester}`;
 document.getElementById('masterLink').href  = CENGAGE.allResources;
 document.getElementById('registerVideo').src = CENGAGE.registrationVideoUrl;
+
+if (location.hash === '#register') {
+  const registerCard = document.getElementById('register');
+  registerCard.open = true;
+  registerCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 // Group chapters by week from config — no local chapter list needed
 const byWeek = {};
