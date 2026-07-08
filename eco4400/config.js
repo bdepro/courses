@@ -90,23 +90,28 @@ const DATES = {
 //  chapterUrl / quizUrl: UPDATE with Cengage e-book chapter link and Canvas quiz
 //  link once available each semester — null renders as "Coming Soon" on
 //  the Applied Economics materials page (econ.html)
+//  Wednesdays run as lab time for both the Consulting Team and Applied
+//  Research & Case Analytics tracks — not a fixed weekly split between them.
+//  Weeks 9–11 have no chapter: with only 8 chapters finalized, those
+//  Mondays fold into project/consulting milestone time instead of a
+//  separate Applied Economics session.
 // ================================================================
 const SCHEDULE = [
-  { num: 0,  chapter: null,       topic: "Orientation",                           monday: null,                wednesday: "Introduction & team formation" },
-  { num: 1,  chapter: "Ch. 1",    topic: "Solving Problems with Economics",       monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 2,  chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",        monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 3,  chapter: "Ch. 4",    topic: "How Much Decisions",                    monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 4,  chapter: "Ch. 5",    topic: "Investment Decisions",                  monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 5,  chapter: "Ch. 10",   topic: "Keeping Profit from Eroding",           monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 6,  chapter: "Ch. 12",   topic: "More Realistic Pricing",                monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
+  { num: 0,  chapter: null,       topic: "Orientation",                                              monday: null,                                     wednesday: "Introduction & team formation" },
+  { num: 1,  chapter: "Ch. 1",    topic: "Solving Problems with Economics",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4252", quizUrl: null },
+  { num: 2,  chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",                           monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4258", quizUrl: null },
+  { num: 3,  chapter: "Ch. 15",   topic: "Strategic Games",                                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4256", quizUrl: null },
+  { num: 4,  chapter: "Ch. 19",   topic: "The Problem of Adverse Selection",                         monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4253", quizUrl: null },
+  { num: 5,  chapter: "Ch. 20",   topic: "The Problem of Moral Hazard",                              monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4255", quizUrl: null },
+  { num: 6,  chapter: "Ch. 21",   topic: "Getting Employees to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/10408", quizUrl: null },
   { break: true, label: "Fall Break" },
-  { num: 7,  chapter: "Ch. 13–14", topic: "Price Discrimination",            monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 8,  chapter: "Ch. 15",   topic: "Strategic Games",                       monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 9,  chapter: "Ch. 16",   topic: "Bargaining",                            monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 10, chapter: "Ch. 21",   topic: "Employee Incentives",                   monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
-  { num: 11, chapter: "Ch. 22–23", topic: "Divisions & Vertical Relationships", monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: null, quizUrl: null },
+  { num: 7,  chapter: "Ch. 22",   topic: "Getting Divisions to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4254", quizUrl: null },
+  { num: 8,  chapter: "Ch. 23",   topic: "Managing Vertical Relationships",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4257", quizUrl: null },
+  { num: 9,  chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { num: 10, chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { num: 11, chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
   { break: true, label: "Thanksgiving Week — No Class" },
-  { num: 12, chapter: null,       topic: "Final Presentations",                   monday: "Live client presentation — Sustainable Alamance", wednesday: null },
+  { num: 12, chapter: null,       topic: "Final Presentations",                                      monday: "Live client presentation — Sustainable Alamance", wednesday: null },
 ];
 
 // ================================================================

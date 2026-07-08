@@ -522,7 +522,7 @@
           </tr>
           <tr>
             <td class="slo-num">SLO 3</td>
-            <td>Students <strong>identify</strong> appropriate data-analysis methods and <strong>explain</strong> associated limitations and interpretations.<span class="slo-evidence">Assessed in the journal replication project, where students re-run a published housing and energy analysis and evaluate where the methodology holds. Also addressed in the IMPLAN economic modeling component of the consulting project.</span></td>
+            <td>Students <strong>identify</strong> appropriate data-analysis methods and <strong>explain</strong> associated limitations and interpretations.<span class="slo-evidence">Assessed in the journal replication project, where students re-run a published housing and energy analysis and evaluate where the methodology holds. Also addressed in the RIMS II regional multiplier component of the consulting project.</span></td>
           </tr>
           <tr>
             <td class="slo-num">SLO 4</td>
@@ -530,7 +530,7 @@
           </tr>
           <tr>
             <td class="slo-num">SLO 5</td>
-            <td>Students use software to <strong>visualize</strong> data, <strong>analyze</strong> it for pertinent information, and <strong>develop models</strong> that estimate relationships among variables.<span class="slo-evidence">Students use Excel for ROI calculations, IMPLAN for county-level economic modeling, and ACS data tools for census-tract mapping. The consulting project requires all three functions within a single analytical workflow.</span></td>
+            <td>Students use software to <strong>visualize</strong> data, <strong>analyze</strong> it for pertinent information, and <strong>develop models</strong> that estimate relationships among variables.<span class="slo-evidence">Students use Excel for ROI calculations, RIMS II multipliers for county-level economic impact modeling, and ACS data tools for census-tract mapping. The consulting project requires all three functions within a single analytical workflow.</span></td>
           </tr>
         </tbody>
       </table>
@@ -558,7 +558,7 @@
       <span class="syl-section-title">How Will Your Learning Be Organized?</span>
     </div>
     <div class="syl-body" style="padding:0;">
-      <p style="padding: 1rem 1.5rem 0.5rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week.</p>
+      <p style="padding: 1rem 1.5rem 0.5rem; font-size:0.83rem; color:var(--muted);">Wednesday sessions marked <span class="data-tag">DATA</span> are the primary Data Nexus hours for that week. Wednesdays serve as lab time for both the Consulting Team project and Applied Research &amp; Case Analytics work, including the Harvard Business cases and journal replication project.</p>
       <table class="sched-table" id="syl-sched-table">
         <thead>
           <tr>
@@ -864,7 +864,7 @@ SCHEDULE.forEach(function(row) {
     : row.topic;
 
   var wedHtml = row.wednesday
-    ? row.wednesday + (row.chapter ? ' <span class="data-tag">DATA</span>' : '')
+    ? row.wednesday + (row.num > 0 ? ' <span class="data-tag">DATA</span>' : '')
     : '&mdash;';
 
   tr.innerHTML =
