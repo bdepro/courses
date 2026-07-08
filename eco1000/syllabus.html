@@ -768,10 +768,11 @@ document.getElementById('syl-textbook-block').innerHTML =
 // Section 5 — Schedule table
 var schedBody = document.getElementById('syl-sched-body');
 
-// Chapter label lookup
+// Chapter number + title lookups
 var chapterMap = {};
-CHAPTERS.core.forEach(function(c) { chapterMap[c.key] = c.num; });
-CHAPTERS.application.forEach(function(c) { chapterMap[c.key] = c.num; });
+var titleMap   = {};
+CHAPTERS.core.forEach(function(c) { chapterMap[c.key] = c.num; titleMap[c.key] = c.title; });
+CHAPTERS.application.forEach(function(c) { chapterMap[c.key] = c.num; titleMap[c.key] = c.title; });
 
 // Check-in coverage lookup
 var ciCoverage = CHAPTERS.checkIns;
@@ -782,14 +783,19 @@ SCHEDULE.sessions.forEach(function(s) {
   // Week number — blank for break weeks
   var weekNum = s.break ? '' : s.num;
 
-  // Topic
+  // Topic — chapter title(s) for content weeks, special label otherwise
   var topic = s.label;
+  if (s.chapter && s.chapter !== 'application') {
+    topic = s.chapter.split('_').map(function(k) {
+      return titleMap[k] || k;
+    }).join(' / ');
+  }
+  if (s.chapter === 'application') topic = 'Application Block';
   if (s.checkIn) topic = 'Check-In ' + s.checkIn + ' / Review';
   if (s.viva) topic = 'Viva Week / Check-In 4';
   if (s.break && s.breakType === 'fall') topic = 'Fall Break';
   if (s.break && s.breakType === 'thanksgiving') topic = 'Thanksgiving Break';
   if (s.num === 0) topic = 'Course Introduction';
-  if (s.chapter === 'application') topic = 'Application Block';
 
   // Chapter
   var chLabel = '';

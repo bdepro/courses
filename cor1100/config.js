@@ -97,12 +97,14 @@ const SCHEDULE = {
     },
     {
       num: 1, dates: "Aug 31-Sep 4", label: "Week 1",
+      topic: "Self-Interest and Caring for Others",
       chapters: ["intro", "ch1", "ch2"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Intro / Ch. I On Self-Interest / Ch. II On Caring for Others",
     },
     {
       num: 2, dates: "Sep 7-11", label: "Week 2",
+      topic: "Imagination, Action, and Self-Betterment",
       chapters: ["ch3", "ch4", "ch5"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
@@ -115,12 +117,14 @@ const SCHEDULE = {
     },
     {
       num: 4, dates: "Sep 21-25", label: "Week 4",
+      topic: "Misery, Health, and Tranquility of Mind",
       chapters: ["ch6", "ch7", "ch8"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
       num: 5, dates: "Sep 28-Oct 2", label: "Week 5",
+      topic: "Wealth, Friendship, and Anger",
       chapters: ["ch9", "ch10", "ch12"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
@@ -133,6 +137,7 @@ const SCHEDULE = {
     },
     {
       num: 7, dates: "Oct 12-13", label: "Week 7",
+      topic: "On Being Loved",
       chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Mon & Tue only — Ch. XIII On Being Loved / PDF reading assigned; tested in Puzzle 5 with Week 9 / Fall Break begins Wed",
@@ -145,12 +150,14 @@ const SCHEDULE = {
     },
     {
       num: 9, dates: "Oct 19-23", label: "Week 9",
+      topic: "Loving, Flourishing, and Being Lovely",
       chapters: ["ch14", "ch15", "ch16"], checkIn: null, tmsFF: true, viva: false,
       break: false, breakType: null,
       note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
+      topic: "Self-Perception, Dignity, and Equality",
       chapters: ["ch17", "ch18", "ch19"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
@@ -163,12 +170,14 @@ const SCHEDULE = {
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
+      topic: "Choice, Selfhood, and Perfection",
       chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Week 13",
+      topic: "Wisdom, Humility, and Praiseworthiness",
       chapters: ["ch23", "ch24", "ch25"], checkIn: null, tmsFF: false, viva: false,
       break: false, breakType: null,
       note: "Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
