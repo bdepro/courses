@@ -173,7 +173,7 @@ metaItems.forEach(item => {
 
 // Arc summary
 document.getElementById('arcSummary').textContent =
-  `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Problem Sets (${GRADING.components.find(c => c.id === 'problems').weight}%) · Executive Memo (${GRADING.components.find(c => c.id === 'memo').weight}%) · Participation (${GRADING.components.find(c => c.id === 'participation').weight}%)`;
+  `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Problem Sets (${GRADING.components.find(c => c.id === 'problems').weight}%) · Capstone TBD (${GRADING.components.find(c => c.id === 'capstone').weight}%) · Participation (${GRADING.components.find(c => c.id === 'participation').weight}%)`;
 
 // Canvas card
 document.getElementById('canvasCard').href = CANVAS_COURSE;
@@ -201,7 +201,7 @@ const ALL_CARDS = [
     href:    CANVAS_COURSE,
     icon:    'file-text',
     title:   'Case Analyses',
-    desc:    'One structured case analysis per module. Apply that module\'s economic framework to a real managerial decision, submitted in Canvas.',
+    desc:    'One structured case analysis for each of four selected modules. Apply that module\'s economic framework to a real managerial decision, submitted in Canvas.',
     badge:   gradeLabel('cases'),
     badgeClass: 'badge-grade',
     external: true,
@@ -211,18 +211,18 @@ const ALL_CARDS = [
     href:    CENGAGE.allResources || CANVAS_COURSE,
     icon:    'trending-up',
     title:   'Problem Sets',
-    desc:    'Quantitative and analytical problems via the Cengage e-book platform — one set per module. Builds the calculative fluency behind each framework.',
+    desc:    'Quantitative and analytical problems via the Cengage e-book platform — one set per chapter (8 total). Builds the calculative fluency behind each framework.',
     badge:   gradeLabel('problems'),
     badgeClass: 'badge-grade',
     external: true,
   },
   {
-    feature: 'memo',
+    feature: 'capstone',
     href:    CANVAS_COURSE,
-    icon:    'send',
-    title:   'Executive Memo',
-    desc:    'A capstone deliverable: select a real managerial decision, apply course frameworks, and present your analysis as a professional executive memorandum.',
-    badge:   gradeLabel('memo'),
+    icon:    'help-circle',
+    title:   'Capstone Assignment (TBD)',
+    desc:    'A capstone deliverable due at the end of the course, worked on during the Module 10 work week. Format not yet finalized.',
+    badge:   gradeLabel('capstone'),
     badgeClass: 'badge-grade',
     external: true,
   },

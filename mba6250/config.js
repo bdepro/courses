@@ -12,8 +12,9 @@
 //  5. CASES block         — case titles (drafted below) and
 //                           aid (Canvas assignment ID) once cases are
 //                           built in Canvas
-//  6. MEMO block          — aid (Canvas assignment ID) once the memo
-//                           assignment is built in Canvas
+//  6. CAPSTONE block      — replaces the former Executive Memo. Format
+//                           not yet decided — title/due/aid are
+//                           placeholders until finalized.
 //  That is it. index.html and syllabus.html pull from this file automatically.
 // ================================================================
 
@@ -73,61 +74,42 @@ const SCHEDULE = {
 
   // Modules — UPDATE dates each semester; topics/chapters locked
   // unless course structure changes.
+  // Modules 4 and 10 are buffer weeks (no chapter, no problem set) —
+  // a mid-course synthesis/review checkpoint and a dedicated capstone
+  // work week before the course ends.
   modules: [
-    { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "The Economic Approach to Decisions" },
-    { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and the Margin" },
-    { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Extent Decisions and Optimal Quantity" },
-    { num: 4,  dates: "Oct 11–17",      due: "October 16, 11:59 p.m.",   topic: "Investment Decisions and Resource Allocation" },
-    { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "Simple Pricing and the Demand Curve" },
-    { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "Economies of Scale, Scope, and Industry Structure" },
-    { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Game Theory and Strategic Interaction" },
-    { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Bargaining, Contracting, and Incentives" },
-    { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Pricing with Market Power and Price Discrimination" },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "December 4, 11:59 p.m.",   topic: "Information, Risk, and Agency Problems" },
+    { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "Introduction: Incentive Alignment" },
+    { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
+    { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Strategic Games" },
+    { num: 4,  dates: "Oct 11–17",      due: "No submission — review week", topic: "Synthesis &amp; Review: Foundations Checkpoint" },
+    { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
+    { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
+    { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
+    { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
+    { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "December 4, 11:59 p.m.",   topic: "Capstone Work Week — format TBD" },
   ],
 };
 
 // ================================================================
 //  CHAPTERS — SINGLE SOURCE OF TRUTH
 //  Froeb, McCann, Ward & Shor, Managerial Economics: A Problem
-//  Solving Approach (Cengage). Keys must match keys in CENGAGE.
-//  UPDATE each semester if chapter selection changes.
+//  Solving Approach (Cengage), 6th edition. Keys must match keys
+//  in CENGAGE. UPDATE each semester if chapter selection changes.
+//
+//  8 chapters across 8 content modules; Modules 4 and 10 are
+//  buffer weeks (synthesis/review, capstone work week) with no
+//  assigned chapter.
 // ================================================================
 const CHAPTERS = [
-  // Module 1 — The Economic Approach
-  { key: "ch1",  num: "Ch 1",  title: "Introduction",                                    module: 1 },
-  { key: "ch2",  num: "Ch 2",  title: "The One Lesson of Business",                      module: 1 },
-
-  // Module 2 — Benefits, Costs, and the Margin
-  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                  module: 2 },
-
-  // Module 3 — Extent Decisions
-  { key: "ch4",  num: "Ch 4",  title: "Extent (How Much) Decisions",                     module: 3 },
-
-  // Module 4 — Investment Decisions
-  { key: "ch5",  num: "Ch 5",  title: "Investment Decisions: Look Ahead and Reason Back", module: 4 },
-
-  // Module 5 — Simple Pricing
-  { key: "ch6",  num: "Ch 6",  title: "Simple Pricing",                                  module: 5 },
-
-  // Module 6 — Industry Structure
-  { key: "ch7",  num: "Ch 7",  title: "Economies of Scale and Scope",                    module: 6 },
-  { key: "ch8",  num: "Ch 8",  title: "Understanding Markets and Industry Structure",     module: 6 },
-
-  // Module 7 — Game Theory
-  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                  module: 7 },
-
-  // Module 8 — Bargaining and Contracting
-  { key: "ch16", num: "Ch 16", title: "Bargaining",                                      module: 8 },
-  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                 module: 8 },
-
-  // Module 9 — Pricing with Market Power
-  { key: "ch11", num: "Ch 11", title: "Bundling and Intrafirm Pricing",                  module: 9 },
-  { key: "ch12", num: "Ch 12", title: "More Pricing Strategies",                         module: 9 },
-
-  // Module 10 — Information and Agency
-  { key: "ch17", num: "Ch 17", title: "Moral Hazard",                                    module: 10 },
-  { key: "ch18", num: "Ch 18", title: "Agency and Performance Pay",                      module: 10 },
+  { key: "ch1",  num: "Ch 1",  title: "Introduction: Incentive Alignment",                          module: 1 },
+  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                             module: 2 },
+  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                            module: 3 },
+  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                           module: 5 },
+  { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6 },
+  { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7 },
+  { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8 },
+  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9 },
 ];
 
 // ================================================================
@@ -138,11 +120,11 @@ const GRADING = {
   dueTime: "11:59 p.m.",                            // universal due time — Friday of each module
   components: [
     { id: "cases",       label: "Case Analyses",              weight: 40,
-      note: "One structured case analysis per module. Applies the module's economic framework to a real managerial decision." },
+      note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "problems",    label: "Problem Sets",                weight: 30,
-      note: "One quantitative problem set per module via the Cengage e-book platform." },
-    { id: "memo",        label: "Executive Memo",              weight: 20,
-      note: "Capstone deliverable due at the end of the course." },
+      note: "One quantitative problem set per chapter (8 total) via the Cengage e-book platform." },
+    { id: "capstone",    label: "Capstone Assignment (TBD)",   weight: 20,
+      note: "Format not yet finalized — replaces the former Executive Memo. Placeholder weight retained until decided." },
     { id: "participation", label: "Participation",             weight: 10,
       note: "Discussion-board engagement in Canvas, one prompt per module." },
   ],
@@ -157,7 +139,7 @@ const FEATURES = {
   syllabus:      true,
   cases:         true,   // links out to Canvas case-analysis activities
   problems:      true,   // links out to Cengage e-book problem sets
-  memo:          true,   // links out to Canvas memo assignment
+  capstone:      true,   // links out to Canvas capstone assignment (format TBD)
   materials:     true,   // links out to Cengage e-book resources
   support:       true,
   aiPolicy:      true,
@@ -170,7 +152,7 @@ const FEATURES = {
 const TEXTBOOK = {
   publisher:  "Cengage",
   platform:   "E-Book",
-  edition:    "5th",
+  edition:    "6th",
   title:      "Managerial Economics: A Problem Solving Approach",
   authors:    "Froeb, McCann, Ward, and Shor",
   ebookUrl:   "",   // UPDATE: paste Canvas LTI URL once registered
@@ -207,50 +189,47 @@ const CENGAGE = {
 
   // Chapter E-Book Readings — keyed by CHAPTERS[].key
   reads: {
-    ch1:  "", ch2:  "", ch3:  "", ch4:  "", ch5:  "",
-    ch6:  "", ch7:  "", ch8:  "", ch11: "", ch12: "",
-    ch15: "", ch16: "", ch17: "", ch18: "", ch19: "",
+    ch1: "", ch3: "", ch15: "", ch19: "", ch20: "", ch21: "", ch22: "", ch23: "",
   },
 
   // Chapter Problem Sets (Cengage Apply It) — keyed by CHAPTERS[].key
   problems: {
-    ch1:  "", ch2:  "", ch3:  "", ch4:  "", ch5:  "",
-    ch6:  "", ch7:  "", ch8:  "", ch11: "", ch12: "",
-    ch15: "", ch16: "", ch17: "", ch18: "", ch19: "",
+    ch1: "", ch3: "", ch15: "", ch19: "", ch20: "", ch21: "", ch22: "", ch23: "",
   },
 };
 
 // ================================================================
 //  CASE ANALYSES
-//  One case per module. Students receive the case, analyze using
-//  the module's framework, and submit a structured response.
-//  AI-assisted analysis is permitted with proper disclosure.
-//  Titles below are drafted to match each module's framework —
-//  UPDATE once real case materials are selected. aid (Canvas
-//  assignment ID) stays blank until the Canvas assignment is built.
+//  Only 4 of the 9 content modules carry a case (Modules 3, 5, 7, 9)
+//  to control per-student HBP case cost/reading load on top of the
+//  e-book. Anchored to the module in each conceptual pair (adverse
+//  selection/moral hazard; employees/divisions) with the clearest
+//  real-decision framework — the paired module gets a problem set
+//  only. Students receive the case, analyze using the module's
+//  framework, and submit a structured response. AI-assisted analysis
+//  is permitted with proper disclosure. Titles below are confirmed real
+//  HBP cases (product numbers in hbpProduct) found via a live catalog
+//  search 2026-07-10 — see course-notes/mba6250/hbp-cases/ for full
+//  rationale. Price/current availability still needs confirming on
+//  hbsp.harvard.edu before ordering. aid (Canvas assignment ID) stays
+//  blank until the Canvas assignment is built.
 // ================================================================
 const CASES = [
-  { module: 1,  title: "The One Lesson in Practice: A Make-or-Buy Decision",            due: "September 25", aid: "" },
-  { module: 2,  title: "Weighing the Marginal Costs of a New Product Line",             due: "October 2",    aid: "" },
-  { module: 3,  title: "How Much to Produce: Scaling a Manufacturing Run",              due: "October 9",    aid: "" },
-  { module: 4,  title: "Look Ahead, Reason Back: Evaluating a Capital Investment",      due: "October 16",   aid: "" },
-  { module: 5,  title: "Setting the Price: Demand Analysis for a New Service",          due: "October 23",   aid: "" },
-  { module: 6,  title: "Scale, Scope, and Structure in a Consolidating Industry",       due: "October 30",   aid: "" },
-  { module: 7,  title: "A Pricing Standoff: Strategic Games Between Rivals",            due: "November 6",   aid: "" },
-  { module: 8,  title: "Negotiating Under Asymmetric Information",                      due: "November 13",  aid: "" },
-  { module: 9,  title: "Bundling and Price Discrimination in Subscription Services",    due: "November 20",  aid: "" },
-  { module: 10, title: "Designing Incentives to Curb Moral Hazard",                     due: "December 4",   aid: "" },
+  { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 9",   aid: "" },
+  { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG (+ UV9362-PDF-ENG, part B)", due: "October 23",  aid: "" },
+  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 6",  aid: "" },
+  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "November 20", aid: "" },
 ];
 
 // ================================================================
-//  EXECUTIVE MEMO ASSIGNMENT
-//  Students select a real managerial decision, analyze it using
-//  course frameworks, and deliver a professional memo.
-//  Due at the end of the course.
+//  CAPSTONE ASSIGNMENT — FORMAT TBD
+//  Replaces the former Executive Memo. Final deliverable format has
+//  not been decided. Placeholder title/due/aid until finalized;
+//  weight (20%, see GRADING) is reserved in the meantime.
 // ================================================================
-const MEMO = {
-  title:            "Executive Memo: Applied Managerial Analysis",
-  due:              "December 4, 2026, 11:59 p.m.",   // UPDATE each semester
+const CAPSTONE = {
+  title:            "Capstone Assignment — Format TBD",
+  due:              "December 4, 2026, 11:59 p.m.",   // UPDATE once format is decided
   aid:              "", // UPDATE each semester (Canvas assignment ID)
 };
 
@@ -262,7 +241,7 @@ const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
 CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
-MEMO.url = ASSIGNMENT_URL(MEMO.aid);
+CAPSTONE.url = ASSIGNMENT_URL(CAPSTONE.aid);
 
 // ================================================================
 //  DERIVED — do not edit
@@ -278,5 +257,5 @@ const CONFIG = {
   pages:       PAGES,
   cengage:     CENGAGE,
   cases:       CASES,
-  memo:        MEMO,
+  capstone:    CAPSTONE,
 };
