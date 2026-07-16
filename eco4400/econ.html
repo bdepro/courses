@@ -53,6 +53,7 @@
     .ch-num{background:var(--warm-gray);padding:0.9rem 0.5rem;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;}
     .ch-body{padding:0.85rem 1rem;font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
     .ch-session{font-size:0.72rem;color:var(--muted);display:block;margin-top:2px;font-weight:400;}
+    .ch-due{font-size:0.72rem;color:var(--crimson);display:block;margin-top:2px;font-weight:600;}
     .ch-actions{display:flex;align-items:stretch;}
     .ch-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;color:var(--gold-link);white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
     .ch-link:hover{background:var(--warm-gray);}
@@ -96,7 +97,7 @@
   </div>
 
   <div class="callout teal">
-    <strong>Click a chapter to open it in the Cengage e-book via Canvas, or go straight to that week&rsquo;s quiz.</strong> Problem sets and in-class application exercises drawn from these chapters make up 30% of your course grade &mdash; see the syllabus for the full grading policy.
+    <strong>Click a chapter to open it in the Cengage e-book via Canvas, or go straight to that week&rsquo;s quiz.</strong> Each quiz is due the Sunday night before its chapter is covered in class &mdash; complete the reading and quiz before that week&rsquo;s Monday session. Problem sets and in-class application exercises drawn from these chapters make up 30% of your course grade &mdash; see the syllabus for the full grading policy.
   </div>
 
   <p class="section-label">Managerial Economics — Chapter &amp; Quiz Directory</p>
@@ -130,9 +131,11 @@ function buildRow(row) {
       '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
     '</a>';
 
+  var dueHtml = row.quizDue ? '<span class="ch-due">Quiz due ' + row.quizDue + '</span>' : '';
+
   div.innerHTML =
     '<div class="ch-num">' + row.chapter + '</div>' +
-    '<div class="ch-body">' + row.topic + '<span class="ch-session">Week ' + row.num + '</span></div>' +
+    '<div class="ch-body">' + row.topic + '<span class="ch-session">Week ' + row.num + '</span>' + dueHtml + '</div>' +
     '<div class="ch-actions">' + chapterLink + quizLink + '</div>';
   return div;
 }
