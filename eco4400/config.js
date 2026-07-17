@@ -52,7 +52,7 @@ const INSTRUCTORS = [
     email:  "dhawkins5@elon.edu",
     office: "KoBC 120",
     phone:  "(336) 278-5977",
-    hours:  "TBD",   // UPDATE — TBD until Fall 2026 hours are set
+    hours:  "Mon / Wed, 4:00–5:00 PM & Fri, 2:00–3:00 PM",
     zoomUrl: null,     // UPDATE — TBD until Fall 2026 Zoom link is confirmed
     zoomDisplay: null,
   },
