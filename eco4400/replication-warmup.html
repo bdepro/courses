@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 4400 — Journal Replication, Stage 1: Warm-Up
+  Public course-site page. Authored in the private course-notes
+  repo (eco4400/replication-challenge/student/warmup.html) — if
+  you edit the content, edit it there first, then re-copy here.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warm-Up: The 2x2 DiD, Five Ways &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.9rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+
+    .chip-row{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.75rem;}
+    .weight-chip-solo {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow); padding: 0.85rem 1.25rem;
+    }
+    .weight-chip-solo .pct { font-size: 1.3rem; font-weight: 700; color: var(--crimson); }
+    .weight-chip-solo .label { font-size: 0.8rem; color: var(--muted); }
+
+    .callout{border-radius:0 6px 6px 0;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.9rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:var(--teal-dk);}
+    .callout.gold{background:rgba(181,154,87,0.1);border-left:4px solid var(--gold);}
+    .callout.gold strong{color:var(--gold-link);}
+    .callout.red{background:rgba(115,0,10,0.05);border-left:4px solid var(--crimson);}
+    .callout.red strong{color:var(--crimson);}
+
+    .section-heading{font-size:1.05rem;font-weight:700;color:var(--crimson);margin:2.25rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--gold);display:inline-block;}
+    .section-heading:first-of-type{margin-top:0;}
+
+    p{margin-bottom:0.9rem;font-size:0.93rem;}
+    p:last-child{margin-bottom:0;}
+
+    .step-list{display:flex;flex-direction:column;gap:0.9rem;margin-bottom:0.5rem;}
+    .step-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:auto 1fr;}
+    .step-num{background:var(--crimson);color:var(--white);font-size:0.9rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:44px;padding:0.5rem;}
+    .step-body{padding:1rem 1.2rem;}
+    .step-title{font-weight:700;font-size:0.92rem;color:var(--text);margin-bottom:0.35rem;}
+    .step-desc{font-size:0.87rem;color:var(--muted);line-height:1.6;}
+    .step-desc code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);}
+
+    .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.85rem;margin-bottom:1.5rem;}
+    .tool-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:1rem 1.1rem;}
+    .tool-name{font-size:0.9rem;font-weight:700;color:var(--crimson);margin-bottom:0.3rem;}
+    .tool-use{font-size:0.81rem;color:var(--muted);line-height:1.6;}
+    .tool-use code{background:var(--warm-gray);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.78rem;}
+
+    .data-links{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;}
+    .data-link{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:8px;padding:0.65rem 1rem;text-decoration:none;font-size:0.85rem;font-weight:600;color:var(--gold-link);}
+    .data-link:hover{background:var(--warm-gray);}
+    .data-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+    .check-list{list-style:none;padding:0;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);}
+    .check-item{display:flex;gap:0.75rem;padding:0.85rem 1.1rem;border-bottom:1px solid var(--warm-gray);font-size:0.9rem;align-items:flex-start;}
+    .check-item:last-child{border-bottom:none;}
+    .check-item .box{width:16px;height:16px;min-width:16px;border:2px solid var(--gold);border-radius:3px;margin-top:0.15rem;}
+
+    .var-table{width:100%;border-collapse:collapse;font-size:0.86rem;margin-bottom:1.5rem;}
+    .var-table th{background:var(--warm-gray);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);}
+    .var-table td{padding:0.6rem 0.75rem;border-bottom:1px solid var(--warm-gray);vertical-align:top;}
+    .var-table tr:last-child td{border-bottom:none;}
+    .var-table code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);white-space:nowrap;}
+
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .step-card{grid-template-columns:1fr;}
+      .step-num{min-width:100%;padding:0.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="research.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Applied Research &amp; Case Analytics
+    </a>
+    <p class="screen-eyebrow">ECO 4400 &middot; Applied Research &amp; Case Analytics &middot; Journal Replication, Stage 1</p>
+    <h1 class="screen-title">Warm-Up: The 2x2 DiD, Five Ways</h1>
+    <p class="screen-sub">A DiD estimate is four averages and three subtractions before it&rsquo;s ever a regression. Prove it to yourself here, before applying it to a real policy question next stage.</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="chip-row">
+    <div class="weight-chip-solo">
+      <span class="pct">~60&ndash;75</span>
+      <span class="label">minutes, plan for one lab session</span>
+    </div>
+    <div class="weight-chip-solo">
+      <span class="pct">Any</span>
+      <span class="label">software: Excel, Stata, Python, R, whatever you have</span>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <strong>Read the provided PDF before you start</strong>: Scott Cunningham&rsquo;s &ldquo;Diff-in-diff can be written down six ways!&rdquo; (Scott&rsquo;s Mixtape, 2026). He shows six: two manual calculations and four regressions. This page has you build five of them yourself &mdash; both manual calculations, plus three of the four regressions.
+  </div>
+
+  <p class="section-heading">The Idea</p>
+  <p>Take a treatment group and a control group, each observed before and after some event, and subtract twice. That&rsquo;s the whole calculation. The regressions economists usually run to estimate a DiD, including the ones you&rsquo;ll use below, are a different arithmetic route to that same number.</p>
+  <p>Your job in this warm-up is to prove that to yourself, on a dataset simple enough that the arithmetic has nowhere to hide: state-level homicide rates around the 2006 adoption of &ldquo;castle doctrine&rdquo; self-defense laws (Cheng &amp; Hoekstra).</p>
+
+  <p class="section-heading">The Data</p>
+  <p>This dataset is public, and it needs no registration or cleaning. It&rsquo;s restricted to states that adopted castle doctrine in 2006 (treatment) or hadn&rsquo;t adopted by the end of the sample window (control), comparing 2005 to 2006: 42 states, 84 rows total.</p>
+  <div class="data-links">
+    <a class="data-link" href="https://github.com/scunning1975/mixtape/raw/master/castle.dta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      castle.dta (Stata format, full variable set)
+    </a>
+    <a class="data-link" href="castle_warmup.csv">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      castle_warmup.csv (trimmed for Excel, 8 columns)
+    </a>
+  </div>
+  <table class="var-table">
+    <thead>
+      <tr><th>Variable</th><th>What it is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>sid</code> / <code>state</code></td><td>The unit</td></tr>
+      <tr><td><code>year</code></td><td>2005 or 2006</td></tr>
+      <tr><td><code>treat</code></td><td>1 if the state adopted castle doctrine in 2006, 0 otherwise (already built for you in the CSV)</td></tr>
+      <tr><td><code>post</code></td><td>1 if year is 2006</td></tr>
+      <tr><td><code>l_homicide</code></td><td>Your outcome: the log homicide rate</td></tr>
+    </tbody>
+  </table>
+
+  <p class="section-heading">The Task: Five Ways to the Same Number</p>
+  <div class="step-list">
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Manual 2x2, first differences then difference</div>
+        <div class="step-desc">Compute the average <code>l_homicide</code> in each of the four cells (treat&times;post), then <code>(y11 &minus; y10) &minus; (y01 &minus; y00)</code>. This number is your target for every method below.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Manual 2x2, group differences then difference</div>
+        <div class="step-desc">Same four averages as Method 1, subtracted in the other order: <code>(y11 &minus; y01) &minus; (y10 &minus; y00)</code>. The signs move with the terms, so the number doesn&rsquo;t change &mdash; only the order you subtract in does.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">OLS, treatment &times; post interaction</div>
+        <div class="step-desc">Regress <code>l_homicide</code> on <code>treat</code>, <code>post</code>, and their interaction. The coefficient on the interaction term is your DiD estimate &mdash; the same OLS estimator as every regression below, just with different right-hand-side variables.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Twoway fixed effects</div>
+        <div class="step-desc">Regress <code>l_homicide</code> on the <code>treat&times;post</code> interaction, controlling for a dummy for every state and a dummy for year. Still OLS &mdash; just with many more right-hand-side variables. The interaction coefficient should still match your target.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">First-difference regression</div>
+        <div class="step-desc">For each state, compute the change in <code>l_homicide</code> from 2005 to 2006, then regress that change on <code>treat</code>. Same coefficient again.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout gold">
+    <strong>Cunningham shows a sixth way</strong> &mdash; a fourth regression, of the treat-minus-control gap on a post dummy. It&rsquo;s not here on purpose: it makes the same point Method 2 already makes (the order of subtraction doesn&rsquo;t matter), just as a regression instead of by hand. If you want to build it yourself as a check, it&rsquo;s a three-line addition to whichever tool you&rsquo;re using &mdash; ask if you want to try it.
+  </div>
+
+  <p class="section-heading">Standard Errors, and Statistical vs. Economic Significance</p>
+  <p>A standard error measures how much your estimate would wobble if you drew a different sample of the same states and years. A small one means precision: repeat the exercise with different data and you would land close to the same place. When the standard error is large, the opposite holds: the number you found could easily have come out very different by chance.</p>
+  <p>Statistical significance is a claim about that wobble: whether the estimate is precise enough to trust its sign. When economists call a result &ldquo;statistically significant,&rdquo; they usually mean the estimate sits far enough from zero, relative to its standard error, that pure noise is an unlikely explanation, roughly two or more standard errors away. It&rsquo;s a yes-or-no question about confidence in the estimate, separate from how large or small the effect actually is.</p>
+  <p>Economic significance asks a different question: does the effect matter? A drop in electricity spending of 0.1%, estimated with total precision from millions of households, would be statistically significant and economically irrelevant: no household budget moves on 0.1%. A 15% drop estimated imprecisely from 40 states might not clear the statistical bar, but if it&rsquo;s real, it&rsquo;s a number policymakers would care about.</p>
+  <p>This warm-up asks you to match five point estimates because the lesson is the arithmetic identity behind DiD. Statistical significance is a separate question, one you&rsquo;ll meet for real in Stage 2, where the sample runs past a hundred thousand households. At that size, almost any nonzero effect clears the statistical bar. Whether it&rsquo;s economically significant is the harder, more interesting question, and you answer it by looking at the size of the number and asking whether it would change a real decision.</p>
+
+  <div class="callout red">
+    <strong>Match the five coefficients; standard errors are a separate question.</strong> None of the five methods below asks you to report one, in any software, so skip clustering entirely for this exercise. That&rsquo;s the whole point.
+  </div>
+
+  <p class="section-heading">Getting Started, by Software</p>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">Excel</div>
+      <div class="tool-use">Steps 1 and 2 are both <code>AVERAGEIFS</code> once you load <code>castle_warmup.csv</code>, just combined in a different order. Steps 3 and 5 work with Data &gt; Data Analysis &gt; Regression once you build a <code>treat&times;post</code> helper column. Step 4 (state fixed effects) is the hardest to build by hand. Ask me about the demeaning shortcut before you build all 42 state dummy columns.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Stata</div>
+      <div class="tool-use"><code>use castle.dta</code>, then <code>summarize</code>/<code>reg</code>/<code>xtreg</code>/<code>reshape</code>. Ask me if you want the exact commands.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Python</div>
+      <div class="tool-use"><code>pandas.read_stata()</code> reads the .dta directly from the URL above. <code>statsmodels.formula.api.ols</code> handles all three regression specs.</div>
+    </div>
+  </div>
+
+  <p class="section-heading">What to Turn In</p>
+  <ul class="check-list">
+    <li class="check-item"><span class="box"></span> Your five DiD estimates, clearly labeled, showing they match (small rounding differences are fine).</li>
+    <li class="check-item"><span class="box"></span> Your code or worksheet, in whatever tool you used.</li>
+    <li class="check-item"><span class="box"></span> 3&ndash;4 sentences: <em>why</em> do all five methods have to produce the same number? What does that tell you about what a DiD estimate actually is?</li>
+  </ul>
+
+  <p class="section-heading">Optional: What Method 5 Is Actually Doing</p>
+  <p>Method 5 above is not just one of five equivalent routes to the same point estimate. It is the exact estimator in a 2026 paper by Soo Jeong Lee and Jeffrey Wooldridge, which revisits this same <code>castle.dta</code> dataset to make a specific point: because Method 5 collapses each state down to a single number before regressing, its ordinary standard error is valid on its own terms, even with only 42 states. No clustering and no large-sample assumptions required.</p>
+  <p>The plain standard error assumes every state's estimate wobbles by the same amount. That assumption is often wrong: a small state's homicide rate can swing a lot from year to year just from a handful of extra deaths, while a large state's rate barely moves. Statisticians call unequal wobble across observations <strong>heteroskedasticity</strong>. <strong>HC3</strong> is a fix for it: instead of assuming one fixed amount of noise for every state, it builds the standard error from each state's own residual, the gap between that state's actual change and what the regression line predicts. States that stand out more get more careful treatment in the calculation. The name is short for &ldquo;heteroskedasticity-consistent standard error, version 3.&rdquo; It comes from MacKinnon and White (1985), a refinement of the original robust standard error White proposed in 1980. HC3 is closest in spirit to a <strong>jackknife</strong> estimate: roughly what you&rsquo;d get by leaving each state out one at a time, refitting, and seeing how much the answer moves.</p>
+  <p>Lee and Wooldridge's own recommendation: the plain standard error is exact only if that equal-wobble assumption genuinely holds, and you cannot verify that just by looking at the regression output. HC3 relaxes it, and their cited evidence shows HC3 stays reliable even with few states, in their words, &ldquo;provided there are at least a handful of treated units.&rdquo; Step 5 has 13 treated states. That clears their bar, so their recommendation is to trust the HC3 number over the plain one here.</p>
+  <div class="callout gold">
+    <strong>Not part of what you turn in.</strong> If you want to see it, rerun Method 5&rsquo;s regression and read off its standard error, t-statistic, and p-value instead of skipping past them. Then refit with an HC3 robust standard error and compare. In small samples HC3 usually comes out a little larger than the plain one. That extra caution is the whole reason it exists. But &ldquo;usually&rdquo; is not &ldquo;always&rdquo;: in this data it actually comes out a little smaller. Figuring out why is the interesting part.
+  </div>
+
+  <div class="callout teal" style="margin-top:1.75rem;">
+    <strong>Stage 2 applies this same five-way recipe to a real question</strong>: did state building energy codes actually lower household electricity bills? You&rsquo;ll use the same structure on real data, with a published estimate to check your work against.
+  </div>
+
+</main>
+<footer>ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Journal Replication, Stage 1</footer>
+</body>
+</html>

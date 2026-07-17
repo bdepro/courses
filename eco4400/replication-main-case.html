@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 4400 — Journal Replication, Stage 2: Main Case
+  Public course-site page. Authored in the private course-notes
+  repo (eco4400/replication-challenge/student/main-case.html) —
+  if you edit the content, edit it there first, then re-copy here.
+
+  INSTRUCTOR NOTE: the data-link below is a placeholder (href="#").
+  Upload homes_sample_for_class.csv to Canvas Files (or a shared
+  drive) and paste the real link in — see README.md's open items
+  in the course-notes repo.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Case: Building Energy Codes &amp; Electricity Bills &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.9rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+
+    .chip-row{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.75rem;}
+    .weight-chip-solo {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow); padding: 0.85rem 1.25rem;
+    }
+    .weight-chip-solo .pct { font-size: 1.3rem; font-weight: 700; color: var(--crimson); }
+    .weight-chip-solo .label { font-size: 0.8rem; color: var(--muted); }
+
+    .callout{border-radius:0 6px 6px 0;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.9rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:var(--teal-dk);}
+    .callout.gold{background:rgba(181,154,87,0.1);border-left:4px solid var(--gold);}
+    .callout.gold strong{color:var(--gold-link);}
+    .callout.red{background:rgba(115,0,10,0.05);border-left:4px solid var(--crimson);}
+    .callout.red strong{color:var(--crimson);}
+
+    .section-heading{font-size:1.05rem;font-weight:700;color:var(--crimson);margin:2.25rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--gold);display:inline-block;}
+    .section-heading:first-of-type{margin-top:0;}
+
+    p{margin-bottom:0.9rem;font-size:0.93rem;}
+    p:last-child{margin-bottom:0;}
+
+    .step-list{display:flex;flex-direction:column;gap:0.9rem;margin-bottom:0.5rem;}
+    .step-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:auto 1fr;}
+    .step-num{background:var(--crimson);color:var(--white);font-size:0.9rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:44px;padding:0.5rem;}
+    .step-body{padding:1rem 1.2rem;}
+    .step-title{font-weight:700;font-size:0.92rem;color:var(--text);margin-bottom:0.35rem;}
+    .step-desc{font-size:0.87rem;color:var(--muted);line-height:1.6;}
+    .step-desc code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);}
+
+    .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.85rem;margin-bottom:1.5rem;}
+    .tool-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:1rem 1.1rem;}
+    .tool-name{font-size:0.9rem;font-weight:700;color:var(--crimson);margin-bottom:0.3rem;}
+    .tool-use{font-size:0.81rem;color:var(--muted);line-height:1.6;}
+    .tool-use code{background:var(--warm-gray);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.78rem;}
+
+    .data-links{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;}
+    .data-link{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:8px;padding:0.65rem 1rem;text-decoration:none;font-size:0.85rem;font-weight:600;color:var(--gold-link);}
+    .data-link:hover{background:var(--warm-gray);}
+    .data-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+    .check-list{list-style:none;padding:0;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);}
+    .check-item{display:flex;gap:0.75rem;padding:0.85rem 1.1rem;border-bottom:1px solid var(--warm-gray);font-size:0.9rem;align-items:flex-start;}
+    .check-item:last-child{border-bottom:none;}
+    .check-item .box{width:16px;height:16px;min-width:16px;border:2px solid var(--gold);border-radius:3px;margin-top:0.15rem;}
+
+    .var-table{width:100%;border-collapse:collapse;font-size:0.86rem;margin-bottom:1.5rem;}
+    .var-table th{background:var(--warm-gray);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);}
+    .var-table td{padding:0.6rem 0.75rem;border-bottom:1px solid var(--warm-gray);vertical-align:top;}
+    .var-table tr:last-child td{border-bottom:none;}
+    .var-table code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);white-space:nowrap;}
+
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .step-card{grid-template-columns:1fr;}
+      .step-num{min-width:100%;padding:0.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="research.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Applied Research &amp; Case Analytics
+    </a>
+    <p class="screen-eyebrow">ECO 4400 &middot; Applied Research &amp; Case Analytics &middot; Journal Replication, Stage 2</p>
+    <h1 class="screen-title">Main Case: Did Building Energy Codes Lower Electricity Bills?</h1>
+    <p class="screen-sub">Same five-way recipe as the warm-up, applied to an actual policy question with a published estimate to check your work against, and a correction worth thinking about.</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="chip-row">
+    <div class="weight-chip-solo">
+      <span class="pct">45&ndash;60</span>
+      <span class="label">minutes core, plus 20&ndash;30 if you attempt the stretch</span>
+    </div>
+    <div class="weight-chip-solo">
+      <span class="pct">Stata</span>
+      <span class="label">or Python &mdash; scripts provided for both</span>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <strong>Read both Holian PDFs before you start</strong>: the 2020 <em>Economics Letters</em> paper and the 2021 corrigendum that corrects its headline number. You'll need both for the questions below.
+  </div>
+
+  <p class="section-heading">The Setting</p>
+  <p>Since 1978, California &mdash; and eventually 32 other states &mdash; adopted building energy codes meant to cut household electricity use in new construction. Nearly fifty years later, policymakers still argue about whether these codes actually delivered the savings they promised, or whether the &ldquo;green building&rdquo; story is mostly hope dressed up as policy.</p>
+  <p>You are a research analyst asked to evaluate this the way an economist would. Comparing old homes to new homes and calling the difference &ldquo;the effect of the code&rdquo; won't hold up. Incomes, home sizes, and climate control habits all changed across those same decades, and that comparison can't tell the code's effect apart from everything else moving at once. A real comparison group can: states with similar housing stock that never adopted a code, observed over the same period. That's the DiD design you proved to yourself in the warm-up, now applied to a live question.</p>
+
+  <p class="section-heading">The Data</p>
+  <p><code>homes_sample_for_class.csv</code> &mdash; ACS 2012&ndash;2017 household microdata, built from Matthew Holian's own OpenICPSR replication files, filtered to his analysis sample and subsampled to 150,000 rows so it stays fast for a lab session. 10MB, no registration.</p>
+  <div class="data-links">
+    <a class="data-link" href="#">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      homes_sample_for_class.csv (Canvas link goes here)
+    </a>
+  </div>
+  <table class="var-table">
+    <thead>
+      <tr><th>Variable</th><th>What it is</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>STATEFIP</code></td><td>The unit</td></tr>
+      <tr><td><code>BUILTYR3</code></td><td>Decade the home was built: 1960, 1970, 1980, or 1990</td></tr>
+      <tr><td><code>CODESTATE</code></td><td>1 if the home is in one of the 33 states that adopted a building energy code in the 1970s (this is your <code>treat</code>)</td></tr>
+      <tr><td><code>logCOSTELEC</code></td><td>Your outcome: log annual household electricity expenditure</td></tr>
+      <tr><td><code>HHWT</code>, <code>ROOMS</code>, <code>logHHINCOME</code>, <code>WHITE</code>, <code>AGE</code>, <code>HHSIZE</code></td><td>Household weight and controls &mdash; not needed for the core task, only for the stretch extension below</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold">
+    <strong><code>castle.dta</code> arrived already collapsed to one row per state per year.</strong> This file is one row per household instead. Both scripts collapse it to a <code>STATEFIP &times; post</code> panel first (mean <code>logCOSTELEC</code> per state per period) before running any of the five methods. Skip that step and the regressions won't agree with the manual 2x2s or with each other, because household counts differ by state. Skip it once anyway and watch what happens to your numbers. It's worth seeing for yourself.
+  </div>
+
+  <p class="section-heading">The Task: Five Ways to the Same Number</p>
+  <p>Run <code>code/main-case/main_case.do</code> or <code>code/main-case/main_case.py</code>. The structure is deliberately almost identical to the warm-up:</p>
+  <div class="step-list">
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Manual 2x2, first differences then difference</div>
+        <div class="step-desc">On the collapsed panel, compute the average <code>logCOSTELEC</code> in each of the four <code>treat&times;post</code> cells, then <code>(y11 &minus; y10) &minus; (y01 &minus; y00)</code>. This is your target for every method below.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Manual 2x2, group differences then difference</div>
+        <div class="step-desc">Same four averages as Method 1, subtracted in the other order: <code>(y11 &minus; y01) &minus; (y10 &minus; y00)</code>. The signs move with the terms, so the number doesn&rsquo;t change &mdash; only the order you subtract in does.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">OLS, treatment &times; post interaction</div>
+        <div class="step-desc">Regress <code>logCOSTELEC</code> on <code>treat</code>, <code>post</code>, and their interaction. The coefficient on the interaction term is your DiD estimate.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Twoway fixed effects</div>
+        <div class="step-desc">Regress <code>logCOSTELEC</code> on the <code>treat&times;post</code> interaction, controlling for a dummy for every state and a dummy for post. The interaction coefficient should still match your target.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">First-difference regression</div>
+        <div class="step-desc">For each state, compute the change in mean <code>logCOSTELEC</code> from pre to post, then regress that change on <code>treat</code>. Same coefficient again.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-heading">Comparing to the Published Estimate</p>
+  <p>Your five numbers should all land around <strong>&minus;0.011</strong>. Holian's own published, corrected estimate is <strong>&minus;0.0225 to &minus;0.026</strong>, roughly double yours. That's because your version treats every state the same regardless of population, while his weights by household (<code>HHWT</code>) and adds controls yours skips, like income and household size. The stretch extension below asks you to close that gap yourself.</p>
+  <p>When you write this up, name the actual reasons: weighting and missing controls.</p>
+
+  <p class="section-heading">Stretch Extension (Optional)</p>
+  <p>Modify the collapse step to weight by <code>HHWT</code> instead of a plain mean, and/or add controls (<code>logHHINCOME</code>, <code>ROOMS</code>, <code>WHITE</code>, <code>AGE</code>, <code>HHSIZE</code>) to a household-level regression. Rerun. Does your estimate move toward Holian's published number? Report what you changed and where the estimate landed, even if it doesn't reach &minus;0.0225 to &minus;0.026. Running the experiment is what counts here.</p>
+
+  <p class="section-heading">The Corrigendum Question</p>
+  <p>Holian's original 2020 paper reported roughly a 4% effect. He caught his own arithmetic error a year later and corrected it to 2&ndash;2.5%, still a real, negative effect, just about half the size he first claimed. In 4&ndash;5 sentences: does this change how much you trust the finding? A published author caught and corrected his own error a full year after peer review. What does that tell you about why replication, actually checking someone else's numbers yourself, matters even for work that already cleared review?</p>
+
+  <p class="section-heading">Getting Started, by Software</p>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">Stata</div>
+      <div class="tool-use"><code>import delimited</code>, then <code>collapse</code> to the state&times;post panel, then <code>reg</code>/<code>reshape</code> &mdash; same commands as the warm-up, applied after the collapse. Ask me if you want the exact syntax.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Python</div>
+      <div class="tool-use"><code>pandas.read_csv()</code>, <code>.groupby().agg()</code> for the collapse, then <code>statsmodels.formula.api.ols</code> for all three regression specs &mdash; identical structure to the warm-up.</div>
+    </div>
+  </div>
+  <p>Want to try it in Excel? Collapse first with a PivotTable (rows = <code>STATEFIP</code>, columns = <code>BUILTYR3</code> grouped into pre/post, values = average <code>logCOSTELEC</code>), then work from that small table exactly like Steps 1 and 2 in the warm-up. Doing this on the raw 150,000-row file directly isn't practical in Excel &mdash; collapse first.</p>
+
+  <div class="callout red">
+    <strong>Match the five point estimates; skip standard errors for this exercise.</strong> The scripts cluster by state under the hood because that's correct practice, but nothing in the deliverables below asks you to report or interpret one.
+  </div>
+
+  <p class="section-heading">What to Turn In</p>
+  <ul class="check-list">
+    <li class="check-item"><span class="box"></span> Your five main-case DiD estimates, clearly labeled, showing they match (around &minus;0.011).</li>
+    <li class="check-item"><span class="box"></span> Treatment, control, and post &mdash; defined in your own words, not copy-pasted from this page.</li>
+    <li class="check-item"><span class="box"></span> A comparison of your number to Holian's published estimate, explained through weighting and missing controls.</li>
+    <li class="check-item"><span class="box"></span> Stretch extension, if you attempt it: what you changed and what happened to the estimate.</li>
+    <li class="check-item"><span class="box"></span> 4&ndash;5 sentences on the corrigendum question above.</li>
+    <li class="check-item"><span class="box"></span> Your code or worksheet, running top to bottom without manual intervention.</li>
+  </ul>
+
+</main>
+<footer>ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Journal Replication, Stage 2</footer>
+</body>
+</html>

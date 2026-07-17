@@ -169,6 +169,14 @@
     }
     .materials-name { font-size: 0.9rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.3rem; }
     .materials-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.55; }
+    .materials-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+    .materials-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--warm-gray); border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.4rem 0.7rem; text-decoration: none; font-size: 0.78rem; font-weight: 600;
+      color: var(--gold-link);
+    }
+    .materials-link:hover { background: var(--white); }
 
     @media (max-width: 600px) {
       header { padding: 1.5rem 1.25rem; }
@@ -250,8 +258,16 @@
       <div class="materials-desc">Access details for the two case analyses will be distributed through Canvas once the cases are finalized.</div>
     </div>
     <div class="materials-card">
+      <div class="materials-name">Replication Task Pages</div>
+      <div class="materials-desc">Full instructions for both stages &mdash; the idea, the data, the five-way recipe, and what to turn in.</div>
+      <div class="materials-links">
+        <a class="materials-link" href="replication-warmup.html">Stage 1: Warm-Up</a>
+        <a class="materials-link" href="replication-main-case.html">Stage 2: Main Case</a>
+      </div>
+    </div>
+    <div class="materials-card">
       <div class="materials-name">Replication Dataset</div>
-      <div class="materials-desc">The core dataset and replication instructions are distributed through Canvas ahead of the assignment due date. An optional, ungraded advanced version is also available for students who want to see the full unsimplified regression.</div>
+      <div class="materials-desc">The dataset for each stage is distributed through Canvas ahead of the assignment due date. An optional, ungraded advanced version (Stage 3) is also available for students who want to see the full unsimplified regression &mdash; ask if you're interested.</div>
     </div>
   </div>
 
