@@ -140,9 +140,9 @@
           <span class="act-num">Part 2</span>
           <span class="act-time">Midway</span>
         </div>
-        <div class="act-title">The Economics in Your Story</div>
-        <div class="act-desc">We turn to what is happening economically in your narrative. I want to know how you thought about what you saw.</div>
-        <div class="act-examples">Expect questions about what was driving the choices and outcomes in your story.</div>
+        <div class="act-title" id="part2Title">The Economics in Your Story</div>
+        <div class="act-desc" id="part2Desc">We turn to what is happening economically in your narrative. I want to know how you thought about what you saw.</div>
+        <div class="act-examples" id="part2Examples">Expect questions about what was driving the choices and outcomes in your story.</div>
       </div>
       <div class="act-item">
         <div class="act-header">
@@ -150,8 +150,8 @@
           <span class="act-time">Toward the end</span>
         </div>
         <div class="act-title">Looking Back</div>
-        <div class="act-desc">We step back from the story to the course as a whole, and I'll ask one closing question: how has studying economics changed the way you see things?</div>
-        <div class="act-examples">You've spent the term looking at the world through an economic lens. Tell me where the economic lens helped and where it didn't.</div>
+        <div class="act-desc" id="part3Desc">We step back from the story to the course as a whole, and I'll ask one closing question: how has studying economics changed the way you see things?</div>
+        <div class="act-examples" id="part3Examples">You've spent the term looking at the world through an economic lens. Tell me where the economic lens helped and where it didn't.</div>
       </div>
     </div>
   </div>
@@ -165,8 +165,8 @@
         <div class="thing-desc">You were there, and the detail you have is something I can't get from anyone else in this conversation. If your answers are vague about your own story, that's usually a sign you haven't sat with it long enough.</div>
       </div>
       <div class="thing-item">
-        <div class="thing-name">Economic Thinking</div>
-        <div class="thing-desc">Walk me through what was driving each choice in your story, and I'll follow wherever the reasoning goes.</div>
+        <div class="thing-name" id="lookingForName">Economic Thinking</div>
+        <div class="thing-desc" id="lookingForDesc">Walk me through what was driving each choice in your story, and I'll follow wherever the reasoning goes.</div>
       </div>
       <div class="thing-item">
         <div class="thing-name">Honest Engagement</div>
@@ -174,7 +174,7 @@
       </div>
       <div class="thing-item">
         <div class="thing-name">Honest Reflection on the Course</div>
-        <div class="thing-desc">Tell me what you actually noticed, even if that's that economics didn't add much.</div>
+        <div class="thing-desc" id="reflectionDesc">Tell me what you actually noticed, even if that's that economics didn't add much.</div>
       </div>
     </div>
     <div class="note-box"><strong>"I need a moment"</strong> is a complete answer. Say it if you need to.</div>
@@ -201,9 +201,9 @@
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-body">
-          <div class="step-title">Work through the economics.</div>
-          <div class="step-desc">Without looking at your essay, work through what your story was actually about: what did someone stand to gain, and at what cost? Think about who or what brought the pieces together.</div>
-          <div class="step-desc" style="margin-top:0.6rem;">If you can't answer one of these, that's worth knowing before we talk. It usually means the narrative isn't grounded economically yet.</div>
+          <div class="step-title" id="step3Title">Work through the economics.</div>
+          <div class="step-desc" id="step3DescA">Without looking at your essay, work through what your story was actually about: what did someone stand to gain, and at what cost? Think about who or what brought the pieces together.</div>
+          <div class="step-desc" id="step3DescB" style="margin-top:0.6rem;">If you can't answer one of these, that's worth knowing before we talk. It usually means the narrative isn't grounded economically yet.</div>
         </div>
       </div>
       <div class="step-item">
@@ -232,7 +232,7 @@
     <div class="guide-text"><p>A strong viva is a conversation, with both of us working through something.</p></div>
     <div class="signal-list" style="margin-top:0.75rem;">
       <div class="signal-item"><div class="signal-dot"></div><span>She talks about her story the way she'd describe it to someone who wasn't there. The details are specific enough that you could picture the place.</span></div>
-      <div class="signal-item"><div class="signal-dot"></div><span>Without labeling it, she explains the economics. The example she gives is reasoning: "I knew if I waited, someone else would take it."</span></div>
+      <div class="signal-item"><div class="signal-dot"></div><span id="signalItem2">Without labeling it, she explains the economics. The example she gives is reasoning: "I knew if I waited, someone else would take it."</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>"I hadn't thought about it that way. Give me a moment." Working through something hard out loud is exactly what I'm looking for.</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>She says so when she doesn't know something.</span></div>
       <div class="signal-item"><div class="signal-dot"></div><span>When a question is hard, she goes back to the specific moment she wrote about. The story is always a way back in.</span></div>
@@ -288,11 +288,48 @@
   var params = new URLSearchParams(window.location.search);
   var from   = params.get('from');
 
+  // Discipline framing for the interpretive parts of the viva (Part 2, "What I Am
+  // Looking For", the Part 3 closing question, prep step 3, and one strong-viva
+  // signal). Everything else — Part 1, prep steps 1/2/4, careful-prose, scheduling —
+  // is genuinely shared and does not branch.
+  var FRAMING = {
+    economic: {
+      part2Title:    'The Economics in Your Story',
+      part2Desc:     'We turn to what is happening economically in your narrative. I want to know how you thought about what you saw.',
+      part2Examples: 'Expect questions about what was driving the choices and outcomes in your story.',
+      part3Desc:     'We step back from the story to the course as a whole, and I’ll ask one closing question: how has studying economics changed the way you see things?',
+      part3Examples: 'You’ve spent the term looking at the world through an economic lens. Tell me where the economic lens helped and where it didn’t.',
+      lookingForName: 'Economic Thinking',
+      lookingForDesc: 'Walk me through what was driving each choice in your story, and I’ll follow wherever the reasoning goes.',
+      step3Title: 'Work through the economics.',
+      step3DescA: 'Without looking at your essay, work through what your story was actually about: what did someone stand to gain, and at what cost? Think about who or what brought the pieces together.',
+      step3DescB: 'If you can’t answer one of these, that’s worth knowing before we talk. It usually means the narrative isn’t grounded economically yet.',
+      signalItem2: 'Without labeling it, she explains the economics. The example she gives is reasoning: "I knew if I waited, someone else would take it."',
+      reflectionDesc: 'Tell me what you actually noticed, even if that’s that economics didn’t add much.'
+    },
+    moral: {
+      part2Title:    'The Moral Reasoning in Your Story',
+      part2Desc:     'We turn to what is happening morally in your narrative. I want to know how you thought about what you saw — where sympathy, self-command, or the imagined view of an impartial spectator shaped what happened.',
+      part2Examples: 'Expect questions about what was driving the choices and outcomes in your story, and how the people involved weighed their own interests against what a fair-minded observer would think.',
+      part3Desc:     'We step back from the story to the course as a whole, and I’ll ask one closing question: how has studying Smith changed the way you see things?',
+      part3Examples: 'You’ve spent the term looking at the world through Smith’s moral philosophy. Tell me where that lens helped and where it didn’t.',
+      lookingForName: 'Moral Reasoning',
+      lookingForDesc: 'Walk me through what was driving each choice in your story — self-interest, sympathy, self-command — and I’ll follow wherever the reasoning goes.',
+      step3Title: 'Work through the moral reasoning.',
+      step3DescA: 'Without looking at your essay, work through what your story was actually about: what was each person’s self-interest, and where did sympathy or self-command pull against it? Think about how an impartial spectator would have judged what happened.',
+      step3DescB: 'If you can’t answer one of these, that’s worth knowing before we talk. It usually means the narrative isn’t grounded morally yet.',
+      signalItem2: 'Without labeling it, she explains the moral reasoning. The example she gives is reasoning: "I knew he’d have done the same for me, so holding back didn’t feel like a loss."',
+      reflectionDesc: 'Tell me what you actually noticed, even if that’s that Smith’s framework didn’t add much.'
+    }
+  };
+
   function initPage() {
     // ── Course identity ───────────────────────────────────────────
     var courseCode     = (typeof COURSE !== 'undefined') ? (COURSE.courseCode || COURSE.code || 'ECO 1000') : 'ECO 1000';
     var courseSemester = (typeof COURSE !== 'undefined') ? (COURSE.semester || '') : '';
     var courseTitle    = (typeof COURSE !== 'undefined') ? (COURSE.courseTitle || COURSE.title || '') : '';
+    var discipline      = (typeof COURSE !== 'undefined' && COURSE.discipline === 'moral') ? 'moral' : 'economic';
+    var copy            = FRAMING[discipline];
 
     // ── Back link ─────────────────────────────────────────────────
     var fridayUrl = (typeof PAGES !== 'undefined' && PAGES.friday)
@@ -303,6 +340,20 @@
     // ── Header tags ───────────────────────────────────────────────
     document.getElementById('courseTag').textContent  = courseSemester ? courseCode + ' · ' + courseSemester : courseCode;
     document.getElementById('footerText').textContent = [courseCode, courseTitle, courseSemester].filter(Boolean).join(' · ');
+
+    // ── Discipline-framed copy ──────────────────────────────────────
+    document.getElementById('part2Title').textContent    = copy.part2Title;
+    document.getElementById('part2Desc').textContent     = copy.part2Desc;
+    document.getElementById('part2Examples').textContent = copy.part2Examples;
+    document.getElementById('part3Desc').textContent     = copy.part3Desc;
+    document.getElementById('part3Examples').textContent = copy.part3Examples;
+    document.getElementById('lookingForName').textContent = copy.lookingForName;
+    document.getElementById('lookingForDesc').textContent = copy.lookingForDesc;
+    document.getElementById('step3Title').textContent    = copy.step3Title;
+    document.getElementById('step3DescA').textContent    = copy.step3DescA;
+    document.getElementById('step3DescB').textContent    = copy.step3DescB;
+    document.getElementById('signalItem2').textContent   = copy.signalItem2;
+    document.getElementById('reflectionDesc').textContent = copy.reflectionDesc;
 
     // ── Scheduling section — normalize both config schemas ────────
     var vivaWhen          = '';

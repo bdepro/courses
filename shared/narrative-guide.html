@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Write Your Economic Narrative</title>
+  <title id="pageTitleTag">How to Write Your Economic Narrative</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -96,7 +96,7 @@
   <div class="header-inner">
     <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Friday Focus</a>
     <p class="course-tag" id="courseTag"></p>
-    <h1>How to Write Your Economic Narrative</h1>
+    <h1 id="pageTitle">How to Write Your Economic Narrative</h1>
     <p class="sub">A drafting guide for Friday Focus 1. Read this before you begin writing.</p>
   </div>
 </header>
@@ -109,8 +109,8 @@
     <div class="guide-text">
       <p>Everyone has a moment like this.</p>
       <p>Think smaller than you think you should. Not a major life decision. Something like arriving somewhere and finding the line much longer than it should have been, or reaching for something at the store and pausing when you saw the price. A moment when ordinary life showed you its own structure for just a second.</p>
-      <p>You didn't call it economics when it happened. That's fine. This assignment asks you to go back to that moment and tell it carefully.</p>
-      <p>Start with what actually happened. Don't find a concept first and then hunt for a story to fit it. The economics will come up in the viva. For now, find the moment.</p>
+      <p id="findingStoryP1">You didn't call it economics when it happened. That's fine. This assignment asks you to go back to that moment and tell it carefully.</p>
+      <p id="findingStoryP2">Start with what actually happened. Don't find a concept first and then hunt for a story to fit it. The economics will come up in the viva. For now, find the moment.</p>
     </div>
   </div>
 
@@ -168,18 +168,18 @@
 
       <div class="question-block">
         <div class="q-header"><div class="q-num">6</div><div class="q-title">Why did it happen?</div></div>
-        <div class="q-desc">This is the hardest question and the most important. What made each person do what they did at that specific moment? Describe what you saw and what was behind it, and leave the economic labels out.</div>
+        <div class="q-desc" id="q6Desc">This is the hardest question and the most important. What made each person do what they did at that specific moment? Describe what you saw and what was behind it, and leave the economic labels out.</div>
         <div class="compare-pair">
           <div class="compare-item compare-weak">
             <div class="compare-label">Weak</div>
-            <div class="compare-text">She left because the ticket was too expensive.</div>
+            <div class="compare-text" id="q6Weak">She left because the ticket was too expensive.</div>
           </div>
           <div class="compare-item compare-strong">
             <div class="compare-label">Strong</div>
-            <div class="compare-text">She had been willing to pay the full price for the seat she wanted. When that seat was gone, paying the same price for a different seat felt like a worse deal, even though the price had not changed.</div>
+            <div class="compare-text" id="q6Strong">She had been willing to pay the full price for the seat she wanted. When that seat was gone, paying the same price for a different seat felt like a worse deal, even though the price had not changed.</div>
           </div>
         </div>
-        <div class="note-box" style="margin-top:0.75rem;">What you write for question 6 is the economic content of your narrative. Keep the labels out of the essay, and bring that reasoning to the viva. That's what we'll talk about.</div>
+        <div class="note-box" style="margin-top:0.75rem;" id="q6Note">What you write for question 6 is the economic content of your narrative. Keep the labels out of the essay, and bring that reasoning to the viva. That's what we'll talk about.</div>
       </div>
 
     </div>
@@ -224,7 +224,7 @@
   <p class="section-label">How and Why</p>
   <div class="guide-card">
     <div class="guide-text">
-      <p>Most student narratives get place, time, and people right. How and why are harder, and they're where the economic thinking actually lives.</p>
+      <p id="howWhyP">Most student narratives get place, time, and people right. How and why are harder, and they're where the economic thinking actually lives.</p>
       <p><strong>How</strong> is about the manner of what happened. Something like "before I could finish my sentence" gives me something to see. "Quickly" or "suddenly" doesn't.</p>
       <p><strong>Why</strong> is about the motive behind what each person did, and it's the hardest element because it asks you to interpret what you saw.</p>
       <p>After you write each action, ask yourself what was driving it. If the answer is a category ("she wanted it," "it was too expensive"), push further. What made this person do this specific thing at this specific moment?</p>
@@ -239,7 +239,7 @@
       <p>A strong first sentence lands you somewhere specific and makes you need to know what happens next. Or it drops you into something already in motion, and you catch up as you go.</p>
     </div>
 
-    <div class="guide-text" style="margin-top:1rem;"><p>"I have always been interested in economics" tells me you're still in the warm-up. Pull back until something is actually happening.</p></div>
+    <div class="guide-text" style="margin-top:1rem;"><p id="firstSentenceQuote">"I have always been interested in economics" tells me you're still in the warm-up. Pull back until something is actually happening.</p></div>
 
     <div class="sentence-list">
       <div class="sentence-item">"The sign said the sale ended Sunday, but on Saturday afternoon there were only three left in my size."</div>
@@ -287,10 +287,40 @@
   var params = new URLSearchParams(window.location.search);
   var from   = params.get('from');
 
+  // Discipline framing for Question 6 (the interpretive "why") and the page title.
+  // Everything else in the guide (finding your story, place/time, first sentence,
+  // length) is genuinely shared and does not branch.
+  var FRAMING = {
+    economic: {
+      pageTitle: 'How to Write Your Economic Narrative',
+      findingStoryP1: 'You didn’t call it economics when it happened. That’s fine. This assignment asks you to go back to that moment and tell it carefully.',
+      findingStoryP2: 'Start with what actually happened. Don’t find a concept first and then hunt for a story to fit it. The economics will come up in the viva. For now, find the moment.',
+      q6Desc:    'This is the hardest question and the most important. What made each person do what they did at that specific moment? Describe what you saw and what was behind it, and leave the economic labels out.',
+      q6Weak:    'She left because the ticket was too expensive.',
+      q6Strong:  'She had been willing to pay the full price for the seat she wanted. When that seat was gone, paying the same price for a different seat felt like a worse deal, even though the price had not changed.',
+      q6Note:    'What you write for question 6 is the economic content of your narrative. Keep the labels out of the essay, and bring that reasoning to the viva. That’s what we’ll talk about.',
+      howWhyP:   'Most student narratives get place, time, and people right. How and why are harder, and they’re where the economic thinking actually lives.',
+      firstSentenceQuote: '"I have always been interested in economics" tells me you’re still in the warm-up. Pull back until something is actually happening.'
+    },
+    moral: {
+      pageTitle: 'How to Write Your Narrative',
+      findingStoryP1: 'You didn’t call it a moral question when it happened. That’s fine. This assignment asks you to go back to that moment and tell it carefully.',
+      findingStoryP2: 'Start with what actually happened. Don’t find a concept first and then hunt for a story to fit it. The moral reasoning will come up in the viva. For now, find the moment.',
+      q6Desc:    'This is the hardest question and the most important. What made each person do what they did at that specific moment? Describe what you saw and what was behind it, and leave the moral vocabulary out.',
+      q6Weak:    'He gave up his seat because it was the nice thing to do.',
+      q6Strong:  'He pictured how the scene would look to someone watching from a few feet away — himself keeping the seat while an elderly man stood — and that imagined view was harder to sit with than giving it up.',
+      q6Note:    'What you write for question 6 is the moral content of your narrative. Keep Smith’s vocabulary — sympathy, self-command, the impartial spectator — out of the essay itself, and bring that reasoning to the viva. That’s what we’ll talk about.',
+      howWhyP:   'Most student narratives get place, time, and people right. How and why are harder, and they’re where the moral reasoning actually lives.',
+      firstSentenceQuote: '"I have always cared about doing the right thing" tells me you’re still in the warm-up. Pull back until something is actually happening.'
+    }
+  };
+
   function initPage() {
     var courseCode     = (typeof COURSE !== 'undefined') ? (COURSE.courseCode || COURSE.code || 'ECO 1000') : 'ECO 1000';
     var courseSemester = (typeof COURSE !== 'undefined') ? (COURSE.semester    || '') : '';
     var courseTitle    = (typeof COURSE !== 'undefined') ? (COURSE.courseTitle || COURSE.title || '') : '';
+    var discipline      = (typeof COURSE !== 'undefined' && COURSE.discipline === 'moral') ? 'moral' : 'economic';
+    var copy            = FRAMING[discipline];
     var fridayUrl      = (typeof PAGES !== 'undefined' && PAGES.friday)
                           ? PAGES.friday
                           : (from ? '../' + from + '/friday.html' : 'friday.html');
@@ -302,6 +332,17 @@
     document.getElementById('courseTag').textContent  = courseSemester ? courseCode + ' · ' + courseSemester : courseCode;
     document.getElementById('footerText').textContent = [courseCode, courseTitle, courseSemester].filter(Boolean).join(' · ');
     document.getElementById('prepGuideBtn').href      = vivaUrl;
+
+    document.getElementById('pageTitleTag').textContent = copy.pageTitle;
+    document.getElementById('pageTitle').textContent    = copy.pageTitle;
+    document.getElementById('findingStoryP1').textContent = copy.findingStoryP1;
+    document.getElementById('findingStoryP2').textContent = copy.findingStoryP2;
+    document.getElementById('q6Desc').textContent       = copy.q6Desc;
+    document.getElementById('q6Weak').textContent       = copy.q6Weak;
+    document.getElementById('q6Strong').textContent     = copy.q6Strong;
+    document.getElementById('q6Note').textContent       = copy.q6Note;
+    document.getElementById('howWhyP').textContent      = copy.howWhyP;
+    document.getElementById('firstSentenceQuote').textContent = copy.firstSentenceQuote;
   }
 
   if (from) {

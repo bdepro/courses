@@ -17,6 +17,7 @@ const COURSE = {
   semester:    "Summer Session II 2026",    // UPDATE each semester
   courseCode:  "ECO 1000",
   courseTitle: "Principles of Economics",
+  discipline:  "economic",                         // drives Friday Focus narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
   baseUrl:     "https://bdepro.github.io/courses/eco1000-cengage", // UPDATE if repo moves
 
   // Instructor details — UPDATE each semester if anything changes
