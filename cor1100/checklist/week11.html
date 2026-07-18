@@ -162,14 +162,50 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk11-ff-progress">
+      <div class="check-item" data-id="wk11-ff-revplan2">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Friday Focus progress</div>
-          <div class="check-desc">In-class work on your narrative. Submit your artifact through Canvas before class ends.</div>
-          <span class="check-tag tag-submit">Friday Focus</span>
-          <br><a class="check-link" href="#" id="link-wk11-ff" target="_blank" rel="noopener">
-            Submit Progress <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="check-title">Submit your Friday Focus Revision Plan</div>
+          <div class="check-desc">Name what you're changing in your narrative, based on the feedback from Review 2.</div>
+          <span class="check-tag tag-submit" id="wk11-ff-revplan2-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk11-ff-revplan2" target="_blank" rel="noopener">
+            Open Revision Plan <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk11-ff-revision2">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Friday Focus Revision 2</div>
+          <div class="check-desc">Turn your plan into an actual rewrite.</div>
+          <span class="check-tag tag-submit" id="wk11-ff-revision2-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk11-ff-revision2" target="_blank" rel="noopener">
+            Open Revision 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk11-ff-draft3">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Draft 3: The Narrative</div>
+          <div class="check-desc">Bring the scene and the moral reasoning together into one continuous story — this is close to the final version.</div>
+          <span class="check-tag tag-submit" id="wk11-ff-draft3-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk11-ff-draft3" target="_blank" rel="noopener">
+            Open Draft 3 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk11-ff-review3">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete Friday Focus Peer Review 3</div>
+          <div class="check-desc">Read a classmate's revised narrative and leave feedback they can actually use.</div>
+          <span class="check-tag tag-submit" id="wk11-ff-review3-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk11-ff-review3" target="_blank" rel="noopener">
+            Open Peer Review <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -194,9 +230,13 @@ document.getElementById('weekMeta').textContent = session11 ? session11.dates : 
 const puzzle6 = CANVAS.puzzles.find(p => p.session === 10);
 const ci3     = CANVAS.checkIns.find(c => c.id === 3);
 const tms2    = CANVAS.tms.find(t => t.dueSession === 11);
+const revPlan2  = (CANVAS.eli || []).find(t => t.id === 7);
+const revision2 = (CANVAS.eli || []).find(t => t.id === 8);
+const draft3    = (CANVAS.eli || []).find(t => t.id === 9);
+const review3   = (CANVAS.eli || []).find(t => t.id === 10);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 6 and your Fishbowl 2 response are both due Wednesday, the same day as Check-In #3.`;
+dueBannerText.innerHTML = `Puzzle 6, your Fishbowl 2 response, your Friday Focus revision plan, Revision 2, and Draft 3 are all due Wednesday, the same day as Check-In #3. Review 3 follows on Friday.`;
 
 if (puzzle6) document.getElementById('ci3-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
 if (tms2) {
@@ -204,11 +244,18 @@ if (tms2) {
   document.getElementById('ci3-tms-tag').textContent = `Fishbowl · Due ${tms2.due}`;
   document.getElementById('ci3-tms-desc').textContent = `${tms2Title} is due today — submit in Perusall.`;
 }
+if (revPlan2)  document.getElementById('wk11-ff-revplan2-tag').textContent  = `Friday Focus · Due ${revPlan2.due}`;
+if (revision2) document.getElementById('wk11-ff-revision2-tag').textContent = `Friday Focus · Due ${revision2.due}`;
+if (draft3)    document.getElementById('wk11-ff-draft3-tag').textContent    = `Friday Focus · Due ${draft3.due}`;
+if (review3)   document.getElementById('wk11-ff-review3-tag').textContent   = `Friday Focus · Due ${review3.due}`;
 
 const L = {
-  'link-ci3-puzzle': puzzle6 ? puzzle6.url : '',
-  'link-ci3-tms':    tms2 ? tms2.url : '',
-  'link-wk11-ff':    (CANVAS.viva && CANVAS.viva.ffSubmitUrl) ? CANVAS.viva.ffSubmitUrl : '',
+  'link-ci3-puzzle':      puzzle6 ? puzzle6.url : '',
+  'link-ci3-tms':         tms2 ? tms2.url : '',
+  'link-wk11-ff-revplan2':  revPlan2  ? revPlan2.url  : '',
+  'link-wk11-ff-revision2': revision2 ? revision2.url : '',
+  'link-wk11-ff-draft3':    draft3    ? draft3.url    : '',
+  'link-wk11-ff-review3':   review3   ? review3.url   : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
