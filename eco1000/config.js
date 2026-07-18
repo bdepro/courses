@@ -22,6 +22,7 @@
 const COURSE = {
   code:        "ECO 1000",
   title:       "Principles of Economics",
+  discipline:  "economic",                         // drives Friday Focus narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,

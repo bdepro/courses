@@ -20,6 +20,7 @@
 const COURSE = {
   code:        "COR 1100",
   title:       "The Global Experience",
+  discipline:  "moral",                            // drives Friday Focus narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,
