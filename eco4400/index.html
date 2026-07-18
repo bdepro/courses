@@ -43,17 +43,15 @@
     .pill svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.5; flex-shrink: 0; }
     .pill i { width: 12px; height: 12px; }
 
-    /* Instructor meta rows — one compact line per instructor, COR 1100 style.
-       Fixed grid columns (instead of brand.css's flex) so the two rows'
-       labels line up regardless of how long each instructor's values are. */
-    .meta {
-      display: grid;
-      grid-template-columns: 130px 90px 190px 150px 1fr;
-      column-gap: 1.5rem;
-      margin-top: 0.6rem;
-    }
+    /* Instructor meta rows — Instructor + Email only (full contact details,
+       office hours, and Zoom live on the syllabus page, not duplicated
+       here). Still needs a fixed-width first column: brand.css's default
+       flex .meta sizes each row's Instructor cell to that row's own name
+       width, so "Devon Hawkins" (wider) pushes its Email column out of
+       line with "Brooks Depro"'s row above it. A shared column width
+       keeps Email flush across both rows regardless of name length. */
+    .meta { display: grid; grid-template-columns: 140px 1fr; column-gap: 1.5rem; margin-top: 0.6rem; }
     .meta:first-of-type { margin-top: 1.25rem; }
-    .meta-value { overflow-wrap: break-word; word-break: break-word; }
 
     /* Arc strip */
     .arc-strip {
@@ -69,12 +67,6 @@
 
     /* Card grid — auto-fill for variable card count */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
-
-    /* Fixed-px .meta columns overflow a mid-size browser window before the
-       600px mobile query kicks in — collapse to 2 columns earlier. */
-    @media (max-width: 900px) {
-      .meta { grid-template-columns: 1fr 1fr; row-gap: 0.6rem; column-gap: 1rem; }
-    }
 
     @media (max-width: 600px) {
       .card-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -152,8 +144,7 @@
 document.title = `${document.title} · ${COURSE.semester}`;
 document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.school} · Elon University`;
 document.getElementById('courseTitle').textContent = COURSE.title;
-document.getElementById('headerMeta').textContent  =
-  `${COURSE.semester} · ${INSTRUCTORS.map(i => i.name).join(' & ')}`;
+document.getElementById('headerMeta').textContent  = `${COURSE.semester}`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
 
 // Designation pills
@@ -174,10 +165,7 @@ const instructorMeta = document.getElementById('instructorMeta');
 INSTRUCTORS.forEach(inst => {
   const items = [
     { label: 'Instructor',    value: inst.name },
-    { label: 'Office',        value: inst.office },
     { label: 'Email',         value: inst.email, href: `mailto:${inst.email}` },
-    { label: 'Zoom',          value: inst.zoomDisplay || 'TBD', href: inst.zoomUrl || null },
-    { label: 'Office Hours',  value: inst.hours || 'TBD' },
   ];
 
   const row = document.createElement('div');

@@ -26,6 +26,7 @@ const COURSE = {
   format:      "in-person",
   credits:     4,
   baseUrl:     "https://bdepro.github.io/courses/eco1000",
+  school:      "Love School of Business",
   canvasBase:  "https://elon.instructure.com",
   canvasId:    "1397",                             // UPDATE each semester
 };

@@ -154,20 +154,16 @@
 document.title = `${document.title} · ${COURSE.semester}`;
 document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.semester}`;
 document.getElementById('courseTitle').textContent = COURSE.title;
-document.getElementById('headerMeta').textContent  = `Elon University · ${INSTRUCTOR.nameShort}`;
+document.getElementById('headerMeta').textContent  = `Elon University`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
 
-// Meta bar
+// Meta bar — Instructor + Email only. Full contact details (Office, Zoom,
+// Office Hours) live on the syllabus page, not duplicated here. Semester
+// already appears in the course-code line above, so it's not repeated here.
 const metaItems = [
-  { label: 'Semester',   value: COURSE.semester },
   { label: 'Instructor', value: INSTRUCTOR.name },
-  { label: 'Office',     value: INSTRUCTOR.office },
   { label: 'Email',      value: INSTRUCTOR.email, href: `mailto:${INSTRUCTOR.email}` },
-  { label: 'Zoom',       value: INSTRUCTOR.zoomDisplay, href: INSTRUCTOR.zoomUrl },
 ];
-if (INSTRUCTOR.officeHours) {
-  metaItems.splice(3, 0, { label: 'Office Hours', value: INSTRUCTOR.officeHours });
-}
 const metaBar = document.getElementById('metaBar');
 metaItems.forEach(item => {
   const div = document.createElement('div');

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 4400 — Case Analysis 1: AIG Board Packet
+  Public course-site page. Authored in the private course-notes
+  repo (eco4400/case-analysis-1/student/case1.html) — if you edit
+  the content, edit it there first, then re-copy here.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Analysis 1: AIG Board Packet &middot; ECO 4400</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --crimson:#73000a; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.9rem;margin-top:0.4rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+
+    .chip-row{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.75rem;}
+    .weight-chip-solo {
+      display: inline-flex; align-items: baseline; gap: 0.5rem;
+      background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
+      box-shadow: var(--shadow); padding: 0.85rem 1.25rem;
+    }
+    .weight-chip-solo .pct { font-size: 1.3rem; font-weight: 700; color: var(--crimson); }
+    .weight-chip-solo .label { font-size: 0.8rem; color: var(--muted); }
+
+    .callout{border-radius:0 6px 6px 0;padding:0.9rem 1.1rem;margin-bottom:1.5rem;font-size:0.9rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:var(--teal-dk);}
+    .callout.gold{background:rgba(181,154,87,0.1);border-left:4px solid var(--gold);}
+    .callout.gold strong{color:var(--gold-link);}
+    .callout.red{background:rgba(115,0,10,0.05);border-left:4px solid var(--crimson);}
+    .callout.red strong{color:var(--crimson);}
+    .callout ul{margin:0.5rem 0 0 1.1rem;}
+    .callout li{margin-bottom:0.3rem;}
+
+    .section-heading{font-size:1.05rem;font-weight:700;color:var(--crimson);margin:2.25rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--gold);display:inline-block;}
+    .section-heading:first-of-type{margin-top:0;}
+
+    p{margin-bottom:0.9rem;font-size:0.93rem;}
+    p:last-child{margin-bottom:0;}
+
+    .step-list{display:flex;flex-direction:column;gap:0.9rem;margin-bottom:0.5rem;}
+    .step-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:auto 1fr;}
+    .step-num{background:var(--crimson);color:var(--white);font-size:0.9rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:44px;padding:0.5rem;}
+    .step-body{padding:1rem 1.2rem;}
+    .step-title{font-weight:700;font-size:0.92rem;color:var(--text);margin-bottom:0.35rem;}
+    .step-desc{font-size:0.87rem;color:var(--muted);line-height:1.6;}
+    .step-desc code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);}
+    .step-desc ul{margin:0.4rem 0 0 1.1rem;}
+    .step-desc li{margin-bottom:0.25rem;}
+
+    .data-links{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1rem;}
+    .data-link{display:inline-flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:8px;padding:0.65rem 1rem;text-decoration:none;font-size:0.85rem;font-weight:600;color:var(--gold-link);}
+    .data-link:hover{background:var(--warm-gray);}
+    .data-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+
+    .check-list{list-style:none;padding:0;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);}
+    .check-item{display:flex;gap:0.75rem;padding:0.85rem 1.1rem;border-bottom:1px solid var(--warm-gray);font-size:0.9rem;align-items:flex-start;}
+    .check-item:last-child{border-bottom:none;}
+    .check-item .box{width:16px;height:16px;min-width:16px;border:2px solid var(--gold);border-radius:3px;margin-top:0.15rem;}
+
+    .var-table{width:100%;border-collapse:collapse;font-size:0.86rem;margin-bottom:1.5rem;}
+    .var-table th{background:var(--warm-gray);font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);}
+    .var-table td{padding:0.6rem 0.75rem;border-bottom:1px solid var(--warm-gray);vertical-align:top;}
+    .var-table tr:last-child td{border-bottom:none;}
+    .var-table code{background:var(--warm-gray);padding:0.1rem 0.35rem;border-radius:3px;font-size:0.82rem;color:var(--crimson);white-space:nowrap;}
+
+    .worksheet-list{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;margin-bottom:1.5rem;}
+    .worksheet-item{padding:0.9rem 1.1rem;border-bottom:1px solid var(--warm-gray);font-size:0.9rem;}
+    .worksheet-item:last-child{border-bottom:none;}
+    .worksheet-item .wnum{color:var(--crimson);font-weight:700;margin-right:0.4rem;}
+    .worksheet-blank{display:block;height:1px;border-bottom:1px dashed var(--border);margin-top:0.6rem;}
+
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .step-card{grid-template-columns:1fr;}
+      .step-num{min-width:100%;padding:0.4rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" href="research.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Applied Research &amp; Case Analytics
+    </a>
+    <p class="screen-eyebrow">ECO 4400 &middot; Applied Research &amp; Case Analytics &middot; Case Analysis 1</p>
+    <h1 class="screen-title">Elite Economic Advisors, LLC &mdash; Client Engagement #1</h1>
+    <p class="screen-sub">American International Group, Inc. (AIG) &middot; Board Packet, January 2005. You are a junior consultant advising AIG&rsquo;s Board on whether to keep expanding its credit default swap business.</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="chip-row">
+    <div class="weight-chip-solo">
+      <span class="pct">1.5&ndash;2</span>
+      <span class="label">pages, single-spaced memo to the Board</span>
+    </div>
+    <div class="weight-chip-solo">
+      <span class="pct">Ch. 1</span>
+      <span class="label"><em>Managerial Economics: A Problem-Solving Approach</em></span>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>One rule for every engagement: no hindsight.</strong> You already know how this story ends. Your client is living January 2005 without that knowledge, and every recommendation you make must rely only on the information, data, and reasoning available at that point in history. Think like a consultant living the decision in real time.
+  </div>
+
+  <p class="section-heading">Welcome to Elite Economic Advisors</p>
+  <p>This semester puts managerial economics to work: you&rsquo;ll serve as an economic consultant advising the Board of Directors of American International Group (AIG) as the company navigates a series of strategic decisions in the years leading up to the 2008 financial crisis. Each week you&rsquo;ll learn a new concept from the textbook and immediately apply it to a real business decision, one Board Packet at a time.</p>
+  <p>Your instructor chose this case from personal experience. Early in her career, she worked for AIG as a risk analyst during the financial crisis, with a front-row seat to one of the most significant economic events of our lifetime.</p>
+  <p>Rather than critiquing decisions with the benefit of hindsight, this project asks you to understand how smart, experienced people make difficult decisions when information is incomplete and uncertainty is high. By the end of the semester, you will have analyzed one of the defining business cases of your lifetime the same way professional economists and consultants do.</p>
+
+  <p class="section-heading">Before We Meet</p>
+  <p><strong>Required reading:</strong></p>
+  <div class="data-links">
+    <a class="data-link" href="https://www.washingtonpost.com/archive/realestate/2005/01/08/30-year-mortgage-rates-fall-to-577/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Mortgage Rates Remain Near Historic Lows (WaPo, Jan. 8, 2005)
+    </a>
+    <a class="data-link" href="https://www.washingtonpost.com/archive/realestate/2005/01/08/adjustable-rate-loans-gain-in-popularity/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Adjustable-Rate Loans Gain in Popularity (WaPo, Jan. 8, 2005)
+    </a>
+    <a class="data-link" href="https://www.newyorkfed.org/research/epr/04v10n3/0412mcca/0412mcca.html" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Are Home Prices the Next &lsquo;Bubble?&rsquo; (NY Fed)
+    </a>
+  </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Plus this Board Packet, and the Harvard Business Publishing case in the Canvas coursepack &mdash; <em>American International Group, Inc.&mdash;The Financial Crisis.</em> Read only the assigned section.</p>
+
+  <p><strong>Recommended reading:</strong></p>
+  <div class="data-links">
+    <a class="data-link" href="https://www.aig.com/investor-relations" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      AIG Investor Relations
+    </a>
+    <a class="data-link" href="https://www.federalreserve.gov/boarddocs/speeches/2005/200509262/default.htm" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Greenspan, &ldquo;Mortgage Banking&rdquo; (Sept. 26, 2005)
+    </a>
+    <a class="data-link" href="https://www.economist.com/finance-and-economics/2005/06/16/the-bubbles-new-home" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      The Economist &mdash; &ldquo;The Bubble&rsquo;s New Home&rdquo;
+    </a>
+    <a class="data-link" href="https://fred.stlouisfed.org/series/CSUSHPINSA" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      FRED &mdash; Case-Shiller Home Price Index
+    </a>
+  </div>
+
+  <div class="callout teal">
+    <strong>Reading guidance.</strong> Read these sources the way a January 2005 executive would, before anyone knew what 2008 would bring. Several of these sources (including the NY Fed paper) conclude there is <strong>no</strong> national housing bubble, and Greenspan&rsquo;s commentary stays measured throughout. That calm tone reflects genuine expert opinion at the time. Focus on what the data actually shows in each source.
+  </div>
+
+  <p class="section-heading">Chapter 1: Solving Problems with Economics</p>
+  <p>Every organization succeeds or fails because of the decisions made by its leaders. Chapter 1 introduces managerial economics as a practical framework for improving those decisions. Rather than judging a decision only by its outcome, managerial economists first seek to understand <em>why</em> the decision was made.</p>
+  <p>The <strong>Rational Actor Paradigm</strong> assumes that people generally make the decisions they believe are in their best interest, given the information available to them and the incentives they face. This shifts the consultant&rsquo;s focus away from assigning blame and toward diagnosing the cause of a poor decision: was it a failure of information, a failure of incentives, or both?</p>
+  <p>Froeb argues that effective problem-solving requires two steps. This framework will become your consulting process for every Board Packet this semester.</p>
+
+  <div class="step-list">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Diagnose the Problem</div>
+        <div class="step-desc">
+          <ul>
+            <li>Who made the decision?</li>
+            <li>Did the decision maker have enough information to make a good decision?</li>
+            <li>Did the decision maker have the incentive to make a good decision?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Improve the Decision <span style="font-weight:400;color:var(--muted);">(recommend one)</span></div>
+        <div class="step-desc">
+          <ul>
+            <li>Assign the decision to someone with better information or incentives.</li>
+            <li>Give the decision maker better information.</li>
+            <li>Change the decision maker&rsquo;s incentives.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-heading">Client Engagement Brief</p>
+  <p><strong>Client:</strong> American International Group, Inc. (AIG) &nbsp;&middot;&nbsp; <strong>Date:</strong> January 2005 &nbsp;&middot;&nbsp; <strong>Engagement Lead:</strong> You, Junior Economic Consultant, Elite Economic Advisors</p>
+
+  <p><strong>The economy.</strong> It is January 2005. The U.S. economy is strong. Homeownership is near record highs, interest rates remain relatively low, and housing prices continue to climb. Mortgage lending has become one of the fastest-growing sectors of the financial industry, creating opportunities for banks, investors, and insurance companies. Investment banks are packaging mortgages into mortgage-backed securities and selling them around the world. Demand is growing, ratings remain strong, and confidence in the housing market is high.</p>
+
+  <p><strong>The client situation.</strong> AIG has become a market leader by selling credit default swaps that insure mortgage-backed securities. The business is highly profitable, demand continues to grow, and historical losses remain extremely low. From management&rsquo;s perspective, expanding this business appears to be the right decision. A small group of economists and regulators, however, has started asking questions about rising home prices, weakening lending standards, and increasingly complex financial products. The Board wants an independent recommendation before committing additional capital.</p>
+
+  <div class="callout gold">
+    <strong>What is a Credit Default Swap (CDS)?</strong> Think of a Credit Default Swap as insurance. Instead of insuring a house or a car, AIG is insuring investments backed by home mortgages.
+    <ul>
+      <li>If the mortgages perform well, AIG keeps the insurance premiums.</li>
+      <li>If many homeowners stop making their mortgage payments, AIG may have to pay investors for their losses.</li>
+    </ul>
+  </div>
+
+  <p class="section-heading">Digging Deeper: How CDS Actually Work</p>
+  <p>The insurance analogy above is a useful starting point, but a CDS is not literally insurance, and the differences matter for your analysis.</p>
+  <p><strong>The basic structure:</strong> A CDS is a contract between two parties. The <strong>protection buyer</strong> pays a periodic premium (quoted in basis points on a notional amount &mdash; the face value of the debt being protected). The <strong>protection seller</strong> &mdash; AIG &mdash; collects that premium and agrees to pay the buyer if a defined &ldquo;credit event&rdquo; occurs (default, bankruptcy, or restructuring of the referenced mortgage-backed securities). If no credit event happens, AIG simply collects premiums for the life of the contract. That is why the business looked so profitable in January 2005.</p>
+  <p><strong>Where it stops looking like insurance:</strong></p>
+  <table class="var-table">
+    <thead>
+      <tr><th>Insurance</th><th>Credit Default Swap</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Regulated; insurers must hold reserves against expected claims</td><td>In 2005, CDS were largely unregulated as insurance. AIG did not have to hold reserves against payout risk</td></tr>
+      <tr><td>Requires an insurable interest (you can&rsquo;t insure your neighbor&rsquo;s house)</td><td>&ldquo;Naked&rdquo; CDS are allowed. A buyer can purchase protection on debt they don&rsquo;t own, essentially a bet on default</td></tr>
+      <tr><td>Claims paid only at an actual loss event</td><td><strong>Mark-to-market and collateral posting</strong>: if the market price of the underlying securities falls, AIG can be required to post collateral immediately, even with zero actual defaults yet</td></tr>
+      <tr><td>Losses are typically uncorrelated (one house fire doesn&rsquo;t cause another)</td><td>MBS-linked CDS exposure is correlated. A nationwide housing downturn hits every underlying security at once</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold">
+    <strong>Why this matters for your analysis.</strong> AIG&rsquo;s historical loss models priced <em>default</em> risk, which was genuinely low. But the real exposure is to a <strong>liquidity event triggered by mark-to-market losses</strong>, a risk that historical default data would not reveal. When you write your marginal cost analysis below, this distinction separates a strong memo from a superficial one: the marginal cost of continued expansion goes beyond expected default losses to include potential collateral-posting and liquidity exposure.
+  </div>
+
+  <table class="var-table">
+    <thead>
+      <tr><th>What We Know</th><th>What We Don&rsquo;t Know</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Housing prices continue to rise.</td><td>Will housing prices continue rising?</td></tr>
+      <tr><td>Mortgage rates remain low.</td><td>Are mortgages becoming riskier?</td></tr>
+      <tr><td>Homeownership is increasing.</td><td>Could economic conditions change?</td></tr>
+      <tr><td>Demand for AIG&rsquo;s insurance products continues to grow.</td><td>Is AIG taking on more risk than management realizes?</td></tr>
+      <tr><td>The business is highly profitable.</td><td>&nbsp;</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <strong>The question before the Board:</strong> Should AIG continue expanding its exposure to mortgage-backed securities?
+  </div>
+
+  <p class="section-heading">Your Consulting Worksheet</p>
+  <p>Use Chapter 1&rsquo;s two-step framework to structure your analysis before you write your recommendation. Support every answer with evidence from the chapter and the case.</p>
+  <div class="worksheet-list">
+    <div class="worksheet-item"><span class="wnum">1.</span>Define the decision under review.<span class="worksheet-blank"></span></div>
+    <div class="worksheet-item"><span class="wnum">2.</span>Who is making the decision?<span class="worksheet-blank"></span></div>
+    <div class="worksheet-item"><span class="wnum">3.</span>Do they have the information necessary to make a good decision?<span class="worksheet-blank"></span></div>
+    <div class="worksheet-item"><span class="wnum">4.</span>Do they have the incentive to make a good decision?<span class="worksheet-blank"></span></div>
+    <div class="worksheet-item"><span class="wnum">5.</span>Recommendation &mdash; assign to a better decision maker, provide better information, or change incentives?<span class="worksheet-blank"></span></div>
+  </div>
+
+  <p class="section-heading">Client Deliverable</p>
+  <p>Prepare a recommendation memo to AIG&rsquo;s Board of Directors. This should read as <strong>one integrated argument</strong>: your cost-benefit analysis in Part 1 should directly inform your diagnosis in Part 2.</p>
+
+  <div class="callout teal">
+    <strong>How to write this memo (consulting craft).</strong>
+    <ul>
+      <li><strong>Lead with your recommendation.</strong> State your bottom-line recommendation in your first sentence or two, then support it. A Board reads the conclusion first, so don&rsquo;t make them wait for paragraph six.</li>
+      <li><strong>Address the counterargument.</strong> State the strongest case against your recommendation, and either rebut it with evidence or explain what would change your mind. Engaging the other side is what separates consulting from advocacy.</li>
+      <li><strong>Know your audience.</strong> The Board can act on capital allocation, risk oversight, and executive incentives. Day-to-day underwriting sits below it, so aim your recommendation at decisions the Board actually controls.</li>
+    </ul>
+  </div>
+
+  <div class="step-list">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Part 1 &mdash; Cost-Benefit Analysis</div>
+        <div class="step-desc">
+          <ul>
+            <li>What are the opportunity costs of expanding further into this business?</li>
+            <li>What are the expected marginal benefits of continued expansion?</li>
+            <li>What are the expected marginal costs of continued expansion &mdash; including costs that may not show up in historical loss data?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Part 2 &mdash; Decision Diagnosis <span style="font-weight:400;color:var(--muted);">(use your answers above to inform these)</span></div>
+        <div class="step-desc">
+          <ul>
+            <li>Who is making the decision?</li>
+            <li>Given your marginal cost analysis, do they have enough information to make a good decision?</li>
+            <li>Given your marginal benefit analysis, do they have the right incentives?</li>
+            <li>What is the strongest argument against your recommendation, and how do you address it?</li>
+            <li>Should AIG continue expanding? Defend your recommendation using Chapter 1, the required readings, and <strong>at least one specific figure</strong> (a rate, index value, or default statistic) drawn from the assigned readings.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-heading">Format</p>
+  <ul class="check-list">
+    <li class="check-item"><span class="box"></span>1.5&ndash;2 pages, single-spaced, addressed to the AIG Board of Directors.</li>
+    <li class="check-item"><span class="box"></span>Written as a consulting memo: professional tone, clear recommendation, evidence-based.</li>
+    <li class="check-item"><span class="box"></span>Must cite at least one specific quantitative data point from the required readings. General narrative alone (&ldquo;housing prices are rising&rdquo;) is not sufficient.</li>
+    <li class="check-item"><span class="box"></span>No hindsight: every claim must be defensible using only January 2005 information.</li>
+  </ul>
+
+  <p class="section-heading">How You&rsquo;ll Be Graded</p>
+  <ul class="check-list">
+    <li class="check-item"><span class="box"></span><strong>Recommendation clarity:</strong> does the memo state its bottom-line recommendation up front?</li>
+    <li class="check-item"><span class="box"></span><strong>Diagnostic structure:</strong> does the memo correctly identify the decision-maker, information gap, and incentive structure, and connect them to the cost-benefit analysis?</li>
+    <li class="check-item"><span class="box"></span><strong>Evidence:</strong> does it cite at least one specific quantitative figure from the required readings?</li>
+    <li class="check-item"><span class="box"></span><strong>Counterargument:</strong> does it engage the strongest opposing view rather than ignoring it?</li>
+    <li class="check-item"><span class="box"></span><strong>No hindsight:</strong> is every claim defensible using only January 2005 information, with no reference to outcomes, the bailout, or &ldquo;the crisis&rdquo;?</li>
+  </ul>
+  <div class="callout teal" style="margin-top:0.5rem;">
+    <strong>Recommendation flexibility.</strong> There is no single correct final answer. Different well-reasoned recommendations can all score well. What matters is the quality of your diagnosis and the evidence behind it.
+  </div>
+
+</main>
+<footer>ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Case Analysis 1</footer>
+</body>
+</html>
