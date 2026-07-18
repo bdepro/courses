@@ -207,16 +207,6 @@
     <strong>Cunningham shows a sixth way</strong> &mdash; a fourth regression, of the treat-minus-control gap on a post dummy. It&rsquo;s not here on purpose: it makes the same point Method 2 already makes (the order of subtraction doesn&rsquo;t matter), just as a regression instead of by hand. If you want to build it yourself as a check, it&rsquo;s a three-line addition to whichever tool you&rsquo;re using &mdash; ask if you want to try it.
   </div>
 
-  <p class="section-heading">Standard Errors, and Statistical vs. Economic Significance</p>
-  <p>A standard error measures how much your estimate would wobble if you drew a different sample of the same states and years. A small one means precision: repeat the exercise with different data and you would land close to the same place. When the standard error is large, the opposite holds: the number you found could easily have come out very different by chance.</p>
-  <p>Statistical significance is a claim about that wobble: whether the estimate is precise enough to trust its sign. When economists call a result &ldquo;statistically significant,&rdquo; they usually mean the estimate sits far enough from zero, relative to its standard error, that pure noise is an unlikely explanation, roughly two or more standard errors away. It&rsquo;s a yes-or-no question about confidence in the estimate, separate from how large or small the effect actually is.</p>
-  <p>Economic significance asks a different question: does the effect matter? A drop in electricity spending of 0.1%, estimated with total precision from millions of households, would be statistically significant and economically irrelevant: no household budget moves on 0.1%. A 15% drop estimated imprecisely from 40 states might not clear the statistical bar, but if it&rsquo;s real, it&rsquo;s a number policymakers would care about.</p>
-  <p>This warm-up asks you to match five point estimates because the lesson is the arithmetic identity behind DiD. Statistical significance is a separate question, one you&rsquo;ll meet for real in Stage 2, where the sample runs past a hundred thousand households. At that size, almost any nonzero effect clears the statistical bar. Whether it&rsquo;s economically significant is the harder, more interesting question, and you answer it by looking at the size of the number and asking whether it would change a real decision.</p>
-
-  <div class="callout red">
-    <strong>Match the five coefficients; standard errors are a separate question.</strong> None of the five methods below asks you to report one, in any software, so skip clustering entirely for this exercise. That&rsquo;s the whole point.
-  </div>
-
   <p class="section-heading">Getting Started, by Software</p>
   <div class="tool-grid">
     <div class="tool-card">
@@ -239,14 +229,6 @@
     <li class="check-item"><span class="box"></span> Your code or worksheet, in whatever tool you used.</li>
     <li class="check-item"><span class="box"></span> 3&ndash;4 sentences: <em>why</em> do all five methods have to produce the same number? What does that tell you about what a DiD estimate actually is?</li>
   </ul>
-
-  <p class="section-heading">Optional: What Method 5 Is Actually Doing</p>
-  <p>Method 5 above is not just one of five equivalent routes to the same point estimate. It is the exact estimator in a 2026 paper by Soo Jeong Lee and Jeffrey Wooldridge, which revisits this same <code>castle.dta</code> dataset to make a specific point: because Method 5 collapses each state down to a single number before regressing, its ordinary standard error is valid on its own terms, even with only 42 states. No clustering and no large-sample assumptions required.</p>
-  <p>The plain standard error assumes every state's estimate wobbles by the same amount. That assumption is often wrong: a small state's homicide rate can swing a lot from year to year just from a handful of extra deaths, while a large state's rate barely moves. Statisticians call unequal wobble across observations <strong>heteroskedasticity</strong>. <strong>HC3</strong> is a fix for it: instead of assuming one fixed amount of noise for every state, it builds the standard error from each state's own residual, the gap between that state's actual change and what the regression line predicts. States that stand out more get more careful treatment in the calculation. The name is short for &ldquo;heteroskedasticity-consistent standard error, version 3.&rdquo; It comes from MacKinnon and White (1985), a refinement of the original robust standard error White proposed in 1980. HC3 is closest in spirit to a <strong>jackknife</strong> estimate: roughly what you&rsquo;d get by leaving each state out one at a time, refitting, and seeing how much the answer moves.</p>
-  <p>Lee and Wooldridge's own recommendation: the plain standard error is exact only if that equal-wobble assumption genuinely holds, and you cannot verify that just by looking at the regression output. HC3 relaxes it, and their cited evidence shows HC3 stays reliable even with few states, in their words, &ldquo;provided there are at least a handful of treated units.&rdquo; Step 5 has 13 treated states. That clears their bar, so their recommendation is to trust the HC3 number over the plain one here.</p>
-  <div class="callout gold">
-    <strong>Not part of what you turn in.</strong> If you want to see it, rerun Method 5&rsquo;s regression and read off its standard error, t-statistic, and p-value instead of skipping past them. Then refit with an HC3 robust standard error and compare. In small samples HC3 usually comes out a little larger than the plain one. That extra caution is the whole reason it exists. But &ldquo;usually&rdquo; is not &ldquo;always&rdquo;: in this data it actually comes out a little smaller. Figuring out why is the interesting part.
-  </div>
 
   <div class="callout teal" style="margin-top:1.75rem;">
     <strong>Stage 2 applies this same five-way recipe to a real question</strong>: did state building energy codes actually lower household electricity bills? You&rsquo;ll use the same structure on real data, with a published estimate to check your work against.
