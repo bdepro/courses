@@ -174,14 +174,50 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk6-ff-progress">
+      <div class="check-item" data-id="wk6-ff-revplan">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Friday Focus progress</div>
-          <div class="check-desc">In-class work on your narrative. Submit your artifact through Canvas before class ends.</div>
-          <span class="check-tag tag-submit">Friday Focus</span>
-          <br><a class="check-link" href="#" id="link-wk6-ff" target="_blank" rel="noopener">
-            Submit Progress <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="check-title">Submit your Friday Focus Revision Plan</div>
+          <div class="check-desc">Name what you're changing in your narrative, based on the feedback from Review 1.</div>
+          <span class="check-tag tag-submit" id="wk6-ff-revplan-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk6-ff-revplan" target="_blank" rel="noopener">
+            Open Revision Plan <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk6-ff-revision">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Friday Focus Revision 1</div>
+          <div class="check-desc">Turn your plan into an actual rewrite. This is the draft your next reviewer will read.</div>
+          <span class="check-tag tag-submit" id="wk6-ff-revision-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk6-ff-revision" target="_blank" rel="noopener">
+            Open Revision 1 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk6-ff-draft2">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit Draft 2: The Moral Reasoning</div>
+          <div class="check-desc">Add the moral heart to the scene you revised — what happened, how, and why.</div>
+          <span class="check-tag tag-submit" id="wk6-ff-draft2-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk6-ff-draft2" target="_blank" rel="noopener">
+            Open Draft 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk6-ff-review2">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete Friday Focus Peer Review 2</div>
+          <div class="check-desc">Read a classmate's revised narrative and leave feedback they can actually use.</div>
+          <span class="check-tag tag-submit" id="wk6-ff-review2-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk6-ff-review2" target="_blank" rel="noopener">
+            Open Review 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -207,9 +243,13 @@ const puzzle4 = CANVAS.puzzles.find(p => p.session === 5);
 const ci2     = CANVAS.checkIns.find(c => c.id === 2);
 const tms1    = CANVAS.tms.find(t => t.dueSession === 6);
 const tms2    = CANVAS.tms.find(t => t.session === 6);
+const revPlan  = (CANVAS.eli || []).find(t => t.id === 3);
+const revision = (CANVAS.eli || []).find(t => t.id === 4);
+const draft2   = (CANVAS.eli || []).find(t => t.id === 5);
+const review2  = (CANVAS.eli || []).find(t => t.id === 6);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 4 and your Fishbowl 1 response are both due Wednesday, the same day as Check-In #2. Your Fishbowl 2 reading arrives Friday.`;
+dueBannerText.innerHTML = `Puzzle 4, your Fishbowl 1 response, and your Friday Focus revision and Draft 2 are all due Wednesday, the same day as Check-In #2. Review 2 and your Fishbowl 2 reading both follow on Friday.`;
 
 if (puzzle4) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 if (tms1) {
@@ -222,12 +262,19 @@ if (tms2) {
   document.getElementById('wk6-tms-tag').textContent = `Fishbowl · Due ${tms2.due}`;
   document.getElementById('wk6-tms-desc').textContent = `${tms2Title} is introduced Friday, due ${tms2.due}`;
 }
+if (revPlan)  document.getElementById('wk6-ff-revplan-tag').textContent  = `Friday Focus · Due ${revPlan.due}`;
+if (revision) document.getElementById('wk6-ff-revision-tag').textContent = `Friday Focus · Due ${revision.due}`;
+if (draft2)   document.getElementById('wk6-ff-draft2-tag').textContent   = `Friday Focus · Due ${draft2.due}`;
+if (review2)  document.getElementById('wk6-ff-review2-tag').textContent  = `Friday Focus · Due ${review2.due}`;
 
 const L = {
-  'link-ci2-puzzle': puzzle4 ? puzzle4.url : '',
-  'link-ci2-tms':    tms1 ? tms1.url : '',
-  'link-wk6-tms':    tms2 ? tms2.url : '',
-  'link-wk6-ff':     (CANVAS.viva && CANVAS.viva.ffSubmitUrl) ? CANVAS.viva.ffSubmitUrl : '',
+  'link-ci2-puzzle':    puzzle4 ? puzzle4.url : '',
+  'link-ci2-tms':       tms1 ? tms1.url : '',
+  'link-wk6-tms':       tms2 ? tms2.url : '',
+  'link-wk6-ff-revplan':  revPlan  ? revPlan.url  : '',
+  'link-wk6-ff-revision': revision ? revision.url : '',
+  'link-wk6-ff-draft2':   draft2   ? draft2.url   : '',
+  'link-wk6-ff-review2':  review2  ? review2.url  : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

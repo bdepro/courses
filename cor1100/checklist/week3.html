@@ -162,14 +162,26 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk3-ff-progress">
+      <div class="check-item" data-id="wk3-ff-draft1">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Friday Focus progress</div>
-          <div class="check-desc">In-class work on your narrative. Submit your artifact through Canvas before class ends.</div>
-          <span class="check-tag tag-submit">Friday Focus</span>
-          <br><a class="check-link" href="#" id="link-wk3-ff" target="_blank" rel="noopener">
-            Submit Progress <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="check-title">Submit your Friday Focus Draft</div>
+          <div class="check-desc">This is the first version of the narrative you'll keep developing all semester.</div>
+          <span class="check-tag tag-submit" id="wk3-ff-draft1-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk3-ff-draft1" target="_blank" rel="noopener">
+            Open Draft <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="wk3-ff-review1">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete Friday Focus Peer Review 1</div>
+          <div class="check-desc">Read a classmate's draft and leave feedback they can actually use.</div>
+          <span class="check-tag tag-submit" id="wk3-ff-review1-tag">Friday Focus</span>
+          <br><a class="check-link" href="#" id="link-wk3-ff-review1" target="_blank" rel="noopener">
+            Open Peer Review <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -194,9 +206,11 @@ document.getElementById('weekMeta').textContent = session3 ? session3.dates : ''
 const puzzle2 = CANVAS.puzzles.find(p => p.session === 2);
 const ci1     = CANVAS.checkIns.find(c => c.id === 1);
 const tms1    = CANVAS.tms.find(t => t.session === 3);
+const draft1  = (CANVAS.eli || []).find(t => t.id === 1);
+const review1 = (CANVAS.eli || []).find(t => t.id === 2);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 2 is due Wednesday, the same day as Check-In #1. Your Fishbowl 1 reading arrives Friday — due in a few weeks, not this week.`;
+dueBannerText.innerHTML = `Puzzle 2 and your Friday Focus draft are due Wednesday, the same day as Check-In #1. Review 1 follows on Friday. Your Fishbowl 1 reading also arrives Friday — due in a few weeks, not this week.`;
 
 if (puzzle2) document.getElementById('ci1-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(2)}`;
 if (tms1) {
@@ -204,11 +218,14 @@ if (tms1) {
   document.getElementById('wk3-tms-tag').textContent = `Fishbowl · Due ${tms1.due}`;
   document.getElementById('wk3-tms-desc').textContent = `${tmsTitle} is introduced Friday, due ${tms1.due}`;
 }
+if (draft1) document.getElementById('wk3-ff-draft1-tag').textContent = `Friday Focus · Due ${draft1.due}`;
+if (review1) document.getElementById('wk3-ff-review1-tag').textContent = `Friday Focus · Due ${review1.due}`;
 
 const L = {
-  'link-ci1-puzzle': puzzle2 ? puzzle2.url : '',
-  'link-wk3-tms':    tms1 ? tms1.url : '',
-  'link-wk3-ff':     (CANVAS.viva && CANVAS.viva.ffSubmitUrl) ? CANVAS.viva.ffSubmitUrl : '',
+  'link-ci1-puzzle':    puzzle2 ? puzzle2.url : '',
+  'link-wk3-tms':       tms1 ? tms1.url : '',
+  'link-wk3-ff-draft1': draft1 ? draft1.url : '',
+  'link-wk3-ff-review1':review1 ? review1.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

@@ -152,6 +152,8 @@ function pill(label, url) {
 
 // Narrative pills
 var narrativePills = document.getElementById('narrativePills');
+narrativePills.appendChild(pill('Open your Friday Focus workspace', CANVAS.eliDashboardUrl));
+
 var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
 if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
