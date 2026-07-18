@@ -29,7 +29,7 @@ const COURSE = {
   format:      "online",
   credits:     3,
   baseUrl:     "https://bdepro.github.io/courses/mba6250",
-  school:      "Martha and Spencer Love School of Business",
+  school:      "Love School of Business",
   canvasBase:  "https://elon.instructure.com",
   canvasId:    "",                                 // UPDATE each semester (Canvas course ID)
 };
