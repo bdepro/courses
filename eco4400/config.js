@@ -22,6 +22,8 @@ const COURSE = {
   format:        "in-person",
   credits:       4,
   baseUrl:       "https://bdepro.github.io/courses/eco4400",
+  canvasBase:    "https://elon.instructure.com",
+  canvasId:      "1402",                             // UPDATE each semester
   school:        "Love School of Business",
   dataIntensive: true,
   communityEngaged: true,
@@ -144,6 +146,7 @@ const FEATURES = {
 // ================================================================
 const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
+  canvasHome:  `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
   labs:        `${COURSE.baseUrl}/labs.html`,
   research:    `${COURSE.baseUrl}/research.html`,

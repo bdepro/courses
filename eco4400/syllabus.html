@@ -402,7 +402,7 @@
 <!-- SCREEN HEADER -->
 <div class="screen-header">
   <div class="screen-header-inner">
-    <a class="back-link" id="syl-back" href="index.html">
+    <a class="back-link" id="syl-back" href="#">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Course Home
     </a>
@@ -768,6 +768,7 @@
 
 // Header
 document.title += ' · ' + COURSE.semester;
+document.getElementById('syl-back').href = PAGES.canvasHome;
 document.getElementById('syl-eyebrow').textContent =
   COURSE.code + ' · ' + COURSE.semester;
 
