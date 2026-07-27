@@ -20,7 +20,7 @@
 const COURSE = {
   code:        "COR 1100",
   title:       "The Global Experience",
-  discipline:  "moral",                            // drives Friday Focus narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
+  discipline:  "moral",                            // drives Mind & Voice narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,
@@ -72,7 +72,7 @@ const INSTRUCTOR = {
 //      its content is folded into Puzzle 5 together with S9.
 //    MME passages introduced Friday of designated session;
 //      due Wednesday of the following CI week — see CANVAS.tms[].due.
-//    Friday Focus written narrative due Friday Nov 20 at 11:59 p.m.
+//    Mind & Voice written narrative due Friday Nov 20 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -339,8 +339,8 @@ const GRADING = {
   components: [
     { id: "checkins", label: "Check-Ins",               weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes standing analytical threads." },
-    { id: "friday",   label: "Friday Focus",            weight: 25,
-      note: "Written narrative due Fri Nov 20 at 11:59 p.m. Viva conversation during viva week. Focus on Hanley and Smith." },
+    { id: "friday",   label: "Mind & Voice",            weight: 25,
+      note: "Mind: written narrative, due Fri Nov 20 at 11:59 p.m. Voice: viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "tms",      label: "Fishbowl", weight: 10,
@@ -407,7 +407,8 @@ const PAGES = {
   checkins:      `${COURSE.baseUrl}/checkins.html`,
   puzzles:       `${COURSE.baseUrl}/puzzles.html`,
   tms:           `${COURSE.baseUrl}/tms.html`,
-  friday:        `${COURSE.baseUrl}/friday.html`,
+  friday:        `${COURSE.baseUrl}/mind-voice.html`,
+  fridayLabel:   "Mind & Voice",                   // used by shared/narrative-guide.html + viva-prep-guide.html back-link label
   chapters:      `${COURSE.baseUrl}/chapters.html`,
   support:       `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html`,
@@ -481,11 +482,11 @@ const CANVAS = {
     { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE — content/cascade not yet built
   ],
 
-  // Friday Focus — direct URLs (no aid pattern; Canvas Scheduler links differ)
+  // Mind & Voice — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
-    { id: 1, title: "Friday Focus: The Narrative",
+    { id: 1, title: "Mind: The Narrative",
       due: "Fri Nov 20, 11:59 p.m.", url: "" },                      // UPDATE
-    { id: 2, title: "Friday Focus: The Narrative Viva",
+    { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
@@ -541,7 +542,7 @@ const CANVAS = {
   ],
 
   // Course-level landing page in the review platform (student view, not a
-  // specific task) — friday.html links here once instead of one pill per
+  // specific task) — mind-voice.html links here once instead of one pill per
   // stage. NOT the same as the task-specific urls above.
   eliDashboardUrl: null,  // UPDATE once a COR 1100 course is provisioned in Eli Review
 };

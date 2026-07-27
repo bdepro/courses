@@ -22,7 +22,7 @@
 const COURSE = {
   code:        "ECO 1000",
   title:       "Principles of Economics",
-  discipline:  "economic",                         // drives Friday Focus narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
+  discipline:  "economic",                         // drives Mind & Voice narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,
@@ -74,7 +74,7 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    MME articles are introduced Friday of check-in week and due Wednesday
 //    11:59 p.m. several weeks later — see CANVAS.mme[].due for each article.
-//    Friday Focus written narrative due Friday Nov 20 at 11:59 p.m.
+//    Mind & Voice written narrative due Friday Nov 20 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -316,8 +316,8 @@ const GRADING = {
   components: [
     { id: "checkins", label: "Check-Ins",              weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
-    { id: "friday",   label: "Friday Focus",           weight: 25,
-      note: "Written narrative due Fri Nov 20 at 11:59 p.m. Viva conversation during viva week." },
+    { id: "friday",   label: "Mind & Voice",           weight: 25,
+      note: "Mind: written narrative (due Fri Nov 20) + 3 Indicator Analyses. Voice: viva conversation during viva week." },
     { id: "puzzles",  label: "Economic Puzzles",       weight: 15,
       note: "One per content session. Lowest score dropped. Late within one week at 80%. Due Wednesday 11:59 p.m." },
     { id: "mme",      label: "Monday Morning Economist", weight: 10,
@@ -433,7 +433,8 @@ const PAGES = {
   checkins:    `${COURSE.baseUrl}/checkins.html`,
   puzzles:     `${COURSE.baseUrl}/puzzles.html`,
   mme:         `${COURSE.baseUrl}/mme.html`,
-  friday:      `${COURSE.baseUrl}/friday.html`,
+  friday:      `${COURSE.baseUrl}/mind-voice.html`,
+  fridayLabel: "Mind & Voice",                     // used by shared/narrative-guide.html + viva-prep-guide.html back-link label
   chapters:    `${COURSE.baseUrl}/chapters.html`,
   narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=eco1000`,
   vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=eco1000`,
@@ -497,9 +498,9 @@ const CANVAS = {
   // FF1: written narrative — due Fri Nov 20 at 11:59 p.m. (before viva)
   // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
-    { id: 1, title: "Friday Focus: The Economic Narrative",
+    { id: 1, title: "Mind: The Economic Narrative",
       due: "Fri Nov 20, 11:59 p.m.", url: "https://elon.instructure.com/courses/1397/assignments/2455" },
-    { id: 2, title: "Friday Focus: The Narrative Viva",
+    { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
@@ -525,12 +526,12 @@ const CANVAS = {
     durationMinutes:     10,
     vivaWeekSignupUrl:   "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
     examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-11",
-    // Friday Focus written narrative submission — same as friday[0].url
+    // Mind — written narrative submission, same as friday[0].url
     ffSubmitUrl:         "https://elon.instructure.com/courses/1397/assignments/2455",
   },
 
   // Indicator Analysis — three NPR "The Indicator" episodes, each a required
-  // 2-point completion grade folded into Friday Focus. No drop-lowest:
+  // 2-point completion grade folded into Mind & Voice's Mind half. No drop-lowest:
   // every completed one counts, every skipped one is a real 0/2 (grading
   // "Option 3" — see project notes).
   // monday/wednesday stay open through Friday of viva week so a student
@@ -540,11 +541,17 @@ const CANVAS = {
   // whichever in-class day their viva took, not a general makeup slot.
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/taylor-swift-scalpers.html`, aid: "12032" },
+      dateLabel: "Monday, Viva Week",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/taylor-swift-scalpers.html`, aid: "12032",
+      storyUrl: "https://www.npr.org/2022/11/21/1138408591/ticket-scalpers-and-the-taylor-swift-fiasco-encore" },
     { id: "wednesday", title: "Indicator Analysis: The Pay Gap, with Claudia Goldin",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/goldin-pay-gap.html`, aid: "12033" },
+      dateLabel: "Wednesday, Viva Week",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/goldin-pay-gap.html`, aid: "12033",
+      storyUrl: "https://www.npr.org/2023/10/10/1197954680/the-indicator-from-planet-money-10-10-2023" },
     { id: "examSeg2",  title: "Indicator Analysis: Does Unemployment Whiplash Mean Recession?",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/unemployment-whiplash.html`, aid: "12034" },
+      dateLabel: "Exam Period, Segment 2",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/unemployment-whiplash.html`, aid: "12034",
+      storyUrl: "https://www.npr.org/2024/10/04/1203595442/jobs-friday-recession-economy-unemployment" },
   ],
 
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
@@ -567,7 +574,7 @@ const CANVAS = {
   ],
 
   // Course-level landing page in the review platform (student view, not a
-  // specific task) — friday.html links here once instead of one pill per
+  // specific task) — mind-voice.html links here once instead of one pill per
   // stage. NOT the same as the task-specific urls above.
   eliDashboardUrl: "https://app.elireview.com/student/course/20937",
 };

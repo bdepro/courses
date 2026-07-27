@@ -2,7 +2,9 @@
 <!--
 =======================================================
   SHARED — NARRATIVE VIVA PREPARATION GUIDE
-  This file is shared across all courses that use Friday Focus.
+  This file is shared across all courses that use the narrative+viva assignment
+  (named "Mind & Voice" in eco1000/cor1100, "Friday Focus" in eco1000-cengage —
+  see PAGES.fridayLabel in each course's config.js).
   Prose edits belong here; the cengage version is the review source.
   Config is loaded dynamically via ?from=<course-folder> URL param.
   Example: viva-prep-guide.html?from=eco1000-cengage
@@ -103,7 +105,7 @@
 
 <header>
   <div class="header-inner">
-    <a class="back-link" id="backLink" href="friday.html"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Friday Focus</a>
+    <a class="back-link" id="backLink" href="friday.html"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="backLinkLabel">Friday Focus</span></a>
     <p class="course-tag" id="courseTag"></p>
     <h1>Narrative Viva: A Preparation Guide</h1>
     <p class="sub">Read this after you submit your narrative and before your viva.</p>
@@ -117,7 +119,7 @@
   <div class="guide-card">
     <div class="guide-text">
       <p>A viva is a short conversation about a piece of writing you have already completed. The Latin root is <em>viva voce</em>, meaning "with living voice." Universities use it at every level, from introductory courses to doctoral defenses, as a way of going behind the text to the thinking that produced it.</p>
-      <p>The Narrative Viva is a short Zoom conversation about the story you submitted for Friday Focus 1. I'll ask you to walk me through what happened and what you think was driving it.</p>
+      <p>The Narrative Viva is a short Zoom conversation about the story you submitted. I'll ask you to walk me through what happened and what you think was driving it.</p>
     </div>
   </div>
 
@@ -336,6 +338,7 @@
                     ? PAGES.friday
                     : (from ? '../' + from + '/friday.html' : 'friday.html');
     document.getElementById('backLink').href = fridayUrl;
+    document.getElementById('backLinkLabel').textContent = (typeof PAGES !== 'undefined' && PAGES.fridayLabel) ? PAGES.fridayLabel : 'Friday Focus';
 
     // ── Header tags ───────────────────────────────────────────────
     document.getElementById('courseTag').textContent  = courseSemester ? courseCode + ' · ' + courseSemester : courseCode;

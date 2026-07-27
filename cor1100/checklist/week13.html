@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Three chapters before Thanksgiving Break, closing out the chapter sequence: wisdom and virtue, humility, and the difference between being praised and actually deserving it. Your Friday Focus narrative is also due this week.
+      Three chapters before Thanksgiving Break, closing out the chapter sequence: wisdom and virtue, humility, and the difference between being praised and actually deserving it. Your Mind narrative is also due this week.
     </p>
   </div>
 
@@ -219,9 +219,9 @@
       <div class="check-item" data-id="wk13-narrative">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your Friday Focus narrative</div>
+          <div class="check-title">Submit your Mind narrative</div>
           <div class="check-desc" id="wk13-narrative-desc">Due Friday, before Thanksgiving break starts. This is the written piece your viva conversation will be about.</div>
-          <span class="check-tag tag-submit" id="wk13-narrative-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="wk13-narrative-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-wk13-narrative" target="_blank" rel="noopener">
             Submit Narrative <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -257,7 +257,7 @@ if (puzzle8) {
   dueMsg += ` Then start Puzzle 8 — it's due ${formatPuzzleDue(13)}, after Thanksgiving Break.`;
 }
 if (friday1) {
-  dueMsg += ` Your Friday Focus narrative is due ${friday1.due}.`;
+  dueMsg += ` Your Mind narrative is due ${friday1.due}.`;
 }
 dueBannerText.innerHTML = dueMsg;
 
@@ -265,7 +265,7 @@ if (puzzle8) {
   document.getElementById('wk13-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(13)}`;
 }
 if (friday1) {
-  document.getElementById('wk13-narrative-tag').textContent = `Friday Focus · Due ${friday1.due}`;
+  document.getElementById('wk13-narrative-tag').textContent = `Mind · Due ${friday1.due}`;
 }
 
 const L = {
