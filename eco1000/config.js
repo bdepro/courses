@@ -221,21 +221,33 @@ const SCHEDULE = {
   // CI 4 may be taken on the last day of class (Fri Dec 4) OR during the
   // final exam block below — student's choice, no sign-up or arrangement
   // needed, just show up to whichever one they plan to take.
-  // ── CHANGED: expanded from makeupViva to finalExamPeriod ──────
+  // ── CHANGED: Elon's official Fall 2026 final exam schedule assigns this
+  // class's meeting time a 3-hour institutional block (Fri Dec 11,
+  // 8:30–11:30 a.m.); Prof. Depro splits the first 70 minutes of it into
+  // Segment 1 and the next 70 into Segment 2, with the last 30 min unused.
   // Final exam period covers three student populations:
   //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
-  //                  Must complete online worksheet during exam block.
+  //                  Uses Segment 2 for their remaining Indicator Analysis.
   //   Population 2 — viva done in viva week, CI 4 deferred.
-  //                  Takes CI 4 during exam block.
-  //   Population 3 — viva deferred. Completes viva + CI 4 during exam block.
-  // Viva sign-up and worksheet links live in CANVAS block below.
+  //                  Takes CI 4 during Segment 1.
+  //   Population 3 — viva deferred. Takes CI 4 during Segment 1 and viva
+  //                  during Segment 2.
+  // Viva sign-up and Indicator Analysis links live in CANVAS block below.
   finalExamPeriod: {
-    date:           "Wed Dec 9, 2026",               // UPDATE each semester
-    time:           "1:00–2:10 p.m.",                // UPDATE each semester
-    dates:          "Wed Dec 9, 2026, 1:00–2:10 p.m.", // UPDATE each semester — display string
+    date:           "Fri Dec 11, 2026",                       // UPDATE each semester
+    time:           "8:30–11:00 a.m.",                        // UPDATE each semester — spans Segments 1+2
+    dates:          "Fri Dec 11, 2026, 8:30–11:00 a.m.",       // UPDATE each semester — display string
+    segment1: {
+      label: "Segment 1 — Check-In 4",
+      time:  "8:30–9:40 a.m.",
+      dates: "Fri Dec 11, 2026, 8:30–9:40 a.m.",
+    },
+    segment2: {
+      label: "Segment 2 — Viva / Indicator Analysis",
+      time:  "9:50–11:00 a.m.",
+      dates: "Fri Dec 11, 2026, 9:50–11:00 a.m.",
+    },
     // Viva week sign-up URL lives in CANVAS.viva.vivaWeekSignupUrl (single source).
-    // Population 1 worksheet — completed online within the exam block
-    worksheetNote:  "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
     // Equity note — displayed near the viva sign-up pill
     signupEquityNote: "No computer access? Contact Prof. Depro and he will assign your slot.",
   },
@@ -512,17 +524,28 @@ const CANVAS = {
   viva: {
     durationMinutes:     10,
     vivaWeekSignupUrl:   "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
-    examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-09",
-    // Viva week review worksheet — Mon and Wed of viva week
-    worksheetUrl:        "",   // UPDATE: Canvas Page URL (s15-worksheet)
-    // Viva week worksheet submission — for contact hour record
-    worksheetSubmitUrl:  "",   // UPDATE: Canvas Assignment URL
-    // Final exam period worksheet — Population 1 students
-    examWorksheetUrl:    "",   // UPDATE: Canvas Page URL
-    examWorksheetSubmitUrl: "", // UPDATE: Canvas Assignment URL
+    examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-11",
     // Friday Focus written narrative submission — same as friday[0].url
     ffSubmitUrl:         "https://elon.instructure.com/courses/1397/assignments/2455",
   },
+
+  // Indicator Analysis — three NPR "The Indicator" episodes, each a required
+  // 2-point completion grade folded into Friday Focus. No drop-lowest:
+  // every completed one counts, every skipped one is a real 0/2 (grading
+  // "Option 3" — see project notes).
+  // monday/wednesday stay open through Friday of viva week so a student
+  // whose viva chair slot lands on that day has a makeup path.
+  // examSeg2 is scoped tightly to Segment 2 of the final exam block
+  // (9:50–11:00 a.m.) — it's Population 1's replacement activity for
+  // whichever in-class day their viva took, not a general makeup slot.
+  indicatorAnalysis: [
+    { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/taylor-swift-scalpers.html`, aid: "12032" },
+    { id: "wednesday", title: "Indicator Analysis: The Pay Gap, with Claudia Goldin",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/goldin-pay-gap.html`, aid: "12033" },
+    { id: "examSeg2",  title: "Indicator Analysis: Does Unemployment Whiplash Mean Recession?",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/unemployment-whiplash.html`, aid: "12034" },
+  ],
 
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
   // module: block id (1, 2, 3, '4b') — determines which module banner shows this pill
@@ -620,7 +643,7 @@ const BLOCKS = [
 const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
-[CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme]
+[CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 // Guided-notes submission link — one per core chapter (1:1, no grouping

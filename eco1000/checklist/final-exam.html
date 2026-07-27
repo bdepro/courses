@@ -111,7 +111,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text" id="storyText">
-      Everyone takes the same exam block. Your path below depends on what you've already finished.
+      The exam block splits into two 70-minute segments. Your path below depends on what you've already finished.
     </p>
   </div>
 
@@ -129,17 +129,17 @@
     </div>
     <div class="checklist">
 
-      <div class="check-item" data-id="exam-worksheet">
+      <div class="check-item" data-id="exam-indicator">
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Already did your viva and Check-In #4?</div>
-          <div class="check-desc" id="exam-worksheet-desc"></div>
-          <span class="check-tag tag-read">Worksheet Only</span>
-          <br><a class="check-link" href="#" id="link-exam-worksheet" target="_blank" rel="noopener">
-            Open Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="check-desc">You're in Segment 2 (9:50&ndash;11:00 a.m.). Complete the Indicator Analysis &mdash; "Does Unemployment Whiplash Mean Recession?" &mdash; during that block.</div>
+          <span class="check-tag tag-read">Indicator Analysis &middot; Segment 2</span>
+          <br><a class="check-link" href="#" id="link-exam-indicator" target="_blank" rel="noopener">
+            Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
-          <br><a class="check-link" href="#" id="link-exam-worksheet-submit" target="_blank" rel="noopener">
-            Submit Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <br><a class="check-link" href="#" id="link-exam-indicator-submit" target="_blank" rel="noopener">
+            Submit to Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -148,8 +148,8 @@
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Did your viva, but still need Check-In #4?</div>
-          <div class="check-desc">Take Check-In #4 during this block instead of doing the worksheet.</div>
-          <span class="check-tag tag-submit">Exam &middot; In Block</span>
+          <div class="check-desc">You're in Segment 1 (8:30&ndash;9:40 a.m.). Take Check-In #4 during that block instead of the Indicator Analysis.</div>
+          <span class="check-tag tag-submit">Exam &middot; Segment 1</span>
         </div>
       </div>
 
@@ -157,8 +157,8 @@
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Deferred your viva?</div>
-          <div class="check-desc">Complete both your viva conversation and Check-In #4 during this block.</div>
-          <span class="check-tag tag-submit">Viva + Exam</span>
+          <div class="check-desc">You need both segments: Check-In #4 in Segment 1 (8:30&ndash;9:40 a.m.), then your viva conversation in Segment 2 (9:50&ndash;11:00 a.m.).</div>
+          <span class="check-tag tag-submit">Viva + Exam &middot; Both Segments</span>
           <br><a class="check-link" href="#" id="link-exam-viva" target="_blank" rel="noopener">
             Confirm Your Slot <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -183,14 +183,15 @@ document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE
 document.getElementById('weekMeta').textContent    = SCHEDULE.finalExamPeriod.dates;
 
 document.getElementById('dueBannerText').innerHTML =
-  `<strong>One exam block for everyone.</strong> ${SCHEDULE.finalExamPeriod.dates}`;
+  `<strong>Two segments this block.</strong> Segment 1 (Check-In 4): ${SCHEDULE.finalExamPeriod.segment1.time}; Segment 2 (viva / Indicator Analysis): ${SCHEDULE.finalExamPeriod.segment2.time}`;
 
-document.getElementById('exam-worksheet-desc').textContent = SCHEDULE.finalExamPeriod.worksheetNote;
 document.getElementById('equityNote').textContent = SCHEDULE.finalExamPeriod.signupEquityNote;
 
+const iaExamSeg2 = CANVAS.indicatorAnalysis.find(i => i.id === 'examSeg2');
+
 const L = {
-  'link-exam-worksheet':        CANVAS.viva.examWorksheetUrl,
-  'link-exam-worksheet-submit': CANVAS.viva.examWorksheetSubmitUrl,
+  'link-exam-indicator':        iaExamSeg2 ? iaExamSeg2.pageUrl : '',
+  'link-exam-indicator-submit': iaExamSeg2 ? iaExamSeg2.url : '',
   'link-exam-viva':             CANVAS.viva.examPeriodSignupUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
