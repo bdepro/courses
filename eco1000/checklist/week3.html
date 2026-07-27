@@ -155,9 +155,9 @@
       <div class="check-item" data-id="ci1-draft">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your Friday Focus Draft</div>
+          <div class="check-title">Submit your Mind Draft</div>
           <div class="check-desc">This is the first version of the economic narrative you'll keep developing all semester.</div>
-          <span class="check-tag tag-submit" id="ci1-draft-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci1-draft-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci1-draft" target="_blank" rel="noopener">
             Open Draft <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -167,9 +167,9 @@
       <div class="check-item" data-id="ci1-review1">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Complete Friday Focus Peer Review 1</div>
+          <div class="check-title">Complete Mind Peer Review 1</div>
           <div class="check-desc">Read a classmate's draft and leave feedback they can actually use.</div>
-          <span class="check-tag tag-submit" id="ci1-review1-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci1-review1-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci1-review1" target="_blank" rel="noopener">
             Open Peer Review <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -198,11 +198,11 @@ const draft1  = (CANVAS.eli || []).find(t => t.id === 1);
 const review1 = (CANVAS.eli || []).find(t => t.id === 2);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `The Chapter 3 puzzle and your Friday Focus draft are due Wednesday, the same day as Check-In #1. Review 1 follows on Friday.`;
+dueBannerText.innerHTML = `The Chapter 3 puzzle and your Mind draft are due Wednesday, the same day as Check-In #1. Review 1 follows on Friday.`;
 
 if (puzzle2) document.getElementById('ci1-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(2)}`;
-if (draft1) document.getElementById('ci1-draft-tag').textContent = `Friday Focus · Due ${draft1.due}`;
-if (review1) document.getElementById('ci1-review1-tag').textContent = `Friday Focus · Due ${review1.due}`;
+if (draft1) document.getElementById('ci1-draft-tag').textContent = `Mind · Due ${draft1.due}`;
+if (review1) document.getElementById('ci1-review1-tag').textContent = `Mind · Due ${review1.due}`;
 
 const L = {
   'link-ci1-puzzle': puzzle2 ? puzzle2.url : '',

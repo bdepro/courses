@@ -168,9 +168,9 @@
       <div class="check-item" data-id="ci2-revplan">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your Friday Focus Revision Plan</div>
+          <div class="check-title">Submit your Mind Revision Plan</div>
           <div class="check-desc">Name what you're changing in your narrative, based on the feedback from Review 1.</div>
-          <span class="check-tag tag-submit" id="ci2-revplan-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci2-revplan-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci2-revplan" target="_blank" rel="noopener">
             Open Revision Plan <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -180,9 +180,9 @@
       <div class="check-item" data-id="ci2-revision">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit Friday Focus Revision 1</div>
+          <div class="check-title">Submit Mind Revision 1</div>
           <div class="check-desc">Turn your plan into an actual rewrite. This is the draft your next reviewer will read.</div>
-          <span class="check-tag tag-submit" id="ci2-revision-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci2-revision-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci2-revision" target="_blank" rel="noopener">
             Open Revision 1 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -194,7 +194,7 @@
         <div class="check-content">
           <div class="check-title">Submit Draft 2: The Economic Thinking</div>
           <div class="check-desc">Add the economic heart to the scene you revised — what happened, how, and why.</div>
-          <span class="check-tag tag-submit" id="ci2-draft2-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci2-draft2-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci2-draft2" target="_blank" rel="noopener">
             Open Draft 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -204,9 +204,9 @@
       <div class="check-item" data-id="ci2-review2">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Complete Friday Focus Peer Review 2</div>
+          <div class="check-title">Complete Mind Peer Review 2</div>
           <div class="check-desc">Read a classmate's revised narrative and leave feedback they can actually use.</div>
-          <span class="check-tag tag-submit" id="ci2-review2-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="ci2-review2-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-ci2-review2" target="_blank" rel="noopener">
             Open Review 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -240,17 +240,17 @@ const review2  = (CANVAS.eli || []).find(t => t.id === 6);
 
 // Due banner — every real deadline this week, computed from config.js, not hand-typed
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `The Chapter 7 puzzle, MME 1, and your Friday Focus revision and Draft 2 are all due Wednesday, the same day as Check-In #2. Review 2 follows on Friday.`;
+dueBannerText.innerHTML = `The Chapter 7 puzzle, MME 1, and your Mind revision and Draft 2 are all due Wednesday, the same day as Check-In #2. Review 2 follows on Friday.`;
 
 if (puzzle5) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 if (mme1) {
   document.getElementById('ci2-mme-tag').textContent = `MME · Due ${mme1.due}`;
   document.getElementById('ci2-mme-desc').textContent = `${mme1.title} is due Wednesday. Read it once for the story, then again for the economics.`;
 }
-if (revPlan) document.getElementById('ci2-revplan-tag').textContent = `Friday Focus · Due ${revPlan.due}`;
-if (revision) document.getElementById('ci2-revision-tag').textContent = `Friday Focus · Due ${revision.due}`;
-if (draft2) document.getElementById('ci2-draft2-tag').textContent = `Friday Focus · Due ${draft2.due}`;
-if (review2) document.getElementById('ci2-review2-tag').textContent = `Friday Focus · Due ${review2.due}`;
+if (revPlan) document.getElementById('ci2-revplan-tag').textContent = `Mind · Due ${revPlan.due}`;
+if (revision) document.getElementById('ci2-revision-tag').textContent = `Mind · Due ${revision.due}`;
+if (draft2) document.getElementById('ci2-draft2-tag').textContent = `Mind · Due ${draft2.due}`;
+if (review2) document.getElementById('ci2-review2-tag').textContent = `Mind · Due ${review2.due}`;
 
 const L = {
   'link-ci2-puzzle':  puzzle5 ? puzzle5.url : '',

@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 ================================================================
-  COR 1100 — FRIDAY FOCUS
-  Hosted: bdepro.github.io/courses/cor1100/friday.html
+  ECO 1000 — FRIDAY FOCUS
+  Hosted: bdepro.github.io/courses/eco1000/mind-voice.html
   All data pulls from CANVAS.friday and CANVAS.viva in config.js.
   UPDATE: CANVAS.friday URLs and CANVAS.viva sign-up URLs each semester.
 ================================================================
@@ -11,8 +11,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Friday Focus written narrative and viva conversation details for COR 1100.">
-  <title>COR 1100 · Friday Focus</title>
+  <meta name="description" content="Mind & Voice written narrative, Indicator Analysis, and viva conversation details for ECO 1000.">
+  <title>ECO 1000 · Mind & Voice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
@@ -47,6 +47,9 @@
     .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
     .callout.teal strong{color:var(--teal-dk);}
     .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;}
+    .ia-item{margin-bottom:1.1rem;}
+    .ia-item:last-child{margin-bottom:0;}
+    .ia-title{font-size:0.9rem;}
     .action-pill{display:inline-flex;align-items:center;gap:5px;background:var(--teal);color:var(--white);padding:0.45rem 1rem;border-radius:5px;font-size:0.8rem;font-weight:600;text-decoration:none;letter-spacing:0.02em;transition:opacity 0.15s;}
     .action-pill:hover{opacity:0.88;}
     .action-pill.inactive{background:var(--warm-gray);color:var(--disabled);border:1px solid #ddd;pointer-events:none;}
@@ -67,34 +70,35 @@
       Course Home
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
-    <h1 class="screen-title">Friday Focus</h1>
-    <p class="screen-sub">25% of your course grade &middot; written narrative + viva conversation &middot; sign up before Thanksgiving</p>
+    <h1 class="screen-title">Mind &amp; Voice</h1>
+    <p class="screen-sub">25% of your course grade · written narrative + Indicator Analysis + viva conversation · sign up before Thanksgiving</p>
   </div>
 </div>
 <main id="main">
 
   <div class="syl-section">
     <div class="syl-section-header">
-      <span class="syl-num">Part 1</span>
+      <span class="syl-num">Mind</span>
       <span class="syl-section-title">Written Narrative</span>
     </div>
     <div class="syl-body">
-      <p>Friday Focus asks one question: what do Hanley and Smith have to say about
+      <p>This part of the course asks one question: what does economic reasoning explain about
       something you actually care about? You build your answer as a specific story
       from your own life, told carefully enough that the reasoning inside it
-      becomes visible to someone else.</p>
+      becomes visible to someone else. The written narrative, the Indicator Analyses,
+      and the viva conversation are graded together as a single Mind &amp; Voice
+      assignment worth 25% of your course grade.</p>
       <p><strong>Situation:</strong> At some point this semester a moment from
       your own life will click into focus differently than before — maybe as
-      ordinary as a promise you kept when it would have been easier not to —
-      because you'll finally have language for what was happening in it. Go back
-      to that moment and write down what actually happened, in enough detail that
-      someone else could see it, before you reach for a concept to illustrate.
-      We'll talk through what Hanley and Smith have to say about it together in
-      the viva.</p>
+      ordinary as a lease you signed without reading it closely — because you'll
+      finally have language for what was happening in it. Go back to that moment
+      and write down what actually happened, in enough detail that someone else
+      could see it, before you reach for a concept to illustrate. We'll talk
+      through the economic reasoning behind your story together in the viva.</p>
       <p><strong>Audience:</strong> Write for a reader who has never taken this
-      course, someone who can see the scene and follow what happened before any of
-      Smith's vocabulary enters the picture. Concrete detail carries the narrative.
-      Follow Deirdre McCloskey's advice: speak to an audience of human beings.</p>
+      course, someone who can see the scene and follow what happened before any
+      economics enters the picture. Concrete detail carries the narrative. Follow
+      Deirdre McCloskey's advice: speak to an audience of human beings.</p>
       <p><strong>Purpose:</strong> You're practicing something specific this
       semester: taking a moment you actually lived through and accounting for it
       with the reasoning you've built in this course. Notice honestly, and explain
@@ -104,19 +108,33 @@
       through three cycles of draft, peer review, and revision, each anchored to a
       Friday workshop class. Come to those three sessions with something on the
       page.</p>
-      <p>Submit on Canvas. Due <span id="narrativeDueText"></span></p>
+      <p>Submit as a Canvas assignment. Due <span id="narrativeDueText"></span></p>
       <div class="pill-row" id="narrativePills"></div>
     </div>
   </div>
 
   <div class="syl-section">
     <div class="syl-section-header">
-      <span class="syl-num">Part 2</span>
+      <span class="syl-num">Mind</span>
+      <span class="syl-section-title">Indicator Analysis</span>
+    </div>
+    <div class="syl-body">
+      <p>Three short in-class activities built around real episodes of NPR's
+      <em>The Indicator from Planet Money</em>. Your viva schedule determines
+      which two you complete &mdash; check the weekly checklist for your
+      specific dates.</p>
+      <div id="indicatorList"></div>
+    </div>
+  </div>
+
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Voice</span>
       <span class="syl-section-title">Viva Conversation</span>
     </div>
     <div class="syl-body">
       <p>The viva is a short conversation with me about what you wrote. Walk me
-      through the moment you wrote about and what Hanley and Smith have to say about it.</p>
+      through the moment you wrote about and the economic reasoning behind it.</p>
       <p id="vivaDateText"></p>
       <div class="callout teal">
         <strong>Sign up before Thanksgiving break.</strong> Slots fill. Sign up on a computer; the Canvas scheduler does not work reliably on phones.
@@ -131,51 +149,73 @@
 <footer id="pageFooter"></footer>
 <script>
 document.title += ' · ' + COURSE.semester;
-document.getElementById('backLink').href           = PAGES.canvasHome;
+document.getElementById('backLink').href          = PAGES.canvasHome;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
-document.getElementById('pageFooter').textContent  = COURSE.code + ' · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
 
 // Viva date text — pull from schedule and finalExamPeriod
 var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });
 var vivaWeekDates = vivaSession ? vivaSession.dates : '';
-var examDates = SCHEDULE.finalExamPeriod ? SCHEDULE.finalExamPeriod.dates : '';
+var examDates = SCHEDULE.finalExamPeriod ? SCHEDULE.finalExamPeriod.segment2.dates : '';
 var vivaDateEl = document.getElementById('vivaDateText');
-var dateText = 'You sign up for a slot during viva week';
+var dateText = 'Sign up for a slot during viva week';
 if (vivaWeekDates) dateText += ', ' + vivaWeekDates;
 dateText += '.';
-if (examDates) dateText += ' If you need to defer, exam period slots are available ' + examDates + '.';
+if (examDates) dateText += ' If you cannot schedule during viva week, exam period slots are available ' + examDates + ' — no approval needed, just use the sign-up link.';
 vivaDateEl.textContent = dateText;
 
-// Pill builder
 function pill(label, url) {
-  var a = document.createElement('a');
   var hasUrl = url && url.length > 0;
-  a.className = 'action-pill' + (hasUrl ? '' : ' inactive');
-  a.href = hasUrl ? url : '#';
-  if (hasUrl) { a.target = '_blank'; a.rel = 'noopener'; }
-  a.textContent = label;
-  if (hasUrl) {
-    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('style', 'width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;');
-    var poly = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
-    poly.setAttribute('points', '9 18 15 12 9 6');
-    svg.appendChild(poly);
-    a.appendChild(svg);
+  if (!hasUrl) {
+    var span = document.createElement('span');
+    span.className = 'action-pill inactive';
+    span.textContent = label;
+    return span;
   }
+  var a = document.createElement('a');
+  a.className = 'action-pill';
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = label;
+  var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox','0 0 24 24');
+  svg.setAttribute('style','width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;');
+  var poly = document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  poly.setAttribute('points','9 18 15 12 9 6');
+  svg.appendChild(poly);
+  a.appendChild(svg);
   return a;
 }
 
-// Narrative pills
 var narrativePills = document.getElementById('narrativePills');
-narrativePills.appendChild(pill('Open your Friday Focus workspace', CANVAS.eliDashboardUrl));
+narrativePills.appendChild(pill('Open your Mind workspace', CANVAS.eliDashboardUrl));
 
 var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
-if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
+if(ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
 narrativePills.appendChild(pill('Writing guide', PAGES.narrativeGuide));
 
-// Viva pills
+var indicatorList = document.getElementById('indicatorList');
+(CANVAS.indicatorAnalysis || []).forEach(function(ia) {
+  var item = document.createElement('div');
+  item.className = 'ia-item';
+
+  var title = document.createElement('p');
+  title.className = 'ia-title';
+  title.innerHTML = '<strong>' + ia.title.replace('Indicator Analysis: ', '') + '</strong> &middot; ' + ia.dateLabel;
+  item.appendChild(title);
+
+  var iaPills = document.createElement('div');
+  iaPills.className = 'pill-row';
+  iaPills.appendChild(pill('Listen on NPR', ia.storyUrl));
+  iaPills.appendChild(pill('Open Activity', ia.pageUrl));
+  iaPills.appendChild(pill('Submit to Canvas', ia.url));
+  item.appendChild(iaPills);
+
+  indicatorList.appendChild(item);
+});
+
 var vivaPills = document.getElementById('vivaPills');
 vivaPills.appendChild(pill('Viva week sign-up', CANVAS.viva.vivaWeekSignupUrl));
 vivaPills.appendChild(pill('Exam period sign-up', CANVAS.viva.examPeriodSignupUrl));

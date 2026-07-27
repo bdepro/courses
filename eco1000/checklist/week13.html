@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Application Block finishes with the last three questions from the top 6. Thanksgiving break starts right after class Friday, and your Friday Focus narrative is due that same day.
+      Application Block finishes with the last three questions from the top 6. Thanksgiving break starts right after class Friday, and your Mind narrative is due that same day.
     </p>
   </div>
 
@@ -177,9 +177,9 @@
       <div class="check-item" data-id="app13-narrative">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Submit your Friday Focus narrative</div>
+          <div class="check-title">Submit your Mind narrative</div>
           <div class="check-desc" id="app13-narrative-desc">Due Friday, before Thanksgiving break starts. This is the written piece your viva conversation will be about.</div>
-          <span class="check-tag tag-submit" id="app13-narrative-tag">Friday Focus</span>
+          <span class="check-tag tag-submit" id="app13-narrative-tag">Mind</span>
           <br><a class="check-link" href="#" id="link-app13-narrative" target="_blank" rel="noopener">
             Submit Narrative <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -212,7 +212,7 @@ const dueBannerText = document.getElementById('dueBannerText');
 const puzzle12Due = puzzle12 ? formatPuzzleDue(12) : 'TBA';
 const puzzle13Due = puzzle13 ? formatPuzzleDue(13) : 'TBA';
 const friday1Due  = friday1 ? friday1.due : 'TBA';
-dueBannerText.innerHTML = `Last week's puzzle and MME 3 are due Wednesday. This week's puzzle is due ${puzzle13Due}, shifted to Friday because Thanksgiving break starts right after. Your Friday Focus narrative is due ${friday1Due}.`;
+dueBannerText.innerHTML = `Last week's puzzle and MME 3 are due Wednesday. This week's puzzle is due ${puzzle13Due}, shifted to Friday because Thanksgiving break starts right after. Your Mind narrative is due ${friday1Due}.`;
 
 if (puzzle12) {
   document.getElementById('app13-puzzle12-tag').textContent = `Puzzle · Due ${puzzle12Due}`;
@@ -224,7 +224,7 @@ if (mme3) {
   document.getElementById('app13-mme3-desc').textContent = `${mme3.title} is due Wednesday. Read it once for the story, then again for the economics.`;
 }
 if (friday1) {
-  document.getElementById('app13-narrative-tag').textContent = `Friday Focus · Due ${friday1.due}`;
+  document.getElementById('app13-narrative-tag').textContent = `Mind · Due ${friday1.due}`;
   document.getElementById('app13-narrative-desc').textContent = `Due Friday, before Thanksgiving break starts. This is the written piece your viva conversation will be about.`;
 }
 

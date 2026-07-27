@@ -2,7 +2,9 @@
 <!--
 =======================================================
   SHARED — NARRATIVE WRITING GUIDE
-  This file is shared across all courses that use Friday Focus.
+  This file is shared across all courses that use the narrative+viva assignment
+  (named "Mind & Voice" in eco1000/cor1100, "Friday Focus" in eco1000-cengage —
+  see PAGES.fridayLabel in each course's config.js).
   Prose edits belong here; the cengage version is the review source.
   Config is loaded dynamically via ?from=<course-folder> URL param.
   Example: narrative-guide.html?from=eco1000-cengage
@@ -94,10 +96,10 @@
 
 <header>
   <div class="header-inner">
-    <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>Friday Focus</a>
+    <a class="back-link" id="backLink" href="#"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="backLinkLabel">Friday Focus</span></a>
     <p class="course-tag" id="courseTag"></p>
     <h1 id="pageTitle">How to Write Your Economic Narrative</h1>
-    <p class="sub">A drafting guide for Friday Focus 1. Read this before you begin writing.</p>
+    <p class="sub">A drafting guide for your narrative. Read this before you begin writing.</p>
   </div>
 </header>
 
@@ -330,6 +332,7 @@
                           : 'viva-prep-guide.html';
 
     document.getElementById('backLink').href          = fridayUrl;
+    document.getElementById('backLinkLabel').textContent = (typeof PAGES !== 'undefined' && PAGES.fridayLabel) ? PAGES.fridayLabel : 'Friday Focus';
     document.getElementById('courseTag').textContent  = courseSemester ? courseCode + ' · ' + courseSemester : courseCode;
     document.getElementById('footerText').textContent = [courseCode, courseTitle, courseSemester].filter(Boolean).join(' · ');
     document.getElementById('prepGuideBtn').href      = vivaUrl;
