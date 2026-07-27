@@ -139,7 +139,7 @@ document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon Universit
 // Viva date text — pull from schedule and finalExamPeriod
 var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });
 var vivaWeekDates = vivaSession ? vivaSession.dates : '';
-var examDates = SCHEDULE.finalExamPeriod ? SCHEDULE.finalExamPeriod.dates : '';
+var examDates = SCHEDULE.finalExamPeriod ? SCHEDULE.finalExamPeriod.segment2.dates : '';
 var vivaDateEl = document.getElementById('vivaDateText');
 var dateText = 'Sign up for a slot during viva week';
 if (vivaWeekDates) dateText += ', ' + vivaWeekDates;

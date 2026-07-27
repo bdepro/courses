@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicator Analysis: The Pay Gap, with Claudia Goldin — ECO 1000</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.activity-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 18pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+.episode-block {
+  border: 1px solid #ccc;
+  border-left: 4px solid var(--ink);
+  padding: 10pt 14pt;
+  margin-bottom: 22pt;
+}
+.episode-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+.episode-title {
+  font-size: 11pt;
+  font-weight: 700;
+  margin-bottom: 3pt;
+}
+.episode-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.listen-for ul {
+  padding-left: 16pt;
+  font-size: 9.5pt;
+}
+.listen-for li { margin-bottom: 3pt; }
+.listen-for-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.section-block { margin-bottom: 24pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pace-tag {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 6pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 6pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 32%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 24pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+  .targets-block   { page-break-inside: avoid; }
+  .episode-block   { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics · Indicator Analysis</div>
+  <div class="activity-title">The Pay Gap, with Claudia Goldin</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this activity, I should be able to:</div>
+  <ol>
+    <li>Explain Goldin's "greedy work" hypothesis and how it differs from a discrimination-only explanation of the gender pay gap.</li>
+    <li>Connect job structure — how pay scales with hours and availability — to occupational sorting between partners in a household.</li>
+    <li>Evaluate why equal-pay-for-equal-title policy doesn't fully close a gap driven by which jobs people take.</li>
+  </ol>
+</div>
+
+<!-- ── EPISODE BLOCK ── -->
+<div class="episode-block">
+  <div class="episode-label">Today's Episode &nbsp;<span class="pace-tag">~5 min</span></div>
+  <div class="episode-title">The Indicator from Planet Money — "The pay gap between men and women, with Nobel laureate Claudia Goldin"</div>
+  <div class="episode-meta">NPR, aired Oct. 10, 2023 · npr.org/2023/10/10/1197954680</div>
+  <div class="listen-for">
+    <div class="listen-for-label">Listen for these four things</div>
+    <ul>
+      <li>The pharmacist example — why pharmacy has one of the smallest gender pay gaps of any profession.</li>
+      <li>Goldin's own definition of a "greedy job."</li>
+      <li>How the earnings gap between partners changes right after their first child.</li>
+      <li>Whether Goldin blames employers, employees, or something structural about the job itself.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">What the Episode Actually Argues</div>
+  <div class="connection-note">Before connecting this to Ch. 26, pin down Goldin's claim in her own terms as you listen. Compare notes with a neighbor before Section II.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Prompt</th>
+        <th class="cornell-notes-col">Your Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Pharmacists have one of the smallest gender pay gaps of any profession. What's different about how pharmacy jobs are structured?</td>
+        <td class="cornell-notes-col">
+          A pharmacist working <span class="blank"></span> hours earns almost <span class="blank blank-lg"></span> per hour as one working 60.<br><br>
+          Shifts are <span class="blank blank-lg"></span> — one pharmacist can hand off to another without losing much.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What makes a job "greedy" in Goldin's sense — and which professions come up as examples?</td>
+        <td class="cornell-notes-col">
+          A greedy job pays disproportionately more for <span class="blank blank-xl"></span> hours and <span class="blank blank-lg"></span> availability, not just more hours worked.<br><br>
+          Examples mentioned: <span class="blank-full"></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What happens to the earnings gap between partners right after their first child?</td>
+        <td class="cornell-notes-col">
+          Before kids, the earnings gap between partners is <span class="blank blank-lg"></span>.<br><br>
+          After the first child, one partner — usually the <span class="blank"></span> — shifts toward the <span class="blank blank-lg"></span> job, and the gap <span class="blank"></span>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="pace-tag">~20 min</span></div>
+  <div class="section-header">Connecting to Ch. 26 — Earnings, Productivity, and the Job Market</div>
+  <div class="connection-note">Ch. 26 explains wage differences using human capital, compensating differentials, and job sorting. Apply those tools to Goldin's evidence directly.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Ch. 26 Concept</th>
+        <th style="width:40%" class="fill-col">What it predicts (fill in)</th>
+        <th style="width:34%" class="fill-col">Apply it to the episode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Compensating differential</td>
+        <td>Workers must be <span class="blank"></span> for accepting worse job conditions — here, less <span class="blank blank-lg"></span> and more unpredictable hours.</td>
+        <td>Is the pharmacist-vs.-lawyer pay gap a compensating differential running in reverse — flexibility itself has a <span class="blank blank-lg"></span>?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Human capital investment</td>
+        <td>Workers who expect to work <span class="blank"></span> continuous hours have a stronger incentive to invest in job-specific skills.</td>
+        <td>Does Goldin's story mainly blame gaps in <span class="blank blank-lg"></span> investment, or something else?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Occupational sorting</td>
+        <td>Pay gaps can emerge from which <span class="blank blank-lg"></span> people choose, even if pay within each job is identical for men and women.</td>
+        <td>Why would an equal-pay-for-equal-title law fail to close a gap that's driven by sorting? <span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Stress-Test the Claim</div>
+    <p>Goldin says the pay gap isn't mainly about employers paying women less for the same work. Name one piece of evidence from Ch. 26 or class that could push back on her framing — a reason discrimination-based pay-setting might still explain part of the gap even if greedy work explains the rest.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SYNTHESIS ── -->
+<div class="section-block">
+  <div class="section-label">Synthesis &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">Write: Would Equal Pay Legislation Fix This?</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're advising a state legislator drafting a pay-equity bill that requires equal pay for equal job titles. Pick at least two concepts from today — compensating differentials, human capital, occupational sorting, or greedy work — and explain what the bill would fix. Then propose one change to how jobs convert hours into pay: would it close more of the gap than the bill alone?</p>
+  <span class="write-lines-lg"></span>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Before You Leave</div>
+  <div class="summary-item">The idea from today I'd have the hardest time explaining to a roommate: <span class="blank-full"></span></div>
+  <div class="summary-item">One job I know of (yours, a family member's, an internship) that looks "greedy" by Goldin's definition: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── SUBMIT ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Analysis</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/1397/assignments/12033" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">This is Wednesday's Indicator Analysis, one of three this term. Complete it during your scheduled 60-minute block; no outside prep needed beyond listening.</p>
+</div>
+
+</body>
+</html>

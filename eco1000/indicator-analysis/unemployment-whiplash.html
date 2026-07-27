@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicator Analysis: Does Unemployment Whiplash Mean Recession? — ECO 1000</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.activity-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 18pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+.episode-block {
+  border: 1px solid #ccc;
+  border-left: 4px solid var(--ink);
+  padding: 10pt 14pt;
+  margin-bottom: 22pt;
+}
+.episode-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+.episode-title {
+  font-size: 11pt;
+  font-weight: 700;
+  margin-bottom: 3pt;
+}
+.episode-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.listen-for ul {
+  padding-left: 16pt;
+  font-size: 9.5pt;
+}
+.listen-for li { margin-bottom: 3pt; }
+.listen-for-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.section-block { margin-bottom: 24pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pace-tag {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 6pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 6pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 32%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 24pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+  .targets-block   { page-break-inside: avoid; }
+  .episode-block   { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics · Indicator Analysis</div>
+  <div class="activity-title">Does Unemployment Whiplash Mean Recession?</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this activity, I should be able to:</div>
+  <ol>
+    <li>Explain the Sahm Rule and the specific change in the unemployment rate it uses to signal a recession.</li>
+    <li>Apply the distinction between a noisy monthly data point and a genuine trend to a real jobs-report swing.</li>
+    <li>Evaluate the trade-off between waiting for confirming data and reacting early to a single indicator.</li>
+  </ol>
+</div>
+
+<!-- ── EPISODE BLOCK ── -->
+<div class="episode-block">
+  <div class="episode-label">Today's Episode &nbsp;<span class="pace-tag">~8 min</span></div>
+  <div class="episode-title">The Indicator from Planet Money — "Does unemployment whiplash mean recession?"</div>
+  <div class="episode-meta">NPR, aired Oct. 4, 2024 · npr.org/2024/10/04/1203595442</div>
+  <div class="listen-for">
+    <div class="listen-for-label">Listen for these four things</div>
+    <ul>
+      <li>The exact threshold the Sahm Rule uses — how many percentage points the unemployment rate must rise above its recent low.</li>
+      <li>Why one month's jump in the unemployment rate doesn't automatically confirm a recession has started.</li>
+      <li>How the rule's creator, Claudia Sahm, talks about her own rule when it flashes a warning she isn't fully sure about.</li>
+      <li>Whether the episode concludes the U.S. was already in a recession when it aired.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">What the Episode Actually Argues</div>
+  <div class="connection-note">Capture the Sahm Rule's actual mechanics before applying it. The rule is precise about its trigger and much less certain about what the trigger means in the moment.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Prompt</th>
+        <th class="cornell-notes-col">Your Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">The Sahm Rule triggers on a specific numeric threshold — name the two numbers it compares.</td>
+        <td class="cornell-notes-col">
+          Triggers when the unemployment rate's <span class="blank"></span>-month average rises <span class="blank blank-sm"></span> percentage points above its low point over the prior <span class="blank"></span> months.<br><br>
+          It compares a recent average to a recent <span class="blank blank-lg"></span>, not to some fixed historical number.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">A single month's jobs report can look alarming without signaling a real turning point. What makes one month's number unreliable on its own?</td>
+        <td class="cornell-notes-col">
+          Monthly data gets <span class="blank blank-lg"></span> in later reports as more information comes in.<br><br>
+          Seasonal patterns and sampling noise can move the rate even when nothing about the labor market has actually <span class="blank"></span>.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Claudia Sahm built this rule and still sounds uncertain about it in the episode. What does her uncertainty tell you about reading real-time economic data in general?</td>
+        <td class="cornell-notes-col">
+          Even the person who designed the indicator can't say with certainty whether a given trigger is <span class="blank blank-xl"></span> or noise.<br><br>
+          Confirmation usually arrives only <span class="blank blank-lg"></span> — after the moment when the warning would have been most useful.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="pace-tag">~20 min</span></div>
+  <div class="section-header">Connecting to Ch. 8 — Economic Fluctuations, Unemployment, and Inflation</div>
+  <div class="connection-note">Ch. 8 gives you the vocabulary to separate a real cyclical turn from ordinary labor-market churn. Apply it to the Sahm Rule's own logic.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Ch. 8 Concept</th>
+        <th style="width:40%" class="fill-col">What it predicts (fill in)</th>
+        <th style="width:34%" class="fill-col">Apply it to the episode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Cyclical vs. frictional unemployment</td>
+        <td>Cyclical unemployment rises with the <span class="blank blank-lg"></span>; frictional unemployment reflects normal <span class="blank blank-lg"></span> between jobs.</td>
+        <td>A single bad jobs report could be either type. What evidence would help you tell them apart?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Natural rate of unemployment</td>
+        <td>The natural rate is the unemployment level consistent with an economy at <span class="blank blank-lg"></span> GDP, not zero unemployment.</td>
+        <td>How large a jump would convince you the actual rate is now meaningfully above the natural rate?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Business-cycle turning points</td>
+        <td>Recessions are usually confirmed only <span class="blank blank-xl"></span> the turning point, once enough data has accumulated.</td>
+        <td>What is the Sahm Rule's entire purpose, stated in terms of that lag?<span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Stress-Test the Claim</div>
+    <p>Suppose next month's jobs report jumps high enough to trigger the Sahm Rule. Using one concept from today, give a reason you might still hold off calling it a recession, and a separate reason you might trust the signal anyway.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SYNTHESIS ── -->
+<div class="section-block">
+  <div class="section-label">Synthesis &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">Write: The Headline You'd Publish</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a financial reporter publishing the moment a jobs report drops, before any revisions or next month's data exist. Draft a two-sentence headline and lead using at least two concepts from today. Then name what you'd flag in the story as still uncertain.</p>
+  <span class="write-lines-lg"></span>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Before You Submit</div>
+  <div class="summary-item">The idea from today I'd have the hardest time explaining to a roommate: <span class="blank-full"></span></div>
+  <div class="summary-item">A time I reacted to one data point (a grade, a workout, a stock price) before waiting for a trend: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── SUBMIT ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Analysis</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/1397/assignments/12034" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">This is the exam-period Indicator Analysis, one of three this term — Segment 2 only (9:50–11:00 a.m.), for students who've already completed their viva and Check-In 4. Complete it anytime during that block, from anywhere.</p>
+</div>
+
+</body>
+</html>

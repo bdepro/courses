@@ -165,17 +165,32 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="viva-worksheet">
+      <div class="check-item" data-id="viva-monday">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Complete the Check-In #4 Review Worksheet</div>
-          <div class="check-desc">On Monday and Wednesday, you're in the classroom on whichever day you aren't in the viva chair. Work through the worksheet that day and submit it before class ends.</div>
-          <span class="check-tag tag-submit">Worksheet &middot; Mon &amp; Wed</span>
-          <br><a class="check-link" href="#" id="link-viva-worksheet" target="_blank" rel="noopener">
-            Open Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div class="check-title">Complete Monday's Indicator Analysis</div>
+          <div class="check-desc">Ticket Scalpers and the Taylor Swift Fiasco. Complete this in class Monday. If your viva slot is Monday, complete it by Friday instead.</div>
+          <span class="check-tag tag-submit">Indicator Analysis &middot; Mon</span>
+          <br><a class="check-link" href="#" id="link-viva-monday" target="_blank" rel="noopener">
+            Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
-          <br><a class="check-link" href="#" id="link-viva-worksheet-submit" target="_blank" rel="noopener">
-            Submit Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <br><a class="check-link" href="#" id="link-viva-monday-submit" target="_blank" rel="noopener">
+            Submit to Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="check-item" data-id="viva-wednesday">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete Wednesday's Indicator Analysis</div>
+          <div class="check-desc">The Pay Gap, with Claudia Goldin. Complete this in class Wednesday. If your viva slot is Wednesday, complete it by Friday instead.</div>
+          <span class="check-tag tag-submit">Indicator Analysis &middot; Wed</span>
+          <br><a class="check-link" href="#" id="link-viva-wednesday" target="_blank" rel="noopener">
+            Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-viva-wednesday-submit" target="_blank" rel="noopener">
+            Submit to Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -221,12 +236,17 @@ if (mme4) {
   document.getElementById('viva-mme4-desc').textContent = `${mme4.title} is due Wednesday. Read it once for the story, then again for the economics.`;
 }
 
+const iaMonday    = CANVAS.indicatorAnalysis.find(i => i.id === 'monday');
+const iaWednesday = CANVAS.indicatorAnalysis.find(i => i.id === 'wednesday');
+
 const L = {
   'link-viva-narrative': friday1 ? friday1.url : '',
   'link-viva-mme4':      mme4 ? mme4.url : '',
   'link-viva-slot':      (CANVAS.viva && CANVAS.viva.vivaWeekSignupUrl) ? CANVAS.viva.vivaWeekSignupUrl : '',
-  'link-viva-worksheet':        (CANVAS.viva && CANVAS.viva.worksheetUrl) ? CANVAS.viva.worksheetUrl : '',
-  'link-viva-worksheet-submit': (CANVAS.viva && CANVAS.viva.worksheetSubmitUrl) ? CANVAS.viva.worksheetSubmitUrl : '',
+  'link-viva-monday':           iaMonday ? iaMonday.pageUrl : '',
+  'link-viva-monday-submit':    iaMonday ? iaMonday.url : '',
+  'link-viva-wednesday':        iaWednesday ? iaWednesday.pageUrl : '',
+  'link-viva-wednesday-submit': iaWednesday ? iaWednesday.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
