@@ -482,6 +482,26 @@ const CANVAS = {
     { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE — content/cascade not yet built
   ],
 
+  // Indicator Analysis — three short in-class activities built around real
+  // episodes of NPR's "The Indicator from Planet Money," verified individually
+  // (byline + working npr.org link) rather than assumed from title alone.
+  // aid: Canvas assignment ID; full URL auto-built at the bottom of this file.
+  // UPDATE aid once each assignment is created in Canvas.
+  indicatorAnalysis: [
+    { id: "monday",    title: "Indicator Analysis: Should the Families of Organ Donors Be Compensated?",
+      dateLabel: "Monday, Viva Week",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/organ-donor-compensation.html`, aid: "",  // UPDATE
+      storyUrl: "https://www.npr.org/2026/03/02/nx-s1-5729630/should-the-families-of-organ-donors-be-compensated" },
+    { id: "wednesday", title: "Indicator Analysis: One of the Cheapest Ways to Save a Life Is Going Away",
+      dateLabel: "Wednesday, Viva Week",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/pepfar-cuts.html`, aid: "",  // UPDATE
+      storyUrl: "https://www.npr.org/2025/06/25/1254697870/pepfar-cuts-aids-africa" },
+    { id: "examPeriod", title: "Indicator Analysis: Why the Gender Pay Gap Persists",
+      dateLabel: "Exam Period",
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/gender-pay-gap.html`, aid: "",  // UPDATE
+      storyUrl: "https://www.npr.org/2024/05/14/1197964565/the-winner-take-all-problem" },
+  ],
+
   // Mind & Voice — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
     { id: 1, title: "Mind: The Narrative",
@@ -611,7 +631,7 @@ const FILE_URL = fileId =>
 
 CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
 
-[CANVAS.puzzles, CANVAS.tms]
+[CANVAS.puzzles, CANVAS.tms, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 // Build each guided-notes doc's submission URL. Both the Guided Notes

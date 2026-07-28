@@ -132,12 +132,18 @@
         <div class="check-content">
           <div class="check-title">Already did your viva and Check-In #4 on Friday?</div>
           <div class="check-desc" id="exam-worksheet-desc"></div>
-          <span class="check-tag tag-read">Worksheet Only</span>
+          <span class="check-tag tag-read">Worksheet + Indicator Analysis</span>
           <br><a class="check-link" href="#" id="link-exam-worksheet" target="_blank" rel="noopener">
             Open Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
           <br><a class="check-link" href="#" id="link-exam-worksheet-submit" target="_blank" rel="noopener">
             Submit Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-exam-indicator" target="_blank" rel="noopener">
+            Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-exam-indicator-submit" target="_blank" rel="noopener">
+            Submit Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -183,13 +189,17 @@ document.getElementById('weekMeta').textContent    = SCHEDULE.finalExamPeriod.da
 document.getElementById('dueBannerText').innerHTML =
   `<strong>One exam block for everyone.</strong> ${SCHEDULE.finalExamPeriod.dates}`;
 
-document.getElementById('exam-worksheet-desc').textContent = SCHEDULE.finalExamPeriod.worksheetNote;
+document.getElementById('exam-worksheet-desc').textContent = SCHEDULE.finalExamPeriod.worksheetNote + ' Also complete the Indicator Analysis — "Why the Gender Pay Gap Persists" — within the same block.';
 document.getElementById('equityNote').textContent = SCHEDULE.finalExamPeriod.signupEquityNote;
+
+const iaExamPeriod = CANVAS.indicatorAnalysis.find(i => i.id === 'examPeriod');
 
 const L = {
   'link-exam-worksheet':        CANVAS.viva.examWorksheetUrl,
   'link-exam-worksheet-submit': CANVAS.viva.examWorksheetSubmitUrl,
   'link-exam-viva':             CANVAS.viva.examPeriodSignupUrl,
+  'link-exam-indicator':        iaExamPeriod ? iaExamPeriod.pageUrl : '',
+  'link-exam-indicator-submit': iaExamPeriod ? iaExamPeriod.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
