@@ -235,8 +235,8 @@ const SCHEDULE = {
   // Viva sign-up and Indicator Analysis links live in CANVAS block below.
   finalExamPeriod: {
     date:           "Fri Dec 11, 2026",                       // UPDATE each semester
-    time:           "8:30–11:00 a.m.",                        // UPDATE each semester — spans Segments 1+2
-    dates:          "Fri Dec 11, 2026, 8:30–11:00 a.m.",       // UPDATE each semester — display string
+    time:           "8:30–11:30 a.m.",                        // UPDATE each semester — official Elon exam block
+    dates:          "Fri Dec 11, 2026, 8:30–11:30 a.m.",       // UPDATE each semester — display string
     segment1: {
       label: "Segment 1 — Check-In 4",
       time:  "8:30–9:40 a.m.",
@@ -244,8 +244,8 @@ const SCHEDULE = {
     },
     segment2: {
       label: "Segment 2 — Viva / Indicator Analysis",
-      time:  "9:50–11:00 a.m.",
-      dates: "Fri Dec 11, 2026, 9:50–11:00 a.m.",
+      time:  "9:50–11:30 a.m.",
+      dates: "Fri Dec 11, 2026, 9:50–11:30 a.m.",
     },
     // Viva week sign-up URL lives in CANVAS.viva.vivaWeekSignupUrl (single source).
     // Equity note — displayed near the viva sign-up pill
@@ -537,7 +537,7 @@ const CANVAS = {
   // monday/wednesday stay open through Friday of viva week so a student
   // whose viva chair slot lands on that day has a makeup path.
   // examSeg2 is scoped tightly to Segment 2 of the final exam block
-  // (9:50–11:00 a.m.) — it's Population 1's replacement activity for
+  // (9:50–11:30 a.m.) — it's Population 1's replacement activity for
   // whichever in-class day their viva took, not a general makeup slot.
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
