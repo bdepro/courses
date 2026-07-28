@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mind & Voice written narrative and viva conversation details for COR 1100.">
+  <meta name="description" content="Mind & Voice written narrative, Indicator Analysis, and viva conversation details for COR 1100.">
   <title>COR 1100 · Mind & Voice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,9 @@
     .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
     .callout.teal strong{color:var(--teal-dk);}
     .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;}
+    .ia-item{margin-bottom:1.1rem;}
+    .ia-item:last-child{margin-bottom:0;}
+    .ia-title{font-size:0.9rem;}
     .action-pill{display:inline-flex;align-items:center;gap:5px;background:var(--teal);color:var(--white);padding:0.45rem 1rem;border-radius:5px;font-size:0.8rem;font-weight:600;text-decoration:none;letter-spacing:0.02em;transition:opacity 0.15s;}
     .action-pill:hover{opacity:0.88;}
     .action-pill.inactive{background:var(--warm-gray);color:var(--disabled);border:1px solid #ddd;pointer-events:none;}
@@ -68,7 +71,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Mind &amp; Voice</h1>
-    <p class="screen-sub">25% of your course grade &middot; written narrative + viva conversation &middot; sign up before Thanksgiving</p>
+    <p class="screen-sub">25% of your course grade &middot; written narrative + Indicator Analysis + viva conversation &middot; sign up before Thanksgiving</p>
   </div>
 </div>
 <main id="main">
@@ -106,6 +109,20 @@
       page.</p>
       <p>Submit on Canvas. Due <span id="narrativeDueText"></span></p>
       <div class="pill-row" id="narrativePills"></div>
+    </div>
+  </div>
+
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Mind</span>
+      <span class="syl-section-title">Indicator Analysis</span>
+    </div>
+    <div class="syl-body">
+      <p>Three short in-class activities built around real episodes of NPR's
+      <em>The Indicator from Planet Money</em>, each paired with a Hanley/Smith
+      concept. Your viva schedule determines which two you complete &mdash;
+      check the weekly checklist for your specific dates.</p>
+      <div id="indicatorList"></div>
     </div>
   </div>
 
@@ -174,6 +191,26 @@ var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
 if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
 narrativePills.appendChild(pill('Writing guide', PAGES.narrativeGuide));
+
+var indicatorList = document.getElementById('indicatorList');
+(CANVAS.indicatorAnalysis || []).forEach(function(ia) {
+  var item = document.createElement('div');
+  item.className = 'ia-item';
+
+  var title = document.createElement('p');
+  title.className = 'ia-title';
+  title.innerHTML = '<strong>' + ia.title.replace('Indicator Analysis: ', '') + '</strong> &middot; ' + ia.dateLabel;
+  item.appendChild(title);
+
+  var iaPills = document.createElement('div');
+  iaPills.className = 'pill-row';
+  iaPills.appendChild(pill('Listen on NPR', ia.storyUrl));
+  iaPills.appendChild(pill('Open Activity', ia.pageUrl));
+  iaPills.appendChild(pill('Submit to Canvas', ia.url));
+  item.appendChild(iaPills);
+
+  indicatorList.appendChild(item);
+});
 
 // Viva pills
 var vivaPills = document.getElementById('vivaPills');

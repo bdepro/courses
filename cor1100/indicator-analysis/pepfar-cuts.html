@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicator Analysis: One of the Cheapest Ways to Save a Life Is Going Away — COR 1100</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.activity-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 18pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+.episode-block {
+  border: 1px solid #ccc;
+  border-left: 4px solid var(--ink);
+  padding: 10pt 14pt;
+  margin-bottom: 22pt;
+}
+.episode-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+.episode-title {
+  font-size: 11pt;
+  font-weight: 700;
+  margin-bottom: 3pt;
+}
+.episode-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.episode-meta a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.listen-for ul {
+  padding-left: 16pt;
+  font-size: 9.5pt;
+}
+.listen-for li { margin-bottom: 3pt; }
+.listen-for-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.section-block { margin-bottom: 24pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pace-tag {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 6pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 6pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 32%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 24pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+  .targets-block   { page-break-inside: avoid; }
+  .episode-block   { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience · Indicator Analysis</div>
+  <div class="activity-title">One of the Cheapest Ways to Save a Life Is Going Away</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this activity, I should be able to:</div>
+  <ol>
+    <li>Explain what PEPFAR funds and why the episode calls it one of the cheapest ways to save a life.</li>
+    <li>Identify the tension between a nation's self-interest (budget priorities, political reprioritization) and sympathy extended to people it will never meet.</li>
+    <li>Apply the "great division of affections" from the Introduction to explain why aid this cost-effective still gets cut.</li>
+  </ol>
+</div>
+
+<!-- ── EPISODE BLOCK ── -->
+<div class="episode-block">
+  <div class="episode-label">Today's Episode &nbsp;<span class="pace-tag">~9 min</span></div>
+  <div class="episode-title">The Indicator from Planet Money — "One of the cheapest ways to save a life is going away"</div>
+  <div class="episode-meta">NPR, aired June 25, 2025 · <a href="https://www.npr.org/2025/06/25/1254697870/pepfar-cuts-aids-africa" target="_blank" rel="noopener">Listen to the episode</a></div>
+  <div class="listen-for">
+    <div class="listen-for-label">Listen for these four things</div>
+    <ul>
+      <li>What PEPFAR actually funds, and the specific cost-per-life-saved claim the episode makes for it.</li>
+      <li>Concrete, on-the-ground consequences described for people who currently rely on it.</li>
+      <li>The stated reasons behind the funding cuts.</li>
+      <li>Whether the reporting frames this mainly as a policy failure, a moral failure, or an unavoidable budget tradeoff.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">What the Episode Actually Argues</div>
+  <div class="connection-note">Get the program and the tradeoff straight before connecting either one to Hanley's vocabulary. Fill this in as you listen.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Prompt</th>
+        <th class="cornell-notes-col">Your Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">What does PEPFAR fund, and what specific evidence does the episode give for calling it one of the cheapest ways to save a life?</td>
+        <td class="cornell-notes-col">
+          PEPFAR funds <span class="blank blank-xl"></span>.<br><br>
+          The cost-effectiveness evidence given: <span class="blank blank-xl"></span>.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Where do the people affected by these cuts mostly live, relative to the United States? What does that distance have to do with how much sympathy Americans feel for them?</td>
+        <td class="cornell-notes-col">
+          The people affected live primarily in <span class="blank blank-lg"></span>.<br><br>
+          Physical and cultural distance can make sympathy feel <span class="blank blank-lg"></span>, even when the need is just as real.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What reasons does the episode give for the funding cuts — budget priorities, political reprioritization, something else?</td>
+        <td class="cornell-notes-col">
+          Stated justification for the cuts: <span class="blank blank-xl"></span>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="pace-tag">~20 min</span></div>
+  <div class="section-header">Connecting to the Introduction and Ch. II — The Great Division, Caring for Others</div>
+  <div class="connection-note">Hanley opens the book naming a divide between self-concern and other-concern. This episode plays that divide out at national scale.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Hanley Concept</th>
+        <th style="width:40%" class="fill-col">What it predicts (fill in)</th>
+        <th style="width:34%" class="fill-col">Apply it to the episode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">The great division (Intro)</td>
+        <td>Self-concern and other-concern pull against each other especially hard when the "other" is <span class="blank blank-lg"></span> and unfamiliar.</td>
+        <td>Does distance make the sympathy Hanley describes in Ch. II weaker, or should it still apply undiminished? Defend your answer.<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Natural interest in others (Ch. II)</td>
+        <td>Humans have an original, unprompted concern for others' happiness that doesn't require <span class="blank blank-lg"></span> to exist.</td>
+        <td>Does a national budget decision get to override an individual instinct like this — and should it?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Self-interest at scale</td>
+        <td>A government's budget priorities can stand in for an individual's <span class="blank blank-lg"></span> at a much larger scale.</td>
+        <td>Does scaling self-interest up to a national level change its moral weight, according to Hanley's framework — or is it the same problem, just bigger?<span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Stress-Test the Claim</div>
+    <p>A budget director says foreign aid is "a hard tradeoff, not a moral failure." Using Hanley's account of natural sympathy for others in Ch. II, give one reason this framing understates what's at stake, and one reason it might still be a defensible position for someone managing competing obligations.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SYNTHESIS ── -->
+<div class="section-block">
+  <div class="section-label">Synthesis &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">Write: Does Distance Excuse Indifference?</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">Someone tells you they don't feel responsible for a program cut that affects people overseas because "they're not my problem." Using Ch. II's claim that sympathy for others is natural, not a bonus, and the Introduction's "great division," explain what's wrong (or right) about that response — and where you personally draw the line on how far your own sympathy is supposed to reach.</p>
+  <span class="write-lines-lg"></span>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Before You Leave</div>
+  <div class="summary-item">The idea from today I'd have the hardest time explaining to a roommate: <span class="blank-full"></span></div>
+  <div class="summary-item">A time I felt responsible for someone I'll never meet: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── SUBMIT ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Analysis</div>
+  <a class="submit-btn" href="#" target="_blank" rel="noopener">Submit to Canvas</a>
+  <!-- UPDATE: replace href with the real Canvas assignment URL once created -->
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">This is Wednesday's Indicator Analysis, one of three this term. Complete it during your scheduled block; no outside prep needed beyond listening.</p>
+</div>
+
+</body>
+</html>

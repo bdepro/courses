@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicator Analysis: Why the Gender Pay Gap Persists — COR 1100</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.activity-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 18pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+.episode-block {
+  border: 1px solid #ccc;
+  border-left: 4px solid var(--ink);
+  padding: 10pt 14pt;
+  margin-bottom: 22pt;
+}
+.episode-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+.episode-title {
+  font-size: 11pt;
+  font-weight: 700;
+  margin-bottom: 3pt;
+}
+.episode-meta {
+  font-size: 9pt;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.episode-meta a {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.listen-for ul {
+  padding-left: 16pt;
+  font-size: 9.5pt;
+}
+.listen-for li { margin-bottom: 3pt; }
+.listen-for-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.section-block { margin-bottom: 24pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pace-tag {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 6pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 6pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 32%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 24pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+  .targets-block   { page-break-inside: avoid; }
+  .episode-block   { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">COR 1100 — The Global Experience · Indicator Analysis</div>
+  <div class="activity-title">Why the Gender Pay Gap Persists</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this activity, I should be able to:</div>
+  <ol>
+    <li>Explain the "winner-take-all" thesis for why the gender pay gap persists.</li>
+    <li>Distinguish equality of opportunity from equality of outcome as the episode frames the debate.</li>
+    <li>Apply Ch. XVII's impartial spectator to evaluate whether current pay structures would be judged fair by an uninvolved observer.</li>
+  </ol>
+</div>
+
+<!-- ── EPISODE BLOCK ── -->
+<div class="episode-block">
+  <div class="episode-label">Today's Episode &nbsp;<span class="pace-tag">~10 min</span></div>
+  <div class="episode-title">The Indicator from Planet Money — "Why the gender pay gap persists" (the "winner-take-all" problem)</div>
+  <div class="episode-meta">NPR, aired May 14, 2024 · <a href="https://www.npr.org/2024/05/14/1197964565/the-winner-take-all-problem" target="_blank" rel="noopener">Listen to the episode</a></div>
+  <div class="listen-for">
+    <div class="listen-for-label">Listen for these four things</div>
+    <ul>
+      <li>The "winner-take-all" thesis itself, and which jobs or industries it says the pay gap concentrates in.</li>
+      <li>What evidence the episode gives that the gap isn't fully explained by career choice alone.</li>
+      <li>What solution the guest proposes for closing the gap.</li>
+      <li>Whether the episode treats this mainly as an economic inefficiency or as a fairness question.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">What the Episode Actually Argues</div>
+  <div class="connection-note">Pin down the thesis and the evidence for it before connecting either one to Hanley's vocabulary. Fill this in as you listen.</div>
+
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Prompt</th>
+        <th class="cornell-notes-col">Your Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">The "winner-take-all" thesis argues pay gaps concentrate in jobs that reward what specific quality — rather than jobs that don't reward it?</td>
+        <td class="cornell-notes-col">
+          Winner-take-all jobs reward <span class="blank blank-xl"></span> — being available around the clock, not just working more hours.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What evidence does the episode give that the pay gap survives even after accounting for occupational choice?</td>
+        <td class="cornell-notes-col">
+          Evidence given: <span class="blank blank-xl"></span>.
+        </td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">What solution does the guest propose?</td>
+        <td class="cornell-notes-col">
+          Proposed fix: <span class="blank blank-xl"></span>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="pace-tag">~20 min</span></div>
+  <div class="section-header">Connecting to Ch. XVII, XVIII, XIX — Seeing Ourselves, Dignity, Equality</div>
+  <div class="connection-note">Ch. XVII's impartial spectator asks whether an uninvolved, informed observer would approve of an arrangement — not just whether either side prefers it.</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Hanley Concept</th>
+        <th style="width:40%" class="fill-col">What it predicts (fill in)</th>
+        <th style="width:34%" class="fill-col">Apply it to the episode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">The impartial spectator (Ch. XVII)</td>
+        <td>A fair outcome is one an uninvolved, informed observer would <span class="blank blank-lg"></span> of, not one either party simply prefers.</td>
+        <td>Would an impartial spectator watching two equally qualified people paid differently for the same output call that arrangement fair?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Dignity (Ch. XVIII)</td>
+        <td>Hanley ties dignity to being treated as inherently <span class="blank blank-lg"></span>, not according to market leverage.</td>
+        <td>Does a pay structure that rewards raw availability over merit put dignity at risk for people who can't be "always on" — caregivers, for instance?<span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Equality (Ch. XIX)</td>
+        <td>Equal standing doesn't require identical outcomes, but it does require <span class="blank blank-lg"></span>.</td>
+        <td>Is the winner-take-all structure compatible with Hanley's version of equality, or does it violate it? Defend your answer.<span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-block">
+    <div class="prompt-label">Stress-Test the Claim</div>
+    <p>A skeptic says the pay gap is just the market correctly rewarding people who work more hours and stay more available — no unfairness involved. Using the impartial spectator, give one reason this defense holds up, and one reason it might not survive impartial scrutiny.</p>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SYNTHESIS ── -->
+<div class="section-block">
+  <div class="section-label">Synthesis &nbsp;<span class="pace-tag">~15 min</span></div>
+  <div class="section-header">Write: Redesign One "Winner-Take-All" Job</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">Pick one job or industry the episode discusses (or one from your own experience) that rewards raw availability over output. Using Ch. XVII's impartial spectator and Ch. XIX's account of equality, redesign one feature of how that job is structured or compensated so an impartial observer would judge it more fair. Explain what you would change and why.</p>
+  <span class="write-lines-lg"></span>
+  <span class="write-lines"></span>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Before You Leave</div>
+  <div class="summary-item">The idea from today I'd have the hardest time explaining to a roommate: <span class="blank-full"></span></div>
+  <div class="summary-item">A job or role I've seen (or held) that rewards being "always on" over the quality of the work itself: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── SUBMIT ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Analysis</div>
+  <a class="submit-btn" href="#" target="_blank" rel="noopener">Submit to Canvas</a>
+  <!-- UPDATE: replace href with the real Canvas assignment URL once created -->
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">This is the exam-period Indicator Analysis, one of three this term. Complete it within your scheduled exam block; no outside prep needed beyond listening.</p>
+</div>
+
+</body>
+</html>
