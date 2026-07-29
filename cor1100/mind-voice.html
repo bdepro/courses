@@ -71,7 +71,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Mind &amp; Voice</h1>
-    <p class="screen-sub">25% of your course grade &middot; written narrative + Indicator Analysis + viva conversation &middot; sign up before Thanksgiving</p>
+    <p class="screen-sub">25% of your course grade &middot; written narrative + Indicator Analysis + community engagement + viva conversation &middot; sign up before Thanksgiving</p>
   </div>
 </div>
 <main id="main">
@@ -128,6 +128,24 @@
 
   <div class="syl-section">
     <div class="syl-section-header">
+      <span class="syl-num">Mind</span>
+      <span class="syl-section-title">Community Engagement</span>
+    </div>
+    <div class="syl-body">
+      <p>A service opportunity with the Kernodle Center for Civic Life, in Alamance
+      County, plus a written reflection connecting what you find there back to
+      Hanley and Smith.</p>
+      <div class="pill-row">
+        <a class="action-pill" href="community-engagement.html" target="_blank" rel="noopener">
+          Open Community Engagement
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="syl-section">
+    <div class="syl-section-header">
       <span class="syl-num">Voice</span>
       <span class="syl-section-title">Viva Conversation</span>
     </div>
@@ -160,7 +178,7 @@ var vivaDateEl = document.getElementById('vivaDateText');
 var dateText = 'You sign up for a slot during viva week';
 if (vivaWeekDates) dateText += ', ' + vivaWeekDates;
 dateText += '.';
-if (examDates) dateText += ' If you need to defer, exam period slots are available ' + examDates + '.';
+if (examDates) dateText += ' If you need to defer, exam period slots are available ' + examDates;
 vivaDateEl.textContent = dateText;
 
 // Pill builder
