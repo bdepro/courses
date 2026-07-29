@@ -360,6 +360,7 @@ const FEATURES = {
   badges:        false,
   tms:           true,
   friday:        true,
+  communityEngagement: true,
   wellness:      false,
   support:       true,
   aiPolicy:      true,
@@ -402,6 +403,7 @@ const PAGES = {
   puzzles:       `${COURSE.baseUrl}/puzzles.html`,
   tms:           `${COURSE.baseUrl}/tms.html`,
   friday:        `${COURSE.baseUrl}/mind-voice.html`,
+  communityEngagement: `${COURSE.baseUrl}/community-engagement.html`,
   fridayLabel:   "Mind & Voice",                   // used by shared/narrative-guide.html + viva-prep-guide.html back-link label
   chapters:      `${COURSE.baseUrl}/chapters.html`,
   support:       `https://bdepro.github.io/courses/shared/support.html`,
@@ -504,6 +506,21 @@ const CANVAS = {
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
+  // Community Engagement — third Mind component, folded into Mind & Voice's
+  // 25% (user's choice, 2026-07-29 — not a new weighted category, not a
+  // pass/fail hurdle). One Canvas reflection assignment covering both the
+  // Pre-Experience and Post-Experience questions. Source: Elon's Kernodle
+  // Center First-Year Foundations Community Engagement page (see
+  // course-notes/cor1100/community-engagement/README.md for the full index
+  // card). aid: Canvas assignment ID; full URL auto-built below.
+  // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — lands ahead of
+  // the Nov 20 Mind narrative deadline so the two don't collide.
+  communityEngagement: {
+    aid: "12890",
+    serviceDeadline: "Fri, Nov 13, 2026",
+    reflectionDue:   "Fri, Nov 13, 2026, 11:59 p.m.",
+  },
+
   // Check-Ins — direct URLs (no aid pattern)
   // UPDATE each semester
   checkIns: [
@@ -560,6 +577,11 @@ const CANVAS = {
   // specific task) — mind-voice.html links here once instead of one pill per
   // stage. NOT the same as the task-specific urls above.
   eliDashboardUrl: "https://app.elireview.com/student/course/21054",
+
+  // NOTE: the Eli Review course join code is intentionally NOT stored here.
+  // This file is served as public client-side JS on GitHub Pages, so
+  // anything in it is visible to anyone — the join code is given out
+  // verbally in class instead. See syllabus.html Section 4.
 };
 
 // ================================================================
@@ -628,6 +650,8 @@ CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
 
 [CANVAS.puzzles, CANVAS.tms, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
+
+CANVAS.communityEngagement.url = ASSIGNMENT_URL(CANVAS.communityEngagement.aid);
 
 // Build each guided-notes doc's submission URL. Both the Guided Notes
 // link and the Submit link are one-time-per-document actions, not

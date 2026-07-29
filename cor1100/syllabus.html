@@ -276,7 +276,20 @@
       border-top: 1px solid var(--warm-gray);
     }
 
-    /* ── Campus resources (Section 9) ── */
+    /* ── Embedded Writing Consultant tip list (Section 9) ── */
+    .tip-list { list-style: none; padding: 0; }
+    .tip-item {
+      font-size: 0.88rem; padding: 0.6rem 0 0.6rem 1rem;
+      border-bottom: 1px solid var(--warm-gray); position: relative;
+      line-height: 1.6;
+    }
+    .tip-item:last-child { border-bottom: none; }
+    .tip-item::before {
+      content: ""; position: absolute; left: 0; top: 0.9rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+    }
+
+    /* ── Campus resources (Section 10) ── */
     .resources-list { list-style: none; padding: 0; }
     .resource-item {
       font-size: 0.88rem; padding: 0.75rem 0;
@@ -552,9 +565,10 @@
       <span class="syl-section-title">What Course Materials Do You Need?</span>
     </div>
     <div class="syl-body">
-      <p>All assigned readings are PDF chapters, linked through Canvas. You do not need to purchase or download anything separately.</p>
+      <p>All assigned readings are PDF chapters, linked through Canvas. You do not need to purchase or download the textbook itself.</p>
       <div class="textbook-block" id="syl-textbook-block"></div>
       <p style="margin-top:0.85rem;">Three times during the semester, you&rsquo;ll take part in a Perusall Fishbowl: a peer-review round pairing a passage from Adam Smith&rsquo;s <cite>Theory of Moral Sentiments</cite> with an excerpt from our summer reading. I introduce each round in class on the Friday after a Check-In. Access each Fishbowl through Canvas when it opens.</p>
+      <p style="margin-top:0.85rem;"><strong>One thing you will need to buy: an Eli Review subscription, $28.95 for the term.</strong> It is the only cost beyond tuition for this course, and it is required &mdash; Eli Review runs the entire Mind draft/review/revision cycle, and there is no free option that covers a full semester. Create a free Eli Review account, then join this course using the code I give you in class. Joining will prompt you to subscribe &mdash; pay directly through PayPal (bank account, credit or debit card, e-check, or a prepaid PayPal gift card). This course does not use bookstore access codes; PayPal is the only purchase path. If $28.95 is a genuine hardship, come talk to me before our first Friday workshop &mdash; do not just skip it.</p>
     </div>
   </div>
 
@@ -612,6 +626,7 @@
           <div class="assess-sub">Mind &mdash; The Written Half</div>
           <p>Write the narrative and submit it on Canvas before Thanksgiving break. It is a personal narrative &mdash; a specific moment you remember, told carefully, with the place, the people, the time, and the manner and motive behind what happened &mdash; for a reader who has never taken this course. Three Fridays are set aside for that purpose. Come to those classes with something on the page.</p>
           <p>Three Indicator Analyses make up the second piece of Mind: short in-class activities built around real episodes of NPR&rsquo;s <em>The Indicator from Planet Money</em>, each paired with a Hanley/Smith concept, tied to specific dates during viva week and the exam period. Your viva schedule determines which two you complete &mdash; check the weekly checklist for your specific dates.</p>
+          <p>Community Engagement is the third piece of Mind: a service opportunity with the Kernodle Center for Civic Life in Alamance County, followed by a written reflection connecting what you find there back to Hanley and Smith. See the Community Engagement page, linked from Mind &amp; Voice, for the full three-phase structure and due dates.</p>
 
           <div class="assess-sub">Voice &mdash; The Spoken Half</div>
           <p>Voice is a viva, a short conversation with me about what you wrote. Walk me through the moment you wrote about and what Hanley and Smith have to say about it. Sign up for one slot — either during viva week or during the final exam period, not both — before Thanksgiving break.</p>
@@ -723,11 +738,31 @@
     </div>
   </div>
 
-  <!-- ── SECTION 9: CAMPUS RESOURCES & UNIVERSITY POLICIES ── -->
-  <!-- Boilerplate — do not edit. -->
+  <!-- ── SECTION 9: EMBEDDED WRITING CONSULTANT ── -->
   <div class="syl-section">
     <div class="syl-section-header">
       <span class="syl-num">Section 9</span>
+      <span class="syl-section-title">Who Is My Embedded Writing Consultant?</span>
+    </div>
+    <div class="syl-body">
+      <p>This semester, our class will be working with an assigned Disciplinary Writing Consultant (DWC) or Embedded Writing Consultant (EWC). These consultants are carefully-selected and well-trained peer writing consultants assigned to your class to support all stages of the writing process. The DWC/EWC will meet with students individually or in groups throughout the semester to discuss the writing process and provide feedback on drafts and help students make smart and significant revisions to their writing before the final version is submitted. DWCs/EWCs help students write stronger papers and also take themselves more seriously as writers and thinkers.</p>
+
+      <p style="margin-top:1rem;"><strong>To make the most out of your meeting with the DWC/EWC:</strong></p>
+      <ul class="tip-list">
+        <li class="tip-item">Get to know the DWC/EWC in your class. They are not a Teaching Assistant and will not evaluate your work! They are a peer to help you through all steps of the writing process.</li>
+        <li class="tip-item">Arrange to meet with the DWC/EWC early in the drafting process, not the day before an assignment is due. The earlier you meet, the more time you have to make significant revisions to your essay.</li>
+        <li class="tip-item">Think carefully about what you want to work on with the DWC/EWC in your meeting and be prepared to discuss your ideas and your writing with them.</li>
+        <li class="tip-item">Follow their instructions for how to make an appointment with them, and make the appointment early.</li>
+        <li class="tip-item">Make a 30-minute appointment unless you are asked to do otherwise.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── SECTION 10: CAMPUS RESOURCES & UNIVERSITY POLICIES ── -->
+  <!-- Boilerplate — do not edit. -->
+  <div class="syl-section">
+    <div class="syl-section-header">
+      <span class="syl-num">Section 10</span>
       <span class="syl-section-title">Campus Resources &amp; University Policies</span>
     </div>
     <div class="syl-body">
