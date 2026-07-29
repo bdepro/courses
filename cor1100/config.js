@@ -516,7 +516,7 @@ const CANVAS = {
   // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — lands ahead of
   // the Nov 20 Mind narrative deadline so the two don't collide.
   communityEngagement: {
-    aid: "12890",
+    aid: "12991",
     serviceDeadline: "Fri, Nov 13, 2026",
     reflectionDue:   "Fri, Nov 13, 2026, 11:59 p.m.",
   },
