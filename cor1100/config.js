@@ -490,22 +490,22 @@ const CANVAS = {
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Should the Families of Organ Donors Be Compensated?",
       dateLabel: "Monday, Viva Week",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/organ-donor-compensation.html`, aid: "",  // UPDATE
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/organ-donor-compensation.html`, aid: "12887",
       storyUrl: "https://www.npr.org/2026/03/02/nx-s1-5729630/should-the-families-of-organ-donors-be-compensated" },
     { id: "wednesday", title: "Indicator Analysis: One of the Cheapest Ways to Save a Life Is Going Away",
       dateLabel: "Wednesday, Viva Week",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/pepfar-cuts.html`, aid: "",  // UPDATE
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/pepfar-cuts.html`, aid: "12888",
       storyUrl: "https://www.npr.org/2025/06/25/1254697870/pepfar-cuts-aids-africa" },
     { id: "examPeriod", title: "Indicator Analysis: Why the Gender Pay Gap Persists",
       dateLabel: "Exam Period",
-      pageUrl: `${COURSE.baseUrl}/indicator-analysis/gender-pay-gap.html`, aid: "",  // UPDATE
+      pageUrl: `${COURSE.baseUrl}/indicator-analysis/gender-pay-gap.html`, aid: "12889",
       storyUrl: "https://www.npr.org/2024/05/14/1197964565/the-winner-take-all-problem" },
   ],
 
   // Mind & Voice — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
     { id: 1, title: "Mind: The Narrative",
-      due: "Fri Nov 20, 11:59 p.m.", url: "" },                      // UPDATE
+      due: "Fri Nov 20, 11:59 p.m.", url: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861` },
     { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
@@ -537,7 +537,7 @@ const CANVAS = {
     worksheetSubmitUrl:     "",  // UPDATE: Canvas Assignment URL
     examWorksheetUrl:       "",  // UPDATE: Canvas Page URL
     examWorksheetSubmitUrl: "",  // UPDATE: Canvas Assignment URL
-    ffSubmitUrl:            "",  // UPDATE: Canvas Assignment URL (same as friday[0].url)
+    ffSubmitUrl:            `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861`,
   },
 
   // Eli Review tasks — placeholders until a COR 1100 course is provisioned in
