@@ -223,13 +223,6 @@ const SCHEDULE = {
   // Break sessions by index — never highlighted
   breakSessions: [8, 14],
 
-  // Final exam period — UPDATE each semester when posted
-  // CI 4 may be taken on the last day of class (Fri Dec 4) OR
-  // during the final exam period below. Student's choice.
-  finalExam: [
-    { section: "section", date: "TBA", time: "TBA" },  // UPDATE
-  ],
-
   // Final exam period covers three student populations:
   //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
   //                  Must complete online worksheet during exam block.
@@ -237,8 +230,9 @@ const SCHEDULE = {
   //                  Takes CI 4 during exam block.
   //   Population 3 — viva deferred. Completes viva + CI 4 during exam block.
   // Viva sign-up and worksheet links live in CANVAS block below.
+  // CI 4 may be taken on the last day of class (Fri Dec 4) OR during this block.
   finalExamPeriod: {
-    dates:            "December 7-11, 2026",            // UPDATE each semester
+    dates:            "Tue, Dec 8, 2026, 1:00–4:00 p.m.",  // UPDATE each semester — registrar-assigned slot
     worksheetNote:    "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
     signupEquityNote: "No computer access? Contact Prof. Depro and he will assign your slot.",
   },
@@ -526,13 +520,14 @@ const CANVAS = {
   // Viva week resources
   // Both URLs point into the SAME Canvas Appointment Group (one signup,
   // two date/time blocks) — vivaWeekSignupUrl deep-links to the Nov 30
-  // month view, examPeriodSignupUrl to the Dec 7 month view. A student
-  // can only ever book one slot total (Canvas "limit to one appointment"
-  // setting), regardless of which link they click first.
+  // month view, examPeriodSignupUrl to the Dec 8 month view (the
+  // registrar-assigned exam slot). A student can only ever book one slot
+  // total (Canvas "limit to one appointment" setting), regardless of
+  // which link they click first.
   viva: {
     durationMinutes:        10,
     vivaWeekSignupUrl:      "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
-    examPeriodSignupUrl:    "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-07",
+    examPeriodSignupUrl:    "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-08",
     worksheetUrl:           "",  // UPDATE: Canvas Page URL (s15-worksheet)
     worksheetSubmitUrl:     "",  // UPDATE: Canvas Assignment URL
     examWorksheetUrl:       "",  // UPDATE: Canvas Page URL
