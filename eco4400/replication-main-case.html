@@ -230,7 +230,6 @@
       <div class="tool-use"><code>pandas.read_csv()</code>, <code>.groupby().agg()</code> for the collapse, then <code>statsmodels.formula.api.ols</code> for all three regression specs &mdash; identical structure to the warm-up.</div>
     </div>
   </div>
-  <p>Want to try it in Excel? Collapse first with a PivotTable (rows = <code>STATEFIP</code>, columns = <code>BUILTYR3</code> grouped into pre/post, values = average <code>logCOSTELEC</code>), then work from that small table exactly like Steps 1 and 2 in the warm-up. Doing this on the raw 150,000-row file directly isn't practical in Excel &mdash; collapse first.</p>
 
   <div class="callout red">
     <strong>Match the five point estimates; skip standard errors for this exercise.</strong> The scripts cluster by state under the hood because that's correct practice, but nothing in the deliverables below asks you to report or interpret one.

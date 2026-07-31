@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  SHARED — GOOGLE COLAB PRIMER
+  This file is shared across all courses that assign Colab notebooks.
+  Update once here; every course linking to it reflects the change.
+=======================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Colab: A Quick Primer &middot; Elon University</title>
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .header-inner { max-width: 780px; }
+    main { max-width: 780px; padding: 2rem 1.25rem 4rem; }
+
+    .step-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .step-card {
+      background: var(--white); border-radius: var(--radius-card);
+      border: 1px solid rgba(181,154,87,0.15); box-shadow: var(--shadow);
+      overflow: hidden; display: grid; grid-template-columns: auto 1fr;
+      opacity: 0; transform: translateY(14px); animation: fadeUp 0.4s ease forwards;
+    }
+    .step-card:nth-child(1) { animation-delay: 0.05s; }
+    .step-card:nth-child(2) { animation-delay: 0.10s; }
+    .step-card:nth-child(3) { animation-delay: 0.15s; }
+    .step-card:nth-child(4) { animation-delay: 0.20s; }
+    .step-card:nth-child(5) { animation-delay: 0.25s; }
+    .step-card:nth-child(6) { animation-delay: 0.30s; }
+    .step-card:nth-child(7) { animation-delay: 0.35s; }
+    .step-num {
+      background: var(--crimson); color: var(--white); font-size: 1rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; min-width: 48px; padding: 0.5rem;
+    }
+    .step-card.trap .step-num { background: var(--gold-link); }
+    .step-body { padding: 1.1rem 1.3rem; }
+    .step-title { font-weight: 700; font-size: 0.98rem; color: var(--text); margin-bottom: 0.4rem; }
+    .step-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .step-desc code {
+      background: var(--warm-gray); padding: 0.1rem 0.35rem; border-radius: 3px;
+      font-size: 0.83rem; color: var(--crimson);
+    }
+    .step-desc strong { color: var(--text); }
+
+    footer { max-width: 780px; margin: 0 auto; }
+
+    @media (max-width: 560px) {
+      .step-card { grid-template-columns: 1fr; }
+      .step-num { min-width: 100%; padding: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" id="backLink" href="#" target="_self">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <h1>Google Colab: A Quick Primer</h1>
+    <p>Everything you need to know before you open your first notebook &mdash; no prior experience assumed.</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="welcome">
+    <div class="welcome-label">What Colab Is</div>
+    <p>Google Colab runs Python in your browser. There is nothing to install and nothing to configure &mdash; you open a link, sign in with your Elon Google account, and the code runs on Google's computers, not yours. Every notebook you're assigned already has the libraries it needs.</p>
+  </div>
+
+  <p class="section-heading">Before You Touch Anything</p>
+  <div class="step-list">
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Open the notebook link and sign in</div>
+        <div class="step-desc">Click the &ldquo;Open in Colab&rdquo; link on your assignment page. If you're not already signed in, use your Elon student email (<code>yourname@elon.edu</code>) &mdash; not a personal Gmail account, or you'll lose access to anything shared with your Elon account later.</div>
+      </div>
+    </div>
+
+    <div class="step-card trap">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Save your own copy immediately &mdash; before you run or edit anything</div>
+        <div class="step-desc"><strong>This is the step people skip and regret.</strong> The notebook you opened isn't saved anywhere tied to your account yet &mdash; it's a read-only view of someone else's file. Go to <code>File &rarr; Save a copy in Drive</code> right away. A new tab opens with your own editable copy in your Google Drive. Do all your work in that tab, not the original.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-heading">How Notebooks Work</p>
+  <div class="step-list">
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Two kinds of cells</div>
+        <div class="step-desc">A notebook is a stack of boxes called <strong>cells</strong>. Gray boxes are <strong>code cells</strong> &mdash; Python you run. Plain-text boxes are <strong>markdown cells</strong> &mdash; instructions and explanations, not code. You'll run the code cells and, in some notebooks, edit a markdown cell yourself to type an answer.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Running a cell</div>
+        <div class="step-desc">Click a code cell, then press <code>Shift + Enter</code> (or click the &#9654; play button on its left edge). Wait for it to finish &mdash; a spinning circle means it's still running &mdash; before moving to the next one.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Run cells top to bottom, in order</div>
+        <div class="step-desc">Later cells depend on earlier ones &mdash; a cell that uses a variable named <code>df</code> only works if you already ran the earlier cell that created <code>df</code>. Skipping around or running things out of order is the single most common source of confusing errors.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <div class="step-title">Reading what happened</div>
+        <div class="step-desc">A small number like <code>[3]</code> next to a cell means it ran successfully, in that order. A red block of text underneath a cell means it errored. If things look broken or out of order, don't hunt for the one bad cell &mdash; go to <code>Runtime &rarr; Restart and run all</code> and let every cell run fresh from the top.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">7</div>
+      <div class="step-body">
+        <div class="step-title">Typing into a markdown cell</div>
+        <div class="step-desc">Double-click a markdown cell to edit it (it turns into a plain text box). Type your answer, then press <code>Shift + Enter</code> to render it back to formatted text.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-heading">Turning In Your Work</p>
+  <div class="step-list">
+
+    <div class="step-card">
+      <div class="step-num">8</div>
+      <div class="step-body">
+        <div class="step-title">Share your copy and submit the link</div>
+        <div class="step-desc">In your own copy (from Step 2), click <strong>Share</strong> in the top-right corner, change the access setting to <strong>&ldquo;Anyone with the link&rdquo; &rarr; Viewer</strong>, then copy the link. Paste that link into your Canvas submission. Don't submit the original link from Step 1 &mdash; that one isn't your copy and won't show your work.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-box">
+    <h4>If Something Goes Wrong</h4>
+    <p style="font-size:0.85rem;color:var(--text);line-height:1.6;">Every notebook you're assigned already has its libraries installed &mdash; you should never need to install anything yourself. If a cell errors, the fix is almost always <code>Runtime &rarr; Restart and run all</code>. If that doesn't fix it, come to office hours with the notebook open; it's much faster to debug together than to describe over email.</p>
+  </div>
+
+</main>
+
+<footer>
+  Elon University &middot; Google Colab Primer &middot; Shared across all courses
+</footer>
+
+<script>
+  const backLink = document.getElementById('backLink');
+  const returnParam = new URLSearchParams(location.search).get('return');
+  const referrer = document.referrer;
+  if (returnParam) {
+    backLink.href = returnParam;
+  } else if (referrer && referrer.includes('bdepro.github.io/courses')) {
+    backLink.href = referrer;
+  } else {
+    backLink.href = 'https://bdepro.github.io/courses/';
+  }
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

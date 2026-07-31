@@ -121,12 +121,23 @@
     </div>
     <div class="weight-chip-solo">
       <span class="pct">Any</span>
-      <span class="label">software: Excel, Stata, Python, R, whatever you have</span>
+      <span class="label">software: Stata, Python, R, whatever you have</span>
     </div>
   </div>
 
   <div class="callout teal">
     <strong>Read the provided PDF before you start</strong>: Scott Cunningham&rsquo;s &ldquo;Diff-in-diff can be written down six ways!&rdquo; (Scott&rsquo;s Mixtape, 2026). He shows six: two manual calculations and four regressions. This page has you build five of them yourself &mdash; both manual calculations, plus three of the four regressions.
+  </div>
+
+  <div class="data-links" style="margin-bottom:1.75rem;">
+    <a class="data-link" href="https://colab.research.google.com/github/bdepro/courses/blob/main/eco4400/warmup.ipynb" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Open the Python notebook in Google Colab
+    </a>
+    <a class="data-link" href="../shared/colab-primer.html?return=replication-warmup.html" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      New to Colab? Read the primer first
+    </a>
   </div>
 
   <p class="section-heading">The Idea</p>
@@ -139,10 +150,6 @@
     <a class="data-link" href="https://github.com/scunning1975/mixtape/raw/master/castle.dta" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       castle.dta (Stata format, full variable set)
-    </a>
-    <a class="data-link" href="castle_warmup.csv">
-      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      castle_warmup.csv (trimmed for Excel, 8 columns)
     </a>
   </div>
   <table class="var-table">
@@ -210,23 +217,19 @@
   <p class="section-heading">Getting Started, by Software</p>
   <div class="tool-grid">
     <div class="tool-card">
-      <div class="tool-name">Excel</div>
-      <div class="tool-use">Steps 1 and 2 are both <code>AVERAGEIFS</code> once you load <code>castle_warmup.csv</code>, just combined in a different order. Steps 3 and 5 work with Data &gt; Data Analysis &gt; Regression once you build a <code>treat&times;post</code> helper column. Step 4 (state fixed effects) is the hardest to build by hand. Ask me about the demeaning shortcut before you build all 42 state dummy columns.</div>
-    </div>
-    <div class="tool-card">
       <div class="tool-name">Stata</div>
       <div class="tool-use"><code>use castle.dta</code>, then <code>summarize</code>/<code>reg</code>/<code>xtreg</code>/<code>reshape</code>. Ask me if you want the exact commands.</div>
     </div>
     <div class="tool-card">
       <div class="tool-name">Python</div>
-      <div class="tool-use"><code>pandas.read_stata()</code> reads the .dta directly from the URL above. <code>statsmodels.formula.api.ols</code> handles all three regression specs.</div>
+      <div class="tool-use">Use the <a href="https://colab.research.google.com/github/bdepro/courses/blob/main/eco4400/warmup.ipynb" target="_blank" rel="noopener">Colab notebook linked above</a> &mdash; nothing to install, runs in the browser. <code>pandas.read_stata()</code> reads the .dta directly from the URL; <code>statsmodels.formula.api.ols</code> handles all three regression specs.</div>
     </div>
   </div>
 
   <p class="section-heading">What to Turn In</p>
   <ul class="check-list">
     <li class="check-item"><span class="box"></span> Your five DiD estimates, clearly labeled, showing they match (small rounding differences are fine).</li>
-    <li class="check-item"><span class="box"></span> Your code or worksheet, in whatever tool you used.</li>
+    <li class="check-item"><span class="box"></span> Your Colab notebook link (Share &rarr; &ldquo;Anyone with the link&rdquo; &rarr; Viewer), pasted into your submission.</li>
     <li class="check-item"><span class="box"></span> 3&ndash;4 sentences: <em>why</em> do all five methods have to produce the same number? What does that tell you about what a DiD estimate actually is?</li>
   </ul>
 
