@@ -108,7 +108,7 @@
     </a>
     <p class="screen-eyebrow">ECO 4400 &middot; Applied Research &amp; Case Analytics &middot; Journal Replication, Stage 2</p>
     <h1 class="screen-title">Main Case: Replicating Lee &amp; Wooldridge (2026)</h1>
-    <p class="screen-sub">The warm-up's clean 2x2 was a deliberate simplification. This stage runs the same data through the real, staggered-timing problem it simplified away, then checks your answer against two published papers.</p>
+    <p class="screen-sub">A law firm has retained Elite Economic Advisors &mdash; your firm &mdash; to check whether a published finding holds up before they rely on it. You're the analyst on the engagement.</p>
   </div>
 </div>
 
@@ -141,6 +141,7 @@
   </div>
 
   <p class="section-heading">The Setting</p>
+  <p>A law firm has hired Elite Economic Advisors to check whether Cheng &amp; Hoekstra's finding on castle-doctrine laws is solid enough to rely on, before it shows up in the firm's own work. Your job on this engagement: replicate the number, test it against a method built specifically for a case like this one, and say plainly whether the effect is big enough to matter. Statistical significance alone won't answer that question.</p>
   <p>Twenty-one states adopted castle-doctrine laws between 2005 and 2009, in five different years. The warm-up sidestepped that entirely: it kept only the 2006 cohort, the largest one, and compared 2005 to 2006. That restriction is exactly what let the arithmetic stay simple enough to do by hand five different ways, and it left out the other 15 states entirely.</p>
   <p>This stage puts the staggered timing back in. You already have the tool for it: <code>castle.dta</code>, the same file from the warm-up. Nothing new to download or learn about the data. What changes is the question: does a standard regression still work once treatment doesn't start on the same date for everyone, and if not, what does?</p>
 
@@ -184,7 +185,7 @@
   <div class="tool-grid">
     <div class="tool-card">
       <div class="tool-name">Python</div>
-      <div class="tool-use">Use the <a href="https://colab.research.google.com/github/bdepro/courses/blob/main/eco4400/main-case.ipynb" target="_blank" rel="noopener">Colab starter notebook linked above</a> &mdash; nothing to install, runs in the browser. It has the instructions and an empty cell for each step. You write the code. Same <code>pandas</code> and <code>statsmodels</code> you used in the warm-up, plus <code>numpy</code> and <code>scipy.stats</code> for two new pieces.</div>
+      <div class="tool-use">Use the <a href="https://colab.research.google.com/github/bdepro/courses/blob/main/eco4400/main-case.ipynb" target="_blank" rel="noopener">Colab starter notebook linked above</a> &mdash; nothing to install, runs in the browser. It has the instructions and an empty cell for each step. You write the code. Same <code>pandas</code> and <code>statsmodels</code> you used in the warm-up, plus <code>lwdid</code>, a published package you'll <code>pip install</code> for Part 2.</div>
     </div>
   </div>
 
@@ -192,12 +193,17 @@
     <strong>Match your Bridge number to Cheng &amp; Hoekstra's Column 1 exactly.</strong> If it's off by more than rounding, something's wrong upstream. Your Lee &amp; Wooldridge number only needs to land close to their reported 0.092. Small differences there are an expected consequence of implementation choices.
   </div>
 
+  <div class="callout gold">
+    <strong>Before you write up your answer</strong>, fill out the <a href="../shared/did-significance-checklist.html" target="_blank" rel="noopener">DiD significance self-check</a> and save it as a PDF (the page has a Print / Save PDF button built in). This is a required part of what you turn in.
+  </div>
+
   <p class="section-heading">What to Turn In</p>
   <ul class="check-list">
     <li class="check-item"><span class="box"></span> Your Bridge estimates (unweighted and population-weighted), matching Cheng &amp; Hoekstra's Table 5, Column 1.</li>
-    <li class="check-item"><span class="box"></span> Your Lee &amp; Wooldridge <code>tau_omega</code> estimate, with both standard errors.</li>
+    <li class="check-item"><span class="box"></span> Your Lee &amp; Wooldridge <code>tau_omega</code> estimate, with its standard error.</li>
     <li class="check-item"><span class="box"></span> The comparison table from Part 3, filled in with your own numbers.</li>
-    <li class="check-item"><span class="box"></span> 4&ndash;5 sentences: how your Bridge and Lee &amp; Wooldridge estimates compare to each other and to the warm-up, and what the gap tells you about running a standard regression on staggered-timing data without correcting for it.</li>
+    <li class="check-item"><span class="box"></span> 4&ndash;5 sentences, written the way you'd actually explain this to the partner on the engagement: how your Bridge and Lee &amp; Wooldridge estimates compare to each other and to the warm-up, and what the gap tells you about running a standard regression on staggered-timing data without correcting for it.</li>
+    <li class="check-item"><span class="box"></span> Your completed <a href="../shared/did-significance-checklist.html" target="_blank" rel="noopener">DiD significance self-check</a>, saved as a PDF.</li>
     <li class="check-item"><span class="box"></span> Your Colab notebook link (Share &rarr; &ldquo;Anyone with the link&rdquo; &rarr; Viewer), pasted into your submission.</li>
   </ul>
 
