@@ -120,8 +120,8 @@
       <span class="label">minutes, plan for one lab session</span>
     </div>
     <div class="weight-chip-solo">
-      <span class="pct">Any</span>
-      <span class="label">software: Stata, Python, R, whatever you have</span>
+      <span class="pct">Python</span>
+      <span class="label">via the Colab notebook below</span>
     </div>
   </div>
 
@@ -159,9 +159,9 @@
     <tbody>
       <tr><td><code>sid</code> / <code>state</code></td><td>The unit</td></tr>
       <tr><td><code>year</code></td><td>2005 or 2006</td></tr>
-      <tr><td><code>treat</code></td><td>1 if the state adopted castle doctrine in 2006, 0 otherwise (already built for you in the CSV)</td></tr>
-      <tr><td><code>post</code></td><td>1 if year is 2006</td></tr>
+      <tr><td><code>effyear</code></td><td>The year the state's law took effect (blank for states that never adopted). You'll use this to build <code>treat</code> yourself &mdash; see "Build the 2x2" below.</td></tr>
       <tr><td><code>l_homicide</code></td><td>Your outcome: the log homicide rate</td></tr>
+      <tr><td><code>treat</code>, <code>post</code></td><td>Not in the raw data &mdash; you build both of these yourself in "Build the 2x2" below.</td></tr>
     </tbody>
   </table>
 
@@ -210,17 +210,14 @@
 
   </div>
 
-  <p class="section-heading">Getting Started, by Software</p>
+  <p class="section-heading">Getting Started</p>
   <div class="tool-grid">
-    <div class="tool-card">
-      <div class="tool-name">Stata</div>
-      <div class="tool-use"><code>use castle.dta</code>, then <code>summarize</code>/<code>reg</code>/<code>xtreg</code>/<code>reshape</code>. Ask me if you want the exact commands.</div>
-    </div>
     <div class="tool-card">
       <div class="tool-name">Python</div>
       <div class="tool-use">Use the <a href="https://colab.research.google.com/github/bdepro/courses/blob/main/eco4400/warmup.ipynb" target="_blank" rel="noopener">Colab starter notebook linked above</a> &mdash; nothing to install, runs in the browser. It has the instructions and an empty cell for each step. You write the code. <code>pandas.read_stata()</code> loads the .dta file, <code>statsmodels.formula.api.ols</code> runs the regressions.</div>
     </div>
   </div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-top:-0.75rem;">Prefer Stata or R? You're welcome to use them instead &mdash; but the starter notebook, the hints, and any troubleshooting support here are Python-only, so you'd be working from your own knowledge of those programs.</p>
 
   <p class="section-heading">What to Turn In</p>
   <ul class="check-list">
