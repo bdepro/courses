@@ -126,7 +126,7 @@
   </div>
 
   <div class="callout teal">
-    <strong>Read the provided PDF before you start</strong>: Scott Cunningham&rsquo;s &ldquo;Diff-in-diff can be written down six ways!&rdquo; (Scott&rsquo;s Mixtape, 2026). He shows six: two manual calculations and four regressions. This page has you build five of them yourself &mdash; both manual calculations, plus three of the four regressions.
+    <strong>Read Scott Cunningham&rsquo;s post before you start</strong>: <a href="https://causalinf.substack.com/p/diff-in-diff-can-be-written-down" target="_blank" rel="noopener">&ldquo;Diff-in-diff can be written down six ways!&rdquo;</a> (Scott&rsquo;s Mixtape, 2026). He shows six: two manual calculations and four regressions. This page has you build five of them yourself &mdash; both manual calculations, plus three of the four regressions.
   </div>
 
   <div class="data-links" style="margin-bottom:1.75rem;">
@@ -145,7 +145,7 @@
   <p>Your job in this warm-up is to prove that to yourself, on a dataset simple enough that the arithmetic has nowhere to hide: state-level homicide rates around the 2006 adoption of &ldquo;castle doctrine&rdquo; self-defense laws (Cheng &amp; Hoekstra).</p>
 
   <p class="section-heading">The Data</p>
-  <p>This dataset is public, and it needs no registration or cleaning. It&rsquo;s restricted to states that adopted castle doctrine in 2006 (treatment) or hadn&rsquo;t adopted by the end of the sample window (control), comparing 2005 to 2006: 42 states, 84 rows total.</p>
+  <p>This dataset is public, and it needs no registration or cleaning. What you download is the full state-year panel &mdash; every state, 2000 to 2010. You&rsquo;ll restrict it down to a clean 2x2 (42 states, 2005 and 2006 only) yourself, in the notebook.</p>
   <div class="data-links">
     <a class="data-link" href="https://github.com/scunning1975/mixtape/raw/master/castle.dta" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -158,7 +158,7 @@
     </thead>
     <tbody>
       <tr><td><code>sid</code> / <code>state</code></td><td>The unit</td></tr>
-      <tr><td><code>year</code></td><td>2005 or 2006</td></tr>
+      <tr><td><code>year</code></td><td>2000 through 2010 &mdash; you'll restrict this to 2005 and 2006 yourself, in "Build the 2x2" below</td></tr>
       <tr><td><code>effyear</code></td><td>The year the state's law took effect (blank for states that never adopted). You'll use this to build <code>treat</code> yourself &mdash; see "Build the 2x2" below.</td></tr>
       <tr><td><code>l_homicide</code></td><td>Your outcome: the log homicide rate</td></tr>
       <tr><td><code>treat</code>, <code>post</code></td><td>Not in the raw data &mdash; you build both of these yourself in "Build the 2x2" below.</td></tr>
@@ -221,13 +221,13 @@
 
   <p class="section-heading">What to Turn In</p>
   <ul class="check-list">
-    <li class="check-item"><span class="box"></span> Your five DiD estimates, clearly labeled, showing they match (small rounding differences are fine).</li>
-    <li class="check-item"><span class="box"></span> Your Colab notebook link (Share &rarr; &ldquo;Anyone with the link&rdquo; &rarr; Viewer), pasted into your submission.</li>
-    <li class="check-item"><span class="box"></span> 3&ndash;4 sentences: <em>why</em> do all five methods have to produce the same number? What does that tell you about what a DiD estimate actually is?</li>
+    <li class="check-item"><span class="box"></span><span>Your five DiD estimates, clearly labeled, showing they match (small rounding differences are fine).</span></li>
+    <li class="check-item"><span class="box"></span><span>Your Colab notebook link (Share &rarr; &ldquo;Anyone with the link&rdquo; &rarr; Viewer), pasted into your submission.</span></li>
+    <li class="check-item"><span class="box"></span><span>3&ndash;4 sentences: <em>why</em> do all five methods have to produce the same number? What does that tell you about what a DiD estimate actually is?</span></li>
   </ul>
 
   <div class="callout teal" style="margin-top:1.75rem;">
-    <strong>Stage 2 puts the staggered timing back into this same dataset</strong> &mdash; the piece this warm-up simplified away. You&rsquo;ll check your simplified 2x2 against a real published method, and against Cheng &amp; Hoekstra&rsquo;s own numbers.
+    <strong>Stage 2: Main Case puts the staggered timing back into this same dataset</strong> &mdash; the piece this warm-up simplified away. You&rsquo;ll check your simplified 2x2 against a real published method, and against Cheng &amp; Hoekstra&rsquo;s own numbers.
   </div>
 
 </main>
