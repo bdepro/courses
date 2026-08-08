@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <!--
   ECO 4400 — Applied Economics & Consulting
-  Applied Research & Case Analytics — Fall 2026
+  Community Engagement Consulting Labs — Sustainable Alamance Project — Fall 2026
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applied Research &amp; Case Analytics &middot; ECO 4400</title>
+  <title>Community Engagement Consulting Labs &middot; ECO 4400</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="config.js"></script>
@@ -141,17 +141,6 @@
     .tag-slo  { background: var(--teal-tint); color: var(--teal); border: 1px solid rgba(82,123,130,0.25); }
     .tag-tool { background: rgba(181,154,87,0.1); color: var(--gold-link); border: 1px solid rgba(181,154,87,0.3); }
 
-    .info-callout {
-      background: rgba(82,123,130,0.06);
-      border-left: 4px solid var(--teal);
-      border-radius: 0 6px 6px 0;
-      padding: 0.85rem 1rem;
-      font-size: 0.88rem;
-      line-height: 1.65;
-      margin-top: 1rem;
-    }
-    .info-callout strong { color: var(--teal); }
-
     .section-heading {
       font-size: 1.05rem; font-weight: 700; color: var(--crimson);
       margin: 2rem 0 1rem; padding-bottom: 0.4rem;
@@ -177,6 +166,7 @@
       color: var(--gold-link);
     }
     .materials-link:hover { background: var(--white); }
+    .materials-link.disabled { color: var(--disabled); pointer-events: none; font-weight: 400; }
 
     @media (max-width: 600px) {
       header { padding: 1.5rem 1.25rem; }
@@ -193,8 +183,8 @@
       Course Home
     </a>
     <p class="course-tag">ECO 4400 &middot; Applied Economics &amp; Consulting &middot; Fall 2026</p>
-    <h1>Applied Research &amp; Case Analytics</h1>
-    <p class="header-sub">Replication project and AIG consulting simulation &middot; 35% of course grade</p>
+    <h1>Community Engagement Consulting Labs</h1>
+    <p class="header-sub">Sustainable Alamance &mdash; Economic Impact Study, Burlington, NC &mdash; 35% of course grade</p>
   </div>
 </header>
 
@@ -207,57 +197,74 @@
 
   <div class="cat-block">
     <div class="cat-header teal">
-      <span class="cat-title">Applied Research &amp; Case Analytics<span class="di-badge">Data Intensive</span></span>
+      <span class="cat-title">Community Engagement Consulting Labs<span class="di-badge">Data Intensive</span><span class="di-badge">Community Engaged</span></span>
       <span class="cat-weight">35%</span>
     </div>
     <div class="cat-intro">
-      Two independent assignments develop your analytical skills alongside the consulting project. Each has its own standard of evidence: the replication study is judged on whether your analysis is right, the AIG board packets on whether your position is defensible. Each is examined orally after you submit it, either as a presentation to the class or a one-on-one meeting with your instructors.
+      Your community engagement consulting project this semester is an economic impact study for <strong>Sustainable Alamance</strong>, a Burlington, NC nonprofit that runs re-entry programming for people leaving incarceration. The organization&rsquo;s last analysis, completed in 2017, found a recidivism rate of 9.8% against a 45% state average and a return of roughly $12 per dollar donated &mdash; but incarceration costs, wages, and the program itself have all changed since. Your job is to update the numbers, tighten the methodology, and build materials a county commissioner can read in ten minutes and defend in a budget meeting. Wednesday lab sessions are where the work gets done, with structured feedback at each milestone rather than only at the end.
     </div>
     <div class="assign-list">
       <div class="assign-item">
         <div class="assign-num active">1</div>
         <div class="assign-body">
-          <div class="assign-title">Journal Replication Project</div>
-          <div class="assign-desc">Replicate a published difference-in-differences study on self-defense law, starting with a deliberately simplified version and building toward the real staggered-timing problem it leaves out. Say plainly where your results match the published estimates and where they don&rsquo;t.</div>
+          <div class="assign-title">Phase 1 &mdash; Update the Core Numbers</div>
+          <div class="assign-desc">Recalculate recidivism savings using current incarceration rates and public defender costs, update wage and employment figures from BLS and NC Department of Commerce sources, and rerun the ROI model against actual operational costs. Document every step so a skeptical official can follow the methodology without your help.</div>
           <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 2 &mdash; Data collection &amp; ethics</span>
             <span class="assign-tag tag-slo">SLO 3 &mdash; Methods &amp; limitations</span>
-            <span class="assign-tag tag-slo">SLO 5 &mdash; Software analysis</span>
           </div>
         </div>
       </div>
       <div class="assign-item">
         <div class="assign-num active">2</div>
         <div class="assign-body">
-          <div class="assign-title">AIG Consulting Simulation</div>
-          <div class="assign-desc">A semester-long sequence of Board Packets: you advise AIG&rsquo;s Board across a series of strategic decisions in the years leading up to the 2008 financial crisis, working only from the information available at each point in AIG&rsquo;s history &mdash; no hindsight allowed. Each memo takes a defensible position, applies the relevant economic frameworks from the course, and cites evidence from the case itself.</div>
+          <div class="assign-title">Phase 2 &mdash; IMPLAN Regional Multiplier Analysis</div>
+          <div class="assign-desc">Build county-specific output, earnings, and employment multipliers for Alamance County using IMPLAN, provided to the class free of charge, replacing the 2017 report&rsquo;s flat 40% national-average multiplier with one grounded in local data.</div>
           <div class="assign-tags">
-            <span class="assign-tag tag-slo">SLO 3 &mdash; Economic reasoning</span>
-            <span class="assign-tag tag-tool">Semester-long</span>
+            <span class="assign-tag tag-slo">SLO 3 &mdash; Interpret results</span>
+            <span class="assign-tag tag-slo">SLO 5 &mdash; Economic modeling</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">3</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 3 &mdash; ACS Neighborhood Context</div>
+          <div class="assign-desc">Pull census-tract data on income, employment, and housing from the American Community Survey and map it against program service areas, giving a decision-maker a picture of the neighborhoods Sustainable Alamance serves that a spreadsheet cannot.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 4 &mdash; Communicate findings</span>
+            <span class="assign-tag tag-slo">SLO 5 &mdash; Visualize data</span>
+          </div>
+        </div>
+      </div>
+      <div class="assign-item">
+        <div class="assign-num active">4</div>
+        <div class="assign-body">
+          <div class="assign-title">Phase 4 &mdash; Public-Facing Deliverables</div>
+          <div class="assign-desc">Turn the analysis into a website, a two-page printed summary for commissioner meetings, and a brand recommendation for the &ldquo;Second Chance Alamance&rdquo; identity &mdash; all designed so Sustainable Alamance staff can update them without outside help. Your team presents the final work to a live client audience in Week 12.</div>
+          <div class="assign-tags">
+            <span class="assign-tag tag-slo">SLO 4 &mdash; Multiple modalities</span>
+            <span class="assign-tag tag-tool">Week 12</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="info-callout">
-      <strong>AI reflection requirement.</strong> Each case submission includes a short reflection on how you used AI tools in the analysis&mdash;what you asked, what it produced, and what you changed. Details on the reflection format will be provided in class.
-    </div>
   </div>
 
-  <h2 class="section-heading">Case Materials &amp; Access</h2>
+  <h2 class="section-heading">Materials &amp; Access</h2>
   <div class="materials-grid">
     <div class="materials-card">
-      <div class="materials-name">Case Materials</div>
-      <div class="materials-desc">AIG Board Packets are posted below throughout the semester as each is assigned.</div>
+      <div class="materials-name">Project Materials</div>
+      <div class="materials-desc">Background, phase worksheets, and milestone materials are posted on Canvas as PDFs.</div>
       <div class="materials-links">
-        <a class="materials-link" href="case-analysis-1.html">Board Packet #1: AIG</a>
-        <a class="materials-link" href="case-analysis-2.html">Board Packet #2: AIG</a>
-      </div>
-    </div>
-    <div class="materials-card">
-      <div class="materials-name">Replication Materials</div>
-      <div class="materials-desc">Full instructions for both stages &mdash; the idea, the data, the five-way recipe, and what to turn in.</div>
-      <div class="materials-links">
-        <a class="materials-link" href="replication-warmup.html">Stage 1: Warm-Up</a>
-        <a class="materials-link" href="replication-main-case.html">Stage 2: Main Case</a>
+        <!-- UPDATE: replace with Canvas file URL for Phase 1 materials PDF, then remove "disabled" class -->
+        <a class="materials-link disabled" href="#">Phase 1 Materials (Coming Soon)</a>
+        <!-- UPDATE: replace with Canvas file URL for Phase 2 materials PDF, then remove "disabled" class -->
+        <a class="materials-link disabled" href="#">Phase 2 Materials (Coming Soon)</a>
+        <!-- UPDATE: replace with Canvas file URL for Phase 3 materials PDF, then remove "disabled" class -->
+        <a class="materials-link disabled" href="#">Phase 3 Materials (Coming Soon)</a>
+        <!-- UPDATE: replace with Canvas file URL for Phase 4 materials PDF, then remove "disabled" class -->
+        <a class="materials-link disabled" href="#">Phase 4 Materials (Coming Soon)</a>
       </div>
     </div>
   </div>

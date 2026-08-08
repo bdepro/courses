@@ -92,26 +92,27 @@ const DATES = {
 //  chapterUrl / quizUrl: UPDATE with Cengage e-book chapter link and Canvas quiz
 //  link once available each semester — null renders as "Coming Soon" on
 //  the Applied Economics materials page (econ.html)
-//  Wednesdays run as lab time for both the Consulting Team and Applied
-//  Research & Case Analytics tracks — not a fixed weekly split between them.
+//  Wednesdays run as lab time for both the Community Engagement Consulting
+//  Labs and Applied Research & Case Analytics tracks — not a fixed weekly
+//  split between them.
 //  Weeks 9–11 have no chapter: with only 8 chapters finalized, those
 //  Mondays fold into project/consulting milestone time instead of a
 //  separate Applied Economics session.
 // ================================================================
 const SCHEDULE = [
   { num: 0,  dates: "Aug 26",         chapter: null,       topic: "Orientation",                                              monday: null,                                     wednesday: "Introduction & team formation" },
-  { num: 1,  dates: "Aug 31-Sep 2",   chapter: "Ch. 19",   topic: "The Problem of Adverse Selection",                         monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4253", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10425", quizDue: "Sun, Aug 30 · 11:59 PM" },
-  { num: 2,  dates: "Sep 7-9",        chapter: "Ch. 1",    topic: "Solving Problems with Economics",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4252", quizUrl: "https://elon.instructure.com/courses/1402/assignments/7802", quizDue: "Sun, Sep 6 · 11:59 PM" },
-  { num: 3,  dates: "Sep 14-16",      chapter: "Ch. 21",   topic: "Getting Employees to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/10408", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10427", quizDue: "Sun, Sep 13 · 11:59 PM" },
-  { num: 4,  dates: "Sep 21-23",      chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",                           monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4258", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10423", quizDue: "Sun, Sep 20 · 11:59 PM" },
-  { num: 5,  dates: "Sep 28-30",      chapter: "Ch. 22",   topic: "Getting Divisions to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4254", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10428", quizDue: "Sun, Sep 27 · 11:59 PM" },
-  { num: 6,  dates: "Oct 5-7",        chapter: "Ch. 15",   topic: "Strategic Games",                                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4256", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10424", quizDue: "Sun, Oct 4 · 11:59 PM" },
+  { num: 1,  dates: "Aug 31-Sep 2",   chapter: "Ch. 19",   topic: "The Problem of Adverse Selection",                         monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4253", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10425", quizDue: "Sun, Aug 30 · 11:59 PM" },
+  { num: 2,  dates: "Sep 7-9",        chapter: "Ch. 1",    topic: "Solving Problems with Economics",                          monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4252", quizUrl: "https://elon.instructure.com/courses/1402/assignments/7802", quizDue: "Sun, Sep 6 · 11:59 PM" },
+  { num: 3,  dates: "Sep 14-16",      chapter: "Ch. 21",   topic: "Getting Employees to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/10408", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10427", quizDue: "Sun, Sep 13 · 11:59 PM" },
+  { num: 4,  dates: "Sep 21-23",      chapter: "Ch. 3",    topic: "Benefits, Costs, and Decisions",                           monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4258", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10423", quizDue: "Sun, Sep 20 · 11:59 PM" },
+  { num: 5,  dates: "Sep 28-30",      chapter: "Ch. 22",   topic: "Getting Divisions to Work in the Firm's Best Interests",   monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4254", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10428", quizDue: "Sun, Sep 27 · 11:59 PM" },
+  { num: 6,  dates: "Oct 5-7",        chapter: "Ch. 15",   topic: "Strategic Games",                                          monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4256", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10424", quizDue: "Sun, Oct 4 · 11:59 PM" },
   { break: true, dates: "Oct 14-18",  label: "Fall Break" },
-  { num: 7,  dates: "Oct 19-21",      chapter: "Ch. 23",   topic: "Managing Vertical Relationships",                          monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4257", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10429", quizDue: "Sun, Oct 18 · 11:59 PM" },
-  { num: 8,  dates: "Oct 26-28",      chapter: "Ch. 20",   topic: "The Problem of Moral Hazard",                              monday: "Applied Economics", wednesday: "Consulting, Research & Case Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4255", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10426", quizDue: "Sun, Oct 25 · 11:59 PM" },
-  { num: 9,  dates: "Nov 2-4",        chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
-  { num: 10, dates: "Nov 9-11",       chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
-  { num: 11, dates: "Nov 16-18",      chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting, Research & Case Labs" },
+  { num: 7,  dates: "Oct 19-21",      chapter: "Ch. 23",   topic: "Managing Vertical Relationships",                          monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4257", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10429", quizDue: "Sun, Oct 18 · 11:59 PM" },
+  { num: 8,  dates: "Oct 26-28",      chapter: "Ch. 20",   topic: "The Problem of Moral Hazard",                              monday: "Applied Economics", wednesday: "Consulting Labs", chapterUrl: "https://elon.instructure.com/courses/1402/assignments/4255", quizUrl: "https://elon.instructure.com/courses/1402/assignments/10426", quizDue: "Sun, Oct 25 · 11:59 PM" },
+  { num: 9,  dates: "Nov 2-4",        chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting Labs" },
+  { num: 10, dates: "Nov 9-11",       chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting Labs" },
+  { num: 11, dates: "Nov 16-18",      chapter: null,       topic: "Project & Case Milestones",                                monday: "Project & consulting milestone work",   wednesday: "Consulting Labs" },
   { break: true, dates: "Nov 23-27",  label: "Thanksgiving Week — No Class" },
   { num: 12, dates: "Nov 30",         chapter: null,       topic: "Final Presentations",                                      monday: "Live client presentation — Sustainable Alamance", wednesday: null },
 ];
@@ -121,7 +122,7 @@ const SCHEDULE = [
 // ================================================================
 const GRADING = {
   components: [
-    { id: "labs",     label: "Consulting Team Labs",             weight: 35, dataIntensive: true  },
+    { id: "labs",     label: "Community Engagement Consulting Labs", weight: 35, dataIntensive: true  },
     { id: "research", label: "Applied Research & Case Analytics", weight: 35, dataIntensive: true  },
     { id: "econ",     label: "Applied Economics for the BSBA",   weight: 30, dataIntensive: false },
   ],
@@ -148,8 +149,8 @@ const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
   canvasHome:  `${COURSE.canvasBase}/courses/${COURSE.canvasId}`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
-  labs:        `${COURSE.baseUrl}/labs.html`,
-  research:    `${COURSE.baseUrl}/research.html`,
+  labs:        `${COURSE.baseUrl}/community-engagement-lab.html`,
+  research:    `${COURSE.baseUrl}/research-case-simulation.html`,
   econ:        `${COURSE.baseUrl}/econ.html`,
   support:     "https://bdepro.github.io/courses/shared/support.html",
   aiPolicy:    "https://bdepro.github.io/courses/shared/ai-policy.html",
