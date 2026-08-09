@@ -9,7 +9,7 @@
 //  3. SCHEDULE block       — session dates, sessionStarts, finalExam,
 //                            finalExamPeriod section and schedule times
 //  4. CANVAS block         — courseId, all assignment IDs (aid),
-//                            viva sign-up URL, worksheet URLs
+//                            viva sign-up URL, Indicator Analysis URLs
 //  5. TEXTBOOK block       — ebookUrl once Canvas/Cengage is registered
 //  6. QUESTIONS block      — 12 application bundle questions each semester
 //  That is it. All HTML files pull from this file automatically.
@@ -452,7 +452,8 @@ const PAGES = {
 //    s[num]-wed  — Wednesday print handout (e.g. s1-wed)
 //    s[num]-fri  — Friday skeleton (e.g. s1-fri)
 //    s[num]-review — Check-in week Monday review guide
-//    s[num]-worksheet — Viva week review worksheet (Mon + Wed)
+//    (Viva week Mon/Wed material is now the Indicator Analysis — see
+//    CANVAS.indicatorAnalysis below; it's a site page, not a Canvas page slug)
 //
 //  Canvas Page URLs follow the pattern:
 //    https://elon.instructure.com/courses/COURSEID/pages/PAGE-SLUG
