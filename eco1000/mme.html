@@ -23,7 +23,7 @@
       --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
       --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --disabled:#bcbcbc;
       --white:#ffffff; --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
-      --font:'Roboto',Arial,sans-serif;
+      --font:'Roboto',Arial,sans-serif; --green:#788a38;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
@@ -50,12 +50,55 @@
     .m-link:hover{background:var(--warm-gray);}
     .m-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
     .m-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
+
+    /* INSTRUCTION SECTIONS — How It Works */
+    .instruction-block{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.25rem;overflow:hidden;}
+    .ib-header{background:var(--crimson);padding:0.65rem 1.25rem;display:flex;align-items:center;gap:0.6rem;}
+    .ib-header-teal{background:var(--teal);}
+    .ib-header-green{background:var(--green);}
+    .ib-header-gold{background:var(--gold-link);}
+    .ib-title{font-family:var(--font);font-size:0.95rem;font-weight:700;color:var(--white);}
+    .ib-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.15);padding:0.1rem 0.45rem;border-radius:3px;}
+    .ib-body{padding:1.1rem 1.25rem;}
+    .ib-body p{font-size:0.88rem;color:var(--text);margin-bottom:0.6rem;line-height:1.65;}
+    .ib-body p:last-child{margin-bottom:0;}
+
+    .step-list{list-style:none;padding:0;counter-reset:steps;}
+    .step-list li{counter-increment:steps;display:flex;gap:0.75rem;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid var(--warm-gray);font-size:0.88rem;}
+    .step-list li:last-child{border-bottom:none;}
+    .step-num{width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--crimson);color:var(--white);font-size:0.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:0.1rem;}
+
+    .quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.85rem;}
+    .quality-card{background:var(--warm-gray);border-radius:8px;padding:0.75rem 0.9rem;}
+    .qc-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;}
+    .qc-example{font-size:0.83rem;color:var(--text);line-height:1.5;font-style:italic;}
+
+    .avoid-box{background:#fdf4f4;border-left:3px solid var(--crimson);border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-top:0.75rem;}
+    .avoid-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--crimson);margin-bottom:0.4rem;}
+    .avoid-list{list-style:none;padding:0;}
+    .avoid-list li{font-size:0.83rem;color:var(--text);padding:0.15rem 0 0.15rem 0.85rem;position:relative;}
+    .avoid-list li::before{content:"x";position:absolute;left:0;color:var(--crimson);font-weight:700;font-size:0.7rem;top:0.18rem;}
+
+    .checklist{list-style:none;padding:0;}
+    .checklist li{display:flex;gap:0.85rem;align-items:flex-start;padding:0.65rem 0;border-bottom:1px solid var(--warm-gray);font-size:0.88rem;}
+    .checklist li:last-child{border-bottom:none;}
+    .check-num{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:var(--gold-link);margin-top:0.05rem;flex-shrink:0;}
+    .check-text{line-height:1.5;}
+    .check-text strong{color:var(--text);font-weight:500;}
+    .check-text .check-note{display:block;font-size:0.8rem;color:var(--muted);margin-top:0.15rem;}
+
+    .easy-plan{display:flex;flex-direction:column;gap:0.6rem;}
+    .ep-row{display:flex;gap:0.85rem;align-items:flex-start;background:var(--warm-gray);border-radius:8px;padding:0.7rem 0.9rem;}
+    .ep-visit{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:var(--crimson);padding:0.2rem 0.55rem;border-radius:4px;white-space:nowrap;margin-top:0.1rem;}
+    .ep-text{font-size:0.88rem;color:var(--text);line-height:1.5;}
+
     footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
     @media(max-width:600px){
       .screen-header{padding:1.5rem 1.25rem;}
       main{padding:1.5rem 1rem 4rem;}
       .mme-row{grid-template-columns:2.5rem 1fr auto;}
       .m-title{font-size:0.82rem;}
+      .quality-grid{grid-template-columns:1fr;}
     }
     .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
     .skip-link:focus{left:0;}
@@ -86,6 +129,157 @@
   </div>
   <p class="section-label">Articles — click to open in Perusall</p>
   <div class="mme-list" id="mmeList"></div>
+
+  <p class="section-label" style="margin-top:2rem;">How It Works</p>
+
+  <div class="instruction-block">
+    <div class="ib-header">
+      <span class="ib-tag">Start Here</span>
+      <span class="ib-title">Quick Start (5 minutes)</span>
+    </div>
+    <div class="ib-body">
+      <p>Open the assignment through the Canvas link. This is required for credit. Perusall tracks your enrollment through Canvas, and opening it any other way will not register your work.</p>
+      <ol class="step-list">
+        <li><span class="step-num">1</span><span>Open the Perusall link in Canvas.</span></li>
+        <li><span class="step-num">2</span><span>Read a section, then highlight a sentence and add a comment.</span></li>
+        <li><span class="step-num">3</span><span>Reply to at least one classmate.</span></li>
+        <li><span class="step-num">4</span><span>Return on a second day for another round.</span></li>
+        <li><span class="step-num">5</span><span>Complete the short quiz.</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-teal">
+      <span class="ib-tag">How To</span>
+      <span class="ib-title">How to Make a Comment</span>
+    </div>
+    <div class="ib-body">
+      <p>Highlight text by clicking and dragging. Choose Annotate, or use the comment box that appears. Write your thought, question, or connection. Click Post.</p>
+      <p>To reply, click a classmate's comment and choose Reply. Use Upvote on comments that help you think.</p>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-green">
+      <span class="ib-tag">Quality</span>
+      <span class="ib-title">What Makes a Strong Comment</span>
+    </div>
+    <div class="ib-body">
+      <p>Perusall scores based on how much thinking your comment shows. These four moves earn consistently high scores.</p>
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="qc-label">Ask a real question</div>
+          <div class="qc-example">"Why would demand shift here instead of moving along the curve?"</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Explain in your own words</div>
+          <div class="qc-example">"This is basically saying incentives change behavior because..."</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Make a connection</div>
+          <div class="qc-example">Link the story to supply and demand, inflation, unemployment, trade, or something from class.</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">Use evidence</div>
+          <div class="qc-example">Quote or point to a specific line and explain why it matters.</div>
+        </div>
+      </div>
+      <p>Perusall scores each comment based on how much thinking it shows, and only high-quality earns full credit.</p>
+      <div class="avoid-box">
+        <div class="avoid-label">These earn little or no credit</div>
+        <ul class="avoid-list">
+          <li>"I agree."</li>
+          <li>"This is interesting."</li>
+          <li>Very short posts with no reason, example, or question.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-gold">
+      <span class="ib-tag">Requirements</span>
+      <span class="ib-title">Credit Checklist</span>
+    </div>
+    <div class="ib-body">
+      <p>Each newsletter is graded separately, with credit based on what Perusall logs for your session.</p>
+      <ul class="checklist">
+        <li>
+          <span class="check-num">1</span>
+          <span class="check-text">
+            <strong>Post 2 high-quality comments.</strong>
+            <span class="check-note">High-quality earns full credit. Medium-quality earns partial credit.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">2</span>
+          <span class="check-text">
+            <strong>Read to the end and complete the quiz.</strong>
+            <span class="check-note">Scroll through the full newsletter and submit the short quiz at the end.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">3</span>
+          <span class="check-text">
+            <strong>Spend 30&ndash;45 minutes actively working.</strong>
+            <span class="check-note">Active means reading, writing, replying, and thinking. Leaving the tab open counts for nothing.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">4</span>
+          <span class="check-text">
+            <strong>Open the assignment 3 times.</strong>
+            <span class="check-note">Visit on at least two different days. Spreading your work improves both your learning and the discussion for everyone.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">5</span>
+          <span class="check-text">
+            <strong>Reply to at least one comment.</strong>
+            <span class="check-note">A question works best. It keeps the conversation going.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">6</span>
+          <span class="check-text">
+            <strong>Receive at least one high-quality reply on your comment.</strong>
+            <span class="check-note">Write a comment good enough that a classmate responds to it. A genuine question or a specific observation invites the best replies.</span>
+          </span>
+        </li>
+        <li>
+          <span class="check-num">7</span>
+          <span class="check-text">
+            <strong>Earn 1 upvote or give 3.</strong>
+            <span class="check-note">Get one upvote on your work, or upvote three classmates whose comments helped you think.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-green">
+      <span class="ib-tag">Strategy</span>
+      <span class="ib-title">Easy Plan for Full Credit</span>
+    </div>
+    <div class="ib-body">
+      <div class="easy-plan">
+        <div class="ep-row">
+          <span class="ep-visit">Visit 1</span>
+          <span class="ep-text">Read the first half. Post one strong comment.</span>
+        </div>
+        <div class="ep-row">
+          <span class="ep-visit">Visit 2</span>
+          <span class="ep-text">Finish the reading. Post your second strong comment.</span>
+        </div>
+        <div class="ep-row">
+          <span class="ep-visit">Visit 3</span>
+          <span class="ep-text">Reply to classmates, upvote helpful posts, check for replies to you. Complete the quiz.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 <footer id="pageFooter"></footer>
 <script>
