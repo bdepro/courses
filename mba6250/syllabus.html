@@ -423,7 +423,7 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Format</span>
-          <span class="contact-value">Online — Asynchronous</span>
+          <span class="contact-value">Online — Asynchronous <em>(in-person final exam required — see Section 6)</em></span>
         </div>
       </div>
       <div class="oh-callout" id="syl-hours-row">
@@ -537,31 +537,51 @@
 
         <div class="assess-block">
           <div class="assess-header">
-            <span class="assess-name">Problem Sets (&times;8)</span>
+            <span class="assess-name">Problem Set</span>
             <span class="assess-weight" id="problems-weight"></span>
           </div>
           <div class="assess-body">
-            <p>One quantitative problem set per chapter (8 total) via the Cengage e-book platform. Problems are drawn from the textbook's end-of-chapter exercises and focus on the calculative and graphical skills underlying each framework. Graded automatically, linked from Canvas. Due Friday at 11:59 p.m. of the module's week.</p>
+            <p>One problem set for the whole semester, written by me, not Cengage: one or two problems per chapter, eight chapters total. Show your work &mdash; I grade it by hand. Each chapter's problems are due the same Friday as that module's quiz and Perusall discussion, so the work stays spread across the term instead of piling up in December.</p>
           </div>
         </div>
 
         <div class="assess-block">
           <div class="assess-header">
-            <span class="assess-name">Capstone Assignment (TBD)</span>
-            <span class="assess-weight" id="capstone-weight"></span>
+            <span class="assess-name">Capstone &mdash; Written Final Exam</span>
+            <span class="assess-weight" id="capstone-written-weight"></span>
           </div>
           <div class="assess-body">
-            <p>A capstone deliverable due at the end of the course, worked on during the dedicated Module 10 work week. Format not yet finalized &mdash; details, prompt, and rubric will be distributed once decided.</p>
+            <p>An in-person, closed-book synthesis exam during the university final exam period, December 7&ndash;11. The prompts are case-style, drawn from across the whole course &mdash; you diagnose the problem type and apply the right framework without being told which module it came from. Module 10 gives you a full week to prepare; nothing is due until exam period itself.</p>
           </div>
         </div>
 
         <div class="assess-block">
           <div class="assess-header">
-            <span class="assess-name">Participation</span>
-            <span class="assess-weight" id="participation-weight"></span>
+            <span class="assess-name">Capstone &mdash; Oral Viva</span>
+            <span class="assess-weight" id="capstone-viva-weight"></span>
           </div>
           <div class="assess-body">
-            <p>Discussion-board engagement in Canvas. Each module includes at least one discussion prompt. You are expected to post a substantive initial response and reply to at least one peer. Graded on quality of economic reasoning, not volume.</p>
+            <p>A short individual oral exam over Zoom, no notes, scheduled during the final exam period. You explain and defend the reasoning behind your written answers in real time &mdash; the point is whether you can talk through your own thinking on the spot.</p>
+          </div>
+        </div>
+
+        <div class="assess-block">
+          <div class="assess-header">
+            <span class="assess-name">Formative Quizzes (&times;8)</span>
+            <span class="assess-weight" id="quizzes-weight"></span>
+          </div>
+          <div class="assess-body">
+            <p>Every content module gets a short multiple-choice self-check, pulled from a curated bank. You get three attempts, and I grade on whether you reach a mastery threshold rather than your first score. The point is practice &mdash; you're allowed to be wrong on the way to getting it right.</p>
+          </div>
+        </div>
+
+        <div class="assess-block">
+          <div class="assess-header">
+            <span class="assess-name">Perusall Discussions (&times;8)</span>
+            <span class="assess-weight" id="discussions-weight"></span>
+          </div>
+          <div class="assess-body">
+            <p>In Perusall, you annotate a short scenario every content module, using that module's framework. Reply to at least one classmate for real, not just to agree &mdash; the full rubric is in the Perusall Discussion Guide, linked from each module.</p>
           </div>
         </div>
 
@@ -622,7 +642,7 @@
     <div class="syl-body">
       <ul class="policy-list">
         <li class="policy-item">
-          <strong>Late work.</strong> Assignments submitted within 24 hours of the deadline receive a 20% penalty. Submissions more than 24 hours late receive a zero, except in documented emergencies. Contact me before the deadline if you anticipate a problem.
+          <strong>Late work.</strong> Assignments submitted within 24 hours of the deadline receive a 20% penalty. Submissions more than 24 hours late receive a zero, except in documented emergencies. Contact me before the deadline if you anticipate a problem. This covers uploaded assignments only. A missed exam or viva slot can't be made up after the fact, so treat a scheduling conflict as a documented emergency and contact me before it happens.
         </li>
         <li class="policy-item">
           <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon's Honor Code may result in a failing grade for the course.
@@ -805,10 +825,12 @@ function gradeWeight(id) {
   var g = GRADING.components.find(function(c){ return c.id === id; });
   return g ? g.weight + '% of Grade' : '';
 }
-document.getElementById('cases-weight').textContent       = gradeWeight('cases');
-document.getElementById('problems-weight').textContent    = gradeWeight('problems');
-document.getElementById('capstone-weight').textContent     = gradeWeight('capstone');
-document.getElementById('participation-weight').textContent = gradeWeight('participation');
+document.getElementById('cases-weight').textContent           = gradeWeight('cases');
+document.getElementById('problems-weight').textContent        = gradeWeight('problems');
+document.getElementById('capstone-written-weight').textContent = gradeWeight('capstoneWritten');
+document.getElementById('capstone-viva-weight').textContent    = gradeWeight('capstoneViva');
+document.getElementById('quizzes-weight').textContent          = gradeWeight('quizzes');
+document.getElementById('discussions-weight').textContent      = gradeWeight('discussions');
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');

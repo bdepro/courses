@@ -7,14 +7,20 @@
 //  1. COURSE block        — semester, canvasId
 //  2. INSTRUCTOR block    — officeHours each semester
 //  3. SCHEDULE block      — dates and module date ranges each semester
-//  4. CENGAGE block       — allResources + all reads/problems LTI links
-//                           when you register a new Cengage course
-//  5. CASES block         — case titles (drafted below) and
+//  4. CENGAGE block       — allResources + reads LTI links when you
+//                           register a new Cengage course (e-book
+//                           reading access only — see note 5 for
+//                           problem sets)
+//  5. PROBLEM_SET block   — aid (Canvas assignment ID) once built;
+//                           resolve the incremental-vs-single-deliverable
+//                           due-date question noted inline first
+//  6. CASES block         — case titles (drafted below) and
 //                           aid (Canvas assignment ID) once cases are
 //                           built in Canvas
-//  6. CAPSTONE block      — replaces the former Executive Memo. Format
-//                           not yet decided — title/due/aid are
-//                           placeholders until finalized.
+//  7. CAPSTONE block      — replaces the former Executive Memo. Format
+//                           is decided (in-person written exam + Zoom
+//                           viva) — aid for each and exact exam-period
+//                           date/time are placeholders until finalized.
 //  That is it. index.html and syllabus.html pull from this file automatically.
 // ================================================================
 
@@ -87,7 +93,7 @@ const SCHEDULE = {
     { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
     { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "December 4, 11:59 p.m.",   topic: "Capstone Work Week — format TBD" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission — capstone exam prep week", topic: "Capstone Work Week — Prep for Written Final Exam &amp; Oral Viva (Dec 7&ndash;11)" },
   ],
 };
 
@@ -119,14 +125,18 @@ const CHAPTERS = [
 const GRADING = {
   dueTime: "11:59 p.m.",                            // universal due time — Friday of each module
   components: [
-    { id: "cases",       label: "Case Analyses",              weight: 40,
+    { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
-    { id: "problems",    label: "Problem Sets",                weight: 30,
-      note: "One quantitative problem set per chapter (8 total) via the Cengage e-book platform." },
-    { id: "capstone",    label: "Capstone Assignment (TBD)",   weight: 20,
-      note: "Format not yet finalized — replaces the former Executive Memo. Placeholder weight retained until decided." },
-    { id: "participation", label: "Participation",             weight: 10,
-      note: "Discussion-board engagement in Canvas, one prompt per module." },
+    { id: "problems",        label: "Problem Sets",                    weight: 15,
+      note: "One instructor-authored problem set spanning the semester, one to two problems per chapter (8 chapters). Submitted with work shown; graded by hand, not auto-graded." },
+    { id: "capstoneWritten", label: "Capstone — Written Final Exam",   weight: 20,
+      note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
+    { id: "capstoneViva",    label: "Capstone — Oral Viva",            weight: 10,
+      note: "Short individual oral exam via Zoom, no notes allowed. Defends the reasoning behind the written exam." },
+    { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
+      note: "Multiple-choice self-check quiz each module, drawn from a curated item bank. Graded on reaching a mastery threshold across up to three attempts, not on the raw score." },
+    { id: "discussions",     label: "Perusall Discussions",            weight: 12,
+      note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
   ],
 };
 
@@ -138,8 +148,8 @@ const GRADING = {
 const FEATURES = {
   syllabus:      true,
   cases:         true,   // links out to Canvas case-analysis activities
-  problems:      true,   // links out to Cengage e-book problem sets
-  capstone:      true,   // links out to Canvas capstone assignment (format TBD)
+  problems:      true,   // links out to the instructor-authored Canvas problem set
+  capstone:      true,   // links out to Canvas capstone written exam + viva scheduling
   materials:     true,   // links out to Cengage e-book resources
   support:       true,
   aiPolicy:      true,
@@ -182,6 +192,8 @@ const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDA
 // ================================================================
 //  CENGAGE LINKS
 //  UPDATE this entire block when you register a new Cengage course.
+//  Problem sets no longer live here — see PROBLEM_SET below. Cengage
+//  is now used for e-book reading access only.
 // ================================================================
 const CENGAGE = {
   // Master link — all e-book resources
@@ -191,11 +203,23 @@ const CENGAGE = {
   reads: {
     ch1: "", ch3: "", ch15: "", ch19: "", ch20: "", ch21: "", ch22: "", ch23: "",
   },
+};
 
-  // Chapter Problem Sets (Cengage Apply It) — keyed by CHAPTERS[].key
-  problems: {
-    ch1: "", ch3: "", ch15: "", ch19: "", ch20: "", ch21: "", ch22: "", ch23: "",
-  },
+// ================================================================
+//  PROBLEM SET — instructor-authored, one to two problems per chapter
+//  Replaces the old per-chapter Cengage "Apply It" assignments. One
+//  consolidated set (single Canvas assignment/document), but due
+//  incrementally, not as a single end-of-term deliverable: each
+//  chapter's problems are due with that module's other work, same
+//  Friday 11:59 p.m. deadline as the quiz and Perusall discussion.
+//  Chosen for spaced retrieval practice and to keep hand-grading from
+//  colliding with capstone written-exam and viva grading at term's end.
+//  See SCHEDULE.modules for exact per-module due dates.
+// ================================================================
+const PROBLEM_SET = {
+  title: "Semester Problem Set",
+  due:   "Incremental — each chapter's problems due with that module's other work (see Section 5 schedule)",
+  aid:   "", // UPDATE each semester (Canvas assignment ID)
 };
 
 // ================================================================
@@ -222,15 +246,27 @@ const CASES = [
 ];
 
 // ================================================================
-//  CAPSTONE ASSIGNMENT — FORMAT TBD
-//  Replaces the former Executive Memo. Final deliverable format has
-//  not been decided. Placeholder title/due/aid until finalized;
-//  weight (20%, see GRADING) is reserved in the meantime.
+//  CAPSTONE — WRITTEN FINAL EXAM + ORAL VIVA
+//  Replaces the former Executive Memo. In-person, closed-book written
+//  exam during the university final exam period, paired with a short
+//  no-notes oral viva via Zoom. Module 10 (Nov 29–Dec 4) is prep time,
+//  not the exam itself — the exam and viva happen during the Dec 7–11
+//  exam period. Exact date/time and viva scheduling link go in `due`
+//  once the registrar/Canvas exam slot is confirmed.
 // ================================================================
 const CAPSTONE = {
-  title:            "Capstone Assignment — Format TBD",
-  due:              "December 4, 2026, 11:59 p.m.",   // UPDATE once format is decided
-  aid:              "", // UPDATE each semester (Canvas assignment ID)
+  writtenExam: {
+    title:  "Capstone Written Final Exam",
+    format: "In-person, closed-book",
+    due:    "During the university final exam period, December 7–11, 2026 (exact date/time TBD)",
+    aid:    "", // UPDATE each semester (Canvas assignment ID)
+  },
+  viva: {
+    title:  "Capstone Oral Viva",
+    format: "Zoom, no notes",
+    due:    "Scheduled individually during the final exam period",
+    aid:    "", // UPDATE each semester (Canvas assignment ID, if scheduled through Canvas)
+  },
 };
 
 // ================================================================
@@ -241,7 +277,9 @@ const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
 CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
-CAPSTONE.url = ASSIGNMENT_URL(CAPSTONE.aid);
+CAPSTONE.writtenExam.url = ASSIGNMENT_URL(CAPSTONE.writtenExam.aid);
+CAPSTONE.viva.url        = ASSIGNMENT_URL(CAPSTONE.viva.aid);
+PROBLEM_SET.url          = ASSIGNMENT_URL(PROBLEM_SET.aid);
 
 // ================================================================
 //  DERIVED — do not edit
@@ -258,4 +296,5 @@ const CONFIG = {
   cengage:     CENGAGE,
   cases:       CASES,
   capstone:    CAPSTONE,
+  problemSet:  PROBLEM_SET,
 };
