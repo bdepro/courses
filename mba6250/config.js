@@ -127,16 +127,16 @@ const GRADING = {
   components: [
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
-    { id: "problems",        label: "Problem Sets",                    weight: 15,
-      note: "One instructor-authored problem set spanning the semester, one to two problems per chapter (8 chapters). Submitted with work shown; graded by hand, not auto-graded." },
     { id: "capstoneWritten", label: "Capstone — Written Final Exam",   weight: 20,
       note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
+    { id: "problems",        label: "Problem Sets",                    weight: 15,
+      note: "One instructor-authored problem set spanning the semester, one to two problems per chapter (8 chapters). Submitted with work shown; graded by hand, not auto-graded." },
+    { id: "discussions",     label: "Perusall Discussions",            weight: 12,
+      note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "capstoneViva",    label: "Capstone — Oral Viva",            weight: 10,
       note: "Short individual oral exam via Zoom, no notes allowed. Defends the reasoning behind the written exam." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
-      note: "Multiple-choice self-check quiz each module, drawn from a curated item bank. Graded on reaching a mastery threshold across up to three attempts, not on the raw score." },
-    { id: "discussions",     label: "Perusall Discussions",            weight: 12,
-      note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
+      note: "Multiple-choice self-check quiz on 7 of 8 content modules (Module 1 has no bank — Perusall only), drawn from a curated item bank. Graded on whether the best of three attempts clears an 80% mastery threshold — full credit or zero, no partial credit between." },
   ],
 };
 
