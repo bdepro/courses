@@ -37,7 +37,7 @@ const COURSE = {
   baseUrl:     "https://bdepro.github.io/courses/mba6250",
   school:      "Love School of Business",
   canvasBase:  "https://elon.instructure.com",
-  canvasId:    "",                                 // UPDATE each semester (Canvas course ID)
+  canvasId:    "207",                               // UPDATE each semester (Canvas course ID)
 };
 
 // ================================================================
@@ -106,16 +106,24 @@ const SCHEDULE = {
 //  8 chapters across 8 content modules; Modules 4 and 10 are
 //  buffer weeks (synthesis/review, capstone work week) with no
 //  assigned chapter.
+//
+//  quizAid / discussionAid are Canvas assignment IDs (New Quizzes /
+//  Perusall LTI) pulled from the live course (course_id 207) on
+//  2026-08-13. ch1 has no quizAid — no MCQ bank yet, Perusall only.
+//  The Perusall Discussion assignments in Canvas are still generically
+//  named "Perusall Discussion 1"–"8", not chapter-labeled — this
+//  mapping assumes they were built in module order and was confirmed
+//  by the instructor, not inferred from the assignment names.
 // ================================================================
 const CHAPTERS = [
-  { key: "ch1",  num: "Ch 1",  title: "Introduction: Incentive Alignment",                          module: 1 },
-  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                             module: 2 },
-  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                            module: 3 },
-  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                           module: 5 },
-  { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6 },
-  { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7 },
-  { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8 },
-  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9 },
+  { key: "ch1",  num: "Ch 1",  title: "Introduction: Incentive Alignment",                          module: 1, quizAid: "",      discussionAid: "17709" },
+  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                             module: 2, quizAid: "17609", discussionAid: "17710" },
+  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                            module: 3, quizAid: "17610", discussionAid: "17711" },
+  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                           module: 5, quizAid: "17611", discussionAid: "17712" },
+  { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6, quizAid: "17612", discussionAid: "17713" },
+  { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7, quizAid: "17613", discussionAid: "17714" },
+  { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8, quizAid: "17614", discussionAid: "17715" },
+  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9, quizAid: "17615", discussionAid: "17717" },
 ];
 
 // ================================================================
@@ -145,11 +153,11 @@ const GRADING = {
 //  true = show on home page, false = hide
 //  UPDATE if sections are added or removed
 // ================================================================
+// Cases, Problem Set, Capstone, Quizzes, and Discussions no longer have
+// their own index.html cards — modules.html (the primary card) is now
+// the single directory for all per-module and capstone links.
 const FEATURES = {
   syllabus:      true,
-  cases:         true,   // links out to Canvas case-analysis activities
-  problems:      true,   // links out to the instructor-authored Canvas problem set
-  capstone:      true,   // links out to Canvas capstone written exam + viva scheduling
   materials:     true,   // links out to Cengage e-book resources
   support:       true,
   aiPolicy:      true,
@@ -172,14 +180,11 @@ const TEXTBOOK = {
 // ================================================================
 //  PAGES
 //  Stable GitHub Pages URLs — update only if files move or rename.
-//  MBA 6250 keeps its weekly content in Canvas; there are no separate
-//  GitHub Pages content pages beyond syllabus.html (unlike ECO 1000's
-//  checklist/puzzles pages). Cards on index.html link straight to
-//  Canvas and Cengage instead.
 // ================================================================
 const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
+  modules:     `${COURSE.baseUrl}/modules.html`,
   support:     `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
 };
@@ -280,6 +285,10 @@ CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 CAPSTONE.writtenExam.url = ASSIGNMENT_URL(CAPSTONE.writtenExam.aid);
 CAPSTONE.viva.url        = ASSIGNMENT_URL(CAPSTONE.viva.aid);
 PROBLEM_SET.url          = ASSIGNMENT_URL(PROBLEM_SET.aid);
+CHAPTERS.forEach(ch => {
+  ch.quizUrl       = ASSIGNMENT_URL(ch.quizAid);
+  ch.discussionUrl = ASSIGNMENT_URL(ch.discussionAid);
+});
 
 // ================================================================
 //  DERIVED — do not edit

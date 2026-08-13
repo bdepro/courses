@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  MBA 6250 — MODULE DIRECTORY
+  Hosted: bdepro.github.io/courses/mba6250/modules.html
+  The single weekly-work hub — per-module quiz, Perusall discussion,
+  problem set, and case analysis links, plus capstone exam/viva info
+  below the module list (not tied to one module). Pulls from
+  SCHEDULE, CHAPTERS, CASES, PROBLEM_SET, and CAPSTONE in config.js.
+  Row layout modeled on eco4400/econ.html's chapter-directory pattern
+  (number chip + topic + action buttons).
+  UPDATE: nothing here directly — quizAid/discussionAid live on
+  CHAPTERS, aid fields on CASES/PROBLEM_SET/CAPSTONE, all in config.js.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Module-by-module quiz, Perusall discussion, problem set, and case analysis directory for MBA 6250 at Elon University.">
+  <title>Module Directory &middot; MBA 6250</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --crimson-dk:#5a0008; --gold:#b59a57; --gold-lt:#d4b97a; --gold-link:#7a5c1e;
+      --teal:#527b82; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --white:#ffffff;
+      --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--crimson);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:900px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.85rem;margin-top:0.35rem;font-weight:300;}
+    main{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+
+    .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1.75rem;font-size:0.88rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:#3d5e63;}
+
+    .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;}
+    .section-label.spaced{margin-top:2.25rem;}
+
+    .module-list{display:flex;flex-direction:column;gap:0.6rem;}
+    .mod-row{background:var(--white);border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.12);display:grid;grid-template-columns:3.5rem 1fr auto;align-items:center;overflow:hidden;min-height:4.75rem;}
+    .mod-row.buffer{opacity:0.75;}
+    .mod-num{align-self:stretch;background:var(--warm-gray);padding:0.9rem 0.5rem;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-right:1px solid rgba(181,154,87,0.15);text-align:center;line-height:1.3;display:flex;align-items:center;justify-content:center;}
+    .mod-body{padding:0.85rem 1rem;font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
+    .mod-dates{font-size:0.72rem;color:var(--muted);display:block;margin-top:2px;font-weight:400;}
+    .mod-due{font-size:0.72rem;color:var(--crimson);display:block;margin-top:2px;font-weight:600;}
+    .mod-ref{font-size:0.72rem;display:block;margin-top:2px;font-weight:600;text-decoration:none;}
+    .mod-ref:hover{text-decoration:underline;}
+    .mod-ref.problems{color:var(--teal);}
+    .mod-ref.case{color:var(--crimson-dk);}
+    .mod-ref.unlinked{color:var(--muted);font-weight:400;font-style:italic;text-decoration:none;cursor:default;}
+    .mod-actions{display:flex;align-items:stretch;flex-shrink:0;}
+    .mod-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
+    .mod-link:hover{background:var(--warm-gray);}
+    .mod-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
+    .mod-link.quiz{color:var(--crimson);}
+    .mod-link.discussion{color:var(--gold-link);}
+    .mod-none{padding:0.85rem 1rem;font-size:0.76rem;color:var(--muted);font-style:italic;white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);}
+
+    .capstone-block{background:var(--white);border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.12);display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.9rem 1.1rem;margin-bottom:0.6rem;flex-wrap:wrap;}
+    .capstone-title{font-size:0.9rem;font-weight:600;color:var(--text);}
+    .capstone-meta{font-size:0.76rem;color:var(--muted);margin-top:2px;}
+
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:900px;margin:0 auto;}
+    @media(max-width:640px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+      .mod-row{grid-template-columns:3rem 1fr auto;}
+      .mod-body{font-size:0.82rem;}
+      .mod-actions{flex-direction:column;}
+      .mod-link,.mod-none{padding:0.6rem 0.75rem;border-left:none;border-top:1px solid rgba(181,154,87,0.12);}
+      .mod-actions>:first-child{border-top:none;}
+      .capstone-block{flex-direction:column;align-items:flex-start;}
+    }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="backLink" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Course Home
+    </a>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">Module Directory</h1>
+    <p class="screen-sub">Every module's quiz, discussion, problem set, and case &mdash; one place to find this week's work</p>
+  </div>
+</div>
+<main id="main">
+
+  <div class="callout teal">
+    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 4 and 10 are buffer weeks with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
+  </div>
+
+  <p class="section-label">Modules 1&ndash;10</p>
+  <div class="module-list" id="moduleList"></div>
+
+  <p class="section-label spaced">Capstone &mdash; Written Exam &amp; Oral Viva</p>
+  <div id="capstoneSection"></div>
+
+</main>
+<footer id="pageFooter"></footer>
+<script>
+document.title += ' · ' + COURSE.semester;
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COURSE.title + ' · ' + COURSE.semester;
+
+var chapterByModule = {};
+CHAPTERS.forEach(function(c) { chapterByModule[c.module] = c; });
+
+var caseByModule = {};
+CASES.forEach(function(c) { caseByModule[c.module] = c; });
+
+function linkOrNote(cls, label, url) {
+  return '<a class="mod-link ' + cls + '" href="' + url + '" target="_blank" rel="noopener">' +
+    label + '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>';
+}
+
+function refLine(cls, label, url) {
+  if (url) {
+    return '<a class="mod-ref ' + cls + '" href="' + url + '" target="_blank" rel="noopener">' + label + '</a>';
+  }
+  return '<span class="mod-ref unlinked">' + label + ' (not yet linked)</span>';
+}
+
+function buildRow(mod) {
+  var div = document.createElement('div');
+  var chapter = chapterByModule[mod.num];
+  var kase    = caseByModule[mod.num];
+  var isBuffer = !chapter;
+
+  div.className = 'mod-row' + (isBuffer ? ' buffer' : '');
+
+  var dueHtml = '<span class="mod-due">Due ' + mod.due + '</span>';
+  var refHtml = '';
+  var actionsHtml = '';
+
+  if (chapter) {
+    refHtml += refLine('problems', 'Problem Set', PROBLEM_SET.url);
+    if (kase) {
+      refHtml += refLine('case', 'Case: ' + kase.title, kase.url);
+    }
+    actionsHtml += chapter.quizUrl
+      ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
+      : '<span class="mod-none">No Quiz &mdash; Perusall Only</span>';
+    actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
+  }
+
+  div.innerHTML =
+    '<div class="mod-num">Module ' + mod.num + '</div>' +
+    '<div class="mod-body">' + mod.topic +
+      '<span class="mod-dates">' + mod.dates + '</span>' +
+      dueHtml + refHtml +
+    '</div>' +
+    '<div class="mod-actions">' + actionsHtml + '</div>';
+  return div;
+}
+
+var moduleList = document.getElementById('moduleList');
+SCHEDULE.modules.forEach(function(mod) {
+  moduleList.appendChild(buildRow(mod));
+});
+
+function buildCapstoneRow(item) {
+  var div = document.createElement('div');
+  div.className = 'capstone-block';
+  var actionHtml = item.url
+    ? '<a class="mod-link quiz" href="' + item.url + '" target="_blank" rel="noopener">Open in Canvas<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>'
+    : '<span class="mod-none">Not yet linked</span>';
+  div.innerHTML =
+    '<div>' +
+      '<div class="capstone-title">' + item.title + '</div>' +
+      '<div class="capstone-meta">' + item.format + ' &middot; ' + item.due + '</div>' +
+    '</div>' +
+    actionHtml;
+  return div;
+}
+
+var capstoneSection = document.getElementById('capstoneSection');
+capstoneSection.appendChild(buildCapstoneRow(CAPSTONE.writtenExam));
+capstoneSection.appendChild(buildCapstoneRow(CAPSTONE.viva));
+</script>
+</body>
+</html>
