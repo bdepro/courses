@@ -22,7 +22,7 @@
 const COURSE = {
   code:        "ECO 1000",
   title:       "Principles of Economics",
-  discipline:  "economic",                         // drives Mind & Voice viva framing (shared/viva-prep-guide.html)
+  discipline:  "economic",
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,
@@ -434,9 +434,8 @@ const PAGES = {
   puzzles:     `${COURSE.baseUrl}/puzzles.html`,
   mme:         `${COURSE.baseUrl}/mme.html`,
   friday:      `${COURSE.baseUrl}/mind-voice.html`,
-  fridayLabel: "Mind & Voice",                     // used by shared/viva-prep-guide.html back-link label
+  fridayLabel: "Mind & Voice",
   chapters:    `${COURSE.baseUrl}/chapters.html`,
-  vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=eco1000`,
   support:        `https://bdepro.github.io/courses/shared/support.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
   aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
   aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
