@@ -657,7 +657,7 @@
           <strong>Communication.</strong> I will respond to email within 48 hours on business days. For complex questions, schedule a Zoom office-hours appointment using the link on the course home page. Discussion-board questions that are broadly useful will be answered there so all students benefit.
         </li>
         <li class="policy-item">
-          <strong>Technical requirements.</strong> Reliable internet access, a current browser, and access to Canvas and the Cengage e-book platform are required. Technical difficulties are not an automatic extension; contact me promptly if you encounter a persistent platform problem.
+          <strong>Technical requirements.</strong> Reliable internet access, a current browser, and access to Canvas and Perusall are required (a $5/term Perusall subscription applies). Technical difficulties are not an automatic extension; contact me promptly if you encounter a persistent platform problem.
         </li>
         <li class="policy-item">
           <strong>Course resources.</strong> Course materials are in Canvas and on the course home page.
@@ -780,7 +780,7 @@ if (INSTRUCTOR.officeHours) {
 
 // Section 4 — Textbook
 document.getElementById('syl-textbook-block').innerHTML =
-  '<strong>E-Book Only.</strong> ' + TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
+  TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
   TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + '. ' + TEXTBOOK.note;
 
 // Section 5 — Module schedule table

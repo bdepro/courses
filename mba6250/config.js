@@ -7,17 +7,13 @@
 //  1. COURSE block        — semester, canvasId
 //  2. INSTRUCTOR block    — officeHours each semester
 //  3. SCHEDULE block      — dates and module date ranges each semester
-//  4. CENGAGE block       — allResources + reads LTI links when you
-//                           register a new Cengage course (e-book
-//                           reading access only — see note 5 for
-//                           problem sets)
-//  5. PROBLEM_SET block   — aid (Canvas assignment ID) once built;
+//  4. PROBLEM_SET block   — aid (Canvas assignment ID) once built;
 //                           resolve the incremental-vs-single-deliverable
 //                           due-date question noted inline first
-//  6. CASES block         — case titles (drafted below) and
+//  5. CASES block         — case titles (drafted below) and
 //                           aid (Canvas assignment ID) once cases are
 //                           built in Canvas
-//  7. CAPSTONE block      — replaces the former Executive Memo. Format
+//  6. CAPSTONE block      — replaces the former Executive Memo. Format
 //                           is decided (in-person written exam + Zoom
 //                           viva) — aid for each and exact exam-period
 //                           date/time are placeholders until finalized.
@@ -100,8 +96,8 @@ const SCHEDULE = {
 // ================================================================
 //  CHAPTERS — SINGLE SOURCE OF TRUTH
 //  Froeb, McCann, Ward & Shor, Managerial Economics: A Problem
-//  Solving Approach (Cengage), 6th edition. Keys must match keys
-//  in CENGAGE. UPDATE each semester if chapter selection changes.
+//  Solving Approach, 6th edition. UPDATE each semester if chapter
+//  selection changes.
 //
 //  8 chapters across 8 content modules; Modules 4 and 10 are
 //  buffer weeks (synthesis/review, capstone work week) with no
@@ -158,23 +154,20 @@ const GRADING = {
 // the single directory for all per-module and capstone links.
 const FEATURES = {
   syllabus:      true,
-  materials:     true,   // links out to Cengage e-book resources
+  materials:     true,   // links to textbook + Perusall access info
   support:       true,
   aiPolicy:      true,
 };
 
 // ================================================================
-//  TEXTBOOK — e-book only via Cengage
-//  UPDATE: ebookUrl once Canvas/Cengage course is registered
+//  TEXTBOOK — students obtain their own copy; no publisher platform
 // ================================================================
 const TEXTBOOK = {
-  publisher:  "Cengage",
-  platform:   "E-Book",
+  publisher:  "Cengage",   // publisher of record only — not a platform we route through
   edition:    "6th",
   title:      "Managerial Economics: A Problem Solving Approach",
   authors:    "Froeb, McCann, Ward, and Shor",
-  ebookUrl:   "",   // UPDATE: paste Canvas LTI URL once registered
-  note:       "Available as an e-book only, linked through Canvas. No print copy is required.",
+  note:       "Obtain the textbook on your own — print, rental, or e-book, any source. Perusall (used for weekly discussions) carries its own $5/term subscription fee, separate from the textbook.",
 };
 
 // ================================================================
@@ -193,22 +186,6 @@ const PAGES = {
 //  CANVAS COURSE LINK
 // ================================================================
 const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDATE canvasId above
-
-// ================================================================
-//  CENGAGE LINKS
-//  UPDATE this entire block when you register a new Cengage course.
-//  Problem sets no longer live here — see PROBLEM_SET below. Cengage
-//  is now used for e-book reading access only.
-// ================================================================
-const CENGAGE = {
-  // Master link — all e-book resources
-  allResources: "", // UPDATE each semester
-
-  // Chapter E-Book Readings — keyed by CHAPTERS[].key
-  reads: {
-    ch1: "", ch3: "", ch15: "", ch19: "", ch20: "", ch21: "", ch22: "", ch23: "",
-  },
-};
 
 // ================================================================
 //  PROBLEM SET — instructor-authored, one to two problems per chapter
@@ -302,7 +279,6 @@ const CONFIG = {
   features:    FEATURES,
   textbook:    TEXTBOOK,
   pages:       PAGES,
-  cengage:     CENGAGE,
   cases:       CASES,
   capstone:    CAPSTONE,
   problemSet:  PROBLEM_SET,
