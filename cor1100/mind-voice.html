@@ -208,7 +208,6 @@ narrativePills.appendChild(pill('Open your Mind workspace', CANVAS.eliDashboardU
 var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
 if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
-narrativePills.appendChild(pill('Writing guide', PAGES.narrativeGuide));
 
 var indicatorList = document.getElementById('indicatorList');
 (CANVAS.indicatorAnalysis || []).forEach(function(ia) {

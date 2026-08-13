@@ -20,7 +20,7 @@
 const COURSE = {
   code:        "COR 1100",
   title:       "The Global Experience",
-  discipline:  "moral",                            // drives Mind & Voice narrative/viva framing (shared/narrative-guide.html, shared/viva-prep-guide.html)
+  discipline:  "moral",                            // drives Mind & Voice viva framing (shared/viva-prep-guide.html)
   semester:    "Fall 2026",                        // UPDATE each semester
   format:      "in-person",
   credits:     4,
@@ -404,11 +404,10 @@ const PAGES = {
   tms:           `${COURSE.baseUrl}/tms.html`,
   friday:        `${COURSE.baseUrl}/mind-voice.html`,
   communityEngagement: `${COURSE.baseUrl}/community-engagement.html`,
-  fridayLabel:   "Mind & Voice",                   // used by shared/narrative-guide.html + viva-prep-guide.html back-link label
+  fridayLabel:   "Mind & Voice",                   // used by shared/viva-prep-guide.html back-link label
   chapters:      `${COURSE.baseUrl}/chapters.html`,
   support:       `https://bdepro.github.io/courses/shared/support.html`,
   aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html`,
-  narrativeGuide: `https://bdepro.github.io/courses/shared/narrative-guide.html?from=cor1100`,
   vivaPrep:       `https://bdepro.github.io/courses/shared/viva-prep-guide.html?from=cor1100`,
 };
 
@@ -553,8 +552,8 @@ const CANVAS = {
   },
 
   // Eli Review tasks — placeholders until a COR 1100 course is provisioned in
-  // Eli Review (mirrors eco1000's structure; see shared/narrative-guide.html
-  // and shared/viva-prep-guide.html for the matching moral-reasoning framing).
+  // Eli Review (mirrors eco1000's structure; see shared/viva-prep-guide.html
+  // for the matching moral-reasoning framing).
   // module: block id (1, 2, 3, 4) — determines which module banner shows this pill
   // type: "writing" | "review" | "revision-plan" | "revision"
   // label: once real, must match Eli's own task-list naming exactly, so config
