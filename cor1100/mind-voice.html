@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mind & Voice written narrative, Indicator Analysis, and viva conversation details for COR 1100.">
+  <meta name="description" content="Mind & Voice written narrative, viva conversation, Indicator Analysis, and community engagement details for COR 1100.">
   <title>COR 1100 · Mind & Voice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +71,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Mind &amp; Voice</h1>
-    <p class="screen-sub">25% of your course grade &middot; written narrative + Indicator Analysis + community engagement + viva conversation &middot; sign up before Thanksgiving</p>
+    <p class="screen-sub">25% of your course grade &middot; written narrative + viva conversation + Indicator Analysis + community engagement &middot; sign up before Thanksgiving</p>
   </div>
 </div>
 <main id="main">
@@ -114,6 +114,24 @@
 
   <div class="syl-section">
     <div class="syl-section-header">
+      <span class="syl-num">Voice</span>
+      <span class="syl-section-title">Viva Conversation</span>
+    </div>
+    <div class="syl-body">
+      <p>The viva is a short conversation with me about what you wrote. Walk me
+      through the moment you wrote about and what Hanley and Smith have to say about it.</p>
+      <p id="vivaDateText"></p>
+      <div class="callout teal">
+        <strong>Sign up before Thanksgiving break.</strong> Slots fill. Sign up on a computer; the Canvas scheduler does not work reliably on phones.
+        No computer access? Contact me and I will assign your slot.
+      </div>
+      <p>Pick <strong>one</strong> link below — Viva Week or the Exam Period, not both. Both buttons open the same sign-up calendar; Canvas only lets you reserve a single slot total, whichever one you choose first.</p>
+      <div class="pill-row" id="vivaPills"></div>
+    </div>
+  </div>
+
+  <div class="syl-section">
+    <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Indicator Analysis</span>
     </div>
@@ -144,29 +162,11 @@
     </div>
   </div>
 
-  <div class="syl-section">
-    <div class="syl-section-header">
-      <span class="syl-num">Voice</span>
-      <span class="syl-section-title">Viva Conversation</span>
-    </div>
-    <div class="syl-body">
-      <p>The viva is a short conversation with me about what you wrote. Walk me
-      through the moment you wrote about and what Hanley and Smith have to say about it.</p>
-      <p id="vivaDateText"></p>
-      <div class="callout teal">
-        <strong>Sign up before Thanksgiving break.</strong> Slots fill. Sign up on a computer; the Canvas scheduler does not work reliably on phones.
-        No computer access? Contact me and I will assign your slot.
-      </div>
-      <p>Pick <strong>one</strong> link below — Viva Week or the Exam Period, not both. Both buttons open the same sign-up calendar; Canvas only lets you reserve a single slot total, whichever one you choose first.</p>
-      <div class="pill-row" id="vivaPills"></div>
-    </div>
-  </div>
-
 </main>
 <footer id="pageFooter"></footer>
 <script>
 document.title += ' · ' + COURSE.semester;
-document.getElementById('backLink').href           = PAGES.canvasHome;
+document.getElementById('backLink').href           = PAGES.home;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = COURSE.code + ' · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
 
@@ -209,6 +209,11 @@ var ff1 = CANVAS.friday[0];
 document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
 if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
 
+// Viva pills
+var vivaPills = document.getElementById('vivaPills');
+vivaPills.appendChild(pill('Viva week sign-up', CANVAS.viva.vivaWeekSignupUrl));
+vivaPills.appendChild(pill('Exam period sign-up', CANVAS.viva.examPeriodSignupUrl));
+
 var indicatorList = document.getElementById('indicatorList');
 (CANVAS.indicatorAnalysis || []).forEach(function(ia) {
   var item = document.createElement('div');
@@ -228,11 +233,6 @@ var indicatorList = document.getElementById('indicatorList');
 
   indicatorList.appendChild(item);
 });
-
-// Viva pills
-var vivaPills = document.getElementById('vivaPills');
-vivaPills.appendChild(pill('Viva week sign-up', CANVAS.viva.vivaWeekSignupUrl));
-vivaPills.appendChild(pill('Exam period sign-up', CANVAS.viva.examPeriodSignupUrl));
 </script>
 </body>
 </html>
