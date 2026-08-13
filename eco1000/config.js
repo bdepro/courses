@@ -337,9 +337,9 @@ const GRADING = {
 const FEATURES = {
   syllabus:    true,
   textbook:    false,  // replaced by chapters card (per-chapter LTI links)
-  chapters:    true,   // per-chapter e-book links via Canvas LTI
-  checkins:    true,
-  puzzles:     true,
+  chapters:    false,  // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
+  checkins:    false,  // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
+  puzzles:     false,  // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   badges:      false,  // replaced by check-ins in fall
   mme:         true,
   friday:      true,

@@ -354,9 +354,9 @@ const GRADING = {
 const FEATURES = {
   syllabus:      true,
   textbook:      false,
-  chapters:      true,    // Hanley chapter list with direct PDF links
-  checkins:      true,
-  puzzles:       true,
+  chapters:      false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
+  checkins:      false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
+  puzzles:       false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   badges:        false,
   tms:           true,
   friday:        true,
