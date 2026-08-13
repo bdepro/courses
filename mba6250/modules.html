@@ -105,7 +105,7 @@
 <main id="main">
 
   <div class="callout teal">
-    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 4 and 10 are buffer weeks with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
+    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Modules 4 and 10 are buffer weeks with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
   </div>
 
   <p class="section-label">Modules 1&ndash;10</p>
@@ -152,7 +152,9 @@ function buildRow(mod) {
   var actionsHtml = '';
 
   if (chapter) {
-    refHtml += refLine('problems', 'Problem Set', PROBLEM_SET.url);
+    if (PROBLEM_SET.modules.indexOf(mod.num) !== -1) {
+      refHtml += refLine('problems', 'Problem Set', PROBLEM_SET.url);
+    }
     if (kase) {
       refHtml += refLine('case', 'Case: ' + kase.title, kase.url);
     }

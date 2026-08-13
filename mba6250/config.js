@@ -134,7 +134,7 @@ const GRADING = {
     { id: "capstoneWritten", label: "Capstone — Written Final Exam",   weight: 20,
       note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
-      note: "One instructor-authored problem set spanning the semester, one to two problems per chapter (8 chapters). Submitted with work shown; graded by hand, not auto-graded." },
+      note: "One problem set spanning the semester, one to two problems per chapter (8 chapters), selected for their calculation focus. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "capstoneViva",    label: "Capstone — Oral Viva",            weight: 10,
@@ -188,7 +188,7 @@ const PAGES = {
 const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDATE canvasId above
 
 // ================================================================
-//  PROBLEM SET — instructor-authored, one to two problems per chapter
+//  PROBLEM SET — one to two problems per chapter, curated from the textbook
 //  Replaces the old per-chapter Cengage "Apply It" assignments. One
 //  consolidated set (single Canvas assignment/document), but due
 //  incrementally, not as a single end-of-term deliverable: each
@@ -202,6 +202,11 @@ const PROBLEM_SET = {
   title: "Semester Problem Set",
   due:   "Incremental — each chapter's problems due with that module's other work (see Section 5 schedule)",
   aid:   "", // UPDATE each semester (Canvas assignment ID)
+  // Only these modules have a problem-set entry — not every content module
+  // cleared the calculation bar (see course-notes/mba6250/problem-set.html
+  // and startup.md for the chapter-by-chapter selection log). Modules.html
+  // uses this to decide which rows show the Problem Set reference.
+  modules: [2, 3, 5, 6, 8],
 };
 
 // ================================================================
