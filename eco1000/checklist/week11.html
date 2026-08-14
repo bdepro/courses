@@ -158,6 +158,9 @@
           <div class="check-title">Annotate MME 2 in Perusall</div>
           <div class="check-desc" id="ci3-mme2-desc">Read it once for the story, then again for the economics.</div>
           <span class="check-tag tag-submit" id="ci3-mme2-tag">MME</span>
+          <br><a class="check-link" href="#" id="link-ci3-mme2-instructions" target="_blank" rel="noopener">
+            MME Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
           <br><a class="check-link" href="#" id="link-ci3-mme2" target="_blank" rel="noopener">
             Open MME Article <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -234,6 +237,7 @@
 document.getElementById('backLink').href          = PAGES.checklist;
 document.getElementById('weekEyebrow').textContent = `${COURSE.code} · ${COURSE.semester} · Week 11`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+document.getElementById('link-ci3-mme2-instructions').href = PAGES.mme;
 
 const session11 = SCHEDULE.sessions.find(s => s.num === 11);
 document.getElementById('weekMeta').textContent = session11 ? session11.dates : '';
