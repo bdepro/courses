@@ -147,6 +147,9 @@
           <div class="check-title">Submit your Fishbowl 1 response</div>
           <div class="check-desc" id="ci2-tms-desc">The reading you got on Friday of Week 3 is due today — submit in Perusall. This is the submission step only; if you're a reviewer this round, your review window opens after this and runs through the weekend.</div>
           <span class="check-tag tag-submit" id="ci2-tms-tag">Fishbowl</span>
+          <br><a class="check-link" href="#" id="link-ci2-tms-instructions" target="_blank" rel="noopener">
+            Fishbowl Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
           <br><a class="check-link" href="#" id="link-ci2-tms" target="_blank" rel="noopener">
             Open Fishbowl 1 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -235,6 +238,7 @@
 document.getElementById('backLink').href          = PAGES.checklist;
 document.getElementById('weekEyebrow').textContent = `${COURSE.code} · ${COURSE.semester} · Week 6`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+document.getElementById('link-ci2-tms-instructions').href = PAGES.tms;
 
 const session6 = SCHEDULE.sessions.find(s => s.num === 6);
 document.getElementById('weekMeta').textContent = session6 ? session6.dates : '';

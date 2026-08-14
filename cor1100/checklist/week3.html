@@ -156,6 +156,9 @@
           <div class="check-title">Get your Fishbowl 1 reading on Friday</div>
           <div class="check-desc" id="wk3-tms-desc">Introduced in class — a Smith passage paired with an excerpt from our summer reading. Read it, then write and submit your response in Perusall — due in a few weeks.</div>
           <span class="check-tag tag-submit" id="wk3-tms-tag">Fishbowl</span>
+          <br><a class="check-link" href="#" id="link-wk3-tms-instructions" target="_blank" rel="noopener">
+            Fishbowl Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
           <br><a class="check-link" href="#" id="link-wk3-tms" target="_blank" rel="noopener">
             Open Fishbowl 1 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -199,6 +202,7 @@
 document.getElementById('backLink').href          = PAGES.checklist;
 document.getElementById('weekEyebrow').textContent = `${COURSE.code} · ${COURSE.semester} · Week 3`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+document.getElementById('link-wk3-tms-instructions').href = PAGES.tms;
 
 const session3 = SCHEDULE.sessions.find(s => s.num === 3);
 document.getElementById('weekMeta').textContent = session3 ? session3.dates : '';

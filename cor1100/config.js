@@ -469,11 +469,12 @@ const CANVAS = {
   // due Fri Nov 20, no longer part of this conflict).
   tms: [
     { id: 1, session: 3, dueSession: 6, introduced: "Fri Sep 18",
-      title: "Fishbowl 1: Sympathy, Attention, and LeBron", aid: "",
+      title: "Fishbowl 1: Sympathy, Attention, and LeBron", aid: "19484",
       due: "Wed Oct 7, 11:59 p.m.",
       reviewDue: "Sun Oct 11, 11:59 p.m.",
-      respondDue: "Tue Oct 13, 11:59 p.m." },  // UPDATE aid once Perusall/Canvas link exists
+      respondDue: "Tue Oct 13, 11:59 p.m." },
     { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE — content/cascade not yet built
+    { id: 3, session: 11, introduced: "Fri Nov 6", title: "", aid: "" },  // UPDATE — chapter/passage pairing (Ch. XIII-XIX window) and cascade dates not yet chosen; must complete submit/review/respond before Thanksgiving break (Nov 23-27) — do not reuse the old Dec 2 date, which collided with viva week
   ],
 
   // Indicator Analysis — three short in-class activities built around real

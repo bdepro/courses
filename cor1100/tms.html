@@ -50,12 +50,30 @@
     .t-link:hover{background:var(--warm-gray);}
     .t-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
     .t-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
+    .instruction-block{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.25rem;overflow:hidden;}
+    .ib-header{background:var(--crimson);padding:0.65rem 1.25rem;display:flex;align-items:center;gap:0.6rem;}
+    .ib-header-teal{background:var(--teal);}
+    .ib-title{font-family:var(--font);font-size:0.95rem;font-weight:700;color:var(--white);}
+    .ib-tag{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.15);padding:0.1rem 0.45rem;border-radius:3px;}
+    .ib-body{padding:1.1rem 1.25rem;}
+    .ib-body p{font-size:0.88rem;color:var(--text);margin-bottom:0.6rem;line-height:1.65;}
+    .ib-body p:last-child{margin-bottom:0;}
+    .quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+    .quality-card{background:var(--warm-gray);border-radius:8px;padding:0.75rem 0.9rem;}
+    .qc-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;}
+    .qc-example{font-size:0.83rem;color:var(--text);line-height:1.55;}
+    .avoid-box{background:#fdf4f4;border-left:3px solid var(--crimson);border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-top:0.85rem;}
+    .avoid-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--crimson);margin-bottom:0.4rem;}
+    .avoid-list{list-style:none;padding:0;}
+    .avoid-list li{font-size:0.83rem;color:var(--text);padding:0.15rem 0 0.15rem 0.85rem;position:relative;}
+    .avoid-list li::before{content:"x";position:absolute;left:0;color:var(--crimson);font-weight:700;font-size:0.7rem;top:0.18rem;}
     footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
     @media(max-width:600px){
       .screen-header{padding:1.5rem 1.25rem;}
       main{padding:1.5rem 1rem 4rem;}
       .tms-row{grid-template-columns:2.5rem 1fr auto;}
       .t-title{font-size:0.82rem;}
+      .quality-grid{grid-template-columns:1fr;}
     }
     .skip-link{position:absolute;left:-9999px;top:0;background:var(--crimson);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
     .skip-link:focus{left:0;}
@@ -87,6 +105,55 @@
   </div>
   <p class="section-label">Fishbowl rounds &mdash; click to open in Perusall (via Canvas)</p>
   <div class="tms-list" id="tmsList"></div>
+
+  <p class="section-label" style="margin-top:2rem;">How It Works</p>
+
+  <div class="instruction-block">
+    <div class="ib-header">
+      <span class="ib-tag">Focus</span>
+      <span class="ib-title">What to Focus On</span>
+    </div>
+    <div class="ib-body">
+      <p>Read both passages more than once before you write or comment. Smith&rsquo;s
+      sentences are long and take some untangling &mdash; slow down on them. The paired
+      excerpt is usually shorter, but it&rsquo;s carrying a lot in a few words, so don&rsquo;t
+      skim past it either.</p>
+      <div class="quality-grid">
+        <div class="quality-card">
+          <div class="qc-label">If you're the author</div>
+          <div class="qc-example">Find one real disagreement or gap between Smith and the paired reading. What does the excerpt show that Smith&rsquo;s theory misses? What does Smith explain that the excerpt doesn&rsquo;t get into?</div>
+        </div>
+        <div class="quality-card">
+          <div class="qc-label">If you're a reviewer</div>
+          <div class="qc-example">Point to the exact sentence that works or doesn&rsquo;t. &ldquo;Good job&rdquo; tells the author nothing. Say what&rsquo;s missing, or what would make the argument land harder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instruction-block">
+    <div class="ib-header ib-header-teal">
+      <span class="ib-tag">Policy</span>
+      <span class="ib-title">Using AI on Fishbowl Assignments</span>
+    </div>
+    <div class="ib-body">
+      <p>AI can help you understand the reading. It can&rsquo;t write your response or your
+      comments for you.</p>
+      <p>You can use it to explain a term you don&rsquo;t know, to quiz yourself on a
+      passage&rsquo;s argument, or to talk through what an excerpt means before you start
+      writing.</p>
+      <div class="avoid-box">
+        <div class="avoid-label">What you can't do</div>
+        <ul class="avoid-list">
+          <li>Have AI write or rewrite your response.</li>
+          <li>Have AI write or rewrite your reviewer comments.</li>
+        </ul>
+      </div>
+      <p>The whole point of this exercise is your own reasoning, read and judged by your
+      classmates &mdash; hand that off to AI and there&rsquo;s nothing left to review. If
+      you&rsquo;re not sure whether something crosses the line, ask before you submit.</p>
+    </div>
+  </div>
 </main>
 <footer id="pageFooter"></footer>
 <script>
@@ -103,7 +170,8 @@ CANVAS.tms.forEach(function(t) {
     ? t.title
     : SOURCE_TEXT.title + ' &mdash; Fishbowl ' + t.id;
 
-  var datesText = 'Introduced ' + t.introduced + ' &nbsp;&middot;&nbsp; Submit ' + t.due;
+  var datesText = 'Introduced ' + t.introduced;
+  if (t.due)        datesText += ' &nbsp;&middot;&nbsp; Submit ' + t.due;
   if (t.reviewDue)  datesText += ' &nbsp;&middot;&nbsp; Review ' + t.reviewDue;
   if (t.respondDue) datesText += ' &nbsp;&middot;&nbsp; Respond ' + t.respondDue;
 
