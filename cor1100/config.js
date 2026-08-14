@@ -707,6 +707,14 @@ const puzzleDueDate = sessionNum => {
   // Clone the start date so you don't mutate the original schedule object
   let due = new Date(start.getTime());
 
+  // If session N+1 is a break, the Wednesday of session N+1 doesn't exist —
+  // shift due date to Friday of session N (start + 4 days) instead.
+  const nextSession = SCHEDULE.sessions[idx + 1];
+  if (nextSession && nextSession.break) {
+    due.setDate(due.getDate() + 4);
+    return due;
+  }
+
   // Add 9 calendar days (JS handles DST adjustments automatically)
   due.setDate(due.getDate() + 9);
 

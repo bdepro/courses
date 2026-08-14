@@ -208,7 +208,7 @@
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Start Puzzle 8</div>
-          <div class="check-desc" id="wk13-puzzle-desc">Covers Ch. XXIII, XXIV, and XXV. Started before Thanksgiving Break, due after.</div>
+          <div class="check-desc" id="wk13-puzzle-desc">Covers Ch. XXIII, XXIV, and XXV. Due the same day as your Mind narrative, before Thanksgiving Break.</div>
           <span class="check-tag tag-puzzle" id="wk13-puzzle-tag">Puzzle</span>
           <br><a class="check-link" href="#" id="link-wk13-puzzle" target="_blank" rel="noopener">
             Open Puzzle 8 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -253,11 +253,11 @@ const friday1   = (CANVAS.friday || []).find(f => f.id === 1);
 
 const dueBannerText = document.getElementById('dueBannerText');
 let dueMsg = 'Read Ch. XXIII–XXV before Thanksgiving Break.';
-if (puzzle8) {
-  dueMsg += ` Then start Puzzle 8 — it's due ${formatPuzzleDue(13)}, after Thanksgiving Break.`;
-}
-if (friday1) {
-  dueMsg += ` Your Mind narrative is due ${friday1.due}.`;
+if (puzzle8 && friday1) {
+  dueMsg += ` Puzzle 8 and your Mind narrative are both due ${formatPuzzleDue(13)}, before Thanksgiving Break.`;
+} else {
+  if (puzzle8)  dueMsg += ` Then start Puzzle 8 — it's due ${formatPuzzleDue(13)}, before Thanksgiving Break.`;
+  if (friday1)  dueMsg += ` Your Mind narrative is due ${friday1.due}.`;
 }
 dueBannerText.innerHTML = dueMsg;
 
