@@ -186,13 +186,8 @@ document.getElementById('arcSummary').textContent =
   `${contentSessions} content weeks · ${chapterCount} Hanley chapters · ${SOURCE_TEXT.author}`;
 
 // ================================================================
-//  Card definitions — driven by FEATURES and GRADING from config
+//  Card definitions — driven by FEATURES from config
 // ================================================================
-function gradeLabel(id) {
-  const g = GRADING.components.find(c => c.id === id);
-  return g ? `${g.weight}% of Grade` : null;
-}
-
 const ALL_CARDS = [
   {
     feature:   'syllabus',
@@ -209,8 +204,8 @@ const ALL_CARDS = [
     icon:      'clipboard-check',
     title:     'Check-Ins',
     desc:      'Four in-class check-ins. Hanley themes and standing analytical threads appear on every one. Check-In #4 replaces your lowest score if higher.',
-    badge:     gradeLabel('checkins'),
-    badgeClass: 'badge-grade',
+    badge:     null,
+    badgeClass: null,
   },
   {
     feature:   'friday',
@@ -218,8 +213,8 @@ const ALL_CARDS = [
     icon:      'pen-line',
     title:     'Mind & Voice',
     desc:      'A written narrative on Hanley and Smith, three short Indicator Analysis activities, a community engagement reflection, and an approximately 10-minute conversation with your instructor during viva week.',
-    badge:     gradeLabel('friday'),
-    badgeClass: 'badge-grade',
+    badge:     null,
+    badgeClass: null,
   },
   {
     feature:   'puzzles',
@@ -227,17 +222,17 @@ const ALL_CARDS = [
     icon:      'puzzle',
     title:     'Puzzles',
     desc:      'Eight formative quizzes, one per content week (no quiz in Week 7). Lowest score dropped at end of semester.',
-    badge:     gradeLabel('puzzles'),
-    badgeClass: 'badge-grade',
+    badge:     null,
+    badgeClass: null,
   },
   {
-    feature:   'tms',
-    href:      PAGES.tms,
-    icon:      'fish',
-    title:     'Fishbowl',
-    desc:      `Three rounds of peer review in Perusall, pairing ${SOURCE_TEXT.author} with our summer reading. You write, you review, you respond.`,
-    badge:     gradeLabel('tms'),
-    badgeClass: 'badge-grade',
+    feature:   'commonThreads',
+    href:      PAGES.commonThreads,
+    icon:      'link-2',
+    title:     'Common Threads',
+    desc:      `Three in-class sessions pairing ${SOURCE_TEXT.author} with our Common Reading. One per Check-In block — read it, argue with it, write about it, all in one class period.`,
+    badge:     null,
+    badgeClass: null,
   },
   {
     feature:   'chapters',

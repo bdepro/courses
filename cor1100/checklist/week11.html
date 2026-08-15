@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Check-In #3 covers Ch. XIII through XIX — love, flourishing, and how you see yourself, building toward dignity and equality. Your Fishbowl 2 response is also due Wednesday.
+      Check-In #3 covers Ch. XIII through XIX — love, flourishing, and how you see yourself, building toward dignity and equality.
     </p>
   </div>
 
@@ -141,72 +141,12 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="ci3-tms-due">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit your Fishbowl 2 response</div>
-          <div class="check-desc" id="ci3-tms-desc">The reading you got on Friday of Week 6 is due today — submit in Perusall.</div>
-          <span class="check-tag tag-submit" id="ci3-tms-tag">Fishbowl</span>
-          <br><a class="check-link" href="#" id="link-ci3-tms" target="_blank" rel="noopener">
-            Open Fishbowl 2 in Perusall <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
       <div class="check-item" data-id="ci3-checkin">
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Take Check-In #3 in class Wednesday</div>
           <div class="check-desc">Sixty minutes, paper and pencil, for the full class period. Covers Ch. XIII&ndash;XIX, plus standing analytical threads.</div>
           <span class="check-tag tag-submit">Exam &middot; In Class</span>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk11-ff-revplan2">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit your Mind Revision Plan</div>
-          <div class="check-desc">Name what you're changing in your narrative, based on the feedback from Review 2.</div>
-          <span class="check-tag tag-submit" id="wk11-ff-revplan2-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk11-ff-revplan2" target="_blank" rel="noopener">
-            Open Revision Plan <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk11-ff-revision2">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit Mind Revision 2</div>
-          <div class="check-desc">Turn your plan into an actual rewrite.</div>
-          <span class="check-tag tag-submit" id="wk11-ff-revision2-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk11-ff-revision2" target="_blank" rel="noopener">
-            Open Revision 2 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk11-ff-draft3">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit Draft 3: The Narrative</div>
-          <div class="check-desc">Bring the scene and the moral reasoning together into one continuous story — this is close to the final version.</div>
-          <span class="check-tag tag-submit" id="wk11-ff-draft3-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk11-ff-draft3" target="_blank" rel="noopener">
-            Open Draft 3 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk11-ff-review3">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Complete Mind Peer Review 3</div>
-          <div class="check-desc">Read a classmate's revised narrative and leave feedback they can actually use.</div>
-          <span class="check-tag tag-submit" id="wk11-ff-review3-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk11-ff-review3" target="_blank" rel="noopener">
-            Open Peer Review <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
         </div>
       </div>
 
@@ -229,33 +169,14 @@ document.getElementById('weekMeta').textContent = session11 ? session11.dates : 
 
 const puzzle6 = CANVAS.puzzles.find(p => p.session === 10);
 const ci3     = CANVAS.checkIns.find(c => c.id === 3);
-const tms2    = CANVAS.tms.find(t => t.dueSession === 11);
-const revPlan2  = (CANVAS.eli || []).find(t => t.id === 7);
-const revision2 = (CANVAS.eli || []).find(t => t.id === 8);
-const draft3    = (CANVAS.eli || []).find(t => t.id === 9);
-const review3   = (CANVAS.eli || []).find(t => t.id === 10);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 6, your Fishbowl 2 response, your Mind revision plan, Revision 2, and Draft 3 are all due Wednesday, the same day as Check-In #3. Review 3 follows on Friday.`;
+dueBannerText.innerHTML = `Puzzle 6 is due Wednesday, the same day as Check-In #3.`;
 
 if (puzzle6) document.getElementById('ci3-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
-if (tms2) {
-  const tms2Title = tms2.title && tms2.title.length > 0 ? tms2.title : `${SOURCE_TEXT.title} — Fishbowl 2`;
-  document.getElementById('ci3-tms-tag').textContent = `Fishbowl · Due ${tms2.due}`;
-  document.getElementById('ci3-tms-desc').textContent = `${tms2Title} is due today — submit in Perusall.`;
-}
-if (revPlan2)  document.getElementById('wk11-ff-revplan2-tag').textContent  = `Mind · Due ${revPlan2.due}`;
-if (revision2) document.getElementById('wk11-ff-revision2-tag').textContent = `Mind · Due ${revision2.due}`;
-if (draft3)    document.getElementById('wk11-ff-draft3-tag').textContent    = `Mind · Due ${draft3.due}`;
-if (review3)   document.getElementById('wk11-ff-review3-tag').textContent   = `Mind · Due ${review3.due}`;
 
 const L = {
-  'link-ci3-puzzle':      puzzle6 ? puzzle6.url : '',
-  'link-ci3-tms':         tms2 ? tms2.url : '',
-  'link-wk11-ff-revplan2':  revPlan2  ? revPlan2.url  : '',
-  'link-wk11-ff-revision2': revision2 ? revision2.url : '',
-  'link-wk11-ff-draft3':    draft3    ? draft3.url    : '',
-  'link-wk11-ff-review3':   review3   ? review3.url   : '',
+  'link-ci3-puzzle': puzzle6 ? puzzle6.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

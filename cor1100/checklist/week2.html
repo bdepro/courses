@@ -119,6 +119,27 @@
     <span class="due-banner-text" id="dueBannerText"></span>
   </div>
 
+  <p class="section-label">Monday</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">In Class</span>
+      <span class="chapter-name">The Scene</span>
+    </div>
+    <div class="checklist">
+      <div class="check-item" data-id="wk2-mind-scene">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Write The Scene in class Monday</div>
+          <div class="check-desc">The embedded writing consultant is in the room. Go back to a moment from your own life and write down what actually happened, in enough detail that someone else could see it. You'll keep developing this over the next few weeks — it doesn't need to be finished today.</div>
+          <span class="check-tag tag-submit">Mind</span>
+          <br><a class="check-link" href="#" id="link-wk2-mind-scene" target="_blank" rel="noopener">
+            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p class="section-label">Chapter III</p>
   <div class="chapter-block">
     <div class="chapter-header">
@@ -240,9 +261,9 @@ const puzzle2  = CANVAS.puzzles.find(p => p.session === 2);
 
 const dueBannerText = document.getElementById('dueBannerText');
 if (puzzle2) {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. III–V, then start Puzzle 2 early — it's due next ${formatPuzzleDue(2)}`;
+  dueBannerText.innerHTML = `<strong>Nothing is due outside class this week.</strong> Monday's class is The Scene — write in class with the writing consultant. Read Ch. III–V, then start Puzzle 2 early — it's due next ${formatPuzzleDue(2)}`;
 } else {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Focus on Ch. III–V.`;
+  dueBannerText.innerHTML = `<strong>Nothing is due outside class this week.</strong> Monday's class is The Scene — write in class with the writing consultant. Focus on Ch. III–V.`;
 }
 
 if (puzzle2) {
@@ -250,6 +271,7 @@ if (puzzle2) {
 }
 
 const L = {
+  'link-wk2-mind-scene':   CANVAS.eliDashboardUrl,
   'link-ch3-read':         ch3 ? ch3.url : '',
   'link-ch4-read':         ch4 ? ch4.url : '',
   'link-ch5-read':         ch5 ? ch5.url : '',

@@ -56,7 +56,7 @@ const INSTRUCTOR = {
 //                  (empty for check-in / break / viva weeks)
 //    checkIn     — check-in number if one occurs (null otherwise)
 //    checkInDay  — day check-in falls on (for display)
-//    tmsFF       — true if Friday is TMS launch + FF progress day
+//    ffProgress  — true if Friday is an Eli Review / Mind & Voice progress day
 //    viva        — true if viva week
 //    break       — true suppresses auto-highlighting
 //    breakType   — 'fall' or 'thanksgiving' — drives card rendering
@@ -70,9 +70,9 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    S7 (Ch. XIII, Mon/Tue only before Fall Break) has no quiz of its own —
 //      its content is folded into Puzzle 5 together with S9.
-//    MME passages introduced Friday of designated session;
-//      due Wednesday of the following CI week — see CANVAS.tms[].due.
-//    Mind & Voice written narrative due Friday Nov 20 at 11:59 p.m.
+//    Common Threads sessions run entirely in class on their own Monday —
+//      see CANVAS.commonThreads[].session.
+//    Mind & Voice written narrative due Sunday Nov 29 at 11:59 p.m.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -92,107 +92,107 @@ const SCHEDULE = {
   sessions: [
     {
       num: 0, dates: "Aug 26-28", label: "Introduction",
-      chapters: [], checkIn: null, tmsFF: false, viva: false,
+      chapters: [], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
       note: "Wed/Fri only — course introduction, no reading assigned",
     },
     {
       num: 1, dates: "Aug 31-Sep 4", label: "Week 1",
       topic: "Self-Interest and Caring for Others",
-      chapters: ["intro", "ch1", "ch2"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["intro", "ch1", "ch2"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
       note: "Intro / Ch. I On Self-Interest / Ch. II On Caring for Others",
     },
     {
       num: 2, dates: "Sep 7-11", label: "Week 2",
       topic: "Imagination, Action, and Self-Betterment",
-      chapters: ["ch3", "ch4", "ch5"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch3", "ch4", "ch5"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
+      note: "Mon: The Scene, written in class with consultant / Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
     },
     {
       num: 3, dates: "Sep 14-18", label: "Week 3",
       chapters: [], checkIn: 1, checkInDay: "Wed Sep 16",
-      tmsFF: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: MME launch + FF progress",
+      ffProgress: true, viva: false, break: false, breakType: null,
+      note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: FF progress",
     },
     {
       num: 4, dates: "Sep 21-25", label: "Week 4",
       topic: "Misery, Health, and Tranquility of Mind",
-      chapters: ["ch6", "ch7", "ch8"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch6", "ch7", "ch8"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
+      note: "Mon: Common Threads 1 / Fri: The Scene submitted / Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
       num: 5, dates: "Sep 28-Oct 2", label: "Week 5",
       topic: "Wealth, Friendship, and Anger",
-      chapters: ["ch9", "ch10", "ch12"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch9", "ch10", "ch12"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
+      note: "Mon: Peer review/discussion of The Scene, in class with consultant / Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
     },
     {
       num: 6, dates: "Oct 5-9", label: "Week 6",
       chapters: [], checkIn: 2, checkInDay: "Wed Oct 7",
-      tmsFF: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: MME launch + FF progress",
+      ffProgress: true, viva: false, break: false, breakType: null,
+      note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: FF progress",
     },
     {
       num: 7, dates: "Oct 12-13", label: "Week 7",
       topic: "On Being Loved",
-      chapters: ["ch13"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch13"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
       note: "Mon & Tue only — Ch. XIII On Being Loved / PDF reading assigned; tested in Puzzle 5 with Week 9 / Fall Break begins Wed",
     },
     {
       num: 8, dates: "Oct 14-18", label: "Fall Break",
-      chapters: [], checkIn: null, tmsFF: false, viva: false,
+      chapters: [], checkIn: null, ffProgress: false, viva: false,
       break: true, breakType: "fall",
       note: "No class",
     },
     {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       topic: "Loving, Flourishing, and Being Lovely",
-      chapters: ["ch14", "ch15", "ch16"], checkIn: null, tmsFF: true, viva: false,
+      chapters: ["ch14", "ch15", "ch16"], checkIn: null, ffProgress: true, viva: false,
       break: false, breakType: null,
-      note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: MME launch + FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
+      note: "Mon: Common Threads 2 / Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
       topic: "Self-Perception, Dignity, and Equality",
-      chapters: ["ch17", "ch18", "ch19"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch17", "ch18", "ch19"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
+      note: "Mon: Scene Revision (plan + revision combined), in class with consultant / Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapters: [], checkIn: 3, checkInDay: "Wed Nov 4",
-      tmsFF: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: MME launch + FF progress",
+      ffProgress: true, viva: false, break: false, breakType: null,
+      note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: FF progress",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
       topic: "Choice, Selfhood, and Perfection",
-      chapters: ["ch20", "ch21", "ch22"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch20", "ch21", "ch22"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
+      note: "Mon: Common Threads 3 / Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Week 13",
       topic: "Wisdom, Humility, and Praiseworthiness",
-      chapters: ["ch23", "ch24", "ch25"], checkIn: null, tmsFF: false, viva: false,
+      chapters: ["ch23", "ch24", "ch25"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
+      note: "Mon: The Moral Story, in class with consultant (lighter kickoff, no review round) / Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
     },
     {
       num: 14, dates: "Nov 23-27", label: "Thanksgiving Break",
-      chapters: [], checkIn: null, tmsFF: false, viva: false,
+      chapters: [], checkIn: null, ffProgress: false, viva: false,
       break: true, breakType: "thanksgiving",
       note: "No class",
     },
     {
       num: 15, dates: "Nov 30-Dec 4", label: "Viva Week",
       chapters: [], checkIn: 4, checkInDay: "Fri Dec 4",
-      tmsFF: false, viva: true, break: false, breakType: null,
+      ffProgress: false, viva: true, break: false, breakType: null,
       note: "Mon & Wed: Viva slots / Fri: Check-In #4 (last day of class)",
     },
   ],
@@ -334,11 +334,11 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",               weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes standing analytical threads." },
     { id: "friday",   label: "Mind & Voice",            weight: 25,
-      note: "Mind: written narrative, due Fri Nov 20 at 11:59 p.m. Voice: viva conversation during viva week. Focus on Hanley and Smith." },
+      note: "Mind: written narrative, due Sun Nov 29 at 11:59 p.m. (night before viva week). Voice: viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 15,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
-    { id: "tms",      label: "Fishbowl", weight: 10,
-      note: "3 Perusall Fishbowl rounds pairing Smith's Theory of Moral Sentiments with our summer reading. Introduced Friday after each Check-In." },
+    { id: "commonThreads", label: "Common Threads", weight: 10,
+      note: "3 in-class sessions pairing Smith's Theory of Moral Sentiments with our Common Reading, Hanif Abdurraqib's There's Always This Year. One per Check-In block, held entirely in class on a single Monday." },
   ],
   ungraded: [
     { id: "readings", label: "Chapter Readings",
@@ -358,7 +358,7 @@ const FEATURES = {
   checkins:      false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   puzzles:       false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   badges:        false,
-  tms:           true,
+  commonThreads: true,
   friday:        true,
   communityEngagement: true,
   wellness:      false,
@@ -380,9 +380,9 @@ const TEXTBOOK = {
 };
 
 // ================================================================
-//  SOURCE TEXT — Smith, used for MME readings
-//  4 selected passages assigned across the semester
-//  See CANVAS.tms for individual assignment titles and IDs
+//  SOURCE TEXT — Smith, used for Common Threads sessions
+//  3 selected passages, one per Check-In block
+//  See CANVAS.commonThreads for individual session titles
 // ================================================================
 const SOURCE_TEXT = {
   title:  "The Theory of Moral Sentiments",
@@ -401,7 +401,7 @@ const PAGES = {
   syllabus:      `${COURSE.baseUrl}/syllabus.html`,
   checkins:      `${COURSE.baseUrl}/checkins.html`,
   puzzles:       `${COURSE.baseUrl}/puzzles.html`,
-  tms:           `${COURSE.baseUrl}/tms.html`,
+  commonThreads: `${COURSE.baseUrl}/common-threads.html`,
   friday:        `${COURSE.baseUrl}/mind-voice.html`,
   communityEngagement: `${COURSE.baseUrl}/community-engagement.html`,
   fridayLabel:   "Mind & Voice",
@@ -451,30 +451,33 @@ const CANVAS = {
     { session: 13, title: "Puzzle 8: On Wisdom and Virtue, On Humility and Beneficence, On Praise and Praiseworthiness",  aid: "8770" },
   ],
 
-  // TMS — Perusall Fishbowl peer-review rounds on The Theory of Moral Sentiments,
-  // paired with a passage from Hanif Abdurraqib's summer reading.
-  // Restructured 2026-06-30: 3 rounds (not 4), each anchored to the Friday
-  // immediately after a Check-In. Single submission mechanism — students submit
-  // only inside Perusall; aid below is the Canvas LTI launch link, not a
-  // separate text-entry assignment.
-  // introduced = assignment visible / reading document opens
-  // due        = student submission deadline (authors upload here)
-  // reviewDue  = reviewer annotation + rubric deadline
-  // respondDue = author reply-to-reviewers deadline
-  // aid: Canvas assignment ID for the Perusall LTI launch; full URL auto-built below
-  // PENDING: ids 2 and 3 (Fishbowl 2 / Fishbowl 3) not yet built — round 2 keeps its
-  // existing Fri Oct 9 anchor below; round 3 needs a fresh date design anchored to
-  // Fri Nov 6 (after CI3) that lands before Thanksgiving, not reusing the old
-  // session-15/Dec-2 date, which collides with viva week itself (FF narrative now
-  // due Fri Nov 20, no longer part of this conflict).
-  tms: [
-    { id: 1, session: 3, dueSession: 6, introduced: "Fri Sep 18",
-      title: "Fishbowl 1: Sympathy, Attention, and LeBron", aid: "19484",
-      due: "Wed Oct 7, 11:59 p.m.",
-      reviewDue: "Sun Oct 11, 11:59 p.m.",
-      respondDue: "Tue Oct 13, 11:59 p.m." },
-    { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",  title: "", aid: "" },  // UPDATE — content/cascade not yet built
-    { id: 3, session: 11, introduced: "Fri Nov 6", title: "", aid: "" },  // UPDATE — chapter/passage pairing (Ch. XIII-XIX window) and cascade dates not yet chosen; must complete submit/review/respond before Thanksgiving break (Nov 23-27) — do not reuse the old Dec 2 date, which collided with viva week
+  // COMMON THREADS — in-class sessions pairing a Smith/Hanley chapter with a
+  // passage from the Elon Common Reading, Hanif Abdurraqib's There's Always
+  // This Year. Redesigned 2026-08-14, replacing the earlier Perusall
+  // Fishbowl format entirely: no async submit/review/respond cascade, no
+  // author/reviewer role split, no Perusall. Each round is one self-
+  // contained Monday class period — students do the reading beforehand,
+  // then close-read, discuss, and write together in class. One round per
+  // Check-In block; see commonThreadsDate() at the bottom of this file.
+  // session: the Monday session number the round runs on (see
+  //   SCHEDULE.sessions / SCHEDULE.sessionStarts for the actual date).
+  // chapter / passage: the Hanley chapter and Abdurraqib citation paired
+  //   that round.
+  // aid: Canvas assignment ID for however the round ends up graded
+  //   (in-class participation record, or an uploaded worksheet) — UPDATE
+  //   once the mechanism is decided; worksheet content for rounds 1 and 2
+  //   still needs to be built (round 3 already exists as a print-ready
+  //   CODAP worksheet in course-notes, not yet wired into this site).
+  commonThreads: [
+    { id: 1, session: 4,
+      title: "Common Threads 1: Sympathy, Attention, and LeBron",
+      chapter: "Ch. IV, On Imagination", passage: "Abdurraqib, p. 31", aid: "" },  // UPDATE
+    { id: 2, session: 9,
+      title: "Common Threads 2: Worshipping Wealth, at Arm's Length",
+      chapter: "Ch. IX, On Worshipping Wealth", passage: "Abdurraqib, p. 65", aid: "" },  // UPDATE
+    { id: 3, session: 12,
+      title: "Common Threads 3: Who Gets to \"Better Their Condition\"?",
+      chapter: "Ch. V, On Bettering Our Condition", passage: "Abdurraqib, pp. 194, 224", aid: "" },  // UPDATE
   ],
 
   // Indicator Analysis — three short in-class activities built around real
@@ -500,7 +503,7 @@ const CANVAS = {
   // Mind & Voice — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
     { id: 1, title: "Mind: The Narrative",
-      due: "Fri Nov 20, 11:59 p.m.", url: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861` },
+      due: "Sun Nov 29, 11:59 p.m.", url: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861` },
     { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
@@ -512,8 +515,8 @@ const CANVAS = {
   // Center First-Year Foundations Community Engagement page (see
   // course-notes/cor1100/community-engagement/README.md for the full index
   // card). aid: Canvas assignment ID; full URL auto-built below.
-  // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — lands ahead of
-  // the Nov 20 Mind narrative deadline so the two don't collide.
+  // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — lands well ahead
+  // of the Nov 29 Mind narrative deadline so the two don't collide.
   communityEngagement: {
     aid: "12991",
     serviceDeadline: "Fri, Nov 13, 2026",
@@ -551,24 +554,25 @@ const CANVAS = {
     ffSubmitUrl:            `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861`,
   },
 
-  // Eli Review tasks — placeholders until a COR 1100 course is provisioned in
-  // Eli Review (mirrors eco1000's structure).
-  // module: block id (1, 2, 3, 4) — determines which module banner shows this pill
-  // type: "writing" | "review" | "revision-plan" | "revision"
+  // Eli Review tasks for the written narrative. Redesigned 2026-08-15: one
+  // continuous narrative built across four in-class Monday sessions (embedded
+  // writing consultant present each time) instead of three separate
+  // draft/review/revision cycles for three supposedly-separate pieces —
+  // "Draft 2: The Moral Reasoning" and "Draft 3: The Narrative" are gone
+  // entirely, since there was never a second document to write or combine.
+  // Placeholders until the restructured pipeline is rebuilt in Eli Review —
+  // the old task URLs don't map cleanly onto the new stage boundaries (the
+  // revision-plan and revision steps are now one combined in-class session),
+  // so urls below are blank rather than guessed.
+  // module: block id (1-4), roughly following the semester's Check-In blocks
+  // type: "writing" | "review" | "revision"
   // label: once real, must match Eli's own task-list naming exactly, so config
   // and the Eli dashboard never drift into different names for the same task.
   eli: [
-    { id: 1,  module: 1, label: "Draft 1: The Scene",                             type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/21054/task/writing/144609/compose" },
-    { id: 2,  module: 1, label: "Review of Draft 1: The Scene",                   type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/21054/task/review/114511/work" },
-    { id: 3,  module: 2, label: "Revision Plan for Draft 1: The Scene",           type: "revision-plan", dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/revision-plan/370" },
-    { id: 4,  module: 2, label: "Revision of Draft 1: The Scene",                 type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/revision/372/work" },
-    { id: 5,  module: 2, label: "Draft 2: The Moral Reasoning",                   type: "writing",       dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/writing/144610/compose" },
-    { id: 6,  module: 2, label: "Review of Draft 2: The Moral Reasoning",         type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/review/114512/work" },
-    { id: 7,  module: 3, label: "Revision Plan for Draft 2: The Moral Reasoning", type: "revision-plan", dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/revision-plan/371" },
-    { id: 8,  module: 3, label: "Revision of Draft 2: The Moral Reasoning",       type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/revision/373/work" },
-    { id: 9,  module: 3, label: "Draft 3: The Narrative",                        type: "writing",       dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/writing/144611/compose" },
-    { id: 10, module: 3, label: "Review of Draft 3: The Narrative",              type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: "https://app.elireview.com/student/course/21054/task/review/114513/work" },
-    { id: 11, module: 4, label: "Final Narrative",                               type: "revision",      dueShort: "Nov 20", due: "Fri Nov 20, 11:59 p.m.", url: null },  // Canvas only — no Eli task; student leaves Eli after Review of Draft 3 and submits a PDF via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
+    { id: 1, module: 1, label: "The Scene",           type: "writing",  dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m.", url: "" },  // UPDATE — written in class Mon Sep 7 (with consultant), submitted Sep 25
+    { id: 2, module: 1, label: "Review of The Scene", type: "review",   dueShort: "Sep 28", due: "Mon Sep 28, 11:59 p.m.", url: "" },  // UPDATE — discussed in class Mon Sep 28, drafts read beforehand
+    { id: 3, module: 2, label: "Scene Revision",      type: "revision", dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m.", url: "" },  // UPDATE — revision plan + revision combined into one in-class session
+    { id: 4, module: 3, label: "Final Narrative",     type: "revision", dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m.", url: null },  // Canvas only — no Eli task; "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
   ],
 
   // Course-level landing page in the review platform (student view, not a
@@ -586,12 +590,12 @@ const CANVAS = {
 //  BLOCKS
 //  Groups sessions by check-in block for the schedule summary strip.
 //
-//  firstSession     — session number that opens the block (strip renders here)
-//  contentSessions  — session numbers with puzzles in this block
-//  tmsdueSessions   — session numbers at which TMS passages are due
-//  checkIn          — check-in number closing this block
-//  ffDue            — true if the FF written narrative is due in this block
-//  vivaSignupAlert  — true to show the viva sign-up alert before this block's break
+//  firstSession        — session number that opens the block (strip renders here)
+//  contentSessions     — session numbers with puzzles in this block
+//  commonThreadsSessions — session numbers where a Common Threads round runs
+//  checkIn             — check-in number closing this block
+//  ffDue               — true if the FF written narrative is due in this block
+//  vivaSignupAlert     — true to show the viva sign-up alert before this block's break
 // ================================================================
 const BLOCKS = [
   {
@@ -599,7 +603,7 @@ const BLOCKS = [
     label: 'Module 1',
     firstSession: 1,
     contentSessions: [1, 2],
-    tmsdueSessions: [],
+    commonThreadsSessions: [],
     checkIn: 1,
   },
   {
@@ -607,7 +611,7 @@ const BLOCKS = [
     label: 'Module 2',
     firstSession: 4,
     contentSessions: [4, 5],
-    tmsdueSessions: [6],
+    commonThreadsSessions: [4],
     checkIn: 2,
   },
   {
@@ -615,7 +619,7 @@ const BLOCKS = [
     label: 'Module 3',
     firstSession: 7,
     contentSessions: [7, 9, 10],
-    tmsdueSessions: [11],
+    commonThreadsSessions: [9],
     checkIn: 3,
   },
   {
@@ -624,7 +628,7 @@ const BLOCKS = [
     sublabel: 'Viva & Check-In',
     firstSession: 12,
     contentSessions: [12, 13],
-    tmsdueSessions: [13, 15],
+    commonThreadsSessions: [12],
     checkIn: 4,
     phase: 'viva',
     ffDue: true,
@@ -646,7 +650,7 @@ const FILE_URL = fileId =>
 
 CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
 
-[CANVAS.puzzles, CANVAS.tms, CANVAS.indicatorAnalysis]
+[CANVAS.puzzles, CANVAS.commonThreads, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 CANVAS.communityEngagement.url = ASSIGNMENT_URL(CANVAS.communityEngagement.aid);
@@ -724,6 +728,23 @@ const puzzleDueDate = sessionNum => {
 const formatPuzzleDue = sessionNum => {
   const d = puzzleDueDate(sessionNum);
   return d ? d.toLocaleDateString('en-US', _DUE_FMT) + ', 11:59 p.m.' : 'TBA';
+};
+
+// ================================================================
+//  COMMON THREADS SESSION DATE
+//  A Common Threads round runs entirely in class on session N's own
+//  Monday — no offset, unlike puzzleDueDate above. sessionStarts[N] IS
+//  the date.
+// ================================================================
+const commonThreadsDate = sessionNum => {
+  const idx = SCHEDULE.sessions.findIndex(s => s.num === sessionNum);
+  if (idx < 0) return null;
+  return SCHEDULE.sessionStarts[idx] || null;
+};
+
+const formatCommonThreadsDate = sessionNum => {
+  const d = commonThreadsDate(sessionNum);
+  return d ? d.toLocaleDateString('en-US', _DUE_FMT) : 'TBA';
 };
 
 // ================================================================

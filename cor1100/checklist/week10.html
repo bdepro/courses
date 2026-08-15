@@ -119,6 +119,27 @@
     <span class="due-banner-text" id="dueBannerText"></span>
   </div>
 
+  <p class="section-label">Monday</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">In Class</span>
+      <span class="chapter-name">Scene Revision</span>
+    </div>
+    <div class="checklist">
+      <div class="check-item" data-id="wk10-mind-revision">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Revise The Scene in class Monday</div>
+          <div class="check-desc" id="wk10-mind-revision-desc">Write a short plan for what you're changing based on your feedback, then start turning it into real edits — the writing consultant is there to help you go from plan to page in the same sitting.</div>
+          <span class="check-tag tag-submit" id="wk10-mind-revision-tag">Mind</span>
+          <br><a class="check-link" href="#" id="link-wk10-mind-revision" target="_blank" rel="noopener">
+            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p class="section-label">Chapter XVII</p>
   <div class="chapter-block">
     <div class="chapter-header">
@@ -237,16 +258,20 @@ const ch18 = CHAPTERS.all.find(c => c.key === 'ch18');
 const ch19 = CHAPTERS.all.find(c => c.key === 'ch19');
 const wk10Notes = GUIDED_NOTES.find(g => g.id === 'w10');
 const puzzle6   = CANVAS.puzzles.find(p => p.session === 10);
+const sceneRevision = (CANVAS.eli || []).find(t => t.id === 3);
 
 const dueBannerText = document.getElementById('dueBannerText');
-if (puzzle6) {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XVII–XIX, then start Puzzle 6 early — it's due next ${formatPuzzleDue(10)}`;
-} else {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Focus on Ch. XVII–XIX.`;
-}
+let dueMsg = `<strong>Nothing is due outside class this week.</strong> Monday's class is Scene Revision — plan and revise together, with the writing consultant there.`;
+if (puzzle6) dueMsg += ` Read Ch. XVII–XIX, then start Puzzle 6 early — it's due next ${formatPuzzleDue(10)}`;
+else dueMsg += ` Focus on Ch. XVII–XIX.`;
+dueBannerText.innerHTML = dueMsg;
 
 if (puzzle6) {
   document.getElementById('wk10-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
+}
+
+if (sceneRevision) {
+  document.getElementById('wk10-mind-revision-tag').textContent = `Mind · In class ${sceneRevision.due.replace(', 11:59 p.m.', '')}`;
 }
 
 const L = {
@@ -256,6 +281,7 @@ const L = {
   'link-wk10-notes':        wk10Notes ? wk10Notes.url : '',
   'link-wk10-notes-submit': wk10Notes ? wk10Notes.submitUrl : '',
   'link-wk10-puzzle':       puzzle6 ? puzzle6.url : '',
+  'link-wk10-mind-revision': CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

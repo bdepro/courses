@@ -119,6 +119,27 @@
     <span class="due-banner-text" id="dueBannerText"></span>
   </div>
 
+  <p class="section-label">Monday</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">In Class</span>
+      <span class="chapter-name" id="wk9-ct-name">Common Threads 2</span>
+    </div>
+    <div class="checklist">
+      <div class="check-item" data-id="wk9-common-threads">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title" id="wk9-ct-title">Attend Common Threads 2 in class Monday</div>
+          <div class="check-desc" id="wk9-ct-desc">Read both passages before class — we close-read, discuss, and write together that day.</div>
+          <span class="check-tag tag-submit">Common Threads</span>
+          <br><a class="check-link" href="#" id="link-wk9-ct-instructions" target="_blank" rel="noopener">
+            Common Threads Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p class="section-label">Chapter XIV</p>
   <div class="chapter-block">
     <div class="chapter-header">
@@ -238,15 +259,22 @@ const ch15 = CHAPTERS.all.find(c => c.key === 'ch15');
 const ch16 = CHAPTERS.all.find(c => c.key === 'ch16');
 const wk9Notes = GUIDED_NOTES.find(g => g.id === 'w07-09');
 const puzzle5  = CANVAS.puzzles.find(p => p.session === 9);
+const ct2      = CANVAS.commonThreads.find(t => t.session === 9);
 
 const dueBannerText = document.getElementById('dueBannerText');
 if (puzzle5) {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. XIV–XVI, then start Puzzle 5 early — it's due next ${formatPuzzleDue(9)}`;
+  dueBannerText.innerHTML = `<strong>Nothing is due outside class this week.</strong> Monday's class is Common Threads 2 — come having done the reading. Read Ch. XIV–XVI, then start Puzzle 5 early — it's due next ${formatPuzzleDue(9)}`;
 } else {
-  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Focus on Ch. XIV–XVI.`;
+  dueBannerText.innerHTML = `<strong>Nothing is due outside class this week.</strong> Monday's class is Common Threads 2 — come having done the reading. Focus on Ch. XIV–XVI.`;
 }
 
 if (puzzle5) document.getElementById('wk9-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(9)}`;
+
+if (ct2) {
+  document.getElementById('wk9-ct-name').textContent  = `Common Threads 2 · ${formatCommonThreadsDate(9)}`;
+  document.getElementById('wk9-ct-title').textContent = ct2.title;
+  document.getElementById('wk9-ct-desc').textContent  = `${ct2.chapter} paired with ${ct2.passage}. Read both before class — we close-read, discuss, and write together that day.`;
+}
 
 const L = {
   'link-ch14-read':        ch14 ? ch14.url : '',
@@ -255,6 +283,7 @@ const L = {
   'link-wk9-notes':        wk9Notes ? wk9Notes.url : '',
   'link-wk9-notes-submit': wk9Notes ? wk9Notes.submitUrl : '',
   'link-wk9-puzzle':       puzzle5 ? puzzle5.url : '',
+  'link-wk9-ct-instructions': PAGES.commonThreads,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
