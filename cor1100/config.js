@@ -233,7 +233,6 @@ const SCHEDULE = {
   // CI 4 may be taken on the last day of class (Fri Dec 4) OR during this block.
   finalExamPeriod: {
     dates:            "Tue, Dec 8, 2026, 1:00–4:00 p.m.",  // UPDATE each semester — registrar-assigned slot
-    worksheetNote:    "Complete the online worksheet within your scheduled exam block. You may do it from anywhere.",
     signupEquityNote: "No computer access? Contact Prof. Depro and he will assign your slot.",
   },
 };
@@ -331,13 +330,13 @@ const GUIDED_NOTES = [
 const GRADING = {
   dueTime: "11:59 p.m.",
   components: [
-    { id: "checkins", label: "Check-Ins",               weight: 50,
+    { id: "checkins", label: "Check-Ins",               weight: 40,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes standing analytical threads." },
-    { id: "friday",   label: "Mind & Voice",            weight: 25,
+    { id: "friday",   label: "Mind & Voice",            weight: 35,
       note: "Mind: written narrative, due Sun Nov 29 at 11:59 p.m. (night before viva week). Voice: viva conversation during viva week. Focus on Hanley and Smith." },
-    { id: "puzzles",  label: "Puzzles",                 weight: 15,
+    { id: "puzzles",  label: "Puzzles",                 weight: 10,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
-    { id: "commonThreads", label: "Common Threads", weight: 10,
+    { id: "commonThreads", label: "Common Threads", weight: 15,
       note: "3 in-class sessions pairing Smith's Theory of Moral Sentiments with our Common Reading, Hanif Abdurraqib's There's Always This Year. One per Check-In block, held entirely in class on a single Monday." },
   ],
   ungraded: [
@@ -471,13 +470,13 @@ const CANVAS = {
   commonThreads: [
     { id: 1, session: 4,
       title: "Common Threads 1: Sympathy, Attention, and LeBron",
-      chapter: "Ch. IV, On Imagination", passage: "Abdurraqib, p. 31", aid: "" },  // UPDATE
+      chapter: "Ch. III–IV, On Acting for Others & On Imagination", passage: "Abdurraqib, p. 31", aid: "19484" },
     { id: 2, session: 9,
       title: "Common Threads 2: Worshipping Wealth, at Arm's Length",
-      chapter: "Ch. IX, On Worshipping Wealth", passage: "Abdurraqib, p. 65", aid: "" },  // UPDATE
+      chapter: "Ch. IX, On Worshipping Wealth", passage: "Abdurraqib, p. 65", aid: "20242" },
     { id: 3, session: 12,
       title: "Common Threads 3: Who Gets to \"Better Their Condition\"?",
-      chapter: "Ch. V, On Bettering Our Condition", passage: "Abdurraqib, pp. 194, 224", aid: "" },  // UPDATE
+      chapter: "Ch. V, On Bettering Our Condition", passage: "Abdurraqib, pp. 194, 224", aid: "20243" },
   ],
 
   // Indicator Analysis — three short in-class activities built around real
@@ -547,10 +546,6 @@ const CANVAS = {
     durationMinutes:        10,
     vivaWeekSignupUrl:      "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
     examPeriodSignupUrl:    "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-08",
-    worksheetUrl:           "",  // UPDATE: Canvas Page URL (s15-worksheet)
-    worksheetSubmitUrl:     "",  // UPDATE: Canvas Assignment URL
-    examWorksheetUrl:       "",  // UPDATE: Canvas Page URL
-    examWorksheetSubmitUrl: "",  // UPDATE: Canvas Assignment URL
     ffSubmitUrl:            `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861`,
   },
 

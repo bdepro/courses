@@ -132,13 +132,7 @@
         <div class="check-content">
           <div class="check-title">Already did your viva and Check-In #4 on Friday?</div>
           <div class="check-desc" id="exam-worksheet-desc"></div>
-          <span class="check-tag tag-read">Worksheet + Indicator Analysis</span>
-          <br><a class="check-link" href="#" id="link-exam-worksheet" target="_blank" rel="noopener">
-            Open Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <br><a class="check-link" href="#" id="link-exam-worksheet-submit" target="_blank" rel="noopener">
-            Submit Worksheet <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
+          <span class="check-tag tag-read">Indicator Analysis</span>
           <br><a class="check-link" href="#" id="link-exam-indicator" target="_blank" rel="noopener">
             Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -152,8 +146,14 @@
         <div class="check-box"></div>
         <div class="check-content">
           <div class="check-title">Did your viva, but deferred Check-In #4?</div>
-          <div class="check-desc">Take Check-In #4 during this block instead of doing the worksheet.</div>
+          <div class="check-desc">Take Check-In #4 during this block, and complete the Indicator Analysis &mdash; &quot;Why the Gender Pay Gap Persists&quot; &mdash; within the same block: your viva slot cost you one of the two viva-week sessions, so this is your second.</div>
           <span class="check-tag tag-submit">Exam &middot; In Block</span>
+          <br><a class="check-link" href="#" id="link-checkin4-indicator" target="_blank" rel="noopener">
+            Open Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-checkin4-indicator-submit" target="_blank" rel="noopener">
+            Submit Indicator Analysis <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
 
@@ -189,17 +189,17 @@ document.getElementById('weekMeta').textContent    = SCHEDULE.finalExamPeriod.da
 document.getElementById('dueBannerText').innerHTML =
   `<strong>One exam block for everyone.</strong> ${SCHEDULE.finalExamPeriod.dates}`;
 
-document.getElementById('exam-worksheet-desc').textContent = SCHEDULE.finalExamPeriod.worksheetNote + ' Also complete the Indicator Analysis — "Why the Gender Pay Gap Persists" — within the same block.';
+document.getElementById('exam-worksheet-desc').textContent = 'Complete the Indicator Analysis — "Why the Gender Pay Gap Persists" — within your scheduled exam block. The Indicator Analysis is the worksheet; there is nothing separate to do.';
 document.getElementById('equityNote').textContent = SCHEDULE.finalExamPeriod.signupEquityNote;
 
 const iaExamPeriod = CANVAS.indicatorAnalysis.find(i => i.id === 'examPeriod');
 
 const L = {
-  'link-exam-worksheet':        CANVAS.viva.examWorksheetUrl,
-  'link-exam-worksheet-submit': CANVAS.viva.examWorksheetSubmitUrl,
   'link-exam-viva':             CANVAS.viva.examPeriodSignupUrl,
   'link-exam-indicator':        iaExamPeriod ? iaExamPeriod.pageUrl : '',
   'link-exam-indicator-submit': iaExamPeriod ? iaExamPeriod.url : '',
+  'link-checkin4-indicator':        iaExamPeriod ? iaExamPeriod.pageUrl : '',
+  'link-checkin4-indicator-submit': iaExamPeriod ? iaExamPeriod.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
