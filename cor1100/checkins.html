@@ -4,7 +4,6 @@
   COR 1100 — CHECK-INS
   Hosted: bdepro.github.io/courses/cor1100/checkins.html
   All check-in data pulls from CANVAS.checkIns in config.js.
-  Threads render from CHAPTERS.threads (empty = placeholder shown).
   UPDATE: CANVAS.checkIns URLs each semester.
 ================================================================
 -->
@@ -53,11 +52,6 @@
     .c-link:hover{background:var(--warm-gray);}
     .c-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;}
     .c-link.inactive{color:var(--disabled);pointer-events:none;font-weight:400;}
-    .threads-box{background:var(--warm-gray);border-radius:8px;padding:0.85rem 1.1rem;font-size:0.85rem;line-height:1.6;color:var(--text);}
-    .threads-box strong{color:var(--crimson);}
-    .threads-box ul{margin:0.4rem 0 0 1.1rem;padding:0;}
-    .threads-box ul li{margin-bottom:0.15rem;}
-    .threads-placeholder{font-style:italic;color:var(--muted);}
     footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
     @media(max-width:600px){
       .screen-header{padding:1.5rem 1.25rem;}
@@ -79,7 +73,7 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Check-Ins</h1>
-    <p class="screen-sub">50% of your course grade · pen and paper · Wednesday in class · 60 minutes</p>
+    <p class="screen-sub">40% of your course grade · pen and paper · Wednesday in class · 60 minutes</p>
   </div>
 </div>
 <main id="main">
@@ -98,8 +92,6 @@
 
   <p class="section-label">Check-In schedule</p>
   <div class="ci-list" id="ciList"></div>
-
-  <div class="threads-box" id="threadsBox"></div>
 </main>
 <footer id="pageFooter"></footer>
 <script>
@@ -131,21 +123,6 @@ CANVAS.checkIns.forEach(function(ci) {
     '</a>';
   list.appendChild(row);
 });
-
-// Render standing threads box
-var threadsBox = document.getElementById('threadsBox');
-var threads = CHAPTERS.threads || [];
-
-if (threads.length > 0) {
-  var items = threads.map(function(t) { return '<li>' + t + '</li>'; }).join('');
-  threadsBox.innerHTML =
-    '<strong>Standing threads — on every Check-In:</strong>' +
-    '<ul>' + items + '</ul>';
-} else {
-  threadsBox.innerHTML =
-    '<strong>Standing threads — on every Check-In:</strong> ' +
-    '<span class="threads-placeholder">Threads will be announced in class and added here once finalized.</span>';
-}
 </script>
 </body>
 </html>

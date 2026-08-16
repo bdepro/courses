@@ -301,7 +301,7 @@ const L = {
   'link-wk4-notes-submit': wk4Notes ? wk4Notes.submitUrl : '',
   'link-wk4-puzzle':       puzzle3 ? puzzle3.url : '',
   'link-wk4-ct-instructions': PAGES.commonThreads,
-  'link-wk4-mind-scene':   theScene ? (theScene.url || CANVAS.eliDashboardUrl) : '',
+  'link-wk4-mind-scene':   CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

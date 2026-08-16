@@ -9,7 +9,7 @@
 //                          finalExamPeriod
 //  4. CANVAS block       — all assignment IDs (aid), viva sign-up URL
 //  5. TEXTBOOK block     — publisher/title/author only, no platform link
-//  6. CHAPTERS block     — threads once finalized, Canvas file IDs (fileId)
+//  6. CHAPTERS block     — Canvas file IDs (fileId)
 //  That is it. All HTML files pull from this file automatically.
 // ================================================================
 
@@ -276,10 +276,6 @@ const CHAPTERS = {
     { key: "ch25",  num: "Ch. XXV",    title: "On Praise and Praiseworthiness", session: 13, fileId: "363069" },
   ],
 
-  // Standing analytical threads — appear on every check-in
-  // UPDATE: once finalized
-  threads: [],   // TBD
-
   // Check-in coverage map
   checkIns: {
     1: { chapters: ["intro", "ch1", "ch2", "ch3", "ch4", "ch5"],
@@ -289,7 +285,7 @@ const CHAPTERS = {
     3: { chapters: ["ch13", "ch14", "ch15", "ch16", "ch17", "ch18", "ch19"],
          label: "Ch. XIII–XIX" },
     4: { chapters: ["all"],
-         label: "Comprehensive (Intro + Ch. I–XXV) / standing threads" },
+         label: "Comprehensive (Intro + Ch. I–XXV)" },
   },
 };
 
@@ -331,7 +327,7 @@ const GRADING = {
   dueTime: "11:59 p.m.",
   components: [
     { id: "checkins", label: "Check-Ins",               weight: 40,
-      note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes standing analytical threads." },
+      note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher." },
     { id: "friday",   label: "Mind & Voice",            weight: 35,
       note: "Mind: written narrative, due Sun Nov 29 at 11:59 p.m. (night before viva week). Voice: viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 10,
@@ -526,13 +522,13 @@ const CANVAS = {
   // UPDATE each semester
   checkIns: [
     { id: 1, title: "Check-In #1", date: "Wed Sep 16",
-      covers: "Intro + Ch. I–V / standing threads",                   url: "" },  // UPDATE
+      covers: "Intro + Ch. I–V",              url: "" },  // UPDATE
     { id: 2, title: "Check-In #2", date: "Wed Oct 7",
-      covers: "Ch. VI–XII / standing threads",                        url: "" },  // UPDATE
+      covers: "Ch. VI–XII",                   url: "" },  // UPDATE
     { id: 3, title: "Check-In #3", date: "Wed Nov 4",
-      covers: "Ch. XIII–XIX / standing threads",                      url: "" },  // UPDATE
+      covers: "Ch. XIII–XIX",                 url: "" },  // UPDATE
     { id: 4, title: "Check-In #4", date: "Fri Dec 4 or exam period",
-      covers: "Comprehensive / Intro + Ch. I–XXV / standing threads", url: "" },  // UPDATE
+      covers: "Comprehensive / Intro + Ch. I–XXV", url: "" },  // UPDATE
   ],
 
   // Viva week resources
@@ -562,24 +558,25 @@ const CANVAS = {
   // now happens take-home shortly after reviews are due, while feedback is
   // still fresh, rather than combined into the Oct 26 in-class session as
   // originally designed — Oct 26 is now revision/editing execution only.
-  // Placeholders until the pipeline is rebuilt in Eli Review — the old task
-  // URLs don't map onto the new stage boundaries, so urls below are blank
-  // rather than guessed.
+  // Decided 2026-08-16: checklist links for every Eli stage point at
+  // eliDashboardUrl below, never a per-task URL — students navigate to the
+  // right task from inside Eli itself. So no entry here carries a url field;
+  // it would never be used for a link and would just be one more thing to
+  // keep in sync with Eli's own site.
   // module: block id (1-4), roughly following the semester's Check-In blocks
   // type: "writing" | "review" | "revision-plan" | "revision"
   // label: once real, must match Eli's own task-list naming exactly, so config
   // and the Eli dashboard never drift into different names for the same task.
   eli: [
-    { id: 1, module: 1, label: "The Scene",           type: "writing",       dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m.", url: "" },  // UPDATE — written in class Mon Sep 7 (with consultant), submitted Sep 25
-    { id: 2, module: 1, label: "Review of The Scene", type: "review",        dueShort: "Oct 4",  due: "Sun Oct 4, 11:59 p.m.",  url: "" },  // UPDATE — review kicks off in class Mon Sep 28 (drafts read beforehand); written reviews due the following Sunday
-    { id: 5, module: 1, label: "Workplan",            type: "revision-plan", dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "" },  // UPDATE — take-home; author reacts to feedback and plans revisions while still fresh. Moved off Wed Oct 7 to avoid landing on Check-In #2
-    { id: 3, module: 2, label: "Scene Revision",      type: "revision",     dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m.", url: "" },  // UPDATE — in-class execution of the workplan from Oct 9, with the writing consultant; plan is no longer written in this session
-    { id: 4, module: 3, label: "Final Narrative",     type: "revision",     dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m.", url: null },  // Canvas only — no Eli task; "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
+    { id: 1, module: 1, label: "The Scene",           type: "writing",       dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m." },  // written in class Mon Sep 7 (with consultant), submitted Sep 25
+    { id: 2, module: 1, label: "Review of The Scene", type: "review",        dueShort: "Oct 4",  due: "Sun Oct 4, 11:59 p.m." },  // review kicks off in class Mon Sep 28 (drafts read beforehand); written reviews due the following Sunday
+    { id: 5, module: 1, label: "Workplan",            type: "revision-plan", dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m." },  // take-home; author reacts to feedback and plans revisions while still fresh. Moved off Wed Oct 7 to avoid landing on Check-In #2
+    { id: 3, module: 2, label: "Scene Revision",      type: "revision",      dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m." },  // in-class execution of the workplan from Oct 9, with the writing consultant; plan is no longer written in this session
+    { id: 4, module: 3, label: "Final Narrative",     type: "revision",      dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m." },  // Canvas only, not an Eli task — "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
   ],
 
   // Course-level landing page in the review platform (student view, not a
-  // specific task) — mind-voice.html links here once instead of one pill per
-  // stage. NOT the same as the task-specific urls above.
+  // specific task) — every Mind & Voice checklist link points here.
   eliDashboardUrl: "https://app.elireview.com/student/course/21054",
 
   // NOTE: the Eli Review course join code is intentionally NOT stored here.
