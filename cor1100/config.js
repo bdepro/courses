@@ -161,7 +161,7 @@ const SCHEDULE = {
       topic: "Self-Perception, Dignity, and Equality",
       chapters: ["ch17", "ch18", "ch19"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Scene Revision (plan + revision combined), in class with consultant / Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
+      note: "Mon: Scene Revision, in class with consultant (workplan already submitted Oct 9; this session executes it) / Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Week 11",
@@ -555,19 +555,26 @@ const CANVAS = {
   // draft/review/revision cycles for three supposedly-separate pieces —
   // "Draft 2: The Moral Reasoning" and "Draft 3: The Narrative" are gone
   // entirely, since there was never a second document to write or combine.
-  // Placeholders until the restructured pipeline is rebuilt in Eli Review —
-  // the old task URLs don't map cleanly onto the new stage boundaries (the
-  // revision-plan and revision steps are now one combined in-class session),
-  // so urls below are blank rather than guessed.
+  // Review/workplan cycle re-sequenced 2026-08-15: peer review kicks off in
+  // class Mon Sep 28, but written reviews are due the following Sunday, not
+  // that same Monday night — Mon Sep 28 itself is schedule-level info (see
+  // SCHEDULE.sessions session 5), not a separate Eli task. The revision plan
+  // now happens take-home shortly after reviews are due, while feedback is
+  // still fresh, rather than combined into the Oct 26 in-class session as
+  // originally designed — Oct 26 is now revision/editing execution only.
+  // Placeholders until the pipeline is rebuilt in Eli Review — the old task
+  // URLs don't map onto the new stage boundaries, so urls below are blank
+  // rather than guessed.
   // module: block id (1-4), roughly following the semester's Check-In blocks
-  // type: "writing" | "review" | "revision"
+  // type: "writing" | "review" | "revision-plan" | "revision"
   // label: once real, must match Eli's own task-list naming exactly, so config
   // and the Eli dashboard never drift into different names for the same task.
   eli: [
-    { id: 1, module: 1, label: "The Scene",           type: "writing",  dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m.", url: "" },  // UPDATE — written in class Mon Sep 7 (with consultant), submitted Sep 25
-    { id: 2, module: 1, label: "Review of The Scene", type: "review",   dueShort: "Sep 28", due: "Mon Sep 28, 11:59 p.m.", url: "" },  // UPDATE — discussed in class Mon Sep 28, drafts read beforehand
-    { id: 3, module: 2, label: "Scene Revision",      type: "revision", dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m.", url: "" },  // UPDATE — revision plan + revision combined into one in-class session
-    { id: 4, module: 3, label: "Final Narrative",     type: "revision", dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m.", url: null },  // Canvas only — no Eli task; "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
+    { id: 1, module: 1, label: "The Scene",           type: "writing",       dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m.", url: "" },  // UPDATE — written in class Mon Sep 7 (with consultant), submitted Sep 25
+    { id: 2, module: 1, label: "Review of The Scene", type: "review",        dueShort: "Oct 4",  due: "Sun Oct 4, 11:59 p.m.",  url: "" },  // UPDATE — review kicks off in class Mon Sep 28 (drafts read beforehand); written reviews due the following Sunday
+    { id: 5, module: 1, label: "Workplan",            type: "revision-plan", dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "" },  // UPDATE — take-home; author reacts to feedback and plans revisions while still fresh. Moved off Wed Oct 7 to avoid landing on Check-In #2
+    { id: 3, module: 2, label: "Scene Revision",      type: "revision",     dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m.", url: "" },  // UPDATE — in-class execution of the workplan from Oct 9, with the writing consultant; plan is no longer written in this session
+    { id: 4, module: 3, label: "Final Narrative",     type: "revision",     dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m.", url: null },  // Canvas only — no Eli task; "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
   ],
 
   // Course-level landing page in the review platform (student view, not a

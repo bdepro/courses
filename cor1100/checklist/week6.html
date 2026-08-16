@@ -150,6 +150,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="wk6-mind-workplan">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Submit your revision workplan</div>
+          <div class="check-desc">Take-home. React to the peer review you got last Sunday and plan what you're changing in The Scene, while the feedback is still fresh. You'll execute this plan with the writing consultant in class Oct 26.</div>
+          <span class="check-tag tag-submit" id="wk6-mind-workplan-tag">Mind</span>
+          <br><a class="check-link" href="#" id="link-wk6-mind-workplan" target="_blank" rel="noopener">
+            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -167,16 +179,20 @@ document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE
 const session6 = SCHEDULE.sessions.find(s => s.num === 6);
 document.getElementById('weekMeta').textContent = session6 ? session6.dates : '';
 
-const puzzle4 = CANVAS.puzzles.find(p => p.session === 5);
-const ci2     = CANVAS.checkIns.find(c => c.id === 2);
+const puzzle4  = CANVAS.puzzles.find(p => p.session === 5);
+const ci2      = CANVAS.checkIns.find(c => c.id === 2);
+const workplan = (CANVAS.eli || []).find(t => t.id === 5);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 4 is due Wednesday, the same day as Check-In #2.`;
+dueBannerText.innerHTML = `Puzzle 4 is due Wednesday, the same day as Check-In #2.` +
+  (workplan ? ` Your Mind revision workplan is due separately, ${workplan.due}` : '');
 
 if (puzzle4) document.getElementById('ci2-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
+if (workplan) document.getElementById('wk6-mind-workplan-tag').textContent = `Mind · Due ${workplan.due}`;
 
 const L = {
-  'link-ci2-puzzle': puzzle4 ? puzzle4.url : '',
+  'link-ci2-puzzle':        puzzle4 ? puzzle4.url : '',
+  'link-wk6-mind-workplan': CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
