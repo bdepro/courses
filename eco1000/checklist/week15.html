@@ -110,7 +110,7 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      The narrative you've been building all semester was due before Thanksgiving break — now you talk about it in your viva. Check-In #4 happens Friday, and if your score beats your lowest Check-In so far, it replaces it automatically.
+      Come to your viva having finished the narrative you've been building all semester — that conversation is about what you wrote. Check-In #4 happens Friday, and if your score beats your lowest Check-In so far, it replaces it automatically.
     </p>
   </div>
 
@@ -132,11 +132,11 @@
       <div class="check-item" data-id="viva-narrative">
         <div class="check-box"></div>
         <div class="check-content">
-          <div class="check-title">Review your Mind narrative before your viva</div>
-          <div class="check-desc" id="viva-narrative-desc">You submitted this before Thanksgiving break. Reread it before your conversation — this is what your viva will be about.</div>
-          <span class="check-tag tag-submit" id="viva-narrative-tag">Mind</span>
+          <div class="check-title">Have your Mind narrative finished before your viva</div>
+          <div class="check-desc">This is what your viva conversation will be about — make sure it's done before your slot, not just started.</div>
+          <span class="check-tag tag-submit">Mind</span>
           <br><a class="check-link" href="#" id="link-viva-narrative" target="_blank" rel="noopener">
-            Review Narrative <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
       </div>
@@ -225,16 +225,11 @@ document.getElementById('link-viva-mme4-instructions').href = PAGES.mme;
 const session15 = SCHEDULE.sessions.find(s => s.num === 15);
 document.getElementById('weekMeta').textContent = session15 ? session15.dates : '';
 
-const friday1 = (CANVAS.friday || []).find(f => f.id === 1);
 const mme4    = CANVAS.mme.find(m => m.dueSession === 15);
 
 const dueBannerText = document.getElementById('dueBannerText');
 dueBannerText.innerHTML = `MME 4 is due Wednesday, ${mme4 ? mme4.due.replace(/^.*?,\s*/, '') : 'TBA'} Your viva happens Monday or Wednesday by appointment, and Check-In #4 happens in class Friday.`;
 
-if (friday1) {
-  document.getElementById('viva-narrative-tag').textContent = `Mind · Submitted ${friday1.due}`;
-  document.getElementById('viva-narrative-desc').textContent = `You submitted this before Thanksgiving break (due ${friday1.due}). Reread it before your conversation — this is what your viva will be about.`;
-}
 if (mme4) {
   document.getElementById('viva-mme4-tag').textContent = `MME · Due ${mme4.due}`;
   document.getElementById('viva-mme4-desc').textContent = `${mme4.title} is due Wednesday. Read it once for the story, then again for the economics.`;
@@ -244,7 +239,7 @@ const iaMonday    = CANVAS.indicatorAnalysis.find(i => i.id === 'monday');
 const iaWednesday = CANVAS.indicatorAnalysis.find(i => i.id === 'wednesday');
 
 const L = {
-  'link-viva-narrative': friday1 ? friday1.url : '',
+  'link-viva-narrative': CANVAS.eliDashboardUrl,
   'link-viva-mme4':      mme4 ? mme4.url : '',
   'link-viva-slot':      (CANVAS.viva && CANVAS.viva.vivaWeekSignupUrl) ? CANVAS.viva.vivaWeekSignupUrl : '',
   'link-viva-monday':           iaMonday ? iaMonday.pageUrl : '',

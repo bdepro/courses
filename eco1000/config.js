@@ -74,7 +74,8 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    MME articles are introduced Friday of check-in week and due Wednesday
 //    11:59 p.m. several weeks later — see CANVAS.mme[].due for each article.
-//    Mind & Voice written narrative due Friday Nov 20 at 11:59 p.m.
+//    Mind & Voice written narrative is assigned à la carte in Eli Review —
+//    no fixed due date. See CANVAS.eli comment below.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -324,7 +325,7 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",              weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
     { id: "friday",   label: "Mind & Voice",           weight: 25,
-      note: "Mind: written narrative (due Fri Nov 20) + 3 Indicator Analyses. Voice: viva conversation during viva week.",
+      note: "Mind: written narrative, assigned à la carte in Eli Review — no fixed due date yet — + 3 Indicator Analyses. Voice: viva conversation during viva week.",
       // Point split within the 25 — 2:1 narrative:viva. The narrative
       // represents a full semester of drafting across 3 cycles; the viva
       // is a single ~10-minute defense, weighted enough (28% of the 25)
@@ -518,11 +519,13 @@ const CANVAS = {
     { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",   title: "MME 4: The Economics of the No Tax on Tips Policy",             aid: "2857" },
   ],
 
-  // FF1: written narrative — due Fri Nov 20 at 11:59 p.m. (before viva)
+  // FF1: written narrative — à la carte, no fixed due date yet; see
+  //      CANVAS.eli comment above. url is the real Canvas assignment, kept
+  //      for reference even though no button links to it right now.
   // FF2: viva conversation — scheduled during viva week via Canvas Scheduler
   friday: [
     { id: 1, title: "Mind: The Economic Narrative",
-      due: "Fri Nov 20, 11:59 p.m.", url: "https://elon.instructure.com/courses/1397/assignments/2455" },
+      due: null, url: "https://elon.instructure.com/courses/1397/assignments/2455" },
     { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
@@ -587,25 +590,31 @@ const CANVAS = {
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
   // module: block id (1, 2, 3, '4b') — determines which module banner shows this pill
   // type: "writing" | "review" | "revision-plan" | "revision"
-  // label: matches Eli's own task-list naming exactly, so config and the Eli
-  // dashboard never drift into different names for the same task.
-  // Revision-plan due dates (id 3, id 7) are intentionally Monday, not
-  // Wednesday — reflection (the plan) and execution (the revision itself,
-  // due Wednesday) are split across two days so they don't land on the same
-  // deadline as that week's Check-In. UPDATE the matching due date in Eli
-  // Review itself to match if these change.
+  // label: once real, must match Eli's own task-list naming exactly, so
+  // config and the Eli dashboard never drift into different names.
+  // Redesigned 2026-08-16, mirroring COR 1100's narrative redesign: one
+  // continuous narrative built in layers (write -> review -> workplan ->
+  // revise -> final) instead of three separate draft/review/revision cycles
+  // for three supposedly-separate pieces -- "Draft 2: The Economic Thinking"
+  // and "Draft 3: The Narrative" are gone entirely, since there was never a
+  // second document to write or combine; the economic reasoning gets woven
+  // into the same scene during revision.
+  // Also decided 2026-08-16: the narrative is now assigned à la carte --
+  // Brooks wants to lock in a real workflow in Eli before committing any of
+  // this to a fixed calendar. No stage below carries a date, and none of
+  // this array is rendered on the site — the checklist pages no longer show
+  // per-stage items, just a link to eliDashboardUrl. This list stays purely
+  // as Brooks's own planning record of the stage sequence, not a schedule to
+  // build checklist items from. Old per-task Eli URLs are not carried over —
+  // the old task IDs don't map onto these combined stages.
+  // module: block id (1-4) roughly following the semester's Check-In blocks
+  // type: "writing" | "review" | "revision-plan" | "revision"
   eli: [
-    { id: 1,  module: 1,    label: "Draft 1: The Scene",                          type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
-    { id: 2,  module: 1,    label: "Review of Draft 1: The Scene",                type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
-    { id: 3,  module: 2,    label: "Revision Plan for Draft 1: The Scene",        type: "revision-plan", dueShort: "Oct 5",  due: "Mon Oct 5, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
-    { id: 4,  module: 2,    label: "Revision of Draft 1: The Scene",              type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
-    { id: 5,  module: 2,    label: "Draft 2: The Economic Thinking",              type: "writing",       dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144514/compose" },
-    { id: 6,  module: 2,    label: "Review of Draft 2: The Economic Thinking",    type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114410/work" },
-    { id: 7,  module: 3,    label: "Revision Plan for Draft 2: The Economic Thinking", type: "revision-plan", dueShort: "Nov 2", due: "Mon Nov 2, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/revision-plan/292" },
-    { id: 8,  module: 3,    label: "Revision of Draft 2: The Economic Thinking", type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/293/work" },
-    { id: 9,  module: 3,    label: "Draft 3: The Narrative",                     type: "writing",       dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144515/compose" },
-    { id: 10, module: 3,    label: "Review of Draft 3: The Narrative",           type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114415/work" },
-    { id: 11, module: '4a', label: "Final Narrative",   type: "revision",      dueShort: "Nov 20",  due: "Fri Nov 20, 11:59 p.m.",  url: null },  // Canvas only — no Eli task; student leaves Eli after Review of Draft 3 and submits a PDF via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
+    { id: 1, module: 1,    label: "The Scene",           type: "writing" },        // the concrete moment, written first
+    { id: 2, module: 1,    label: "Review of The Scene", type: "review" },         // peer review
+    { id: 3, module: 1,    label: "Workplan",            type: "revision-plan" },  // author reacts to feedback while it's fresh
+    { id: 4, module: 2,    label: "Scene Revision",      type: "revision" },       // execution of the workplan — the economic reasoning gets woven in here
+    { id: 5, module: '4a', label: "Final Narrative",     type: "revision" },       // Canvas only, not an Eli task — a PDF submitted once the piece is finished. See CANVAS.friday / ffSubmitUrl for the real link
   ],
 
   // Course-level landing page in the review platform (student view, not a
@@ -623,7 +632,6 @@ const CANVAS = {
 //  contentSessions  — session numbers with puzzles in this block
 //  mmedueSessions   — session numbers at which MME articles are due
 //  checkIn          — check-in number closing this block (null = Application phase)
-//  ffDue            — true if the FF Narrative is due in this block/phase
 // ================================================================
 const BLOCKS = [
   {
@@ -661,7 +669,6 @@ const BLOCKS = [
     mmedueSessions: [],
     checkIn: null,
     phase: 'application',
-    ffDue: true,
   },
   {
     id: '4b',

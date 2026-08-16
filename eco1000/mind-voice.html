@@ -105,11 +105,11 @@
       with the reasoning you've built in this course. Notice honestly, and explain
       what you noticed in language someone else can follow. That honest accounting
       is the actual skill.</p>
-      <p><strong>Scope:</strong> The narrative is built across the whole semester,
-      through three cycles of draft, peer review, and revision, each anchored to a
-      Friday workshop class. Come to those three sessions with something on the
-      page.</p>
-      <p>Submit as a Canvas assignment. Due <span id="narrativeDueText"></span></p>
+      <p><strong>Scope:</strong> This is one narrative, built in layers across the
+      whole semester — not three separate pieces. You write the scene, then add
+      detail, then work out the economic reasoning inside it. Everything runs
+      through Eli Review, assigned à la carte — no fixed weekly deadlines are
+      posted here. Watch for stage instructions in class and in Eli itself.</p>
       <div class="pill-row" id="narrativePills"></div>
     </div>
   </div>
@@ -203,10 +203,6 @@ function pill(label, url) {
 
 var narrativePills = document.getElementById('narrativePills');
 narrativePills.appendChild(pill('Open your Mind workspace', CANVAS.eliDashboardUrl));
-
-var ff1 = CANVAS.friday[0];
-document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
-if(ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
 
 var vivaPills = document.getElementById('vivaPills');
 vivaPills.appendChild(pill('Viva week sign-up', CANVAS.viva.vivaWeekSignupUrl));
