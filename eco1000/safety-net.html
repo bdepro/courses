@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 1000 — IF YOU FALL BEHIND
+  Hosted: bdepro.github.io/courses/eco1000/safety-net.html
+  Collects the safety nets that already exist on checkins.html,
+  puzzles.html, mind-voice.html, and syllabus.html onto one page,
+  so a student doesn't have to already know they're spread out.
+  UPDATE: dates pull from config.js — nothing here should be
+  hand-typed except the "See the full policy" links below.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Every safety net in ECO 1000 — what to do if you miss a puzzle, a check-in, or your viva week slot.">
+  <title>ECO 1000 · If You Fall Behind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <style>
+    :root {
+      --crimson:#73000a; --crimson-dk:#5a0008; --gold:#b59a57; --gold-link:#7a5c1e;
+      --teal:#527b82; --teal-dk:#3d5e63; --cream:#fcfaf7; --warm-gray:#f7f4ef;
+      --border:#e0ddd5; --text:#2e2e2e; --muted:#6b6b6b; --disabled:#bcbcbc;
+      --white:#ffffff; --shadow:0 2px 14px rgba(115,0,10,0.07); --radius:10px;
+      --font:'Roboto',Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;}
+    .screen-header{background:var(--teal);border-bottom:4px solid var(--gold);padding:2rem;}
+    .screen-header-inner{max-width:860px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.85rem;transition:color 0.15s;}
+    .back-link:hover{color:var(--white);}
+    .back-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;}
+    .screen-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:0.3rem;}
+    .screen-title{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--white);line-height:1.2;}
+    .screen-sub{color:rgba(255,255,255,0.72);font-size:0.85rem;margin-top:0.35rem;font-weight:300;}
+    main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;}
+    .callout{border-radius:0 6px 6px 0;padding:0.85rem 1.1rem;margin-bottom:2rem;font-size:0.9rem;line-height:1.65;}
+    .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
+    .callout.teal strong{color:var(--teal-dk);}
+    .net-list{display:flex;flex-direction:column;gap:1rem;}
+    .net-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(181,154,87,0.15);overflow:hidden;}
+    .net-head{background:var(--warm-gray);padding:0.9rem 1.3rem;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid var(--border);}
+    .net-icon{width:32px;height:32px;border-radius:8px;background:var(--crimson);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .net-icon svg{width:16px;height:16px;stroke:var(--white);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .net-title{font-size:0.98rem;font-weight:700;color:var(--text);}
+    .net-body{padding:1.1rem 1.3rem;}
+    .net-body p{font-size:0.9rem;margin-bottom:0.65rem;line-height:1.65;}
+    .net-body p:last-of-type{margin-bottom:0;}
+    .net-body strong{color:var(--crimson);}
+    .net-link{display:inline-flex;align-items:center;gap:5px;margin-top:0.6rem;text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--gold-link);}
+    .net-link:hover{color:var(--crimson);}
+    .net-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:0.76rem;color:var(--muted);border-top:1px solid var(--border);max-width:860px;margin:0 auto;}
+    @media(max-width:600px){
+      .screen-header{padding:1.5rem 1.25rem;}
+      main{padding:1.5rem 1rem 4rem;}
+    }
+    .skip-link{position:absolute;left:-9999px;top:0;background:var(--teal);color:var(--white);padding:8px 14px;font-weight:600;font-size:0.85rem;text-decoration:none;z-index:100;}
+    .skip-link:focus{left:0;}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="screen-header">
+  <div class="screen-header-inner">
+    <a class="back-link" id="backLink" href="#">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Weekly Checklist
+    </a>
+    <p class="screen-eyebrow" id="pageEyebrow"></p>
+    <h1 class="screen-title">If You Fall Behind</h1>
+    <p class="screen-sub">Every safety net in this course, in one place — read this before you panic.</p>
+  </div>
+</div>
+<main id="main">
+  <div class="callout teal">
+    <strong>The short version:</strong> this course is built so that one missed week, one bad score, or one scheduling conflict does not sink your grade. Each net below is real and already built into the grading — you don't need to ask permission to use one.
+  </div>
+
+  <div class="net-list">
+
+    <div class="net-card">
+      <div class="net-head">
+        <div class="net-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+        <div class="net-title">Missed or bombed a Puzzle?</div>
+      </div>
+      <div class="net-body">
+        <p>You get <strong>two attempts</strong> on every puzzle — Canvas shows your score between attempts. If you miss the Wednesday 11:59&nbsp;p.m. deadline entirely, you can still submit <strong>for 80% credit</strong> until the following Wednesday at 11:59&nbsp;p.m. And at the end of the semester, I <strong>drop your single lowest puzzle score</strong> automatically. One bad week does not sink this 15% of your grade.</p>
+        <a class="net-link" id="link-puzzles" href="#" target="_top">See the full Puzzles policy<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="net-card">
+      <div class="net-head">
+        <div class="net-icon"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
+        <div class="net-title">Missed a Check-In, or want a second shot?</div>
+      </div>
+      <div class="net-body">
+        <p><strong>Check-In 4 always counts</strong>, and if it beats your lowest score from Check-Ins 1, 2, or 3, I replace that score automatically — you don't need to ask. If you miss a Check-In entirely, <strong>CI&nbsp;4 is the makeup</strong>; there are no separate makeup exams. CI&nbsp;4 replaces only one score, so if you miss more than one, the others still count.</p>
+        <p>Can't make it to class on <span id="net-ci4-date"></span>? You can take CI&nbsp;4 instead during the final exam block, <strong id="net-examseg1"></strong> — no sign-up or arrangement needed, just show up.</p>
+        <a class="net-link" id="link-checkins" href="#" target="_top">See the full Check-Ins policy<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="net-card">
+      <div class="net-head">
+        <div class="net-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="net-title">Can't make Viva Week?</div>
+      </div>
+      <div class="net-body">
+        <p>Viva Week isn't your only shot. If you can't schedule a slot that week, <strong>exam period slots are available</strong>, <span id="net-examseg2"></span> — no approval needed, just use the sign-up link. Pick one or the other; Canvas only lets you reserve a single slot total.</p>
+        <p id="net-equity"></p>
+        <a class="net-link" id="link-mind-voice" href="#" target="_top">See the full Mind &amp; Voice page<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="net-card">
+      <div class="net-head">
+        <div class="net-icon"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        <div class="net-title">Behind on Guided Notes?</div>
+      </div>
+      <div class="net-body">
+        <p>Guided Notes are a <strong>true bonus, not a requirement</strong> — skipping one costs you nothing and cannot lower your Puzzle score. If you do want the bonus, late submissions within one week still earn 80% of it, matching the Puzzle late policy.</p>
+        <a class="net-link" id="link-chapters" href="#" target="_top">See all chapters &amp; guided notes<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer id="pageFooter"></footer>
+<script>
+document.title += ' · ' + COURSE.semester;
+document.getElementById('backLink').href          = PAGES.checklist;
+document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
+document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+document.getElementById('link-puzzles').href    = PAGES.puzzles;
+document.getElementById('link-checkins').href   = PAGES.checkins;
+document.getElementById('link-mind-voice').href = PAGES.friday;
+document.getElementById('link-chapters').href   = PAGES.chapters;
+
+var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });
+document.getElementById('net-ci4-date').textContent = vivaSession ? vivaSession.checkInDay : 'the last day of class';
+
+if (SCHEDULE.finalExamPeriod) {
+  document.getElementById('net-examseg1').textContent = SCHEDULE.finalExamPeriod.segment1.dates + ' (Segment 1)';
+  document.getElementById('net-examseg2').textContent = SCHEDULE.finalExamPeriod.segment2.dates + ' (Segment 2)';
+  document.getElementById('net-equity').textContent   = SCHEDULE.finalExamPeriod.signupEquityNote || '';
+}
+</script>
+</body>
+</html>

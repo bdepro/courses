@@ -11,7 +11,7 @@
   Screens-down Wednesday accommodation statement: present in
   Section 8 (Course Policies). Do not remove.
 
-  Section 9: Spring boilerplate verbatim. Do not edit.
+  Section 9: Fall 2026 boilerplate verbatim. Do not edit.
 ================================================================
 -->
 <html lang="en">
@@ -489,7 +489,10 @@
     <div class="syl-body">
       <p>You need the Cengage e-book, available through the link in Canvas. A used print copy of any recent edition is fine. Chapter titles and numbers may vary.</p>
       <div class="textbook-block" id="syl-textbook-block"></div>
-      <p style="margin-top:0.85rem;"><strong>Beyond the textbook, one more thing you will need to buy: an Eli Review subscription, $28.95 for the term.</strong> It is required &mdash; Eli Review runs the draft/review/revision cycle for your Economic Narrative, and there is no free option that covers a full semester. Create a free Eli Review account, then join this course using the code I give you in class. Joining will prompt you to subscribe &mdash; pay directly through PayPal (bank account, credit or debit card, e-check, or a prepaid PayPal gift card). This course does not use bookstore access codes; PayPal is the only purchase path. If $28.95 is a genuine hardship, come talk to me before our first Friday narrative class &mdash; do not just skip it.</p>
+      <p style="margin-top:0.85rem;"><strong>Beyond the textbook, one more thing you will need to buy: an Eli Review subscription, $28.95 for the term.</strong> It is required &mdash; Eli Review runs the draft/review/revision cycle for your Economic Narrative, and there is no free option that covers a full semester. Create a free Eli Review account, then join this course using the code I give you in class. Joining will prompt you to subscribe &mdash; pay directly through PayPal (bank account, credit or debit card, e-check, or a prepaid PayPal gift card). This course does not use bookstore access codes; PayPal is the only purchase path.</p>
+      <div class="callout teal">
+        <strong class="lbl-teal">If $28.95 is a genuine hardship, come talk to me.</strong> Come by before our first Friday narrative class &mdash; do not just skip it. I have a way to work with you, but I can only do that if I know.
+      </div>
     </div>
   </div>
 
@@ -543,13 +546,14 @@
         </div>
         <div class="assess-body">
           <p>This part of the course asks one question: what does economics explain about something you actually care about? You work out the answer in writing, then defend it out loud.</p>
+          <p id="ff-breakdown" style="font-size:0.86rem;color:var(--muted);"></p>
 
           <div class="assess-sub">Mind &mdash; The Written Half</div>
-          <p>The first piece is the Economic Narrative, due before Thanksgiving break. Write about a specific moment you remember &mdash; the place, the people, the time, and the manner and motive behind what happened &mdash; for a reader who has never taken economics. You have the whole semester to work on it. Three Friday classes are set aside for that purpose. Come to those classes with something on the page.</p>
-          <p>Three Indicator Analyses make up the second piece: short in-class activities built around real episodes of NPR's <em>The Indicator from Planet Money</em>, tied to specific dates during viva week and the exam period. Your viva schedule determines which two you complete &mdash; check the weekly checklist for your specific dates.</p>
+          <p>The first piece is the Economic Narrative, worth <strong id="ff-narrative-pts"></strong> of the 25 points, due before Thanksgiving break. Write about a specific moment you remember &mdash; the place, the people, the time, and the manner and motive behind what happened &mdash; for a reader who has never taken economics. You have the whole semester to work on it. Three Friday classes are set aside for that purpose. Come to those classes with something on the page.</p>
+          <p>Three Indicator Analyses make up the second piece, worth <strong id="ff-ia-pts"></strong> of the 25 points (2 points each): short in-class activities built around real episodes of NPR's <em>The Indicator from Planet Money</em>, tied to specific dates during viva week and the exam period. Your viva schedule determines which two you complete &mdash; check the weekly checklist for your specific dates.</p>
 
           <div class="assess-sub">Voice &mdash; The Spoken Half</div>
-          <p>Voice is a viva, a short conversation with me about your narrative. Pick one — Viva Week or the Exam Period, not both. Both sign-up links open the same calendar; Canvas only lets you reserve a single slot total, whichever one you choose first. Walk me through the moment you wrote about and the economic reasoning behind it. Sign up early. Slots fill.</p>
+          <p>Voice is a viva, worth <strong id="ff-viva-pts"></strong> of the 25 points, a short conversation with me about your narrative. Pick one — Viva Week or the Exam Period, not both. Both sign-up links open the same calendar; Canvas only lets you reserve a single slot total, whichever one you choose first. Walk me through the moment you wrote about and the economic reasoning behind it. Sign up early. Slots fill.</p>
         </div>
       </div>
 
@@ -832,6 +836,19 @@ document.getElementById('ci-weight').textContent      = gradeWeight('checkins');
 document.getElementById('ff-weight').textContent      = gradeWeight('friday');
 document.getElementById('puzzles-weight').textContent = gradeWeight('puzzles');
 document.getElementById('mme-weight').textContent     = gradeWeight('mme');
+
+// Mind & Voice point breakdown (within the 25)
+var ffComponent = GRADING.components.find(function(c){ return c.id === 'friday'; });
+if (ffComponent && ffComponent.breakdown) {
+  var bd = {};
+  ffComponent.breakdown.forEach(function(b){ bd[b.id] = b; });
+  document.getElementById('ff-narrative-pts').textContent = bd.narrative.points + ' pts';
+  document.getElementById('ff-viva-pts').textContent      = bd.viva.points + ' pts';
+  document.getElementById('ff-ia-pts').textContent         = bd.indicatorAnalysis.points + ' pts';
+  document.getElementById('ff-breakdown').textContent =
+    ffComponent.breakdown.map(function(b){ return b.label + ': ' + b.points + ' pts'; }).join(' · ') +
+    ' — out of 25 total.';
+}
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');

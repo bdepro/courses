@@ -227,11 +227,18 @@ const SCHEDULE = {
   // Segment 1 and the next 70 into Segment 2, with the last 30 min unused.
   // Final exam period covers three student populations:
   //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
-  //                  Uses Segment 2 for their remaining Indicator Analysis.
+  //                  Uses Segment 2 for their remaining (second) Indicator
+  //                  Analysis — their viva slot cost them one of the two
+  //                  in-class IAs during viva week.
   //   Population 2 — viva done in viva week, CI 4 deferred.
-  //                  Takes CI 4 during Segment 1.
+  //                  Takes CI 4 during Segment 1 AND their remaining
+  //                  Indicator Analysis during Segment 2 — same reason as
+  //                  Population 1; deferring CI 4 doesn't change that they
+  //                  still owe a second IA.
   //   Population 3 — viva deferred. Takes CI 4 during Segment 1 and viva
-  //                  during Segment 2.
+  //                  during Segment 2. Already completed both in-class IAs
+  //                  during viva week (their viva never conflicted with
+  //                  either day), so no Indicator Analysis is owed here.
   // Viva sign-up and Indicator Analysis links live in CANVAS block below.
   finalExamPeriod: {
     date:           "Fri Dec 11, 2026",                       // UPDATE each semester
@@ -317,15 +324,22 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",              weight: 50,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher. Each CI includes S&D and 8 guideposts." },
     { id: "friday",   label: "Mind & Voice",           weight: 25,
-      note: "Mind: written narrative (due Fri Nov 20) + 3 Indicator Analyses. Voice: viva conversation during viva week." },
+      note: "Mind: written narrative (due Fri Nov 20) + 3 Indicator Analyses. Voice: viva conversation during viva week.",
+      // Point split within the 25 — 2:1 narrative:viva. The narrative
+      // represents a full semester of drafting across 3 cycles; the viva
+      // is a single ~10-minute defense, weighted enough (28% of the 25)
+      // that it can't be treated as a formality. Indicator Analyses stay a
+      // fixed 2 pts each (see CANVAS.indicatorAnalysis) — completion
+      // credit, not skill-graded, so it's the smallest share.
+      breakdown: [
+        { id: "narrative", label: "Written Narrative (Mind)", points: 14 },
+        { id: "viva",       label: "Viva Conversation (Voice)", points: 7 },
+        { id: "indicatorAnalysis", label: "Indicator Analyses (2 of 3, 2 pts each)", points: 4 },
+      ] },
     { id: "puzzles",  label: "Economic Puzzles",       weight: 15,
       note: "One per content session. Lowest score dropped. Late within one week at 80%. Due Wednesday 11:59 p.m." },
     { id: "mme",      label: "Monday Morning Economist", weight: 10,
       note: "4 articles per semester, one per check-in block. Introduced Friday of check-in week. Due Wednesday at 11:59 p.m." },
-  ],
-  ungraded: [
-    { id: "wellness", label: "Wellness Pause",
-      note: "Attendance and brief reflective check-in each class. Not graded — participation expected." },
   ],
 };
 
@@ -343,12 +357,12 @@ const FEATURES = {
   badges:      false,  // replaced by check-ins in fall
   mme:         true,
   friday:      true,
-  wellness:    false,  // ungraded — practice only, no card needed
   support:        true,
   aiPolicy:       true,
   aiAssignments:  true,
   checklist:   true,
   officeHours: true,
+  safetyNet:   false,  // demoted off home grid — reachable from checklist.html "Look Ahead"
 };
 
 // ================================================================
@@ -376,6 +390,14 @@ const TEXTBOOK = {
 //        Walk-through and close: Fri Nov 6 in class.
 //        Top 6 announced: Fri Nov 6 end of class.
 //  UPDATE: questions each semester based on current events and content
+//
+//  Selection rule (locked — apply by hand when tallying the Canvas poll):
+//  each of the 5 application chapters is guaranteed its higher-voted
+//  question before the remaining slot(s) go to whichever question is
+//  next-highest overall (including the cross-chapter questions). With
+//  bundleSize 12 / selectedSize 6 across 5 chapters + 2 cross questions,
+//  that's 5 guaranteed slots + 1 open slot. Prevents a chapter from
+//  losing the vote outright and getting zero classroom coverage.
 // ================================================================
 const QUESTIONS = {
   voteProcess: {
@@ -385,6 +407,7 @@ const QUESTIONS = {
     announced:    "Friday Nov 6, end of class",
     bundleSize:   12,
     selectedSize:  6,
+    selectionRule: "One question per chapter (the chapter's higher vote count) is guaranteed to advance; the remaining slot goes to the next-highest vote count overall.",
   },
 
   // UPDATE: all 12 questions each semester
@@ -436,6 +459,7 @@ const PAGES = {
   friday:      `${COURSE.baseUrl}/mind-voice.html`,
   fridayLabel: "Mind & Voice",
   chapters:    `${COURSE.baseUrl}/chapters.html`,
+  safetyNet:   `${COURSE.baseUrl}/safety-net.html`,
   support:        `https://bdepro.github.io/courses/shared/support.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
   aiPolicy:       `https://bdepro.github.io/courses/shared/ai-policy.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
   aiAssignments:  `https://bdepro.github.io/courses/shared/eco1000-ai-assignments.html`,
@@ -533,11 +557,18 @@ const CANVAS = {
   // 2-point completion grade folded into Mind & Voice's Mind half. No drop-lowest:
   // every completed one counts, every skipped one is a real 0/2 (grading
   // "Option 3" — see project notes).
-  // monday/wednesday stay open through Friday of viva week so a student
-  // whose viva chair slot lands on that day has a makeup path.
-  // examSeg2 is scoped tightly to Segment 2 of the final exam block
-  // (9:50–11:30 a.m.) — it's Population 1's replacement activity for
-  // whichever in-class day their viva took, not a general makeup slot.
+  // Strict in-class-only completion (matches COR 1100's policy) — no Friday
+  // makeup window during viva week. monday/wednesday are each completed
+  // ONLY during their actual in-class session. A student whose viva slot
+  // lands on Monday or Wednesday physically cannot complete that day's IA
+  // in class, so every viva-week student ends up completing exactly one of
+  // {monday, wednesday} and makes up the other via examSeg2 — the
+  // guaranteed second completion for anyone who took their viva during
+  // viva week, whether or not they also deferred Check-In 4 (both
+  // Population 1 and Population 2 in the finalExamPeriod note above use
+  // examSeg2). A student who defers their viva entirely (Population 3)
+  // is in class both days and completes monday + wednesday normally, with
+  // no examSeg2 need.
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
       dateLabel: "Monday, Viva Week",
@@ -558,14 +589,19 @@ const CANVAS = {
   // type: "writing" | "review" | "revision-plan" | "revision"
   // label: matches Eli's own task-list naming exactly, so config and the Eli
   // dashboard never drift into different names for the same task.
+  // Revision-plan due dates (id 3, id 7) are intentionally Monday, not
+  // Wednesday — reflection (the plan) and execution (the revision itself,
+  // due Wednesday) are split across two days so they don't land on the same
+  // deadline as that week's Check-In. UPDATE the matching due date in Eli
+  // Review itself to match if these change.
   eli: [
     { id: 1,  module: 1,    label: "Draft 1: The Scene",                          type: "writing",       dueShort: "Sep 16", due: "Wed Sep 16, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/writing/144206/compose" },
     { id: 2,  module: 1,    label: "Review of Draft 1: The Scene",                type: "review",        dueShort: "Sep 18", due: "Fri Sep 18, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/review/114146/work" },
-    { id: 3,  module: 2,    label: "Revision Plan for Draft 1: The Scene",        type: "revision-plan", dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
+    { id: 3,  module: 2,    label: "Revision Plan for Draft 1: The Scene",        type: "revision-plan", dueShort: "Oct 5",  due: "Mon Oct 5, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision-plan/146" },
     { id: 4,  module: 2,    label: "Revision of Draft 1: The Scene",              type: "revision",      dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/147/work" },
     { id: 5,  module: 2,    label: "Draft 2: The Economic Thinking",              type: "writing",       dueShort: "Oct 7",  due: "Wed Oct 7, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144514/compose" },
     { id: 6,  module: 2,    label: "Review of Draft 2: The Economic Thinking",    type: "review",        dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114410/work" },
-    { id: 7,  module: 3,    label: "Revision Plan for Draft 2: The Economic Thinking", type: "revision-plan", dueShort: "Nov 4", due: "Wed Nov 4, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/revision-plan/292" },
+    { id: 7,  module: 3,    label: "Revision Plan for Draft 2: The Economic Thinking", type: "revision-plan", dueShort: "Nov 2", due: "Mon Nov 2, 11:59 p.m.", url: "https://app.elireview.com/student/course/20937/task/revision-plan/292" },
     { id: 8,  module: 3,    label: "Revision of Draft 2: The Economic Thinking", type: "revision",      dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/revision/293/work" },
     { id: 9,  module: 3,    label: "Draft 3: The Narrative",                     type: "writing",       dueShort: "Nov 4",  due: "Wed Nov 4, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/writing/144515/compose" },
     { id: 10, module: 3,    label: "Review of Draft 3: The Narrative",           type: "review",        dueShort: "Nov 6",  due: "Fri Nov 6, 11:59 p.m.",  url: "https://app.elireview.com/student/course/20937/task/review/114415/work" },

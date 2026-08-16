@@ -197,10 +197,17 @@ if (emptyMme > 0) warn(`<code>CANVAS.mme</code>: ${emptyMme}/${CANVAS.mme.length
 else ok(`All CANVAS.mme URLs populated`);
 
 // ── 5. QUESTIONS.bundle population ───────────────────────────────
+// Escalates based on days until the S11 vote (when the bundle is actually
+// needed), not days until the semester start — the bundle isn't due at
+// launch.
+const voteSession = SCHEDULE.sessions.find(s => s.vote);
+const voteStart   = voteSession ? SCHEDULE.sessionStarts[SCHEDULE.sessions.indexOf(voteSession)] : null;
+const daysToVote  = voteStart ? Math.floor((voteStart - today) / 86400000) : daysToStart;
 const emptyQs = QUESTIONS.bundle.filter(q => !q.question).length;
 if (emptyQs > 0) {
-  const sev = daysToStart < 60 ? fail : warn;
-  sev(`<code>QUESTIONS.bundle</code>: ${emptyQs}/${QUESTIONS.bundle.length} questions empty (S11 vote on Nov 4)`);
+  const sev = daysToVote < 60 ? fail : warn;
+  const voteDaysText = daysToVote >= 0 ? `${daysToVote} days away` : `${Math.abs(daysToVote)} days ago`;
+  sev(`<code>QUESTIONS.bundle</code>: ${emptyQs}/${QUESTIONS.bundle.length} questions empty (S11 vote ${voteDaysText})`);
 } else {
   ok(`All QUESTIONS.bundle entries populated`);
 }
@@ -230,7 +237,9 @@ checkAid(CANVAS.mme,           'CANVAS.mme',           'id');
 // ── 7. PAGES URLs share COURSE.baseUrl ───────────────────────────
 let pageDrift = 0;
 Object.entries(PAGES).forEach(([key, url]) => {
+  if (typeof url !== 'string' || !url.startsWith('http')) return; // skip non-URL fields, e.g. fridayLabel
   if (url.includes('/courses/shared/')) return;
+  if (url.startsWith(COURSE.canvasBase)) return; // canvasHome intentionally points into Canvas, not GitHub Pages
   if (!url.startsWith(COURSE.baseUrl)) {
     fail(`<code>PAGES.${key}</code> ("${url}") does not start with <code>COURSE.baseUrl</code>`);
     pageDrift++;

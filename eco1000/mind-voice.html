@@ -80,6 +80,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Written Narrative</span>
+      <span class="syl-num" id="pts-narrative" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>This part of the course asks one question: what does economic reasoning explain about
@@ -117,6 +118,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Voice</span>
       <span class="syl-section-title">Viva Conversation</span>
+      <span class="syl-num" id="pts-viva" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>The viva is a short conversation with me about what you wrote. Walk me
@@ -135,6 +137,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Indicator Analysis</span>
+      <span class="syl-num" id="pts-ia" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>Three short in-class activities built around real episodes of NPR's
@@ -152,6 +155,16 @@ document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href          = PAGES.home;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = 'ECO 1000 · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+// Point breakdown — pulled from GRADING.components('friday').breakdown
+var ffComponent = GRADING.components.find(function(c){ return c.id === 'friday'; });
+if (ffComponent && ffComponent.breakdown) {
+  var bd = {};
+  ffComponent.breakdown.forEach(function(b){ bd[b.id] = b; });
+  document.getElementById('pts-narrative').textContent = bd.narrative.points + ' of 25 pts';
+  document.getElementById('pts-viva').textContent      = bd.viva.points + ' of 25 pts';
+  document.getElementById('pts-ia').textContent         = bd.indicatorAnalysis.points + ' of 25 pts';
+}
 
 // Viva date text — pull from schedule and finalExamPeriod
 var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });

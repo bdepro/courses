@@ -192,13 +192,8 @@ document.getElementById('arcSummary').textContent =
 document.getElementById('checklistCard').href = PAGES.checklist;
 
 // ================================================================
-//  Card definitions — driven by FEATURES and GRADING from config
+//  Card definitions — driven by FEATURES from config
 // ================================================================
-function gradeLabel(id) {
-  const g = GRADING.components.find(c => c.id === id);
-  return g ? `${g.weight}% of Grade` : null;
-}
-
 const ALL_CARDS = [
   {
     feature: 'syllabus',
@@ -215,8 +210,8 @@ const ALL_CARDS = [
     icon:    'clipboard-check',
     title:   'Check-Ins',
     desc:    'Four in-class check-ins. Supply and demand and the 8 guideposts appear on every one. Check-In #4 replaces your lowest score if higher.',
-    badge:   gradeLabel('checkins'),
-    badgeClass: 'badge-grade',
+    badge:   null,
+    badgeClass: null,
   },
   {
     feature: 'friday',
@@ -224,8 +219,8 @@ const ALL_CARDS = [
     icon:    'pen-line',
     title:   'Mind & Voice',
     desc:    'A written economic narrative, three short Indicator Analysis activities, and an approximately 10-minute conversation with your instructor during viva week.',
-    badge:   gradeLabel('friday'),
-    badgeClass: 'badge-grade',
+    badge:   null,
+    badgeClass: null,
   },
   {
     feature: 'puzzles',
@@ -233,8 +228,8 @@ const ALL_CARDS = [
     icon:    'puzzle',
     title:   'Economic Puzzles',
     desc:    'One per week. Test your economic reasoning on a real decision. Your lowest score drops at the end.',
-    badge:   gradeLabel('puzzles'),
-    badgeClass: 'badge-grade',
+    badge:   null,
+    badgeClass: null,
   },
   {
     feature: 'mme',
@@ -242,8 +237,8 @@ const ALL_CARDS = [
     icon:    'newspaper',
     title:   'Monday Morning Economist',
     desc:    'Four current-events readings with guided annotation in Perusall. One per check-in block.',
-    badge:   gradeLabel('mme'),
-    badgeClass: 'badge-grade',
+    badge:   null,
+    badgeClass: null,
   },
   {
     feature: 'chapters',
