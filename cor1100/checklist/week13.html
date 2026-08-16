@@ -110,34 +110,13 @@
   <div class="story-band">
     <p class="story-label">This Week's Big Idea</p>
     <p class="story-text">
-      Three chapters before Thanksgiving Break, closing out the chapter sequence: wisdom and virtue, humility, and the difference between being praised and actually deserving it. Monday's class kicks off the moral-story layer of your Mind narrative.
+      Three chapters before Thanksgiving Break, closing out the chapter sequence: wisdom and virtue, humility, and the difference between being praised and actually deserving it.
     </p>
   </div>
 
   <div class="due-banner" id="dueBanner">
     <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     <span class="due-banner-text" id="dueBannerText"></span>
-  </div>
-
-  <p class="section-label">Monday</p>
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <span class="chapter-num">In Class</span>
-      <span class="chapter-name">The Moral Story</span>
-    </div>
-    <div class="checklist">
-      <div class="check-item" data-id="wk13-mind-moral">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Start The Moral Story in class Monday</div>
-          <div class="check-desc" id="wk13-mind-moral-desc">A lighter kickoff, not a finished draft — what does the scene mean, why does it matter, what is it arguing? The writing consultant helps you get started; you'll keep developing it independently afterward.</div>
-          <span class="check-tag tag-submit" id="wk13-mind-moral-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk13-mind-moral" target="_blank" rel="noopener">
-            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <p class="section-label">Chapter XXIII</p>
@@ -259,18 +238,15 @@ const ch24 = CHAPTERS.all.find(c => c.key === 'ch24');
 const ch25 = CHAPTERS.all.find(c => c.key === 'ch25');
 const wk13Notes = GUIDED_NOTES.find(g => g.id === 'w13');
 const puzzle8   = CANVAS.puzzles.find(p => p.session === 13);
-const moralStory = (CANVAS.eli || []).find(t => t.id === 4);
 
 const dueBannerText = document.getElementById('dueBannerText');
-let dueMsg = 'Monday\'s class starts The Moral Story — a lighter kickoff, not a finished piece. Read Ch. XXIII–XXV before Thanksgiving Break.';
+let dueMsg = 'Read Ch. XXIII–XXV before Thanksgiving Break.';
 if (puzzle8) dueMsg += ` Puzzle 8 is due ${formatPuzzleDue(13)}, before Thanksgiving Break.`;
-if (moralStory) dueMsg += ` Your finished Mind narrative isn't due until ${moralStory.due} — after Thanksgiving.`;
 dueBannerText.innerHTML = dueMsg;
 
 if (puzzle8) {
   document.getElementById('wk13-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(13)}`;
 }
-document.getElementById('wk13-mind-moral-tag').textContent = `Mind · In class ${formatCommonThreadsDate(13)}`;
 
 const L = {
   'link-ch23-read':         ch23 ? ch23.url : '',
@@ -279,7 +255,6 @@ const L = {
   'link-wk13-notes':        wk13Notes ? wk13Notes.url : '',
   'link-wk13-notes-submit': wk13Notes ? wk13Notes.submitUrl : '',
   'link-wk13-puzzle':       puzzle8 ? puzzle8.url : '',
-  'link-wk13-mind-moral':   CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

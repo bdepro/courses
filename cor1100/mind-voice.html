@@ -105,11 +105,10 @@
       is the actual skill.</p>
       <p><strong>Scope:</strong> This is one narrative, built in layers across the
       whole semester — not three separate pieces. You write the scene, then add
-      detail, then work out the moral story inside it, each step happening in
-      class with the embedded writing consultant there to help. Four Mondays are
-      set aside for that purpose; come to those classes ready to work, and use the
-      weeks between them to actually develop what you started.</p>
-      <p>Submit on Canvas. Due <span id="narrativeDueText"></span></p>
+      detail, then work out the moral story inside it, with the embedded writing
+      consultant there to help along the way. Everything runs through Eli
+      Review, assigned à la carte — no fixed weekly deadlines are posted here.
+      Watch for stage instructions in class and in Eli itself.</p>
       <div class="pill-row" id="narrativePills"></div>
     </div>
   </div>
@@ -211,10 +210,6 @@ function pill(label, url) {
 // Narrative pills
 var narrativePills = document.getElementById('narrativePills');
 narrativePills.appendChild(pill('Open your Mind workspace', CANVAS.eliDashboardUrl));
-
-var ff1 = CANVAS.friday[0];
-document.getElementById('narrativeDueText').textContent = ff1 ? ff1.due : 'TBA';
-if (ff1) narrativePills.appendChild(pill('Submit your narrative', ff1.url));
 
 // Viva pills
 var vivaPills = document.getElementById('vivaPills');

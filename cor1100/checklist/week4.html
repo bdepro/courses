@@ -225,18 +225,6 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="wk4-mind-scene">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit The Scene</div>
-          <div class="check-desc" id="wk4-mind-scene-desc">The piece you started in class Monday, Sep 7 — keep developing it, then submit the finished version.</div>
-          <span class="check-tag tag-submit" id="wk4-mind-scene-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk4-mind-scene" target="_blank" rel="noopener">
-            Submit The Scene <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
       <div class="check-item" data-id="wk4-puzzle">
         <div class="check-box"></div>
         <div class="check-content">
@@ -271,11 +259,9 @@ const ch8 = CHAPTERS.all.find(c => c.key === 'ch8');
 const wk4Notes = GUIDED_NOTES.find(g => g.id === 'w04');
 const puzzle3  = CANVAS.puzzles.find(p => p.session === 4);
 const ct1      = CANVAS.commonThreads.find(t => t.session === 4);
-const theScene = (CANVAS.eli || []).find(t => t.id === 1);
 
 const dueBannerText = document.getElementById('dueBannerText');
 let dueMsg = `Monday's class is Common Threads 1 — come having done the reading.`;
-if (theScene) dueMsg += ` The Scene, which you started in class Sep 7, is due ${theScene.due}`;
 if (puzzle3)  dueMsg += ` Read Ch. VI–VIII, then start Puzzle 3 early — it's due next ${formatPuzzleDue(4)}`;
 dueBannerText.innerHTML = dueMsg;
 
@@ -289,10 +275,6 @@ if (ct1) {
   document.getElementById('wk4-ct-desc').textContent  = `${ct1.chapter} paired with ${ct1.passage}. Read both before class — we close-read, discuss, and write together that day.`;
 }
 
-if (theScene) {
-  document.getElementById('wk4-mind-scene-tag').textContent = `Mind · Due ${theScene.due}`;
-}
-
 const L = {
   'link-ch6-read':         ch6 ? ch6.url : '',
   'link-ch7-read':         ch7 ? ch7.url : '',
@@ -301,7 +283,6 @@ const L = {
   'link-wk4-notes-submit': wk4Notes ? wk4Notes.submitUrl : '',
   'link-wk4-puzzle':       puzzle3 ? puzzle3.url : '',
   'link-wk4-ct-instructions': PAGES.commonThreads,
-  'link-wk4-mind-scene':   CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

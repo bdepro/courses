@@ -72,7 +72,8 @@ const INSTRUCTOR = {
 //      its content is folded into Puzzle 5 together with S9.
 //    Common Threads sessions run entirely in class on their own Monday —
 //      see CANVAS.commonThreads[].session.
-//    Mind & Voice written narrative due Sunday Nov 29 at 11:59 p.m.
+//    Mind & Voice written narrative is assigned à la carte in Eli Review —
+//      no fixed due date. See CANVAS.eli comment above.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
 // ================================================================
 const SCHEDULE = {
@@ -108,7 +109,7 @@ const SCHEDULE = {
       topic: "Imagination, Action, and Self-Betterment",
       chapters: ["ch3", "ch4", "ch5"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: The Scene, written in class with consultant / Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
+      note: "Ch. III On Acting for Others / Ch. IV On Imagination / Ch. V On Bettering Our Condition",
     },
     {
       num: 3, dates: "Sep 14-18", label: "Week 3",
@@ -121,14 +122,14 @@ const SCHEDULE = {
       topic: "Misery, Health, and Tranquility of Mind",
       chapters: ["ch6", "ch7", "ch8"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Common Threads 1 / Fri: The Scene submitted / Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
+      note: "Mon: Common Threads 1 / Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
       num: 5, dates: "Sep 28-Oct 2", label: "Week 5",
       topic: "Wealth, Friendship, and Anger",
       chapters: ["ch9", "ch10", "ch12"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Peer review/discussion of The Scene, in class with consultant / Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
+      note: "Ch. IX On Worshipping Wealth / Ch. X On Friendship / Ch. XII On Hatred and Anger",
     },
     {
       num: 6, dates: "Oct 5-9", label: "Week 6",
@@ -161,7 +162,7 @@ const SCHEDULE = {
       topic: "Self-Perception, Dignity, and Equality",
       chapters: ["ch17", "ch18", "ch19"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Scene Revision, in class with consultant (workplan already submitted Oct 9; this session executes it) / Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
+      note: "Ch. XVII On Seeing Ourselves / Ch. XVIII On Dignity / Ch. XIX On Equality",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Week 11",
@@ -181,7 +182,7 @@ const SCHEDULE = {
       topic: "Wisdom, Humility, and Praiseworthiness",
       chapters: ["ch23", "ch24", "ch25"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: The Moral Story, in class with consultant (lighter kickoff, no review round) / Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
+      note: "Ch. XXIII On Wisdom and Virtue / Ch. XXIV On Humility and Beneficence / Ch. XXV On Praise and Praiseworthiness",
     },
     {
       num: 14, dates: "Nov 23-27", label: "Thanksgiving Break",
@@ -329,7 +330,7 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",               weight: 40,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher." },
     { id: "friday",   label: "Mind & Voice",            weight: 35,
-      note: "Mind: written narrative, due Sun Nov 29 at 11:59 p.m. (night before viva week). Voice: viva conversation during viva week. Focus on Hanley and Smith." },
+      note: "Mind: written narrative, assigned à la carte in Eli Review — no fixed due date yet. Voice: viva conversation during viva week. Focus on Hanley and Smith." },
     { id: "puzzles",  label: "Puzzles",                 weight: 10,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "commonThreads", label: "Common Threads", weight: 15,
@@ -498,20 +499,21 @@ const CANVAS = {
   // Mind & Voice — direct URLs (no aid pattern; Canvas Scheduler links differ)
   friday: [
     { id: 1, title: "Mind: The Narrative",
-      due: "Sun Nov 29, 11:59 p.m.", url: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861` },
+      due: null, url: `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/12861` },  // à la carte, no fixed due date yet — see CANVAS.eli comment above. url is the real Canvas assignment, kept for reference even though no button links to it right now
     { id: 2, title: "Voice: The Narrative Viva",
       due: "Viva week Nov 30-Dec 4 (by appointment)", url: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30" },
   ],
 
   // Community Engagement — third Mind component, folded into Mind & Voice's
-  // 25% (user's choice, 2026-07-29 — not a new weighted category, not a
+  // weight (user's choice, 2026-07-29 — not a new weighted category, not a
   // pass/fail hurdle). One Canvas reflection assignment covering both the
   // Pre-Experience and Post-Experience questions. Source: Elon's Kernodle
   // Center First-Year Foundations Community Engagement page (see
   // course-notes/cor1100/community-engagement/README.md for the full index
   // card). aid: Canvas assignment ID; full URL auto-built below.
-  // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — lands well ahead
-  // of the Nov 29 Mind narrative deadline so the two don't collide.
+  // serviceDeadline / reflectionDue confirmed Nov 13, 2026 — well ahead of
+  // viva week, since the written narrative no longer has a fixed due date
+  // to check against.
   communityEngagement: {
     aid: "12991",
     serviceDeadline: "Fri, Nov 13, 2026",
@@ -551,28 +553,24 @@ const CANVAS = {
   // draft/review/revision cycles for three supposedly-separate pieces —
   // "Draft 2: The Moral Reasoning" and "Draft 3: The Narrative" are gone
   // entirely, since there was never a second document to write or combine.
-  // Review/workplan cycle re-sequenced 2026-08-15: peer review kicks off in
-  // class Mon Sep 28, but written reviews are due the following Sunday, not
-  // that same Monday night — Mon Sep 28 itself is schedule-level info (see
-  // SCHEDULE.sessions session 5), not a separate Eli task. The revision plan
-  // now happens take-home shortly after reviews are due, while feedback is
-  // still fresh, rather than combined into the Oct 26 in-class session as
-  // originally designed — Oct 26 is now revision/editing execution only.
-  // Decided 2026-08-16: checklist links for every Eli stage point at
-  // eliDashboardUrl below, never a per-task URL — students navigate to the
-  // right task from inside Eli itself. So no entry here carries a url field;
-  // it would never be used for a link and would just be one more thing to
-  // keep in sync with Eli's own site.
+  // Decided 2026-08-16: the narrative is now assigned à la carte — Brooks
+  // wants to lock in a real workflow in Eli before committing any of this
+  // to a fixed calendar. No stage below carries a date anymore, and none of
+  // this array is rendered on the site — the checklist pages no longer show
+  // per-stage items at all, just a link to eliDashboardUrl. This list stays
+  // purely as Brooks's own planning record of the stage sequence (still the
+  // one worked out on 2026-08-15: write → review → workplan → revise →
+  // moral story → final), not a schedule to build checklist items from.
   // module: block id (1-4), roughly following the semester's Check-In blocks
   // type: "writing" | "review" | "revision-plan" | "revision"
   // label: once real, must match Eli's own task-list naming exactly, so config
   // and the Eli dashboard never drift into different names for the same task.
   eli: [
-    { id: 1, module: 1, label: "The Scene",           type: "writing",       dueShort: "Sep 25", due: "Fri Sep 25, 11:59 p.m." },  // written in class Mon Sep 7 (with consultant), submitted Sep 25
-    { id: 2, module: 1, label: "Review of The Scene", type: "review",        dueShort: "Oct 4",  due: "Sun Oct 4, 11:59 p.m." },  // review kicks off in class Mon Sep 28 (drafts read beforehand); written reviews due the following Sunday
-    { id: 5, module: 1, label: "Workplan",            type: "revision-plan", dueShort: "Oct 9",  due: "Fri Oct 9, 11:59 p.m." },  // take-home; author reacts to feedback and plans revisions while still fresh. Moved off Wed Oct 7 to avoid landing on Check-In #2
-    { id: 3, module: 2, label: "Scene Revision",      type: "revision",      dueShort: "Oct 26", due: "Mon Oct 26, 11:59 p.m." },  // in-class execution of the workplan from Oct 9, with the writing consultant; plan is no longer written in this session
-    { id: 4, module: 3, label: "Final Narrative",     type: "revision",      dueShort: "Nov 29", due: "Sun Nov 29, 11:59 p.m." },  // Canvas only, not an Eli task — "The Moral Story" in-class kickoff Mon Nov 16 (no review round), then independent development, then a PDF submitted via Canvas. See CANVAS.friday / ffSubmitUrl for the real link
+    { id: 1, module: 1, label: "The Scene",           type: "writing" },        // written in class, then developed independently
+    { id: 2, module: 1, label: "Review of The Scene", type: "review" },         // in-class kickoff, written review follows
+    { id: 5, module: 1, label: "Workplan",            type: "revision-plan" },  // take-home; author reacts to feedback while it's fresh
+    { id: 3, module: 2, label: "Scene Revision",      type: "revision" },       // in-class execution of the workplan, with the writing consultant
+    { id: 4, module: 3, label: "Final Narrative",     type: "revision" },       // Canvas only, not an Eli task — a PDF submitted once the piece is finished. See CANVAS.friday / ffSubmitUrl for the real link
   ],
 
   // Course-level landing page in the review platform (student view, not a
@@ -593,7 +591,6 @@ const CANVAS = {
 //  contentSessions     — session numbers with puzzles in this block
 //  commonThreadsSessions — session numbers where a Common Threads round runs
 //  checkIn             — check-in number closing this block
-//  ffDue               — true if the FF written narrative is due in this block
 //  vivaSignupAlert     — true to show the viva sign-up alert before this block's break
 // ================================================================
 const BLOCKS = [
@@ -630,7 +627,6 @@ const BLOCKS = [
     commonThreadsSessions: [12],
     checkIn: 4,
     phase: 'viva',
-    ffDue: true,
     vivaSignupAlert: true,
   },
 ];

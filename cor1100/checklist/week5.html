@@ -119,39 +119,6 @@
     <span class="due-banner-text" id="dueBannerText"></span>
   </div>
 
-  <p class="section-label">Monday</p>
-  <div class="chapter-block">
-    <div class="chapter-header">
-      <span class="chapter-num">In Class</span>
-      <span class="chapter-name">Review of The Scene</span>
-    </div>
-    <div class="checklist">
-      <div class="check-item" data-id="wk5-mind-review">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Discuss The Scene in class Monday</div>
-          <div class="check-desc">You already submitted your draft and read a classmate's — come ready to talk, not read cold. The writing consultant is in the room to help. This kicks off peer review; your written review isn't due yet.</div>
-          <span class="check-tag tag-submit">Mind &middot; In class Mon Sep 28</span>
-          <br><a class="check-link" href="#" id="link-wk5-mind-review" target="_blank" rel="noopener">
-            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="check-item" data-id="wk5-mind-review-submit">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">Submit your written peer review</div>
-          <div class="check-desc">Finish the review you started discussing in class Monday — due the following Sunday, not that same night.</div>
-          <span class="check-tag tag-submit" id="wk5-mind-review-submit-tag">Mind</span>
-          <br><a class="check-link" href="#" id="link-wk5-mind-review-submit" target="_blank" rel="noopener">
-            Open Mind Workspace <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <p class="section-label">Chapter IX</p>
   <div class="chapter-block">
     <div class="chapter-header">
@@ -270,20 +237,16 @@ const ch10 = CHAPTERS.all.find(c => c.key === 'ch10');
 const ch12 = CHAPTERS.all.find(c => c.key === 'ch12');
 const wk5Notes = GUIDED_NOTES.find(g => g.id === 'w05');
 const puzzle4  = CANVAS.puzzles.find(p => p.session === 5);
-const reviewScene = (CANVAS.eli || []).find(t => t.id === 2);
 
 const dueBannerText = document.getElementById('dueBannerText');
-let dueMsg = `<strong>Monday's class discusses The Scene</strong> — read a classmate's draft before you come. Your written review is due ${reviewScene ? reviewScene.due : 'the following Sunday'}, not that same night.`;
-if (puzzle4) dueMsg += ` Read Ch. IX, X, and XII, then start Puzzle 4 early — it's due next ${formatPuzzleDue(5)}`;
-else dueMsg += ` Focus on Ch. IX, X, and XII.`;
-dueBannerText.innerHTML = dueMsg;
+if (puzzle4) {
+  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Read Ch. IX, X, and XII, then start Puzzle 4 early — it's due next ${formatPuzzleDue(5)}`;
+} else {
+  dueBannerText.innerHTML = `<strong>Nothing is due this week.</strong> Focus on Ch. IX, X, and XII.`;
+}
 
 if (puzzle4) {
   document.getElementById('wk5-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
-}
-
-if (reviewScene) {
-  document.getElementById('wk5-mind-review-submit-tag').textContent = `Mind · Due ${reviewScene.due}`;
 }
 
 const L = {
@@ -293,8 +256,6 @@ const L = {
   'link-wk5-notes':        wk5Notes ? wk5Notes.url : '',
   'link-wk5-notes-submit': wk5Notes ? wk5Notes.submitUrl : '',
   'link-wk5-puzzle':       puzzle4 ? puzzle4.url : '',
-  'link-wk5-mind-review':         CANVAS.eliDashboardUrl,
-  'link-wk5-mind-review-submit':  CANVAS.eliDashboardUrl,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);
