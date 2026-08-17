@@ -178,8 +178,8 @@ const PAGES = {
   home:        `${COURSE.baseUrl}/index.html`,
   syllabus:    `${COURSE.baseUrl}/syllabus.html`,
   modules:     `${COURSE.baseUrl}/modules.html`,
-  support:     `https://bdepro.github.io/courses/shared/support.html`,
-  aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  support:     `https://bdepro.github.io/courses/shared/support.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
+  aiPolicy:    `https://bdepro.github.io/courses/shared/ai-policy.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
 };
 
 // ================================================================

@@ -417,8 +417,8 @@ const PAGES = {
   communityEngagement: `${COURSE.baseUrl}/community-engagement.html`,
   fridayLabel:   "Mind & Voice",
   chapters:      `${COURSE.baseUrl}/chapters.html`,
-  support:       `https://bdepro.github.io/courses/shared/support.html`,
-  aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html`,
+  support:       `https://bdepro.github.io/courses/shared/support.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
+  aiPolicy:      `https://bdepro.github.io/courses/shared/ai-policy.html?return=${encodeURIComponent(COURSE.canvasBase + '/courses/' + COURSE.canvasId)}`,
 };
 
 // ================================================================
