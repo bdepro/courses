@@ -93,7 +93,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 <div class="screen-header">
   <div class="screen-header-inner">
-    <a class="back-link" id="backLink" href="index.html">
+    <a class="back-link" id="backLink" href="#">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Course Home
     </a>
@@ -118,6 +118,7 @@
 <footer id="pageFooter"></footer>
 <script>
 document.title += ' · ' + COURSE.semester;
+document.getElementById('backLink').href           = CANVAS_COURSE;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COURSE.title + ' · ' + COURSE.semester;
 
