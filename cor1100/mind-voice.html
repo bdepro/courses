@@ -80,6 +80,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Written Narrative</span>
+      <span class="syl-num" id="pts-narrative" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>This part of the course asks one question: what do Hanley and Smith have to say about
@@ -103,12 +104,13 @@
       with the reasoning you've built in this course. Notice honestly, and explain
       what you noticed in language someone else can follow. That honest accounting
       is the actual skill.</p>
-      <p><strong>Scope:</strong> This is one narrative, built in layers across the
-      whole semester — not three separate pieces. You write the scene, then add
-      detail, then work out the moral story inside it, with the embedded writing
-      consultant there to help along the way. Everything runs through Eli
-      Review, assigned à la carte — no fixed weekly deadlines are posted here.
-      Watch for stage instructions in class and in Eli itself.</p>
+      <p><strong>Scope:</strong> Everything happens in Eli Review, with the
+      embedded writing consultant there to help along the way. That's your
+      workspace for thinking this through, not a place where you check off
+      assignments one by one. Write, get feedback, rewrite, however many times
+      that takes. What matters is the finished narrative: your moment, worked
+      all the way through to the moral story inside it. Submit that through
+      Canvas once it's done.</p>
       <div class="pill-row" id="narrativePills"></div>
     </div>
   </div>
@@ -117,6 +119,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Voice</span>
       <span class="syl-section-title">Viva Conversation</span>
+      <span class="syl-num" id="pts-viva" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>The viva is a short conversation with me about what you wrote. Walk me
@@ -135,6 +138,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Indicator Analysis</span>
+      <span class="syl-num" id="pts-ia" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>Three short in-class activities built around real episodes of NPR's
@@ -154,6 +158,7 @@
     <div class="syl-section-header">
       <span class="syl-num">Mind</span>
       <span class="syl-section-title">Community Engagement</span>
+      <span class="syl-num" id="pts-ce" style="margin-left:auto;"></span>
     </div>
     <div class="syl-body">
       <p>A service opportunity with the Kernodle Center for Civic Life, in Alamance
@@ -175,6 +180,17 @@ document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href           = PAGES.canvasHome;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = COURSE.code + ' · Elon University · ' + COURSE.semester + ' · ' + INSTRUCTOR.nameShort;
+
+// Point breakdown — pulled from GRADING.components('friday').breakdown
+var ffComponent = GRADING.components.find(function(c){ return c.id === 'friday'; });
+if (ffComponent && ffComponent.breakdown) {
+  var bd = {};
+  ffComponent.breakdown.forEach(function(b){ bd[b.id] = b; });
+  document.getElementById('pts-narrative').textContent = bd.narrative.points + ' of 35 pts';
+  document.getElementById('pts-viva').textContent      = bd.viva.points + ' of 35 pts';
+  document.getElementById('pts-ia').textContent         = bd.indicatorAnalysis.points + ' of 35 pts';
+  document.getElementById('pts-ce').textContent         = bd.communityEngagement.points + ' of 35 pts';
+}
 
 // Viva date text — pull from schedule and finalExamPeriod
 var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });

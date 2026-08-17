@@ -39,7 +39,7 @@ const INSTRUCTOR = {
   email:       "bdepro@elon.edu",
   phone:       "919-357-2316",
   office:      "KoBC 122",
-  officeHours: "Mon & Wed, 4:00–5:00 p.m. in KoBC 122 · Tue & Thu, 10:00 a.m.–12:00 p.m. on Zoom", // UPDATE each semester
+  officeHours: "Mon & Wed, 4:00–5:00 p.m. in KoBC 122 · Tue & Thu, 10:00 a.m.–12:00 p.m. on Zoom (by appointment)", // UPDATE each semester
   zoomUrl:     "https://elon.zoom.us/my/bdepro",
   zoomDisplay: "elon.zoom.us/my/bdepro",
 };
@@ -330,7 +330,22 @@ const GRADING = {
     { id: "checkins", label: "Check-Ins",               weight: 40,
       note: "4 check-ins. CI 4 always counts. Replaces lowest of CI 1-3 if higher." },
     { id: "friday",   label: "Mind & Voice",            weight: 35,
-      note: "Mind: written narrative, assigned à la carte in Eli Review — no fixed due date yet. Voice: viva conversation during viva week. Focus on Hanley and Smith." },
+      note: "Mind: written narrative (worked out in Eli Review, submitted via Canvas, no fixed due date yet) + Indicator Analyses + Community Engagement. Voice: viva conversation during viva week. Focus on Hanley and Smith.",
+      // Point split within the 35. Narrative:Viva stays 2:1, matching ECO 1000's
+      // rationale (sustained written artifact vs. a single oral defense).
+      // Indicator Analysis matches ECO 1000's value exactly (2 pts x 2 completed)
+      // for consistency across courses. Community Engagement is weighted above
+      // IA's completion-credit tier — per CEL pedagogy (Bringle & Hatcher; Ash &
+      // Clayton), the learning value of a community placement lives in the
+      // structured reflection, not the service hours, and Elon's Community
+      // Engaged designation exists to certify that reflection is treated as
+      // real academic work, not a checkbox. Confirmed with Brooks 2026-08-16.
+      breakdown: [
+        { id: "narrative", label: "Written Narrative (Mind)", points: 16 },
+        { id: "viva",       label: "Viva Conversation (Voice)", points: 8 },
+        { id: "indicatorAnalysis", label: "Indicator Analyses (2 of 3, 2 pts each)", points: 4 },
+        { id: "communityEngagement", label: "Community Engagement", points: 7 },
+      ] },
     { id: "puzzles",  label: "Puzzles",                 weight: 10,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "commonThreads", label: "Common Threads", weight: 15,

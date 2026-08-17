@@ -632,14 +632,15 @@
         </div>
         <div class="assess-body">
           <p>This part of the course asks one question: what do Hanley and Smith say about something you actually care about? You work out the answer in writing, then defend it out loud.</p>
+          <p id="ff-breakdown" style="font-size:0.86rem;color:var(--muted);"></p>
 
           <div class="assess-sub">Mind &mdash; The Written Half</div>
-          <p>It is a personal narrative &mdash; a specific moment you remember, told carefully, with the place, the people, the time, and the manner and motive behind what happened &mdash; for a reader who has never taken this course. It is one narrative built in layers across the semester, not three separate pieces: you write the scene, then add detail, then work out the moral story inside it, with the embedded writing consultant there to help along the way. It runs through Eli Review, assigned à la carte &mdash; watch for stage instructions in class and in Eli itself. It needs to be finished before your viva, since that conversation is about what you wrote.</p>
-          <p>Three Indicator Analyses make up the second piece of Mind: short in-class activities built around real episodes of NPR&rsquo;s <em>The Indicator from Planet Money</em>, each paired with a Hanley/Smith concept. Each one is only available during its own assigned class period, with no makeup &mdash; if your viva slot lands on Monday or Wednesday of viva week, you complete just the other one that week. Finishing both your viva and Check-In 4 during viva week adds a third at the shared exam block. Check the weekly checklist for your specific dates.</p>
-          <p>Community Engagement is the third piece of Mind: a service opportunity with the Kernodle Center for Civic Life in Alamance County, followed by a written reflection connecting what you find there back to Hanley and Smith. See the Community Engagement page, linked from Mind &amp; Voice, for the full three-phase structure and due dates.</p>
+          <p>It is a personal narrative &mdash; a specific moment you remember, told carefully, with the place, the people, the time, and the manner and motive behind what happened &mdash; for a reader who has never taken this course. It's worth <strong id="ff-narrative-pts"></strong> of the 35 points. You do the actual writing in Eli Review, with the embedded writing consultant there to help along the way. That's where you draft, get feedback, and revise, not where you rack up graded checkpoints. Use the writing itself to work out the moral story inside it. Submit the finished piece through Canvas, and have it done before your viva, since that conversation is about what you wrote.</p>
+          <p>Three Indicator Analyses make up the second piece of Mind, worth <strong id="ff-ia-pts"></strong> of the 35 points (2 points each): short in-class activities built around real episodes of NPR&rsquo;s <em>The Indicator from Planet Money</em>, each paired with a Hanley/Smith concept. Each one is only available during its own assigned class period, with no makeup &mdash; if your viva slot lands on Monday or Wednesday of viva week, you complete just the other one that week. Finishing both your viva and Check-In 4 during viva week adds a third at the shared exam block. Check the weekly checklist for your specific dates.</p>
+          <p>Community Engagement is the third piece of Mind, worth <strong id="ff-ce-pts"></strong> of the 35 points: a service opportunity with the Kernodle Center for Civic Life in Alamance County, followed by a written reflection connecting what you find there back to Hanley and Smith. See the Community Engagement page, linked from Mind &amp; Voice, for the full three-phase structure and due dates.</p>
 
           <div class="assess-sub">Voice &mdash; The Spoken Half</div>
-          <p>Voice is a viva, a short conversation with me about what you wrote. Walk me through the moment you wrote about and what Hanley and Smith have to say about it. Sign up for one slot — either during viva week or during the final exam period, not both — before Thanksgiving break.</p>
+          <p>Voice is a viva, worth <strong id="ff-viva-pts"></strong> of the 35 points, a short conversation with me about what you wrote. Walk me through the moment you wrote about and what Hanley and Smith have to say about it. Sign up for one slot — either during viva week or during the final exam period, not both — before Thanksgiving break.</p>
         </div>
       </div>
 
@@ -924,6 +925,20 @@ document.getElementById('ci-weight').textContent      = gradeWeight('checkins');
 document.getElementById('ff-weight').textContent      = gradeWeight('friday');
 document.getElementById('puzzles-weight').textContent = gradeWeight('puzzles');
 document.getElementById('commonThreads-weight').textContent = gradeWeight('commonThreads');
+
+// Mind & Voice point breakdown (within the 35)
+var ffComponent = GRADING.components.find(function(c){ return c.id === 'friday'; });
+if (ffComponent && ffComponent.breakdown) {
+  var bd = {};
+  ffComponent.breakdown.forEach(function(b){ bd[b.id] = b; });
+  document.getElementById('ff-narrative-pts').textContent = bd.narrative.points + ' pts';
+  document.getElementById('ff-viva-pts').textContent      = bd.viva.points + ' pts';
+  document.getElementById('ff-ia-pts').textContent         = bd.indicatorAnalysis.points + ' pts';
+  document.getElementById('ff-ce-pts').textContent         = bd.communityEngagement.points + ' pts';
+  document.getElementById('ff-breakdown').textContent =
+    ffComponent.breakdown.map(function(b){ return b.label + ': ' + b.points + ' pts'; }).join(' · ') +
+    ' — out of 35 total.';
+}
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');
