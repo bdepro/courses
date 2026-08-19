@@ -621,6 +621,12 @@ const CANVAS = {
   // specific task) — mind-voice.html links here once instead of one pill per
   // stage. NOT the same as the task-specific urls above.
   eliDashboardUrl: "https://app.elireview.com/student/course/20937",
+
+  // Wellness Check-In / Exit Ticket — index.html's wellness card. One static
+  // Canvas assignment per item, reused all semester (not per-session like
+  // Puzzles/MME). aid: Canvas assignment ID; full URL auto-built below.
+  wellness:   { aid: "22414" },
+  exitTicket: { aid: "22854" },
 };
 
 // ================================================================
@@ -694,6 +700,9 @@ const ASSIGNMENT_URL = aid =>
 
 [CHAPTERS.core, CHAPTERS.application, CANVAS.puzzles, CANVAS.mme, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
+
+[CANVAS.wellness, CANVAS.exitTicket]
+  .forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 
 // Guided-notes submission link — one per core chapter (1:1, no grouping
 // needed since each chapter has its own guided-notes document).

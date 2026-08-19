@@ -592,6 +592,13 @@ const CANVAS = {
   // specific task) — every Mind & Voice checklist link points here.
   eliDashboardUrl: "https://app.elireview.com/student/course/21054",
 
+  // Wellness Check-In / Exit Ticket — index.html's wellness card. One static
+  // Canvas assignment per item, reused all semester (not per-session like
+  // Puzzles/Common Threads). aid: Canvas assignment ID; full URL auto-built
+  // below.
+  wellness:   { aid: "22419" },
+  exitTicket: { aid: "22961" },
+
   // NOTE: the Eli Review course join code is intentionally NOT stored here.
   // This file is served as public client-side JS on GitHub Pages, so
   // anything in it is visible to anyone — the join code is given out
@@ -664,6 +671,9 @@ CHAPTERS.all.forEach(item => { item.url = FILE_URL(item.fileId); });
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
 
 CANVAS.communityEngagement.url = ASSIGNMENT_URL(CANVAS.communityEngagement.aid);
+
+[CANVAS.wellness, CANVAS.exitTicket]
+  .forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 
 // Build each guided-notes doc's submission URL. Both the Guided Notes
 // link and the Submit link are one-time-per-document actions, not

@@ -79,11 +79,31 @@
       font-size: 0.95rem; line-height: 1.7; color: var(--text); font-weight: 300;
     }
 
+    /* Wellness card — two-destination card, so it's a div, not an <a>.
+       Top-align the icon (not .card.primary's default center) since this
+       card is taller than Checklist — centering would pull the icon down
+       away from the title instead of keeping it anchored to it. */
+    .card.primary.wellness-card { align-items: flex-start; }
+    .wellness-card .card-icon { margin-top: 0.15rem; }
+    .pill-row { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; margin-top: 0.85rem; }
+    .action-pill {
+      display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+      flex: 1 1 0; min-width: 140px;
+      background: rgba(255,255,255,0.18); color: var(--white);
+      padding: 0.5rem 1.1rem; border-radius: 5px;
+      font-size: 0.82rem; font-weight: 600; text-decoration: none; text-align: center;
+      transition: background 0.15s;
+    }
+    .action-pill:hover { background: rgba(255,255,255,0.28); }
+    .action-pill.inactive { pointer-events: none; opacity: 0.6; }
+    .action-pill.inactive::after { content: "— coming soon"; font-size: 0.7rem; font-weight: 400; margin-left: 3px; }
+
     @media (max-width: 600px) {
       .card-grid { grid-template-columns: 1fr; gap: 1rem; }
       .meta { gap: 1rem; }
       header { padding: 1.75rem 1.25rem 1.5rem; }
       .arc-strip { gap: 0.4rem; }
+      .card.primary.wellness-card { flex-direction: column; align-items: flex-start; }
     }
 
     /* Skip link — keyboard accessibility */
@@ -121,6 +141,19 @@
     <span class="card-arrow">→</span>
   </a>
 
+  <!-- Wellness card — Wellness Check-In + Exit Ticket, two destinations in one card -->
+  <div class="card primary wellness-card">
+    <div class="card-icon"><i data-lucide="gauge"></i></div>
+    <div class="card-content">
+      <div class="card-title">How are you doing today?</div>
+      <div class="card-desc">Quick check-ins at the start and end of class.</div>
+      <div class="pill-row">
+        <a class="action-pill" id="wellnessLink" href="#" target="_blank" rel="noopener">Wellness Check-In</a>
+        <a class="action-pill" id="exitTicketLink" href="#" target="_blank" rel="noopener">Exit Ticket</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Course arc -->
   <div class="arc-strip" id="arcStrip">
     <span class="arc-step"><strong>Read</strong> Hanley (PDF)</span>
@@ -156,6 +189,10 @@ document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE
 document.getElementById('courseTitle').textContent = COURSE.title;
 document.getElementById('headerMeta').textContent  = `Elon University`;
 document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+
+// Wellness card
+document.getElementById('wellnessLink').href   = CANVAS.wellness.url;
+document.getElementById('exitTicketLink').href = CANVAS.exitTicket.url;
 
 // Meta bar — Instructor + Email only. Full contact details (Office, Zoom,
 // Office Hours) live on the syllabus page, not duplicated here. Semester
