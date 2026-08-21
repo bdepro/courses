@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  ECO 4400 — COURSE HOME PAGE
+  Hosted: bdepro.github.io/courses/eco4400/index.html
+  All dynamic content pulls from config.js — do not hardcode
+  semester, instructor, or grade information here.
+================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ECO 4400 Applied Economics &amp; Consulting at Elon University — course home with syllabus, schedule, project, and resources.">
+  <meta property="og:title" content="ECO 4400 · Applied Economics & Consulting">
+  <meta property="og:description" content="Elon University · Applied Economics & Consulting course home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bdepro.github.io/courses/eco4400/">
+  <title>ECO 4400 · Applied Economics &amp; Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://bdepro.github.io/courses/shared/brand.css">
+  <script src="config.js"></script>
+  <script src="https://unpkg.com/lucide@0.469.0"></script>
+  <style>
+    /* ── Page-specific overrides ── */
+    .header-inner { max-width: 960px; }
+    main { max-width: 960px; padding: 2.5rem 1.5rem 4rem; }
+
+    /* Separate the primary card from the crimson header above it —
+       without this it visually merges into one continuous crimson block. */
+    .card.primary { margin-top: 1.25rem; box-shadow: 0 8px 28px rgba(115,0,10,0.25); }
+
+    /* Designation pills — Data Intensive / Community Engaged */
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.28rem 0.7rem;
+      border-radius: var(--radius-pill); background: var(--teal); color: var(--white);
+    }
+    .pill svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.5; flex-shrink: 0; }
+    .pill i { width: 12px; height: 12px; }
+
+    /* Instructor meta rows — Instructor + Email only (full contact details,
+       office hours, and Zoom live on the syllabus page, not duplicated
+       here). Still needs a fixed-width first column: brand.css's default
+       flex .meta sizes each row's Instructor cell to that row's own name
+       width, so "Devon Hawkins" (wider) pushes its Email column out of
+       line with "Brooks Depro"'s row above it. A shared column width
+       keeps Email flush across both rows regardless of name length. */
+    .meta { display: grid; grid-template-columns: 140px 1fr; column-gap: 1.5rem; margin-top: 0.6rem; }
+    .meta:first-of-type { margin-top: 1.25rem; }
+
+    /* Arc strip */
+    .arc-strip {
+      background: var(--warm-gray); border: 1px solid rgba(181,154,87,0.2);
+      border-radius: 10px; padding: 0.85rem 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      flex-wrap: wrap; margin-bottom: 1.75rem;
+    }
+    .arc-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .arc-step { font-size: 0.75rem; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+    .arc-step strong { color: var(--crimson); font-weight: 600; }
+    .arc-sep { color: var(--gold); font-size: 0.8rem; }
+
+    /* Card grid — auto-fill for variable card count */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      header { padding: 1.75rem 1.25rem 1.5rem; }
+      .arc-strip { gap: 0.4rem; }
+    }
+
+    /* Skip link — keyboard accessibility */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--crimson); color: var(--white);
+      padding: 8px 14px; font-weight: 600; font-size: 0.85rem;
+      text-decoration: none; z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <p class="course-code" id="courseCode"></p>
+    <h1 id="courseTitle"></h1>
+    <p class="header-meta" id="headerMeta"></p>
+
+    <div class="pill-row" id="pillRow"></div>
+
+    <div id="instructorMeta"></div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Primary card — Course schedule lives in the syllabus -->
+  <a class="card primary" id="scheduleCard" href="syllabus.html">
+    <div class="card-icon"><i data-lucide="calendar"></i></div>
+    <div class="card-content">
+      <div class="card-title">How is the semester organized?</div>
+      <div class="card-desc">Week-by-week agenda — readings, consulting labs, AIG board packets, and project milestones. Open this to see where you are and what's coming next.</div>
+    </div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <!-- Consulting workflow arc -->
+  <div class="arc-strip" id="arcStrip">
+    <span class="arc-label">Consulting Workflow</span>
+    <span class="arc-step"><strong>Scope</strong> the problem</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Gather</strong> data</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Analyze</strong> &amp; model</span>
+    <span class="arc-sep">→</span>
+    <span class="arc-step"><strong>Recommend</strong> to client</span>
+  </div>
+
+  <!-- Section label -->
+  <p class="section-heading">Course Pages</p>
+
+  <!-- Card grid — built from config -->
+  <div class="card-grid" id="cardGrid"></div>
+
+</main>
+
+<footer>
+  <span id="footerText"></span> &nbsp;·&nbsp;
+  <a href="https://www.elon.edu" target="_blank" rel="noopener">Elon University</a>
+</footer>
+
+<script>
+// ================================================================
+//  Wire header from config
+// ================================================================
+document.title = `${document.title} · ${COURSE.semester}`;
+document.getElementById('courseCode').textContent  = `${COURSE.code} · ${COURSE.school} · Elon University`;
+document.getElementById('courseTitle').textContent = COURSE.title;
+document.getElementById('headerMeta').textContent  = `${COURSE.semester}`;
+document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE.title} · ${COURSE.semester}`;
+
+// Designation pills
+const PILL_ICONS = {
+  data:    '<svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+  engaged: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+};
+const pillRow = document.getElementById('pillRow');
+if (COURSE.dataIntensive) {
+  pillRow.innerHTML += `<span class="pill">${PILL_ICONS.data}Data Intensive</span>`;
+}
+if (COURSE.communityEngaged) {
+  pillRow.innerHTML += `<span class="pill">${PILL_ICONS.engaged}Community Engaged</span>`;
+}
+
+// Instructor meta rows — one compact line per instructor, same pattern as COR 1100's meta bar
+const instructorMeta = document.getElementById('instructorMeta');
+INSTRUCTORS.forEach(inst => {
+  const items = [
+    { label: 'Instructor',    value: inst.name },
+    { label: 'Email',         value: inst.email, href: `mailto:${inst.email}` },
+  ];
+
+  const row = document.createElement('div');
+  row.className = 'meta';
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'meta-item';
+    div.innerHTML = `
+      <span class="meta-label">${item.label}</span>
+      <span class="meta-value">${item.href
+        ? `<a href="${item.href}" target="_blank" rel="noopener">${item.value}</a>`
+        : item.value
+      }</span>
+    `;
+    row.appendChild(div);
+  });
+  instructorMeta.appendChild(row);
+});
+
+// ================================================================
+//  Card definitions — driven by FEATURES and GRADING from config
+// ================================================================
+function componentWeight(id) {
+  const c = GRADING.components.find(c => c.id === id);
+  return c ? `${c.weight}%` : null;
+}
+
+const ALL_CARDS = [
+  {
+    feature: 'syllabus',
+    href:    PAGES.syllabus,
+    icon:    'book-open',
+    title:   'Syllabus',
+    desc:    'Course policies, learning outcomes, schedule, grading scale, and campus resources.',
+    badge:   null,
+    badgeClass: null,
+  },
+  {
+    feature: 'labs',
+    href:    PAGES.labs,
+    icon:    'briefcase',
+    title:   'Community Engagement Consulting',
+    desc:    'The Sustainable Alamance project — background, phase milestones, IMPLAN and ACS methodology, tools, and final deliverables. Opens in Canvas.',
+    badge:   componentWeight('labs'),
+    badgeClass: 'badge-grade',
+    external: true,
+  },
+  {
+    feature: 'research',
+    href:    PAGES.research,
+    icon:    'search',
+    title:   'Case Simulation',
+    desc:    'A semester-long AIG board-packet simulation. Opens in Canvas.',
+    badge:   componentWeight('research'),
+    badgeClass: 'badge-grade',
+    external: true,
+  },
+  {
+    feature: 'econ',
+    href:    PAGES.econ,
+    icon:    'trending-up',
+    title:   'Applied Economics for the BSBA',
+    desc:    'Managerial Economics e-book chapters and Canvas quiz links, organized by week.',
+    badge:   componentWeight('econ'),
+    badgeClass: 'badge-grade',
+  },
+  {
+    feature: 'aiPolicy',
+    href:    PAGES.aiPolicy,
+    icon:    'cpu',
+    title:   'AI in This Course',
+    desc:    'How to use AI tools, what the reflection requirement looks like, and where the line is.',
+    badge:   null,
+    badgeClass: null,
+    external: true,
+  },
+  {
+    feature: 'support',
+    href:    PAGES.support,
+    icon:    'life-buoy',
+    title:   'Campus Support',
+    desc:    'Belk Library, Writing Center, Learning Assistance, Accessibility office, and student care resources.',
+    badge:   null,
+    badgeClass: null,
+    external: true,
+  },
+];
+
+// Build cards — only render if feature flag is true
+const grid = document.getElementById('cardGrid');
+let delay  = 0.05;
+
+ALL_CARDS.forEach(card => {
+  if (!FEATURES[card.feature]) return;
+
+  const a = document.createElement('a');
+  a.className = 'card';
+  a.href      = card.href;
+  if (card.external) { a.target = '_blank'; a.rel = 'noopener'; }
+  else { a.target = '_top'; }
+  a.style.animationDelay = `${delay}s`;
+  delay += 0.07;
+
+  a.innerHTML = `
+    <div class="card-icon"><i data-lucide="${card.icon}"></i></div>
+    <div class="card-content">
+      <div class="card-title">${card.title}</div>
+      <div class="card-desc">${card.desc}</div>
+      ${card.badge ? `<span class="card-badge ${card.badgeClass}">${card.badge}</span>` : ''}
+    </div>
+    <span class="card-arrow">→</span>
+  `;
+  grid.appendChild(a);
+});
+
+// Init Lucide icons after cards are built
+lucide.createIcons();
+</script>
+</body>
+</html>
