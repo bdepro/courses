@@ -14,8 +14,8 @@
 //                           aid (Canvas assignment ID) once cases are
 //                           built in Canvas
 //  6. CAPSTONE block      — replaces the former Executive Memo. Format
-//                           is decided (in-person written exam + Zoom
-//                           viva) — aid for each and exact exam-period
+//                           is decided (in-person written final exam,
+//                           no oral component) — aid and exact exam-period
 //                           date/time are placeholders until finalized.
 //  That is it. index.html and syllabus.html pull from this file automatically.
 // ================================================================
@@ -28,7 +28,8 @@ const COURSE = {
   code:        "MBA 6250",
   title:       "Essential Economics for Strategic Management",
   semester:    "Fall 2026",                        // UPDATE each semester
-  format:      "online",
+  format:      "online-synchronous",
+  meetingTime: "Mondays, 6:00–9:00 p.m. (Zoom)",    // UPDATE if the weekly meeting day/time changes
   credits:     3,
   baseUrl:     "https://bdepro.github.io/courses/mba6250",
   school:      "Love School of Business",
@@ -77,8 +78,8 @@ const SCHEDULE = {
   // Modules — UPDATE dates each semester; topics/chapters locked
   // unless course structure changes.
   // Modules 4 and 10 are buffer weeks (no chapter, no problem set) —
-  // a mid-course synthesis/review checkpoint and a dedicated capstone
-  // work week before the course ends.
+  // a mid-course synthesis/review checkpoint and a dedicated final
+  // exam prep week before the course ends.
   modules: [
     { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "Introduction: Incentive Alignment" },
     { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
@@ -89,7 +90,7 @@ const SCHEDULE = {
     { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
     { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission — capstone exam prep week", topic: "Capstone Work Week — Prep for Written Final Exam &amp; Oral Viva (Dec 7&ndash;11)" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission — final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
   ],
 };
 
@@ -100,7 +101,7 @@ const SCHEDULE = {
 //  selection changes.
 //
 //  8 chapters across 8 content modules; Modules 4 and 10 are
-//  buffer weeks (synthesis/review, capstone work week) with no
+//  buffer weeks (synthesis/review, final exam prep week) with no
 //  assigned chapter.
 //
 //  quizAid / discussionAid are Canvas assignment IDs (New Quizzes /
@@ -131,14 +132,12 @@ const GRADING = {
   components: [
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
-    { id: "capstoneWritten", label: "Capstone — Written Final Exam",   weight: 20,
+    { id: "finalExam",       label: "Final Exam",                      weight: 30,
       note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
       note: "One problem set spanning the semester, one to two problems per chapter (8 chapters), selected for their calculation focus. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
-    { id: "capstoneViva",    label: "Capstone — Oral Viva",            weight: 10,
-      note: "Short individual oral exam via Zoom, no notes allowed. Defends the reasoning behind the written exam." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
       note: "Multiple-choice self-check quiz on 7 of 8 content modules (Module 1 has no bank — Perusall only), drawn from a curated item bank. Graded on whether the best of three attempts clears an 80% mastery threshold — full credit or zero, no partial credit between." },
   ],
@@ -154,8 +153,8 @@ const GRADING = {
 // the single directory for all per-module and capstone links.
 const FEATURES = {
   syllabus:      true,
-  materials:     true,   // links to textbook + Perusall access info
-  support:       true,
+  materials:     false,  // links to textbook + Perusall access info
+  support:       false,
   aiPolicy:      true,
 };
 
@@ -195,7 +194,7 @@ const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDA
 //  chapter's problems are due with that module's other work, same
 //  Friday 11:59 p.m. deadline as the quiz and Perusall discussion.
 //  Chosen for spaced retrieval practice and to keep hand-grading from
-//  colliding with capstone written-exam and viva grading at term's end.
+//  colliding with final-exam grading at term's end.
 //  See SCHEDULE.modules for exact per-module due dates.
 // ================================================================
 const PROBLEM_SET = {
@@ -233,26 +232,19 @@ const CASES = [
 ];
 
 // ================================================================
-//  CAPSTONE — WRITTEN FINAL EXAM + ORAL VIVA
+//  CAPSTONE — FINAL EXAM
 //  Replaces the former Executive Memo. In-person, closed-book written
-//  exam during the university final exam period, paired with a short
-//  no-notes oral viva via Zoom. Module 10 (Nov 29–Dec 4) is prep time,
-//  not the exam itself — the exam and viva happen during the Dec 7–11
-//  exam period. Exact date/time and viva scheduling link go in `due`
-//  once the registrar/Canvas exam slot is confirmed.
+//  exam during the university final exam period. Module 10
+//  (Nov 29–Dec 4) is prep time, not the exam itself — the exam happens
+//  during the Dec 7–11 exam period. Exact date/time goes in `due` once
+//  the registrar/Canvas exam slot is confirmed.
 // ================================================================
 const CAPSTONE = {
   writtenExam: {
-    title:  "Capstone Written Final Exam",
+    title:  "Final Exam",
     format: "In-person, closed-book",
     due:    "During the university final exam period, December 7–11, 2026 (exact date/time TBD)",
     aid:    "", // UPDATE each semester (Canvas assignment ID)
-  },
-  viva: {
-    title:  "Capstone Oral Viva",
-    format: "Zoom, no notes",
-    due:    "Scheduled individually during the final exam period",
-    aid:    "", // UPDATE each semester (Canvas assignment ID, if scheduled through Canvas)
   },
 };
 
@@ -265,7 +257,6 @@ const ASSIGNMENT_URL = aid =>
 
 CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 CAPSTONE.writtenExam.url = ASSIGNMENT_URL(CAPSTONE.writtenExam.aid);
-CAPSTONE.viva.url        = ASSIGNMENT_URL(CAPSTONE.viva.aid);
 PROBLEM_SET.url          = ASSIGNMENT_URL(PROBLEM_SET.aid);
 CHAPTERS.forEach(ch => {
   ch.quizUrl       = ASSIGNMENT_URL(ch.quizAid);

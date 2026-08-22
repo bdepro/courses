@@ -103,7 +103,7 @@
     <div class="card-icon"><i data-lucide="layout-dashboard"></i></div>
     <div class="card-content">
       <div class="card-title">How will my weekly learning be organized?</div>
-      <div class="card-desc">Every module's quiz, Perusall discussion, problem set, and case &mdash; one directory, organized by week. Capstone exam and viva details are there too.</div>
+      <div class="card-desc">Every module's quiz, Perusall discussion, problem set, and case &mdash; one directory, organized by week. Final exam details are there too.</div>
     </div>
     <span class="card-arrow">→</span>
   </a>
@@ -146,7 +146,7 @@ document.getElementById('footerText').textContent  = `${COURSE.code} · ${COURSE
 
 // Format pill
 const pillRow = document.getElementById('pillRow');
-pillRow.innerHTML = `<span class="pill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online — Elon MBA</span>`;
+pillRow.innerHTML = `<span class="pill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online — Synchronous</span>`;
 
 // Meta bar — Instructor + Email only. Full contact details (Office, Zoom,
 // Office Hours) live on the syllabus page, not duplicated here. Semester
@@ -171,7 +171,7 @@ metaItems.forEach(item => {
 
 // Arc summary
 document.getElementById('arcSummary').textContent =
-  `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Capstone Exam + Viva (${GRADING.components.find(c => c.id === 'capstoneWritten').weight + GRADING.components.find(c => c.id === 'capstoneViva').weight}%) · Problem Set (${GRADING.components.find(c => c.id === 'problems').weight}%) · Perusall (${GRADING.components.find(c => c.id === 'discussions').weight}%) · Quizzes (${GRADING.components.find(c => c.id === 'quizzes').weight}%)`;
+  `${SCHEDULE.modules.length} modules · Case Analyses (${GRADING.components.find(c => c.id === 'cases').weight}%) · Final Exam (${GRADING.components.find(c => c.id === 'finalExam').weight}%) · Problem Set (${GRADING.components.find(c => c.id === 'problems').weight}%) · Perusall (${GRADING.components.find(c => c.id === 'discussions').weight}%) · Quizzes (${GRADING.components.find(c => c.id === 'quizzes').weight}%)`;
 
 // Module Directory primary card
 document.getElementById('modulesCard').href = PAGES.modules;

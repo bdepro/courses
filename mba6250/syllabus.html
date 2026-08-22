@@ -9,8 +9,8 @@
   All semester-specific data pulls from config.js.
 
   Section 6 uses a Module / Dates / Topic / Chapters / Due schedule
-  (online, asynchronous, module-based course) instead of the
-  session-based table used by COR 1100 / ECO 1000.
+  (online, synchronous — Mondays 6-9pm — module-based course) instead
+  of the session-based table used by COR 1100 / ECO 1000.
 
   Section 10: campus resources boilerplate, verbatim with COR 1100 /
   ECO 1000 / ECO 4400. Do not edit.
@@ -423,7 +423,7 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">Format</span>
-          <span class="contact-value">Online — Asynchronous <em>(in-person final exam required — see Section 7)</em></span>
+          <span class="contact-value" id="syl-format"></span>
         </div>
       </div>
       <div class="oh-callout" id="syl-hours-row">
@@ -549,8 +549,8 @@
 
         <div class="assess-block">
           <div class="assess-header">
-            <span class="assess-name">Capstone &mdash; Written Final Exam</span>
-            <span class="assess-weight" id="capstone-written-weight"></span>
+            <span class="assess-name">Final Exam</span>
+            <span class="assess-weight" id="final-exam-weight"></span>
           </div>
           <div class="assess-body">
             <p>An in-person, closed-book synthesis exam during the university final exam period, December 7&ndash;11. The prompts are case-style, drawn from across the whole course &mdash; you diagnose the problem type and apply the right framework without being told which module it came from. Module 10 gives you a full week to prepare; nothing is due until exam period itself.</p>
@@ -574,16 +574,6 @@
           </div>
           <div class="assess-body">
             <p>In Perusall, you annotate a short scenario every content module, using that module's framework. Reply to at least one classmate for real, not just to agree &mdash; the full rubric is in the Perusall Discussion Guide, linked from each module.</p>
-          </div>
-        </div>
-
-        <div class="assess-block">
-          <div class="assess-header">
-            <span class="assess-name">Capstone &mdash; Oral Viva</span>
-            <span class="assess-weight" id="capstone-viva-weight"></span>
-          </div>
-          <div class="assess-body">
-            <p>A short individual oral exam over Zoom, no notes, scheduled during the final exam period. You explain and defend the reasoning behind your written answers in real time &mdash; the point is whether you can talk through your own thinking on the spot.</p>
           </div>
         </div>
 
@@ -654,7 +644,7 @@
     <div class="syl-body">
       <ul class="policy-list">
         <li class="policy-item">
-          <strong>Late work.</strong> Assignments submitted late lose 3% per day, up to seven days after the deadline. After seven days, the assignment closes and is graded as missing (a zero), except in documented emergencies. Contact me before the deadline if you anticipate a problem &mdash; this covers uploaded assignments only. A missed exam or viva slot can't be made up after the fact, so treat a scheduling conflict as a documented emergency and contact me before it happens.
+          <strong>Late work.</strong> Assignments submitted late lose 3% per day, up to seven days after the deadline. After seven days, the assignment closes and is graded as missing (a zero), except in documented emergencies. Contact me before the deadline if you anticipate a problem &mdash; this covers uploaded assignments only. A missed final exam can't be made up after the fact, so treat a scheduling conflict as a documented emergency and contact me before it happens.
         </li>
         <li class="policy-item">
           <strong>Academic integrity.</strong> All submitted work must be your own. Violations of Elon's Honor Code may result in a failing grade for the course.
@@ -774,6 +764,8 @@ document.getElementById('syl-office').textContent   = INSTRUCTOR.office + ' · E
 document.getElementById('syl-course').textContent   = COURSE.code + ' — ' + COURSE.title;
 document.getElementById('syl-credits').textContent  = COURSE.credits + ' credit hours';
 document.getElementById('syl-semester').textContent = COURSE.semester;
+document.getElementById('syl-format').innerHTML =
+  'Online — Synchronous, ' + COURSE.meetingTime + ' <em>(in-person final exam required — see Section 7)</em>';
 
 var emailEl = document.getElementById('syl-email-link');
 emailEl.href        = 'mailto:' + INSTRUCTOR.email;
@@ -838,12 +830,11 @@ function gradeWeight(id) {
   var g = GRADING.components.find(function(c){ return c.id === id; });
   return g ? g.weight + '% of Grade' : '';
 }
-document.getElementById('cases-weight').textContent           = gradeWeight('cases');
-document.getElementById('problems-weight').textContent        = gradeWeight('problems');
-document.getElementById('capstone-written-weight').textContent = gradeWeight('capstoneWritten');
-document.getElementById('capstone-viva-weight').textContent    = gradeWeight('capstoneViva');
-document.getElementById('quizzes-weight').textContent          = gradeWeight('quizzes');
-document.getElementById('discussions-weight').textContent      = gradeWeight('discussions');
+document.getElementById('cases-weight').textContent      = gradeWeight('cases');
+document.getElementById('problems-weight').textContent   = gradeWeight('problems');
+document.getElementById('final-exam-weight').textContent = gradeWeight('finalExam');
+document.getElementById('quizzes-weight').textContent     = gradeWeight('quizzes');
+document.getElementById('discussions-weight').textContent = gradeWeight('discussions');
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');

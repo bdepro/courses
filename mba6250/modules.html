@@ -4,7 +4,7 @@
   MBA 6250 — MODULE DIRECTORY
   Hosted: bdepro.github.io/courses/mba6250/modules.html
   The single weekly-work hub — per-module quiz, Perusall discussion,
-  problem set, and case analysis links, plus capstone exam/viva info
+  problem set, and case analysis links, plus final exam info
   below the module list (not tied to one module). Pulls from
   SCHEDULE, CHAPTERS, CASES, PROBLEM_SET, and CAPSTONE in config.js.
   Row layout modeled on eco4400/econ.html's chapter-directory pattern
@@ -111,7 +111,7 @@
   <p class="section-label">Modules 1&ndash;10</p>
   <div class="module-list" id="moduleList"></div>
 
-  <p class="section-label spaced">Capstone &mdash; Written Exam &amp; Oral Viva</p>
+  <p class="section-label spaced">Final Exam</p>
   <div id="capstoneSection"></div>
 
 </main>
@@ -197,7 +197,6 @@ function buildCapstoneRow(item) {
 
 var capstoneSection = document.getElementById('capstoneSection');
 capstoneSection.appendChild(buildCapstoneRow(CAPSTONE.writtenExam));
-capstoneSection.appendChild(buildCapstoneRow(CAPSTONE.viva));
 </script>
 </body>
 </html>
