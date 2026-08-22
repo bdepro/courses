@@ -77,14 +77,16 @@ const SCHEDULE = {
 
   // Modules — UPDATE dates each semester; topics/chapters locked
   // unless course structure changes.
-  // Modules 4 and 10 are buffer weeks (no chapter, no problem set) —
-  // a mid-course synthesis/review checkpoint and a dedicated final
-  // exam prep week before the course ends.
+  // Module 10 is a buffer week (no chapter, no problem set) — a
+  // dedicated final exam prep week before the course ends. Module 4
+  // has no textbook chapter either, but it is not a buffer week: it
+  // carries the IMPLAN_PROJECT regional economic impact analysis
+  // instead of a chapter reading.
   modules: [
     { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "Introduction: Incentive Alignment" },
     { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
     { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Strategic Games" },
-    { num: 4,  dates: "Oct 11–17",      due: "No submission — review week", topic: "Synthesis &amp; Review: Foundations Checkpoint" },
+    { num: 4,  dates: "Oct 11–17",      due: "TBD",                      topic: "Regional Economic Impact Analysis" },
     { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
     { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
     { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
@@ -100,9 +102,9 @@ const SCHEDULE = {
 //  Solving Approach, 6th edition. UPDATE each semester if chapter
 //  selection changes.
 //
-//  8 chapters across 8 content modules; Modules 4 and 10 are
-//  buffer weeks (synthesis/review, final exam prep week) with no
-//  assigned chapter.
+//  8 chapters across 8 content modules; Modules 4 and 10 have no
+//  assigned chapter. Module 4 carries the IMPLAN_PROJECT instead;
+//  Module 10 is the final exam prep buffer week.
 //
 //  quizAid / discussionAid are Canvas assignment IDs (New Quizzes /
 //  Perusall LTI) pulled from the live course (course_id 207) on
@@ -135,7 +137,7 @@ const GRADING = {
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
       note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
-      note: "One problem set spanning the semester, one to two problems per chapter (8 chapters), selected for their calculation focus. Submitted with work shown; graded by hand, not auto-graded." },
+      note: "One problem set spanning the semester, one to two problems per chapter (8 chapters), selected for their calculation focus, plus the Module 4 IMPLAN regional economic impact analysis. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
@@ -209,6 +211,21 @@ const PROBLEM_SET = {
 };
 
 // ================================================================
+//  IMPLAN PROJECT — Module 4's regional economic impact analysis
+//  Runs in IMPLAN Cloud under the instructor's academic (Classroom)
+//  license, so there is no separate student cost, unlike the HBP
+//  coursepack. Graded as part of the Problem Sets component (15%),
+//  not a standalone grade line. UPDATE aid once the Canvas assignment
+//  is built.
+// ================================================================
+const IMPLAN_PROJECT = {
+  module: 4,
+  title:  "Regional Economic Impact Analysis (IMPLAN Cloud)",
+  due:    "TBD", // UPDATE once a fixed due date is set
+  aid:    "", // UPDATE each semester (Canvas assignment ID)
+};
+
+// ================================================================
 //  CASE ANALYSES
 //  Only 4 of the 9 content modules carry a case (Modules 3, 5, 7, 9)
 //  to control per-student HBP case cost/reading load on top of the
@@ -220,9 +237,10 @@ const PROBLEM_SET = {
 //  is permitted with proper disclosure. Titles below are confirmed real
 //  HBP cases (product numbers in hbpProduct) found via a live catalog
 //  search 2026-07-10 — see course-notes/mba6250/hbp-cases/ for full
-//  rationale. Price/current availability still needs confirming on
-//  hbsp.harvard.edu before ordering. aid (Canvas assignment ID) stays
-//  blank until the Canvas assignment is built.
+//  rationale. aid (Canvas assignment ID) stays blank until the Canvas
+//  assignment is built. All four are sold together as one HBP
+//  coursepack — see COURSEPACK below — rather than purchased
+//  individually.
 // ================================================================
 const CASES = [
   { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 9",   aid: "" },
@@ -230,6 +248,18 @@ const CASES = [
   { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 6",  aid: "" },
   { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "November 20", aid: "" },
 ];
+
+// ================================================================
+//  COURSEPACK — HBP case bundle
+//  UPDATE: url/price each semester if HBP reissues the coursepack
+//  under a new import link.
+// ================================================================
+const COURSEPACK = {
+  title: "HBP Case Coursepack (required)",
+  price: "$20.40",
+  url:   "https://hbsp.harvard.edu/import/1431067",
+  note:  "Bundles all four Harvard Business Publishing cases used in this course (Modules 3, 5, 7, 9) into a single purchase.",
+};
 
 // ================================================================
 //  CAPSTONE — FINAL EXAM
@@ -258,6 +288,7 @@ const ASSIGNMENT_URL = aid =>
 CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 CAPSTONE.writtenExam.url = ASSIGNMENT_URL(CAPSTONE.writtenExam.aid);
 PROBLEM_SET.url          = ASSIGNMENT_URL(PROBLEM_SET.aid);
+IMPLAN_PROJECT.url       = ASSIGNMENT_URL(IMPLAN_PROJECT.aid);
 CHAPTERS.forEach(ch => {
   ch.quizUrl       = ASSIGNMENT_URL(ch.quizAid);
   ch.discussionUrl = ASSIGNMENT_URL(ch.discussionAid);
@@ -276,6 +307,8 @@ const CONFIG = {
   textbook:    TEXTBOOK,
   pages:       PAGES,
   cases:       CASES,
+  coursepack:  COURSEPACK,
   capstone:    CAPSTONE,
   problemSet:  PROBLEM_SET,
+  implanProject: IMPLAN_PROJECT,
 };

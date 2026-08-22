@@ -10,7 +10,8 @@
   Row layout modeled on eco4400/econ.html's chapter-directory pattern
   (number chip + topic + action buttons).
   UPDATE: nothing here directly — quizAid/discussionAid live on
-  CHAPTERS, aid fields on CASES/PROBLEM_SET/CAPSTONE, all in config.js.
+  CHAPTERS, aid fields on CASES/PROBLEM_SET/IMPLAN_PROJECT/CAPSTONE,
+  all in config.js.
 ================================================================
 -->
 <html lang="en">
@@ -105,7 +106,7 @@
 <main id="main">
 
   <div class="callout teal">
-    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Modules 4 and 10 are buffer weeks with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
+    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Module 4 runs the IMPLAN Cloud regional economic impact analysis instead of a chapter. Module 10 is a buffer week with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
   </div>
 
   <p class="section-label">Modules 1&ndash;10</p>
@@ -142,9 +143,10 @@ function refLine(cls, label, url) {
 
 function buildRow(mod) {
   var div = document.createElement('div');
-  var chapter = chapterByModule[mod.num];
-  var kase    = caseByModule[mod.num];
-  var isBuffer = !chapter;
+  var chapter  = chapterByModule[mod.num];
+  var kase     = caseByModule[mod.num];
+  var isImplan = (mod.num === IMPLAN_PROJECT.module);
+  var isBuffer = !chapter && !isImplan;
 
   div.className = 'mod-row' + (isBuffer ? ' buffer' : '');
 
@@ -163,6 +165,11 @@ function buildRow(mod) {
       ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz &mdash; Perusall Only</span>';
     actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
+  } else if (isImplan) {
+    refHtml += refLine('problems', 'Problem Set (IMPLAN Cloud)', IMPLAN_PROJECT.url);
+    actionsHtml += IMPLAN_PROJECT.url
+      ? linkOrNote('quiz', 'Open in Canvas', IMPLAN_PROJECT.url)
+      : '<span class="mod-none">Not yet linked</span>';
   }
 
   div.innerHTML =

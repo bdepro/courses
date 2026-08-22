@@ -179,6 +179,8 @@
       line-height: 1.65; margin-top: 0.85rem;
     }
     .textbook-block cite { font-style: italic; }
+    .textbook-block a { color: var(--gold-link); text-decoration: none; }
+    .textbook-block a:hover { color: var(--crimson); }
 
     /* ── Schedule table ── */
     .sched-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
@@ -454,6 +456,7 @@
     <div class="syl-body">
       <p>Managers spend their careers trying to get other people &mdash; employees, divisions, trading partners &mdash; to act in the firm's best interest, usually without full information about what those people know or are actually doing. <strong>Essential Economics for Strategic Management</strong> provides the analytical toolkit for diagnosing and solving that problem.</p>
       <p>This course applies microeconomic theory to the problems that practitioners actually encounter. The central method is <strong>problem solving</strong>: each module is introduced through a managerial question, analyzed with a precise framework, and applied to real cases. The Froeb et al. textbook is deliberately lean and decision-focused &mdash; every chapter is organized around a type of decision, not an abstract theoretical concept.</p>
+      <p>The course also gives you practice at a different scale: in Module 4, you use IMPLAN Cloud to run a regional economic impact analysis. It applies the same economic way of thinking to a whole region instead of one choice. Employers value the ability to reason through a single decision. They also value the ability to model what a policy, an investment, or a new industry does to a region's jobs and income.</p>
       <p>By the end of the course, you should be able to identify the economic structure of a business problem, apply the appropriate analytical framework, and communicate your reasoning clearly &mdash; in writing, in a case analysis, and in a professional capstone deliverable.</p>
     </div>
   </div>
@@ -502,6 +505,8 @@
     </div>
     <div class="syl-body">
       <div class="textbook-block" id="syl-textbook-block"></div>
+      <div class="textbook-block" id="syl-coursepack-block" style="margin-top:0.85rem;"></div>
+      <div class="textbook-block" id="syl-implan-block" style="margin-top:0.85rem;"></div>
     </div>
   </div>
 
@@ -564,6 +569,7 @@
           </div>
           <div class="assess-body">
             <p>One problem set for the whole semester: one or two problems per chapter, eight chapters total, selected for their calculation focus. Show your work &mdash; I grade it by hand. Each chapter's problems are due the same Friday as that module's quiz and Perusall discussion, so the work stays spread across the term instead of piling up in December.</p>
+            <p>Module 4 adds a regional economic impact analysis in IMPLAN Cloud, the macro complement to this course's focus on individual decisions.</p>
           </div>
         </div>
 
@@ -788,6 +794,20 @@ document.getElementById('syl-textbook-block').innerHTML =
   TEXTBOOK.authors + '. <cite>' + TEXTBOOK.title + '</cite>. ' +
   TEXTBOOK.edition + ' ed. ' + TEXTBOOK.publisher + '. ' + TEXTBOOK.note;
 
+// Section 5 — Case Coursepack
+document.getElementById('syl-coursepack-block').innerHTML =
+  '<strong>' + COURSEPACK.title + '</strong> &mdash; ' + COURSEPACK.note +
+  ' Purchase directly from Harvard Business Publishing: <a href="' + COURSEPACK.url +
+  '" target="_blank" rel="noopener">' + COURSEPACK.url + '</a> (' + COURSEPACK.price + ').';
+
+// Section 5 — IMPLAN Cloud
+document.getElementById('syl-implan-block').innerHTML =
+  'This course also requires access to IMPLAN Cloud, a web-based platform built on decades of input-output modeling. ' +
+  'It models how a policy, an investment, or a new industry affects a region’s jobs, income, output, and tax base. ' +
+  'While everything else in this course applies economic reasoning to a single decision, IMPLAN applies that same reasoning to an entire region. ' +
+  'You will use it in Module 4 to run a regional economic impact analysis. ' +
+  'Access comes through Elon\'s academic license, so there is no separate purchase.';
+
 // Section 6 — Module schedule table
 var schedBody = document.getElementById('syl-sched-body');
 
@@ -804,7 +824,9 @@ CASES.forEach(function(c) { caseByModule[c.module] = c; });
 
 SCHEDULE.modules.forEach(function(mod) {
   var tr = document.createElement('tr');
-  var chaps = (chapByModule[mod.num] || []).join(', ');
+  var chaps = (mod.num === IMPLAN_PROJECT.module)
+    ? 'IMPLAN Cloud'
+    : (chapByModule[mod.num] || []).join(', ');
   var kase  = caseByModule[mod.num];
 
   tr.innerHTML =
