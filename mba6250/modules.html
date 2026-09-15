@@ -10,8 +10,9 @@
   Row layout modeled on eco4400/econ.html's chapter-directory pattern
   (number chip + topic + action buttons).
   UPDATE: nothing here directly — quizAid/discussionAid live on
-  CHAPTERS, aid fields on CASES/PROBLEM_SET/IMPLAN_PROJECT/CAPSTONE,
-  all in config.js.
+  CHAPTERS, aid fields on CASES/PROBLEM_SET/CAPSTONE, all in config.js.
+  IMPLAN_PROJECT has no aid — it's a practice-only week, folded into
+  the Final Exam, not a separate Canvas assignment.
 ================================================================
 -->
 <html lang="en">
@@ -47,6 +48,8 @@
     .callout{border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1.75rem;font-size:0.88rem;line-height:1.65;}
     .callout.teal{background:rgba(82,123,130,0.09);border-left:4px solid var(--teal);}
     .callout.teal strong{color:#3d5e63;}
+    .callout.gold{background:rgba(181,154,87,0.09);border-left:4px solid var(--gold);}
+    .callout.gold strong{color:var(--gold-link);}
 
     .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;}
     .section-label.spaced{margin-top:2.25rem;}
@@ -100,14 +103,16 @@
     </a>
     <p class="screen-eyebrow" id="pageEyebrow"></p>
     <h1 class="screen-title">Module Directory</h1>
-    <p class="screen-sub">Every module's quiz, discussion, problem set, and case &mdash; one place to find this week's work</p>
+    <p class="screen-sub">Every module's quiz, discussion, problem set, and case, one place to find this week's work</p>
   </div>
 </div>
 <main id="main">
 
   <div class="callout teal">
-    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz &mdash; it runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Module 4 runs the IMPLAN Cloud regional economic impact analysis instead of a chapter. Module 10 is a buffer week with no chapter activity. Links still marked as text instead of buttons haven't been built in Canvas yet.
+    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz. It runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Module 4 introduces IMPLAN Cloud in place of a chapter, but it's practice-only. Nothing is submitted or graded that week. The regional economic impact analysis itself is completed during the Final Exam. Module 10 is a buffer week with no chapter activity.
   </div>
+
+  <div class="callout gold" id="coursepackCallout"></div>
 
   <p class="section-label">Modules 1&ndash;10</p>
   <div class="module-list" id="moduleList"></div>
@@ -122,6 +127,9 @@ document.title += ' · ' + COURSE.semester;
 document.getElementById('backLink').href           = CANVAS_COURSE;
 document.getElementById('pageEyebrow').textContent = COURSE.code + ' · Elon University · ' + COURSE.semester;
 document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COURSE.title + ' · ' + COURSE.semester;
+
+document.getElementById('coursepackCallout').innerHTML =
+  '<strong>Case readings (Modules 3, 5, 7, 9):</strong> One link gets you all four cases. Purchase the required HBP coursepack directly from Harvard Business Publishing: <a href="' + COURSEPACK.url + '" target="_blank" rel="noopener">' + COURSEPACK.url + '</a> (' + COURSEPACK.price + '). This is separate from each case&rsquo;s Canvas submission link below.';
 
 var chapterByModule = {};
 CHAPTERS.forEach(function(c) { chapterByModule[c.module] = c; });
@@ -156,20 +164,18 @@ function buildRow(mod) {
 
   if (chapter) {
     if (PROBLEM_SET.modules.indexOf(mod.num) !== -1) {
-      refHtml += refLine('problems', 'Problem Set', PROBLEM_SET.url);
+      refHtml += refLine('problems', 'Problem Set (due ' + PROBLEM_SET.dueShort + ')', PROBLEM_SET.url);
     }
     if (kase) {
       refHtml += refLine('case', 'Case: ' + kase.title, kase.url);
     }
     actionsHtml += chapter.quizUrl
       ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
-      : '<span class="mod-none">No Quiz &mdash; Perusall Only</span>';
+      : '<span class="mod-none">No Quiz, Perusall Only</span>';
     actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
   } else if (isImplan) {
-    refHtml += refLine('problems', 'Problem Set (IMPLAN Cloud)', IMPLAN_PROJECT.url);
-    actionsHtml += IMPLAN_PROJECT.url
-      ? linkOrNote('quiz', 'Open in Canvas', IMPLAN_PROJECT.url)
-      : '<span class="mod-none">Not yet linked</span>';
+    refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
+    actionsHtml += '<span class="mod-none">No submission this week</span>';
   }
 
   div.innerHTML =
@@ -197,6 +203,7 @@ function buildCapstoneRow(item) {
     '<div>' +
       '<div class="capstone-title">' + item.title + '</div>' +
       '<div class="capstone-meta">' + item.format + ' &middot; ' + item.due + '</div>' +
+      (item.note ? '<div class="capstone-meta">' + item.note + '</div>' : '') +
     '</div>' +
     actionHtml;
   return div;

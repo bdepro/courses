@@ -86,13 +86,13 @@ const SCHEDULE = {
     { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "Introduction: Incentive Alignment" },
     { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
     { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Strategic Games" },
-    { num: 4,  dates: "Oct 11–17",      due: "TBD",                      topic: "Regional Economic Impact Analysis" },
+    { num: 4,  dates: "Oct 11–17",      due: "No submission, practice week", topic: "IMPLAN Cloud Training" },
     { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
     { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
     { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
     { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission — final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission, final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
   ],
 };
 
@@ -135,9 +135,9 @@ const GRADING = {
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
-      note: "In-person, closed-book synthesis exam during the university final exam period (Dec 7–11). Case-style prompts spanning the whole course." },
+      note: "In-person, closed-book synthesis exam, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
-      note: "One problem set spanning the semester, one to two problems per chapter (8 chapters), selected for their calculation focus, plus the Module 4 IMPLAN regional economic impact analysis. Submitted with work shown; graded by hand, not auto-graded." },
+      note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Nov 20, before Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
@@ -168,7 +168,7 @@ const TEXTBOOK = {
   edition:    "6th",
   title:      "Managerial Economics: A Problem Solving Approach",
   authors:    "Froeb, McCann, Ward, and Shor",
-  note:       "Obtain the textbook on your own — print, rental, or e-book, any source. Perusall (used for weekly discussions) carries its own $5/term subscription fee, separate from the textbook.",
+  note:       "Obtain the textbook on your own: print, rental, or e-book, any source. Perusall (used for weekly discussions) carries its own $5/term subscription fee, separate from the textbook.",
 };
 
 // ================================================================
@@ -191,18 +191,19 @@ const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDA
 // ================================================================
 //  PROBLEM SET — one to two problems per chapter, curated from the textbook
 //  Replaces the old per-chapter Cengage "Apply It" assignments. One
-//  consolidated set (single Canvas assignment/document), but due
-//  incrementally, not as a single end-of-term deliverable: each
-//  chapter's problems are due with that module's other work, same
-//  Friday 11:59 p.m. deadline as the quiz and Perusall discussion.
-//  Chosen for spaced retrieval practice and to keep hand-grading from
-//  colliding with final-exam grading at term's end.
-//  See SCHEDULE.modules for exact per-module due dates.
+//  consolidated set — single Canvas assignment, single due date (not
+//  5 separate per-module assignments). The handout (Canvas Page)
+//  recommends working through each chapter's problems the same week
+//  as that module's other work, but Canvas only enforces one final
+//  deadline: the Friday before Module 10 prep week begins, same as
+//  Module 9's due date (the last content module before the buffer
+//  week). Decided 2026-09-15.
 // ================================================================
 const PROBLEM_SET = {
   title: "Semester Problem Set",
-  due:   "Incremental — each chapter's problems due with that module's other work (see Section 5 schedule)",
-  aid:   "", // UPDATE each semester (Canvas assignment ID)
+  due:      "November 20, 2026, 11:59 p.m. — before Module 10 prep week begins",
+  dueShort: "Nov 20", // compact form for modules.html row labels — UPDATE alongside `due` each semester
+  aid:   "35875", // UPDATE each semester (Canvas assignment ID)
   // Only these modules have a problem-set entry — not every content module
   // cleared the calculation bar (see course-notes/mba6250/problem-set.html
   // and startup.md for the chapter-by-chapter selection log). Modules.html
@@ -214,15 +215,17 @@ const PROBLEM_SET = {
 //  IMPLAN PROJECT — Module 4's regional economic impact analysis
 //  Runs in IMPLAN Cloud under the instructor's academic (Classroom)
 //  license, so there is no separate student cost, unlike the HBP
-//  coursepack. Graded as part of the Problem Sets component (15%),
-//  not a standalone grade line. UPDATE aid once the Canvas assignment
-//  is built.
+//  coursepack. Decided 2026-09-15: Module 4 is a practice-only week —
+//  students learn the tool but submit nothing and are not graded that
+//  week. The actual analysis is completed during the Dec 7 written
+//  final exam, as one of that exam's prompts (see GRADING.components
+//  "finalExam"). No separate Canvas assignment/aid — folded into the
+//  Final Exam grade, not a standalone line.
 // ================================================================
 const IMPLAN_PROJECT = {
   module: 4,
   title:  "Regional Economic Impact Analysis (IMPLAN Cloud)",
-  due:    "TBD", // UPDATE once a fixed due date is set
-  aid:    "", // UPDATE each semester (Canvas assignment ID)
+  note:   "Practice week only. No submission. This analysis is completed as part of the Final Exam (December 7).",
 };
 
 // ================================================================
@@ -243,10 +246,10 @@ const IMPLAN_PROJECT = {
 //  individually.
 // ================================================================
 const CASES = [
-  { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 9",   aid: "" },
-  { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG (+ UV9362-PDF-ENG, part B)", due: "October 23",  aid: "" },
-  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 6",  aid: "" },
-  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "November 20", aid: "" },
+  { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 9",   aid: "35892" },
+  { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG (+ UV9362-PDF-ENG, part B)", due: "October 23",  aid: "35893" },
+  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 6",  aid: "35894" },
+  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "November 20", aid: "35895" },
 ];
 
 // ================================================================
@@ -265,16 +268,16 @@ const COURSEPACK = {
 //  CAPSTONE — FINAL EXAM
 //  Replaces the former Executive Memo. In-person, closed-book written
 //  exam during the university final exam period. Module 10
-//  (Nov 29–Dec 4) is prep time, not the exam itself — the exam happens
-//  during the Dec 7–11 exam period. Exact date/time goes in `due` once
-//  the registrar/Canvas exam slot is confirmed.
+//  (Nov 29–Dec 4) is prep time, not the exam itself — the exam is
+//  Dec 7, 7:00–9:00 p.m., confirmed 2026-09-15.
 // ================================================================
 const CAPSTONE = {
   writtenExam: {
     title:  "Final Exam",
     format: "In-person, closed-book",
-    due:    "During the university final exam period, December 7–11, 2026 (exact date/time TBD)",
-    aid:    "", // UPDATE each semester (Canvas assignment ID)
+    due:    "December 7, 2026, 7:00–9:00 p.m.",
+    note:   "Case-style prompts spanning the whole course, including the Module 4 IMPLAN Cloud regional economic impact analysis.",
+    aid:    "35879", // UPDATE each semester (Canvas assignment ID)
   },
 };
 
@@ -288,7 +291,6 @@ const ASSIGNMENT_URL = aid =>
 CASES.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
 CAPSTONE.writtenExam.url = ASSIGNMENT_URL(CAPSTONE.writtenExam.aid);
 PROBLEM_SET.url          = ASSIGNMENT_URL(PROBLEM_SET.aid);
-IMPLAN_PROJECT.url       = ASSIGNMENT_URL(IMPLAN_PROJECT.aid);
 CHAPTERS.forEach(ch => {
   ch.quizUrl       = ASSIGNMENT_URL(ch.quizAid);
   ch.discussionUrl = ASSIGNMENT_URL(ch.discussionAid);
