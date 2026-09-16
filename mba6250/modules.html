@@ -61,6 +61,7 @@
     .mod-body{padding:0.85rem 1rem;font-size:0.88rem;font-weight:500;color:var(--text);line-height:1.4;}
     .mod-dates{font-size:0.72rem;color:var(--muted);display:block;margin-top:2px;font-weight:400;}
     .mod-due{font-size:0.72rem;color:var(--crimson);display:block;margin-top:2px;font-weight:600;}
+    .mod-note{font-size:0.72rem;color:var(--teal);display:block;margin-top:2px;font-weight:600;}
     .mod-ref{font-size:0.72rem;display:block;margin-top:2px;font-weight:600;text-decoration:none;}
     .mod-ref:hover{text-decoration:underline;}
     .mod-ref.problems{color:var(--teal);}
@@ -158,7 +159,8 @@ function buildRow(mod) {
 
   div.className = 'mod-row' + (isBuffer ? ' buffer' : '');
 
-  var dueHtml = '<span class="mod-due">Due ' + mod.due + '</span>';
+  var dueHtml  = '<span class="mod-due">Due ' + mod.due + '</span>';
+  var noteHtml = mod.note ? '<span class="mod-note">' + mod.note + '</span>' : '';
   var refHtml = '';
   var actionsHtml = '';
 
@@ -182,7 +184,7 @@ function buildRow(mod) {
     '<div class="mod-num">Module ' + mod.num + '</div>' +
     '<div class="mod-body">' + mod.topic +
       '<span class="mod-dates">' + mod.dates + '</span>' +
-      dueHtml + refHtml +
+      dueHtml + noteHtml + refHtml +
     '</div>' +
     '<div class="mod-actions">' + actionsHtml + '</div>';
   return div;

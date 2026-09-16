@@ -56,7 +56,10 @@ const INSTRUCTOR = {
 //  SCHEDULE
 //  UPDATE: all dates and module ranges each semester
 //
-//  Modules run Sunday–Saturday; assignments due Friday at 11:59 p.m.
+//  Modules run Sunday–Saturday; assignments due the following Sunday
+//  at 11:59 p.m. (the night before the next Monday's class). Changed
+//  from Friday to Sunday 2026-09-15, at the instructor's request, to
+//  give students the full weekend.
 //  10 modules total. A no-module Thanksgiving week falls between
 //  Module 9 and Module 10 — handled in syllabus.html rendering,
 //  not as a listed module here.
@@ -83,15 +86,16 @@ const SCHEDULE = {
   // carries the IMPLAN_PROJECT regional economic impact analysis
   // instead of a chapter reading.
   modules: [
-    { num: 1,  dates: "Sep 20–26",      due: "September 25, 11:59 p.m.", topic: "Introduction: Incentive Alignment" },
-    { num: 2,  dates: "Sep 27–Oct 3",   due: "October 2, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
-    { num: 3,  dates: "Oct 4–10",       due: "October 9, 11:59 p.m.",    topic: "Strategic Games" },
+    { num: 1,  dates: "Sep 20–26",      due: "September 27, 11:59 p.m.", topic: "Introduction: Incentive Alignment",
+      note: "Asynchronous because of travel commitments. Optional Zoom meet-and-greet Wed, Sep 23, 7:00 p.m." },
+    { num: 2,  dates: "Sep 27–Oct 3",   due: "October 4, 11:59 p.m.",    topic: "Benefits, Costs, and Decisions" },
+    { num: 3,  dates: "Oct 4–10",       due: "October 11, 11:59 p.m.",    topic: "Strategic Games" },
     { num: 4,  dates: "Oct 11–17",      due: "No submission, practice week", topic: "IMPLAN Cloud Training" },
-    { num: 5,  dates: "Oct 18–24",      due: "October 23, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
-    { num: 6,  dates: "Oct 25–31",      due: "October 30, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
-    { num: 7,  dates: "Nov 1–7",        due: "November 6, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
-    { num: 8,  dates: "Nov 8–14",       due: "November 13, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
-    { num: 9,  dates: "Nov 15–21",      due: "November 20, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
+    { num: 5,  dates: "Oct 18–24",      due: "October 25, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
+    { num: 6,  dates: "Oct 25–31",      due: "November 1, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
+    { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
+    { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
+    { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
     { num: 10, dates: "Nov 29–Dec 4",   due: "No submission, final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
   ],
 };
@@ -130,14 +134,14 @@ const CHAPTERS = [
 //  Weights must sum to 100. UPDATE only if course structure changes.
 // ================================================================
 const GRADING = {
-  dueTime: "11:59 p.m.",                            // universal due time — Friday of each module
+  dueTime: "11:59 p.m.",                            // universal due time, Sunday following each module's window
   components: [
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
       note: "In-person, closed-book synthesis exam, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
-      note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Nov 20, before Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
+      note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 2, during Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
@@ -195,14 +199,17 @@ const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDA
 //  5 separate per-module assignments). The handout (Canvas Page)
 //  recommends working through each chapter's problems the same week
 //  as that module's other work, but Canvas only enforces one final
-//  deadline: the Friday before Module 10 prep week begins, same as
-//  Module 9's due date (the last content module before the buffer
-//  week). Decided 2026-09-15.
+//  deadline: same as Module 9's due date (the last content module
+//  before the buffer week). Decided 2026-09-15; shifted from Friday
+//  to Sunday 2026-09-15, then moved to Wed, Dec 2 2026-09-15 at the
+//  instructor's request. That date now falls during Module 10 prep
+//  week, not before it as originally designed — worth a second look
+//  if that timing collides with final-exam-adjacent grading.
 // ================================================================
 const PROBLEM_SET = {
   title: "Semester Problem Set",
-  due:      "November 20, 2026, 11:59 p.m. — before Module 10 prep week begins",
-  dueShort: "Nov 20", // compact form for modules.html row labels — UPDATE alongside `due` each semester
+  due:      "December 2, 2026, 11:59 p.m.",
+  dueShort: "Dec 2", // compact form for modules.html row labels — UPDATE alongside `due` each semester
   aid:   "35875", // UPDATE each semester (Canvas assignment ID)
   // Only these modules have a problem-set entry — not every content module
   // cleared the calculation bar (see course-notes/mba6250/problem-set.html
@@ -246,10 +253,10 @@ const IMPLAN_PROJECT = {
 //  individually.
 // ================================================================
 const CASES = [
-  { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 9",   aid: "35892" },
-  { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG (+ UV9362-PDF-ENG, part B)", due: "October 23",  aid: "35893" },
-  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 6",  aid: "35894" },
-  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "November 20", aid: "35895" },
+  { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 11",   aid: "35892" },
+  { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG (+ UV9362-PDF-ENG, part B)", due: "October 25",  aid: "35893" },
+  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 8",  aid: "35894" },
+  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "December 2", aid: "35895" },
 ];
 
 // ================================================================
