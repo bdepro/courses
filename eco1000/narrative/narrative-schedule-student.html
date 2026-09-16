@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Do We Work on Mind?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #73000a;
+    --crimson-dk: #5a0008;
+    --gold: #b59a57;
+    --gold-link: #7a5c1e;
+    --teal: #527b82;
+    --cream: #fcfaf7;
+    --warm-gray: #f7f4ef;
+    --border: #e0ddd5;
+    --text: #2e2e2e;
+    --muted: #6b6b6b;
+    --white: #ffffff;
+    --font: 'Roboto', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  main { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  h1 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 700;
+    color: var(--crimson);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  p.subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  p.intro { font-size: 0.93rem; margin-bottom: 1.75rem; line-height: 1.7; }
+  p.intro a { color: var(--gold-link); text-decoration: none; }
+  p.intro a:hover { color: var(--crimson); }
+
+  .sched-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 14px rgba(115,0,10,0.07);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th {
+    background: var(--warm-gray); font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    padding: 0.6rem 0.9rem; text-align: left; border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--warm-gray);
+    vertical-align: top; line-height: 1.55;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.date { white-space: nowrap; font-weight: 700; color: var(--crimson); width: 15%; }
+  td.what { width: 32%; }
+  td.notes { color: #444; font-size: 0.87rem; }
+  .tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+    padding: 0.12rem 0.5rem; border-radius: 9px; margin-right: 0.4rem; white-space: nowrap;
+  }
+  .tag-class { background: rgba(82,123,130,0.13); color: var(--teal); }
+  .tag-home  { background: rgba(181,154,87,0.18); color: var(--gold-link); }
+
+  .callout {
+    border-left: 4px solid var(--teal); background: rgba(82,123,130,0.08);
+    border-radius: 0 6px 6px 0; padding: 0.85rem 1.1rem; margin-top: 1.5rem;
+    font-size: 0.9rem; line-height: 1.65;
+  }
+  .callout strong { color: var(--teal); }
+
+  @media print {
+    @page { size: letter; margin: 0.5in; }
+    body { background: white; }
+    main { max-width: none; padding: 0; }
+    .sched-section { box-shadow: none; border: 1px solid #ccc; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>When Do We Work on Mind?</h1>
+<p class="subtitle">ECO 1000 — the narrative-writing thread</p>
+
+<p class="intro">The written half of Mind &amp; Voice is spread across the semester on purpose. Discovery comes
+early so the story has time to settle before you draft it, with real feedback and revision time built in
+before the piece is due. This page tracks just that thread; see the
+<a href="https://bdepro.github.io/courses/eco1000/syllabus.html">course syllabus</a> for the full weekly
+schedule, readings, and grading.</p>
+
+<div class="sched-section">
+<table>
+  <tr>
+    <th>Date</th>
+    <th>What happens</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td class="date">Sep 18</td>
+    <td class="what"><span class="tag tag-class">In Class</span>Discovery</td>
+    <td class="notes">Choose your story and work through the six questions. Nothing here is graded.</td>
+  </tr>
+  <tr>
+    <td class="date">Oct 9</td>
+    <td class="what"><span class="tag tag-class">In Class</span>Write The Scene</td>
+    <td class="notes">Draft written in Eli Review, using what Discovery gave you.</td>
+  </tr>
+  <tr>
+    <td class="date">Oct 23</td>
+    <td class="what"><span class="tag tag-class">In Class</span>Review of The Scene</td>
+    <td class="notes">We model the review together in class; your real peer review happens in Eli,
+    written, afterward.</td>
+  </tr>
+  <tr>
+    <td class="date">take-home</td>
+    <td class="what"><span class="tag tag-home">Take-Home</span>Workplan</td>
+    <td class="notes">React to your Eli feedback while it's fresh.</td>
+  </tr>
+  <tr>
+    <td class="date">take-home</td>
+    <td class="what"><span class="tag tag-home">Take-Home</span>Scene Revision</td>
+    <td class="notes">Office hours are there if you want a second read before you finish.</td>
+  </tr>
+  <tr>
+    <td class="date">before Nov 20</td>
+    <td class="what"><strong>Mind due</strong></td>
+    <td class="notes">Finished piece, submitted as a PDF to Canvas.</td>
+  </tr>
+</table>
+</div>
+
+<div class="callout">
+  <strong>Voice.</strong> Your viva is a separate sign-up, not tied to a fixed class date — pick one slot
+  during viva week (Nov 30&ndash;Dec 4) or during the final exam period (not both), before Thanksgiving
+  break. Have Mind finished before your viva, since that conversation is about what you wrote.
+</div>
+
+</main>
+</body>
+</html>

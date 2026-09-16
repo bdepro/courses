@@ -116,7 +116,7 @@ const SCHEDULE = {
       num: 3, dates: "Sep 14-18", label: "Week 3",
       chapter: null, checkIn: 1, checkInDay: "Wed Sep 16",
       mmeFF: true, vote: false, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 1 & 3 / Wed: Check-In #1 / Fri: MME launch + FF progress",
+      note: "Mon: Review Ch. 1 & 3 / Wed: Check-In #1 / Fri: MME launch + Discovery (Mind & Voice, in class)",
     },
     {
       num: 4, dates: "Sep 21-25", label: "Week 4",
@@ -134,7 +134,7 @@ const SCHEDULE = {
       num: 6, dates: "Oct 5-9", label: "Week 6",
       chapter: null, checkIn: 2, checkInDay: "Wed Oct 7",
       mmeFF: true, vote: false, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 4 & 7 / Wed: Check-In #2 / Fri: MME launch + FF progress",
+      note: "Mon: Review Ch. 4 & 7 / Wed: Check-In #2 / Fri: MME launch + The Scene (Mind & Voice, written in Eli, in class)",
     },
     {
       num: 7, dates: "Oct 12-13", label: "Week 7",
@@ -152,7 +152,7 @@ const SCHEDULE = {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       chapter: "ch8_ch16", checkIn: null, mmeFF: true, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Ch. 8 cont. / Wed-Fri: Ch. 16",
+      note: "Mon: Ch. 8 cont. / Wed-Fri: Ch. 16 / Fri: Review of the Scene (Mind & Voice, in class)",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
@@ -164,7 +164,7 @@ const SCHEDULE = {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapter: null, checkIn: 3, checkInDay: "Wed Nov 4",
       mmeFF: true, vote: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + FF progress + question walk-through + top 6 announced",
+      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced (Mind & Voice's Workplan and Scene Revision are take-home now, not a class day — nothing due here)",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
@@ -626,13 +626,18 @@ const CANVAS = {
   // stage. NOT the same as the task-specific urls above.
   eliDashboardUrl: "https://app.elireview.com/student/course/20937",
 
-  // Written Narrative support docs — uploaded directly to Canvas Files
-  // (mind-voice folder): one explains the rationale ("why"), the other is
-  // a quick reference sheet. fileId: Canvas file ID; full URL is auto-built
-  // from COURSE.canvasId + fileId at the bottom of this file.
+  // Written Narrative support docs — all four are standalone print-ready
+  // pages hosted in this repo under narrative/ (source of truth is the
+  // narrative-writing-assignment repo's eco1000/materials/ folder; copy
+  // over here when updated). url is set directly since none of these are
+  // Canvas files anymore — "why" used to be a Canvas Files upload but was
+  // moved in-repo so it stays current with the assignment design instead
+  // of drifting out of sync on Canvas.
   narrativeResources: [
-    { id: "why",       title: "Why This Narrative",        fileId: "617078" },
-    { id: "reference", title: "Narrative Reference Sheet",  fileId: "617079" },
+    { id: "why",       title: "Why This Narrative",        url: `${COURSE.baseUrl}/narrative/why-this-narrative.html` },
+    { id: "discovery", title: "Discovery Worksheet",       url: `${COURSE.baseUrl}/narrative/discovery-worksheet.html` },
+    { id: "reference", title: "Narrative Reference Sheet",  url: `${COURSE.baseUrl}/narrative/narrative-reference-sheet.html` },
+    { id: "schedule",  title: "When Do We Work on Mind?",  url: `${COURSE.baseUrl}/narrative/narrative-schedule-student.html` },
   ],
 
   // Wellness Check-In / Exit Ticket — index.html's wellness card. One static
@@ -717,16 +722,11 @@ const ASSIGNMENT_URL = aid =>
 const MODULE_ITEM_URL = moduleItemId =>
   moduleItemId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/modules/items/${moduleItemId}` : '';
 
-const FILE_URL = fileId =>
-  fileId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/${fileId}` : '';
-
 [CHAPTERS.core, CHAPTERS.application]
   .forEach(arr => arr.forEach(item => { item.url = MODULE_ITEM_URL(item.moduleItemId); }));
 
 [CANVAS.puzzles, CANVAS.mme, CANVAS.indicatorAnalysis]
   .forEach(arr => arr.forEach(item => { item.url = ASSIGNMENT_URL(item.aid); }));
-
-CANVAS.narrativeResources.forEach(item => { item.url = FILE_URL(item.fileId); });
 
 [CANVAS.wellness, CANVAS.exitTicket]
   .forEach(item => { item.url = ASSIGNMENT_URL(item.aid); });
