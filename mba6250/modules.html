@@ -178,7 +178,7 @@ function buildRow(mod) {
       ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz, Perusall Only</span>';
     actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
-    refHtml += refLine('guide', 'Discussion Guide', PERUSALL_GUIDE_URL);
+    refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
   } else if (isImplan) {
     refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
     actionsHtml += '<span class="mod-none">No submission this week</span>';
