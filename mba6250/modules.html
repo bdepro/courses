@@ -66,6 +66,7 @@
     .mod-ref:hover{text-decoration:underline;}
     .mod-ref.problems{color:var(--teal);}
     .mod-ref.case{color:var(--crimson-dk);}
+    .mod-ref.guide{color:var(--gold-link);}
     .mod-ref.unlinked{color:var(--muted);font-weight:400;font-style:italic;text-decoration:none;cursor:default;}
     .mod-actions{display:flex;align-items:stretch;flex-shrink:0;}
     .mod-link{padding:0.85rem 1rem;display:flex;align-items:center;gap:5px;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap;border-left:1px solid rgba(181,154,87,0.12);transition:background 0.12s;}
@@ -110,7 +111,7 @@
 <main id="main">
 
   <div class="callout teal">
-    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz. It runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Module 4 introduces IMPLAN Cloud in place of a chapter, but it's practice-only. Nothing is submitted or graded that week. The regional economic impact analysis itself is completed during the Final Exam. Module 10 is a buffer week with no chapter activity.
+    <strong>Each link opens directly in Canvas.</strong> Module 1 has no quiz. It runs on Perusall alone. Modules 1, 7, and 9 have no problem-set entry for their chapter. Module 4 introduces IMPLAN Cloud in place of a chapter, but it's practice-only. Nothing is submitted or graded that week. The regional economic impact analysis itself is completed during the Final Exam. Module 10 is a buffer week with no chapter activity. See the <a id="perusallGuideLink" href="#" target="_blank" rel="noopener">Perusall Discussion Guide</a> for how the weekly annotation activity is graded.
   </div>
 
   <div class="callout gold" id="coursepackCallout"></div>
@@ -131,6 +132,8 @@ document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COUR
 
 document.getElementById('coursepackCallout').innerHTML =
   '<strong>Case readings (Modules 3, 5, 7, 9):</strong> One link gets you all four cases. Purchase the required HBP coursepack directly from Harvard Business Publishing: <a href="' + COURSEPACK.url + '" target="_blank" rel="noopener">' + COURSEPACK.url + '</a> (' + COURSEPACK.price + '). This is separate from each case&rsquo;s Canvas submission link below.';
+
+document.getElementById('perusallGuideLink').href = PERUSALL_GUIDE_URL;
 
 var chapterByModule = {};
 CHAPTERS.forEach(function(c) { chapterByModule[c.module] = c; });
@@ -175,6 +178,7 @@ function buildRow(mod) {
       ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz, Perusall Only</span>';
     actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
+    refHtml += refLine('guide', 'Discussion Guide', PERUSALL_GUIDE_URL);
   } else if (isImplan) {
     refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
     actionsHtml += '<span class="mod-none">No submission this week</span>';

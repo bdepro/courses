@@ -193,6 +193,14 @@ const PAGES = {
 const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDATE canvasId above
 
 // ================================================================
+//  PERUSALL DISCUSSION GUIDE — evergreen Canvas Page (not GitHub
+//  Pages, unlike PAGES above), built from perusall-guide.html.
+//  UPDATE the page slug below if the Canvas Page is ever renamed;
+//  canvasId already tracks COURSE.canvasId each semester.
+// ================================================================
+const PERUSALL_GUIDE_URL = `${CANVAS_COURSE}/pages/perusall-discussion-page`;
+
+// ================================================================
 //  PROBLEM SET — one to two problems per chapter, curated from the textbook
 //  Replaces the old per-chapter Cengage "Apply It" assignments. One
 //  consolidated set — single Canvas assignment, single due date (not

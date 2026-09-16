@@ -557,7 +557,7 @@
             <span class="assess-weight" id="discussions-weight"></span>
           </div>
           <div class="assess-body">
-            <p>In Perusall, you annotate a short scenario every content module, using that module's framework. Reply to at least one classmate for real, not just to agree. The full rubric is in the Perusall Discussion Guide, linked from each module.</p>
+            <p>In Perusall, you annotate a short scenario every content module, using that module's framework. Reply to at least one classmate for real, not just to agree. The full rubric is in the <a id="syl-perusall-guide-link" href="#" target="_blank" rel="noopener">Perusall Discussion Guide</a>, linked from each module.</p>
           </div>
         </div>
 
@@ -741,6 +741,7 @@ document.getElementById('problems-weight').textContent   = gradeWeight('problems
 document.getElementById('final-exam-weight').textContent = gradeWeight('finalExam');
 document.getElementById('quizzes-weight').textContent     = gradeWeight('quizzes');
 document.getElementById('discussions-weight').textContent = gradeWeight('discussions');
+document.getElementById('syl-perusall-guide-link').href    = PERUSALL_GUIDE_URL;
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');
