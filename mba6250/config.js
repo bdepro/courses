@@ -172,7 +172,24 @@ const TEXTBOOK = {
   edition:    "6th",
   title:      "Managerial Economics: A Problem Solving Approach",
   authors:    "Froeb, McCann, Ward, and Shor",
-  note:       "Obtain the textbook on your own: print, rental, or e-book, any source. Perusall (used for weekly discussions) carries its own $5/term subscription fee, separate from the textbook.",
+  isbn:       "9780357748237",
+  // eTextbook only — Cengage's product page also offers MindTap, a
+  // homework platform bundle this course does not use. Price and link
+  // confirmed by the instructor 2026-09-15.
+  ebookUrl:   "https://www.cengage.com/c/managerial-economics-a-problem-solving-approach-6e-froeb-mccann-ward-shor/9780357748237/",
+  ebookPrice: "$76.99",
+  note:       "Choose eTextbook only, not MindTap. A print copy can also be purchased or rented on Amazon, often for less.",
+};
+
+// ================================================================
+//  PERUSALL — weekly discussion platform, separate cost from the
+//  textbook. No standalone signup link: clicking into any weekly
+//  Perusall Discussion assignment in the Module Directory registers
+//  you and prompts the subscription payment.
+// ================================================================
+const PERUSALL = {
+  price: "$5/term",
+  note:  "Click into any weekly Perusall Discussion link in the Module Directory to register and pay the subscription fee. There is no separate signup site.",
 };
 
 // ================================================================
