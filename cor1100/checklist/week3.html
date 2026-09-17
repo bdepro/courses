@@ -153,6 +153,27 @@
     </div>
   </div>
 
+  <p class="section-label">Friday</p>
+  <div class="chapter-block">
+    <div class="chapter-header">
+      <span class="chapter-num">In Class</span>
+      <span class="chapter-name" id="wk3-ct-name">Common Threads 1</span>
+    </div>
+    <div class="checklist">
+      <div class="check-item" data-id="wk3-common-threads">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title" id="wk3-ct-title">Attend Common Threads 1 in class Friday</div>
+          <div class="check-desc" id="wk3-ct-desc">Read both passages before class — we close-read, discuss, and write together that day.</div>
+          <span class="check-tag tag-submit">Common Threads</span>
+          <br><a class="check-link" href="#" id="link-wk3-ct-instructions" target="_blank" rel="noopener">
+            Common Threads Instructions <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <footer>
@@ -169,14 +190,22 @@ document.getElementById('weekMeta').textContent = session3 ? session3.dates : ''
 
 const puzzle2 = CANVAS.puzzles.find(p => p.session === 2);
 const ci1     = CANVAS.checkIns.find(c => c.id === 1);
+const ct1     = CANVAS.commonThreads.find(t => t.session === 3);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `Puzzle 2 is due Wednesday, the same day as Check-In #1.`;
+dueBannerText.innerHTML = `Puzzle 2 is due Wednesday, the same day as Check-In #1. Friday's class is Common Threads 1 — come having done the reading.`;
 
 if (puzzle2) document.getElementById('ci1-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(2)}`;
 
+if (ct1) {
+  document.getElementById('wk3-ct-name').textContent  = `Common Threads 1 · ${formatCommonThreadsDate(3)}`;
+  document.getElementById('wk3-ct-title').textContent = ct1.title;
+  document.getElementById('wk3-ct-desc').textContent  = `${ct1.chapter} paired with ${ct1.passage}. Read both before class — we close-read, discuss, and write together that day.`;
+}
+
 const L = {
   'link-ci1-puzzle': puzzle2 ? puzzle2.url : '',
+  'link-wk3-ct-instructions': PAGES.commonThreads,
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

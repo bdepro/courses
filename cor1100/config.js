@@ -70,8 +70,9 @@ const INSTRUCTOR = {
 //    puzzleDueDate() at the bottom of this file.
 //    S7 (Ch. XIII, Mon/Tue only before Fall Break) has no quiz of its own —
 //      its content is folded into Puzzle 5 together with S9.
-//    Common Threads sessions run entirely in class on their own Monday —
-//      see CANVAS.commonThreads[].session.
+//    Common Threads sessions run entirely in class on the Friday of the
+//      Check-In session they're anchored to (sessionStart + 4 days) —
+//      see CANVAS.commonThreads[].session and commonThreadsDate().
 //    Mind & Voice written narrative is assigned à la carte in Eli Review —
 //      no fixed due date. See CANVAS.eli comment above.
 //    CI 4 always counts. Replaces lowest of CI 1-3 if higher.
@@ -115,14 +116,14 @@ const SCHEDULE = {
       num: 3, dates: "Sep 14-18", label: "Week 3",
       chapters: [], checkIn: 1, checkInDay: "Wed Sep 16",
       ffProgress: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: FF progress",
+      note: "Mon: Review Intro + Ch. I–V / Wed: Check-In #1 / Fri: Common Threads 1",
     },
     {
       num: 4, dates: "Sep 21-25", label: "Week 4",
       topic: "Misery, Health, and Tranquility of Mind",
       chapters: ["ch6", "ch7", "ch8"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Common Threads 1 / Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
+      note: "Ch. VI On Miseries and Disorders / Ch. VII On the Healthy Mind / Ch. VIII On Tranquility and Pleasure",
     },
     {
       num: 5, dates: "Sep 28-Oct 2", label: "Week 5",
@@ -135,7 +136,7 @@ const SCHEDULE = {
       num: 6, dates: "Oct 5-9", label: "Week 6",
       chapters: [], checkIn: 2, checkInDay: "Wed Oct 7",
       ffProgress: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: FF progress",
+      note: "Mon: Review Ch. VI–XII / Wed: Check-In #2 / Fri: Common Threads 2",
     },
     {
       num: 7, dates: "Oct 12-13", label: "Week 7",
@@ -155,7 +156,7 @@ const SCHEDULE = {
       topic: "Loving, Flourishing, and Being Lovely",
       chapters: ["ch14", "ch15", "ch16"], checkIn: null, ffProgress: true, viva: false,
       break: false, breakType: null,
-      note: "Mon: Common Threads 2 / Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
+      note: "Ch. XIV On Loving / Ch. XV On Flourishing / Ch. XVI On Being Lovely / Fri: FF progress / Puzzle 5 also covers Ch. XIII from Week 7",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
@@ -168,14 +169,14 @@ const SCHEDULE = {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapters: [], checkIn: 3, checkInDay: "Wed Nov 4",
       ffProgress: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: FF progress",
+      note: "Mon: Review Ch. XIII–XIX / Wed: Check-In #3 / Fri: Common Threads 3",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
       topic: "Choice, Selfhood, and Perfection",
       chapters: ["ch20", "ch21", "ch22"], checkIn: null, ffProgress: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Common Threads 3 / Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
+      note: "Ch. XX On Choice / Ch. XXI On Self and Others / Ch. XXII On Perfection",
     },
     {
       num: 13, dates: "Nov 16-20", label: "Week 13",
@@ -353,7 +354,7 @@ const GRADING = {
     { id: "puzzles",  label: "Puzzles",                 weight: 10,
       note: "8 formative MC quizzes. Puzzle 5 covers Week 7 (Ch. XIII) together with Week 9 (Ch. XIV-XVI) — Week 7 has no separate quiz. Lowest score dropped. Late within one week at 80%. Due Wednesday of the following session." },
     { id: "commonThreads", label: "Common Threads", weight: 15,
-      note: "3 in-class sessions pairing Smith's Theory of Moral Sentiments with our Common Reading, Hanif Abdurraqib's There's Always This Year. One per Check-In block, held entirely in class on a single Monday." },
+      note: "3 in-class sessions pairing Smith's Theory of Moral Sentiments with our Common Reading, Hanif Abdurraqib's There's Always This Year. One per Check-In block, held entirely in class on the Friday immediately after that Check-In." },
   ],
   ungraded: [
     { id: "readings", label: "Chapter Readings",
@@ -471,11 +472,14 @@ const CANVAS = {
   // This Year. Redesigned 2026-08-14, replacing the earlier Perusall
   // Fishbowl format entirely: no async submit/review/respond cascade, no
   // author/reviewer role split, no Perusall. Each round is one self-
-  // contained Monday class period — students do the reading beforehand,
-  // then close-read, discuss, and write together in class. One round per
-  // Check-In block; see commonThreadsDate() at the bottom of this file.
-  // session: the Monday session number the round runs on (see
-  //   SCHEDULE.sessions / SCHEDULE.sessionStarts for the actual date).
+  // contained class period — students do the reading beforehand, then
+  // close-read, discuss, and write together in class. One round per
+  // Check-In block, held the Friday immediately after that Check-In (see
+  // commonThreadsDate() at the bottom of this file — corrected 2026-09-16
+  // to anchor all three rounds the same way).
+  // session: the Check-In session number the round is anchored to (see
+  //   SCHEDULE.sessions / SCHEDULE.sessionStarts — commonThreadsDate() adds
+  //   the +4-day offset to get that session's Friday).
   // chapter / passage: the Hanley chapter and Abdurraqib citation paired
   //   that round.
   // aid: Canvas assignment ID for however the round ends up graded
@@ -484,13 +488,13 @@ const CANVAS = {
   //   still needs to be built (round 3 already exists as a print-ready
   //   CODAP worksheet in course-notes, not yet wired into this site).
   commonThreads: [
-    { id: 1, session: 4,
+    { id: 1, session: 3,
       title: "Common Threads 1: Sympathy, Attention, and LeBron",
       chapter: "Ch. III–IV, On Acting for Others & On Imagination", passage: "Abdurraqib, p. 31", aid: "19484" },
-    { id: 2, session: 9,
+    { id: 2, session: 6,
       title: "Common Threads 2: Worshipping Wealth, at Arm's Length",
       chapter: "Ch. IX, On Worshipping Wealth", passage: "Abdurraqib, p. 65", aid: "20242" },
-    { id: 3, session: 12,
+    { id: 3, session: 11,
       title: "Common Threads 3: Who Gets to \"Better Their Condition\"?",
       chapter: "Ch. V, On Bettering Our Condition", passage: "Abdurraqib, pp. 194, 224", aid: "20243" },
   ],
@@ -635,7 +639,7 @@ const BLOCKS = [
     label: 'Module 1',
     firstSession: 1,
     contentSessions: [1, 2],
-    commonThreadsSessions: [],
+    commonThreadsSessions: [3],
     checkIn: 1,
   },
   {
@@ -643,7 +647,7 @@ const BLOCKS = [
     label: 'Module 2',
     firstSession: 4,
     contentSessions: [4, 5],
-    commonThreadsSessions: [4],
+    commonThreadsSessions: [6],
     checkIn: 2,
   },
   {
@@ -651,7 +655,7 @@ const BLOCKS = [
     label: 'Module 3',
     firstSession: 7,
     contentSessions: [7, 9, 10],
-    commonThreadsSessions: [9],
+    commonThreadsSessions: [11],
     checkIn: 3,
   },
   {
@@ -660,7 +664,7 @@ const BLOCKS = [
     sublabel: 'Viva & Check-In',
     firstSession: 12,
     contentSessions: [12, 13],
-    commonThreadsSessions: [12],
+    commonThreadsSessions: [],
     checkIn: 4,
     phase: 'viva',
     vivaSignupAlert: true,
@@ -771,14 +775,19 @@ const formatPuzzleDue = sessionNum => {
 
 // ================================================================
 //  COMMON THREADS SESSION DATE
-//  A Common Threads round runs entirely in class on session N's own
-//  Monday — no offset, unlike puzzleDueDate above. sessionStarts[N] IS
-//  the date.
+//  A Common Threads round runs entirely in class on the Friday of the
+//  Check-In session it's anchored to (sessionStart + 4 days) — the
+//  session referenced in CANVAS.commonThreads[].session is the
+//  Check-In week itself (session 3/6/11), not a later content week.
 // ================================================================
 const commonThreadsDate = sessionNum => {
   const idx = SCHEDULE.sessions.findIndex(s => s.num === sessionNum);
   if (idx < 0) return null;
-  return SCHEDULE.sessionStarts[idx] || null;
+  const start = SCHEDULE.sessionStarts[idx];
+  if (!start) return null;
+  const due = new Date(start.getTime());
+  due.setDate(due.getDate() + 4);
+  return due;
 };
 
 const formatCommonThreadsDate = sessionNum => {
