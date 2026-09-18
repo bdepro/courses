@@ -370,7 +370,7 @@ const GRADING = {
 const FEATURES = {
   syllabus:      true,
   textbook:      false,
-  chapters:      false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
+  chapters:      true,    // restored to home grid — only page with the Smith/TMS reference links (WorldCat + per-chapter excerpts)
   checkins:      false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   puzzles:       false,   // demoted off home grid — reachable from checklist.html "Look Ahead"; content duplicates weekly checklist items
   badges:        false,
