@@ -263,7 +263,7 @@ const CHAPTERS = {
     { key: "ch5",   num: "Ch. V",      title: "On Bettering Our Condition",     session: 2,  fileId: "363047", tmsFileId: "672493" },
     { key: "ch6",   num: "Ch. VI",     title: "On Miseries and Disorders",      session: 4,  fileId: "363048", tmsFileId: "672503" },
     { key: "ch7",   num: "Ch. VII",    title: "On the Healthy Mind",            session: 4,  fileId: "363049" },
-    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  fileId: "363050" },
+    { key: "ch8",   num: "Ch. VIII",   title: "On Tranquility and Pleasure",    session: 4,  fileId: "363050", tmsFileId: "693865" },
     { key: "ch9",   num: "Ch. IX",     title: "On Worshipping Wealth",          session: 5,  fileId: "363051" },
     { key: "ch10",  num: "Ch. X",      title: "On Friendship",                  session: 5,  fileId: "363053" },
     { key: "ch12",  num: "Ch. XII",    title: "On Hatred and Anger",            session: 5,  fileId: "363056" },
