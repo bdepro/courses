@@ -97,7 +97,7 @@ const SCHEDULE = {
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
       note: "Due date moved past Thanksgiving break, so this module's work is due after its Monday discussion (Nov 30)." },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "No submission, final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)" },
   ],
 };
 
@@ -141,7 +141,7 @@ const GRADING = {
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
       note: "In-person, closed-book synthesis exam in KoBC 244, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
-    { id: "problems",        label: "Problem Sets",                    weight: 15,
+    { id: "problems",        label: "Problem Set",                    weight: 15,
       note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 2, during Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },

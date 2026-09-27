@@ -162,7 +162,10 @@ function buildRow(mod) {
 
   div.className = 'mod-row' + (isBuffer ? ' buffer' : '');
 
-  var dueHtml  = '<span class="mod-due">Due ' + mod.due + '</span>';
+  // Prefix "Due" only when the due text starts with a date (e.g. "October 4, ..."),
+  // not for rows like "No submission, practice week".
+  var dueText  = /^[A-Z][a-z]+ \d/.test(mod.due) ? 'Due ' + mod.due : mod.due;
+  var dueHtml  = '<span class="mod-due">' + dueText + '</span>';
   var noteHtml = mod.note ? '<span class="mod-note">' + mod.note + '</span>' : '';
   var refHtml = '';
   var actionsHtml = '';
