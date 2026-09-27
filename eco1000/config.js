@@ -730,10 +730,12 @@ const BLOCKS = [
 const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
-// Canvas file preview page. If an HTML activity downloads instead of
-// opening, switch this one line (e.g. append "?wrap=1" or "/preview").
+// Canvas serves the raw file from its sandboxed user-content domain via
+// /download, so the activity's JavaScript runs. (The normal /files/NNNN
+// preview page shows HTML with scripts stripped — no buttons.) Tested
+// 2026-09-27: opens in the browser, doesn't download.
 const FILE_URL = fileId =>
-  fileId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/${fileId}` : '';
+  fileId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/${fileId}/download` : '';
 
 const MODULE_ITEM_URL = moduleItemId =>
   moduleItemId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/modules/items/${moduleItemId}` : '';
