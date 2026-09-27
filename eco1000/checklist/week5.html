@@ -60,6 +60,7 @@
     .tag-read    { background: rgba(181,154,87,0.15); color: var(--gold-link); }
     .tag-puzzle  { background: rgba(181,154,87,0.25); color: var(--gold-link); }
     .tag-submit  { background: rgba(115,0,10,0.12);  color: var(--crimson); }
+    .tag-class   { background: var(--warm-gray); color: var(--muted); }
     .check-link { display: inline-flex; align-items: center; gap: 4px; color: var(--gold-link); text-decoration: none; font-size: 0.78rem; font-weight: 500; margin-top: 0.5rem; }
     .check-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
     .check-link:hover { color: var(--crimson); }
@@ -167,6 +168,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="act-gdp-what-counts" id="act-gdp-what-counts">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">In-Class Activity: GDP, What Counts?</div>
+          <div class="check-desc">Apply the three-question GDP test to fourteen everyday transactions. Bring a laptop to class. The activity opens in Canvas, so you'll need to be logged in.</div>
+          <span class="check-tag tag-class">In Class</span>
+          <br><a class="check-link" href="#" id="link-act-gdp" target="_blank" rel="noopener">
+            Open Activity in Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="ch7-puzzle">
         <div class="check-box"></div>
         <div class="check-content">
@@ -208,7 +221,12 @@ if (puzzle4) {
 }
 if (puzzle5) document.getElementById('ch7-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(5)}`;
 
+const actGdp = (CANVAS.activities || []).find(a => a.key === 'gdp-what-counts');
+// Hide the whole item until the Canvas file ID is filled in
+if (!actGdp || !actGdp.url) document.getElementById('act-gdp-what-counts').style.display = 'none';
+
 const L = {
+  'link-act-gdp':        actGdp ? actGdp.url : '',
   'link-wk5-puzzle4':    puzzle4 ? puzzle4.url : '',
   'link-ch7-read':       ch7 ? ch7.url : '',
   'link-ch7-notes':      ch7 ? ch7.guidedNotesUrl : '',

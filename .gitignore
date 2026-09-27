@@ -8,3 +8,7 @@ CLAUDE.md
 **/internal-notes/
 **/tms-abdurraqib/
 .claude/
+# In-class HTML activities live only in Canvas Files (linked via CANVAS.activities in config.js)
+**/html activities/
+**/html-activities/
+**/activities/

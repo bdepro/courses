@@ -645,6 +645,17 @@ const CANVAS = {
   // Puzzles/MME). aid: Canvas assignment ID; full URL auto-built below.
   wellness:   { aid: "22414" },
   exitTicket: { aid: "22854" },
+
+  // In-class HTML activities — the files live ONLY in Canvas Files (uploaded
+  // from OneDrive "html activities/" into the Canvas folder "html activity
+  // files"), never in this public repo. The site just links into Canvas, so
+  // students must be logged in and enrolled. Not collected — no assignment.
+  // fileId: Canvas file ID — the number after "preview=" (or /files/NNNN)
+  //         when you click the file in Canvas Files.
+  // The checklist item hides itself while fileId is blank. URL auto-built below.
+  activities: [
+    { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "697017" },
+  ],
 };
 
 // ================================================================
@@ -719,6 +730,11 @@ const BLOCKS = [
 const ASSIGNMENT_URL = aid =>
   aid ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/assignments/${aid}` : '';
 
+// Canvas file preview page. If an HTML activity downloads instead of
+// opening, switch this one line (e.g. append "?wrap=1" or "/preview").
+const FILE_URL = fileId =>
+  fileId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/${fileId}` : '';
+
 const MODULE_ITEM_URL = moduleItemId =>
   moduleItemId ? `${COURSE.canvasBase}/courses/${COURSE.canvasId}/modules/items/${moduleItemId}` : '';
 
@@ -734,6 +750,9 @@ const MODULE_ITEM_URL = moduleItemId =>
 // Guided-notes submission link — one per core chapter (1:1, no grouping
 // needed since each chapter has its own guided-notes document).
 CHAPTERS.core.forEach(item => { item.notesSubmitUrl = ASSIGNMENT_URL(item.notesAid); });
+
+// In-class activities — .url opens the activity file in Canvas.
+CANVAS.activities.forEach(item => { item.url = FILE_URL(item.fileId); });
 
 // ================================================================
 //  PUZZLE DUE-DATE DERIVATION
