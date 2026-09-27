@@ -95,7 +95,8 @@ const SCHEDULE = {
     { num: 6,  dates: "Oct 25–31",      due: "November 1, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
     { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
-    { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships" },
+    { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
+      note: "Due date moved past Thanksgiving break, so this module's work is due after its Monday discussion (Nov 30)." },
     { num: 10, dates: "Nov 29–Dec 4",   due: "No submission, final exam prep week", topic: "Final Exam Prep Week (Dec 7&ndash;11)" },
   ],
 };
@@ -262,7 +263,7 @@ const IMPLAN_PROJECT = {
 
 // ================================================================
 //  CASE ANALYSES
-//  Only 4 of the 9 content modules carry a case (Modules 3, 5, 7, 9)
+//  Only 4 of the 8 content modules carry a case (Modules 3, 5, 7, 9)
 //  to control per-student HBP case cost/reading load on top of the
 //  e-book. Anchored to the module in each conceptual pair (adverse
 //  selection/moral hazard; employees/divisions) with the clearest
