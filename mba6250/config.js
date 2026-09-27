@@ -140,7 +140,7 @@ const GRADING = {
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
-      note: "In-person, closed-book synthesis exam, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
+      note: "In-person, closed-book synthesis exam in KoBC 244, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
     { id: "problems",        label: "Problem Sets",                    weight: 15,
       note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 2, during Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
@@ -307,7 +307,7 @@ const COURSEPACK = {
 const CAPSTONE = {
   writtenExam: {
     title:  "Final Exam",
-    format: "In-person, closed-book",
+    format: "In-person, closed-book, KoBC 244",
     due:    "December 7, 2026, 7:00–9:00 p.m.",
     note:   "Case-style prompts spanning the whole course, including the Module 4 IMPLAN Cloud regional economic impact analysis.",
     aid:    "35879", // UPDATE each semester (Canvas assignment ID)
