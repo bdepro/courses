@@ -156,6 +156,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="act-price-controls" id="act-price-controls">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">In-Class Activity: Price Controls</div>
+          <div class="check-desc">Model price floors and ceilings, use Gemini to hear from the people they affect, and test the model against real evidence on minimum wage and rent control. Before class, open the activity and write the short "Before You Begin" prediction on the laptop you'll bring. Nothing is turned in; save it as a PDF for your notes. The activity opens in Canvas, so you'll need to be logged in.</div>
+          <span class="check-tag tag-class">In Class</span>
+          <br><a class="check-link" href="#" id="link-act-price-controls" target="_blank" rel="noopener">
+            Open Activity in Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="ch4-puzzle">
         <div class="check-box"></div>
         <div class="check-content">
@@ -202,7 +214,12 @@ if (puzzle4) {
   document.getElementById('ch4-puzzle-due-tag').textContent = `Puzzle · Due ${formatPuzzleDue(4)}`;
 }
 
+const actPrice = (CANVAS.activities || []).find(a => a.key === 'price-controls');
+// Hide the item until the Canvas file ID is filled in
+if (!actPrice || !actPrice.url) document.getElementById('act-price-controls').style.display = 'none';
+
 const L = {
+  'link-act-price-controls': actPrice ? actPrice.url : '',
   'link-ch4-read':        ch4 ? ch4.url : '',
   'link-ch4-notes':       ch4 ? ch4.guidedNotesUrl : '',
   'link-ch4-notes-submit':ch4 ? ch4.notesSubmitUrl : '',
