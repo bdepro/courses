@@ -654,7 +654,9 @@ const CANVAS = {
   //         when you click the file in Canvas Files.
   // The checklist item hides itself while fileId is blank. URL auto-built below.
   activities: [
-    { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "697017" },
+    { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "715762" },
+    { key: "gdp-good-life",   session: 5, title: "GDP and a \"Good Life\"", fileId: "715760" },
+    { key: "inflation",       session: 5, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
   ],
 };
 
