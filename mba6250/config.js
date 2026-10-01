@@ -99,6 +99,26 @@ const SCHEDULE = {
       note: "Due date moved past Thanksgiving break, so this module's work is due after its Monday discussion (Nov 30)." },
     { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)" },
   ],
+
+  // Module start dates — drive the "Current" highlight in modules.html.
+  // UPDATE each semester. Format: new Date(year, month (0=Jan), day)
+  // Each entry runs until the next entry's start. num: null = no
+  // module is highlighted (Thanksgiving week, and the end sentinel,
+  // which is the day after Module 10 ends).
+  moduleStarts: [
+    { num: 1,    start: new Date(2026,  8, 20) },  // Sep 20
+    { num: 2,    start: new Date(2026,  8, 27) },  // Sep 27
+    { num: 3,    start: new Date(2026,  9,  4) },  // Oct 4
+    { num: 4,    start: new Date(2026,  9, 11) },  // Oct 11
+    { num: 5,    start: new Date(2026,  9, 18) },  // Oct 18
+    { num: 6,    start: new Date(2026,  9, 25) },  // Oct 25
+    { num: 7,    start: new Date(2026, 10,  1) },  // Nov 1
+    { num: 8,    start: new Date(2026, 10,  8) },  // Nov 8
+    { num: 9,    start: new Date(2026, 10, 15) },  // Nov 15
+    { num: null, start: new Date(2026, 10, 22) },  // Thanksgiving week
+    { num: 10,   start: new Date(2026, 10, 29) },  // Nov 29
+    { num: null, start: new Date(2026, 11,  5) },  // End: Dec 5
+  ],
 };
 
 // ================================================================
