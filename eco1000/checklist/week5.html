@@ -192,18 +192,6 @@
         </div>
       </div>
 
-      <div class="check-item" data-id="act-inflation" id="act-inflation">
-        <div class="check-box"></div>
-        <div class="check-content">
-          <div class="check-title">In-Class Activity: Thinking About Inflation Like an Economist</div>
-          <div class="check-desc">See why old box office hits beat today's blockbusters once you adjust for inflation, learn how the CPI measures prices, and correct some common misreadings of inflation news. Bring a laptop to class. The activity opens in Canvas, so you'll need to be logged in.</div>
-          <span class="check-tag tag-class">In Class</span>
-          <br><a class="check-link" href="#" id="link-act-inflation" target="_blank" rel="noopener">
-            Open Activity in Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </div>
-      </div>
-
       <div class="check-item" data-id="ch7-puzzle">
         <div class="check-box"></div>
         <div class="check-content">
@@ -248,15 +236,13 @@ if (puzzle5) document.getElementById('ch7-puzzle-tag').textContent = `Puzzle · 
 const findAct = key => (CANVAS.activities || []).find(a => a.key === key);
 const actGdp       = findAct('gdp-what-counts');
 const actGoodLife  = findAct('gdp-good-life');
-const actInflation = findAct('inflation');
 // Hide each activity item until its Canvas file ID is filled in
-[[actGdp, 'act-gdp-what-counts'], [actGoodLife, 'act-gdp-good-life'], [actInflation, 'act-inflation']]
+[[actGdp, 'act-gdp-what-counts'], [actGoodLife, 'act-gdp-good-life']]
   .forEach(([act, id]) => { if (!act || !act.url) document.getElementById(id).style.display = 'none'; });
 
 const L = {
   'link-act-gdp':        actGdp ? actGdp.url : '',
   'link-act-good-life':  actGoodLife ? actGoodLife.url : '',
-  'link-act-inflation':  actInflation ? actInflation.url : '',
   'link-wk5-puzzle4':    puzzle4 ? puzzle4.url : '',
   'link-ch7-read':       ch7 ? ch7.url : '',
   'link-ch7-notes':      ch7 ? ch7.guidedNotesUrl : '',

@@ -656,7 +656,7 @@ const CANVAS = {
   activities: [
     { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "715762" },
     { key: "gdp-good-life",   session: 5, title: "GDP and a \"Good Life\"", fileId: "715760" },
-    { key: "inflation",       session: 5, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
+    { key: "inflation",       session: 7, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
   ],
 };
 
