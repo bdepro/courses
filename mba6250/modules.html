@@ -200,7 +200,7 @@ function buildRow(mod) {
     refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
   } else if (isImplan) {
     refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
-    actionsHtml += '<span class="mod-none">No submission this week</span>';
+    actionsHtml += linkOrNote('discussion', 'Training Materials', IMPLAN_PROJECT.trainingUrl);
   }
 
   div.innerHTML =

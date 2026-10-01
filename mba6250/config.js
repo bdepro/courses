@@ -279,6 +279,8 @@ const IMPLAN_PROJECT = {
   module: 4,
   title:  "Regional Economic Impact Analysis (IMPLAN Cloud)",
   note:   "Practice week only. No submission. This analysis is completed as part of the Final Exam (December 7).",
+  // Canvas Modules page, where the IMPLAN Cloud training PDFs live
+  trainingUrl: `${CANVAS_COURSE}/modules`,
 };
 
 // ================================================================
