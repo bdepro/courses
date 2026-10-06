@@ -488,6 +488,7 @@
       <div class="textbook-block" id="syl-perusall-block" style="margin-top:0.85rem;"></div>
       <div class="textbook-block" id="syl-coursepack-block" style="margin-top:0.85rem;"></div>
       <div class="textbook-block" id="syl-implan-block" style="margin-top:0.85rem;"></div>
+      <div class="textbook-block" id="syl-practice-block" style="margin-top:0.85rem;"></div>
     </div>
   </div>
 
@@ -699,6 +700,11 @@ document.getElementById('syl-implan-block').innerHTML =
   'While everything else in this course applies economic reasoning to a single decision, IMPLAN applies that same reasoning to an entire region. ' +
   'You will train on it in Module 4 and use it to run a regional economic impact analysis as part of the Final Exam. ' +
   'Access comes through Elon\'s academic license, so there is no separate purchase.';
+
+// Section 5 — Optional practice problems
+document.getElementById('syl-practice-block').innerHTML =
+  '<strong>' + OPTIONAL_PRACTICE.title + '</strong>: ' + OPTIONAL_PRACTICE.note +
+  ' <a href="' + OPTIONAL_PRACTICE.url + '" target="_blank" rel="noopener">Open the PDF in Canvas</a>.';
 
 // Section 6 — Module schedule table
 var schedBody = document.getElementById('syl-sched-body');

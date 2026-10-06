@@ -320,6 +320,21 @@ const COURSEPACK = {
 };
 
 // ================================================================
+//  OPTIONAL PRACTICE — ungraded extra problems with worked solutions
+//  (MIT 15.010, Gruber MIT 14.41, Kreps review problems), organized
+//  by module. The PDF lives in Canvas Files only, never in this repo:
+//  the Kreps problems may be shared only with enrolled students, and
+//  Canvas requires a login. Naming Kreps as a supplemental text here
+//  is part of what permits that sharing.
+//  UPDATE: the Canvas file ID in url each semester.
+// ================================================================
+const OPTIONAL_PRACTICE = {
+  title: "Optional practice problems (no purchase needed)",
+  url:   `${COURSE.canvasBase}/courses/${COURSE.canvasId}/files/732859`, // UPDATE each semester (Canvas file ID)
+  note:  "For students who want more depth, a PDF of extra problems with worked solutions is posted in Canvas, organized by module. It draws on MIT Sloan's MBA economics course (15.010), Jonathan Gruber's MIT course 14.41, and the review problems from David Kreps, <cite>Microeconomics for Managers</cite>, 2nd ed. (Princeton University Press), a supplemental text for this course. These problems are ungraded and are not tested on the final exam.",
+};
+
+// ================================================================
 //  CAPSTONE — FINAL EXAM
 //  Replaces the former Executive Memo. In-person, closed-book written
 //  exam during the university final exam period. Module 10

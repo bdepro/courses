@@ -119,6 +119,8 @@
 
   <div class="callout gold" id="coursepackCallout"></div>
 
+  <div class="callout teal" id="practiceCallout"></div>
+
   <p class="section-label">Modules 1&ndash;10</p>
   <div class="module-list" id="moduleList"></div>
 
@@ -135,6 +137,9 @@ document.getElementById('pageFooter').textContent  = COURSE.code + ' · ' + COUR
 
 document.getElementById('coursepackCallout').innerHTML =
   '<strong>Case readings (Modules 3, 5, 7, 9):</strong> One link gets you all four cases. Purchase the required HBP coursepack directly from Harvard Business Publishing: <a href="' + COURSEPACK.url + '" target="_blank" rel="noopener">' + COURSEPACK.url + '</a> (' + COURSEPACK.price + '). This is separate from each case&rsquo;s Canvas submission link below.';
+
+document.getElementById('practiceCallout').innerHTML =
+  '<strong>Optional extra practice (every module):</strong> Extra problems with worked solutions, organized by module, in one <a href="' + OPTIONAL_PRACTICE.url + '" target="_blank" rel="noopener">PDF in Canvas</a>. Ungraded and not tested on the final exam.';
 
 document.getElementById('perusallGuideLink').href = PERUSALL_GUIDE_URL;
 
