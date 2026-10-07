@@ -616,6 +616,20 @@
         </div>
       </div>
 
+      <!-- Team Peer Review (adjusts the two team components; not its own weight) -->
+      <div class="assess-block">
+        <div class="assess-header">
+          <span class="assess-name">Team Peer Review</span>
+          <span class="assess-weight">Adjusts Team Grades</span>
+        </div>
+        <div class="assess-body">
+          <p>Twice a semester you rate yourself and each teammate in five areas of team contribution (the CATME-B scale) and write one strength and one area to develop for each person. The midpoint review is feedback only. The final review adjusts your individual share of the Community Engagement Consulting and Case Simulation grades:</p>
+          <p><strong>Your grade = team grade &times; adjustment factor</strong>, where the adjustment factor is your average rating from teammates divided by your team&rsquo;s average. Self-ratings are not included. The factor is capped at <span id="pr-cap"></span>; if you do not submit the final review, it is capped at <span id="pr-nonsubmit"></span>.</p>
+          <div class="assess-sub">Due dates</div>
+          <ul id="pr-rounds" style="margin: 0 0 0 1.2rem;"></ul>
+        </div>
+      </div>
+
       <!-- Applied Economics for the BSBA -->
       <div class="assess-block">
         <div class="assess-header">
@@ -879,6 +893,19 @@ function gradeWeight(id) {
 document.getElementById('labs-weight').textContent     = gradeWeight('labs');
 document.getElementById('research-weight').textContent = gradeWeight('research');
 document.getElementById('econ-weight').textContent      = gradeWeight('econ');
+
+// Team Peer Review — rounds and caps from config
+document.getElementById('pr-cap').textContent       = PEER_REVIEW.cap.toFixed(2);
+document.getElementById('pr-nonsubmit').textContent = PEER_REVIEW.nonSubmitCap.toFixed(2);
+var prList = document.getElementById('pr-rounds');
+PEER_REVIEW.rounds.forEach(function(r) {
+  var li = document.createElement('li');
+  var name = r.url
+    ? '<a href="' + r.url + '" target="_blank" rel="noopener">' + r.label + '</a>'
+    : r.label + ' (Canvas link coming soon)';
+  li.innerHTML = name + ' &mdash; ' + r.due + (r.graded ? ' &mdash; adjusts your grade' : ' &mdash; feedback only');
+  prList.appendChild(li);
+});
 
 // Grade table
 var tbody = document.getElementById('syl-grade-rows');
