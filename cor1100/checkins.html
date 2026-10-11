@@ -116,11 +116,10 @@ CANVAS.checkIns.forEach(function(ci) {
       '<div class="c-title">' + ci.title + '</div>' +
       '<div class="c-meta">' + ci.date + ' &nbsp;·&nbsp; ' + ci.covers + '</div>' +
     '</div>' +
-    '<a class="c-link' + (hasUrl ? '' : ' inactive') + '"' +
-      (hasUrl ? ' href="' + ci.url + '" target="_blank" rel="noopener"' : ' href="#"') + '>' +
-      (hasUrl ? 'View Results' : 'Not yet') +
-      '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>' +
-    '</a>';
+    (hasUrl
+      ? '<a class="c-link" href="' + ci.url + '" target="_blank" rel="noopener">View Results<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>'
+      : ''
+    );
   list.appendChild(row);
 });
 </script>
