@@ -219,39 +219,25 @@ const SCHEDULE = {
   breakSessions: [8, 14],
 
   // Final exam period — UPDATE each semester when posted (one section only)
-  // CI 4 may be taken on the last day of class (Fri Dec 4) OR during the
-  // final exam block below — student's choice, no sign-up or arrangement
-  // needed, just show up to whichever one they plan to take.
-  // ── CHANGED: Elon's official Fall 2026 final exam schedule assigns this
-  // class's meeting time a 3-hour institutional block (Fri Dec 11,
-  // 8:30–11:30 a.m.); Prof. Depro splits the first 70 minutes of it into
-  // Segment 1 and the next 70 into Segment 2, with the last 30 min unused.
-  // Final exam period covers three student populations:
-  //   Population 1 — viva done in viva week, CI 4 done on Fri Dec 4.
-  //                  Uses Segment 2 for their remaining (second) Indicator
-  //                  Analysis — their viva slot cost them one of the two
-  //                  in-class IAs during viva week.
-  //   Population 2 — viva done in viva week, CI 4 deferred.
-  //                  Takes CI 4 during Segment 1 AND their remaining
-  //                  Indicator Analysis during Segment 2 — same reason as
-  //                  Population 1; deferring CI 4 doesn't change that they
-  //                  still owe a second IA.
-  //   Population 3 — viva deferred. Takes CI 4 during Segment 1 and viva
-  //                  during Segment 2. Already completed both in-class IAs
-  //                  during viva week (their viva never conflicted with
-  //                  either day), so no Indicator Analysis is owed here.
+  // ── CHANGED 2026-10-10: Check-In 4 is offered ONLY on the last day of
+  // class (Fri Dec 4). No final-exam-block option; a student who cannot
+  // make Dec 4 contacts Prof. Depro.
+  // Elon's official Fall 2026 final exam schedule assigns this class a
+  // 3-hour block (Fri Dec 11, 8:30–11:30 a.m.). Prof. Depro uses
+  // 9:50–11:30 of it, entirely ONLINE, from any location:
+  //   Viva done in viva week → complete the exam-period Indicator Analysis
+  //                            (their viva slot cost them one of the two
+  //                            in-class IAs during viva week).
+  //   Viva not yet done      → viva over Zoom in a Dec 11 sign-up slot.
+  //                            They were in class both viva-week days, so
+  //                            no Indicator Analysis is owed here.
   // Viva sign-up and Indicator Analysis links live in CANVAS block below.
   finalExamPeriod: {
     date:           "Fri Dec 11, 2026",                       // UPDATE each semester
-    time:           "8:30–11:30 a.m.",                        // UPDATE each semester — official Elon exam block
-    dates:          "Fri Dec 11, 2026, 8:30–11:30 a.m.",       // UPDATE each semester — display string
-    segment1: {
-      label: "Segment 1 — Check-In 4",
-      time:  "8:30–9:40 a.m.",
-      dates: "Fri Dec 11, 2026, 8:30–9:40 a.m.",
-    },
-    segment2: {
-      label: "Segment 2 — Viva / Indicator Analysis",
+    time:           "9:50–11:30 a.m.",                        // UPDATE each semester — window Prof. Depro uses
+    dates:          "Fri Dec 11, 2026, 9:50–11:30 a.m.",       // UPDATE each semester — display string
+    online: {
+      label: "Online — Zoom Viva / Indicator Analysis",
       time:  "9:50–11:30 a.m.",
       dates: "Fri Dec 11, 2026, 9:50–11:30 a.m.",
     },
@@ -549,11 +535,11 @@ const CANVAS = {
   // ── Viva week resources ──────────────────────────────────
   // vivaWeekSignupUrl and examPeriodSignupUrl point into the SAME Canvas
   // Appointment Group (one signup, three date/time blocks: Mon Nov 30,
-  // Wed Dec 2, and Wed Dec 9 exam-period) — deep-linked to different
+  // Wed Dec 2, and Fri Dec 11 exam-period on Zoom) — deep-linked to different
   // months for clarity. A student can only ever book one slot total
   // (Canvas "limit to one appointment" setting).
   viva: {
-    durationMinutes:     10,
+    durationMinutes:     8,
     vivaWeekSignupUrl:   "https://elon.instructure.com/calendar#view_name=month&view_start=2026-11-30",
     examPeriodSignupUrl: "https://elon.instructure.com/calendar#view_name=month&view_start=2026-12-11",
     // Mind — written narrative submission, same as friday[0].url
@@ -571,11 +557,9 @@ const CANVAS = {
   // in class, so every viva-week student ends up completing exactly one of
   // {monday, wednesday} and makes up the other via examSeg2 — the
   // guaranteed second completion for anyone who took their viva during
-  // viva week, whether or not they also deferred Check-In 4 (both
-  // Population 1 and Population 2 in the finalExamPeriod note above use
-  // examSeg2). A student who defers their viva entirely (Population 3)
-  // is in class both days and completes monday + wednesday normally, with
-  // no examSeg2 need.
+  // viva week, done online during the Dec 11 window. A student who defers
+  // their viva to Dec 11 (Zoom) is in class both days and completes
+  // monday + wednesday normally, with no examSeg2 need.
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
       dateLabel: "Monday, Viva Week",
@@ -586,7 +570,7 @@ const CANVAS = {
       pageUrl: `${COURSE.baseUrl}/indicator-analysis/goldin-pay-gap.html`, aid: "12033",
       storyUrl: "https://www.npr.org/2023/10/10/1197954680/the-indicator-from-planet-money-10-10-2023" },
     { id: "examSeg2",  title: "Indicator Analysis: Does Unemployment Whiplash Mean Recession?",
-      dateLabel: "Exam Period, Segment 2",
+      dateLabel: "Exam Period, online",
       pageUrl: `${COURSE.baseUrl}/indicator-analysis/unemployment-whiplash.html`, aid: "12034",
       storyUrl: "https://www.npr.org/2024/10/04/1203595442/jobs-friday-recession-economy-unemployment" },
   ],

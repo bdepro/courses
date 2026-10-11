@@ -102,7 +102,7 @@
       </div>
       <div class="net-body">
         <p><strong>Check-In 4 always counts</strong>, and if it beats your lowest score from Check-Ins 1, 2, or 3, I replace that score automatically — you don't need to ask. If you miss a Check-In entirely, <strong>CI&nbsp;4 is the makeup</strong>; there are no separate makeup exams. CI&nbsp;4 replaces only one score, so if you miss more than one, the others still count.</p>
-        <p>Can't make it to class on <span id="net-ci4-date"></span>? You can take CI&nbsp;4 instead during the final exam block, <strong id="net-examseg1"></strong> — no sign-up or arrangement needed, just show up.</p>
+        <p>Can't make it to class on <span id="net-ci4-date"></span>? CI&nbsp;4 is offered only that day, in class, so contact me as soon as you know.</p>
         <a class="net-link" id="link-checkins" href="#" target="_top">See the full Check-Ins policy<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
       </div>
     </div>
@@ -148,8 +148,7 @@ var vivaSession = SCHEDULE.sessions.find(function(s) { return s.viva; });
 document.getElementById('net-ci4-date').textContent = vivaSession ? vivaSession.checkInDay : 'the last day of class';
 
 if (SCHEDULE.finalExamPeriod) {
-  document.getElementById('net-examseg1').textContent = SCHEDULE.finalExamPeriod.segment1.dates + ' (Segment 1)';
-  document.getElementById('net-examseg2').textContent = SCHEDULE.finalExamPeriod.segment2.dates + ' (Segment 2)';
+  document.getElementById('net-examseg2').textContent = SCHEDULE.finalExamPeriod.online.dates + ', on Zoom';
   document.getElementById('net-equity').textContent   = SCHEDULE.finalExamPeriod.signupEquityNote || '';
 }
 </script>
