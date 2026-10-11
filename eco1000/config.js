@@ -134,13 +134,13 @@ const SCHEDULE = {
       num: 6, dates: "Oct 5-9", label: "Week 6",
       chapter: null, checkIn: 2, checkInDay: "Wed Oct 7",
       mmeFF: true, vote: false, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 4 & 7 / Wed: Check-In #2 / Fri: MME launch + The Scene (Mind & Voice, written in Eli, in class)",
+      note: "Mon: Review Ch. 4 & 7 / Wed: Check-In #2 / Fri: MME launch",
     },
     {
       num: 7, dates: "Oct 12-13", label: "Week 7",
       chapter: "ch8", checkIn: null, mmeFF: false, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon & Tue only — Fall Break begins Wed",
+      note: "Mon: The Scene (Mind & Voice, written in Eli, in class) / Mon & Tue only — Fall Break begins Wed",
     },
     {
       num: 8, dates: "Oct 14-18", label: "Fall Break",
