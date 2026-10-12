@@ -641,6 +641,7 @@ const CANVAS = {
     { key: "price-controls",  session: 4, title: "Price Controls", fileId: "716054" },
     { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "715762" },
     { key: "gdp-good-life",   session: 5, title: "GDP and a \"Good Life\"", fileId: "715760" },
+    { key: "macro-indicators", session: 7, title: "Taking the Economy's Vital Signs", fileId: "748893" },
     { key: "inflation",       session: 7, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
   ],
 };
