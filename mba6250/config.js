@@ -83,8 +83,7 @@ const SCHEDULE = {
   // Module 10 is a buffer week (no chapter, no problem set) — a
   // dedicated final exam prep week before the course ends. Module 4
   // has no textbook chapter either, but it is not a buffer week: it
-  // carries the IMPLAN_PROJECT regional economic impact analysis
-  // instead of a chapter reading.
+  // carries the IMPLAN_PROJECT training instead of a chapter reading.
   modules: [
     { num: 1,  dates: "Sep 20–26",      due: "September 27, 11:59 p.m.", topic: "Introduction: Incentive Alignment",
       note: "Asynchronous because of travel commitments. Optional Zoom meet-and-greet Wed, Sep 23, 7:00 p.m." },
@@ -160,7 +159,7 @@ const GRADING = {
     { id: "cases",           label: "Case Analyses",                  weight: 35,
       note: "One structured case analysis for each of four selected modules (Modules 3, 5, 7, 9). Applies that module's economic framework to a real managerial decision." },
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
-      note: "In-person, closed-book synthesis exam in KoBC 244, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course, plus the Module 4 IMPLAN Cloud regional economic impact analysis as one of the exam prompts (Module 4 itself carries no separate grade — practice-only week)." },
+      note: "In-person, closed-book synthesis exam in KoBC 244, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course." },
     { id: "problems",        label: "Problem Set",                    weight: 15,
       note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 2, during Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
@@ -265,20 +264,18 @@ const PROBLEM_SET = {
 };
 
 // ================================================================
-//  IMPLAN PROJECT — Module 4's regional economic impact analysis
+//  IMPLAN PROJECT — Module 4's IMPLAN Cloud training
 //  Runs in IMPLAN Cloud under the instructor's academic (Classroom)
 //  license, so there is no separate student cost, unlike the HBP
 //  coursepack. Decided 2026-09-15: Module 4 is a practice-only week —
 //  students learn the tool but submit nothing and are not graded that
-//  week. The actual analysis is completed during the Dec 7 written
-//  final exam, as one of that exam's prompts (see GRADING.components
-//  "finalExam"). No separate Canvas assignment/aid — folded into the
-//  Final Exam grade, not a standalone line.
+//  week. Decided 2026-10-13: IMPLAN is no longer required on the
+//  final exam. No Canvas assignment/aid and no grade weight.
 // ================================================================
 const IMPLAN_PROJECT = {
   module: 4,
   title:  "Regional Economic Impact Analysis (IMPLAN Cloud)",
-  note:   "Practice week only. No submission. This analysis is completed as part of the Final Exam (December 7).",
+  note:   "Practice week only. Nothing is submitted or graded.",
   // Canvas Modules page, where the IMPLAN Cloud training PDFs live
   trainingUrl: `${CANVAS_COURSE}/modules`,
 };
@@ -346,7 +343,7 @@ const CAPSTONE = {
     title:  "Final Exam",
     format: "In-person, closed-book, KoBC 244",
     due:    "December 7, 2026, 7:00–9:00 p.m.",
-    note:   "Case-style prompts spanning the whole course, including the Module 4 IMPLAN Cloud regional economic impact analysis.",
+    note:   "Case-style prompts spanning the whole course.",
     aid:    "35879", // UPDATE each semester (Canvas assignment ID)
   },
 };
