@@ -505,7 +505,7 @@ const CANVAS = {
   mme: [
     { id: 1, session: 3,  dueSession: 6,  introduced: "Fri Sep 18", due: "Wed Oct 7, 11:59 p.m.",   title: "MME 1: When People Cut Back on Instagram, Where Do They Go",  aid: "2591" },
     { id: 2, session: 6,  dueSession: 11, introduced: "Fri Oct 9",  due: "Wed Nov 4, 11:59 p.m.",   title: "MME 2: The Real Price of Being Home Alone",                     aid: "2592" },
-    { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.",  title: "MME 3: Tariffs Are Costly Options",                             aid: "2593" },
+    { id: 3, session: 9,  dueSession: 13, introduced: "Fri Oct 23", due: "Wed Nov 18, 11:59 p.m.",  title: "MME 3: Tariffs Are Costly Options",                             aid: "41797" },
     { id: 4, session: 11, dueSession: 15, introduced: "Fri Nov 6",  due: "Wed Dec 2, 11:59 p.m.",   title: "MME 4: The Economics of the No Tax on Tips Policy",             aid: "2857" },
   ],
 
