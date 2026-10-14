@@ -182,6 +182,7 @@ const FEATURES = {
   materials:     false,  // links to textbook + Perusall access info
   support:       false,
   aiPolicy:      true,
+  libraryGuide:  true,   // Belk Library's MBA 6250 research guide (LIBRARY_GUIDE_URL)
 };
 
 // ================================================================
@@ -236,6 +237,13 @@ const CANVAS_COURSE = `${COURSE.canvasBase}/courses/${COURSE.canvasId}`; // UPDA
 //  canvasId already tracks COURSE.canvasId each semester.
 // ================================================================
 const PERUSALL_GUIDE_URL = `${CANVAS_COURSE}/pages/perusall-discussion-page`;
+
+// ================================================================
+//  LIBRARY GUIDE — "MBA 6250 Resources," a LibGuide built by Ben Spanier,
+//  Elon's business librarian (added 2026-10-14). Tabs: Open Textbooks,
+//  Practice Problems, Books. Evergreen; not tied to canvasId.
+// ================================================================
+const LIBRARY_GUIDE_URL = "https://elon.libguides.com/c.php?g=1559693";
 
 // ================================================================
 //  PROBLEM SET — one to two problems per chapter, curated from the textbook
