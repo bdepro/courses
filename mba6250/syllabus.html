@@ -489,6 +489,7 @@
       <div class="textbook-block" id="syl-coursepack-block" style="margin-top:0.85rem;"></div>
       <div class="textbook-block" id="syl-implan-block" style="margin-top:0.85rem;"></div>
       <div class="textbook-block" id="syl-practice-block" style="margin-top:0.85rem;"></div>
+      <div class="textbook-block" id="syl-recommended-block" style="margin-top:0.85rem;"></div>
     </div>
   </div>
 
@@ -705,6 +706,17 @@ document.getElementById('syl-implan-block').innerHTML =
 document.getElementById('syl-practice-block').innerHTML =
   '<strong>' + OPTIONAL_PRACTICE.title + '</strong>: ' + OPTIONAL_PRACTICE.note +
   ' <a href="' + OPTIONAL_PRACTICE.url + '" target="_blank" rel="noopener">Open the PDF in Canvas</a>.';
+
+// Section 5 — Recommended texts
+document.getElementById('syl-recommended-block').innerHTML =
+  '<strong>Recommended texts (optional)</strong>: ' + RECOMMENDED_INTRO + '<ul style="margin:0.4rem 0 0 1.2rem;">' +
+  RECOMMENDED_TEXTS.map(function(t) {
+    return '<li>' + t.authors + '. <cite>' + t.title + '</cite>. ' +
+      (t.edition ? t.edition + ' ed. ' : '') + t.publisher + ', ' + t.year + '.' +
+      (t.note ? ' ' + t.note : '') +
+      (t.url ? ' <a href="' + t.url + '" target="_blank" rel="noopener">Free online</a>' +
+        (t.license ? ' (' + t.license + ')' : '') + '.' : '') + '</li>';
+  }).join('') + '</ul>';
 
 // Section 6 — Module schedule table
 var schedBody = document.getElementById('syl-sched-body');

@@ -332,6 +332,37 @@ const OPTIONAL_PRACTICE = {
 };
 
 // ================================================================
+//  RECOMMENDED TEXTS — optional further reading. Rendered as one list
+//  in syllabus Section 5; entries with a url are free and get a link.
+//  Add entries here; no HTML changes needed.
+//  Licenses verified 2026-10-14 against each source's own page:
+//   - OpenStax Micro 3e: CC BY-NC-SA 4.0 (book's preface; NOT CC BY,
+//     despite third-party listings). Linking is fine; any handout that
+//     reproduces OpenStax content must carry the "Access for free at
+//     openstax.org/..." line.
+//   - Rittenberg & Tregarthen (2009, Flat World Knowledge / Saylor):
+//     CC BY-NC-SA 3.0 per Saylor's license page. Linked via MIT OCW
+//     14.01SC, which distributes this PDF.
+//   - McCloskey: all rights reserved (Macmillan); the author hosts the
+//     full scan free on her own site. Link only, never re-host in Canvas.
+// ================================================================
+const RECOMMENDED_INTRO = "These books complement Froeb et al. by approaching the same ideas from other angles, and the first three are free. None of them is required, so use whichever one fits the topic you want to take further.";
+
+const RECOMMENDED_TEXTS = [
+  { authors: "David Shapiro, Daniel MacDonald, and Steven A. Greenlaw", title: "Principles of Microeconomics", edition: "3rd", publisher: "OpenStax, Rice University", year: "2022",
+    url: "https://openstax.org/details/books/principles-microeconomics-3e", license: "CC BY-NC-SA 4.0",
+    note: "Principles-level coverage of the core models, free to read online or download as a PDF." },
+  { authors: "Libby Rittenberg and Timothy Tregarthen", title: "Principles of Microeconomics", publisher: "Flat World Knowledge", year: "2009",
+    url: "https://ocw.mit.edu/courses/14-01sc-principles-of-microeconomics-fall-2011/resources/mit14_01scf11_rttext_pdf/", license: "CC BY-NC-SA 3.0",
+    note: "A second principles text with its own examples and applications. MIT used it as the free textbook for its introductory microeconomics course on OpenCourseWare." },
+  { authors: "Deirdre N. McCloskey", title: "The Applied Theory of Price", edition: "2nd", publisher: "Macmillan", year: "1985",
+    url: "https://www.deirdremccloskey.com/docs/price.pdf",
+    note: "Intermediate price theory from the economist who wrote <cite>Economical Writing</cite>, and it shows. McCloskey posts the full book free on her website." },
+  { authors: "Avinash Dixit, Susan Skeath, and David McAdams", title: "Games of Strategy", edition: "5th", publisher: "W. W. Norton", year: "2020",
+    note: "The one book you would need to buy, and the one to pick up if the Module 3 PlayStation and Xbox case leaves you wanting more of the game theory behind strategic pricing." },
+];
+
+// ================================================================
 //  CAPSTONE — FINAL EXAM
 //  Replaces the former Executive Memo. In-person, closed-book written
 //  exam during the university final exam period. Module 10
@@ -377,6 +408,7 @@ const CONFIG = {
   pages:       PAGES,
   cases:       CASES,
   coursepack:  COURSEPACK,
+  recommended: RECOMMENDED_TEXTS,
   capstone:    CAPSTONE,
   problemSet:  PROBLEM_SET,
   implanProject: IMPLAN_PROJECT,
