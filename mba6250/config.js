@@ -95,7 +95,7 @@ const SCHEDULE = {
     { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
-      note: "Due date moved past Thanksgiving break, so this module's work is due after its Monday discussion (Nov 30)." },
+      note: "Due date moved past Thanksgiving break. We'll use the Monday, Nov 30 meeting as a case-writing session for Old Mutual, two days before it's due." },
     { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)" },
   ],
 
