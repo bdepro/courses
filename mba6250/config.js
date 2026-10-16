@@ -68,9 +68,9 @@ const SCHEDULE = {
 
   // Key academic dates — UPDATE each semester
   dates: {
-    orientationBegins:  "August 30, 2026",           // UPDATE
-    classesBegin:       "September 20, 2026",         // UPDATE
-    dropDeadline:       "October 19, 2026",            // UPDATE
+    orientationBegins:  "August 31, 2026",           // UPDATE
+    classesBegin:       "September 21, 2026",         // UPDATE
+    dropDeadline:       "October 20, 2026",            // UPDATE
     thanksgivingBreak:  "November 23–27, 2026",        // UPDATE
     classesEnd:         "December 4, 2026",            // UPDATE
     examsBegin:         "December 7, 2026",            // UPDATE
