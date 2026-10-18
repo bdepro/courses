@@ -152,7 +152,7 @@ const SCHEDULE = {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       chapter: "ch8_ch16", checkIn: null, mmeFF: true, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Ch. 8 cont. / Wed-Fri: Ch. 16 / Fri: Review of the Scene (Mind & Voice, in class)",
+      note: "Mon & Wed: Ch. 8 cont. / Fri: Ch. 16 + federal funds rate / Fri: Review of the Scene (Mind & Voice, in class)",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
@@ -642,7 +642,9 @@ const CANVAS = {
     { key: "gdp-what-counts", session: 5, title: "GDP: What Counts?", fileId: "715762" },
     { key: "gdp-good-life",   session: 5, title: "GDP and a \"Good Life\"", fileId: "715760" },
     { key: "macro-indicators", session: 7, title: "Taking the Economy's Vital Signs", fileId: "748893" },
+    { key: "labor-force",     session: 9, title: "Thinking About the Labor Force Like an Economist", fileId: "765172" },
     { key: "inflation",       session: 9, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
+    { key: "fed-challenge",   session: 9, title: "Thinking Like a Fed Economist: The Elon Fed Challenge", fileId: "765187" },
   ],
 };
 
