@@ -645,7 +645,7 @@ const CANVAS = {
     { key: "labor-force",     session: 9, title: "Thinking About the Labor Force Like an Economist", fileId: "765172" },
     { key: "inflation",       session: 9, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
     { key: "fed-challenge",   session: 9, title: "Thinking Like a Fed Economist: The Elon Fed Challenge", fileId: "765187" },
-    { key: "institutions",    session: 10, title: "Exploring How Institutions Shape Prosperity", fileId: "765210" },
+    { key: "institutions",    session: 10, title: "Exploring How Institutions Shape Prosperity", fileId: "765222" },
   ],
 };
 
