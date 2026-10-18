@@ -158,7 +158,7 @@ const SCHEDULE = {
       num: 10, dates: "Oct 26-30", label: "Week 10",
       chapter: "ch18", checkIn: null, mmeFF: false, vote: false, viva: false,
       break: false, breakType: null,
-      note: null,
+      note: "Mon: Ch. 16 cont. (institutions activity) / Wed-Fri: Ch. 18",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Week 11",
@@ -645,6 +645,7 @@ const CANVAS = {
     { key: "labor-force",     session: 9, title: "Thinking About the Labor Force Like an Economist", fileId: "765172" },
     { key: "inflation",       session: 9, title: "Thinking About Inflation Like an Economist", fileId: "715761" },
     { key: "fed-challenge",   session: 9, title: "Thinking Like a Fed Economist: The Elon Fed Challenge", fileId: "765187" },
+    { key: "institutions",    session: 10, title: "Exploring How Institutions Shape Prosperity", fileId: "765210" },
   ],
 };
 

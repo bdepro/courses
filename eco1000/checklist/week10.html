@@ -140,6 +140,18 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="act-institutions" id="act-institutions">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Monday In-Class Activity: Exploring How Institutions Shape Prosperity</div>
+          <div class="check-desc">We finish Chapter 16 by launching a startup in one of three countries and seeing how the "rules of the game" help or hurt your firm, then connect it to the 2024 Nobel Prize research on why some countries are richer than others. Bring a laptop to class. The activity opens in Canvas, so you'll need to be logged in.</div>
+          <span class="check-tag tag-class">In Class</span>
+          <br><a class="check-link" href="#" id="link-act-institutions" target="_blank" rel="noopener">
+            Open Activity in Canvas <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="ch18-read">
         <div class="check-box"></div>
         <div class="check-content">
@@ -207,7 +219,12 @@ if (puzzle9) {
 }
 if (puzzle10) document.getElementById('ch18-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
 
+const actInst = (CANVAS.activities || []).find(a => a.key === 'institutions');
+// Hide the item until the Canvas file ID is filled in
+if (!actInst || !actInst.url) document.getElementById('act-institutions').style.display = 'none';
+
 const L = {
+  'link-act-institutions': actInst ? actInst.url : '',
   'link-wk10-puzzle9':    puzzle9 ? puzzle9.url : '',
   'link-ch18-read':       ch18 ? ch18.url : '',
   'link-ch18-notes':      ch18 ? ch18.guidedNotesUrl : '',
