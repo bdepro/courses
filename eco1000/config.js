@@ -631,7 +631,7 @@ const CANVAS = {
   exitTicket: { aid: "22854" },
 
   // In-class HTML activities — the files live ONLY in Canvas Files (uploaded
-  // from OneDrive "html activities/" into the Canvas folder "html activity
+  // from OneDrive "ECO 1000\activities\html\" into the Canvas folder "html activity
   // files"), never in this public repo. The site just links into Canvas, so
   // students must be logged in and enrolled. Not collected — no assignment.
   // fileId: Canvas file ID — the number after "preview=" (or /files/NNNN)
