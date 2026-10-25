@@ -152,19 +152,19 @@ const SCHEDULE = {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       chapter: "ch8_ch16", checkIn: null, mmeFF: true, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon & Wed: Ch. 8 cont. / Fri: federal funds rate (Review of the Scene moved to Fri Nov 6)",
+      note: "Mon & Wed: Ch. 8 cont. / Fri: federal funds rate (Review of the Scene moved: introduced Fri Oct 30, take-home, due Fri Nov 6)",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
       chapter: "ch18", checkIn: null, mmeFF: false, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon: Ch. 16 cont. (institutions activity) / Wed-Fri: Ch. 18",
+      note: "Mon: Ch. 16 cont. (institutions activity) / Wed-Fri: Ch. 18 / Fri: Review of the Scene introduced (take-home, due Fri Nov 6)",
     },
     {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapter: null, checkIn: 3, checkInDay: "Wed Nov 4",
       mmeFF: true, vote: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced + Review of the Scene (Mind & Voice, in class; moved from Oct 23). Workplan and Scene Revision are take-home after it.",
+      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced. Review of the Scene (take-home, introduced Fri Oct 30) is due Fri Nov 6; Workplan and Scene Revision are take-home after it.",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
