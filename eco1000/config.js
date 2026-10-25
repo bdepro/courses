@@ -152,7 +152,7 @@ const SCHEDULE = {
       num: 9, dates: "Oct 19-23", label: "Week 9",
       chapter: "ch8_ch16", checkIn: null, mmeFF: true, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Mon & Wed: Ch. 8 cont. / Fri: Ch. 16 + federal funds rate / Fri: Review of the Scene (Mind & Voice, in class)",
+      note: "Mon & Wed: Ch. 8 cont. / Fri: federal funds rate (Review of the Scene moved to Fri Nov 6)",
     },
     {
       num: 10, dates: "Oct 26-30", label: "Week 10",
@@ -164,7 +164,7 @@ const SCHEDULE = {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapter: null, checkIn: 3, checkInDay: "Wed Nov 4",
       mmeFF: true, vote: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced (Mind & Voice's Workplan and Scene Revision are take-home now, not a class day — nothing due here)",
+      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced + Review of the Scene (Mind & Voice, in class; moved from Oct 23). Workplan and Scene Revision are take-home after it.",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
