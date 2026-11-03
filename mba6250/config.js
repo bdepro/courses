@@ -137,16 +137,18 @@ const SCHEDULE = {
 //  named "Perusall Discussion 1"–"8", not chapter-labeled — this
 //  mapping assumes they were built in module order and was confirmed
 //  by the instructor, not inferred from the assignment names.
+//  discussionNum is that Canvas number. It runs one behind the module
+//  number from Module 5 on, because Module 4 (IMPLAN) has no Perusall.
 // ================================================================
 const CHAPTERS = [
-  { key: "ch1",  num: "Ch 1",  title: "Introduction: Incentive Alignment",                          module: 1, quizAid: "",      discussionAid: "17709" },
-  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                             module: 2, quizAid: "17609", discussionAid: "17710" },
-  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                            module: 3, quizAid: "17610", discussionAid: "17711" },
-  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                           module: 5, quizAid: "17611", discussionAid: "17712" },
-  { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6, quizAid: "17612", discussionAid: "17713" },
-  { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7, quizAid: "17613", discussionAid: "17714" },
-  { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8, quizAid: "17614", discussionAid: "17715" },
-  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9, quizAid: "17615", discussionAid: "17717" },
+  { key: "ch1",  num: "Ch 1",  title: "Introduction: Incentive Alignment",                          module: 1, quizAid: "",      discussionAid: "17709", discussionNum: 1 },
+  { key: "ch3",  num: "Ch 3",  title: "Benefits, Costs, and Decisions",                             module: 2, quizAid: "17609", discussionAid: "17710", discussionNum: 2 },
+  { key: "ch15", num: "Ch 15", title: "Strategic Games",                                            module: 3, quizAid: "17610", discussionAid: "17711", discussionNum: 3 },
+  { key: "ch19", num: "Ch 19", title: "The Problem of Adverse Selection",                           module: 5, quizAid: "17611", discussionAid: "17712", discussionNum: 4 },
+  { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6, quizAid: "17612", discussionAid: "17713", discussionNum: 5 },
+  { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7, quizAid: "17613", discussionAid: "17714", discussionNum: 6 },
+  { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8, quizAid: "17614", discussionAid: "17715", discussionNum: 7 },
+  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9, quizAid: "17615", discussionAid: "17717", discussionNum: 8 },
 ];
 
 // ================================================================

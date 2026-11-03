@@ -201,7 +201,7 @@ function buildRow(mod) {
     actionsHtml += chapter.quizUrl
       ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz, Perusall Only</span>';
-    actionsHtml += linkOrNote('discussion', 'Perusall Discussion', chapter.discussionUrl);
+    actionsHtml += linkOrNote('discussion', 'Perusall Discussion ' + chapter.discussionNum, chapter.discussionUrl);
     refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
   } else if (isImplan) {
     refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
