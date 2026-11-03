@@ -199,7 +199,7 @@ function buildRow(mod) {
       refHtml += refLine('case', 'Case: ' + kase.title, kase.url);
     }
     actionsHtml += chapter.quizUrl
-      ? linkOrNote('quiz', 'Take Quiz', chapter.quizUrl)
+      ? linkOrNote('quiz', 'Take ' + chapter.num + ' Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz, Perusall Only</span>';
     actionsHtml += linkOrNote('discussion', 'Perusall Discussion ' + chapter.discussionNum, chapter.discussionUrl);
     refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
