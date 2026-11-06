@@ -173,6 +173,9 @@
           <div class="check-title">Cast your vote on Application Block questions</div>
           <div class="check-desc">Twelve questions are on the ballot. Your class picks six for the Application Block in two weeks.</div>
           <span class="check-tag tag-read">Vote &middot; Poll Opens Wed</span>
+          <br><a class="check-link" href="#" id="link-ci3-vote" target="_blank" rel="noopener">
+            Open the Vote <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
 
@@ -209,6 +212,7 @@ if (mme2) {
 const L = {
   'link-ci3-puzzle':   puzzle10 ? puzzle10.url : '',
   'link-ci3-mme2':     mme2 ? mme2.url : '',
+  'link-ci3-vote':     QUESTIONS.voteProcess.formUrl || '',
 };
 Object.entries(L).forEach(([id, url]) => {
   const el = document.getElementById(id);

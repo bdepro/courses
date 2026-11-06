@@ -377,12 +377,12 @@ const TEXTBOOK = {
 //  QUESTIONS — Application Block Bundle
 //  12 questions presented to students in S11.
 //  Students vote; top 6 become the S12-S13 agenda.
-//  Vote: Canvas poll opens Wed Nov 4 after CI #3.
+//  Vote: Google Form (QUESTIONS.voteProcess.formUrl) opens Wed Nov 4 after CI #3.
 //        Walk-through and close: Fri Nov 6 in class.
 //        Top 6 announced: Fri Nov 6 end of class.
 //  UPDATE: questions each semester based on current events and content
 //
-//  Selection rule (locked — apply by hand when tallying the Canvas poll):
+//  Selection rule (locked — apply by hand when tallying the Google Form):
 //  each of the 5 application chapters is guaranteed its higher-voted
 //  question before the remaining slot(s) go to whichever question is
 //  next-highest overall (including the cross-chapter questions). With
@@ -392,6 +392,7 @@ const TEXTBOOK = {
 // ================================================================
 const QUESTIONS = {
   voteProcess: {
+    formUrl:      "https://forms.gle/DaHRB49tQ9eKnraF9",  // UPDATE each semester
     pollOpens:    "Wednesday Nov 4, after Check-In #3",
     walkThrough:  "Friday Nov 6, in class, opening activity",
     pollCloses:   "Friday Nov 6, end of class",
