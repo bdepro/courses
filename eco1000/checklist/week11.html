@@ -172,7 +172,7 @@
         <div class="check-content">
           <div class="check-title">Cast your vote on Application Block questions</div>
           <div class="check-desc">Twelve questions are on the ballot. Your class picks six for the Application Block in two weeks.</div>
-          <span class="check-tag tag-read">Vote &middot; Poll Opens Wed</span>
+          <span class="check-tag tag-read">Vote &middot; Opens Fri, Closes Sat 11:59 pm</span>
           <br><a class="check-link" href="#" id="link-ci3-vote" target="_blank" rel="noopener">
             Open the Vote <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -201,7 +201,7 @@ const puzzle10 = CANVAS.puzzles.find(p => p.session === 10);
 const mme2     = CANVAS.mme.find(m => m.dueSession === 11);
 
 const dueBannerText = document.getElementById('dueBannerText');
-dueBannerText.innerHTML = `The Chapter 18 puzzle and MME 2 are due Wednesday, the same day as Check-In #3 and the start of the class vote. The vote closes Friday.`;
+dueBannerText.innerHTML = `The Chapter 18 puzzle and MME 2 are due Wednesday, the same day as Check-In #3. The class vote opens Friday after the walk-through and closes Saturday at 11:59 pm.`;
 
 if (puzzle10) document.getElementById('ci3-puzzle-tag').textContent = `Puzzle · Due ${formatPuzzleDue(10)}`;
 if (mme2) {

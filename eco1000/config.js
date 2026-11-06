@@ -164,7 +164,7 @@ const SCHEDULE = {
       num: 11, dates: "Nov 2-6", label: "Week 11",
       chapter: null, checkIn: 3, checkInDay: "Wed Nov 4",
       mmeFF: true, vote: true, viva: false, break: false, breakType: null,
-      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 + Canvas poll opens / Fri: MME launch + question walk-through + top 6 announced. Review of the Scene (take-home, introduced Fri Oct 30) is due Fri Nov 6; Workplan and Scene Revision are take-home after it.",
+      note: "Mon: Review Ch. 8, 16, 18 / Wed: Check-In #3 / Fri: MME launch + question walk-through + vote opens (closes Sat Nov 7, 11:59 pm; top 6 announced Mon Nov 9). Review of the Scene (take-home, introduced Fri Oct 30) is due Fri Nov 6; Workplan and Scene Revision are take-home after it.",
     },
     {
       num: 12, dates: "Nov 9-13", label: "Week 12",
@@ -377,9 +377,9 @@ const TEXTBOOK = {
 //  QUESTIONS — Application Block Bundle
 //  12 questions presented to students in S11.
 //  Students vote; top 6 become the S12-S13 agenda.
-//  Vote: Google Form (QUESTIONS.voteProcess.formUrl) opens Wed Nov 4 after CI #3.
-//        Walk-through and close: Fri Nov 6 in class.
-//        Top 6 announced: Fri Nov 6 end of class.
+//  Vote: Google Form (QUESTIONS.voteProcess.formUrl) opens Fri Nov 6 after the in-class walk-through.
+//        Closes: Sat Nov 7, 11:59 pm.
+//        Top 6 announced: Mon Nov 9.
 //  UPDATE: questions each semester based on current events and content
 //
 //  Selection rule (locked — apply by hand when tallying the Google Form):
@@ -393,10 +393,10 @@ const TEXTBOOK = {
 const QUESTIONS = {
   voteProcess: {
     formUrl:      "https://forms.gle/DaHRB49tQ9eKnraF9",  // UPDATE each semester
-    pollOpens:    "Wednesday Nov 4, after Check-In #3",
+    pollOpens:    "Friday Nov 6, after the in-class walk-through",
     walkThrough:  "Friday Nov 6, in class, opening activity",
-    pollCloses:   "Friday Nov 6, end of class",
-    announced:    "Friday Nov 6, end of class",
+    pollCloses:   "Saturday Nov 7, 11:59 pm",
+    announced:    "Monday Nov 9, start of class",
     bundleSize:   12,
     selectedSize:  6,
     selectionRule: "One question per chapter (the chapter's higher vote count) is guaranteed to advance; the remaining slot goes to the next-highest vote count overall.",
@@ -431,7 +431,7 @@ const QUESTIONS = {
   ],
 
   // Populated after vote — top 6 selected questions
-  // UPDATE: after S11 Friday vote each semester
+  // UPDATE: after the S11 vote closes each semester
   selected: [], // e.g. [1, 4, 6, 8, 9, 11]
 };
 
