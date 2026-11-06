@@ -406,28 +406,28 @@ const QUESTIONS = {
   // chapter: which application chapter(s) this question draws on
   bundle: [
     // Ch. 5 — Difficult Cases for the Market, Role of Government
-    { id: 1,  chapter: "ch5",   question: "" },  // UPDATE
-    { id: 2,  chapter: "ch5",   question: "" },  // UPDATE
+    { id: 1,  chapter: "ch5",   question: "Why does day care cost so much when its teachers earn so little?" },
+    { id: 2,  chapter: "ch5",   question: "When green fights green: who should win, the redwoods or the solar panels?" },
 
     // Ch. 6 — Economics of Political Action
-    { id: 3,  chapter: "ch6",   question: "" },  // UPDATE
-    { id: 4,  chapter: "ch6",   question: "" },  // UPDATE
+    { id: 3,  chapter: "ch6",   question: "North Carolina became a sportsbook. Who's winning?" },
+    { id: 4,  chapter: "ch6",   question: "Data centers are coming to NC. Who pays the electric bill?" },
 
     // Ch. 23 — Price-Searcher Markets
-    { id: 5,  chapter: "ch23",  question: "" },  // UPDATE
-    { id: 6,  chapter: "ch23",  question: "" },  // UPDATE
+    { id: 5,  chapter: "ch23",  question: "Why did a weight-loss shot get cheaper during a \"shortage\"?" },
+    { id: 6,  chapter: "ch23",  question: "Why did cookie shops pop up everywhere, and why are some already closing?" },
 
     // Ch. 26 — Earnings, Labor Markets
-    { id: 7,  chapter: "ch26",  question: "" },  // UPDATE
-    { id: 8,  chapter: "ch26",  question: "" },  // UPDATE
+    { id: 7,  chapter: "ch26",  question: "Should the Phoenix get a paycheck?" },
+    { id: 8,  chapter: "ch26",  question: "Will AI take my first job?" },
 
     // Ch. 28 — Income Inequality and Poverty
-    { id: 9,  chapter: "ch28",  question: "" },  // UPDATE
-    { id: 10, chapter: "ch28",  question: "" },  // UPDATE
+    { id: 9,  chapter: "ch28",  question: "Why would anyone turn down a raise?" },
+    { id: 10, chapter: "ch28",  question: "Is college worth it? What the data says about getting ahead" },
 
     // Cross-chapter — draws on multiple application chapters
-    { id: 11, chapter: "cross", question: "" },  // UPDATE
-    { id: 12, chapter: "cross", question: "" },  // UPDATE
+    { id: 11, chapter: "cross", question: "Ghost of the Mountains: who should pay to keep snow leopards alive?" },
+    { id: 12, chapter: "cross", question: "Why does the same drug cost $43 at one pharmacy and $2,987 at another?" },
   ],
 
   // Populated after vote — top 6 selected questions
