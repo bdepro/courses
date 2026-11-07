@@ -96,9 +96,9 @@ const SCHEDULE = {
       note: "The First Financial case is now due Sunday, Nov 15, 11:59 p.m. The rest of Module 7 stays due Nov 8." },
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest",
       note: "Nov 9 at 7:00 covers memo writing and the practice final instead of a Chapter 22 launch. The Nov 16 workshop works through Chapter 22." },
-    { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
-      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, two days before it's due." },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)",
+    { num: 9,  dates: "Nov 15–21",      due: "December 4, 11:59 p.m.",  topic: "Managing Vertical Relationships",
+      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, four days before it's due." },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 4", topic: "Final Exam Prep Week (exam Dec 7)",
       note: "Nov 30 at 7:00: questions on the practice final, then a wrap-up of the course." },
   ],
 
@@ -166,7 +166,7 @@ const GRADING = {
     { id: "finalExam",       label: "Final Exam",                      weight: 30,
       note: "In-person, closed-book synthesis exam in KoBC 244, December 7, 7:00–9:00 p.m. Case-style prompts spanning the whole course." },
     { id: "problems",        label: "Problem Set",                    weight: 15,
-      note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 2, during Module 10 prep week), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
+      note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 4, the last day of classes), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
       note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
@@ -266,8 +266,8 @@ const LIBRARY_GUIDE_URL = "https://elon.libguides.com/c.php?g=1559693";
 // ================================================================
 const PROBLEM_SET = {
   title: "Semester Problem Set",
-  due:      "December 2, 2026, 11:59 p.m.",
-  dueShort: "Dec 2", // compact form for modules.html row labels — UPDATE alongside `due` each semester
+  due:      "December 4, 2026, 11:59 p.m.",
+  dueShort: "Dec 4", // compact form for modules.html row labels — UPDATE alongside `due` each semester
   aid:   "35875", // UPDATE each semester (Canvas assignment ID)
   // Only these modules have a problem-set entry — not every content module
   // cleared the calculation bar (see course-notes/mba6250/problem-set.html
@@ -314,7 +314,7 @@ const CASES = [
   { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 11",   aid: "35892" },
   { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG", due: "October 25",  aid: "35893" },
   { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 15", aid: "35894" },
-  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "December 2", aid: "35895" },
+  { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "December 4", aid: "35895" },
 ];
 
 // ================================================================
