@@ -201,8 +201,12 @@ function buildRow(mod) {
     actionsHtml += chapter.quizUrl
       ? linkOrNote('quiz', 'Take ' + chapter.num + ' Quiz', chapter.quizUrl)
       : '<span class="mod-none">No Quiz, Perusall Only</span>';
-    actionsHtml += linkOrNote('discussion', 'Perusall Discussion ' + chapter.discussionNum, chapter.discussionUrl);
-    refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
+    if (chapter.discussionAid) {
+      actionsHtml += linkOrNote('discussion', 'Perusall Discussion ' + chapter.discussionNum, chapter.discussionUrl);
+      refHtml += refLine('guide', 'Perusall Discussion Guide', PERUSALL_GUIDE_URL);
+    } else {
+      actionsHtml += '<span class="mod-none">No Perusall This Module</span>';
+    }
   } else if (isImplan) {
     refHtml += '<span class="mod-ref unlinked">' + IMPLAN_PROJECT.note + '</span>';
     actionsHtml += linkOrNote('discussion', 'Training Materials', IMPLAN_PROJECT.trainingUrl);

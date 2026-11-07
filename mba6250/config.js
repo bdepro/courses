@@ -97,7 +97,7 @@ const SCHEDULE = {
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest",
       note: "Nov 9 at 7:00 covers memo writing and the practice final instead of a Chapter 22 launch. The Nov 16 workshop works through Chapter 22." },
     { num: 9,  dates: "Nov 15–21",      due: "December 4, 11:59 p.m.",  topic: "Managing Vertical Relationships",
-      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, four days before it's due." },
+      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, four days before it's due. Module 9 has no Perusall discussion." },
     { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 4", topic: "Final Exam Prep Week (exam Dec 7)",
       note: "Nov 30 at 7:00: questions on the practice final, then a wrap-up of the course." },
   ],
@@ -151,7 +151,7 @@ const CHAPTERS = [
   { key: "ch20", num: "Ch 20", title: "The Problem of Moral Hazard",                                module: 6, quizAid: "17612", discussionAid: "17713", discussionNum: 5 },
   { key: "ch21", num: "Ch 21", title: "Getting Employees to Work in the Firm's Best Interest",      module: 7, quizAid: "17613", discussionAid: "17714", discussionNum: 6 },
   { key: "ch22", num: "Ch 22", title: "Getting Divisions to Work in the Firm's Best Interest",      module: 8, quizAid: "17614", discussionAid: "17715", discussionNum: 7 },
-  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9, quizAid: "17615", discussionAid: "17717", discussionNum: 8 },
+  { key: "ch23", num: "Ch 23", title: "Managing Vertical Relationships",                            module: 9, quizAid: "17615", discussionAid: "",      discussionNum: 8 },  // Perusall Discussion 8 (17717) dropped 2026-11-07
 ];
 
 // ================================================================
@@ -168,7 +168,7 @@ const GRADING = {
     { id: "problems",        label: "Problem Set",                    weight: 15,
       note: "One problem set spanning the semester, eight problems across five chapters (Ch 3, 15, 19, 20, 22), selected for their calculation focus. Single due date (Dec 4, the last day of classes), recommended pacing matches the weekly module schedule. Submitted with work shown; graded by hand, not auto-graded." },
     { id: "discussions",     label: "Perusall Discussions",            weight: 12,
-      note: "Weekly annotation and discussion activity in Perusall, every module. Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
+      note: "Weekly annotation and discussion activity in Perusall, seven discussions (every content module except Module 9). Applies that module's framework to a short scenario, with a required substantive reply to a classmate." },
     { id: "quizzes",         label: "Formative Quizzes",               weight: 8,
       note: "Multiple-choice self-check quiz on 7 of 8 content modules (Module 1 has no bank — Perusall only), drawn from a curated item bank. Graded on whether the best of three attempts clears an 80% mastery threshold — full credit or zero, no partial credit between." },
   ],
