@@ -97,7 +97,7 @@ const SCHEDULE = {
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest",
       note: "Nov 9 at 7:00 covers memo writing and the practice final instead of a Chapter 22 launch. The Nov 16 workshop works through Chapter 22." },
     { num: 9,  dates: "Nov 15–21",      due: "December 4, 11:59 p.m.",  topic: "Managing Vertical Relationships",
-      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, four days before it's due. Module 9 has no Perusall discussion." },
+      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, four days before it's due. Module 9 has no Perusall discussion, so class on Nov 16 ends at 8:00." },
     { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 4", topic: "Final Exam Prep Week (exam Dec 7)",
       note: "Nov 30 at 7:00: questions on the practice final, then a wrap-up of the course." },
   ],
