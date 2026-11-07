@@ -92,7 +92,8 @@ const SCHEDULE = {
     { num: 4,  dates: "Oct 11–17",      due: "No submission, practice week", topic: "IMPLAN Cloud Training" },
     { num: 5,  dates: "Oct 18–24",      due: "October 25, 11:59 p.m.",   topic: "The Problem of Adverse Selection" },
     { num: 6,  dates: "Oct 25–31",      due: "November 1, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
-    { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest" },
+    { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest",
+      note: "The First Financial case is now due Sunday, Nov 15, 11:59 p.m. The rest of Module 7 stays due Nov 8." },
     { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
     { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
       note: "Due date moved past Thanksgiving break. We'll use the Monday, Nov 30 meeting as a case-writing session for Old Mutual, two days before it's due." },
@@ -310,7 +311,7 @@ const IMPLAN_PROJECT = {
 const CASES = [
   { module: 3, title: "Pricing Games: Sony PlayStation and Microsoft Xbox",                       hbpProduct: "W88C82-PDF-ENG",                    due: "October 11",   aid: "35892" },
   { module: 5, title: "Building Trust at Scale: Airbnb's Fight Against Adverse Selection",         hbpProduct: "UV9193-PDF-ENG", due: "October 25",  aid: "35893" },
-  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 8",  aid: "35894" },
+  { module: 7, title: "First Financial Group: Designing Short-Term Employee Incentive Programs",   hbpProduct: "W20482-PDF-ENG",                    due: "November 15", aid: "35894" },
   { module: 9, title: "Old Mutual Funeral Services: Vertical Integration and the Battle for Bereavement", hbpProduct: "W44640-PDF-ENG",             due: "December 2", aid: "35895" },
 ];
 
