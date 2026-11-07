@@ -94,10 +94,12 @@ const SCHEDULE = {
     { num: 6,  dates: "Oct 25–31",      due: "November 1, 11:59 p.m.",   topic: "The Problem of Moral Hazard" },
     { num: 7,  dates: "Nov 1–7",        due: "November 8, 11:59 p.m.",   topic: "Getting Employees to Work in the Firm's Best Interest",
       note: "The First Financial case is now due Sunday, Nov 15, 11:59 p.m. The rest of Module 7 stays due Nov 8." },
-    { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest" },
+    { num: 8,  dates: "Nov 8–14",       due: "November 15, 11:59 p.m.",  topic: "Getting Divisions to Work in the Firm's Best Interest",
+      note: "Nov 9 at 7:00 covers memo writing and the practice final instead of a Chapter 22 launch. The Nov 16 workshop works through Chapter 22." },
     { num: 9,  dates: "Nov 15–21",      due: "December 2, 11:59 p.m.",  topic: "Managing Vertical Relationships",
-      note: "Due date moved past Thanksgiving break. We'll use the Monday, Nov 30 meeting as a case-writing session for Old Mutual, two days before it's due." },
-    { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)" },
+      note: "Due date moved past Thanksgiving break. Chapter 23 runs through the Old Mutual case, which we start Nov 16. Nov 30 at 6:00 is a case-writing session, two days before it's due." },
+    { num: 10, dates: "Nov 29–Dec 4",   due: "Problem Set and Module 9 work due December 2", topic: "Final Exam Prep Week (exam Dec 7)",
+      note: "Nov 30 at 7:00: questions on the practice final, then a wrap-up of the course." },
   ],
 
   // Module start dates — drive the "Current" highlight in modules.html.
