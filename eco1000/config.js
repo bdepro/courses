@@ -277,11 +277,13 @@ const CHAPTERS = {
   ],
 
   // Application reference chapters — student-selected questions in S12-S13
+  // Ch. 5, 6, and 23 share the Week 12 guided notes (5.4–5.8, 6.6, 23.4) and one
+  // bonus submission assignment (9160), same terms as the core notesAid bonus.
   // Not directly tested; students use them as analytical lenses
   application: [
-    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", moduleItemId: "317513" },
-    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           moduleItemId: "317514" },
-    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              moduleItemId: "317519" },
+    { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", moduleItemId: "317513", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
+    { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           moduleItemId: "317514", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
+    { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              moduleItemId: "317519", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
     { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  moduleItemId: "317520" },
     { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               moduleItemId: "317521" },
   ],
@@ -747,6 +749,7 @@ const MODULE_ITEM_URL = moduleItemId =>
 // Guided-notes submission link — one per core chapter (1:1, no grouping
 // needed since each chapter has its own guided-notes document).
 CHAPTERS.core.forEach(item => { item.notesSubmitUrl = ASSIGNMENT_URL(item.notesAid); });
+CHAPTERS.application.forEach(item => { if (item.notesAid) item.notesSubmitUrl = ASSIGNMENT_URL(item.notesAid); });
 
 // In-class activities — .url opens the activity file in Canvas.
 CANVAS.activities.forEach(item => { item.url = FILE_URL(item.fileId); });

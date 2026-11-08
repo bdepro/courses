@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECO 1000 Guided Notes · Week 12: When Markets Struggle</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Submit button ── */
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+.submit-btn.inactive {
+  background: var(--mid);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Week 12: When Markets Struggle, and When Government Does Too</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<div class="connection-note">Readings: Gwartney 5.4–5.8, 6.6, and 23.4. Monday's class (day care) uses Section I, Wednesday's (snow leopards) Section II, and Friday's (drug pricing) Section III. Section IV runs through all three.</div>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Predict whether a market produces too much or too little when external costs, external benefits, or public goods are present, and explain why transaction costs can block a private fix.</li>
+    <li>Analyze how poor information and lack of competition let prices stay high, and explain why low entry barriers (a contestable market) push them down.</li>
+    <li>Evaluate a proposed government fix using the special-interest effect, rational ignorance, shortsightedness, and rent-seeking, and explain why market failure doesn't guarantee that government will do better.</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Term</th>
+        <th style="width:53%" class="fill-col">Complete the definition</th>
+        <th style="width:25%" class="fill-col">Your example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">External cost</td>
+        <td>A harm that falls on people <span class="blank"></span> the deal, without their consent, so supply <span class="blank"></span> the true cost.</td>
+        <td><span class="example-prompt">A cost someone else's choice puts on you:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">External benefit</td>
+        <td>A gain that goes to people who <span class="blank"></span> part of the deal, so demand <span class="blank"></span> the true value.</td>
+        <td><span class="example-prompt">A purchase of yours that helps others:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Transaction costs</td>
+        <td>The time, effort, and money it takes to <span class="blank"></span> and enforce a deal, which rise with the <span class="blank"></span> of parties.</td>
+        <td><span class="example-prompt">A deal that fell through for this reason:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Public good</td>
+        <td>A good that's jointly consumed and <span class="blank"></span>: you can't keep people who don't <span class="blank"></span> from enjoying it.</td>
+        <td><span class="example-prompt">Something you enjoy but never paid for:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Free rider</td>
+        <td>A person who gets the benefit of a good without helping pay its <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A time you free-rode (be honest):</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Poor information</td>
+        <td>Buyers can't judge quality before they buy, most often for goods that are bought <span class="blank"></span> or whose harmful effects are hard to <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A purchase you couldn't judge in advance:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Lack of competition</td>
+        <td>When there are few sellers, they can gain by <span class="blank"></span> output and raising <span class="blank"></span>.</td>
+        <td><span class="example-prompt">A market where you have few choices:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Contestable market</td>
+        <td>A market where entry and exit costs are <span class="blank"></span> and there are no <span class="blank"></span> barriers to entry.</td>
+        <td><span class="example-prompt">A market where a new seller could enter quickly:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Market failure</td>
+        <td>When markets fail to reach ideal economic <span class="blank"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Government failure</td>
+        <td>When there's reason to expect political decisions will <span class="blank"></span> reach ideal efficiency either.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Rational ignorance effect</td>
+        <td>Most voters don't learn about an issue because their vote is unlikely to be <span class="blank"></span>.</td>
+        <td><span class="example-prompt">An issue you've chosen not to research:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Special-interest effect</td>
+        <td>A policy gives large benefits to a <span class="blank"></span> group and spreads small costs over <span class="blank"></span> voters.</td>
+        <td><span class="example-prompt">A policy that fits this pattern:</span><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Shortsightedness effect</td>
+        <td>The political process favors clear benefits <span class="blank"></span> and costs that are hard to see in the <span class="blank"></span>.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="row-label">Rent-seeking</td>
+        <td>Efforts to change public policy so it <span class="blank"></span> income to yourself, instead of producing more.</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">External Benefits: Why the Market Produces Too Little (Monday, 5.4)</div>
+  <div class="connection-note">In Chapters 3 and 4, the market's equilibrium was efficient: the price told buyers and sellers everything about benefits and costs. This week asks what happens when it doesn't. External effects <strong>challenge</strong> that result because: <span class="blank-full"></span></div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%"></th>
+        <th style="width:39%" class="fill-col">External cost</th>
+        <th style="width:39%" class="fill-col">External benefit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Who's left out of the deal?</td>
+        <td>People <span class="blank"></span> by it</td>
+        <td>People <span class="blank"></span> by it</td>
+      </tr>
+      <tr>
+        <td class="row-label">Which curve misses something?</td>
+        <td><span class="blank"></span> understates the true cost</td>
+        <td><span class="blank"></span> understates the true value</td>
+      </tr>
+      <tr>
+        <td class="row-label">Market output compared with the efficient level</td>
+        <td>Too <span class="blank"></span></td>
+        <td>Too <span class="blank"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A North Carolina example</td>
+        <td>Odor from large hog farms in Duplin County</td>
+        <td>A free coding bootcamp that trains workers other companies hire</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">You're the operations director at a Raleigh software company. You're deciding whether to pay for a coding bootcamp open to anyone in the Triangle. Many graduates will go to work for your rivals. Predict: will your company spend as much on training as would be efficient? Why or why not?</td>
+        <td class="cornell-notes-col">Your company counts only the benefit to <span class="blank"></span>. The benefit to <span class="blank"></span> isn't counted. So the market supplies too <span class="blank"></span> training.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Using that same bootcamp, explain why the price of a seat doesn't tell buyers and sellers the full value of the training.</td>
+        <td class="cornell-notes-col">The price reflects what <span class="blank"></span> will pay. It leaves out <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Defend or refute: "If something is valuable, the market will produce enough of it." What does the bootcamp example add to your answer?</td>
+        <td class="cornell-notes-col"><span class="blank-full"></span></td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Use one test, how close each option gets to the efficient amount of training, to compare two ways to fund the bootcamp. In the solo plan, your company pays for it alone. In the shared plan, ten Triangle tech companies split the cost. Which is better, and what could make the shared plan fall apart?</td>
+        <td class="cornell-notes-col">The <span class="blank"></span> plan, because more of the benefit is now counted by <span class="blank"></span>. It could fall apart if one company <span class="blank"></span>, or if the deal costs too much to <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">A golf course developer builds homes around the course and charges more for lots with fairway views. How does this capture a benefit that would otherwise spill over to neighbors?</td>
+        <td class="cornell-notes-col">Building the homes lets the developer collect the <span class="blank"></span>. A project that wouldn't pay alone can become <span class="blank"></span>.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Record Monday's spillover (who benefits without paying?). <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — External Benefits</div>
+  <div class="graph-draw-area"></div>
+  Market for <span class="blank-full"></span><br>
+  Label axes: Price ($ per <span class="blank"></span>) | Quantity of <span class="blank"></span><br>
+  Draw: Supply, Demand (buyers' own benefit), and a second demand line that adds the benefit to others<br>
+  Market quantity: where <span class="blank"></span> meets <span class="blank"></span><br>
+  Efficient quantity: where <span class="blank"></span> meets <span class="blank"></span><br>
+  Shade the units the market leaves out: <span class="blank"></span>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">Transaction Costs and Public Goods (Wednesday, 5.5–5.6)</div>
+  <div class="connection-note">Section I showed that the market leaves out benefits and costs that fall on other people. A private deal could fix that, but only if the deal is cheap enough to make. The question here: what makes it too costly? <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Hundreds of families live near large hog farms in Duplin County. Why can't the families and the farms simply bargain over the odor, the way two neighbors might settle a dispute over a fence?</td>
+        <td class="cornell-notes-col">With many parties, transaction costs are <span class="blank"></span>: finding everyone, agreeing on terms, and <span class="blank"></span> the deal.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Predict: if only two families lived near one farm, how would the odds of a private deal change? Explain using transaction costs.</td>
+        <td class="cornell-notes-col">Fewer parties → <span class="blank"></span> transaction costs → a deal is <span class="blank"></span> likely.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're advising a private group trying to solve a spillover problem. Name one "creative arrangement" that lowers transaction costs, and explain how it works.</td>
+        <td class="cornell-notes-col"><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="prompt-block">
+    <div class="prompt-label">Is it a public good? Test both traits</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Good</th>
+        <th style="width:26%" class="fill-col">Jointly consumed? (my use doesn't reduce yours)</th>
+        <th style="width:26%" class="fill-col">Can nonpayers be excluded?</th>
+        <th style="width:26%" class="fill-col">Public good?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">A National Weather Service hurricane warning</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A Fourth of July fireworks show over a city</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A seat in a public high school classroom</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Charlotte's I-77 express toll lanes</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A Netflix stream</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+    <p>Which row is the trap, and why? (Hint: who <em>provides</em> a good doesn't decide whether it's a public good.)</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">Free riding — you're the development director at WUNC</div>
+    <p>WUNC, North Carolina's listener-supported public radio station, broadcasts to anyone with a radio. Most listeners never donate.</p>
+    <p>Explain why listeners who value the station still don't give:</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <p>What has public radio done to collect money anyway, and which trait of a public good does each method get around?</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Record Wednesday's arrangement that made protecting the animal pay off for the people living beside it. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Poor Information, Lack of Competition, and Contestable Markets (Friday, 5.7 and 23.4)</div>
+  <div class="connection-note">Sections I and II were about benefits and costs the price leaves out. Section III is about prices buyers can't see or can't escape. Both are reasons the invisible hand can fail, but the fixes differ because: <span class="blank-full"></span></div>
+  <div class="prompt-block">
+    <p><strong>When is poor information a problem?</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Purchase</th>
+        <th style="width:19%" class="fill-col">Bought often?</th>
+        <th style="width:19%" class="fill-col">Easy to judge before you buy?</th>
+        <th style="width:19%" class="fill-col">Problem likely?</th>
+        <th style="width:19%" class="fill-col">How the market helps (if it does)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Groceries</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A used car</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td>Vehicle history reports such as CarFax</td>
+      </tr>
+      <tr>
+        <td class="row-label">A roof repair</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">A new prescription drug's long-run side effects</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+    <p>Information as a profit opportunity: why would a company like CarFax make money by solving buyers' information problem?</p>
+    <span class="write-lines"></span>
+  </div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">Lack of competition: a market has only a few sellers. Predict what they gain by producing less, and who loses.</td>
+        <td class="cornell-notes-col">Sellers gain by restricting <span class="blank"></span> and raising <span class="blank"></span>. Too <span class="blank"></span> units are produced.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Airline studies (Goolsbee and Syverson, 2008) found that airlines cut fares on a route as soon as Southwest looked likely to enter it, before it flew a single flight there. Explain using contestable markets.</td>
+        <td class="cornell-notes-col">The <span class="blank"></span> of entry disciplines prices, not just actual entry. That works only when entry costs are <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">When ride-hailing apps entered cities that capped the number of taxi licenses, the price of a taxi license fell sharply. What does that fall tell you about what the license cap had been worth?</td>
+        <td class="cornell-notes-col">A license was valuable because the cap was a <span class="blank"></span> barrier. Once rivals could enter, that protection <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">You're advising a city council worried that one company runs every shuttle between downtown and the airport. Before you call it a monopoly problem, what would you check about entry? Name two barriers and what removing each would do.</td>
+        <td class="cornell-notes-col">Barrier 1: <span class="blank-full"></span> Barrier 2: <span class="blank-full"></span> Even one seller can face competition if <span class="blank"></span>.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Record Friday's two missing pieces, what buyers couldn't see and why they couldn't walk away. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── GRAPH WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — The Threat of Entry</div>
+  <div class="graph-draw-area"></div>
+  Fare on one route over time<br>
+  Horizontal axis: time | Vertical axis: Price ($ per ticket)<br>
+  Mark the date a rival announces it will enter: <span class="blank"></span><br>
+  Mark the date the rival's first flight leaves: <span class="blank"></span><br>
+  When does the price fall, and why then? <span class="blank"></span>
+</div>
+
+<!-- ── SECTION IV ── -->
+<div class="section-block">
+  <div class="section-label">Section IV &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Government Can Fail Too (all week, 5.8 and 6.6)</div>
+  <div class="connection-note">Each section so far found a reason markets fall short. It's tempting to conclude "so government should fix it." Chapter 5's warning is that political action is just another way of organizing activity, and it has its own failures, because: <span class="blank-full"></span></div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Effect</th>
+        <th style="width:26%" class="fill-col">What drives it</th>
+        <th style="width:26%" class="fill-col">A North Carolina or U.S. example</th>
+        <th style="width:26%" class="fill-col">What it does to the fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Rational ignorance</td>
+        <td>One vote rarely decides an election, so learning the issue doesn't <span class="blank"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Special-interest effect</td>
+        <td>Benefits <span class="blank"></span> on a few; costs <span class="blank"></span> across many</td>
+        <td>North Carolina law generally bars carmakers from selling new cars directly to buyers. Sales go through licensed dealers, with limited exceptions.</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Shortsightedness effect</td>
+        <td>Benefits now are easy to see; costs <span class="blank"></span> are not</td>
+        <td>A legislature can fund a new highway interchange today or bridge maintenance that prevents a failure years from now.</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">Rent-seeking</td>
+        <td>Resources go to winning favors instead of <span class="blank"></span> more</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+    <thead>
+      <tr>
+        <th class="cornell-cue-col">Questions</th>
+        <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cornell-cue-col">In the car-sales example, who has a strong reason to lobby, and who has little reason to show up? Analyze why the law can last even if most buyers would gain from repealing it.</td>
+        <td class="cornell-notes-col">Dealers each gain <span class="blank"></span>; buyers each lose <span class="blank"></span> and stay rationally <span class="blank"></span>.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">When Congress capped the fee big banks earn each time a shopper swipes a debit card, many of those banks cut back on free checking accounts. Predict what happens when a rule closes one way to earn money but not others.</td>
+        <td class="cornell-notes-col">The income moves to <span class="blank"></span>. Buyers may not end up paying <span class="blank"></span> in total.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Why might a government agency keep running a program at high cost, when a private company in the same spot would cut costs or close?</td>
+        <td class="cornell-notes-col">No <span class="blank"></span> motive to keep costs low, and no <span class="blank"></span> process to weed out inefficient producers.</td>
+      </tr>
+      <tr>
+        <td class="cornell-cue-col">Evaluate: "Market failure is present, so government action will improve efficiency." What does the claim leave out?</td>
+        <td class="cornell-notes-col"><span class="blank-full"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Pick one day this week and record where the government fix fell short, and which effect above best explains it. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">All Week</div>
+  <div class="section-header">Pitfalls to Avoid</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Pitfall</th>
+        <th style="width:39%" class="fill-col">The error</th>
+        <th style="width:39%" class="fill-col">How to avoid it</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">"Government provides it, so it's a public good"</td>
+        <td>Judging by who supplies a good instead of by its two traits</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"People who don't pay must not value it"</td>
+        <td>Treating free riding as a lack of interest instead of a response to nonexcludability</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"The buyer's own gain is the spillover"</td>
+        <td>Mixing up what the buyer gets with what people outside the deal get</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Transaction costs are the damage itself"</td>
+        <td>Confusing the cost of the harm with the cost of arranging a deal about it</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"A higher price means a better product"</td>
+        <td>Ignoring that buyers may not see prices or quality before they buy</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"One seller means no competition"</td>
+        <td>Forgetting that easy entry lets potential rivals discipline a lone seller</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Once the rule passes, the problem is solved"</td>
+        <td>Stopping at the rule's direct effect instead of asking where the money goes next</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+      <tr>
+        <td class="row-label">"Market failure means government will do better"</td>
+        <td>Comparing a real market to an ideal government instead of to a real one</td>
+        <td><span class="blank-full blank-full-tall"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column in Sections I–IV. Use only your Questions.</p>
+  <ul>
+    <li>Can you explain, out loud, why a market with an external benefit produces too little, and point to the curve that misses something?</li>
+    <li>Can you test any good for both public-good traits without looking?</li>
+    <li>Can you explain why the <em>threat</em> of entry can lower prices before any new seller arrives?</li>
+    <li>Can you name the four reasons political decisions can miss the efficient result, and give an example of one?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item"><em>Complete this after Friday's class, before you close your notes.</em></div>
+  <div class="summary-item">The idea that connects all three applications this week is: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Policy Analyst, North Carolina General Assembly</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst for the North Carolina General Assembly. A legislator proposes paying farmers to keep strips of forest along rivers, which filter runoff before it reaches the water that towns downstream drink.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. Which kind of external effect does a forest strip create, and why won't farmers keep enough of them on their own?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. Why can't the downstream towns and hundreds of farmers just strike their own deal?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Advise the legislator: name one way this program could fail even though the market failure is real, using one effect from Section IV. Defend your answer.</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── SUBMIT YOUR NOTES ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Notes</div>
+  <div class="connection-note">Submitting your completed notes by Wed, Nov 18, is optional and worth 2 points toward this week's Puzzle score (1.6 points if submitted within one week late). Skipping it costs you nothing.</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/1397/assignments/9160" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column in Sections I–IV. Quiz yourself out loud using the Questions. Repeat daily until the quiz.</p>
+  <p class="next-lecture">Next week: three more applications you voted for.</p>
+</div>
+
+</body>
+</html>
