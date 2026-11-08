@@ -138,6 +138,21 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="app12-notes">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Week 12 Guided Notes</div>
+          <div class="check-desc">One set of notes for all three applications this week (Ch. 5, 6, and 23). Fill in each section on its class day. Submitting them through Canvas by Wednesday, Nov 18, is optional, but it adds a small bonus to your Puzzle score.</div>
+          <span class="check-tag tag-submit">Optional &middot; Bonus</span>
+          <br><a class="check-link" href="#" id="link-app12-notes" target="_blank" rel="noopener">
+            Open Guided Notes <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-app12-notes-submit" target="_blank" rel="noopener">
+            Submit for Bonus Credit <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="app12-puzzle">
         <div class="check-box"></div>
         <div class="check-content">
@@ -169,6 +184,7 @@ document.getElementById('weekMeta').textContent = session12 ? session12.dates : 
 
 const puzzle12 = CANVAS.puzzles.find(p => p.session === 12);
 const appChapters = CHAPTERS.application.map(c => c.num).join(', ');
+const notes12 = CHAPTERS.application.find(c => c.key === 'ch5');
 
 document.getElementById('app12-questions-desc').textContent =
   `These come from the top 6 your class voted on after Check-In #3. Reference chapters: ${appChapters}.`;
@@ -182,6 +198,8 @@ if (puzzle12) {
 }
 
 const L = {
+  'link-app12-notes':        notes12 ? notes12.guidedNotesUrl : '',
+  'link-app12-notes-submit': notes12 ? notes12.notesSubmitUrl : '',
   'link-app12-puzzle': puzzle12 ? puzzle12.url : '',
 };
 Object.entries(L).forEach(([id, url]) => {
