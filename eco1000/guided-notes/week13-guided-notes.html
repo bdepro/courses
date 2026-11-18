@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECO 1000 Guided Notes · Week 13: AI, College, and Testing the Argument</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #1a1a1a;
+  --mid:       #888888;
+  --warm-gray: #f2f0ed;
+  --fill-bg:   #d8d8d8;
+  --text:      #1a1a1a;
+  --muted:     #666666;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10.5pt;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text);
+  background: #fff;
+  max-width: 7.5in;
+  margin: 0 auto;
+  padding: 0.75in 0.75in 0.75in 1in;
+}
+
+/* ── Print button ── */
+.print-btn {
+  float: right;
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  padding: 5pt 13pt;
+  cursor: pointer;
+  margin-top: 2pt;
+}
+.print-btn:hover { background: #333; }
+
+/* ── Submit button ── */
+.submit-btn {
+  display: inline-block;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 7pt 16pt;
+  border-radius: 3px;
+}
+.submit-btn:hover { background: #333; }
+.submit-btn.inactive {
+  background: var(--mid);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ── Header ── */
+.doc-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8pt;
+  margin-bottom: 20pt;
+  overflow: hidden;
+}
+.course-label {
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 3pt;
+}
+.chapter-title {
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10pt;
+}
+.name-row {
+  font-size: 9.5pt;
+  font-weight: 400;
+  display: flex;
+  gap: 32pt;
+  flex-wrap: wrap;
+}
+.name-field {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  min-width: 140pt;
+}
+
+/* ── Learning targets ── */
+.targets-block {
+  background: var(--warm-gray);
+  border-left: 4px solid var(--mid);
+  padding: 8pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.targets-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 5pt;
+}
+.targets-block ol {
+  padding-left: 18pt;
+  font-size: 10pt;
+  font-weight: 400;
+}
+.targets-block li { margin-bottom: 3pt; }
+
+/* ── Section blocks ── */
+.section-block { margin-bottom: 26pt; }
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 2pt;
+}
+.section-header {
+  font-size: 11pt;
+  font-weight: 700;
+  background: var(--ink);
+  color: #fff;
+  padding: 5pt 10pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.connection-note {
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 300;
+  border-left: 3px solid var(--mid);
+  background: #f5f5f5;
+  padding: 5pt 8pt;
+  margin-bottom: 10pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Learning target tag ── */
+.lt-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--warm-gray);
+  padding: 1pt 5pt;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Key Terms example prompt ── */
+.example-prompt {
+  font-size: 8.5pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3pt;
+}
+
+/* ── Cue-column instruction ── */
+.cue-instruction {
+  font-size: 8.5pt;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+
+/* ── Fill blanks ── */
+.blank {
+  border-bottom: 1.5px solid var(--ink);
+  display: inline-block;
+  min-width: 90px;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.04);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+.blank-sm  { min-width: 55px; }
+.blank-lg  { min-width: 130px; }
+.blank-xl  { min-width: 190px; }
+.blank-full {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  margin: 4pt 0;
+  min-height: 22pt;
+}
+.blank-full-tall {
+  min-height: 28pt;
+}
+.write-lines {
+  border-bottom: 1px solid #bbb;
+  min-height: 65pt;
+  margin-top: 5pt;
+  display: block;
+}
+.write-lines-lg {
+  border-bottom: 1px solid #bbb;
+  min-height: 90pt;
+  margin-top: 5pt;
+  display: block;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 12pt;
+}
+th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--warm-gray);
+  color: var(--text);
+  padding: 5pt 8pt;
+  border: 1px solid #ccc;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+td {
+  padding: 6pt 8pt;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td {
+  background: #f5f5f5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.row-label {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+.num-cell {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  width: 26pt;
+}
+
+/* ── Cornell two-column ── */
+.cornell-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+.cornell-table td,
+.cornell-table th {
+  border: 1px solid #ccc;
+  padding: 8pt 10pt;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.cornell-table th {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: var(--warm-gray);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-cue-col {
+  width: 30%;
+  border-right: 2px solid var(--mid) !important;
+  font-size: 9pt;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-notes-col {
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.cornell-table thead .cornell-notes-col,
+th.fill-col {
+  background: var(--fill-bg);
+  color: var(--text);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-table tbody .cornell-notes-col {
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Cornell section summary ── */
+.cornell-summary {
+  border: 1px solid #ccc;
+  border-top: 2px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 10pt;
+  margin-top: 0;
+  margin-bottom: 12pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cornell-summary-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Prompt / synthesis blocks ── */
+.prompt-block {
+  border-left: 4px solid var(--mid);
+  background: #f5f5f5;
+  padding: 8pt 12pt;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.prompt-label {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 4pt;
+}
+
+/* ── Self-test ── */
+.selftest-block {
+  border-top: 2px solid var(--mid);
+  padding-top: 10pt;
+  margin-bottom: 22pt;
+}
+.selftest-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 6pt;
+}
+.selftest-block ul {
+  padding-left: 18pt;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+.selftest-block li { margin-bottom: 3pt; }
+.selftest-note {
+  font-size: 9pt;
+  font-weight: 400;
+  margin-top: 6pt;
+  color: var(--muted);
+}
+
+/* ── Summary box ── */
+.summary-block {
+  background: var(--warm-gray);
+  border-top: 2px solid var(--mid);
+  padding: 10pt 12pt;
+  margin-bottom: 22pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.summary-label {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.summary-item {
+  font-size: 9.5pt;
+  font-weight: 400;
+  margin-bottom: 10pt;
+}
+
+/* ── Footer ── */
+.doc-footer {
+  border-top: 2px solid var(--ink);
+  padding-top: 10pt;
+  margin-top: 28pt;
+}
+.submit-line {
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.study-tip {
+  font-size: 9pt;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+.next-lecture {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 8pt;
+  border-left: 3px solid var(--mid);
+  padding-left: 8pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Graph workspace ── */
+.graph-box {
+  border: 1.5px dashed var(--mid);
+  padding: 14pt;
+  margin-bottom: 22pt;
+  font-size: 9.5pt;
+  line-height: 2;
+}
+.graph-box .graph-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 8pt;
+}
+.graph-draw-area {
+  border: 1px solid #ccc;
+  min-height: 140pt;
+  margin-bottom: 8pt;
+  background: #fafafa;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Print ── */
+@media print {
+  body { padding: 0.5in 0.75in; max-width: 100%; }
+  .print-btn { display: none; }
+
+  /* Row integrity — never clip a row at a page boundary */
+  tr { page-break-inside: avoid; page-break-after: auto; }
+
+  /* Each major section starts on a new page */
+  .section-block   { page-break-before: always; }
+
+  /* Prevent orphaned headers — keep label/header attached to content below */
+  .section-label   { page-break-after: avoid; }
+  .section-header  { page-break-after: avoid; }
+  .connection-note { page-break-after: avoid; }
+
+  /* Small self-contained blocks — keep whole */
+  .targets-block   { page-break-inside: avoid; }
+  .connection-note { page-break-inside: avoid; }
+  .cornell-summary { page-break-inside: avoid; }
+  .prompt-block    { page-break-inside: avoid; }
+  .selftest-block  { page-break-inside: avoid; }
+  .summary-block   { page-break-inside: avoid; }
+  .graph-box       { page-break-inside: avoid; }
+  .doc-footer      { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+  <div class="course-label">ECO 1000 — Principles of Economics</div>
+  <div class="chapter-title">Week 13: AI, College, and Testing the Argument</div>
+  <div class="name-row">
+    <span>Name: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Section: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span>Date: <span class="name-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+  </div>
+</header>
+
+<div class="connection-note">Readings: Gwartney 25.3–25.5, 26.1, and 26.5–26.6. Wednesday's class (AI and the labor market) uses Section I, and Friday's (is college worth it?) uses Section II. Section III runs through both.</div>
+
+<!-- ── LEARNING TARGETS ── -->
+<div class="targets-block">
+  <div class="targets-label">By the end of this week, I should be able to:</div>
+  <ol>
+    <li>Predict how a new technology shifts the demand for different workers, using the hiring rule, and explain why the money it saves creates work somewhere else.</li>
+    <li>Analyze whether a degree or other credential is worth it to one person, using opportunity cost, the skills (human capital) story, and the signal story.</li>
+    <li>Evaluate an argument about jobs or schooling by laying out its reasons, testing each one, and keeping "good for one person" apart from "good for everyone."</li>
+  </ol>
+</div>
+
+<!-- ── KEY TERMS ── -->
+<div class="section-block">
+  <div class="section-label">Key Terms</div>
+  <div class="section-header">Scaffolded Definitions</div>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Term</th>
+          <th style="width:53%" class="fill-col">Complete the definition</th>
+          <th style="width:25%" class="fill-col">Your example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">Derived demand</td>
+          <td>Companies want workers because buyers want the <span class="blank"></span> those workers help make.</td>
+          <td><span class="example-prompt">A job that exists because of something you buy:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">The hiring rule</td>
+          <td>A company hires one more worker if the extra <span class="blank"></span> that worker brings in is greater than the <span class="blank"></span>.</td>
+          <td><span class="example-prompt">A job where you could see what you added:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Productivity</td>
+          <td>How much a worker produces per <span class="blank"></span>; when it rises, demand for that worker tends to <span class="blank"></span>.</td>
+          <td><span class="example-prompt">A tool that made you faster at something:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Automation</td>
+          <td>Producing with <span class="blank"></span> labor; a company adopts it only when it <span class="blank"></span> the cost of production.</td>
+          <td><span class="example-prompt">A task near you that a machine took over:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Creative destruction</td>
+          <td>New ideas and products <span class="blank"></span> some jobs and <span class="blank"></span> others.</td>
+          <td><span class="example-prompt">A job that didn't exist 20 years ago:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Structural unemployment</td>
+          <td>Long-term unemployment caused by lasting changes, when workers' skills don't <span class="blank"></span> the jobs that are open.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="row-label">Opportunity cost</td>
+          <td>The value of the best <span class="blank"></span> you give up when you choose.</td>
+          <td><span class="example-prompt">What you gave up to be here today:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Human capital</td>
+          <td>Skills and knowledge that make a worker more <span class="blank"></span>; economists call them "tools of the <span class="blank"></span>."</td>
+          <td><span class="example-prompt">A skill you've built that someone would pay for:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Signal</td>
+          <td>A <span class="blank"></span> action that shows others something about you they can't easily <span class="blank"></span>.</td>
+          <td><span class="example-prompt">A signal you've sent to an employer or a school:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Common cause</td>
+          <td>A third factor that makes two things <span class="blank"></span> together, so one may not <span class="blank"></span> the other.</td>
+          <td><span class="example-prompt">Two things that rise together in your life:</span><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Counterexample</td>
+          <td>One case that shows a general claim is <span class="blank"></span>.</td>
+          <td><span class="example-prompt">A rule you've heard that one case breaks:</span><span class="blank-full"></span></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!-- ── SECTION I ── -->
+<div class="section-block">
+  <div class="section-label">Section I &nbsp;<span class="lt-tag">LT 1</span></div>
+  <div class="section-header">AI and the Demand for Workers (Wednesday, 25.4–25.5, 26.5–26.6)</div>
+  <div class="connection-note">In Chapters 3 and 4, a demand curve shifted when something other than price changed what buyers wanted. Labor demand works the same way, but the "buyer" is a company, and it buys a worker's time for what that time brings in. A new tool <strong>changes</strong> labor demand because: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+      <thead>
+        <tr>
+          <th class="cornell-cue-col">Questions</th>
+          <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cornell-cue-col">Explain why a company's demand for workers depends on how much people want what the company sells.</td>
+          <td class="cornell-notes-col">Labor demand is <span class="blank"></span> demand. If buyers want less of the product, the company wants <span class="blank"></span> workers.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">You're the operations director at a Wilmington property-management company. Apply the hiring rule: when does it pay you to add one more maintenance coordinator?</td>
+          <td class="cornell-notes-col">Hire if the revenue the worker adds is <span class="blank"></span> than the <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Predict: a new scheduling tool lets each coordinator handle twice as many buildings. What happens to the revenue each one adds, and to your demand for coordinators?</td>
+          <td class="cornell-notes-col">Revenue added per worker <span class="blank"></span>. Demand shifts <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">A software tool can do a task for less than a person costs. Distinguish the two costs you'd compare before switching. Why isn't the tool's price the whole story?</td>
+          <td class="cornell-notes-col">Cost with a person: hours × <span class="blank"></span>. Cost with the tool: the tool + <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Analyze: why does the same tool shift demand left for one group of workers and right for another?</td>
+          <td class="cornell-notes-col">Left: workers whose tasks the tool does more <span class="blank"></span>. Right: workers the tool helps <span class="blank"></span>.</td>
+        </tr>
+      </tbody>
+    </table>
+  <div class="prompt-block">
+    <div class="prompt-label">Task or job? Sort what the tool does</div>
+    <p>A Greenville marketing agency adopts an AI tool that writes first drafts of social media posts.</p>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Worker</th>
+          <th style="width:26%" class="fill-col">Main task in a typical week</th>
+          <th style="width:26%" class="fill-col">Does the tool do this task more cheaply, or help with it?</th>
+          <th style="width:26%" class="fill-col">Demand shifts left or right?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">Junior copywriter</td>
+          <td>Writes dozens of short posts from a template</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Account manager</td>
+          <td>Meets clients and decides what each campaign should say</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Graphic designer</td>
+          <td>Designs custom images for each client</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Two of these people could share the same job title at another agency. Why does the task matter more than the title?</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">Past the company — where the savings go</div>
+    <p>When ATMs spread, banks could run a branch with fewer tellers. Banks opened more branches, and for decades the number of bank tellers didn't fall (James Bessen, "Toil and Technology," 2015).</p>
+    <p>Trace the chain from "a branch costs less to run" to "banks hire tellers":</p>
+    <span class="write-lines"></span>
+    <p>Which jobs from the savings are easy to see, and which are hard to see?</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">The best objection — you're a workforce counselor in Rocky Mount</div>
+    <p>A long-haul truck driver, 52, worries that self-driving trucks will end his job.</p>
+    <p>Explain how the economy can keep total work steady while this driver is much worse off:</p>
+    <span class="write-lines"></span>
+    <p>What does he need to switch jobs, and why does structural unemployment last?</p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Record Wednesday's reason you trusted least, and what the class decided about each reason. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Graph / Model Workspace — One Labor Market, One Shift</div>
+  <div class="graph-draw-area"></div>
+  Market for <span class="blank"></span> (workers)<br>
+  Label axes: Wage ($ per <span class="blank"></span>) | Number of <span class="blank"></span> hired<br>
+  Draw: Supply, Old Demand, New Demand (one shift only)<br>
+  What changed for this group of workers? <span class="blank"></span><br>
+  New wage: <span class="blank"></span> | New number hired: <span class="blank"></span>
+</div>
+
+<!-- ── SECTION II ── -->
+<div class="section-block">
+  <div class="section-label">Section II &nbsp;<span class="lt-tag">LT 2</span></div>
+  <div class="section-header">Is College Worth It? (Friday, 25.3 and 26.1)</div>
+  <div class="connection-note">Section I showed that companies pay for what a worker adds, and that they can't always see it in advance. Friday asks how a worker gets more to add, or shows it. A degree could pay off for either reason, and the difference matters because: <span class="blank-full"></span></div>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+      <thead>
+        <tr>
+          <th class="cornell-cue-col">Questions</th>
+          <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cornell-cue-col">Your cousin is choosing between a paid electrician apprenticeship through ApprenticeshipNC and four years at a state university. Analyze the costs of the university choice: which one do people forget?</td>
+          <td class="cornell-notes-col">Tuition, books, and fees, plus the <span class="blank"></span> from the apprenticeship. Housing counts only if it costs <span class="blank"></span> than it would anyway.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Use one test, which shows an employer more about what you can actually do, to compare two ways to apply for a graphic design job: a bachelor's degree in design, or a portfolio of logos you've made for local businesses. Which passes the test better, and what does the other still show?</td>
+          <td class="cornell-notes-col">The <span class="blank"></span> shows the work directly. The degree still shows you'll stick with something <span class="blank"></span> for years, which is a <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Apply the decision rule: when does a degree make sense for one person?</td>
+          <td class="cornell-notes-col">When what you <span class="blank"></span> to gain is bigger than what you <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Explain why "expect" matters in that rule for a student who isn't sure she'll finish.</td>
+          <td class="cornell-notes-col">A degree you start but don't finish pays <span class="blank"></span>. So the chance of finishing <span class="blank"></span> the expected gain.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">A friend notices that students who study abroad seem to land better-paying jobs. Distinguish two explanations: one where studying abroad causes higher pay, and one with a common cause.</td>
+          <td class="cornell-notes-col">Cause: studying abroad builds <span class="blank"></span>. Common cause: students who go may already have more <span class="blank"></span> or family <span class="blank"></span>.</td>
+        </tr>
+      </tbody>
+    </table>
+  <div class="prompt-block">
+    <div class="prompt-label">Two stories of why a degree pays</div>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%"></th>
+          <th style="width:39%" class="fill-col">Skills story (human capital)</th>
+          <th style="width:39%" class="fill-col">Signal story (Caplan)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">What college does for you</td>
+          <td>Builds <span class="blank"></span> that make you more productive</td>
+          <td>Shows employers traits you <span class="blank"></span> had</td>
+        </tr>
+        <tr>
+          <td class="row-label">Why employers pay more</td>
+          <td>You add more <span class="blank"></span></td>
+          <td>They can't easily see who is smart, hardworking, and willing to do what's <span class="blank"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">What should happen to the pay gap as employers watch you work</td>
+          <td>It <span class="blank"></span>, because the skills are real</td>
+          <td>It should <span class="blank"></span>, unless employers learn slowly</td>
+        </tr>
+        <tr>
+          <td class="row-label">A career where this story fits well</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">Test each observation — which story explains it better?</div>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Observation</th>
+          <th style="width:39%" class="fill-col">Skills, signal, or both?</th>
+          <th style="width:39%" class="fill-col">Your reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">A welding graduate from Wake Tech uses what she learned every day on the job.</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Job ads for an office manager ask for "any bachelor's degree."</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Employers pay more for a degree from a school that's hard to get into.</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">A student forgets most of a required chemistry course two years later.</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Record the observation that was hardest for your side of the room, and the other side's best reply. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── WORKSPACE ── -->
+<div class="graph-box">
+  <div class="graph-title">Model Workspace — The Common-Cause Triangle</div>
+  <div class="graph-draw-area"></div>
+  Two things that move together<br>
+  Thing 1: <span class="blank"></span>          Thing 2: <span class="blank"></span><br>
+  Possible common cause: <span class="blank"></span><br>
+  Draw an arrow from the common cause to each thing<br>
+  Draw a dashed line with a "?" between Thing 1 and Thing 2<br>
+  What would you need to compare to learn whether Thing 1 causes Thing 2? <span class="blank"></span>
+</div>
+
+<!-- ── SECTION III ── -->
+<div class="section-block">
+  <div class="section-label">Section III &nbsp;<span class="lt-tag">LT 3</span></div>
+  <div class="section-header">Testing the Argument (all week)</div>
+  <div class="connection-note">Both days started with a claim people repeat: "AI will take our jobs" and "College is worth it." Economics doesn't just give an answer. It lays out the reasons behind a claim and tests each one, because: <span class="blank-full"></span></div>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Test</th>
+          <th style="width:26%" class="fill-col">The question it asks</th>
+          <th style="width:26%" class="fill-col">An example from this week</th>
+          <th style="width:26%" class="fill-col">What a failed test tells you</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">Lay out the reasons</td>
+          <td>What has to be true for the conclusion to follow?</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Look for a counterexample</td>
+          <td>Is there one case that breaks the general claim?</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Check for a common cause</td>
+          <td>Could a third factor explain why two things move together?</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">Test the analogy</td>
+          <td>Are the two cases alike in the way that matters?</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  <p class="cue-instruction">To self-test: cover the right column and use the Questions to quiz yourself out loud.</p>
+  <table class="cornell-table">
+      <thead>
+        <tr>
+          <th class="cornell-cue-col">Questions</th>
+          <th class="cornell-notes-col">Your Notes — fill in the blanks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cornell-cue-col">A neighbor says, "Robots now build most cars, so factory towns must have far fewer jobs today." Lay out the reason the argument leaves unsaid.</td>
+          <td class="cornell-notes-col">The argument assumes the amount of work is <span class="blank"></span>. A counterexample: <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Distinguish two claims: "AI is good for the economy" and "AI is good for every worker." Why does each need its own argument?</td>
+          <td class="cornell-notes-col">The first is about <span class="blank"></span> work and average pay. The second is about <span class="blank"></span> person.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Caplan compares sending everyone to college with everyone standing at a concert. Test the analogy: when would it fail?</td>
+          <td class="cornell-notes-col">It fails if college builds real <span class="blank"></span>, because then when everyone goes, everyone is more <span class="blank"></span>.</td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Predict: for which skill or credential would everyone having it make everyone better off, not just put some people ahead?</td>
+          <td class="cornell-notes-col"><span class="blank-full"></span></td>
+        </tr>
+        <tr>
+          <td class="cornell-cue-col">Evaluate: "College pays off for most graduates, so the state should pay for everyone to go." What does the claim skip?</td>
+          <td class="cornell-notes-col">Worth it to <span class="blank"></span> isn't the same as worth it to <span class="blank"></span>. If college is mostly a signal, more of it mostly raises the <span class="blank"></span> of standing out.</td>
+        </tr>
+      </tbody>
+    </table>
+  <div class="prompt-block">
+    <div class="prompt-label">From class</div>
+    <p>Pick one day this week and record the weakest reason in the day's main argument, and how you'd rewrite the conclusion so it's true. <em>(Missed class? Use that day's slides in Canvas, or your own example that fits this section.)</em></p>
+    <span class="write-lines"></span>
+  </div>
+  <div class="cornell-summary">
+    <div class="cornell-summary-label">Section Summary — in your own words before moving on</div>
+    <span class="write-lines"></span>
+  </div>
+</div>
+
+<!-- ── PITFALLS ── -->
+<div class="section-block">
+  <div class="section-label">All Week</div>
+  <div class="section-header">Pitfalls to Avoid</div>
+  <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Pitfall</th>
+          <th style="width:39%" class="fill-col">The error</th>
+          <th style="width:39%" class="fill-col">How to avoid it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-label">"The worker who makes the most output gets hired"</td>
+          <td>Using output instead of the revenue the worker adds, compared with the wage</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"AI cuts jobs, so it lowers demand for everyone"</td>
+          <td>Forgetting that a tool raises demand for the workers it helps do more</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"There's only so much work to go around"</td>
+          <td>Ignoring that savings get spent elsewhere and create new demand</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"The economy is fine, so every worker is fine"</td>
+          <td>Treating a claim about the total as a claim about each person</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"The tool is cheaper than the wage, so the company switches"</td>
+          <td>Leaving out the time people spend setting up and checking the tool's work</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"Everything I pay during college is a cost of college"</td>
+          <td>Counting expenses you'd pay anyway, or money already spent</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"Graduates earn more, so college made them earn more"</td>
+          <td>Ignoring a common cause, such as ability and effort</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"A signal means the degree is worthless"</td>
+          <td>Forgetting that a signal really does pay the person who sends it</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+        <tr>
+          <td class="row-label">"Worth it to me means worth it for everyone"</td>
+          <td>Mixing up one person's gain with the gain to the whole country</td>
+          <td><span class="blank-full blank-full-tall"></span></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!-- ── SELF-TEST ── -->
+<div class="selftest-block">
+  <div class="selftest-label">Self-Test: Cover &amp; Recite</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:6pt">Cover your Notes column in Sections I–III. Use only your Questions.</p>
+  <ul>
+    <li>Can you explain, out loud, why a tool that does a task more cheaply shifts demand left for some workers and right for others?</li>
+    <li>Can you trace where the money saved by a new tool goes, and who gets hired because of it?</li>
+    <li>Can you explain the skills story and the signal story of college, and name one observation each explains well?</li>
+    <li>Can you lay out the reasons behind a claim and find the one that fails?</li>
+  </ul>
+  <p class="selftest-note">Uncover and compare. Mark anything incomplete or wrong with a star ★.</p>
+</div>
+
+<!-- ── SUMMARY BOX ── -->
+<div class="summary-block">
+  <div class="summary-label">In My Own Words — Week Summary</div>
+  <div class="summary-item"><em>Complete this after Friday's class, before you close your notes.</em></div>
+  <div class="summary-item">The idea that connects AI and college this week is: <span class="blank-full"></span></div>
+  <div class="summary-item">The concept I found hardest to understand was: <span class="blank-full"></span> because: <span class="blank-full"></span></div>
+  <div class="summary-item">One real-world example I thought of on my own: <span class="blank-full"></span></div>
+</div>
+
+<!-- ── REFLECT & APPLY ── -->
+<div class="section-block">
+  <div class="section-label">Reflect &amp; Apply</div>
+  <div class="section-header">Policy analyst, North Carolina Community College System</div>
+  <p style="font-size:9.5pt; font-weight:400; margin-bottom:8pt">You're a policy analyst for the North Carolina Community College System. A state senator proposes a new short certificate in "AI tools for small business," free to any adult who enrolls.</p>
+  <p style="font-size:9.5pt; font-weight:500; margin-bottom:4pt">1. Which workers would this certificate help most, using the two graphs from Section I? Explain which way their demand shifts.</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">2. Would the certificate pay employers mainly by building skills or by signaling? What observation would help you tell?</p>
+  <span class="write-lines"></span>
+  <p style="font-size:9.5pt; font-weight:500; margin-top:10pt; margin-bottom:4pt">3. Advise the senator: is it worth it to the students who enroll, and is it worth it to the state? Keep the two questions apart and defend each answer.</p>
+  <span class="write-lines-lg"></span>
+</div>
+
+<!-- ── SUBMIT YOUR NOTES ── -->
+<div class="section-block">
+  <div class="section-label">Turn It In</div>
+  <div class="section-header">Submit Your Notes</div>
+  <div class="connection-note">Submitting your completed notes by Wed, Dec 2, is optional and worth 2 points toward this week's Puzzle score (1.6 points if submitted within one week late). Skipping it costs you nothing.</div>
+  <a class="submit-btn" href="https://elon.instructure.com/courses/1397/assignments/9161" target="_blank" rel="noopener">Submit to Canvas</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <p class="study-tip">Notes will be checked for completion — summary box and Self-Test marks required.<br>
+  Study tip: Don't re-read these notes passively. Cover the Notes column in Sections I–III. Quiz yourself out loud using the Questions. Repeat daily until the quiz.</p>
+</div>
+
+</body>
+</html>

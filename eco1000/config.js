@@ -279,13 +279,14 @@ const CHAPTERS = {
   // Application reference chapters — student-selected questions in S12-S13
   // Ch. 5, 6, and 23 share the Week 12 guided notes (5.4–5.8, 6.6, 23.4) and one
   // bonus submission assignment (9160), same terms as the core notesAid bonus.
+  // Ch. 26 and 28 share the Week 13 guided notes (AI and college) and bonus assignment 9161 (due Wed Dec 2).
   // Not directly tested; students use them as analytical lenses
   application: [
     { key: "ch5",  num: "Ch. 5",  title: "Difficult Cases for the Market, and the Role of Government", moduleItemId: "317513", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
     { key: "ch6",  num: "Ch. 6",  title: "The Economics of Political Action",                           moduleItemId: "317514", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
     { key: "ch23", num: "Ch. 23", title: "Price-Searcher Markets with Low Entry Barriers",              moduleItemId: "317519", notesAid: "9160", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week12-guided-notes.html` },
-    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  moduleItemId: "317520" },
-    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               moduleItemId: "317521" },
+    { key: "ch26", num: "Ch. 26", title: "Earnings, Productivity, and the Job Market",                  moduleItemId: "317520", notesAid: "9161", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week13-guided-notes.html` },
+    { key: "ch28", num: "Ch. 28", title: "Income Inequality and Poverty",                               moduleItemId: "317521", notesAid: "9161", guidedNotesUrl: `${COURSE.baseUrl}/guided-notes/week13-guided-notes.html` },
   ],
 
   // Standing threads — appear on every check-in regardless of session content

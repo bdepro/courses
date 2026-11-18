@@ -165,6 +165,21 @@
         </div>
       </div>
 
+      <div class="check-item" data-id="app13-notes">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <div class="check-title">Complete the Week 13 Guided Notes</div>
+          <div class="check-desc">One set of notes for this week's applications: AI and the labor market (Wednesday) and whether college is worth it (Friday). Fill in each section on its class day. Submitting them through Canvas by Wednesday, Dec 2, is optional, but it adds a small bonus to your Puzzle score.</div>
+          <span class="check-tag tag-submit">Optional &middot; Bonus</span>
+          <br><a class="check-link" href="#" id="link-app13-notes" target="_blank" rel="noopener">
+            Open Guided Notes <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <br><a class="check-link" href="#" id="link-app13-notes-submit" target="_blank" rel="noopener">
+            Submit for Bonus Credit <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
       <div class="check-item" data-id="app13-puzzle13">
         <div class="check-box"></div>
         <div class="check-content">
@@ -198,6 +213,7 @@ document.getElementById('weekMeta').textContent = session13 ? session13.dates : 
 const puzzle12 = CANVAS.puzzles.find(p => p.session === 12);
 const puzzle13 = CANVAS.puzzles.find(p => p.session === 13);
 const mme3     = CANVAS.mme.find(m => m.dueSession === 13);
+const notes13 = CHAPTERS.application.find(c => c.key === 'ch26');
 
 const dueBannerText = document.getElementById('dueBannerText');
 const puzzle12Due = puzzle12 ? formatPuzzleDue(12) : 'TBA';
@@ -215,6 +231,8 @@ if (mme3) {
 }
 
 const L = {
+  'link-app13-notes':        notes13 ? notes13.guidedNotesUrl : '',
+  'link-app13-notes-submit': notes13 ? notes13.notesSubmitUrl : '',
   'link-app13-puzzle12': puzzle12 ? puzzle12.url : '',
   'link-app13-puzzle13': puzzle13 ? puzzle13.url : '',
   'link-app13-mme3':     mme3 ? mme3.url : '',
