@@ -176,7 +176,7 @@ const SCHEDULE = {
       num: 13, dates: "Nov 16-20", label: "Week 13",
       chapter: "application", checkIn: null, mmeFF: false, vote: false, viva: false,
       break: false, breakType: null,
-      note: "Application block: Questions 4-6 / Thanksgiving begins Fri eve",
+      note: "Application block: Questions 4-5 (6th dropped) / Thanksgiving begins Fri eve",
     },
     {
       num: 14, dates: "Nov 23-27", label: "Thanksgiving Break",
