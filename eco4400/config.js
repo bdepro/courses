@@ -143,7 +143,7 @@ const PEER_REVIEW = {
     { id: "midpoint", label: "Midpoint Peer Review", due: "Wed, Nov 4 · 11:59 PM", dueDate: "2026-11-04T23:59:00",
       graded: false, url: "https://elon.instructure.com/courses/1402/assignments/40760" },  // UPDATE if 40760 is the final round
     { id: "final",    label: "Final Peer Review",    due: "Thu, Dec 10 · 11:59 PM", dueDate: "2026-12-10T23:59:00",
-      graded: true,  url: null },                                                         // UPDATE — Canvas assignment link
+      graded: true,  url: "https://elon.instructure.com/courses/1402/pages/final-performance-review-instructions" },  // Canvas Page (prompt + form); the assignment unlocks on exam day
   ],
   adjusts:      ["labs", "research"],   // GRADING component ids the factor applies to
   cap:          1.05,                   // CATME default cap on the adjustment factor
