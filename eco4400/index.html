@@ -186,6 +186,22 @@ function peerReviewRound() {
       || PEER_REVIEW.rounds[PEER_REVIEW.rounds.length - 1];
 }
 
+// Before a round's submission opens, link to its instructions; after, to the assignment
+function peerReviewLink(r) {
+  if (r.submitUrl && r.opensDate && new Date() >= new Date(r.opensDate)) return r.submitUrl;
+  return r.url || PAGES.canvasHome;
+}
+function peerReviewDesc(r) {
+  let when = `due ${r.due}`;
+  if (r.submitUrl && r.opensDate) {
+    const now = new Date();
+    when = now > new Date(r.dueDate)       ? `closed ${r.due}`
+         : now >= new Date(r.opensDate)    ? `submission open now, due ${r.due}`
+         : `submission opens ${r.opens}, due ${r.due}`;
+  }
+  return `${r.label} — ${when}. Rate yourself and your teammates. Opens in Canvas.`;
+}
+
 const ALL_CARDS = [
   {
     feature: 'syllabus',
@@ -227,10 +243,10 @@ const ALL_CARDS = [
   },
   {
     feature: 'peerReview',
-    href:    peerReviewRound().url || PAGES.canvasHome,
+    href:    peerReviewLink(peerReviewRound()),
     icon:    'users',
     title:   'Team Peer Review',
-    desc:    `${peerReviewRound().label} — due ${peerReviewRound().due}. Rate yourself and your teammates. Opens in Canvas.`,
+    desc:    peerReviewDesc(peerReviewRound()),
     badge:   'Adjusts team grades',
     badgeClass: 'badge-grade',
     external: true,

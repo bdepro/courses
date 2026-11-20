@@ -135,7 +135,9 @@ const GRADING = {
 //  PEER_REVIEW — CATME-B team peer review, two rounds
 //  Not a separate grade component: the final round's adjustment factor
 //  multiplies each student's Consulting and Case Simulation team grades.
-//  url: Canvas assignment link. null renders as "Coming Soon".
+//  url: Canvas link for the round (assignment, or instructions Page). null renders as "Coming Soon".
+//  submitUrl / opens / opensDate (optional): the submission assignment and when it unlocks.
+//    Before opensDate the home card opens url; after, it opens submitUrl.
 //  UPDATE dates and assignment links each semester.
 // ================================================================
 const PEER_REVIEW = {
@@ -143,7 +145,9 @@ const PEER_REVIEW = {
     { id: "midpoint", label: "Midpoint Peer Review", due: "Wed, Nov 4 · 11:59 PM", dueDate: "2026-11-04T23:59:00",
       graded: false, url: "https://elon.instructure.com/courses/1402/assignments/40760" },  // UPDATE if 40760 is the final round
     { id: "final",    label: "Final Peer Review",    due: "Thu, Dec 10 · 11:59 PM", dueDate: "2026-12-10T23:59:00",
-      graded: true,  url: "https://elon.instructure.com/courses/1402/pages/final-performance-review-instructions" },  // Canvas Page (prompt + form); the assignment unlocks on exam day
+      graded: true,  url: "https://elon.instructure.com/courses/1402/pages/final-performance-review-instructions",   // Canvas Page (prompt + form)
+      submitUrl: "https://elon.instructure.com/courses/1402/assignments/49609",
+      opens: "Thu, Dec 10 · 8:30 AM", opensDate: "2026-12-10T08:30:00" },
   ],
   adjusts:      ["labs", "research"],   // GRADING component ids the factor applies to
   cap:          1.05,                   // CATME default cap on the adjustment factor
