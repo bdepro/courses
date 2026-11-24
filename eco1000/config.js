@@ -576,10 +576,10 @@ const CANVAS = {
       dateLabel: "Wednesday, Viva Week",
       pageUrl: "", aid: "12033",
       storyUrl: "https://www.npr.org/2023/10/10/1197954680/the-indicator-from-planet-money-10-10-2023" },
-    { id: "examSeg2",  title: "Indicator Analysis: Does Unemployment Whiplash Mean Recession?",
+    { id: "examSeg2",  title: "Indicator Analysis: The Sahm Rule",
       dateLabel: "Exam Period, online",
       pageUrl: "", aid: "12034",
-      storyUrl: "https://www.npr.org/2024/10/04/1203595442/jobs-friday-recession-economy-unemployment" },
+      storyUrl: "https://www.npr.org/2019/11/26/783120728/the-sahm-rule-with-the-eponymous-economist" },
   ],
 
   // Eli Review tasks — UPDATE urls as tasks are published in Eli
