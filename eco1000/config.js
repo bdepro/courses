@@ -565,20 +565,20 @@ const CANVAS = {
   // their viva to Dec 11 (Zoom) is in class both days and completes
   // monday + wednesday normally, with no examSeg2 need.
   // 2026-11-06: activity pages moved off the public site to OneDrive
-  // (ECO 1000/mind-voice/indicator/) and built in Canvas. pageUrl is empty, so
-  // the site hides "Open Indicator Analysis" links; Submit links still go to Canvas.
+  // (ECO 1000/mind-voice/indicator/) and built in Canvas. 2026-11-24: pageUrl points to the
+  // Canvas Modules page, where each worksheet opens at its class time; Submit links go to Canvas.
   indicatorAnalysis: [
     { id: "monday",    title: "Indicator Analysis: Ticket Scalpers and the Taylor Swift Fiasco",
       dateLabel: "Monday, Viva Week",
-      pageUrl: "", aid: "12032",
+      pageUrl: "https://elon.instructure.com/courses/1397/modules", aid: "12032",
       storyUrl: "https://www.npr.org/2022/11/21/1138408591/ticket-scalpers-and-the-taylor-swift-fiasco-encore" },
     { id: "wednesday", title: "Indicator Analysis: The Pay Gap, with Claudia Goldin",
       dateLabel: "Wednesday, Viva Week",
-      pageUrl: "", aid: "12033",
+      pageUrl: "https://elon.instructure.com/courses/1397/modules", aid: "12033",
       storyUrl: "https://www.npr.org/2023/10/10/1197954680/the-indicator-from-planet-money-10-10-2023" },
     { id: "examSeg2",  title: "Indicator Analysis: Does Unemployment Whiplash Mean Recession?",
       dateLabel: "Exam Period, online",
-      pageUrl: "", aid: "12034",
+      pageUrl: "https://elon.instructure.com/courses/1397/modules", aid: "12034",
       storyUrl: "https://www.npr.org/2024/10/04/1203595442/jobs-friday-recession-economy-unemployment" },
   ],
 
